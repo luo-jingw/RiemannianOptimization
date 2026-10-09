@@ -5,37 +5,43 @@
    "id": "e01-topology",
    "order": 1,
    "title": "Nearness Without Coordinates: Topology",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "505887dbd5b0"
   },
   {
    "id": "e02-smooth-manifolds",
    "order": 2,
    "title": "Charts, Atlases and Smooth Manifolds",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "6557e1d34b06"
   },
   {
    "id": "e03-inverse-function",
    "order": 3,
    "title": "The Inverse Function Theorem",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "e41d465917e4"
   },
   {
    "id": "e04-implicit-level-sets",
    "order": 4,
    "title": "Implicit Functions and Regular Level Sets",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "136afcaec6aa"
   },
   {
    "id": "e05-tangent-orthogonal",
    "order": 5,
    "title": "Tangent Spaces and the Orthogonal Group",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "eb67a90eef54"
   },
   {
    "id": "e06-gradient-retraction",
    "order": 6,
    "title": "Riemannian Gradient and Retraction",
-   "status": "delivered"
+   "status": "delivered",
+   "audioVersion": "00f38e50de0e"
   }
  ]
 }

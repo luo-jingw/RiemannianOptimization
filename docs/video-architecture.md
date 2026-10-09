@@ -36,6 +36,10 @@ Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a` (128 kb
 Measured size: 222 MB. Playback time is owned by `PreviewClock` (performance.now based): seeking moves the live
 rendering immediately and the audio is re-synced when it drifts by more than 0.25 s. Serve with
 `npm run site:serve` (vite preview, supports HTTP Range requests for audio seeking).
+
+Published on GitHub Pages from the `gh-pages` branch: https://luo-jingw.github.io/RiemannianOptimization/ .
+`site/` holds its own git repository on branch `gh-pages`; after `npm run site:build`, publish with
+`cd site && git add -A && git commit -m "<message>" && git push origin gh-pages`.
 The dev server and the static site differ only in the `DataSource`
 (`player/src/core/DataSource.ts`).
 

@@ -24,7 +24,9 @@ are appended as the notes grow.
 
 ## Watch in the browser
 
-The web version renders every frame live (no video files):
+Online: **https://luo-jingw.github.io/RiemannianOptimization/** — every frame is rendered live by Three.js (no video files).
+
+Locally:
 
 ```bash
 cd player

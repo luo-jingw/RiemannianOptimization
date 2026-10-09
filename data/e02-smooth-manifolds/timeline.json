@@ -1,0 +1,2497 @@
+{
+ "language": "en",
+ "episode": "e02-smooth-manifolds",
+ "duration": 2111.125,
+ "chapters": [
+  {
+   "id": "c01-recap-e01",
+   "index": 0,
+   "start": 5.0,
+   "end": 92.425,
+   "title": "Tools from the Last Episode",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    7.85,
+    14.925,
+    21.225,
+    26.1,
+    31.525,
+    37.975,
+    46.3,
+    49.65,
+    53.8,
+    62.125,
+    71.2,
+    79.225
+   ],
+   "sentenceEnds": [
+    7.4,
+    14.475,
+    20.775,
+    25.65,
+    31.075,
+    37.525,
+    45.85,
+    49.2,
+    53.35,
+    61.675,
+    70.75,
+    78.775,
+    85.825
+   ]
+  },
+  {
+   "id": "c02-charts-on-the-circle",
+   "index": 1,
+   "start": 92.425,
+   "end": 485.85,
+   "title": "Charts on the Circle",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    10.125,
+    14.925,
+    21.55,
+    26.1,
+    31.8,
+    37.475,
+    42.375,
+    48.8,
+    53.675,
+    60.475,
+    69.05,
+    74.35,
+    79.0,
+    86.375,
+    92.0,
+    98.725,
+    103.975,
+    110.15,
+    115.9,
+    122.075,
+    129.45,
+    137.075,
+    143.2,
+    152.175,
+    159.6,
+    165.025,
+    172.9,
+    180.4,
+    186.6,
+    192.1,
+    198.075,
+    203.1,
+    208.95,
+    218.05,
+    223.975,
+    228.475,
+    236.7,
+    245.0,
+    252.85,
+    261.1,
+    269.35,
+    277.275,
+    285.05,
+    289.225,
+    292.5,
+    298.025,
+    303.1,
+    309.75,
+    313.85,
+    320.225,
+    326.65,
+    333.925,
+    339.975,
+    348.025,
+    356.55,
+    363.9,
+    373.325,
+    381.45
+   ],
+   "sentenceEnds": [
+    9.675,
+    14.475,
+    21.1,
+    25.65,
+    31.35,
+    37.025,
+    41.925,
+    48.35,
+    53.225,
+    60.025,
+    68.6,
+    73.9,
+    78.55,
+    85.925,
+    91.55,
+    98.275,
+    103.525,
+    109.7,
+    115.45,
+    121.625,
+    129.0,
+    136.625,
+    142.75,
+    151.725,
+    159.15,
+    164.575,
+    172.45,
+    179.95,
+    186.15,
+    191.65,
+    197.625,
+    202.65,
+    208.5,
+    217.6,
+    223.525,
+    228.025,
+    236.25,
+    244.55,
+    252.4,
+    260.65,
+    268.9,
+    276.825,
+    284.6,
+    288.775,
+    292.05,
+    297.575,
+    302.65,
+    309.3,
+    313.4,
+    319.775,
+    326.2,
+    333.475,
+    339.525,
+    347.575,
+    356.1,
+    363.45,
+    372.875,
+    381.0,
+    391.825
+   ]
+  },
+  {
+   "id": "c03-topological-manifold",
+   "index": 2,
+   "start": 485.85,
+   "end": 769.825,
+   "title": "Why We Also Need Hausdorff",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.425,
+    12.2,
+    20.0,
+    26.625,
+    35.575,
+    40.825,
+    48.625,
+    56.775,
+    64.325,
+    69.325,
+    77.075,
+    84.2,
+    88.65,
+    98.275,
+    102.4,
+    111.5,
+    117.65,
+    121.1,
+    132.15,
+    139.8,
+    144.5,
+    148.375,
+    159.2,
+    166.075,
+    174.975,
+    179.95,
+    189.1,
+    198.325,
+    206.725,
+    215.975,
+    224.15,
+    232.475,
+    242.825,
+    251.475,
+    257.2,
+    266.975,
+    276.625
+   ],
+   "sentenceEnds": [
+    7.975,
+    11.75,
+    19.55,
+    26.175,
+    35.125,
+    40.375,
+    48.175,
+    56.325,
+    63.875,
+    68.875,
+    76.625,
+    83.75,
+    88.2,
+    97.825,
+    101.95,
+    111.05,
+    117.2,
+    120.65,
+    131.7,
+    139.35,
+    144.05,
+    147.925,
+    158.75,
+    165.625,
+    174.525,
+    179.5,
+    188.65,
+    197.875,
+    206.275,
+    215.525,
+    223.7,
+    232.025,
+    242.375,
+    251.025,
+    256.75,
+    266.525,
+    276.175,
+    282.375
+   ]
+  },
+  {
+   "id": "c04-transition-maps",
+   "index": 3,
+   "start": 769.825,
+   "end": 998.375,
+   "title": "Two Coordinates for One Point",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.9,
+    14.825,
+    22.075,
+    28.625,
+    34.35,
+    40.65,
+    45.575,
+    54.4,
+    59.375,
+    68.3,
+    76.05,
+    79.325,
+    86.8,
+    94.425,
+    102.2,
+    110.025,
+    115.675,
+    125.125,
+    132.225,
+    140.85,
+    147.825,
+    154.675,
+    163.85,
+    166.6,
+    172.3,
+    180.7,
+    191.2,
+    198.525,
+    203.55,
+    210.9,
+    218.975
+   ],
+   "sentenceEnds": [
+    9.45,
+    14.375,
+    21.625,
+    28.175,
+    33.9,
+    40.2,
+    45.125,
+    53.95,
+    58.925,
+    67.85,
+    75.6,
+    78.875,
+    86.35,
+    93.975,
+    101.75,
+    109.575,
+    115.225,
+    124.675,
+    131.775,
+    140.4,
+    147.375,
+    154.225,
+    163.4,
+    166.15,
+    171.85,
+    180.25,
+    190.75,
+    198.075,
+    203.1,
+    210.45,
+    218.525,
+    226.95
+   ]
+  },
+  {
+   "id": "c05-why-compatibility",
+   "index": 4,
+   "start": 998.375,
+   "end": 1324.075,
+   "title": "Why Charts Must Be Smoothly Compatible",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.575,
+    16.05,
+    22.85,
+    28.425,
+    33.35,
+    41.575,
+    44.525,
+    52.35,
+    56.55,
+    59.95,
+    68.7,
+    75.425,
+    79.275,
+    89.125,
+    100.675,
+    105.2,
+    111.425,
+    115.425,
+    120.675,
+    126.625,
+    135.325,
+    141.875,
+    149.425,
+    156.875,
+    163.625,
+    172.55,
+    175.325,
+    183.2,
+    191.65,
+    200.925,
+    206.1,
+    213.525,
+    216.6,
+    225.3,
+    231.6,
+    236.65,
+    247.225,
+    255.75,
+    263.95,
+    273.9,
+    283.675,
+    293.725,
+    300.525,
+    307.1,
+    313.3,
+    319.5
+   ],
+   "sentenceEnds": [
+    8.125,
+    15.6,
+    22.4,
+    27.975,
+    32.9,
+    41.125,
+    44.075,
+    51.9,
+    56.1,
+    59.5,
+    68.25,
+    74.975,
+    78.825,
+    88.675,
+    100.225,
+    104.75,
+    110.975,
+    114.975,
+    120.225,
+    126.175,
+    134.875,
+    141.425,
+    148.975,
+    156.425,
+    163.175,
+    172.1,
+    174.875,
+    182.75,
+    191.2,
+    200.475,
+    205.65,
+    213.075,
+    216.15,
+    224.85,
+    231.15,
+    236.2,
+    246.775,
+    255.3,
+    263.5,
+    273.45,
+    283.225,
+    293.275,
+    300.075,
+    306.65,
+    312.85,
+    319.05,
+    324.1
+   ]
+  },
+  {
+   "id": "c06-smooth-maps",
+   "index": 5,
+   "start": 1324.075,
+   "end": 1596.475,
+   "title": "Smooth Maps Do Not Depend on the Charts",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    7.975,
+    12.775,
+    20.475,
+    29.325,
+    39.85,
+    48.225,
+    54.95,
+    60.1,
+    64.225,
+    69.075,
+    75.8,
+    84.525,
+    96.175,
+    102.3,
+    105.675,
+    116.375,
+    124.075,
+    134.175,
+    137.1,
+    146.35,
+    151.925,
+    159.375,
+    168.825,
+    176.65,
+    181.55,
+    189.45,
+    192.875,
+    200.25,
+    204.85,
+    212.075,
+    217.625,
+    224.125,
+    230.05,
+    238.8,
+    248.2,
+    256.375,
+    261.875
+   ],
+   "sentenceEnds": [
+    7.525,
+    12.325,
+    20.025,
+    28.875,
+    39.4,
+    47.775,
+    54.5,
+    59.65,
+    63.775,
+    68.625,
+    75.35,
+    84.075,
+    95.725,
+    101.85,
+    105.225,
+    115.925,
+    123.625,
+    133.725,
+    136.65,
+    145.9,
+    151.475,
+    158.925,
+    168.375,
+    176.2,
+    181.1,
+    189.0,
+    192.425,
+    199.8,
+    204.4,
+    211.625,
+    217.175,
+    223.675,
+    229.6,
+    238.35,
+    247.75,
+    255.925,
+    261.425,
+    270.8
+   ]
+  },
+  {
+   "id": "c07-diffeomorphism",
+   "index": 6,
+   "start": 1596.475,
+   "end": 1841.175,
+   "title": "A Stronger Kind of Sameness",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.925,
+    14.65,
+    20.95,
+    29.6,
+    35.9,
+    39.25,
+    48.4,
+    58.85,
+    63.2,
+    70.025,
+    74.625,
+    77.35,
+    85.5,
+    96.225,
+    103.85,
+    108.5,
+    116.9,
+    121.15,
+    130.125,
+    137.325,
+    144.475,
+    152.275,
+    158.075,
+    167.1,
+    174.35,
+    182.15,
+    191.9,
+    197.675,
+    207.525,
+    215.45,
+    222.425,
+    227.975,
+    232.0,
+    235.6
+   ],
+   "sentenceEnds": [
+    8.475,
+    14.2,
+    20.5,
+    29.15,
+    35.45,
+    38.8,
+    47.95,
+    58.4,
+    62.75,
+    69.575,
+    74.175,
+    76.9,
+    85.05,
+    95.775,
+    103.4,
+    108.05,
+    116.45,
+    120.7,
+    129.675,
+    136.875,
+    144.025,
+    151.825,
+    157.625,
+    166.65,
+    173.9,
+    181.7,
+    191.45,
+    197.225,
+    207.075,
+    215.0,
+    221.975,
+    227.525,
+    231.55,
+    235.15,
+    243.1
+   ]
+  },
+  {
+   "id": "c08-intrinsic-vs-extrinsic",
+   "index": 7,
+   "start": 1841.175,
+   "end": 2106.125,
+   "title": "Intrinsic and Extrinsic Views",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    5.45,
+    13.6,
+    19.625,
+    27.45,
+    33.8,
+    38.925,
+    48.25,
+    54.825,
+    61.425,
+    70.125,
+    76.525,
+    82.375,
+    93.175,
+    99.275,
+    104.9,
+    111.725,
+    115.7,
+    122.275,
+    129.75,
+    138.5,
+    143.075,
+    153.0,
+    163.7,
+    173.95,
+    179.15,
+    184.55,
+    191.725,
+    198.975,
+    207.175,
+    213.175,
+    220.7,
+    230.275,
+    234.725,
+    241.475,
+    246.1,
+    254.5
+   ],
+   "sentenceEnds": [
+    5.0,
+    13.15,
+    19.175,
+    27.0,
+    33.35,
+    38.475,
+    47.8,
+    54.375,
+    60.975,
+    69.675,
+    76.075,
+    81.925,
+    92.725,
+    98.825,
+    104.45,
+    111.275,
+    115.25,
+    121.825,
+    129.3,
+    138.05,
+    142.625,
+    152.55,
+    163.25,
+    173.5,
+    178.7,
+    184.1,
+    191.275,
+    198.525,
+    206.725,
+    212.725,
+    220.25,
+    229.825,
+    234.275,
+    241.025,
+    245.65,
+    254.05,
+    263.35
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 12.4,
+   "text": "Before we build manifolds, let us gather three tools from the last episode.",
+   "translation": "在构造流形之前，先从上一集取出三件工具。"
+  },
+  {
+   "start": 12.85,
+   "end": 19.475,
+   "text": "Last time we described nearness using only open sets, with no distances and no coordinates.",
+   "translation": "上一集我们只用开集来描述“靠近”，不需要距离，也不需要坐标。"
+  },
+  {
+   "start": 19.925,
+   "end": 25.775,
+   "text": "A topology is a collection of open sets that contains the empty set and the whole space.",
+   "translation": "拓扑是一组开集，它包含空集 ∅ 和全空间，"
+  },
+  {
+   "start": 26.225,
+   "end": 30.65,
+   "text": "It is closed under arbitrary unions and finite intersections.",
+   "translation": "并且对任意并和有限交封闭。"
+  },
+  {
+   "start": 31.1,
+   "end": 36.075,
+   "text": "A map f is continuous when the preimage of every open set is open.",
+   "translation": "映射 f 连续，是指每个开集的原像都是开集。"
+  },
+  {
+   "start": 36.525,
+   "end": 42.525,
+   "text": "And a homeomorphism is a bijection that is continuous, with a continuous inverse.",
+   "translation": "同胚是连续的双射，并且它的逆映射也连续。"
+  },
+  {
+   "start": 42.975,
+   "end": 50.85,
+   "text": "Both directions matter. Wrap the interval from zero to two pi around the circle, sending t to cosine t, sine t.",
+   "translation": "两个方向都重要。把区间 [0, 2π) 卷到圆上：t ↦ (cos t, sin t)。"
+  },
+  {
+   "start": 51.3,
+   "end": 54.2,
+   "text": "This map is a continuous bijection.",
+   "translation": "这个映射是连续双射。"
+  },
+  {
+   "start": 54.65,
+   "end": 58.35,
+   "text": "But take a small open arc around the point one, zero.",
+   "translation": "但在点 (1, 0) 附近取一小段开弧。"
+  },
+  {
+   "start": 58.8,
+   "end": 66.675,
+   "text": "Points just above one, zero come from parameters near zero, and points just below come from parameters near two pi.",
+   "translation": "(1, 0) 上方的点来自 0 附近的参数，下方的点来自 2π 附近的参数。"
+  },
+  {
+   "start": 67.125,
+   "end": 75.75,
+   "text": "So the inverse tears this arc into two distant pieces. It is not continuous at one, zero, and the map is not a homeomorphism.",
+   "translation": "所以逆映射把这段弧撕成相距很远的两段：它在 (1, 0) 处不连续，这不是同胚。"
+  },
+  {
+   "start": 76.2,
+   "end": 83.775,
+   "text": "A homeomorphism matches open sets with open sets, so it preserves nearness. It says nothing about smoothness.",
+   "translation": "同胚把开集一一对应到开集，因而保持靠近关系；它不涉及光滑性。"
+  },
+  {
+   "start": 84.225,
+   "end": 90.825,
+   "text": "In this episode, a chart will be exactly a homeomorphism onto an open subset of R d.",
+   "translation": "本集中，chart 恰好就是到 ℝᵈ 某个开子集的同胚。"
+  },
+  {
+   "start": 94.825,
+   "end": 102.1,
+   "text": "A small piece of the Earth fits on a flat map with nothing torn, but no single flat map covers the whole globe.",
+   "translation": "地球上的一小块区域可以毫无撕裂地画在平面地图上，但没有一张平面地图能盖住整个地球。"
+  },
+  {
+   "start": 102.55,
+   "end": 106.9,
+   "text": "The circle S one is the one-dimensional version of this story.",
+   "translation": "圆 S¹ 是这件事的一维版本。"
+  },
+  {
+   "start": 107.35,
+   "end": 113.525,
+   "text": "S one is the set of points x, y in the plane with x squared plus y squared equal to one.",
+   "translation": "S¹ 是平面上满足 x² + y² = 1 的点 (x, y) 的集合。"
+  },
+  {
+   "start": 113.975,
+   "end": 118.075,
+   "text": "Here is the definition. Let M be a topological space.",
+   "translation": "定义如下。设 M 是一个拓扑空间。"
+  },
+  {
+   "start": 118.525,
+   "end": 123.775,
+   "text": "A chart of dimension d is a pair U, phi, where U is an open subset of M,",
+   "translation": "d 维 chart 是一对 (U, φ)，其中 U 是 M 的开子集，"
+  },
+  {
+   "start": 124.225,
+   "end": 129.45,
+   "text": "and phi is a homeomorphism from U onto an open subset of R d.",
+   "translation": "φ 是从 U 到 ℝᵈ 某个开子集的同胚。"
+  },
+  {
+   "start": 129.9,
+   "end": 134.35,
+   "text": "The numbers phi of p are called the local coordinates of the point p.",
+   "translation": "φ(p) 称为点 p 的局部坐标。"
+  },
+  {
+   "start": 134.8,
+   "end": 140.775,
+   "text": "Let us build one. Take the upper half of the circle, where y is positive, and call it U plus.",
+   "translation": "来构造一个。取圆的上半部分（y > 0），记作 U₊。"
+  },
+  {
+   "start": 141.225,
+   "end": 145.65,
+   "text": "The chart phi plus simply records the x coordinate of each point.",
+   "translation": "chart φ₊ 只记录每个点的 x 坐标。"
+  },
+  {
+   "start": 146.1,
+   "end": 152.45,
+   "text": "Dropping each point straight down, the open upper arc lands on the open interval from minus one to one.",
+   "translation": "把每个点竖直落下，开的上半弧落在开区间 (−1, 1) 上。"
+  },
+  {
+   "start": 152.9,
+   "end": 161.025,
+   "text": "The inverse lifts x back to the circle: phi plus inverse of x is the point x, square root of one minus x squared.",
+   "translation": "逆映射把 x 抬回圆上：φ₊⁻¹(x) = (x, √(1 − x²))。"
+  },
+  {
+   "start": 161.475,
+   "end": 166.325,
+   "text": "As x slides across the interval, the lifted point slides along the arc.",
+   "translation": "x 在区间中滑动，抬起的点就沿圆弧滑动。"
+  },
+  {
+   "start": 166.775,
+   "end": 170.975,
+   "text": "Now let us check, one item at a time, that this really is a chart.",
+   "translation": "现在逐条检查它确实是一个 chart。"
+  },
+  {
+   "start": 171.425,
+   "end": 178.35,
+   "text": "First, U plus is open in S one, because it is the circle intersected with the open upper half plane.",
+   "translation": "第一，U₊ 在 S¹ 中是开集：它是圆与开上半平面的交。"
+  },
+  {
+   "start": 178.8,
+   "end": 183.975,
+   "text": "In the subspace topology, such an intersection is an open set of the circle.",
+   "translation": "在子空间拓扑中，这样的交就是圆上的开集。"
+  },
+  {
+   "start": 184.425,
+   "end": 190.7,
+   "text": "Second, phi plus is continuous, since it is the coordinate projection restricted to U plus.",
+   "translation": "第二，φ₊ 连续：它是坐标投影在 U₊ 上的限制。"
+  },
+  {
+   "start": 191.15,
+   "end": 195.95,
+   "text": "Third, it is injective. Suppose two points of U plus have the same x.",
+   "translation": "第三，单射。设 U₊ 中两点的 x 相同。"
+  },
+  {
+   "start": 196.4,
+   "end": 202.125,
+   "text": "Both heights are the positive square root of one minus x squared, so the points coincide.",
+   "translation": "两者的高度都是正根 √(1 − x²)，所以两点重合。"
+  },
+  {
+   "start": 202.575,
+   "end": 207.875,
+   "text": "It is also onto the interval. Take any x strictly between minus one and one.",
+   "translation": "它也满射到这个区间。任取 −1 < x < 1。"
+  },
+  {
+   "start": 208.325,
+   "end": 214.05,
+   "text": "The point x, square root of one minus x squared, lies in U plus and maps to x.",
+   "translation": "点 (x, √(1 − x²)) 属于 U₊，并且被映到 x。"
+  },
+  {
+   "start": 214.5,
+   "end": 221.425,
+   "text": "Fourth, the inverse is continuous, because the square root is continuous on the interval from zero to one.",
+   "translation": "第四，逆映射连续，因为 √ 在 (0, 1] 上连续。"
+  },
+  {
+   "start": 221.875,
+   "end": 229.05,
+   "text": "Finally, the image, the open interval from minus one to one, is open in R. So phi plus is a chart.",
+   "translation": "最后，像 (−1, 1) 是 ℝ 中的开集。所以 φ₊ 是一个 chart。"
+  },
+  {
+   "start": 229.5,
+   "end": 235.175,
+   "text": "Why insist that the domain and the image be open? Suppose we include the two endpoints.",
+   "translation": "为什么要求定义域和像是开集？假设把两个端点也算进来。"
+  },
+  {
+   "start": 235.625,
+   "end": 244.15,
+   "text": "On the closed upper half circle, the same projection is still injective, but its image is the closed interval from minus one to one.",
+   "translation": "在闭上半圆上，同样的投影仍是单射，但像变成闭区间 [−1, 1]。"
+  },
+  {
+   "start": 244.6,
+   "end": 251.575,
+   "text": "Zoom in at the point one, zero. On the circle, every small neighborhood of it contains points on both sides.",
+   "translation": "在点 (1, 0) 处放大：圆上它的每个小邻域两侧都有点。"
+  },
+  {
+   "start": 252.025,
+   "end": 257.0,
+   "text": "At the endpoint one of the interval, a small neighborhood only reaches to the left.",
+   "translation": "而在区间端点 1 处，小邻域只伸向左侧。"
+  },
+  {
+   "start": 257.45,
+   "end": 264.875,
+   "text": "The closed interval is not open, and the chart would wrongly report a boundary point on a circle that has no boundary.",
+   "translation": "闭区间不是开集；这样的 chart 会在一个没有边界的圆上误报出边界点。"
+  },
+  {
+   "start": 265.325,
+   "end": 272.375,
+   "text": "Being injective is not enough either. The map must be a homeomorphism, continuous in both directions.",
+   "translation": "只是单射也不够：映射必须是同胚，两个方向都连续。"
+  },
+  {
+   "start": 272.825,
+   "end": 278.575,
+   "text": "Recall the wrapped interval. Its inverse is a bijection, but it jumps at one, zero.",
+   "translation": "回想卷起来的区间：它的逆是双射，但在 (1, 0) 处跳变。"
+  },
+  {
+   "start": 279.025,
+   "end": 284.075,
+   "text": "And its image, from zero to two pi with zero included, is not open either.",
+   "translation": "而且它的像 [0, 2π) 也不是开集。"
+  },
+  {
+   "start": 284.525,
+   "end": 290.05,
+   "text": "Without continuity, neighboring points of the manifold could get coordinates far apart.",
+   "translation": "没有连续性，流形上相邻的点可能拿到相距很远的坐标，"
+  },
+  {
+   "start": 290.5,
+   "end": 295.075,
+   "text": "Then convergence on the manifold would be invisible in coordinates.",
+   "translation": "那样流形上的收敛在坐标里就看不出来。"
+  },
+  {
+   "start": 295.525,
+   "end": 300.925,
+   "text": "So why not one chart for the whole circle? Project the whole circle onto the x axis.",
+   "translation": "那为什么不用一个 chart 盖住整个圆？把整圆投影到 x 轴上。"
+  },
+  {
+   "start": 301.375,
+   "end": 310.025,
+   "text": "Every x strictly between minus one and one is claimed by two points, one above and one below. The projection is not injective.",
+   "translation": "每个 −1 < x < 1 都被上下两个点争抢，投影不是单射。"
+  },
+  {
+   "start": 310.475,
+   "end": 315.95,
+   "text": "In fact, no single chart can cover the circle, however clever. Let us prove it.",
+   "translation": "事实上，无论多巧妙，任何单个 chart 都盖不住圆。我们来证明。"
+  },
+  {
+   "start": 316.4,
+   "end": 320.45,
+   "text": "We borrow two facts from analysis, and state them without proof.",
+   "translation": "我们借用两条分析学的事实，只陈述，不证明。"
+  },
+  {
+   "start": 320.9,
+   "end": 328.675,
+   "text": "Fact one: a bounded closed subset of R d is compact, and the continuous image of a compact set is compact.",
+   "translation": "事实一：ℝᵈ 中有界闭集是紧集；紧集在连续映射下的像是紧集。"
+  },
+  {
+   "start": 329.125,
+   "end": 336.975,
+   "text": "Fact two: R d is connected, so its only subsets that are both open and closed are the empty set and R d itself.",
+   "translation": "事实二：ℝᵈ 连通，既开又闭的子集只有 ∅ 和 ℝᵈ 本身。"
+  },
+  {
+   "start": 337.425,
+   "end": 344.825,
+   "text": "Now suppose phi is a chart defined on the whole circle, a homeomorphism onto an open set V in R d.",
+   "translation": "现在假设 φ 是定义在整个圆上的 chart，是到 ℝᵈ 中开集 V 的同胚。"
+  },
+  {
+   "start": 345.275,
+   "end": 353.075,
+   "text": "A third borrowed fact, invariance of dimension, forces d to be one, but the argument below works for any d.",
+   "translation": "第三条借用的事实——维数不变性——迫使 d = 1；不过下面的论证对任意 d 都成立。"
+  },
+  {
+   "start": 353.525,
+   "end": 361.325,
+   "text": "The circle is bounded and closed in the plane, so it is compact, and therefore V, its continuous image, is compact.",
+   "translation": "圆在平面中有界且闭，所以是紧集；因此它的连续像 V 也是紧集。"
+  },
+  {
+   "start": 361.775,
+   "end": 369.25,
+   "text": "A compact subset of R d is bounded and closed. So V is closed, V is open, and V is not empty.",
+   "translation": "ℝᵈ 中的紧集有界且闭。所以 V 是闭集，又是开集，并且非空。"
+  },
+  {
+   "start": 369.7,
+   "end": 377.025,
+   "text": "By connectedness, V must be all of R d. But V is bounded, and R d is not. That is a contradiction.",
+   "translation": "由连通性，V 只能是整个 ℝᵈ；但 V 有界而 ℝᵈ 无界，矛盾。"
+  },
+  {
+   "start": 377.475,
+   "end": 381.2,
+   "text": "So every atlas of the circle needs at least two charts.",
+   "translation": "所以圆的任何图册都至少需要两个 chart。"
+  },
+  {
+   "start": 381.65,
+   "end": 384.475,
+   "text": "Here is one that works: four half circles.",
+   "translation": "这里有一个可行的图册：四个半圆。"
+  },
+  {
+   "start": 384.925,
+   "end": 390.0,
+   "text": "The upper half U plus and the lower half U minus both use the coordinate x.",
+   "translation": "上半圆 U₊ 和下半圆 U₋ 都用坐标 x。"
+  },
+  {
+   "start": 390.45,
+   "end": 395.075,
+   "text": "The right half U r and the left half U l both use the coordinate y.",
+   "translation": "右半圆 U_r 和左半圆 U_l 都用坐标 y。"
+  },
+  {
+   "start": 395.525,
+   "end": 401.725,
+   "text": "Together they cover the circle, because no point of the circle has x and y both equal to zero.",
+   "translation": "它们合起来覆盖整个圆，因为圆上没有点的 x 和 y 同时为 0。"
+  },
+  {
+   "start": 402.175,
+   "end": 405.825,
+   "text": "Neighboring half circles overlap on open quarter arcs.",
+   "translation": "相邻的半圆在开的四分之一圆弧上重叠。"
+  },
+  {
+   "start": 406.275,
+   "end": 412.2,
+   "text": "Another atlas uses stereographic projection from the north pole N, at zero, one.",
+   "translation": "另一个图册用球极投影：从北极 N = (0, 1) 出发投影。"
+  },
+  {
+   "start": 412.65,
+   "end": 418.625,
+   "text": "Draw the line from N through a point p of the circle, and let u be where it meets the x axis.",
+   "translation": "从 N 过圆上一点 p 画直线，它与 x 轴的交点记为 u。"
+  },
+  {
+   "start": 419.075,
+   "end": 425.9,
+   "text": "This gives sigma N of x, y equals x over one minus y, defined everywhere except at N.",
+   "translation": "这给出 σ_N(x, y) = x / (1 − y)，除 N 之外处处有定义。"
+  },
+  {
+   "start": 426.35,
+   "end": 431.95,
+   "text": "As p approaches N, the line becomes horizontal, and u runs off to infinity.",
+   "translation": "p 趋近 N 时，直线趋于水平，u 跑向无穷远。"
+  },
+  {
+   "start": 432.4,
+   "end": 440.0,
+   "text": "To invert it, parametrize the line through N and the point u, zero as t times u, together with one minus t.",
+   "translation": "求逆：过 N 与点 (u, 0) 的直线参数化为 (tu, 1 − t)。"
+  },
+  {
+   "start": 440.45,
+   "end": 448.525,
+   "text": "Substituting into the circle equation, t times the quantity t times u squared plus one, minus two, equals zero.",
+   "translation": "代入圆的方程：t(t(u² + 1) − 2) = 0。"
+  },
+  {
+   "start": 448.975,
+   "end": 455.875,
+   "text": "The root t equals zero is N itself, so the other root is t equals two over u squared plus one.",
+   "translation": "根 t = 0 对应 N 本身，所以另一个根是 t = 2 / (u² + 1)。"
+  },
+  {
+   "start": 456.325,
+   "end": 465.3,
+   "text": "Hence sigma N inverse of u is two u over u squared plus one, together with u squared minus one over u squared plus one.",
+   "translation": "因此 σ_N⁻¹(u) = (2u / (u² + 1), (u² − 1) / (u² + 1))。"
+  },
+  {
+   "start": 465.75,
+   "end": 473.425,
+   "text": "Checking back, one minus y equals two over u squared plus one, so x over one minus y is exactly u.",
+   "translation": "反向验证：1 − y = 2 / (u² + 1)，所以 x / (1 − y) 恰好等于 u。"
+  },
+  {
+   "start": 473.875,
+   "end": 484.25,
+   "text": "Projecting from the south pole instead gives sigma S equals x over one plus y, defined away from S, and the two projections together cover the circle.",
+   "translation": "改从南极投影得到 σ_S = x / (1 + y)，在 S 以外有定义；两个投影合起来覆盖整个圆。"
+  },
+  {
+   "start": 488.25,
+   "end": 493.825,
+   "text": "Looking like R d near every point does not stop a space from misbehaving globally.",
+   "translation": "每一点附近都像 ℝᵈ，并不能阻止空间在整体上出现病态。"
+  },
+  {
+   "start": 494.275,
+   "end": 497.6,
+   "text": "Charts alone are not enough to define a manifold.",
+   "translation": "仅有 chart 还不足以定义流形。"
+  },
+  {
+   "start": 498.05,
+   "end": 505.4,
+   "text": "A topological space M is a d-dimensional topological manifold if it satisfies three conditions.",
+   "translation": "拓扑空间 M 称为 d 维拓扑流形，若满足三个条件。"
+  },
+  {
+   "start": 505.85,
+   "end": 512.025,
+   "text": "First, it is locally Euclidean: every point lies in the domain of some d-dimensional chart.",
+   "translation": "一，局部欧氏：每个点都落在某个 d 维 chart 的定义域内。"
+  },
+  {
+   "start": 512.475,
+   "end": 520.975,
+   "text": "Second, it is Hausdorff: any two distinct points p and q have disjoint open sets, U containing p and V containing q.",
+   "translation": "二，Hausdorff：任意两个不同点 p、q，存在不相交的开集 U ∋ p、V ∋ q；"
+  },
+  {
+   "start": 521.425,
+   "end": 526.225,
+   "text": "Third, it is second countable: its topology has a countable basis.",
+   "translation": "三，第二可数：拓扑有一个可数的基。"
+  },
+  {
+   "start": 526.675,
+   "end": 534.025,
+   "text": "The circle is a one-dimensional topological manifold. The four half-circle charts make it locally Euclidean.",
+   "translation": "圆是 1 维拓扑流形：四个半圆 chart 说明它局部欧氏。"
+  },
+  {
+   "start": 534.475,
+   "end": 542.175,
+   "text": "It inherits the other two conditions from the plane, since every subspace of R two is Hausdorff and second countable.",
+   "translation": "另外两条继承自平面，因为 ℝ² 的子空间都是 Hausdorff 且第二可数的。"
+  },
+  {
+   "start": 542.625,
+   "end": 549.725,
+   "text": "Why do we need Hausdorff? Here is a space that is locally Euclidean but not Hausdorff: the line with two origins.",
+   "translation": "为什么需要 Hausdorff？这里有一个局部欧氏但不 Hausdorff 的空间：双原点直线。"
+  },
+  {
+   "start": 550.175,
+   "end": 554.725,
+   "text": "Take two copies of the real line, an upper copy and a lower copy.",
+   "translation": "取实直线的两份拷贝：上面一份，下面一份。"
+  },
+  {
+   "start": 555.175,
+   "end": 562.475,
+   "text": "Glue them at every point t except zero: t on the upper copy and t on the lower copy become the same point.",
+   "translation": "除 0 以外的每个 t 都粘合：上面的 t 和下面的 t 成为同一个点。"
+  },
+  {
+   "start": 562.925,
+   "end": 569.6,
+   "text": "The zeros are not glued. What remains is one line, but with two origins, zero a and zero b.",
+   "translation": "两个零点不粘合。结果是一条直线，但有两个原点 0_a 和 0_b。"
+  },
+  {
+   "start": 570.05,
+   "end": 574.05,
+   "text": "A set is open exactly when its part in each copy is open in R.",
+   "translation": "一个集合是开集，当且仅当它在每一份拷贝中的部分都是 ℝ 中的开集。"
+  },
+  {
+   "start": 574.5,
+   "end": 583.675,
+   "text": "So take any open set around zero a. It contains an interval from minus epsilon to epsilon, with its zero replaced by zero a.",
+   "translation": "所以任取 0_a 的开邻域，它包含一段 (−ε, ε)，只是其中的零点换成了 0_a。"
+  },
+  {
+   "start": 584.125,
+   "end": 587.8,
+   "text": "Near every point, this space still looks like the real line.",
+   "translation": "在每个点附近，这个空间仍然像实直线。"
+  },
+  {
+   "start": 588.25,
+   "end": 596.9,
+   "text": "The upper copy is open in this space, and reading off t is a homeomorphism from it onto R. That is a chart around zero a.",
+   "translation": "上面一份是这个空间中的开集，读出 t 给出它到 ℝ 的同胚：这是包含 0_a 的 chart。"
+  },
+  {
+   "start": 597.35,
+   "end": 603.05,
+   "text": "The lower copy gives a chart around zero b, and every other point lies in both charts.",
+   "translation": "下面一份给出包含 0_b 的 chart；其余每个点同时落在两个 chart 中。"
+  },
+  {
+   "start": 603.5,
+   "end": 606.5,
+   "text": "But the two origins cannot be separated.",
+   "translation": "但两个原点分不开。"
+  },
+  {
+   "start": 606.95,
+   "end": 617.55,
+   "text": "Take open sets around zero a and around zero b. The first contains some interval from zero to epsilon, the second some interval from zero to delta.",
+   "translation": "取 0_a 与 0_b 的开邻域：前者包含某段 (0, ε)，后者包含某段 (0, δ)。"
+  },
+  {
+   "start": 618.0,
+   "end": 625.2,
+   "text": "However small we make them, both contain the point half the smaller of epsilon and delta. They always overlap.",
+   "translation": "无论取多小，两者都包含点 min(ε, δ)/2，总是重叠。"
+  },
+  {
+   "start": 625.65,
+   "end": 629.9,
+   "text": "So there are no disjoint neighborhoods, and the space is not Hausdorff.",
+   "translation": "所以不存在不相交的邻域，这个空间不是 Hausdorff 的。"
+  },
+  {
+   "start": 630.35,
+   "end": 633.775,
+   "text": "Now watch the sequence x k equals one over k.",
+   "translation": "现在看数列 x_k = 1/k。"
+  },
+  {
+   "start": 634.225,
+   "end": 644.6,
+   "text": "Take any open set around zero a. It contains some interval from zero to epsilon, and once k is larger than one over epsilon, x k lies inside.",
+   "translation": "任取 0_a 的开邻域，它包含某段 (0, ε)；当 k > 1/ε 时，x_k 落在其中。"
+  },
+  {
+   "start": 645.05,
+   "end": 651.475,
+   "text": "So x k converges to zero a. By the same argument, x k also converges to zero b.",
+   "translation": "所以 x_k → 0_a。同样的论证说明 x_k → 0_b。"
+  },
+  {
+   "start": 651.925,
+   "end": 660.375,
+   "text": "One sequence, two limits. For an optimization algorithm, the question of where the iterates converge would have no unique answer.",
+   "translation": "一个数列，两个极限。对优化算法而言，“迭代收敛到哪里”就没有唯一答案。"
+  },
+  {
+   "start": 660.825,
+   "end": 665.35,
+   "text": "Worse, continuous functions cannot even tell the two limits apart.",
+   "translation": "更糟的是，连续函数甚至无法区分这两个极限。"
+  },
+  {
+   "start": 665.8,
+   "end": 674.5,
+   "text": "For any continuous f on this space, f of zero a equals the limit of f of one over k, which equals f of zero b.",
+   "translation": "对这个空间上任意连续函数 f，f(0_a) = lim f(1/k) = f(0_b)。"
+  },
+  {
+   "start": 674.95,
+   "end": 683.725,
+   "text": "Both equalities hold because continuous maps send convergent sequences to convergent sequences, and limits in R are unique.",
+   "translation": "两个等号成立，是因为连续映射把收敛数列映成收敛数列，而 ℝ 中的极限唯一。"
+  },
+  {
+   "start": 684.175,
+   "end": 692.125,
+   "text": "In a Hausdorff space this cannot happen. Claim: if x k converges to x and also to y, then x equals y.",
+   "translation": "在 Hausdorff 空间里这不会发生。命题：若 x_k → x 且 x_k → y，则 x = y。"
+  },
+  {
+   "start": 692.575,
+   "end": 701.375,
+   "text": "Suppose x and y are different. By the Hausdorff property, there are disjoint open sets, U containing x and V containing y.",
+   "translation": "反设 x ≠ y。由 Hausdorff 性质，存在不相交的开集 U ∋ x、V ∋ y。"
+  },
+  {
+   "start": 701.825,
+   "end": 709.55,
+   "text": "Since x k converges to x, there is an index K one such that x k lies in U for all k at least K one.",
+   "translation": "由 x_k → x，存在 K₁，使得 k ≥ K₁ 时 x_k ∈ U。"
+  },
+  {
+   "start": 710.0,
+   "end": 717.875,
+   "text": "Since x k converges to y, there is an index K two such that x k lies in V for all k at least K two.",
+   "translation": "由 x_k → y，存在 K₂，使得 k ≥ K₂ 时 x_k ∈ V。"
+  },
+  {
+   "start": 718.325,
+   "end": 728.225,
+   "text": "Take k equal to the larger of K one and K two. Then x k lies in both U and V, but their intersection is empty. Contradiction.",
+   "translation": "取 k = max(K₁, K₂)，则 x_k 同时属于 U 和 V，但 U ∩ V = ∅，矛盾。"
+  },
+  {
+   "start": 728.675,
+   "end": 736.875,
+   "text": "So limits are unique, and the line with two origins fails exactly at the first step: the disjoint open sets do not exist.",
+   "translation": "所以极限唯一。双原点直线恰好在第一步失败：不相交的开集不存在。"
+  },
+  {
+   "start": 737.325,
+   "end": 742.6,
+   "text": "The third condition, second countability, rules out spaces that are too large.",
+   "translation": "第三个条件，第二可数，排除了“过大”的空间。"
+  },
+  {
+   "start": 743.05,
+   "end": 752.375,
+   "text": "For example, take uncountably many disjoint copies of the real line. It is locally Euclidean and Hausdorff, but it has no countable basis.",
+   "translation": "例如不可数多条实直线的不交并：它局部欧氏、Hausdorff，但没有可数的基。"
+  },
+  {
+   "start": 752.825,
+   "end": 762.025,
+   "text": "This condition is technical, and this course does not develop it. It is used later, for example when a Riemannian metric is built on a manifold.",
+   "translation": "这是技术性条件，本课程不展开；后面会用到它，例如在流形上构造黎曼度量。"
+  },
+  {
+   "start": 762.475,
+   "end": 768.225,
+   "text": "So a topological manifold is locally Euclidean, Hausdorff, and second countable.",
+   "translation": "所以拓扑流形是局部欧氏、Hausdorff、第二可数的空间。"
+  },
+  {
+   "start": 772.225,
+   "end": 779.275,
+   "text": "Two maps of the same city give one building two different coordinates, and there is a formula to convert between them.",
+   "translation": "同一座城市的两张地图，给同一栋楼不同的坐标，两者之间有一个换算公式。"
+  },
+  {
+   "start": 779.725,
+   "end": 784.2,
+   "text": "On a manifold, a point usually lies in several charts at once.",
+   "translation": "在流形上，一个点通常同时落在好几个 chart 里。"
+  },
+  {
+   "start": 784.65,
+   "end": 791.45,
+   "text": "Take the upper half circle U plus, with coordinate x, and the right half circle U r, with coordinate y.",
+   "translation": "取上半圆 U₊，坐标为 x；以及右半圆 U_r，坐标为 y。"
+  },
+  {
+   "start": 791.9,
+   "end": 798.0,
+   "text": "They overlap on the open quarter arc in the first quadrant, where x and y are both positive.",
+   "translation": "它们在第一象限的开四分之一圆弧上重叠，那里 x、y 都为正。"
+  },
+  {
+   "start": 798.45,
+   "end": 803.725,
+   "text": "Pick a point p in the overlap, say p equals zero point six, zero point eight.",
+   "translation": "在重叠区取一点 p，比如 p = (0.6, 0.8)。"
+  },
+  {
+   "start": 804.175,
+   "end": 810.025,
+   "text": "The first chart gives p the number zero point six. The second gives it zero point eight.",
+   "translation": "第一个 chart 给 p 的数是 0.6，第二个给的是 0.8。"
+  },
+  {
+   "start": 810.475,
+   "end": 814.95,
+   "text": "Converting one coordinate into the other is called a transition map.",
+   "translation": "把一个坐标换算成另一个坐标，叫做转移映射。"
+  },
+  {
+   "start": 815.4,
+   "end": 823.775,
+   "text": "In general, for charts U, phi and V, psi with overlapping domains, the transition map is psi composed with phi inverse,",
+   "translation": "一般地，对定义域相交的两个 chart (U, φ)、(V, ψ)，转移映射是 ψ∘φ⁻¹，"
+  },
+  {
+   "start": 824.225,
+   "end": 828.75,
+   "text": "going from phi of U intersect V, to psi of U intersect V.",
+   "translation": "从 φ(U ∩ V) 映到 ψ(U ∩ V)。"
+  },
+  {
+   "start": 829.2,
+   "end": 837.675,
+   "text": "A homeomorphism carries the open set U intersect V to an open set, so both of these are open subsets of R d.",
+   "translation": "同胚把开集 U ∩ V 映成开集，所以这两个集合都是 ℝᵈ 的开子集。"
+  },
+  {
+   "start": 838.125,
+   "end": 845.425,
+   "text": "So a transition map is an ordinary map between open sets of R d, and ordinary calculus applies to it.",
+   "translation": "所以转移映射是 ℝᵈ 开集之间的普通映射，可以直接用普通的微积分。"
+  },
+  {
+   "start": 845.875,
+   "end": 848.7,
+   "text": "Let us compute it for our two half circles.",
+   "translation": "来计算两个半圆之间的转移映射。"
+  },
+  {
+   "start": 849.15,
+   "end": 856.175,
+   "text": "Points of U plus have x between minus one and one, and the overlap adds the condition that x is positive.",
+   "translation": "U₊ 中的点满足 −1 < x < 1，重叠区再加上条件 x > 0。"
+  },
+  {
+   "start": 856.625,
+   "end": 863.8,
+   "text": "So phi plus maps the overlap onto the interval from zero to one. By the same reasoning, so does phi r.",
+   "translation": "所以 φ₊ 把重叠区映满 (0, 1)；同理，φ_r 也是。"
+  },
+  {
+   "start": 864.25,
+   "end": 871.575,
+   "text": "Now take x in that interval. Phi plus inverse lifts it to the point x, square root of one minus x squared.",
+   "translation": "取该区间中的 x，φ₊⁻¹ 把它抬到点 (x, √(1 − x²))。"
+  },
+  {
+   "start": 872.025,
+   "end": 879.4,
+   "text": "Phi r reads off the y coordinate, so the transition map sends x to the square root of one minus x squared.",
+   "translation": "φ_r 读出 y 坐标，所以转移映射把 x 送到 √(1 − x²)。"
+  },
+  {
+   "start": 879.85,
+   "end": 885.05,
+   "text": "As p slides along the overlap, its pair of coordinates traces out this curve.",
+   "translation": "p 沿重叠弧滑动时，它的两个坐标描出这条曲线。"
+  },
+  {
+   "start": 885.5,
+   "end": 894.5,
+   "text": "Is it smooth? On the open interval, one minus x squared is positive, and the square root is infinitely differentiable on the positive reals.",
+   "translation": "它光滑吗？在开区间上 1 − x² > 0，而 √ 在 (0, ∞) 上无穷次可微。"
+  },
+  {
+   "start": 894.95,
+   "end": 901.6,
+   "text": "So the composition is smooth, with derivative minus x over the square root of one minus x squared.",
+   "translation": "所以复合映射光滑，导数为 −x / √(1 − x²)。"
+  },
+  {
+   "start": 902.05,
+   "end": 910.225,
+   "text": "The inverse transition map, from y back to x, is the square root of one minus y squared, smooth by the same argument.",
+   "translation": "反方向的转移映射，从 y 回到 x，是 √(1 − y²)，同理光滑。"
+  },
+  {
+   "start": 910.675,
+   "end": 917.2,
+   "text": "Notice what happens near x equals one. The slope blows up, and the tangent line turns vertical.",
+   "translation": "注意 x 接近 1 时：斜率发散，切线变得竖直。"
+  },
+  {
+   "start": 917.65,
+   "end": 924.05,
+   "text": "But x equals one is not in the domain. The overlap is open, so its endpoints are excluded.",
+   "translation": "但 x = 1 不在定义域中：重叠区是开集，端点不包含在内。"
+  },
+  {
+   "start": 924.5,
+   "end": 933.225,
+   "text": "If we allowed the closure of the overlap, the transition map would fail to be differentiable at its endpoint. Openness protects smoothness.",
+   "translation": "如果允许重叠区的闭包，转移映射在端点处就不可微。开集这一要求保护了光滑性。"
+  },
+  {
+   "start": 933.675,
+   "end": 935.975,
+   "text": "Now the stereographic charts.",
+   "translation": "再看球极投影的两个 chart。"
+  },
+  {
+   "start": 936.425,
+   "end": 941.675,
+   "text": "A point p, away from both poles, projects from N to u, and from S to v.",
+   "translation": "不在两极的点 p，从 N 投影得到 u，从 S 投影得到 v。"
+  },
+  {
+   "start": 942.125,
+   "end": 950.075,
+   "text": "The two charts overlap on the circle without N and S, and sigma N maps that overlap onto the real line without zero.",
+   "translation": "两个 chart 的重叠区是 S¹ 去掉 N、S；σ_N 把它映满 ℝ∖{0}。"
+  },
+  {
+   "start": 950.525,
+   "end": 960.575,
+   "text": "Earlier we found that sigma N inverse of u is two u over u squared plus one, together with u squared minus one over u squared plus one.",
+   "translation": "前面已求得 σ_N⁻¹(u) = (2u / (u² + 1), (u² − 1) / (u² + 1))。"
+  },
+  {
+   "start": 961.025,
+   "end": 967.9,
+   "text": "For nonzero u this point is not S, so we may apply sigma S, which divides x by one plus y.",
+   "translation": "u ≠ 0 时这个点不是 S，所以可以作用 σ_S：用 x 除以 1 + y。"
+  },
+  {
+   "start": 968.35,
+   "end": 972.925,
+   "text": "Here one plus y equals two u squared over u squared plus one.",
+   "translation": "这里 1 + y = 2u² / (u² + 1)。"
+  },
+  {
+   "start": 973.375,
+   "end": 980.275,
+   "text": "Dividing, the factors u squared plus one cancel, and two u over two u squared leaves one over u.",
+   "translation": "相除后 u² + 1 约去，2u / 2u² 剩下 1/u。"
+  },
+  {
+   "start": 980.725,
+   "end": 988.35,
+   "text": "So the transition map is u maps to one over u, smooth on the real line without zero, and it is its own inverse.",
+   "translation": "所以转移映射是 u ↦ 1/u，在 ℝ∖{0} 上光滑，并且是它自身的逆。"
+  },
+  {
+   "start": 988.8,
+   "end": 996.775,
+   "text": "Transition maps are ordinary functions between open sets of R d. Next we ask what goes wrong when they are not smooth.",
+   "translation": "转移映射是 ℝᵈ 开集之间的普通函数。下一章问：如果它们不光滑，会出什么问题？"
+  },
+  {
+   "start": 1000.775,
+   "end": 1006.5,
+   "text": "We would like to say that a function on a manifold is smooth when it looks smooth in coordinates.",
+   "translation": "我们希望这样定义：流形上的函数光滑，就是它在坐标里看起来光滑。"
+  },
+  {
+   "start": 1006.95,
+   "end": 1013.975,
+   "text": "But there are many coordinate systems. If converting between two of them is not smooth, they can disagree.",
+   "translation": "但坐标系不止一套。如果两套坐标之间的换算不光滑，它们就可能给出不同的结论。"
+  },
+  {
+   "start": 1014.425,
+   "end": 1020.775,
+   "text": "Here is the simplest example. The manifold is the real line, with its usual topology.",
+   "translation": "最简单的例子：流形就是实直线，取通常的拓扑。"
+  },
+  {
+   "start": 1021.225,
+   "end": 1026.35,
+   "text": "The first chart is the identity: the point p gets the coordinate x equals p.",
+   "translation": "第一个 chart 是恒等映射：点 p 的坐标是 x = p。"
+  },
+  {
+   "start": 1026.8,
+   "end": 1031.275,
+   "text": "The second chart, kappa, gives p the coordinate u equals p cubed.",
+   "translation": "第二个 chart κ 给 p 的坐标是 u = p³。"
+  },
+  {
+   "start": 1031.725,
+   "end": 1039.5,
+   "text": "Evenly spaced points keep their spacing in the first chart, but in the second they bunch up near zero and spread out far away.",
+   "translation": "等距的点在第一个 chart 里保持等距；在第二个里，它们在 0 附近挤在一起，远处则拉开。"
+  },
+  {
+   "start": 1039.95,
+   "end": 1042.45,
+   "text": "Both charts are homeomorphisms.",
+   "translation": "两个 chart 都是同胚。"
+  },
+  {
+   "start": 1042.9,
+   "end": 1050.275,
+   "text": "The identity clearly is. And p cubed is strictly increasing and onto, so it is a continuous bijection.",
+   "translation": "恒等映射显然是。p³ 严格递增且满射，所以是连续双射；"
+  },
+  {
+   "start": 1050.725,
+   "end": 1054.475,
+   "text": "Its inverse, the real cube root, is continuous too.",
+   "translation": "它的逆，实立方根，也连续。"
+  },
+  {
+   "start": 1054.925,
+   "end": 1057.875,
+   "text": "Now take the function f of p equals p.",
+   "translation": "现在取函数 f(p) = p。"
+  },
+  {
+   "start": 1058.325,
+   "end": 1066.625,
+   "text": "In the first chart, its coordinate expression, f after identity inverse, is x itself: a straight line, perfectly smooth.",
+   "translation": "在第一个 chart 中，坐标表示 f∘id⁻¹(x) = x：一条直线，完全光滑。"
+  },
+  {
+   "start": 1067.075,
+   "end": 1073.35,
+   "text": "In the second chart, the coordinate expression, f after kappa inverse, is the cube root of u.",
+   "translation": "在第二个 chart 中，坐标表示 f∘κ⁻¹(u) 是 u 的立方根。"
+  },
+  {
+   "start": 1073.8,
+   "end": 1077.2,
+   "text": "At u equals zero, this curve stands vertical.",
+   "translation": "在 u = 0 处，这条曲线竖直。"
+  },
+  {
+   "start": 1077.65,
+   "end": 1087.05,
+   "text": "The difference quotient, the cube root of h divided by h, equals h to the minus two thirds, and it grows without bound as h goes to zero.",
+   "translation": "差商 h^(1/3) / h = h^(−2/3)，当 h → 0 时无界增大。"
+  },
+  {
+   "start": 1087.5,
+   "end": 1098.6,
+   "text": "At h equals zero point one, it is about four point six. At zero point zero one, about twenty one point five. At zero point zero zero one, one hundred.",
+   "translation": "h = 0.1 时约为 4.6，h = 0.01 时约为 21.5，h = 0.001 时为 100。"
+  },
+  {
+   "start": 1099.05,
+   "end": 1103.125,
+   "text": "So in the second chart, f is not even differentiable at zero.",
+   "translation": "所以在第二个 chart 中，f 在 0 处甚至不可微。"
+  },
+  {
+   "start": 1103.575,
+   "end": 1109.35,
+   "text": "The same function is smooth in one chart and not smooth in the other. Which answer is right?",
+   "translation": "同一个函数，在一个 chart 中光滑，在另一个中不光滑。哪个答案对？"
+  },
+  {
+   "start": 1109.8,
+   "end": 1113.35,
+   "text": "The trouble lies in the conversion between the two charts.",
+   "translation": "毛病出在两个 chart 之间的换算上。"
+  },
+  {
+   "start": 1113.8,
+   "end": 1118.6,
+   "text": "Kappa after identity inverse sends x to x cubed, which is smooth.",
+   "translation": "κ∘id⁻¹ 把 x 送到 x³，是光滑的。"
+  },
+  {
+   "start": 1119.05,
+   "end": 1124.55,
+   "text": "But identity after kappa inverse sends u to the cube root of u, which is not.",
+   "translation": "但 id∘κ⁻¹ 把 u 送到 u 的立方根，不光滑。"
+  },
+  {
+   "start": 1125.0,
+   "end": 1133.25,
+   "text": "Two charts are called smoothly compatible if their domains do not meet, or if both transition maps are infinitely differentiable.",
+   "translation": "两个 chart 称为光滑相容，若它们的定义域不相交，或者两个方向的转移映射都是 C∞。"
+  },
+  {
+   "start": 1133.7,
+   "end": 1139.8,
+   "text": "Equivalently, the transition map is a diffeomorphism between open subsets of R d.",
+   "translation": "等价地说，转移映射是 ℝᵈ 开子集之间的微分同胚。"
+  },
+  {
+   "start": 1140.25,
+   "end": 1147.35,
+   "text": "The identity and kappa fail this test, and that failure is exactly what made the verdict on f ambiguous.",
+   "translation": "恒等映射与 κ 通不过这个检验，正是这一点让 f 的判定产生歧义。"
+  },
+  {
+   "start": 1147.8,
+   "end": 1154.8,
+   "text": "A smooth atlas is a collection of charts whose domains cover M, any two of which are smoothly compatible.",
+   "translation": "光滑图册是一族 chart：定义域覆盖 M，且两两光滑相容。"
+  },
+  {
+   "start": 1155.25,
+   "end": 1161.55,
+   "text": "The four half circles form a smooth atlas on the circle. So do the two stereographic projections.",
+   "translation": "四个半圆构成圆上的光滑图册，两个球极投影也是。"
+  },
+  {
+   "start": 1162.0,
+   "end": 1170.475,
+   "text": "Moreover, every half-circle chart is compatible with every stereographic chart, so together they still form one smooth atlas.",
+   "translation": "而且每个半圆 chart 都与每个球极投影 chart 相容，所以合起来仍是一个光滑图册。"
+  },
+  {
+   "start": 1170.925,
+   "end": 1173.25,
+   "text": "But they are different sets of charts.",
+   "translation": "但它们是不同的 chart 集合。"
+  },
+  {
+   "start": 1173.7,
+   "end": 1181.125,
+   "text": "If a smooth manifold were a space plus one particular atlas, the same circle would count as two different manifolds.",
+   "translation": "若光滑流形定义为“空间 + 某个具体图册”，同一个圆就成了两个不同的流形。"
+  },
+  {
+   "start": 1181.575,
+   "end": 1189.575,
+   "text": "The fix is the maximal atlas: a smooth atlas that cannot be enlarged by any chart compatible with all of its charts.",
+   "translation": "解决办法是极大图册：一个光滑图册，不能再加入任何与其全部 chart 相容的新 chart。"
+  },
+  {
+   "start": 1190.025,
+   "end": 1198.85,
+   "text": "A maximal atlas is also called a smooth structure, and a smooth manifold is a topological manifold together with a smooth structure.",
+   "translation": "极大图册也叫光滑结构；光滑流形就是拓扑流形加上一个光滑结构。"
+  },
+  {
+   "start": 1199.3,
+   "end": 1204.025,
+   "text": "Claim: every smooth atlas lies in exactly one maximal atlas.",
+   "translation": "命题：每个光滑图册都包含在唯一的极大图册中。"
+  },
+  {
+   "start": 1204.475,
+   "end": 1211.45,
+   "text": "Call the given atlas script A. Let A-bar be the set of all charts compatible with every chart of script A.",
+   "translation": "设给定图册为 A。令 Ā 为与 A 中每个 chart 都相容的全部 chart。"
+  },
+  {
+   "start": 1211.9,
+   "end": 1214.525,
+   "text": "Clearly, A-bar contains script A.",
+   "translation": "显然 A ⊆ Ā。"
+  },
+  {
+   "start": 1214.975,
+   "end": 1223.225,
+   "text": "Step two: any two charts of A-bar are compatible with each other. Take U one, phi one and U two, phi two in A-bar.",
+   "translation": "第二步：Ā 中任意两个 chart 互相相容。取 (U₁, φ₁)、(U₂, φ₂) ∈ Ā。"
+  },
+  {
+   "start": 1223.675,
+   "end": 1229.525,
+   "text": "Pick x in phi one of U one intersect U two, and let p be phi one inverse of x.",
+   "translation": "取 x ∈ φ₁(U₁ ∩ U₂)，令 p = φ₁⁻¹(x)。"
+  },
+  {
+   "start": 1229.975,
+   "end": 1234.575,
+   "text": "Choose a chart W, theta of the original atlas that contains p.",
+   "translation": "在原图册中取一个包含 p 的 chart (W, θ)。"
+  },
+  {
+   "start": 1235.025,
+   "end": 1245.15,
+   "text": "On the open set phi one of U one intersect U two intersect W, which contains x, the transition map can pass through the theta coordinates.",
+   "translation": "在包含 x 的开集 φ₁(U₁ ∩ U₂ ∩ W) 上，转移映射可以经过 θ 坐标中转。"
+  },
+  {
+   "start": 1245.6,
+   "end": 1253.675,
+   "text": "Phi two after phi one inverse equals phi two after theta inverse, composed with theta after phi one inverse.",
+   "translation": "φ₂∘φ₁⁻¹ = (φ₂∘θ⁻¹)∘(θ∘φ₁⁻¹)。"
+  },
+  {
+   "start": 1254.125,
+   "end": 1261.875,
+   "text": "Both factors are smooth, because both charts of A-bar are compatible with theta. So the composition is smooth near x.",
+   "translation": "两个因子都光滑，因为 Ā 中的两个 chart 都与 θ 相容。所以复合在 x 附近光滑。"
+  },
+  {
+   "start": 1262.325,
+   "end": 1271.825,
+   "text": "Smoothness is a local property and x was arbitrary, so the transition map is smooth on its whole domain. The reverse direction is the same.",
+   "translation": "光滑是局部性质，x 任意，所以转移映射在整个定义域上光滑；反方向同理。"
+  },
+  {
+   "start": 1272.275,
+   "end": 1281.6,
+   "text": "Step three, maximality: a chart compatible with everything in A-bar is in particular compatible with script A, so it already lies in A-bar.",
+   "translation": "第三步，极大性：与 Ā 中所有 chart 相容的 chart，特别地与 A 相容，所以已经在 Ā 中。"
+  },
+  {
+   "start": 1282.05,
+   "end": 1291.65,
+   "text": "Step four, uniqueness: any maximal atlas B containing script A consists of charts compatible with script A, so B lies inside A-bar.",
+   "translation": "第四步，唯一性：任何包含 A 的极大图册 B 由与 A 相容的 chart 组成，所以 B ⊆ Ā。"
+  },
+  {
+   "start": 1292.1,
+   "end": 1298.45,
+   "text": "A-bar is a smooth atlas containing B, so by the maximality of B, the two are equal.",
+   "translation": "Ā 是包含 B 的光滑图册，由 B 的极大性，两者相等。"
+  },
+  {
+   "start": 1298.9,
+   "end": 1305.025,
+   "text": "So the half circles and the stereographic charts determine the same smooth structure on the circle.",
+   "translation": "所以半圆图册与球极投影图册决定圆上同一个光滑结构。"
+  },
+  {
+   "start": 1305.475,
+   "end": 1311.225,
+   "text": "On the other hand, the single chart kappa is a smooth atlas on the real line by itself.",
+   "translation": "另一方面，单个 chart κ 自己就是 ℝ 上的一个光滑图册。"
+  },
+  {
+   "start": 1311.675,
+   "end": 1317.425,
+   "text": "It determines a different smooth structure from the identity, since the two are not compatible.",
+   "translation": "它与恒等映射不相容，所以决定一个不同的光滑结构。"
+  },
+  {
+   "start": 1317.875,
+   "end": 1322.475,
+   "text": "A smooth structure is extra data, chosen on top of the topology.",
+   "translation": "光滑结构是在拓扑之上额外选择的数据。"
+  },
+  {
+   "start": 1326.475,
+   "end": 1331.6,
+   "text": "With a smooth structure in hand, we can define smooth maps between manifolds.",
+   "translation": "有了光滑结构，就可以定义流形之间的光滑映射。"
+  },
+  {
+   "start": 1332.05,
+   "end": 1336.4,
+   "text": "The idea: move the map into coordinates, and judge smoothness there.",
+   "translation": "思路：把映射搬进坐标里，在坐标里判断光滑性。"
+  },
+  {
+   "start": 1336.85,
+   "end": 1344.1,
+   "text": "Let M and N be smooth manifolds of dimensions m and n, and let F from M to N be continuous.",
+   "translation": "设 M、N 分别是 m 维、n 维光滑流形，F : M → N 连续。"
+  },
+  {
+   "start": 1344.55,
+   "end": 1352.95,
+   "text": "F is smooth if for every point p there are charts U, phi around p and V, psi around F of p, with F of U inside V,",
+   "translation": "称 F 光滑，若对每个 p，有 chart (U, φ) ∋ p、(V, ψ) ∋ F(p)，且 F(U) ⊆ V，"
+  },
+  {
+   "start": 1353.4,
+   "end": 1363.475,
+   "text": "such that the coordinate representation, F hat equals psi after F after phi inverse, is infinitely differentiable from phi of U to psi of V.",
+   "translation": "并且坐标表示 F̂ = ψ∘F∘φ⁻¹ : φ(U) → ψ(V) 是 C∞ 的。"
+  },
+  {
+   "start": 1363.925,
+   "end": 1371.85,
+   "text": "Why assume F continuous? Given a chart V around F of p, we can shrink U to U intersect F inverse of V.",
+   "translation": "为什么要求 F 连续？给定 F(p) 附近的 chart V，可以把 U 缩小为 U ∩ F⁻¹(V)。"
+  },
+  {
+   "start": 1372.3,
+   "end": 1378.575,
+   "text": "Continuity makes this set open, so the condition F of U inside V can always be arranged.",
+   "translation": "连续性保证它仍是开集，所以条件 F(U) ⊆ V 总能满足。"
+  },
+  {
+   "start": 1379.025,
+   "end": 1383.725,
+   "text": "But the definition picks one pair of charts. What if we choose another pair?",
+   "translation": "但定义只挑了一对 chart。换一对 chart 呢？"
+  },
+  {
+   "start": 1384.175,
+   "end": 1387.85,
+   "text": "We must prove that the answer does not depend on that choice.",
+   "translation": "我们必须证明，结论与这个选择无关。"
+  },
+  {
+   "start": 1388.3,
+   "end": 1392.7,
+   "text": "Suppose F is smooth near p with respect to U, phi and V, psi.",
+   "translation": "设 F 在 p 附近关于 (U, φ)、(V, ψ) 光滑。"
+  },
+  {
+   "start": 1393.15,
+   "end": 1399.425,
+   "text": "Take any other charts U prime, phi prime around p, and V prime, psi prime around F of p.",
+   "translation": "另取任意 chart (U′, φ′) ∋ p 和 (V′, ψ′) ∋ F(p)。"
+  },
+  {
+   "start": 1399.875,
+   "end": 1408.15,
+   "text": "Step one, a common domain. Let W be U intersect U prime, intersect F inverse of V intersect V prime.",
+   "translation": "第一步，公共定义域。令 W = U ∩ U′ ∩ F⁻¹(V ∩ V′)。"
+  },
+  {
+   "start": 1408.6,
+   "end": 1419.8,
+   "text": "U intersect U prime is open. F is continuous and V intersect V prime is open, so its preimage is open. Hence W is an open set containing p.",
+   "translation": "U ∩ U′ 是开集；F 连续而 V ∩ V′ 是开集，所以其原像是开集。因此 W 是包含 p 的开集。"
+  },
+  {
+   "start": 1420.25,
+   "end": 1425.925,
+   "text": "So phi prime of W is an open subset of R m containing phi prime of p.",
+   "translation": "于是 φ′(W) 是 ℝᵐ 中包含 φ′(p) 的开集。"
+  },
+  {
+   "start": 1426.375,
+   "end": 1429.3,
+   "text": "Step two, split the new representation.",
+   "translation": "第二步，拆分新的坐标表示。"
+  },
+  {
+   "start": 1429.75,
+   "end": 1440.0,
+   "text": "For x in phi prime of W, the point phi prime inverse of x lies in U, so we may insert phi inverse after phi, which is the identity on U.",
+   "translation": "对 x ∈ φ′(W)，点 φ′⁻¹(x) 属于 U，所以可以插入 φ⁻¹∘φ，它是 U 上的恒等映射。"
+  },
+  {
+   "start": 1440.45,
+   "end": 1447.7,
+   "text": "Its image under F lies in V, so we may also insert psi inverse after psi, the identity on V.",
+   "translation": "它在 F 下的像属于 V，所以还可以插入 ψ⁻¹∘ψ，即 V 上的恒等映射。"
+  },
+  {
+   "start": 1448.15,
+   "end": 1457.8,
+   "text": "This gives: psi prime after F after phi prime inverse equals psi prime after psi inverse, then F hat, then phi after phi prime inverse.",
+   "translation": "于是 ψ′∘F∘φ′⁻¹ = (ψ′∘ψ⁻¹)∘F̂∘(φ∘φ′⁻¹)。"
+  },
+  {
+   "start": 1458.25,
+   "end": 1460.725,
+   "text": "Step three, each piece is smooth.",
+   "translation": "第三步，每一段都光滑。"
+  },
+  {
+   "start": 1461.175,
+   "end": 1469.975,
+   "text": "Phi after phi prime inverse is a transition map between charts of the maximal atlas of M, so it is smooth by compatibility.",
+   "translation": "φ∘φ′⁻¹ 是 M 的极大图册中两个 chart 之间的转移映射，由相容性是光滑的。"
+  },
+  {
+   "start": 1470.425,
+   "end": 1475.55,
+   "text": "The middle piece, psi after F after phi inverse, is smooth by assumption.",
+   "translation": "中间一段 ψ∘F∘φ⁻¹ 按假设光滑。"
+  },
+  {
+   "start": 1476.0,
+   "end": 1483.0,
+   "text": "Psi prime after psi inverse is a transition map between charts of N, smooth again by compatibility.",
+   "translation": "ψ′∘ψ⁻¹ 是 N 的两个 chart 之间的转移映射，同样由相容性光滑。"
+  },
+  {
+   "start": 1483.45,
+   "end": 1492.45,
+   "text": "Step four: a composition of smooth maps between open subsets of Euclidean space is smooth, by the chain rule applied at every order.",
+   "translation": "第四步：欧氏空间开集之间光滑映射的复合仍光滑，这由逐阶使用链式法则得到。"
+  },
+  {
+   "start": 1492.9,
+   "end": 1500.275,
+   "text": "So the new coordinate representation is smooth near phi prime of p. Smoothness does not depend on the charts.",
+   "translation": "所以新的坐标表示在 φ′(p) 附近光滑。光滑性与 chart 的选择无关。"
+  },
+  {
+   "start": 1500.725,
+   "end": 1505.175,
+   "text": "The same argument shows that a composition of smooth maps is smooth.",
+   "translation": "同样的论证说明光滑映射的复合仍光滑："
+  },
+  {
+   "start": 1505.625,
+   "end": 1513.075,
+   "text": "The representation of G after F is the representation of G, composed with the representation of F.",
+   "translation": "G∘F 的坐标表示就是 G 的坐标表示与 F 的坐标表示的复合。"
+  },
+  {
+   "start": 1513.525,
+   "end": 1516.5,
+   "text": "Now see where the proof needs each hypothesis.",
+   "translation": "现在看证明在哪里用到了每个条件。"
+  },
+  {
+   "start": 1516.95,
+   "end": 1523.875,
+   "text": "If the charts were not compatible, a transition piece could fail to be smooth, and the chain would break right there.",
+   "translation": "如果 chart 不相容，某段转移映射可能不光滑，链条就在那里断开。"
+  },
+  {
+   "start": 1524.325,
+   "end": 1528.475,
+   "text": "Back on the real line, switch the chart from the identity to kappa.",
+   "translation": "回到实直线：把 chart 从恒等映射换成 κ。"
+  },
+  {
+   "start": 1528.925,
+   "end": 1535.7,
+   "text": "Then the transition piece, identity after kappa inverse, is the cube root. That is the broken link.",
+   "translation": "这时转移段 id∘κ⁻¹ 就是立方根，正是断开的那一环。"
+  },
+  {
+   "start": 1536.15,
+   "end": 1541.25,
+   "text": "Then the same function f of p equals p flips from smooth to not smooth.",
+   "translation": "于是同一个 f(p) = p 的判定从“光滑”翻转为“不光滑”。"
+  },
+  {
+   "start": 1541.7,
+   "end": 1547.75,
+   "text": "And if F were not continuous, the preimage of V intersect V prime might not be open.",
+   "translation": "若 F 不连续，V ∩ V′ 的原像可能不是开集。"
+  },
+  {
+   "start": 1548.2,
+   "end": 1553.675,
+   "text": "Then W would not be open, and smoothness near phi prime of p would make no sense.",
+   "translation": "那样 W 就不是开集，“在 φ′(p) 附近光滑”无从谈起。"
+  },
+  {
+   "start": 1554.125,
+   "end": 1562.425,
+   "text": "Finally, an example: the height function on the circle, F of x, y equals y, with values in R and the identity chart.",
+   "translation": "最后看一个例子：圆上的高度函数 F(x, y) = y，取值于 ℝ，ℝ 用恒等 chart。"
+  },
+  {
+   "start": 1562.875,
+   "end": 1571.825,
+   "text": "In the chart phi plus, F hat of x is the square root of one minus x squared, for x between minus one and one. That is smooth.",
+   "translation": "在 chart φ₊ 下，F̂(x) = √(1 − x²)，−1 < x < 1，光滑。"
+  },
+  {
+   "start": 1572.275,
+   "end": 1580.0,
+   "text": "In the chart phi r, the point with coordinate y has height y, so F hat of y is just y. That is also smooth.",
+   "translation": "在 chart φ_r 下，坐标为 y 的点高度就是 y，所以 F̂(y) = y，也光滑。"
+  },
+  {
+   "start": 1580.45,
+   "end": 1585.5,
+   "text": "On the overlap, the two charts give the same verdict, as the theorem promised.",
+   "translation": "在重叠区上，两个 chart 给出相同的结论，正如定理所保证的。"
+  },
+  {
+   "start": 1585.95,
+   "end": 1594.875,
+   "text": "In Riemannian optimization, the objective f from M to R is exactly such a smooth map, and this is what smooth means for it.",
+   "translation": "在黎曼优化中，目标函数 f : M → ℝ 正是这样的光滑映射，“f 光滑”指的就是这个意思。"
+  },
+  {
+   "start": 1598.875,
+   "end": 1604.95,
+   "text": "A homeomorphism is sameness in the topological sense. What is sameness in the smooth sense?",
+   "translation": "同胚是拓扑意义下的“相同”。光滑意义下的“相同”是什么？"
+  },
+  {
+   "start": 1605.4,
+   "end": 1610.675,
+   "text": "A homeomorphism may crumple a space, as long as nothing is torn or glued.",
+   "translation": "同胚可以把空间揉皱，只要不撕裂、不粘连。"
+  },
+  {
+   "start": 1611.125,
+   "end": 1616.975,
+   "text": "A diffeomorphism must also be smooth in both directions, with no creases or cusps.",
+   "translation": "微分同胚还要求两个方向都光滑，不能有折痕或尖点。"
+  },
+  {
+   "start": 1617.425,
+   "end": 1625.625,
+   "text": "Definition: F from M to N is a diffeomorphism if F is a bijection, F is smooth, and F inverse is smooth.",
+   "translation": "定义：F : M → N 是微分同胚，若 F 是双射、F 光滑、并且 F⁻¹ 光滑。"
+  },
+  {
+   "start": 1626.075,
+   "end": 1631.925,
+   "text": "Consider F of x equals x cubed, on the real line with its standard smooth structure.",
+   "translation": "考虑 F(x) = x³，实直线取标准光滑结构。"
+  },
+  {
+   "start": 1632.375,
+   "end": 1635.275,
+   "text": "F is a polynomial, so it is smooth.",
+   "translation": "F 是多项式，所以光滑。"
+  },
+  {
+   "start": 1635.725,
+   "end": 1644.425,
+   "text": "It is strictly increasing: if x one is less than x two, then x one cubed is less than x two cubed. So it is injective.",
+   "translation": "它严格递增：若 x₁ < x₂，则 x₁³ < x₂³。所以是单射。"
+  },
+  {
+   "start": 1644.875,
+   "end": 1654.875,
+   "text": "It is onto: F is continuous and runs from minus infinity to plus infinity, so by the intermediate value theorem it takes every value.",
+   "translation": "它是满射：F 连续，从 −∞ 增到 +∞，由介值定理取遍所有值。"
+  },
+  {
+   "start": 1655.325,
+   "end": 1659.225,
+   "text": "Evenly spaced inputs land bunched together near zero.",
+   "translation": "等距的输入，在 0 附近被挤到一起。"
+  },
+  {
+   "start": 1659.675,
+   "end": 1666.05,
+   "text": "Its inverse is the cube root, obtained by reflecting the graph across the line y equals x.",
+   "translation": "它的逆是立方根，把图像关于直线 y = x 翻折得到。"
+  },
+  {
+   "start": 1666.5,
+   "end": 1670.65,
+   "text": "The cube root is continuous, so F is a homeomorphism.",
+   "translation": "立方根连续，所以 F 是同胚。"
+  },
+  {
+   "start": 1671.1,
+   "end": 1673.375,
+   "text": "But look at the inverse at zero.",
+   "translation": "但看逆映射在 0 处的情形。"
+  },
+  {
+   "start": 1673.825,
+   "end": 1681.525,
+   "text": "The difference quotient, F inverse of h minus F inverse of zero, over h, equals h to the minus two thirds.",
+   "translation": "差商 (F⁻¹(h) − F⁻¹(0)) / h = h^(−2/3)。"
+  },
+  {
+   "start": 1681.975,
+   "end": 1692.25,
+   "text": "At h equals zero point one, it is four point six. At zero point zero one, twenty one point five. At zero point zero zero one, one hundred.",
+   "translation": "h = 0.1 时为 4.6，h = 0.01 时为 21.5，h = 0.001 时为 100，发散。"
+  },
+  {
+   "start": 1692.7,
+   "end": 1699.875,
+   "text": "So F inverse is not differentiable at zero, and F is a smooth bijection that is not a diffeomorphism.",
+   "translation": "所以 F⁻¹ 在 0 处不可微；F 是光滑双射，却不是微分同胚。"
+  },
+  {
+   "start": 1700.325,
+   "end": 1704.525,
+   "text": "The root cause is the derivative of F at zero, which is zero.",
+   "translation": "根源在于 F 在 0 处的导数为零。"
+  },
+  {
+   "start": 1704.975,
+   "end": 1712.925,
+   "text": "A small segment of length two epsilon around zero is squashed to length two epsilon cubed. One direction is flattened.",
+   "translation": "0 附近长度为 2ε 的小线段被压成长度 2ε³，一个方向被压扁了。"
+  },
+  {
+   "start": 1713.375,
+   "end": 1717.175,
+   "text": "Any inverse would have to stretch it back infinitely fast.",
+   "translation": "任何逆映射都必须以无限快的速率把它拉回去。"
+  },
+  {
+   "start": 1717.625,
+   "end": 1726.15,
+   "text": "In general, suppose F is a diffeomorphism, and differentiate the identity F inverse after F equals the identity map.",
+   "translation": "一般地，设 F 是微分同胚，对恒等式 F⁻¹∘F = id 求导。"
+  },
+  {
+   "start": 1726.6,
+   "end": 1733.35,
+   "text": "The chain rule gives: the derivative of F inverse at F of x, times F prime of x, equals one.",
+   "translation": "由链式法则：(F⁻¹)′(F(x)) · F′(x) = 1。"
+  },
+  {
+   "start": 1733.8,
+   "end": 1740.5,
+   "text": "So F prime of x can never be zero. For x cubed, this necessary condition fails at zero.",
+   "translation": "所以 F′(x) 永远不能为零。对 x³，这个必要条件在 0 处不满足。"
+  },
+  {
+   "start": 1740.95,
+   "end": 1748.3,
+   "text": "The inverse function theorem in the next episode shows that a nonzero derivative is also sufficient, locally.",
+   "translation": "下一集的反函数定理将说明：导数非零在局部上也是充分的。"
+  },
+  {
+   "start": 1748.75,
+   "end": 1754.1,
+   "text": "Now a positive example, which answers a question from the compatibility chapter.",
+   "translation": "再看一个正面的例子，它回答了相容性一章留下的问题。"
+  },
+  {
+   "start": 1754.55,
+   "end": 1763.125,
+   "text": "Give the domain the smooth structure of the chart kappa, give the target the structure of the identity, and consider the same map, p cubed.",
+   "translation": "定义域取 chart κ 的光滑结构，目标取恒等 chart 的结构，考虑同一个映射 p³。"
+  },
+  {
+   "start": 1763.575,
+   "end": 1770.375,
+   "text": "Its coordinate representation is identity after kappa after kappa inverse, which sends u to u.",
+   "translation": "它的坐标表示是 id∘κ∘κ⁻¹，把 u 送到 u。"
+  },
+  {
+   "start": 1770.825,
+   "end": 1778.175,
+   "text": "Its inverse has the representation kappa after kappa inverse after identity inverse, which sends x to x.",
+   "translation": "它的逆的坐标表示是 κ∘κ⁻¹∘id⁻¹，把 x 送到 x。"
+  },
+  {
+   "start": 1778.625,
+   "end": 1787.925,
+   "text": "Both are smooth, so this map is a diffeomorphism. The two smooth structures are different, but as smooth manifolds they are essentially the same.",
+   "translation": "两者都光滑，所以这是微分同胚。两个光滑结构不同，但作为光滑流形本质相同。"
+  },
+  {
+   "start": 1788.375,
+   "end": 1793.7,
+   "text": "Diffeomorphisms are exactly the changes of variables that preserve smoothness.",
+   "translation": "微分同胚恰好是保持光滑性的变量替换。"
+  },
+  {
+   "start": 1794.15,
+   "end": 1803.55,
+   "text": "If F from M to N is a diffeomorphism and f on N is smooth, then f after F is smooth, as a composition of smooth maps.",
+   "translation": "若 F : M → N 是微分同胚，f 在 N 上光滑，则 f∘F 光滑，因为它是光滑映射的复合。"
+  },
+  {
+   "start": 1804.0,
+   "end": 1811.475,
+   "text": "Conversely, if f after F is smooth, then f equals f after F, after F inverse, which is smooth too.",
+   "translation": "反之，若 f∘F 光滑，则 f = (f∘F)∘F⁻¹ 也光滑。"
+  },
+  {
+   "start": 1811.925,
+   "end": 1818.45,
+   "text": "So changing the variables of an optimization problem by a diffeomorphism keeps smoothness intact.",
+   "translation": "所以用微分同胚对优化问题重新参数化，光滑性完整保留。"
+  },
+  {
+   "start": 1818.9,
+   "end": 1824.0,
+   "text": "Let us fill in the dictionary between the topological world and the smooth world.",
+   "translation": "来填写拓扑世界与光滑世界之间的对照表。"
+  },
+  {
+   "start": 1824.45,
+   "end": 1828.025,
+   "text": "Homeomorphisms correspond to diffeomorphisms.",
+   "translation": "同胚对应微分同胚。"
+  },
+  {
+   "start": 1828.475,
+   "end": 1831.625,
+   "text": "Continuous maps correspond to smooth maps.",
+   "translation": "连续映射对应光滑映射。"
+  },
+  {
+   "start": 1832.075,
+   "end": 1839.575,
+   "text": "And charts onto open subsets of R d correspond to compatible charts, which together form a smooth atlas.",
+   "translation": "到 ℝᵈ 开子集的 chart，对应彼此相容、组成光滑图册的 chart。"
+  },
+  {
+   "start": 1843.575,
+   "end": 1846.175,
+   "text": "There are two ways to look at a manifold.",
+   "translation": "看流形有两种方式。"
+  },
+  {
+   "start": 1846.625,
+   "end": 1854.325,
+   "text": "The intrinsic view is like being handed a stack of maps and conversion tables, with no mention of any space outside.",
+   "translation": "内蕴视角就像只拿到一叠地图和换算表，完全不提外部空间。"
+  },
+  {
+   "start": 1854.775,
+   "end": 1860.35,
+   "text": "The manifold is a topological space with a maximal smooth atlas, and nothing more.",
+   "translation": "流形就是一个拓扑空间加上一个极大光滑图册，仅此而已。"
+  },
+  {
+   "start": 1860.8,
+   "end": 1868.175,
+   "text": "The extrinsic view is like being told that the Earth is the set of points in space at distance one from the center.",
+   "translation": "外蕴视角就像被告知：地球是空间中到球心距离为 1 的点的集合。"
+  },
+  {
+   "start": 1868.625,
+   "end": 1874.525,
+   "text": "The manifold is a subset of R n, cut out by an equation, h of x equals c.",
+   "translation": "流形是 ℝⁿ 的子集，由方程 h(x) = c 切出来。"
+  },
+  {
+   "start": 1874.975,
+   "end": 1879.65,
+   "text": "Look again at the half-circle chart. It is really just solving an equation.",
+   "translation": "再看半圆 chart：它其实就是在解方程。"
+  },
+  {
+   "start": 1880.1,
+   "end": 1888.975,
+   "text": "From x squared plus y squared equals one, on the upper arc we solve for y, and get y equals the square root of one minus x squared.",
+   "translation": "从 x² + y² = 1 出发，在上半弧上解出 y，得到 y = √(1 − x²)。"
+  },
+  {
+   "start": 1889.425,
+   "end": 1895.55,
+   "text": "This works only where the partial derivative with respect to y, which is two y, is nonzero.",
+   "translation": "这只在对 y 的偏导数 2y 不为零的地方可行。"
+  },
+  {
+   "start": 1896.0,
+   "end": 1902.15,
+   "text": "As the point approaches one, zero, two y goes to zero, and the tangent line turns vertical.",
+   "translation": "点趋近 (1, 0) 时，2y → 0，切线变得竖直。"
+  },
+  {
+   "start": 1902.6,
+   "end": 1910.85,
+   "text": "There we cannot solve for y. Instead we solve for x, and get x equals the square root of one minus y squared on the right arc.",
+   "translation": "在那里无法解出 y；改为解出 x，在右半弧上得到 x = √(1 − y²)。"
+  },
+  {
+   "start": 1911.3,
+   "end": 1917.25,
+   "text": "The sphere works the same way. S two is the set of points in R three with squared norm one.",
+   "translation": "球面也一样。S² 是 ℝ³ 中满足 ‖x‖² = 1 的点的集合。"
+  },
+  {
+   "start": 1917.7,
+   "end": 1923.1,
+   "text": "Each of six open hemispheres can be described by solving for one coordinate.",
+   "translation": "六个开半球，每一个都可以通过解出一个坐标来描述。"
+  },
+  {
+   "start": 1923.55,
+   "end": 1933.9,
+   "text": "For example, on the upper hemisphere, z equals the square root of one minus x squared minus y squared, and the chart sends x, y, z to x, y.",
+   "translation": "例如在上半球，z = √(1 − x² − y²)，chart 把 (x, y, z) 送到 (x, y)。"
+  },
+  {
+   "start": 1934.35,
+   "end": 1940.0,
+   "text": "The six hemispheres, positive and negative in x, y and z, cover the whole sphere.",
+   "translation": "x、y、z 正负两侧共六个半球，覆盖整个球面。"
+  },
+  {
+   "start": 1940.45,
+   "end": 1945.625,
+   "text": "Now a space we really care about in optimization: the orthogonal group O n.",
+   "translation": "现在看优化中真正关心的空间：正交群 O(n)。"
+  },
+  {
+   "start": 1946.075,
+   "end": 1952.45,
+   "text": "It is the set of n by n real matrices R with R transpose R equal to the identity.",
+   "translation": "它是满足 RᵀR = I 的 n×n 实矩阵 R 的集合。"
+  },
+  {
+   "start": 1952.9,
+   "end": 1956.425,
+   "text": "That is n squared variables. How many equations?",
+   "translation": "变量有 n² 个。方程有几个？"
+  },
+  {
+   "start": 1956.875,
+   "end": 1963.0,
+   "text": "The i, j entry of R transpose R is the inner product of column i with column j.",
+   "translation": "RᵀR 的 (i, j) 元是第 i 列与第 j 列的内积。"
+  },
+  {
+   "start": 1963.45,
+   "end": 1970.475,
+   "text": "That is symmetric in i and j, so the i, j equation and the j, i equation are the same equation.",
+   "translation": "它关于 i、j 对称，所以 (i, j) 与 (j, i) 是同一个方程。"
+  },
+  {
+   "start": 1970.925,
+   "end": 1979.225,
+   "text": "The independent ones sit on and above the diagonal: n on the diagonal, and n times n minus one, over two, above it.",
+   "translation": "独立的方程位于对角线及其上方：对角线 n 个，上方 n(n − 1)/2 个。"
+  },
+  {
+   "start": 1979.675,
+   "end": 1983.8,
+   "text": "In total, n times n plus one, over two equations.",
+   "translation": "合计 n(n + 1)/2 个方程。"
+  },
+  {
+   "start": 1984.25,
+   "end": 1993.725,
+   "text": "So the expected dimension is n squared minus n times n plus one, over two, which simplifies to n times n minus one, over two.",
+   "translation": "所以预期维数是 n² − n(n + 1)/2，化简为 n(n − 1)/2。"
+  },
+  {
+   "start": 1994.175,
+   "end": 2004.425,
+   "text": "For n equals two that is one, the single angle of a plane rotation. For n equals three: nine variables, six equations, expected dimension three.",
+   "translation": "n = 2 时为 1，即平面旋转的一个角度；n = 3 时：9 个变量，6 个方程，预期维数 3。"
+  },
+  {
+   "start": 2004.875,
+   "end": 2014.675,
+   "text": "But this is only an expectation. When the count gives the true dimension, and how to build charts, is the job of a later theorem. Here we only count.",
+   "translation": "但这只是预期。计数何时给出真实维数、如何构造 chart，是后面定理的任务。这里只计数。"
+  },
+  {
+   "start": 2015.125,
+   "end": 2019.875,
+   "text": "So can we build charts for O three by hand, the way we did for the circle?",
+   "translation": "那么，能像对圆那样，手工构造 O(3) 的 chart 吗？"
+  },
+  {
+   "start": 2020.325,
+   "end": 2025.275,
+   "text": "Which six of the nine entries should we solve for? What are the explicit formulas?",
+   "translation": "九个元素中该解出哪六个？显式表达式是什么？"
+  },
+  {
+   "start": 2025.725,
+   "end": 2032.45,
+   "text": "And how do we cover all of O three with charts whose transition maps are smooth? By hand, this does not work.",
+   "translation": "又如何用转移映射光滑的 chart 覆盖整个 O(3)？手工做不下去。"
+  },
+  {
+   "start": 2032.9,
+   "end": 2039.7,
+   "text": "What about a familiar parametrization, such as Euler angles? Here is a supplementary illustration.",
+   "translation": "熟悉的参数化，比如欧拉角，行不行？下面是一个补充示例。"
+  },
+  {
+   "start": 2040.15,
+   "end": 2047.9,
+   "text": "In Z X Z Euler angles, a frame turns about z, then about the new x axis, then about the new z axis.",
+   "translation": "在 ZXZ 欧拉角中，坐标架先绕 z 轴转，再绕新的 x 轴转，最后绕新的 z 轴转。"
+  },
+  {
+   "start": 2048.35,
+   "end": 2053.9,
+   "text": "When the middle angle goes to zero, the first and the third rotation axes coincide.",
+   "translation": "当中间角趋于 0 时，第一和第三个旋转轴重合。"
+  },
+  {
+   "start": 2054.35,
+   "end": 2061.425,
+   "text": "Then the two outer angles act only through their sum: three parameters control only two degrees of freedom.",
+   "translation": "此时两个外角只通过它们的和起作用：三个参数只控制两个自由度。"
+  },
+  {
+   "start": 2061.875,
+   "end": 2071.0,
+   "text": "Near those orientations the map is not a local homeomorphism, so a single convenient parametrization cannot serve as a chart.",
+   "translation": "在这些姿态附近，映射不是局部同胚，所以一个方便的参数化不能充当 chart。"
+  },
+  {
+   "start": 2071.45,
+   "end": 2075.45,
+   "text": "What we need is a machine that turns equations into charts.",
+   "translation": "我们需要一台把方程变成 chart 的机器。"
+  },
+  {
+   "start": 2075.9,
+   "end": 2082.2,
+   "text": "Feed it an equation, h of x equals c, together with a condition on the rank of the derivative.",
+   "translation": "输入方程 h(x) = c，以及关于导数秩的条件，"
+  },
+  {
+   "start": 2082.65,
+   "end": 2086.825,
+   "text": "It returns charts, with smooth transition maps guaranteed.",
+   "translation": "它就输出 chart，并保证转移映射光滑。"
+  },
+  {
+   "start": 2087.275,
+   "end": 2095.225,
+   "text": "The circle already hinted at the condition: we could solve for y exactly where the partial derivative two y was nonzero.",
+   "translation": "圆已经暗示了这个条件：恰好在偏导数 2y 非零的地方能解出 y。"
+  },
+  {
+   "start": 2095.675,
+   "end": 2104.525,
+   "text": "That machine is built in the next two episodes: the inverse function theorem in episode three, and regular level sets in episode four.",
+   "translation": "这台机器在接下来两集中搭建：第三集的反函数定理，第四集的正则水平集。"
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "title": "Riemannian Optimization from the Ground Up",
+ "episodes": [
+  {
+   "id": "e01-topology",
+   "order": 1,
+   "title": "Nearness Without Coordinates: Topology",
+   "status": "delivered"
+  },
+  {
+   "id": "e02-smooth-manifolds",
+   "order": 2,
+   "title": "Charts, Atlases and Smooth Manifolds",
+   "status": "delivered"
+  },
+  {
+   "id": "e03-inverse-function",
+   "order": 3,
+   "title": "The Inverse Function Theorem",
+   "status": "delivered"
+  },
+  {
+   "id": "e04-implicit-level-sets",
+   "order": 4,
+   "title": "Implicit Functions and Regular Level Sets",
+   "status": "delivered"
+  },
+  {
+   "id": "e05-tangent-orthogonal",
+   "order": 5,
+   "title": "Tangent Spaces and the Orthogonal Group",
+   "status": "delivered"
+  },
+  {
+   "id": "e06-gradient-retraction",
+   "order": 6,
+   "title": "Riemannian Gradient and Retraction",
+   "status": "delivered"
+  }
+ ]
+}

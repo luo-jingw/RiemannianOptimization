@@ -1,0 +1,2301 @@
+{
+ "language": "en",
+ "episode": "e04-implicit-level-sets",
+ "duration": 1867.725,
+ "chapters": [
+  {
+   "id": "c01-why-equations",
+   "index": 0,
+   "start": 5.0,
+   "end": 155.45,
+   "title": "Why Let Equations Build the Charts",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    9.85,
+    14.075,
+    19.275,
+    22.55,
+    28.075,
+    34.725,
+    40.275,
+    48.925,
+    55.35,
+    62.35,
+    69.375,
+    78.175,
+    86.8,
+    91.6,
+    96.425,
+    102.275,
+    106.475,
+    112.95,
+    121.175,
+    123.975,
+    128.725,
+    135.275,
+    141.3
+   ],
+   "sentenceEnds": [
+    9.4,
+    13.625,
+    18.825,
+    22.1,
+    27.625,
+    34.275,
+    39.825,
+    48.475,
+    54.9,
+    61.9,
+    68.925,
+    77.725,
+    86.35,
+    91.15,
+    95.975,
+    101.825,
+    106.025,
+    112.5,
+    120.725,
+    123.525,
+    128.275,
+    134.825,
+    140.85,
+    148.85
+   ]
+  },
+  {
+   "id": "c02-circle-and-linear",
+   "index": 1,
+   "start": 155.45,
+   "end": 416.8,
+   "title": "Solving Locally on the Circle, and the Linear Case",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.875,
+    17.2,
+    20.375,
+    24.475,
+    32.95,
+    43.525,
+    55.725,
+    58.575,
+    62.05,
+    66.5,
+    71.55,
+    78.775,
+    85.25,
+    91.0,
+    98.75,
+    104.9,
+    112.35,
+    117.4,
+    123.175,
+    130.95,
+    137.775,
+    142.275,
+    151.9,
+    156.85,
+    165.1,
+    173.725,
+    177.525,
+    189.175,
+    196.6,
+    201.4,
+    209.675,
+    216.3,
+    225.825,
+    231.025,
+    236.925,
+    243.875,
+    251.85
+   ],
+   "sentenceEnds": [
+    9.425,
+    16.75,
+    19.925,
+    24.025,
+    32.5,
+    43.075,
+    55.275,
+    58.125,
+    61.6,
+    66.05,
+    71.1,
+    78.325,
+    84.8,
+    90.55,
+    98.3,
+    104.45,
+    111.9,
+    116.95,
+    122.725,
+    130.5,
+    137.325,
+    141.825,
+    151.45,
+    156.4,
+    164.65,
+    173.275,
+    177.075,
+    188.725,
+    196.15,
+    200.95,
+    209.225,
+    215.85,
+    225.375,
+    230.575,
+    236.475,
+    243.425,
+    251.4,
+    259.75
+   ]
+  },
+  {
+   "id": "c03-ift-proof",
+   "index": 2,
+   "start": 416.8,
+   "end": 683.025,
+   "title": "Deriving the Implicit Function Theorem",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    8.725,
+    14.375,
+    20.0,
+    26.4,
+    32.425,
+    41.1,
+    44.3,
+    50.425,
+    57.35,
+    64.75,
+    69.15,
+    76.625,
+    80.925,
+    86.825,
+    92.95,
+    99.325,
+    105.075,
+    108.3,
+    117.075,
+    121.7,
+    124.5,
+    129.0,
+    134.85,
+    138.8,
+    145.725,
+    150.85,
+    157.475,
+    163.3,
+    168.85,
+    173.15,
+    181.375,
+    184.825,
+    189.4,
+    196.025,
+    202.425,
+    207.925,
+    217.05,
+    222.675,
+    231.7,
+    237.3,
+    244.875,
+    252.85,
+    256.6
+   ],
+   "sentenceEnds": [
+    8.275,
+    13.925,
+    19.55,
+    25.95,
+    31.975,
+    40.65,
+    43.85,
+    49.975,
+    56.9,
+    64.3,
+    68.7,
+    76.175,
+    80.475,
+    86.375,
+    92.5,
+    98.875,
+    104.625,
+    107.85,
+    116.625,
+    121.25,
+    124.05,
+    128.55,
+    134.4,
+    138.35,
+    145.275,
+    150.4,
+    157.025,
+    162.85,
+    168.4,
+    172.7,
+    180.925,
+    184.375,
+    188.95,
+    195.575,
+    201.975,
+    207.475,
+    216.6,
+    222.225,
+    231.25,
+    236.85,
+    244.425,
+    252.4,
+    256.15,
+    264.625
+   ]
+  },
+  {
+   "id": "c04-implicit-derivative",
+   "index": 3,
+   "start": 683.025,
+   "end": 837.1,
+   "title": "The Derivative of g Without Solving for g",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    8.3,
+    14.7,
+    19.0,
+    26.225,
+    32.35,
+    40.775,
+    45.875,
+    53.0,
+    61.575,
+    72.575,
+    81.2,
+    89.325,
+    91.875,
+    101.525,
+    108.675,
+    118.525,
+    127.775,
+    130.9,
+    135.525,
+    142.225
+   ],
+   "sentenceEnds": [
+    7.85,
+    14.25,
+    18.55,
+    25.775,
+    31.9,
+    40.325,
+    45.425,
+    52.55,
+    61.125,
+    72.125,
+    80.75,
+    88.875,
+    91.425,
+    101.075,
+    108.225,
+    118.075,
+    127.325,
+    130.45,
+    135.075,
+    141.775,
+    152.475
+   ]
+  },
+  {
+   "id": "c05-regular-value",
+   "index": 4,
+   "start": 837.1,
+   "end": 1038.425,
+   "title": "Regular Values: Full Rank at Every Point",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.6,
+    15.45,
+    22.325,
+    26.9,
+    31.9,
+    37.725,
+    45.375,
+    52.5,
+    58.275,
+    63.4,
+    72.7,
+    78.925,
+    86.6,
+    95.925,
+    105.5,
+    109.75,
+    116.675,
+    126.8,
+    135.625,
+    143.9,
+    152.15,
+    158.975,
+    162.85,
+    170.3,
+    175.4,
+    183.25,
+    190.975
+   ],
+   "sentenceEnds": [
+    9.15,
+    15.0,
+    21.875,
+    26.45,
+    31.45,
+    37.275,
+    44.925,
+    52.05,
+    57.825,
+    62.95,
+    72.25,
+    78.475,
+    86.15,
+    95.475,
+    105.05,
+    109.3,
+    116.225,
+    126.35,
+    135.175,
+    143.45,
+    151.7,
+    158.525,
+    162.4,
+    169.85,
+    174.95,
+    182.8,
+    190.525,
+    199.725
+   ]
+  },
+  {
+   "id": "c06-level-set-theorem",
+   "index": 5,
+   "start": 1038.425,
+   "end": 1289.35,
+   "title": "The Regular Level Set Theorem",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    5.7,
+    13.3,
+    21.875,
+    26.45,
+    34.925,
+    37.4,
+    47.65,
+    52.725,
+    61.925,
+    69.075,
+    75.8,
+    80.875,
+    90.6,
+    99.4,
+    107.725,
+    111.55,
+    116.4,
+    127.175,
+    136.4,
+    145.8,
+    153.675,
+    157.825,
+    162.75,
+    171.875,
+    179.0,
+    185.975,
+    193.35,
+    200.25,
+    208.225,
+    219.75,
+    224.85,
+    229.325,
+    233.225,
+    239.8
+   ],
+   "sentenceEnds": [
+    5.25,
+    12.85,
+    21.425,
+    26.0,
+    34.475,
+    36.95,
+    47.2,
+    52.275,
+    61.475,
+    68.625,
+    75.35,
+    80.425,
+    90.15,
+    98.95,
+    107.275,
+    111.1,
+    115.95,
+    126.725,
+    135.95,
+    145.35,
+    153.225,
+    157.375,
+    162.3,
+    171.425,
+    178.55,
+    185.525,
+    192.9,
+    199.8,
+    207.775,
+    219.3,
+    224.4,
+    228.875,
+    232.775,
+    239.35,
+    249.325
+   ]
+  },
+  {
+   "id": "c07-sphere",
+   "index": 6,
+   "start": 1289.35,
+   "end": 1446.8,
+   "title": "The Sphere: One Derivative, Zero Charts",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    6.425,
+    12.925,
+    22.0,
+    27.625,
+    38.125,
+    46.525,
+    51.85,
+    59.775,
+    66.7,
+    73.4,
+    81.25,
+    85.4,
+    89.95,
+    99.15,
+    105.5,
+    113.025,
+    120.175,
+    123.65,
+    132.35,
+    138.375,
+    147.65
+   ],
+   "sentenceEnds": [
+    5.975,
+    12.475,
+    21.55,
+    27.175,
+    37.675,
+    46.075,
+    51.4,
+    59.325,
+    66.25,
+    72.95,
+    80.8,
+    84.95,
+    89.5,
+    98.7,
+    105.05,
+    112.575,
+    119.725,
+    123.2,
+    131.9,
+    137.925,
+    147.2,
+    155.85
+   ]
+  },
+  {
+   "id": "c08-when-regularity-fails",
+   "index": 7,
+   "start": 1446.8,
+   "end": 1772.025,
+   "title": "When Regularity Fails",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.075,
+    14.875,
+    19.7,
+    28.275,
+    36.425,
+    42.9,
+    47.3,
+    52.4,
+    57.15,
+    61.775,
+    70.125,
+    75.675,
+    83.65,
+    89.45,
+    98.425,
+    103.8,
+    112.125,
+    116.5,
+    126.475,
+    136.45,
+    143.2,
+    147.725,
+    156.325,
+    164.8,
+    173.2,
+    178.325,
+    188.075,
+    197.125,
+    202.525,
+    209.1,
+    218.05,
+    223.575,
+    226.7,
+    235.45,
+    240.575,
+    249.25,
+    258.65,
+    265.625,
+    270.4,
+    277.025,
+    284.925,
+    293.075,
+    300.45,
+    305.175,
+    310.925,
+    314.25
+   ],
+   "sentenceEnds": [
+    7.625,
+    14.425,
+    19.25,
+    27.825,
+    35.975,
+    42.45,
+    46.85,
+    51.95,
+    56.7,
+    61.325,
+    69.675,
+    75.225,
+    83.2,
+    89.0,
+    97.975,
+    103.35,
+    111.675,
+    116.05,
+    126.025,
+    136.0,
+    142.75,
+    147.275,
+    155.875,
+    164.35,
+    172.75,
+    177.875,
+    187.625,
+    196.675,
+    202.075,
+    208.65,
+    217.6,
+    223.125,
+    226.25,
+    235.0,
+    240.125,
+    248.8,
+    258.2,
+    265.175,
+    269.95,
+    276.575,
+    284.475,
+    292.625,
+    300.0,
+    304.725,
+    310.475,
+    313.8,
+    323.625
+   ]
+  },
+  {
+   "id": "c09-recap-bridge",
+   "index": 8,
+   "start": 1772.025,
+   "end": 1862.725,
+   "title": "Two Mechanical Steps, and What Comes Next",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    5.8,
+    11.925,
+    19.35,
+    24.75,
+    33.7,
+    37.325,
+    44.2,
+    49.575,
+    57.675,
+    61.15,
+    66.025,
+    73.65,
+    80.9
+   ],
+   "sentenceEnds": [
+    5.35,
+    11.475,
+    18.9,
+    24.3,
+    33.25,
+    36.875,
+    43.75,
+    49.125,
+    57.225,
+    60.7,
+    65.575,
+    73.2,
+    80.45,
+    89.1
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 14.4,
+   "text": "In the last two episodes, we built smooth manifolds out of charts, and we proved the inverse function theorem.",
+   "translation": "前两集里，我们用 chart 搭建了光滑流形，并证明了反函数定理。"
+  },
+  {
+   "start": 14.85,
+   "end": 18.625,
+   "text": "Now we put the two together, and ask a practical question.",
+   "translation": "现在把两者结合起来，问一个实际的问题。"
+  },
+  {
+   "start": 19.075,
+   "end": 23.825,
+   "text": "How do we know that a set described by equations is a smooth manifold?",
+   "translation": "怎样知道一个由方程描述的集合是光滑流形？"
+  },
+  {
+   "start": 24.275,
+   "end": 27.1,
+   "text": "For the sphere, charts are easy to draw.",
+   "translation": "对球面来说，chart 很容易画出来。"
+  },
+  {
+   "start": 27.55,
+   "end": 32.625,
+   "text": "Cut it into six hemispheres: upper and lower, front and back, left and right.",
+   "translation": "把它切成六个半球：上和下、前和后、左和右。"
+  },
+  {
+   "start": 33.075,
+   "end": 39.275,
+   "text": "Each hemisphere projects onto a flat disk in a coordinate plane, and that projection is a chart.",
+   "translation": "每个半球投影到某个坐标平面上的圆盘，这个投影就是一个 chart。"
+  },
+  {
+   "start": 39.725,
+   "end": 44.825,
+   "text": "Six charts cover the whole sphere, and the transition maps can be checked by hand.",
+   "translation": "六个 chart 覆盖整个球面，转移映射可以手工验证。"
+  },
+  {
+   "start": 45.275,
+   "end": 53.475,
+   "text": "Now consider the orthogonal group, O three: all three by three matrices R with R transpose R equal to the identity.",
+   "translation": "再看正交群 O(3)：所有满足 RᵀR = I 的 3×3 矩阵 R。"
+  },
+  {
+   "start": 53.925,
+   "end": 59.9,
+   "text": "A three by three matrix has nine entries, so O three lives in a nine dimensional space.",
+   "translation": "3×3 矩阵有九个元素，所以 O(3) 住在九维空间里。"
+  },
+  {
+   "start": 60.35,
+   "end": 66.9,
+   "text": "R transpose R is symmetric, so the matrix equation amounts to six distinct scalar equations.",
+   "translation": "RᵀR 是对称矩阵，所以这个矩阵方程相当于六个不同的标量方程。"
+  },
+  {
+   "start": 67.35,
+   "end": 73.925,
+   "text": "Nine variables, six equations. There is no hemisphere to draw, and no picture to guess charts from.",
+   "translation": "九个变量，六个方程。没有半球可画，也没有图可以用来猜 chart。"
+  },
+  {
+   "start": 74.375,
+   "end": 82.725,
+   "text": "Recall what a smooth manifold demands: a chart around every point, and smooth transition maps wherever two charts overlap.",
+   "translation": "回忆光滑流形的要求：每一点附近都有 chart，任意两个 chart 重叠处转移映射光滑。"
+  },
+  {
+   "start": 83.175,
+   "end": 91.35,
+   "text": "Building charts one by one, proving that they cover the set, and checking every transition map does not scale to sets like this.",
+   "translation": "逐个构造 chart、证明它们覆盖集合、再检查每个转移映射，对这类集合行不通。"
+  },
+  {
+   "start": 91.8,
+   "end": 96.15,
+   "text": "What we want is a machine. Feed in the equations, and get charts out.",
+   "translation": "我们想要一台机器：输入方程，输出 chart。"
+  },
+  {
+   "start": 96.6,
+   "end": 100.975,
+   "text": "But not every system of equations can be fed into such a machine.",
+   "translation": "但并不是所有方程组都能放进这台机器。"
+  },
+  {
+   "start": 101.425,
+   "end": 106.825,
+   "text": "Take x squared minus y squared equals zero. The equation is perfectly smooth.",
+   "translation": "看 x² − y² = 0。这个方程完全光滑。"
+  },
+  {
+   "start": 107.275,
+   "end": 111.025,
+   "text": "Its solution set is two lines crossing at the origin.",
+   "translation": "它的解集是在原点交叉的两条直线。"
+  },
+  {
+   "start": 111.475,
+   "end": 117.5,
+   "text": "Near the crossing, the set looks like a plus sign, not like a line. It is not a manifold there.",
+   "translation": "在交叉点附近，集合像一个加号，而不像一条线。它在那里不是流形。"
+  },
+  {
+   "start": 117.95,
+   "end": 125.725,
+   "text": "So the machine needs a condition on the equations. We will find out exactly what it is, and come back to this cross near the end.",
+   "translation": "所以这台机器需要对方程加条件。我们会找出它到底是什么，并在最后回到这个十字。"
+  },
+  {
+   "start": 126.175,
+   "end": 128.525,
+   "text": "Here is the route of this episode.",
+   "translation": "下面是本集的路线。"
+  },
+  {
+   "start": 128.975,
+   "end": 133.275,
+   "text": "We start from the inverse function theorem, which we have already proved.",
+   "translation": "从已经证明过的反函数定理出发。"
+  },
+  {
+   "start": 133.725,
+   "end": 139.825,
+   "text": "From it we derive the implicit function theorem, which solves some variables in terms of the others.",
+   "translation": "由它推出隐函数定理：用一部分变量解出另一部分变量。"
+  },
+  {
+   "start": 140.275,
+   "end": 145.85,
+   "text": "From that we derive the regular level set theorem, which turns equations into charts.",
+   "translation": "再由它推出正则水平集定理：把方程变成 chart。"
+  },
+  {
+   "start": 146.3,
+   "end": 153.85,
+   "text": "In the end, inventing an atlas is replaced by two mechanical steps: differentiate the equations, and check a rank.",
+   "translation": "最终，“发明一套 atlas”被换成两步机械计算：对方程求导，再检查秩。"
+  },
+  {
+   "start": 157.85,
+   "end": 164.875,
+   "text": "Let us start with the most familiar equation: f of x, y equals x squared plus y squared minus one.",
+   "translation": "从最熟悉的方程开始：f(x, y) = x² + y² − 1。"
+  },
+  {
+   "start": 165.325,
+   "end": 172.2,
+   "text": "Its graph is a bowl, and the solutions of f equals zero are where the bowl meets the flat plane at height zero.",
+   "translation": "它的图像是一个碗；f = 0 的解，就是碗与高度为 0 的平面相交的地方。"
+  },
+  {
+   "start": 172.65,
+   "end": 175.375,
+   "text": "That intersection is the unit circle.",
+   "translation": "交线就是单位圆。"
+  },
+  {
+   "start": 175.825,
+   "end": 179.475,
+   "text": "Looking from above, we keep only the circle in the plane.",
+   "translation": "从正上方看，只保留平面里的这个圆。"
+  },
+  {
+   "start": 179.925,
+   "end": 187.95,
+   "text": "The circle is not the graph of a single function y of x: each x between minus one and one has two values of y.",
+   "translation": "这个圆不是某一个函数 y(x) 的图像：−1 与 1 之间的每个 x 都对应两个 y。"
+  },
+  {
+   "start": 188.4,
+   "end": 198.525,
+   "text": "But locally it is. Near the point p, zero point six, zero point eight, the circle is the graph of y equals the square root of one minus x squared.",
+   "translation": "但局部上是。在点 p = (0.6, 0.8) 附近，圆就是 y = √(1 − x²) 的图像。"
+  },
+  {
+   "start": 198.975,
+   "end": 210.725,
+   "text": "Precisely: there are open intervals A around a and B around b, such that inside the box A times B, f of x, y equals zero exactly when y equals g of x.",
+   "translation": "准确地说：存在开区间 A ∋ a、B ∋ b，使得在盒子 A × B 内，f(x, y) = 0 ⇔ y = g(x)。"
+  },
+  {
+   "start": 211.175,
+   "end": 213.575,
+   "text": "We call this solving for y locally.",
+   "translation": "这叫作局部地解出 y。"
+  },
+  {
+   "start": 214.025,
+   "end": 217.05,
+   "text": "Let the box slide along the circle toward the right.",
+   "translation": "让盒子沿着圆向右滑动。"
+  },
+  {
+   "start": 217.5,
+   "end": 221.5,
+   "text": "It still works, but the box has to get narrower and narrower.",
+   "translation": "仍然可以，但盒子必须越来越窄。"
+  },
+  {
+   "start": 221.95,
+   "end": 226.55,
+   "text": "At the point one, zero, it fails, no matter how small the box is.",
+   "translation": "到了点 (1, 0)，无论盒子多小都不行。"
+  },
+  {
+   "start": 227.0,
+   "end": 233.775,
+   "text": "To the left of x equals one, each vertical line meets the circle twice, so there are two values of y.",
+   "translation": "在 x = 1 左边，每条竖线与圆交两次，所以有两个 y。"
+  },
+  {
+   "start": 234.225,
+   "end": 240.25,
+   "text": "To the right, a vertical line misses the circle entirely, so there is no value of y at all.",
+   "translation": "在右边，竖线与圆完全不相交，所以一个 y 也没有。"
+  },
+  {
+   "start": 240.7,
+   "end": 246.0,
+   "text": "Shrinking the box does not help: however small it is, the same two failures appear.",
+   "translation": "缩小盒子没有用：无论多小，同样的两种失败都会出现。"
+  },
+  {
+   "start": 246.45,
+   "end": 253.75,
+   "text": "What is special about this point? The partial derivative of f with respect to y is two y, and here y is zero.",
+   "translation": "这一点有什么特别？f 对 y 的偏导数是 2y，而这里 y = 0。"
+  },
+  {
+   "start": 254.2,
+   "end": 259.9,
+   "text": "But the partial derivative with respect to x is two x, which equals two, not zero.",
+   "translation": "但 f 对 x 的偏导数是 2x，等于 2，不是 0。"
+  },
+  {
+   "start": 260.35,
+   "end": 267.35,
+   "text": "So turn the box sideways and solve for x instead: x equals the square root of one minus y squared.",
+   "translation": "所以把盒子转个方向，改为解 x：x = √(1 − y²)。"
+  },
+  {
+   "start": 267.8,
+   "end": 272.4,
+   "text": "Every horizontal line in this box meets the circle exactly once.",
+   "translation": "这个盒子里每条横线都恰好与圆交一次。"
+  },
+  {
+   "start": 272.85,
+   "end": 278.175,
+   "text": "Which variable we solve for is a choice, and the derivative tells us which choice works.",
+   "translation": "解哪个变量是一种选择，而导数告诉我们哪种选择可行。"
+  },
+  {
+   "start": 278.625,
+   "end": 285.95,
+   "text": "Around the whole circle: on the top and bottom arcs we solve for y, and on the left and right arcs we solve for x.",
+   "translation": "绕圆一周：在上弧和下弧解 y，在左弧和右弧解 x。"
+  },
+  {
+   "start": 286.4,
+   "end": 292.775,
+   "text": "Four overlapping pieces cover the circle, just like the four charts of the circle in episode two.",
+   "translation": "四段相互重叠的弧覆盖整个圆，正如第二集中圆的四个 chart。"
+  },
+  {
+   "start": 293.225,
+   "end": 297.275,
+   "text": "Why does the derivative decide? Look first at the linear case.",
+   "translation": "为什么由导数决定？先看线性情形。"
+  },
+  {
+   "start": 297.725,
+   "end": 306.9,
+   "text": "Let f of x, y be A times x plus B times y, with the matrix A of size k by d, and the matrix B of size k by k.",
+   "translation": "设 f(x, y) = Ax + By，其中 A 是 k×d 矩阵，B 是 k×k 矩阵。"
+  },
+  {
+   "start": 307.35,
+   "end": 311.85,
+   "text": "The block B multiplies exactly the variables we want to solve for.",
+   "translation": "B 这一块乘的，正是我们想解出的变量。"
+  },
+  {
+   "start": 312.3,
+   "end": 320.1,
+   "text": "If B is invertible, then A times x plus B times y equals zero means B times y equals minus A times x.",
+   "translation": "若 B 可逆，那么 Ax + By = 0 意味着 By = −Ax。"
+  },
+  {
+   "start": 320.55,
+   "end": 328.725,
+   "text": "Multiplying by B inverse gives y equals minus B inverse A x. The solution exists and is unique, for every x.",
+   "translation": "两边左乘 B⁻¹，得 y = −B⁻¹Ax。对每个 x，解都存在且唯一。"
+  },
+  {
+   "start": 329.175,
+   "end": 332.525,
+   "text": "If B is not invertible, two things go wrong.",
+   "translation": "若 B 不可逆，会出两种问题。"
+  },
+  {
+   "start": 332.975,
+   "end": 344.175,
+   "text": "First, B has a nonzero kernel vector w. If x, y is a solution, so is x, y plus w, because B w is zero. Solutions are not unique.",
+   "translation": "第一，B 有非零的核向量 w。若 (x, y) 是解，(x, y + w) 也是解，因为 Bw = 0。解不唯一。"
+  },
+  {
+   "start": 344.625,
+   "end": 351.6,
+   "text": "Second, the range of B is a proper subspace. Whenever A x falls outside it, there is no solution at all.",
+   "translation": "第二，B 的值域是真子空间。只要 Ax 落在它之外，就根本没有解。"
+  },
+  {
+   "start": 352.05,
+   "end": 356.4,
+   "text": "Whether that happens depends on A, so existence may fail too.",
+   "translation": "这是否发生取决于 A，所以存在性也可能失败。"
+  },
+  {
+   "start": 356.85,
+   "end": 364.675,
+   "text": "These are exactly the two failures we saw at the point one, zero: two values of y on one side, none on the other.",
+   "translation": "这正是在点 (1, 0) 看到的两种失败：一侧有两个 y，另一侧一个也没有。"
+  },
+  {
+   "start": 365.125,
+   "end": 371.3,
+   "text": "A nonlinear f is not linear, but near the point a, b, f is approximately linear.",
+   "translation": "非线性的 f 不是线性的，但在点 (a, b) 附近近似线性。"
+  },
+  {
+   "start": 371.75,
+   "end": 380.825,
+   "text": "Since f of a, b is zero, f of x, y is approximately D x f times x minus a, plus D y f times y minus b.",
+   "translation": "由于 f(a, b) = 0，f(x, y) ≈ D_x f·(x − a) + D_y f·(y − b)。"
+  },
+  {
+   "start": 381.275,
+   "end": 386.025,
+   "text": "D x f plays the role of A, and D y f plays the role of B.",
+   "translation": "D_x f 扮演 A 的角色，D_y f 扮演 B 的角色。"
+  },
+  {
+   "start": 386.475,
+   "end": 391.925,
+   "text": "So the natural condition is that D y f, at the point a, b, is invertible.",
+   "translation": "所以自然的条件是：D_y f 在点 (a, b) 处可逆。"
+  },
+  {
+   "start": 392.375,
+   "end": 398.875,
+   "text": "The linear approximation can only be trusted near the point, so the conclusion can only be local.",
+   "translation": "线性近似只在该点附近可信，所以结论只能是局部的。"
+  },
+  {
+   "start": 399.325,
+   "end": 406.85,
+   "text": "Turning the linear statement into a local nonlinear statement is exactly the job of the inverse function theorem.",
+   "translation": "把线性结论推广成非线性的局部结论，正是反函数定理的工作。"
+  },
+  {
+   "start": 407.3,
+   "end": 415.2,
+   "text": "And the derivative of the solution will turn out to be the linear answer, minus B inverse A, evaluated point by point.",
+   "translation": "而解的导数，将会正是线性情形的答案 −B⁻¹A，在每一点取值。"
+  },
+  {
+   "start": 419.2,
+   "end": 425.075,
+   "text": "The inverse function theorem only handles square maps: n equations in n unknowns.",
+   "translation": "反函数定理只处理方阵映射：n 个方程，n 个未知数。"
+  },
+  {
+   "start": 425.525,
+   "end": 430.725,
+   "text": "Our situation is different. We have k equations, but d plus k unknowns.",
+   "translation": "我们的情形不同：只有 k 个方程，却有 d + k 个未知数。"
+  },
+  {
+   "start": 431.175,
+   "end": 436.35,
+   "text": "That is d equations too few, so the theorem cannot be applied to f directly.",
+   "translation": "方程少了 d 个，所以不能直接对 f 使用这个定理。"
+  },
+  {
+   "start": 436.8,
+   "end": 442.75,
+   "text": "The trick is to supply the missing d equations ourselves, by copying the free variable x.",
+   "translation": "技巧是自己补上缺的 d 个方程：把自由变量 x 原样抄一份。"
+  },
+  {
+   "start": 443.2,
+   "end": 448.775,
+   "text": "Define capital F of x, y as the pair: x itself, and f of x, y.",
+   "translation": "定义 F(x, y) = (x, f(x, y))：第一分量是 x 本身，第二分量是 f(x, y)。"
+  },
+  {
+   "start": 449.225,
+   "end": 457.45,
+   "text": "Now F maps d plus k variables to d plus k values, so it is square, and it sends the point a, b to a, zero.",
+   "translation": "现在 F 把 d + k 个变量映到 d + k 个值，是方阵映射，并且把点 (a, b) 送到 (a, 0)。"
+  },
+  {
+   "start": 457.9,
+   "end": 460.65,
+   "text": "Let us watch what F does to the circle.",
+   "translation": "来看 F 对圆做了什么。"
+  },
+  {
+   "start": 461.1,
+   "end": 466.775,
+   "text": "Each point keeps its horizontal coordinate, while its height is replaced by the value of f.",
+   "translation": "每个点保留横坐标，而纵坐标被换成 f 的值。"
+  },
+  {
+   "start": 467.225,
+   "end": 473.7,
+   "text": "Every point of the circle has f equal to zero, so the whole circle lands on the horizontal axis.",
+   "translation": "圆上每一点都满足 f = 0，所以整个圆都落到横轴上。"
+  },
+  {
+   "start": 474.15,
+   "end": 481.1,
+   "text": "So F straightens the curved solution set: solving f equals zero becomes reading off v equals zero.",
+   "translation": "F 把弯曲的解集拉直了：解 f = 0 变成了读出 v = 0。"
+  },
+  {
+   "start": 481.55,
+   "end": 485.5,
+   "text": "Next, we compute the derivative of F at the point a, b.",
+   "translation": "接下来计算 F 在点 (a, b) 处的导数。"
+  },
+  {
+   "start": 485.95,
+   "end": 492.975,
+   "text": "The first row comes from the first component, x. Its derivative is the identity in x, and zero in y.",
+   "translation": "第一行来自第一分量 x：它对 x 的导数是单位阵，对 y 的导数是 0。"
+  },
+  {
+   "start": 493.425,
+   "end": 497.275,
+   "text": "The second row is just the two partial derivatives of f.",
+   "translation": "第二行就是 f 的两个偏导数。"
+  },
+  {
+   "start": 497.725,
+   "end": 503.175,
+   "text": "So D F is block lower triangular, with a zero block in the upper right corner.",
+   "translation": "所以 DF 是分块下三角矩阵，右上角是零块。"
+  },
+  {
+   "start": 503.625,
+   "end": 509.3,
+   "text": "For such a matrix, the determinant is the product of the determinants of the diagonal blocks.",
+   "translation": "这种矩阵的行列式等于对角块行列式的乘积。"
+  },
+  {
+   "start": 509.75,
+   "end": 515.675,
+   "text": "That gives one, times the determinant of D y f, which is nonzero by assumption.",
+   "translation": "结果是 1 乘以 det D_y f，而它按假设不为零。"
+  },
+  {
+   "start": 516.125,
+   "end": 521.425,
+   "text": "So the hypothesis on D y f is exactly what makes D F invertible.",
+   "translation": "所以关于 D_y f 的假设，恰好就是让 DF 可逆的条件。"
+  },
+  {
+   "start": 521.875,
+   "end": 524.65,
+   "text": "Now the inverse function theorem applies.",
+   "translation": "现在可以使用反函数定理了。"
+  },
+  {
+   "start": 525.1,
+   "end": 533.425,
+   "text": "F restricts to a diffeomorphism from an open set U zero around a, b, onto an open set V zero around a, zero.",
+   "translation": "F 限制成从 (a, b) 附近的开集 U₀ 到 (a, 0) 附近的开集 V₀ 的微分同胚。"
+  },
+  {
+   "start": 533.875,
+   "end": 538.05,
+   "text": "Write the inverse in components, capital X and capital Y.",
+   "translation": "把逆映射写成分量形式：F⁻¹ = (X, Y)。"
+  },
+  {
+   "start": 538.5,
+   "end": 540.85,
+   "text": "What is the first component, X?",
+   "translation": "第一分量 X 是什么？"
+  },
+  {
+   "start": 541.3,
+   "end": 545.35,
+   "text": "Let x, y be the point that F inverse sends u, v to.",
+   "translation": "设 (x, y) = F⁻¹(u, v)。"
+  },
+  {
+   "start": 545.8,
+   "end": 551.2,
+   "text": "Then u, v equals F of x, y, which is x, together with f of x, y.",
+   "translation": "那么 (u, v) = F(x, y) = (x, f(x, y))。"
+  },
+  {
+   "start": 551.65,
+   "end": 555.15,
+   "text": "Comparing first components gives u equals x.",
+   "translation": "比较第一分量，得到 u = x。"
+  },
+  {
+   "start": 555.6,
+   "end": 562.075,
+   "text": "So F inverse never changes the first coordinate. It equals u, together with Y of u, v.",
+   "translation": "所以 F⁻¹ 从不改动第一个坐标：F⁻¹(u, v) = (u, Y(u, v))。"
+  },
+  {
+   "start": 562.525,
+   "end": 567.2,
+   "text": "Now restrict attention to the horizontal axis, v equals zero.",
+   "translation": "现在只看横轴 v = 0。"
+  },
+  {
+   "start": 567.65,
+   "end": 573.825,
+   "text": "Define g of u as Y of u, zero, for every u whose point u, zero lies in V zero.",
+   "translation": "对所有满足 (u, 0) ∈ V₀ 的 u，定义 g(u) = Y(u, 0)。"
+  },
+  {
+   "start": 574.275,
+   "end": 579.65,
+   "text": "Then g is smooth, as a composition of smooth maps, and g of a equals b.",
+   "translation": "g 是光滑映射的复合，因而光滑，并且 g(a) = b。"
+  },
+  {
+   "start": 580.1,
+   "end": 585.2,
+   "text": "Pulling the axis back through F inverse traces out exactly the graph of g.",
+   "translation": "把横轴经 F⁻¹ 拉回去，画出的正是 g 的图像。"
+  },
+  {
+   "start": 585.65,
+   "end": 589.5,
+   "text": "First direction: every point on the graph is a solution.",
+   "translation": "第一个方向：图像上的每一点都是解。"
+  },
+  {
+   "start": 589.95,
+   "end": 597.725,
+   "text": "Apply F to u, g of u. We get u, zero, and by the definition of F, this is u, together with f of u, g of u.",
+   "translation": "对 (u, g(u)) 作用 F，得到 (u, 0)；按 F 的定义，它又等于 (u, f(u, g(u)))。"
+  },
+  {
+   "start": 598.175,
+   "end": 601.175,
+   "text": "So f of u, g of u equals zero.",
+   "translation": "所以 f(u, g(u)) = 0。"
+  },
+  {
+   "start": 601.625,
+   "end": 605.75,
+   "text": "Second direction: every nearby solution lies on the graph.",
+   "translation": "第二个方向：附近的每个解都在图像上。"
+  },
+  {
+   "start": 606.2,
+   "end": 612.375,
+   "text": "If x, y lies in U zero and f of x, y is zero, then F sends it to x, zero.",
+   "translation": "若 (x, y) ∈ U₀ 且 f(x, y) = 0，那么 F 把它送到 (x, 0)。"
+  },
+  {
+   "start": 612.825,
+   "end": 618.775,
+   "text": "But F also sends x, g of x to x, zero, and F is one to one on U zero.",
+   "translation": "而 F 也把 (x, g(x)) 送到 (x, 0)，并且 F 在 U₀ 上是单射。"
+  },
+  {
+   "start": 619.225,
+   "end": 624.275,
+   "text": "Hence y equals g of x. This is the step that uses injectivity.",
+   "translation": "因此 y = g(x)。用到单射性的正是这一步。"
+  },
+  {
+   "start": 624.725,
+   "end": 633.4,
+   "text": "Notice that the mirror point below also maps to x, zero. It lies outside U zero, which is why the conclusion is only local.",
+   "translation": "注意下方的镜像点也被送到 (x, 0)；它在 U₀ 之外，这正是结论只能是局部的原因。"
+  },
+  {
+   "start": 633.85,
+   "end": 639.025,
+   "text": "Finally, shrink to a box, A times B, around a, b, inside U zero.",
+   "translation": "最后，在 U₀ 内取一个包含 (a, b) 的盒子 A × B。"
+  },
+  {
+   "start": 639.475,
+   "end": 648.05,
+   "text": "Inside the box, f of x, y equals zero exactly when y equals g of x. The same argument shows that g is unique.",
+   "translation": "在盒子里，f(x, y) = 0 当且仅当 y = g(x)；同样的论证说明 g 是唯一的。"
+  },
+  {
+   "start": 648.5,
+   "end": 653.65,
+   "text": "What if D y f is not invertible? Look at the circle at the point one, zero.",
+   "translation": "如果 D_y f 不可逆呢？看圆上的点 (1, 0)。"
+  },
+  {
+   "start": 654.1,
+   "end": 661.225,
+   "text": "There, the second column of D F is zero, and F squashes a small square into a thin sliver along a line.",
+   "translation": "在那里 DF 的第二列为零，F 把一个小正方形压成沿一条直线的细条。"
+  },
+  {
+   "start": 661.675,
+   "end": 669.2,
+   "text": "The inverse function theorem says nothing there, and indeed, y cannot be solved as a function of x near that point.",
+   "translation": "反函数定理在那里不适用；事实上，在那一点附近确实无法把 y 解成 x 的函数。"
+  },
+  {
+   "start": 669.65,
+   "end": 672.95,
+   "text": "The key design was to carry x along unchanged.",
+   "translation": "整个证明的关键设计，是让 x 原封不动地跟着走。"
+  },
+  {
+   "start": 673.4,
+   "end": 681.425,
+   "text": "Copying x made the map square, and it forced F inverse to keep x as the free variable, so that y is determined by x.",
+   "translation": "抄一份 x 让映射变成方阵，也迫使 F⁻¹ 保持 x 为自由变量，于是 y 由 x 决定。"
+  },
+  {
+   "start": 685.425,
+   "end": 690.875,
+   "text": "We now know that g exists and is smooth. But usually there is no formula for it.",
+   "translation": "现在知道 g 存在且光滑，但它通常没有显式公式。"
+  },
+  {
+   "start": 691.325,
+   "end": 697.275,
+   "text": "What we do have is an identity: f of x, g of x equals zero, for every x in A.",
+   "translation": "我们手上有的是一个恒等式：对 A 中每个 x，f(x, g(x)) = 0。"
+  },
+  {
+   "start": 697.725,
+   "end": 701.575,
+   "text": "And an identity can be differentiated on both sides.",
+   "translation": "而恒等式两边可以同时求导。"
+  },
+  {
+   "start": 702.025,
+   "end": 708.8,
+   "text": "Write capital Phi of x for the point x, g of x. Then f composed with Phi is identically zero.",
+   "translation": "记 Φ(x) = (x, g(x))。那么 f ∘ Φ 恒等于 0。"
+  },
+  {
+   "start": 709.25,
+   "end": 714.925,
+   "text": "By the chain rule, its derivative is D f at Phi of x, times D Phi of x.",
+   "translation": "由链式法则，它的导数是 Df(Φ(x)) 乘以 DΦ(x)。"
+  },
+  {
+   "start": 715.375,
+   "end": 723.35,
+   "text": "D f is a row of two blocks, D x f and D y f. D Phi is a column of two blocks: the identity, and D g.",
+   "translation": "Df 是两块组成的行 [D_x f, D_y f]；DΦ 是两块组成的列：单位阵与 Dg。"
+  },
+  {
+   "start": 723.8,
+   "end": 728.45,
+   "text": "Multiplying the blocks gives D x f plus D y f times D g.",
+   "translation": "按块相乘得到 D_x f + D_y f·Dg。"
+  },
+  {
+   "start": 728.9,
+   "end": 735.575,
+   "text": "The derivative of the zero function is zero, so D x f plus D y f times D g equals zero.",
+   "translation": "零函数的导数为零，所以 D_x f + D_y f·Dg = 0。"
+  },
+  {
+   "start": 736.025,
+   "end": 744.15,
+   "text": "To solve for D g, we need D y f to be invertible, not only at the point a, b, but at every point x, g of x.",
+   "translation": "要解出 Dg，需要 D_y f 可逆：不只在 (a, b)，而是在每个点 (x, g(x))。"
+  },
+  {
+   "start": 744.6,
+   "end": 755.15,
+   "text": "The determinant of D y f at x, g of x depends continuously on x and is nonzero at a, so it stays nonzero near a. If needed, we shrink A.",
+   "translation": "det D_y f(x, g(x)) 关于 x 连续，在 a 处非零，所以在 a 附近保持非零；必要时缩小 A。"
+  },
+  {
+   "start": 755.6,
+   "end": 763.775,
+   "text": "Multiplying by the inverse of D y f gives the formula: D g equals minus D y f inverse, times D x f.",
+   "translation": "左乘 D_y f 的逆，得到公式：Dg = −[D_y f]⁻¹ D_x f。"
+  },
+  {
+   "start": 764.225,
+   "end": 771.9,
+   "text": "Compare it with the linear case, y equals minus B inverse A x. It is the same formula, applied point by point.",
+   "translation": "与线性情形 y = −B⁻¹Ax 对比：这是同一个公式，逐点应用。"
+  },
+  {
+   "start": 772.35,
+   "end": 774.45,
+   "text": "Let us check it on the circle.",
+   "translation": "在圆上检验一下。"
+  },
+  {
+   "start": 774.9,
+   "end": 784.1,
+   "text": "Here D x f is two x, and D y f is two y. So g prime equals minus two x over two y, which is minus x over y.",
+   "translation": "这里 D_x f = 2x，D_y f = 2y。所以 g′ = −2x/(2y) = −x/y。"
+  },
+  {
+   "start": 784.55,
+   "end": 791.25,
+   "text": "At p, that is minus zero point six over zero point eight, which is minus zero point seven five.",
+   "translation": "在 p 处，就是 −0.6/0.8 = −0.75。"
+  },
+  {
+   "start": 791.7,
+   "end": 801.1,
+   "text": "Directly, g of x is the square root of one minus x squared, and its derivative is minus x over the square root of one minus x squared.",
+   "translation": "直接算：g(x) = √(1 − x²)，导数是 −x/√(1 − x²)。"
+  },
+  {
+   "start": 801.55,
+   "end": 810.35,
+   "text": "Since y is that square root, this is again minus x over y, so minus zero point seven five at p. The two answers agree.",
+   "translation": "因为 y 就是这个平方根，结果仍是 −x/y，在 p 处为 −0.75。两个答案一致。"
+  },
+  {
+   "start": 810.8,
+   "end": 813.475,
+   "text": "Now push the point toward one, zero.",
+   "translation": "现在把点推向 (1, 0)。"
+  },
+  {
+   "start": 813.925,
+   "end": 818.1,
+   "text": "The slope grows steeper: minus three, minus ten, without bound.",
+   "translation": "斜率越来越陡：−3、−10，没有上界。"
+  },
+  {
+   "start": 818.55,
+   "end": 824.8,
+   "text": "At one, zero, the formula reads minus one over zero, and the tangent line is vertical.",
+   "translation": "在 (1, 0)，公式变成 −1/0，切线是竖直的。"
+  },
+  {
+   "start": 825.25,
+   "end": 835.5,
+   "text": "A vertical tangent is not the graph of any differentiable function of x. The formula breaks down exactly where the hypothesis on D y f fails.",
+   "translation": "竖直切线不可能是 x 的可微函数的图像。公式恰好在 D_y f 的假设失效处崩溃。"
+  },
+  {
+   "start": 839.5,
+   "end": 846.25,
+   "text": "The implicit function theorem needs one thing: a k by k block of the derivative that is invertible.",
+   "translation": "隐函数定理只需要一件事：导数中有一个可逆的 k×k 块。"
+  },
+  {
+   "start": 846.7,
+   "end": 852.1,
+   "text": "So far, that block was the last k columns, the derivatives with respect to y.",
+   "translation": "到目前为止，这一块是最后 k 列，即对 y 的导数。"
+  },
+  {
+   "start": 852.55,
+   "end": 858.975,
+   "text": "Consider a map h from R five to R two, and suppose its derivative at a point is this matrix.",
+   "translation": "考虑映射 h : ℝ⁵ → ℝ²，设它在某点的导数是这个矩阵。"
+  },
+  {
+   "start": 859.425,
+   "end": 863.55,
+   "text": "Its last two columns are zero, so the last block is singular.",
+   "translation": "它的最后两列全是零，所以最后那一块是奇异的。"
+  },
+  {
+   "start": 864.0,
+   "end": 868.55,
+   "text": "But the matrix still has rank two, because its two rows are independent.",
+   "translation": "但这个矩阵的秩仍然是 2，因为它的两行线性无关。"
+  },
+  {
+   "start": 869.0,
+   "end": 874.375,
+   "text": "Row rank equals column rank, so the columns also span a two dimensional space.",
+   "translation": "行秩等于列秩，所以这些列也张成一个二维空间。"
+  },
+  {
+   "start": 874.825,
+   "end": 882.025,
+   "text": "Draw the five columns as vectors in the plane. Two of them are zero, but columns one and two are independent.",
+   "translation": "把五列画成平面中的向量：其中两个是零向量，但第 1、2 列线性无关。"
+  },
+  {
+   "start": 882.475,
+   "end": 889.15,
+   "text": "In general, the n columns span a k dimensional space, and every spanning set contains a basis.",
+   "translation": "一般地，n 个列张成 k 维空间，而任何张成组都包含一组基。"
+  },
+  {
+   "start": 889.6,
+   "end": 894.925,
+   "text": "So some k columns are independent, and their k by k block is invertible.",
+   "translation": "所以有 k 列线性无关，它们组成的 k×k 块可逆。"
+  },
+  {
+   "start": 895.375,
+   "end": 900.05,
+   "text": "Now rename the coordinates: permute them so that these columns come last.",
+   "translation": "现在重新命名坐标：做一个置换，把这些列移到最后。"
+  },
+  {
+   "start": 900.5,
+   "end": 909.35,
+   "text": "A permutation of coordinates is a linear isomorphism, so it changes neither whether a set is a smooth manifold, nor its dimension.",
+   "translation": "坐标置换是线性同构，所以不改变集合是否为光滑流形，也不改变维数。"
+  },
+  {
+   "start": 909.8,
+   "end": 915.575,
+   "text": "After the swap, the last block is the identity, and the implicit function theorem applies.",
+   "translation": "交换之后，最后一块是单位阵，隐函数定理可以使用。"
+  },
+  {
+   "start": 916.025,
+   "end": 923.25,
+   "text": "What does a full rank derivative mean? h maps R n to R k, so D h of x is a k by n matrix.",
+   "translation": "导数满秩是什么意思？h 把 ℝⁿ 映到 ℝᵏ，所以 Dh(x) 是 k×n 矩阵。"
+  },
+  {
+   "start": 923.7,
+   "end": 932.575,
+   "text": "Its image is a subspace of R k, whose dimension is the rank. So D h of x is surjective exactly when its rank is k.",
+   "translation": "它的像是 ℝᵏ 的子空间，维数等于秩。所以 Dh(x) 满射当且仅当秩为 k。"
+  },
+  {
+   "start": 933.025,
+   "end": 942.15,
+   "text": "Definition. A value c is a regular value of h if D h of x is surjective at every point x of h inverse of c.",
+   "translation": "定义：若对 h⁻¹(c) 中每一点 x，Dh(x) 都是满射，则称 c 是 h 的正则值。"
+  },
+  {
+   "start": 942.6,
+   "end": 946.4,
+   "text": "Every point. Full rank at some of the points is not enough.",
+   "translation": "是每一点。只在部分点满秩是不够的。"
+  },
+  {
+   "start": 946.85,
+   "end": 953.325,
+   "text": "Example: h of x, y equals x squared plus y squared, with derivative two x, two y.",
+   "translation": "例子：h(x, y) = x² + y²，导数是 (2x, 2y)。"
+  },
+  {
+   "start": 953.775,
+   "end": 963.45,
+   "text": "On the level set h equals one, the point is never the origin, so the derivative is a nonzero row of rank one. One is a regular value.",
+   "translation": "在水平集 h = 1 上，点永远不是原点，所以导数是秩为 1 的非零行。1 是正则值。"
+  },
+  {
+   "start": 963.9,
+   "end": 972.275,
+   "text": "At the level zero, the level set is only the origin, and the derivative there is zero. So zero is not a regular value.",
+   "translation": "在水平 0，水平集只有原点，而那里的导数为零。所以 0 不是正则值。"
+  },
+  {
+   "start": 972.725,
+   "end": 980.55,
+   "text": "A single bad point is enough to break regularity. Take h equals x squared minus y squared, at the level zero.",
+   "translation": "一个坏点就足以破坏正则性。看 h = x² − y²，水平为 0。"
+  },
+  {
+   "start": 981.0,
+   "end": 988.8,
+   "text": "Along the two lines the rank is one, until we reach the origin, where the derivative vanishes and the rank drops to zero.",
+   "translation": "沿着两条直线秩都是 1，直到原点：那里导数为零，秩降为 0。"
+  },
+  {
+   "start": 989.25,
+   "end": 995.625,
+   "text": "So zero is not a regular value of this h, even though almost every point of the set is fine.",
+   "translation": "所以 0 不是这个 h 的正则值，尽管集合中几乎每一点都没问题。"
+  },
+  {
+   "start": 996.075,
+   "end": 999.5,
+   "text": "Notice also that the last column alone would not do.",
+   "translation": "还要注意，只看最后一列是不行的。"
+  },
+  {
+   "start": 999.95,
+   "end": 1006.95,
+   "text": "On the circle at one, zero, the derivative is two, zero: the y column is zero, but the x column is not.",
+   "translation": "圆在 (1, 0) 处导数是 (2, 0)：y 列为零，但 x 列不是。"
+  },
+  {
+   "start": 1007.4,
+   "end": 1012.05,
+   "text": "Being allowed to choose the columns is what lets us cover the whole circle.",
+   "translation": "正因为可以选择列，才能覆盖整个圆。"
+  },
+  {
+   "start": 1012.5,
+   "end": 1019.9,
+   "text": "Two more remarks. Regularity is a property of the function h and the value c together, not of the set alone.",
+   "translation": "再补充两点。正则性是函数 h 与值 c 共同的性质，而不只是集合的性质。"
+  },
+  {
+   "start": 1020.35,
+   "end": 1027.625,
+   "text": "And if h inverse of c is empty, the condition holds vacuously, so c counts as a regular value.",
+   "translation": "若 h⁻¹(c) 是空集，条件空真成立，c 也算正则值。"
+  },
+  {
+   "start": 1028.075,
+   "end": 1036.825,
+   "text": "With full rank at every point, we can pick an invertible block at every point, and so apply the implicit function theorem at every point.",
+   "translation": "每一点都满秩，就能在每一点选出可逆块，从而在每一点使用隐函数定理。"
+  },
+  {
+   "start": 1040.825,
+   "end": 1043.675,
+   "text": "Here is the main theorem of this episode.",
+   "translation": "下面是本集的主定理。"
+  },
+  {
+   "start": 1044.125,
+   "end": 1051.275,
+   "text": "Let U be open in R n, let h from U to R k be smooth, and let c be a regular value of h.",
+   "translation": "设 U 是 ℝⁿ 中的开集，h : U → ℝᵏ 光滑，c 是 h 的正则值。"
+  },
+  {
+   "start": 1051.725,
+   "end": 1059.85,
+   "text": "Then the level set M, h inverse of c, is a smooth embedded submanifold of R n, of dimension n minus k.",
+   "translation": "那么水平集 M = h⁻¹(c) 是 ℝⁿ 的 n − k 维光滑嵌入子流形。"
+  },
+  {
+   "start": 1060.3,
+   "end": 1064.425,
+   "text": "We draw the proof on the sphere, but every step works in general.",
+   "translation": "我们在球面上画出证明，但每一步对一般情形都成立。"
+  },
+  {
+   "start": 1064.875,
+   "end": 1072.9,
+   "text": "First, topology. M carries the subspace topology of R n, so it is automatically Hausdorff and second countable.",
+   "translation": "先看拓扑。M 带 ℝⁿ 的子空间拓扑，因此自动是 Hausdorff、第二可数的。"
+  },
+  {
+   "start": 1073.35,
+   "end": 1075.375,
+   "text": "Now fix a point p of M.",
+   "translation": "现在固定 M 中一点 p。"
+  },
+  {
+   "start": 1075.825,
+   "end": 1085.625,
+   "text": "Since c is regular, D h of p has rank k. So after permuting coordinates, we can write p as a, b, with D y h at a, b invertible.",
+   "translation": "由于 c 正则，Dh(p) 秩为 k。重排坐标后可写 p = (a, b)，且 D_y h(a, b) 可逆。"
+  },
+  {
+   "start": 1086.075,
+   "end": 1090.7,
+   "text": "Here x has n minus k components, and y has k components.",
+   "translation": "这里 x 有 n − k 个分量，y 有 k 个分量。"
+  },
+  {
+   "start": 1091.15,
+   "end": 1099.9,
+   "text": "Let f of x, y be h of x, y minus c. Then f of a, b is zero, and D y f equals D y h, which is invertible.",
+   "translation": "令 f(x, y) = h(x, y) − c。则 f(a, b) = 0，且 D_y f = D_y h 可逆。"
+  },
+  {
+   "start": 1100.35,
+   "end": 1107.05,
+   "text": "The implicit function theorem gives a box A times B around p, and a smooth map g from A to B.",
+   "translation": "隐函数定理给出 p 周围的盒子 A × B，以及光滑映射 g : A → B。"
+  },
+  {
+   "start": 1107.5,
+   "end": 1113.775,
+   "text": "Inside the box, M is exactly the graph of g: the points x, g of x, for x in A.",
+   "translation": "在盒子里，M 恰好是 g 的图像：所有点 (x, g(x))，x ∈ A。"
+  },
+  {
+   "start": 1114.225,
+   "end": 1118.85,
+   "text": "A graph comes with natural coordinates: the free variable x itself.",
+   "translation": "图像自带天然的坐标：自由变量 x 本身。"
+  },
+  {
+   "start": 1119.3,
+   "end": 1128.575,
+   "text": "So let W be M intersected with the box, and define phi on W as the projection that forgets y: phi of x, y equals x.",
+   "translation": "令 W = M ∩ (A × B)，定义 φ 为忘掉 y 的投影：φ(x, y) = x。"
+  },
+  {
+   "start": 1129.025,
+   "end": 1137.375,
+   "text": "W is open in M, because the box is open in R n. And phi is continuous, as the restriction of a linear map.",
+   "translation": "W 在 M 中是开集，因为盒子在 ℝⁿ 中是开集。φ 是线性映射的限制，因此连续。"
+  },
+  {
+   "start": 1137.825,
+   "end": 1145.7,
+   "text": "In the other direction, define psi from A to M by psi of x equals x, g of x. It is smooth, because g is.",
+   "translation": "反方向，定义 ψ : A → M，ψ(x) = (x, g(x))。因为 g 光滑，ψ 也光滑。"
+  },
+  {
+   "start": 1146.15,
+   "end": 1149.525,
+   "text": "Let us check that the two maps are inverse to each other.",
+   "translation": "检验这两个映射互为逆映射。"
+  },
+  {
+   "start": 1149.975,
+   "end": 1154.375,
+   "text": "First, phi of psi of x is phi of x, g of x, which is x.",
+   "translation": "第一，φ(ψ(x)) = φ(x, g(x)) = x。"
+  },
+  {
+   "start": 1154.825,
+   "end": 1165.15,
+   "text": "Second, take a point x, y in W. Because W lies on the graph, y equals g of x, so psi of phi of x, y is x, g of x, which is x, y.",
+   "translation": "第二，取 (x, y) ∈ W。W 在图像上，故 y = g(x)，所以 ψ(φ(x, y)) = (x, y)。"
+  },
+  {
+   "start": 1165.6,
+   "end": 1174.375,
+   "text": "Both maps are continuous and inverse to each other, so phi is a homeomorphism from W onto the open set A. It is a chart.",
+   "translation": "两个映射都连续且互逆，所以 φ 是从 W 到开集 A 的同胚：它是一个 chart。"
+  },
+  {
+   "start": 1174.825,
+   "end": 1183.775,
+   "text": "The chart takes values in R n minus k, and p was arbitrary, so M is a topological manifold of dimension n minus k.",
+   "translation": "这个 chart 取值于 ℝⁿ⁻ᵏ，而 p 是任意的，所以 M 是 n − k 维拓扑流形。"
+  },
+  {
+   "start": 1184.225,
+   "end": 1191.65,
+   "text": "The count is natural: n unknowns, minus k independent equations, leaves n minus k free directions.",
+   "translation": "这个计数很自然：n 个未知数，减去 k 个独立方程，剩下 n − k 个自由方向。"
+  },
+  {
+   "start": 1192.1,
+   "end": 1195.8,
+   "text": "It remains to show that these charts fit together smoothly.",
+   "translation": "还需要证明这些 chart 光滑地拼接在一起。"
+  },
+  {
+   "start": 1196.25,
+   "end": 1200.725,
+   "text": "Take a second point, where a different set of coordinates may be solved for.",
+   "translation": "取第二个点，在那里可能要解出另一组坐标。"
+  },
+  {
+   "start": 1201.175,
+   "end": 1209.85,
+   "text": "On the equator, the vertical partial derivative is zero, so we solve for a horizontal coordinate, and project sideways instead.",
+   "translation": "在赤道上，竖直方向的偏导数为零，所以改为解一个水平坐标，向侧面投影。"
+  },
+  {
+   "start": 1210.3,
+   "end": 1216.975,
+   "text": "Where the two boxes overlap, we need the transition map: phi two, composed with phi one inverse.",
+   "translation": "在两个盒子重叠处，需要转移映射 φ₂ ∘ φ₁⁻¹。"
+  },
+  {
+   "start": 1217.425,
+   "end": 1223.95,
+   "text": "But phi one inverse is psi one, and phi two is the restriction of a linear projection, pi two.",
+   "translation": "而 φ₁⁻¹ 就是 ψ₁，φ₂ 是线性投影 π₂ 的限制。"
+  },
+  {
+   "start": 1224.4,
+   "end": 1231.325,
+   "text": "So the transition map is pi two composed with psi one: a linear map after a smooth map. It is smooth.",
+   "translation": "所以转移映射是 π₂ ∘ ψ₁：光滑映射之后接线性映射，因此光滑。"
+  },
+  {
+   "start": 1231.775,
+   "end": 1238.225,
+   "text": "Its domain is open, because phi one is a homeomorphism and the overlap is open in M.",
+   "translation": "它的定义域是开集，因为 φ₁ 是同胚，而重叠部分在 M 中是开集。"
+  },
+  {
+   "start": 1238.675,
+   "end": 1246.2,
+   "text": "The same argument works in the other direction. So these charts form a smooth atlas, and M is a smooth manifold.",
+   "translation": "反方向同理。所以这些 chart 构成光滑图册，M 是光滑流形。"
+  },
+  {
+   "start": 1246.65,
+   "end": 1257.725,
+   "text": "Finally, embedded. Each psi is smooth into R n, its derivative, the identity stacked over D g, is injective, and M carries the subspace topology.",
+   "translation": "最后是嵌入：每个 ψ 是到 ℝⁿ 的光滑映射，导数 [I; Dg] 是单射，且 M 带子空间拓扑。"
+  },
+  {
+   "start": 1258.175,
+   "end": 1262.825,
+   "text": "That is exactly what it means for M to be an embedded submanifold.",
+   "translation": "这正是 M 为嵌入子流形的含义。"
+  },
+  {
+   "start": 1263.275,
+   "end": 1267.3,
+   "text": "Do this at every point, and the boxes cover the whole sphere.",
+   "translation": "在每一点都这样做，盒子就覆盖了整个球面。"
+  },
+  {
+   "start": 1267.75,
+   "end": 1271.2,
+   "text": "Notice what we never did: we never guessed a chart.",
+   "translation": "注意我们从未做过的事：我们从未猜过任何 chart。"
+  },
+  {
+   "start": 1271.65,
+   "end": 1277.775,
+   "text": "The equation, together with a rank check, forced the charts to exist, and told us how to build them.",
+   "translation": "方程加上秩的检查，迫使 chart 存在，并告诉我们如何构造它们。"
+  },
+  {
+   "start": 1278.225,
+   "end": 1287.75,
+   "text": "And the hypothesis is used where we pick an invertible block. At the crossing of two lines, no such block exists, and the proof cannot even start.",
+   "translation": "假设用在选出可逆块那一步。在两线交叉处不存在这样的块，证明根本无法开始。"
+  },
+  {
+   "start": 1291.75,
+   "end": 1295.325,
+   "text": "Let us test the machine on the sphere, in any dimension.",
+   "translation": "用任意维数的球面来检验这台机器。"
+  },
+  {
+   "start": 1295.775,
+   "end": 1301.825,
+   "text": "S n minus one is the set of x in R n with x transpose x equal to one.",
+   "translation": "Sⁿ⁻¹ 是 ℝⁿ 中满足 xᵀx = 1 的所有 x。"
+  },
+  {
+   "start": 1302.275,
+   "end": 1310.9,
+   "text": "So it is the level set h inverse of one, for h of x equals x transpose x. Here k is one: a single equation.",
+   "translation": "所以它是水平集 h⁻¹(1)，其中 h(x) = xᵀx。这里 k = 1：只有一个方程。"
+  },
+  {
+   "start": 1311.35,
+   "end": 1316.525,
+   "text": "We need the derivative of h, and the cleanest route is the directional derivative.",
+   "translation": "需要求 h 的导数，最简洁的办法是方向导数。"
+  },
+  {
+   "start": 1316.975,
+   "end": 1327.025,
+   "text": "Expand h of x plus t v: it is x transpose x, plus two t times x transpose v, plus t squared times v transpose v.",
+   "translation": "展开 h(x + tv) = xᵀx + 2t·xᵀv + t²·vᵀv。"
+  },
+  {
+   "start": 1327.475,
+   "end": 1335.425,
+   "text": "The derivative in the direction v is the coefficient of t: D h of x, applied to v, equals two x transpose v.",
+   "translation": "沿方向 v 的导数是 t 的一次项系数：Dh(x)[v] = 2xᵀv。"
+  },
+  {
+   "start": 1335.875,
+   "end": 1340.75,
+   "text": "Is it surjective, onto the real line? On the sphere, x is never zero.",
+   "translation": "它是到实数轴 ℝ 的满射吗？在球面上，x 永远不为零。"
+  },
+  {
+   "start": 1341.2,
+   "end": 1348.675,
+   "text": "Take v equal to x. Then D h of x, applied to x, is two x transpose x, which is two, not zero.",
+   "translation": "取 v = x，则 Dh(x)[x] = 2xᵀx = 2 ≠ 0。"
+  },
+  {
+   "start": 1349.125,
+   "end": 1355.6,
+   "text": "And scaling v reaches every number: the direction s times x over two gives exactly s.",
+   "translation": "缩放 v 就能得到任意数：方向 s·x/2 恰好给出 s。"
+  },
+  {
+   "start": 1356.05,
+   "end": 1362.3,
+   "text": "So D h of x has rank one at every point of the sphere, and one is a regular value.",
+   "translation": "所以 Dh(x) 在球面每一点秩都为 1，1 是正则值。"
+  },
+  {
+   "start": 1362.75,
+   "end": 1370.15,
+   "text": "By the theorem, S n minus one is a smooth embedded submanifold of R n, of dimension n minus one.",
+   "translation": "由定理，Sⁿ⁻¹ 是 ℝⁿ 的 n − 1 维光滑嵌入子流形。"
+  },
+  {
+   "start": 1370.6,
+   "end": 1374.3,
+   "text": "One derivative, and not a single chart written by hand.",
+   "translation": "一次求导，一个 chart 都没有手写。"
+  },
+  {
+   "start": 1374.75,
+   "end": 1378.85,
+   "text": "The proof also tells us which coordinate to solve for, and where.",
+   "translation": "证明还告诉我们在哪里解哪个坐标。"
+  },
+  {
+   "start": 1379.3,
+   "end": 1388.05,
+   "text": "The partial derivative with respect to x i is two x i. Near the north and south poles, x three is large, so we solve for x three.",
+   "translation": "对 xᵢ 的偏导是 2xᵢ。在南北极附近 x₃ 较大，所以解 x₃。"
+  },
+  {
+   "start": 1388.5,
+   "end": 1394.4,
+   "text": "Where x one is large, we solve for x one; where x two is large, we solve for x two.",
+   "translation": "x₁ 较大的地方解 x₁；x₂ 较大的地方解 x₂。"
+  },
+  {
+   "start": 1394.85,
+   "end": 1401.925,
+   "text": "On the equator, two x three is zero, so x three cannot be solved for there. But x one or x two can.",
+   "translation": "在赤道上 2x₃ = 0，所以那里不能解 x₃，但可以解 x₁ 或 x₂。"
+  },
+  {
+   "start": 1402.375,
+   "end": 1409.075,
+   "text": "It is the same situation as the circle at one, zero, and the freedom to choose columns takes care of it.",
+   "translation": "这与圆在 (1, 0) 处的情形相同，选择列的自由解决了它。"
+  },
+  {
+   "start": 1409.525,
+   "end": 1412.55,
+   "text": "Now keep the same h, but change the value.",
+   "translation": "现在保持 h 不变，只改变水平值。"
+  },
+  {
+   "start": 1413.0,
+   "end": 1421.25,
+   "text": "At the level zero, h inverse of zero is just the origin, where D h is zero. So zero is not a regular value.",
+   "translation": "在水平 0，h⁻¹(0) 只有原点，而那里 Dh = 0。所以 0 不是正则值。"
+  },
+  {
+   "start": 1421.7,
+   "end": 1427.275,
+   "text": "And indeed the set is a single point, not a manifold of dimension n minus one.",
+   "translation": "事实上这个集合是一个点，而不是 n − 1 维流形。"
+  },
+  {
+   "start": 1427.725,
+   "end": 1436.55,
+   "text": "At the level minus one, the level set is empty. Minus one is regular vacuously, and the theorem only describes the empty set.",
+   "translation": "在水平 −1，水平集是空集。−1 空真地是正则值，定理描述的只是空集。"
+  },
+  {
+   "start": 1437.0,
+   "end": 1445.2,
+   "text": "The same three steps, expand, keep the linear term, check surjectivity, will handle the orthogonal group in the next episode.",
+   "translation": "同样的三步：展开、取一次项、检查满射，下一集将用来处理正交群。"
+  },
+  {
+   "start": 1449.2,
+   "end": 1454.425,
+   "text": "The theorem gives a sufficient condition. What happens when regularity fails?",
+   "translation": "定理给出的是充分条件。正则性不成立时会发生什么？"
+  },
+  {
+   "start": 1454.875,
+   "end": 1461.225,
+   "text": "Take h of x, y equals x squared minus y squared, a saddle, and slice it at height c.",
+   "translation": "取 h(x, y) = x² − y²，一个马鞍面，在高度 c 处切一刀。"
+  },
+  {
+   "start": 1461.675,
+   "end": 1466.05,
+   "text": "As c moves from one down to minus one, the slice changes shape.",
+   "translation": "当 c 从 1 降到 −1，切口的形状随之变化。"
+  },
+  {
+   "start": 1466.5,
+   "end": 1474.625,
+   "text": "The derivative, two x, minus two y, vanishes only at the origin, which lies on the level set only when c is zero.",
+   "translation": "导数 (2x, −2y) 只在原点为零，而原点只有在 c = 0 时才在水平集上。"
+  },
+  {
+   "start": 1475.075,
+   "end": 1482.775,
+   "text": "So every nonzero c is regular, and its level set is a hyperbola with two branches, a perfectly good curve.",
+   "translation": "所以每个非零的 c 都正则，水平集是有两支的双曲线，完全正常的曲线。"
+  },
+  {
+   "start": 1483.225,
+   "end": 1489.25,
+   "text": "Only at c equals zero do the branches meet, and the level set becomes two crossing lines.",
+   "translation": "只有在 c = 0 时两支相遇，水平集变成两条交叉直线。"
+  },
+  {
+   "start": 1489.7,
+   "end": 1493.65,
+   "text": "At the origin, D h is zero, zero. The rank has dropped.",
+   "translation": "在原点 Dh = (0, 0)，秩下降了。"
+  },
+  {
+   "start": 1494.1,
+   "end": 1498.75,
+   "text": "Zoom in. A point on a circle looks straighter and straighter as we zoom in.",
+   "translation": "放大来看。圆上一点越放大越像直线。"
+  },
+  {
+   "start": 1499.2,
+   "end": 1503.5,
+   "text": "The cross looks the same at every scale. It never looks like a line.",
+   "translation": "十字在每个尺度下都一样，永远不像一条线。"
+  },
+  {
+   "start": 1503.95,
+   "end": 1508.125,
+   "text": "Here is a proof that the cross is not a manifold at the origin.",
+   "translation": "下面证明十字在原点处不是流形。"
+  },
+  {
+   "start": 1508.575,
+   "end": 1516.475,
+   "text": "Suppose a neighborhood N of the origin in the cross were homeomorphic to an open interval, with the origin sent to a point t.",
+   "translation": "假设十字中原点的某个邻域 N 同胚于开区间，原点被送到点 t。"
+  },
+  {
+   "start": 1516.925,
+   "end": 1522.025,
+   "text": "Since N is open in the cross, it contains a small piece of all four arms.",
+   "translation": "因为 N 在十字中是开集，它包含四条臂各自的一小段。"
+  },
+  {
+   "start": 1522.475,
+   "end": 1530.0,
+   "text": "Remove the origin. The four arms no longer touch, so N minus the origin falls apart into at least four pieces.",
+   "translation": "去掉原点。四条臂不再相连，所以 N 去掉原点后至少分成四块。"
+  },
+  {
+   "start": 1530.45,
+   "end": 1535.8,
+   "text": "Remove the point t from the interval, and it falls apart into exactly two pieces.",
+   "translation": "从区间中去掉点 t，它恰好分成两块。"
+  },
+  {
+   "start": 1536.25,
+   "end": 1544.775,
+   "text": "A homeomorphism matches up the pieces, and four is not two. So the cross is not even a topological manifold at the origin.",
+   "translation": "同胚会把这些块一一对应，而四不等于二。所以十字在原点处连拓扑流形都不是。"
+  },
+  {
+   "start": 1545.225,
+   "end": 1550.15,
+   "text": "The second example is subtler: the cusp, y squared equals x cubed.",
+   "translation": "第二个例子更微妙：尖点 y² = x³。"
+  },
+  {
+   "start": 1550.6,
+   "end": 1558.475,
+   "text": "Here h is y squared minus x cubed, with derivative minus three x squared, two y. At the origin it is zero again.",
+   "translation": "这里 h = y² − x³，导数为 (−3x², 2y)。在原点处它又是零。"
+  },
+  {
+   "start": 1558.925,
+   "end": 1562.85,
+   "text": "Unlike the cross, the cusp is a topological manifold.",
+   "translation": "与十字不同，尖点是拓扑流形。"
+  },
+  {
+   "start": 1563.3,
+   "end": 1572.825,
+   "text": "Solving for x gives x equals the absolute value of y, to the power two thirds. So the cusp is the graph of a continuous function of y.",
+   "translation": "解出 x 得 x = |y|^(2/3)。所以尖点是 y 的一个连续函数的图像。"
+  },
+  {
+   "start": 1573.275,
+   "end": 1582.8,
+   "text": "Projecting to the y axis is continuous, and so is its inverse, which lifts y back to the curve. So the cusp is homeomorphic to a line.",
+   "translation": "向 y 轴的投影连续，它的逆把 y 抬回曲线，也连续。所以尖点同胚于直线。"
+  },
+  {
+   "start": 1583.25,
+   "end": 1589.55,
+   "text": "But it is not a smooth embedded submanifold: at the origin, the curve has no tangent line.",
+   "translation": "但它不是光滑嵌入子流形：在原点处曲线没有切线。"
+  },
+  {
+   "start": 1590.0,
+   "end": 1594.075,
+   "text": "To prove this, we use one fact that we state without proof here.",
+   "translation": "为了证明这一点，我们使用一个在此只陈述、不证明的事实。"
+  },
+  {
+   "start": 1594.525,
+   "end": 1602.675,
+   "text": "A one dimensional embedded submanifold has, near each point, a smooth parametrization with nonzero velocity.",
+   "translation": "一维嵌入子流形在每一点附近都有速度非零的光滑参数化。"
+  },
+  {
+   "start": 1603.125,
+   "end": 1611.15,
+   "text": "Suppose the cusp had such a parametrization gamma, with gamma of zero at the origin, and gamma prime of zero not zero.",
+   "translation": "假设尖点有这样的参数化 γ，γ(0) 为原点，且 γ′(0) ≠ 0。"
+  },
+  {
+   "start": 1611.6,
+   "end": 1619.55,
+   "text": "On the curve, x is never negative, so x of t has a minimum at t equals zero, and x prime of zero is zero.",
+   "translation": "曲线上 x 从不为负，所以 x(t) 在 t = 0 取最小值，x′(0) = 0。"
+  },
+  {
+   "start": 1620.0,
+   "end": 1624.675,
+   "text": "Since the velocity is not zero, y prime of zero must be nonzero.",
+   "translation": "由于速度不为零，y′(0) 必须非零。"
+  },
+  {
+   "start": 1625.125,
+   "end": 1634.425,
+   "text": "By the one dimensional inverse function theorem, t is then a smooth function of y near zero, and so x becomes a smooth function of y.",
+   "translation": "由一维反函数定理，t 在 0 附近是 y 的光滑函数，于是 x 成为 y 的光滑函数。"
+  },
+  {
+   "start": 1634.875,
+   "end": 1643.475,
+   "text": "But on the curve, x equals the absolute value of y to the two thirds, which is not differentiable at zero. Its slope blows up.",
+   "translation": "但曲线上 x = |y|^(2/3)，它在 0 处不可微，斜率趋于无穷。"
+  },
+  {
+   "start": 1643.925,
+   "end": 1648.875,
+   "text": "That is a contradiction, so the cusp is not a smooth embedded submanifold.",
+   "translation": "矛盾。所以尖点不是光滑嵌入子流形。"
+  },
+  {
+   "start": 1649.325,
+   "end": 1655.45,
+   "text": "Careful: the cusp can be traced by a smooth curve, gamma of t equals t squared, t cubed.",
+   "translation": "注意：尖点可以被一条光滑曲线扫出：γ(t) = (t², t³)。"
+  },
+  {
+   "start": 1655.9,
+   "end": 1664.4,
+   "text": "But its velocity, two t, three t squared, is zero at t equals zero. The parametrization is smooth, but not regular.",
+   "translation": "但它的速度 (2t, 3t²) 在 t = 0 时为零。这个参数化光滑，但不正则。"
+  },
+  {
+   "start": 1664.85,
+   "end": 1669.925,
+   "text": "Being traced by a smooth curve is not enough. The velocity must not vanish.",
+   "translation": "能被光滑曲线扫出并不够，速度必须不为零。"
+  },
+  {
+   "start": 1670.375,
+   "end": 1673.05,
+   "text": "The third example goes the other way.",
+   "translation": "第三个例子方向相反。"
+  },
+  {
+   "start": 1673.5,
+   "end": 1681.8,
+   "text": "Take h of x equals x transpose x minus one, all squared. Its zero set is again the unit sphere, a manifold.",
+   "translation": "取 h(x) = (xᵀx − 1)²。它的零点集仍是单位球面，是流形。"
+  },
+  {
+   "start": 1682.25,
+   "end": 1686.925,
+   "text": "Its graph is a trough, and the circle runs along the bottom of the trough.",
+   "translation": "它的图像是一道环形槽，圆就沿着槽底。"
+  },
+  {
+   "start": 1687.375,
+   "end": 1695.6,
+   "text": "By the chain rule, D h of x applied to v is two times x transpose x minus one, times two x transpose v.",
+   "translation": "由链式法则，Dh(x)[v] = 2(xᵀx − 1)·2xᵀv。"
+  },
+  {
+   "start": 1696.05,
+   "end": 1705.0,
+   "text": "On the sphere, x transpose x minus one is zero, so the derivative vanishes everywhere on the set. The bottom of the trough is flat.",
+   "translation": "在球面上 xᵀx − 1 = 0，所以导数在集合上处处为零。槽底是平的。"
+  },
+  {
+   "start": 1705.45,
+   "end": 1711.975,
+   "text": "So zero is not a regular value. The theorem does not apply, and yet the set is a manifold.",
+   "translation": "所以 0 不是正则值。定理不适用，但集合仍是流形。"
+  },
+  {
+   "start": 1712.425,
+   "end": 1716.75,
+   "text": "Regularity is a property of the equation, not only of the set.",
+   "translation": "正则性是方程的性质，而不只是集合的性质。"
+  },
+  {
+   "start": 1717.2,
+   "end": 1723.375,
+   "text": "The same sphere is regular for x transpose x equals one, but not for this squared equation.",
+   "translation": "同一个球面，对 xᵀx = 1 是正则的，对平方后的方程则不是。"
+  },
+  {
+   "start": 1723.825,
+   "end": 1731.275,
+   "text": "So the theorem goes in one direction only: a regular value implies a manifold, and the converse is false.",
+   "translation": "所以定理只有一个方向：正则值推出流形，反过来不成立。"
+  },
+  {
+   "start": 1731.725,
+   "end": 1739.425,
+   "text": "Two last warnings. At c equals one, the hyperbola is a regular level set, yet it has two separate branches.",
+   "translation": "最后两点提醒：c = 1 时双曲线是正则水平集，却有两条分开的分支。"
+  },
+  {
+   "start": 1739.875,
+   "end": 1746.8,
+   "text": "And for x transpose x equals minus one, the level set is empty, which is vacuously regular.",
+   "translation": "而 xᵀx = −1 的水平集是空集，它空真地正则。"
+  },
+  {
+   "start": 1747.25,
+   "end": 1751.525,
+   "text": "The theorem promises neither connectedness nor nonemptiness.",
+   "translation": "定理既不保证连通，也不保证非空。"
+  },
+  {
+   "start": 1751.975,
+   "end": 1757.275,
+   "text": "In every failure we saw, the trouble sits exactly at a point where the rank drops.",
+   "translation": "在我们看到的每个失败中，问题都恰好出在秩下降的点上。"
+  },
+  {
+   "start": 1757.725,
+   "end": 1760.6,
+   "text": "Without regularity, anything can happen.",
+   "translation": "没有正则性，什么都可能发生。"
+  },
+  {
+   "start": 1761.05,
+   "end": 1770.425,
+   "text": "The set may fail to be a manifold, like the cross; be topological but not smooth, like the cusp; or still be a manifold, like the squared sphere.",
+   "translation": "集合可能不是流形，如十字；可能拓扑上是但不光滑，如尖点；也可能仍是流形，如平方球面。"
+  },
+  {
+   "start": 1774.425,
+   "end": 1777.375,
+   "text": "Let us put the whole episode into one chain.",
+   "translation": "把整集串成一条链。"
+  },
+  {
+   "start": 1777.825,
+   "end": 1783.5,
+   "text": "An invertible derivative gives a local inverse. That is the inverse function theorem.",
+   "translation": "可逆的导数给出局部逆映射：这是反函数定理。"
+  },
+  {
+   "start": 1783.95,
+   "end": 1790.925,
+   "text": "A local inverse of the map that copies x gives an implicit graph. That is the implicit function theorem.",
+   "translation": "对“抄一份 x”的映射取局部逆，得到隐式图像：这是隐函数定理。"
+  },
+  {
+   "start": 1791.375,
+   "end": 1796.325,
+   "text": "An implicit graph gives a local chart, by forgetting the solved variables.",
+   "translation": "隐式图像给出局部 chart：忘掉被解出的变量即可。"
+  },
+  {
+   "start": 1796.775,
+   "end": 1805.275,
+   "text": "And charts at every point, which regularity guarantees, make the level set a manifold. That is the regular level set theorem.",
+   "translation": "正则性保证每一点都有 chart，于是水平集是流形：这是正则水平集定理。"
+  },
+  {
+   "start": 1805.725,
+   "end": 1808.9,
+   "text": "In practice, this leaves a short recipe.",
+   "translation": "实际使用时，只剩一个简短的步骤。"
+  },
+  {
+   "start": 1809.35,
+   "end": 1815.775,
+   "text": "Step one: differentiate the equations, and check that the derivative has full rank on the level set.",
+   "translation": "第一步：对方程求导，检查导数在水平集上满秩。"
+  },
+  {
+   "start": 1816.225,
+   "end": 1821.15,
+   "text": "Step two, which comes in the next episode: take the kernel of the derivative.",
+   "translation": "第二步留到下一集：取导数的核。"
+  },
+  {
+   "start": 1821.6,
+   "end": 1829.25,
+   "text": "Keep the limits in mind: regularity is sufficient but not necessary, and a regular level set may be disconnected.",
+   "translation": "记住它的边界：正则性是充分而非必要条件，正则水平集也可能不连通。"
+  },
+  {
+   "start": 1829.7,
+   "end": 1832.725,
+   "text": "The graph parametrization psi will come back.",
+   "translation": "图像参数化 ψ 还会再出现。"
+  },
+  {
+   "start": 1833.175,
+   "end": 1837.6,
+   "text": "Its derivative, the identity stacked over D g, is injective.",
+   "translation": "它的导数 [I; Dg] 是单射。"
+  },
+  {
+   "start": 1838.05,
+   "end": 1845.225,
+   "text": "The coordinate lines of the chart are lifted to curves on the sphere, and their velocities at p are tangent arrows.",
+   "translation": "chart 的坐标线被抬升为球面上的曲线，它们在 p 处的速度是切向箭头。"
+  },
+  {
+   "start": 1845.675,
+   "end": 1852.475,
+   "text": "Next episode, we show that these arrows span the tangent space, and that it equals the kernel of D h.",
+   "translation": "下一集将证明这些箭头张成切空间，并且它等于 Dh 的核。"
+  },
+  {
+   "start": 1852.925,
+   "end": 1861.125,
+   "text": "And we run the same machine on the orthogonal group: expand R transpose R, keep the linear term, and check surjectivity.",
+   "translation": "并且把同一台机器用在正交群上：展开 RᵀR，取一次项，检查满射。"
+  }
+ ]
+}

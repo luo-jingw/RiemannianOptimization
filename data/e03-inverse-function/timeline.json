@@ -1,0 +1,2505 @@
+{
+ "language": "en",
+ "episode": "e03-inverse-function",
+ "duration": 2152.05,
+ "chapters": [
+  {
+   "id": "c01-why-ift",
+   "index": 0,
+   "start": 5.0,
+   "end": 183.25,
+   "title": "A Machine for Making Charts",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    5.85,
+    16.3,
+    20.075,
+    27.975,
+    36.5,
+    45.525,
+    55.7,
+    62.65,
+    68.075,
+    70.525,
+    77.425,
+    82.475,
+    86.775,
+    95.75,
+    102.425,
+    113.1,
+    120.725,
+    126.875,
+    134.55,
+    136.9,
+    144.05,
+    153.375,
+    157.825,
+    165.4,
+    170.05
+   ],
+   "sentenceEnds": [
+    5.4,
+    15.85,
+    19.625,
+    27.525,
+    36.05,
+    45.075,
+    55.25,
+    62.2,
+    67.625,
+    70.075,
+    76.975,
+    82.025,
+    86.325,
+    95.3,
+    101.975,
+    112.65,
+    120.275,
+    126.425,
+    134.1,
+    136.45,
+    143.6,
+    152.925,
+    157.375,
+    164.95,
+    169.6,
+    176.65
+   ]
+  },
+  {
+   "id": "c02-derivative-as-linear-map",
+   "index": 1,
+   "start": 183.25,
+   "end": 423.15,
+   "title": "The Derivative as the Best Linear Approximation",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    7.15,
+    12.075,
+    16.95,
+    21.35,
+    27.75,
+    31.825,
+    39.45,
+    47.025,
+    55.125,
+    58.525,
+    65.925,
+    72.2,
+    78.325,
+    83.55,
+    90.175,
+    96.5,
+    101.175,
+    110.275,
+    115.0,
+    121.05,
+    125.7,
+    132.45,
+    136.25,
+    144.325,
+    154.45,
+    158.6,
+    163.7,
+    175.575,
+    182.875,
+    189.725,
+    193.15,
+    200.025,
+    205.25,
+    212.875,
+    221.475,
+    229.875
+   ],
+   "sentenceEnds": [
+    6.7,
+    11.625,
+    16.5,
+    20.9,
+    27.3,
+    31.375,
+    39.0,
+    46.575,
+    54.675,
+    58.075,
+    65.475,
+    71.75,
+    77.875,
+    83.1,
+    89.725,
+    96.05,
+    100.725,
+    109.825,
+    114.55,
+    120.6,
+    125.25,
+    132.0,
+    135.8,
+    143.875,
+    154.0,
+    158.15,
+    163.25,
+    175.125,
+    182.425,
+    189.275,
+    192.7,
+    199.575,
+    204.8,
+    212.425,
+    221.025,
+    229.425,
+    238.3
+   ]
+  },
+  {
+   "id": "c03-ift-statement",
+   "index": 2,
+   "start": 423.15,
+   "end": 599.35,
+   "title": "The Theorem and Its Picture",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    5.775,
+    12.325,
+    19.75,
+    25.875,
+    32.55,
+    34.775,
+    42.875,
+    53.5,
+    59.925,
+    67.675,
+    78.2,
+    84.85,
+    90.925,
+    101.425,
+    107.075,
+    114.025,
+    117.425,
+    122.45,
+    128.85,
+    133.35,
+    136.375,
+    142.475,
+    152.3,
+    157.825,
+    162.625,
+    168.125
+   ],
+   "sentenceEnds": [
+    5.325,
+    11.875,
+    19.3,
+    25.425,
+    32.1,
+    34.325,
+    42.425,
+    53.05,
+    59.475,
+    67.225,
+    77.75,
+    84.4,
+    90.475,
+    100.975,
+    106.625,
+    113.575,
+    116.975,
+    122.0,
+    128.4,
+    132.9,
+    135.925,
+    142.025,
+    151.85,
+    157.375,
+    162.175,
+    167.675,
+    174.6
+   ]
+  },
+  {
+   "id": "c04-ift-necessity",
+   "index": 3,
+   "start": 599.35,
+   "end": 865.625,
+   "title": "What Breaks Without Each Hypothesis",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    7.25,
+    10.5,
+    16.925,
+    24.45,
+    30.65,
+    34.65,
+    43.075,
+    48.475,
+    56.1,
+    62.2,
+    71.875,
+    78.15,
+    84.75,
+    90.95,
+    99.425,
+    106.125,
+    113.55,
+    121.525,
+    127.575,
+    135.625,
+    142.375,
+    151.35,
+    161.3,
+    169.9,
+    178.55,
+    187.35,
+    197.05,
+    206.05,
+    213.75,
+    220.7,
+    227.95,
+    236.075,
+    244.55,
+    249.5,
+    258.35
+   ],
+   "sentenceEnds": [
+    6.8,
+    10.05,
+    16.475,
+    24.0,
+    30.2,
+    34.2,
+    42.625,
+    48.025,
+    55.65,
+    61.75,
+    71.425,
+    77.7,
+    84.3,
+    90.5,
+    98.975,
+    105.675,
+    113.1,
+    121.075,
+    127.125,
+    135.175,
+    141.925,
+    150.9,
+    160.85,
+    169.45,
+    178.1,
+    186.9,
+    196.6,
+    205.6,
+    213.3,
+    220.25,
+    227.5,
+    235.625,
+    244.1,
+    249.05,
+    257.9,
+    264.675
+   ]
+  },
+  {
+   "id": "c05-contraction-principle",
+   "index": 4,
+   "start": 865.625,
+   "end": 1070.25,
+   "title": "The Contraction Mapping Principle",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    8.15,
+    14.9,
+    18.525,
+    24.8,
+    28.975,
+    36.2,
+    46.525,
+    54.2,
+    64.2,
+    71.25,
+    77.275,
+    84.025,
+    90.25,
+    97.7,
+    106.425,
+    115.825,
+    121.8,
+    130.35,
+    135.925,
+    144.85,
+    154.95,
+    162.225,
+    165.375,
+    169.7,
+    176.45,
+    186.3,
+    191.2,
+    197.3
+   ],
+   "sentenceEnds": [
+    7.7,
+    14.45,
+    18.075,
+    24.35,
+    28.525,
+    35.75,
+    46.075,
+    53.75,
+    63.75,
+    70.8,
+    76.825,
+    83.575,
+    89.8,
+    97.25,
+    105.975,
+    115.375,
+    121.35,
+    129.9,
+    135.475,
+    144.4,
+    154.5,
+    161.775,
+    164.925,
+    169.25,
+    176.0,
+    185.85,
+    190.75,
+    196.85,
+    203.025
+   ]
+  },
+  {
+   "id": "c06-contraction-necessity",
+   "index": 5,
+   "start": 1070.25,
+   "end": 1228.4,
+   "title": "Why Completeness and c < 1 Are Needed",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    5.05,
+    13.375,
+    22.55,
+    29.625,
+    35.45,
+    43.45,
+    48.175,
+    54.575,
+    58.675,
+    66.15,
+    73.3,
+    80.825,
+    87.9,
+    96.4,
+    105.35,
+    111.775,
+    118.375,
+    125.425,
+    131.125,
+    135.275,
+    142.275,
+    150.0
+   ],
+   "sentenceEnds": [
+    4.6,
+    12.925,
+    22.1,
+    29.175,
+    35.0,
+    43.0,
+    47.725,
+    54.125,
+    58.225,
+    65.7,
+    72.85,
+    80.375,
+    87.45,
+    95.95,
+    104.9,
+    111.325,
+    117.925,
+    124.975,
+    130.675,
+    134.825,
+    141.825,
+    149.55,
+    156.55
+   ]
+  },
+  {
+   "id": "c07-ift-proof-injective",
+   "index": 6,
+   "start": 1228.4,
+   "end": 1529.4,
+   "title": "Frozen Newton Iteration and Local Injectivity",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    5.075,
+    14.875,
+    20.375,
+    27.175,
+    34.075,
+    43.975,
+    49.85,
+    58.85,
+    65.625,
+    74.725,
+    85.4,
+    91.625,
+    100.375,
+    104.975,
+    115.075,
+    122.6,
+    134.1,
+    140.95,
+    145.3,
+    155.375,
+    165.725,
+    176.475,
+    183.425,
+    191.4,
+    200.275,
+    205.025,
+    214.5,
+    225.4,
+    233.975,
+    245.95,
+    254.05,
+    263.4,
+    271.3,
+    276.825,
+    286.9,
+    292.8
+   ],
+   "sentenceEnds": [
+    4.625,
+    14.425,
+    19.925,
+    26.725,
+    33.625,
+    43.525,
+    49.4,
+    58.4,
+    65.175,
+    74.275,
+    84.95,
+    91.175,
+    99.925,
+    104.525,
+    114.625,
+    122.15,
+    133.65,
+    140.5,
+    144.85,
+    154.925,
+    165.275,
+    176.025,
+    182.975,
+    190.95,
+    199.825,
+    204.575,
+    214.05,
+    224.95,
+    233.525,
+    245.5,
+    253.6,
+    262.95,
+    270.85,
+    276.375,
+    286.45,
+    292.35,
+    299.4
+   ]
+  },
+  {
+   "id": "c08-ift-proof-open",
+   "index": 7,
+   "start": 1529.4,
+   "end": 1707.025,
+   "title": "The Image Is Open",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    9.425,
+    15.7,
+    23.8,
+    29.075,
+    34.45,
+    39.625,
+    43.275,
+    51.825,
+    62.525,
+    66.125,
+    70.275,
+    77.475,
+    84.45,
+    92.725,
+    98.975,
+    105.25,
+    111.1,
+    119.8,
+    127.225,
+    135.025,
+    141.175,
+    147.6,
+    157.75,
+    166.65,
+    169.475
+   ],
+   "sentenceEnds": [
+    8.975,
+    15.25,
+    23.35,
+    28.625,
+    34.0,
+    39.175,
+    42.825,
+    51.375,
+    62.075,
+    65.675,
+    69.825,
+    77.025,
+    84.0,
+    92.275,
+    98.525,
+    104.8,
+    110.65,
+    119.35,
+    126.775,
+    134.575,
+    140.725,
+    147.15,
+    157.3,
+    166.2,
+    169.025,
+    176.025
+   ]
+  },
+  {
+   "id": "c09-ift-proof-derivative",
+   "index": 8,
+   "start": 1707.025,
+   "end": 2015.425,
+   "title": "The Inverse Is Differentiable",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    10.775,
+    15.9,
+    24.725,
+    29.325,
+    37.1,
+    48.075,
+    55.875,
+    65.375,
+    74.65,
+    82.825,
+    92.125,
+    100.075,
+    108.675,
+    120.1,
+    130.875,
+    136.65,
+    146.175,
+    150.65,
+    159.15,
+    167.875,
+    176.275,
+    185.75,
+    192.1,
+    199.425,
+    210.925,
+    218.9,
+    226.375,
+    229.375,
+    239.375,
+    248.4,
+    259.1,
+    266.375,
+    272.95,
+    281.925,
+    287.625,
+    295.175,
+    304.825
+   ],
+   "sentenceEnds": [
+    10.325,
+    15.45,
+    24.275,
+    28.875,
+    36.65,
+    47.625,
+    55.425,
+    64.925,
+    74.2,
+    82.375,
+    91.675,
+    99.625,
+    108.225,
+    119.65,
+    130.425,
+    136.2,
+    145.725,
+    150.2,
+    158.7,
+    167.425,
+    175.825,
+    185.3,
+    191.65,
+    198.975,
+    210.475,
+    218.45,
+    225.925,
+    228.925,
+    238.925,
+    247.95,
+    258.65,
+    265.925,
+    272.5,
+    281.475,
+    287.175,
+    294.725,
+    304.375,
+    306.8
+   ]
+  },
+  {
+   "id": "c10-what-ift-buys",
+   "index": 9,
+   "start": 2015.425,
+   "end": 2147.05,
+   "title": "What the Theorem Buys, and What Is Missing",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    5.2,
+    16.05,
+    21.525,
+    29.675,
+    34.825,
+    44.625,
+    49.3,
+    54.35,
+    65.4,
+    74.925,
+    77.5,
+    83.3,
+    92.375,
+    98.85,
+    106.85,
+    116.55,
+    124.825
+   ],
+   "sentenceEnds": [
+    4.75,
+    15.6,
+    21.075,
+    29.225,
+    34.375,
+    44.175,
+    48.85,
+    53.9,
+    64.95,
+    74.475,
+    77.05,
+    82.85,
+    91.925,
+    98.4,
+    106.4,
+    116.1,
+    124.375,
+    130.025
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 10.4,
+   "text": "At the end of the last episode, we were stuck.",
+   "translation": "上一集结束时，我们卡住了。"
+  },
+  {
+   "start": 10.85,
+   "end": 20.85,
+   "text": "A chart must be a homeomorphism from an open piece of the space onto an open set in R d, and the transition maps between charts must be smooth.",
+   "translation": "chart 必须是从空间的一块开集到 ℝ^d 中开集的同胚，而且 chart 之间的转移映射必须光滑。"
+  },
+  {
+   "start": 21.3,
+   "end": 24.625,
+   "text": "For the sphere, we could still draw charts by hand.",
+   "translation": "对球面，我们还能手工画出 chart。"
+  },
+  {
+   "start": 25.075,
+   "end": 32.525,
+   "text": "The upper hemisphere projects straight down onto a disk, and the front hemisphere projects sideways onto another disk.",
+   "translation": "上半球竖直投影到一个圆盘上，前半球水平投影到另一个圆盘上。"
+  },
+  {
+   "start": 32.975,
+   "end": 41.05,
+   "text": "Where the two hemispheres overlap, switching from one disk to the other is a smooth map, and six such hemispheres cover the sphere.",
+   "translation": "在两个半球的重叠处，从一个圆盘换到另一个圆盘是光滑映射；六个这样的半球覆盖整个球面。"
+  },
+  {
+   "start": 41.5,
+   "end": 50.075,
+   "text": "But now consider the orthogonal group, O of n: all n by n matrices R with R transpose R equal to the identity.",
+   "translation": "但现在考虑正交群 O(n)：所有满足 RᵀR = I 的 n×n 矩阵 R。"
+  },
+  {
+   "start": 50.525,
+   "end": 60.25,
+   "text": "It has dimension n times n minus one, over two, and it sits inside the space of all n by n matrices, which has dimension n squared.",
+   "translation": "它的维数是 n(n−1)/2，位于全体 n×n 矩阵构成的 n² 维空间里。"
+  },
+  {
+   "start": 60.7,
+   "end": 67.2,
+   "text": "Already for n equal to three, that is a three dimensional set inside a nine dimensional space.",
+   "translation": "仅 n = 3 时，它就是 9 维空间里的一个 3 维集合。"
+  },
+  {
+   "start": 67.65,
+   "end": 72.625,
+   "text": "We cannot draw it, and there is no obvious way to write down its charts by hand.",
+   "translation": "我们画不出它，也没有明显的办法手工写出它的 chart。"
+  },
+  {
+   "start": 73.075,
+   "end": 75.075,
+   "text": "What we need is a machine.",
+   "translation": "我们需要一台机器。"
+  },
+  {
+   "start": 75.525,
+   "end": 81.975,
+   "text": "Feed it the defining equation, h of x equals c, together with one derivative computation.",
+   "translation": "输入定义方程 h(x) = c，再加上一次导数计算。"
+  },
+  {
+   "start": 82.425,
+   "end": 87.025,
+   "text": "Out comes a guarantee that charts exist, without ever writing them down.",
+   "translation": "输出的是 chart 存在的保证，而不必把它们写出来。"
+  },
+  {
+   "start": 87.475,
+   "end": 91.325,
+   "text": "The engine of that machine is the inverse function theorem.",
+   "translation": "这台机器的引擎就是反函数定理。"
+  },
+  {
+   "start": 91.775,
+   "end": 100.3,
+   "text": "It is a local statement: if the linearization of a map F at a point is invertible, then near that point, F is a diffeomorphism.",
+   "translation": "它是一个局部定理：如果映射 F 在一点的线性化可逆，那么在该点附近 F 是微分同胚。"
+  },
+  {
+   "start": 100.75,
+   "end": 106.975,
+   "text": "And a local diffeomorphism is exactly something that can serve as a change of coordinates.",
+   "translation": "而局部微分同胚，恰好就是可以充当坐标变换的东西。"
+  },
+  {
+   "start": 107.425,
+   "end": 117.65,
+   "text": "Polar coordinates are a familiar example: the map r, theta to r cos theta, r sin theta has an invertible derivative wherever r is positive.",
+   "translation": "极坐标就是熟悉的例子：映射 (r, θ) ↦ (r cos θ, r sin θ) 在 r > 0 处导数可逆。"
+  },
+  {
+   "start": 118.1,
+   "end": 125.275,
+   "text": "So near each such point, it can be inverted smoothly, and r and theta become legitimate local coordinates.",
+   "translation": "所以在每个这样的点附近它可以光滑地求逆，r 和 θ 就成了合法的局部坐标。"
+  },
+  {
+   "start": 125.725,
+   "end": 131.425,
+   "text": "In this episode, we only deal with square systems: n equations in n unknowns.",
+   "translation": "本集只处理方的方程组：n 个方程，n 个未知数。"
+  },
+  {
+   "start": 131.875,
+   "end": 139.1,
+   "text": "Constraint sets usually have fewer equations than unknowns. Handling that is the job of the next episode.",
+   "translation": "约束集合的方程通常比未知数少，那是下一集的任务。"
+  },
+  {
+   "start": 139.55,
+   "end": 141.45,
+   "text": "Here is the road ahead.",
+   "translation": "这是后面的路线。"
+  },
+  {
+   "start": 141.9,
+   "end": 148.6,
+   "text": "The inverse function theorem gives the implicit function theorem, which gives the regular level set theorem.",
+   "translation": "反函数定理推出隐函数定理，隐函数定理推出正则水平集定理。"
+  },
+  {
+   "start": 149.05,
+   "end": 157.925,
+   "text": "That theorem identifies the tangent space as the kernel of D h, and finally makes O of n a manifold we can optimize on.",
+   "translation": "正则水平集定理给出切空间等于 Dh 的核，最终让 O(n) 成为可以在上面做优化的流形。"
+  },
+  {
+   "start": 158.375,
+   "end": 162.375,
+   "text": "Along the way, we will test every hypothesis of the theorem.",
+   "translation": "途中，我们会检验这个定理的每一个条件。"
+  },
+  {
+   "start": 162.825,
+   "end": 169.95,
+   "text": "The map must be C one, its derivative must be invertible at the point, and the conclusion is only local.",
+   "translation": "映射必须是 C¹ 的，导数必须在该点可逆，而结论只是局部的。"
+  },
+  {
+   "start": 170.4,
+   "end": 174.6,
+   "text": "Each of these will get a counterexample, showing what breaks without it.",
+   "translation": "每一条都会配一个反例，说明去掉它会坏在哪里。"
+  },
+  {
+   "start": 175.05,
+   "end": 181.65,
+   "text": "To understand what an invertible derivative means, we first have to see the derivative as a linear map.",
+   "translation": "要理解“导数可逆”的意思，首先要把导数看成一个线性映射。"
+  },
+  {
+   "start": 185.65,
+   "end": 189.95,
+   "text": "What exactly is the derivative of a map from R n to R m?",
+   "translation": "从 ℝⁿ 到 ℝᵐ 的映射，它的导数究竟是什么？"
+  },
+  {
+   "start": 190.4,
+   "end": 194.875,
+   "text": "Take a map F of the plane that bends a square grid into a curved one.",
+   "translation": "取平面上的一个映射 F，它把方格网弯成一张曲线网格。"
+  },
+  {
+   "start": 195.325,
+   "end": 199.75,
+   "text": "Now zoom in on a small window around the image point, F of x.",
+   "translation": "现在放大像点 F(x) 周围的一个小窗口。"
+  },
+  {
+   "start": 200.2,
+   "end": 204.15,
+   "text": "The more we magnify, the straighter the image grid becomes.",
+   "translation": "放得越大，像网格就越直。"
+  },
+  {
+   "start": 204.6,
+   "end": 210.55,
+   "text": "In the limit, we see a grid of parallelograms: the image of the square grid under a linear map.",
+   "translation": "在极限下我们看到一张平行四边形网格：方格网在某个线性映射下的像。"
+  },
+  {
+   "start": 211.0,
+   "end": 214.625,
+   "text": "That linear map is the derivative, D F of x.",
+   "translation": "这个线性映射就是导数 DF(x)。"
+  },
+  {
+   "start": 215.075,
+   "end": 222.25,
+   "text": "Precisely: F is differentiable at x if there is a linear map, D F of x, with the following property.",
+   "translation": "精确地说：若存在线性映射 DF(x) 具有如下性质，则称 F 在 x 处可微。"
+  },
+  {
+   "start": 222.7,
+   "end": 229.825,
+   "text": "F of x plus h equals F of x, plus D F of x times h, plus a remainder r of h.",
+   "translation": "F(x+h) = F(x) + DF(x)h + r(h)，"
+  },
+  {
+   "start": 230.275,
+   "end": 237.925,
+   "text": "And the remainder must be small compared with h: the norm of r of h, divided by the norm of h, tends to zero.",
+   "translation": "并且余项相对 h 很小：‖r(h)‖ / ‖h‖ → 0。"
+  },
+  {
+   "start": 238.375,
+   "end": 241.325,
+   "text": "We write this as little o of the norm of h.",
+   "translation": "记作 o(‖h‖)。"
+  },
+  {
+   "start": 241.775,
+   "end": 248.725,
+   "text": "The requirement is only that the remainder is smaller than first order. It does not have to be of second order.",
+   "translation": "要求只是余项比一阶更小，并不要求它是二阶小量。"
+  },
+  {
+   "start": 249.175,
+   "end": 255.0,
+   "text": "In the standard basis, D F of x is the Jacobian matrix of partial derivatives.",
+   "translation": "在标准基下，DF(x) 就是偏导数构成的雅可比矩阵。"
+  },
+  {
+   "start": 255.45,
+   "end": 261.125,
+   "text": "And F is called C one when the map from x to D F of x is continuous.",
+   "translation": "如果 x ↦ DF(x) 连续，就称 F 是 C¹ 的。"
+  },
+  {
+   "start": 261.575,
+   "end": 266.35,
+   "text": "Why insist on little o? Because it makes the linear approximation unique.",
+   "translation": "为什么坚持 o(‖h‖)？因为它让线性近似唯一。"
+  },
+  {
+   "start": 266.8,
+   "end": 272.975,
+   "text": "Here is another candidate: a matrix B that is close to D F of x, but not equal to it.",
+   "translation": "这是另一个候选：一个接近 DF(x) 但不相等的矩阵 B。"
+  },
+  {
+   "start": 273.425,
+   "end": 279.3,
+   "text": "For the true derivative, the error divided by the norm of h shrinks to zero as h shrinks.",
+   "translation": "对真正的导数，误差除以 ‖h‖ 随 h 缩小而趋于 0。"
+  },
+  {
+   "start": 279.75,
+   "end": 283.975,
+   "text": "For B, the same ratio levels off at a positive constant.",
+   "translation": "对 B，同样的比值停在一个正常数上。"
+  },
+  {
+   "start": 284.425,
+   "end": 293.075,
+   "text": "If we only asked the error to be of the same order as h, then B, and every other linear map, would count as an approximation too.",
+   "translation": "如果只要求误差与 h 同阶，那么 B 以及任何别的线性映射也都算“近似”。"
+  },
+  {
+   "start": 293.525,
+   "end": 297.8,
+   "text": "Here is the most useful way to compute a derivative in practice.",
+   "translation": "下面是实际计算导数最有用的方法。"
+  },
+  {
+   "start": 298.25,
+   "end": 303.85,
+   "text": "Move from x along a straight line in the direction v: t goes to x plus t v.",
+   "translation": "从 x 出发沿方向 v 走直线：t ↦ x + tv。"
+  },
+  {
+   "start": 304.3,
+   "end": 308.5,
+   "text": "Its image is a curve: t goes to F of x plus t v.",
+   "translation": "它的像是一条曲线：t ↦ F(x + tv)。"
+  },
+  {
+   "start": 308.95,
+   "end": 315.25,
+   "text": "The velocity of that curve at t equal to zero is exactly D F of x, applied to v.",
+   "translation": "这条曲线在 t = 0 处的速度，恰好就是 DF(x)[v]。"
+  },
+  {
+   "start": 315.7,
+   "end": 319.05,
+   "text": "Proof: put h equal to t v in the definition.",
+   "translation": "证明：在定义中取 h = tv。"
+  },
+  {
+   "start": 319.5,
+   "end": 327.125,
+   "text": "Then F of x plus t v, minus F of x, equals t times D F of x v, plus r of t v.",
+   "translation": "于是 F(x+tv) − F(x) = t·DF(x)v + r(tv)。"
+  },
+  {
+   "start": 327.575,
+   "end": 337.25,
+   "text": "Divide by t. The remainder has norm equal to the norm of v, times the norm of r of t v over the norm of t v, and that tends to zero.",
+   "translation": "除以 t。余项的范数等于 ‖v‖·‖r(tv)‖/‖tv‖，它趋于 0。"
+  },
+  {
+   "start": 337.7,
+   "end": 341.4,
+   "text": "So the difference quotient converges to D F of x v.",
+   "translation": "所以差商收敛到 DF(x)v。"
+  },
+  {
+   "start": 341.85,
+   "end": 346.5,
+   "text": "Example: the squared length, h of x equals x transpose x.",
+   "translation": "例子：长度平方 h(x) = xᵀx。"
+  },
+  {
+   "start": 346.95,
+   "end": 358.375,
+   "text": "Expand: x plus t v, transposed, times x plus t v, equals x transpose x, plus two t x transpose v, plus t squared v transpose v.",
+   "translation": "展开：(x+tv)ᵀ(x+tv) = xᵀx + 2t xᵀv + t² vᵀv。"
+  },
+  {
+   "start": 358.825,
+   "end": 365.675,
+   "text": "The coefficient of t is the derivative: D h of x, applied to v, equals two x transpose v.",
+   "translation": "t 的一次项系数就是导数：Dh(x)[v] = 2xᵀv。"
+  },
+  {
+   "start": 366.125,
+   "end": 372.525,
+   "text": "No partial derivatives are needed. We will reuse this trick for the sphere and for the orthogonal group.",
+   "translation": "不需要任何偏导数。后面的球面和正交群都会再用这个技巧。"
+  },
+  {
+   "start": 372.975,
+   "end": 375.95,
+   "text": "Two more tools. First, the chain rule.",
+   "translation": "还有两个工具。第一个是链式法则。"
+  },
+  {
+   "start": 376.4,
+   "end": 382.825,
+   "text": "The derivative of G composed with F at x is D G at F of x, times D F of x.",
+   "translation": "G∘F 在 x 处的导数等于 DG(F(x)) 乘以 DF(x)。"
+  },
+  {
+   "start": 383.275,
+   "end": 388.05,
+   "text": "The linearization of a composition is the composition of the linearizations.",
+   "translation": "复合的线性化等于线性化的复合。"
+  },
+  {
+   "start": 388.5,
+   "end": 395.675,
+   "text": "Second, the operator norm of a matrix: the largest value of the norm of A h, over all unit vectors h.",
+   "translation": "第二个是矩阵的算子范数：‖Ah‖ 在所有单位向量 h 上的最大值。"
+  },
+  {
+   "start": 396.125,
+   "end": 404.275,
+   "text": "So the norm of A h is at most the operator norm times the norm of h. Every estimate in the proof rests on this inequality.",
+   "translation": "于是 ‖Ah‖ ≤ ‖A‖‖h‖。证明里所有的估计都靠这个不等式。"
+  },
+  {
+   "start": 404.725,
+   "end": 412.675,
+   "text": "A caution: having all partial derivatives is weaker than being differentiable, but every map in this series is at least C one.",
+   "translation": "注意：存在全部偏导数弱于可微，但本系列中的映射都至少是 C¹ 的。"
+  },
+  {
+   "start": 413.125,
+   "end": 421.55,
+   "text": "Now that the derivative is a linear map, we can ask: if that linear map is invertible, is F itself invertible near x?",
+   "translation": "导数既然是线性映射，就可以问：这个线性映射可逆时，F 本身在 x 附近可逆吗？"
+  },
+  {
+   "start": 425.55,
+   "end": 428.475,
+   "text": "An invertible linear map does two things.",
+   "translation": "一个可逆的线性映射做到了两件事。"
+  },
+  {
+   "start": 428.925,
+   "end": 435.025,
+   "text": "It never flattens a direction into a lower dimension, and it never folds two points onto one.",
+   "translation": "它从不把某个方向压扁成更低维，也从不把两个点折到一起。"
+  },
+  {
+   "start": 435.475,
+   "end": 442.45,
+   "text": "The inverse function theorem says that this first order nondegeneracy persists in a small enough neighborhood.",
+   "translation": "反函数定理说：这种一阶的非退化性，在足够小的邻域里一直保持。"
+  },
+  {
+   "start": 442.9,
+   "end": 448.575,
+   "text": "Watch the same map F as before deform a small disk around the point x zero.",
+   "translation": "看同一个映射 F 如何把点 x₀ 周围的小圆盘变形。"
+  },
+  {
+   "start": 449.025,
+   "end": 455.25,
+   "text": "The grid bends, but it does not tear and it does not fold: a small blob goes to a small blob.",
+   "translation": "网格弯曲了，但不撕裂也不折叠：小团变成小团。"
+  },
+  {
+   "start": 455.7,
+   "end": 457.475,
+   "text": "Here is the statement.",
+   "translation": "下面是定理的陈述。"
+  },
+  {
+   "start": 457.925,
+   "end": 465.575,
+   "text": "Let U be an open subset of R n, let F from U to R n be C one, and let x zero be a point of U.",
+   "translation": "设 U 是 ℝⁿ 的开子集，F: U → ℝⁿ 是 C¹ 映射，x₀ ∈ U。"
+  },
+  {
+   "start": 466.025,
+   "end": 476.2,
+   "text": "If D F of x zero is invertible, then there are open sets U zero containing x zero, and V zero containing F of x zero, with three properties.",
+   "translation": "若 DF(x₀) 可逆，则存在开集 U₀ ∋ x₀ 与 V₀ ∋ F(x₀)，具有三条性质。"
+  },
+  {
+   "start": 476.65,
+   "end": 482.625,
+   "text": "First, F restricted to U zero is one to one: distinct points have distinct images.",
+   "translation": "第一，F 限制在 U₀ 上是单射：不同的点有不同的像。"
+  },
+  {
+   "start": 483.075,
+   "end": 490.375,
+   "text": "Second, the image of U zero is exactly V zero, an open set: every point near F of x zero is hit.",
+   "translation": "第二，U₀ 的像恰好是开集 V₀：F(x₀) 附近每个点都被取到。"
+  },
+  {
+   "start": 490.825,
+   "end": 500.9,
+   "text": "Third, the inverse map from V zero back to U zero is C one, and its derivative at F of x zero is the inverse matrix of D F of x zero.",
+   "translation": "第三，从 V₀ 回到 U₀ 的逆映射是 C¹ 的，且它在 F(x₀) 处的导数是 DF(x₀) 的逆矩阵。"
+  },
+  {
+   "start": 501.35,
+   "end": 507.55,
+   "text": "In other words, F restricted to U zero is a C one diffeomorphism onto V zero.",
+   "translation": "换句话说，F 限制在 U₀ 上是到 V₀ 的 C¹ 微分同胚。"
+  },
+  {
+   "start": 508.0,
+   "end": 513.625,
+   "text": "If F is C k, or smooth, then the local inverse is C k, or smooth, as well.",
+   "translation": "若 F 是 C^k 或光滑的，局部逆也是 C^k 或光滑的。"
+  },
+  {
+   "start": 514.075,
+   "end": 524.125,
+   "text": "For a linear map, capital A times x, with capital A invertible, all of this is obvious and even global: the inverse is A inverse times y.",
+   "translation": "对线性映射 Ax，A 可逆时这一切都显然，甚至是全局的：逆就是 A⁻¹y。"
+  },
+  {
+   "start": 524.575,
+   "end": 529.775,
+   "text": "The theorem extends this to nonlinear maps, at the price of being only local.",
+   "translation": "定理把它推广到非线性映射，代价是只在局部成立。"
+  },
+  {
+   "start": 530.225,
+   "end": 536.725,
+   "text": "What does invertibility rule out? Look at the singular matrix with rows one, zero, and zero, zero.",
+   "translation": "可逆性排除了什么？看行为 (1, 0) 与 (0, 0) 的奇异矩阵。"
+  },
+  {
+   "start": 537.175,
+   "end": 540.125,
+   "text": "It squashes the unit disk onto a segment.",
+   "translation": "它把单位圆盘压成一条线段。"
+  },
+  {
+   "start": 540.575,
+   "end": 545.15,
+   "text": "Different points land on the same point, so the map is not one to one.",
+   "translation": "不同的点落到同一点，所以它不是单射。"
+  },
+  {
+   "start": 545.6,
+   "end": 551.55,
+   "text": "And points off the segment are never reached, so the image contains no neighborhood of any point.",
+   "translation": "线段外的点一个也取不到，所以像不包含任何点的邻域。"
+  },
+  {
+   "start": 552.0,
+   "end": 556.05,
+   "text": "An invertible derivative rules out both failures at once.",
+   "translation": "导数可逆同时排除了这两种失败。"
+  },
+  {
+   "start": 556.5,
+   "end": 559.075,
+   "text": "Finally, the derivative formula.",
+   "translation": "最后是导数公式。"
+  },
+  {
+   "start": 559.525,
+   "end": 565.175,
+   "text": "Call the inverse g. Then g of F of x equals x, for every x in U zero.",
+   "translation": "把逆记为 g。则对所有 x ∈ U₀，g(F(x)) = x。"
+  },
+  {
+   "start": 565.625,
+   "end": 575.0,
+   "text": "Differentiate both sides at x zero, using the chain rule: D g at F of x zero, times D F of x zero, equals the identity.",
+   "translation": "在 x₀ 处对两边求导，用链式法则：Dg(F(x₀))·DF(x₀) = I。"
+  },
+  {
+   "start": 575.45,
+   "end": 580.525,
+   "text": "So D g at F of x zero is the inverse of D F of x zero.",
+   "translation": "所以 Dg(F(x₀)) 就是 DF(x₀) 的逆。"
+  },
+  {
+   "start": 580.975,
+   "end": 585.325,
+   "text": "But notice: this computation assumes that g is differentiable.",
+   "translation": "但注意：这个计算假定了 g 可微。"
+  },
+  {
+   "start": 585.775,
+   "end": 590.825,
+   "text": "That assumption is the real content of the theorem, and we will have to prove it.",
+   "translation": "这个假定才是定理真正的内容，我们必须证明它。"
+  },
+  {
+   "start": 591.275,
+   "end": 597.75,
+   "text": "Each hypothesis looks obviously necessary. Let us remove them one at a time and see what breaks.",
+   "translation": "每个条件看起来都显然需要。我们逐个去掉，看看会坏在哪里。"
+  },
+  {
+   "start": 601.75,
+   "end": 606.15,
+   "text": "Here are four examples, each breaking a different part of the conclusion.",
+   "translation": "下面是四个例子，每个打破结论的不同部分。"
+  },
+  {
+   "start": 606.6,
+   "end": 609.4,
+   "text": "First, F of x equals x cubed.",
+   "translation": "第一个：F(x) = x³。"
+  },
+  {
+   "start": 609.85,
+   "end": 615.825,
+   "text": "It is a smooth bijection of the real line, and its inverse, the cube root, is continuous.",
+   "translation": "它是实数轴上的光滑双射，其逆，即立方根，是连续的。"
+  },
+  {
+   "start": 616.275,
+   "end": 623.35,
+   "text": "So F is a homeomorphism. But its derivative at zero is three times zero squared, which is zero.",
+   "translation": "所以 F 是同胚。但它在 0 处的导数是 3·0² = 0。"
+  },
+  {
+   "start": 623.8,
+   "end": 629.55,
+   "text": "The graph of x cubed is flat at the origin, so the graph of the cube root is vertical there.",
+   "translation": "x³ 的图像在原点是平的，所以立方根的图像在那里是竖直的。"
+  },
+  {
+   "start": 630.0,
+   "end": 633.55,
+   "text": "Suppose the inverse g were differentiable at zero.",
+   "translation": "假设逆 g 在 0 处可微。"
+  },
+  {
+   "start": 634.0,
+   "end": 641.975,
+   "text": "Differentiating g of x cubed equals x, at x equal to zero, gives g prime of zero, times zero, equals one.",
+   "translation": "对 g(x³) = x 在 x = 0 处求导，得 g′(0)·0 = 1。"
+  },
+  {
+   "start": 642.425,
+   "end": 647.375,
+   "text": "That is impossible. So the inverse exists, but it is not differentiable.",
+   "translation": "这不可能。所以逆存在，但不可微。"
+  },
+  {
+   "start": 647.825,
+   "end": 655.0,
+   "text": "An invertible derivative is not needed for an inverse to exist. It is needed for the inverse to be differentiable.",
+   "translation": "逆的存在并不需要导数可逆；逆的可微性才需要它。"
+  },
+  {
+   "start": 655.45,
+   "end": 661.1,
+   "text": "Second, F of x equals x squared, again with derivative zero at the origin.",
+   "translation": "第二个：F(x) = x²，在原点的导数同样是 0。"
+  },
+  {
+   "start": 661.55,
+   "end": 670.775,
+   "text": "In any interval from minus epsilon to epsilon, the points plus and minus epsilon over two have the same image, so F is not one to one.",
+   "translation": "在任何区间 (−ε, ε) 里，点 ±ε/2 的像相同，所以 F 不是单射。"
+  },
+  {
+   "start": 671.225,
+   "end": 677.05,
+   "text": "And no negative number is ever reached, so zero is not an interior point of the image.",
+   "translation": "而且负数一个也取不到，所以 0 不是像的内点。"
+  },
+  {
+   "start": 677.5,
+   "end": 683.65,
+   "text": "In two dimensions, the map x, y to x squared, y folds the plane along the y axis.",
+   "translation": "在二维中，映射 (x, y) ↦ (x², y) 把平面沿 y 轴对折。"
+  },
+  {
+   "start": 684.1,
+   "end": 689.85,
+   "text": "Without an invertible derivative, both injectivity and openness of the image can fail.",
+   "translation": "导数不可逆时，单射和像为开集都可能失败。"
+  },
+  {
+   "start": 690.3,
+   "end": 698.325,
+   "text": "Third, polar coordinates: F of r, theta equals r cos theta, r sin theta, for positive r and any theta.",
+   "translation": "第三个：极坐标 F(r, θ) = (r cos θ, r sin θ)，r > 0，θ 任意。"
+  },
+  {
+   "start": 698.775,
+   "end": 705.025,
+   "text": "The Jacobian has columns cos theta, sin theta, and minus r sin theta, r cos theta.",
+   "translation": "雅可比矩阵的两列是 (cos θ, sin θ) 和 (−r sin θ, r cos θ)。"
+  },
+  {
+   "start": 705.475,
+   "end": 712.45,
+   "text": "Its determinant is r cos squared theta plus r sin squared theta, which is r, positive everywhere.",
+   "translation": "行列式是 r cos²θ + r sin²θ = r，处处为正。"
+  },
+  {
+   "start": 712.9,
+   "end": 720.425,
+   "text": "So the derivative is invertible at every point. Yet F of r, theta equals F of r, theta plus two pi.",
+   "translation": "所以导数处处可逆。可是 F(r, θ) = F(r, θ + 2π)。"
+  },
+  {
+   "start": 720.875,
+   "end": 726.475,
+   "text": "Rolling the strip onto the annulus, the second turn lands exactly on top of the first.",
+   "translation": "把长条卷到圆环上，第二圈正好叠在第一圈上。"
+  },
+  {
+   "start": 726.925,
+   "end": 734.525,
+   "text": "Each small square still maps one to one onto its image, so F is a local diffeomorphism, but not a global one.",
+   "translation": "每个小方块仍然一一映到它的像上，所以 F 是局部微分同胚，但不是全局的。"
+  },
+  {
+   "start": 734.975,
+   "end": 741.275,
+   "text": "That is why the conclusion is only local, and why a manifold generally needs more than one chart.",
+   "translation": "这就是结论只是局部的原因，也是流形一般需要不止一个 chart 的原因。"
+  },
+  {
+   "start": 741.725,
+   "end": 750.25,
+   "text": "Fourth, and most subtle: F of x equals x plus two x squared sine of one over x, with F of zero equal to zero.",
+   "translation": "第四个，也最微妙：F(x) = x + 2x² sin(1/x)，并令 F(0) = 0。"
+  },
+  {
+   "start": 750.7,
+   "end": 760.2,
+   "text": "At zero, the difference quotient is one plus two h sine of one over h, which tends to one. So F prime of zero equals one: invertible.",
+   "translation": "在 0 处，差商是 1 + 2h sin(1/h)，趋于 1。所以 F′(0) = 1，可逆。"
+  },
+  {
+   "start": 760.65,
+   "end": 768.8,
+   "text": "Away from zero, F prime of x equals one, plus four x sine of one over x, minus two cosine of one over x.",
+   "translation": "在 0 以外，F′(x) = 1 + 4x sin(1/x) − 2cos(1/x)。"
+  },
+  {
+   "start": 769.25,
+   "end": 777.45,
+   "text": "At the points x k, equal to one over two k pi, the sine vanishes, the cosine is one, and the derivative is minus one.",
+   "translation": "在点 x_k = 1/(2kπ) 处，正弦为 0，余弦为 1，导数为 −1。"
+  },
+  {
+   "start": 777.9,
+   "end": 786.25,
+   "text": "At the points y k, equal to one over two k plus one, times pi, the cosine is minus one, and the derivative is three.",
+   "translation": "在点 y_k = 1/((2k+1)π) 处，余弦为 −1，导数为 3。"
+  },
+  {
+   "start": 786.7,
+   "end": 795.95,
+   "text": "Both kinds of points come arbitrarily close to zero, so every neighborhood of zero has places where F decreases and places where it increases.",
+   "translation": "两类点都任意接近 0，所以 0 的每个邻域里既有 F 递减之处，也有 F 递增之处。"
+  },
+  {
+   "start": 796.4,
+   "end": 804.95,
+   "text": "A continuous one to one function on an interval must be strictly monotone. So F is not one to one on any neighborhood of zero.",
+   "translation": "区间上的连续单射必定严格单调。所以 F 在 0 的任何邻域上都不是单射。"
+  },
+  {
+   "start": 805.4,
+   "end": 812.65,
+   "text": "Zooming in does not help: at every scale the graph keeps wiggling, and a horizontal line cuts it three times.",
+   "translation": "放大也没用：在任何尺度下图像都在摆动，一条水平线与它交于三点。"
+  },
+  {
+   "start": 813.1,
+   "end": 819.6,
+   "text": "Here F is differentiable everywhere. What fails is the continuity of its derivative at zero.",
+   "translation": "这里 F 处处可微，坏掉的是导数在 0 处的连续性。"
+  },
+  {
+   "start": 820.05,
+   "end": 826.85,
+   "text": "Invertibility at a single point does not spread to a neighborhood unless the derivative is continuous.",
+   "translation": "除非导数连续，否则一点处的可逆性不会扩散到邻域。"
+  },
+  {
+   "start": 827.3,
+   "end": 834.975,
+   "text": "This is exactly what the C one hypothesis is for: it lets nondegeneracy at one point propagate to a whole ball.",
+   "translation": "这正是 C¹ 条件的作用：让一点处的非退化性传播到整个球。"
+  },
+  {
+   "start": 835.425,
+   "end": 843.45,
+   "text": "In summary. x cubed: the inverse exists but is not differentiable. x squared: injectivity and openness fail.",
+   "translation": "总结：x³ 的逆存在但不可微；x² 的单射和开性都失败。"
+  },
+  {
+   "start": 843.9,
+   "end": 848.4,
+   "text": "Polar coordinates: locally fine, but not globally one to one.",
+   "translation": "极坐标：局部没问题，但全局不是单射。"
+  },
+  {
+   "start": 848.85,
+   "end": 857.25,
+   "text": "And the wiggling example: invertible at a point, but with a discontinuous derivative, it is not one to one anywhere near that point.",
+   "translation": "摆动的例子：在一点可逆，但导数不连续，在该点附近哪里都不是单射。"
+  },
+  {
+   "start": 857.7,
+   "end": 864.025,
+   "text": "To prove the theorem, we need a tool that constructs solutions: the contraction mapping principle.",
+   "translation": "要证明这个定理，我们需要一个能构造出解的工具：压缩映射原理。"
+  },
+  {
+   "start": 868.025,
+   "end": 873.325,
+   "text": "How can we prove that an equation has exactly one solution, without solving it?",
+   "translation": "怎样不解方程，就证明一个方程恰有一个解？"
+  },
+  {
+   "start": 873.775,
+   "end": 880.075,
+   "text": "Here is a map of the plane that rotates by thirty degrees, halves all distances, and then shifts.",
+   "translation": "这是平面上的一个映射：旋转 30 度，把所有距离减半，再平移。"
+  },
+  {
+   "start": 880.525,
+   "end": 883.7,
+   "text": "Apply it to a cloud of points, again and again.",
+   "translation": "把它反复作用在一团点上。"
+  },
+  {
+   "start": 884.15,
+   "end": 889.975,
+   "text": "Every distance is cut in half at each step, so the whole cloud collapses toward a single point.",
+   "translation": "每一步所有距离都减半，于是整团点向一个点塌缩。"
+  },
+  {
+   "start": 890.425,
+   "end": 894.15,
+   "text": "That point does not move. It is a fixed point of the map.",
+   "translation": "这个点不动，它是映射的不动点。"
+  },
+  {
+   "start": 894.6,
+   "end": 901.375,
+   "text": "Definition. Let X be a metric space with distance d, and let phi be a map from X to itself.",
+   "translation": "定义：设 X 是带距离 d 的度量空间，φ 是从 X 到自身的映射。"
+  },
+  {
+   "start": 901.825,
+   "end": 911.7,
+   "text": "Phi is a contraction if there is a constant c less than one, such that d of phi x, phi y is at most c times d of x, y, for all x and y.",
+   "translation": "若存在常数 c < 1，使对所有 x, y 有 d(φx, φy) ≤ c·d(x, y)，则称 φ 为压缩映射。"
+  },
+  {
+   "start": 912.15,
+   "end": 919.375,
+   "text": "We also need completeness. A sequence is Cauchy if its terms eventually stay arbitrarily close to each other.",
+   "translation": "还需要完备性。若一个序列的项最终彼此任意接近，就称它是柯西列。"
+  },
+  {
+   "start": 919.825,
+   "end": 929.375,
+   "text": "A metric space is complete if every Cauchy sequence converges to a point of the space. R n, and every closed subset of R n, are complete.",
+   "translation": "若每个柯西列都收敛到空间中的点，空间就是完备的。ℝⁿ 及其闭子集都完备。"
+  },
+  {
+   "start": 929.825,
+   "end": 936.425,
+   "text": "The theorem: if X is complete and phi is a contraction, then phi has exactly one fixed point.",
+   "translation": "定理：若 X 完备且 φ 是压缩映射，则 φ 恰有一个不动点。"
+  },
+  {
+   "start": 936.875,
+   "end": 942.45,
+   "text": "Uniqueness first. Suppose phi of x equals x, and phi of y equals y.",
+   "translation": "先证唯一性。设 φ(x) = x，φ(y) = y。"
+  },
+  {
+   "start": 942.9,
+   "end": 949.2,
+   "text": "Then d of x, y equals d of phi x, phi y, which is at most c times d of x, y.",
+   "translation": "则 d(x, y) = d(φx, φy) ≤ c·d(x, y)。"
+  },
+  {
+   "start": 949.65,
+   "end": 955.425,
+   "text": "Since c is less than one, this forces d of x, y to be zero. So x equals y.",
+   "translation": "因为 c < 1，只能 d(x, y) = 0，所以 x = y。"
+  },
+  {
+   "start": 955.875,
+   "end": 962.875,
+   "text": "Now existence. Start anywhere, at x zero, and iterate: x n plus one equals phi of x n.",
+   "translation": "再证存在性。任取起点 x₀，迭代：x_{n+1} = φ(x_n)。"
+  },
+  {
+   "start": 963.325,
+   "end": 971.6,
+   "text": "Here is a one dimensional picture, with phi of x equal to cosine x over two, starting from x zero equal to two.",
+   "translation": "这是一维的图：φ(x) = cos(x)/2，从 x₀ = 2 出发。"
+  },
+  {
+   "start": 972.05,
+   "end": 981.0,
+   "text": "Its derivative is at most one half in absolute value, so by the mean value theorem it is a contraction, with c equal to one half.",
+   "translation": "它的导数绝对值不超过 1/2，由中值定理，它是 c = 1/2 的压缩映射。"
+  },
+  {
+   "start": 981.45,
+   "end": 986.975,
+   "text": "Each step of the cobweb goes vertically to the curve, then horizontally to the diagonal.",
+   "translation": "蛛网的每一步先竖直走到曲线，再水平走到对角线。"
+  },
+  {
+   "start": 987.425,
+   "end": 995.525,
+   "text": "Consecutive distances shrink: d of x n plus one, x n is at most c times d of x n, x n minus one.",
+   "translation": "相邻距离不断缩小：d(x_{n+1}, x_n) ≤ c·d(x_n, x_{n−1})。"
+  },
+  {
+   "start": 995.975,
+   "end": 1001.1,
+   "text": "By induction, it is at most c to the n, times d of x one, x zero.",
+   "translation": "归纳得 d(x_{n+1}, x_n) ≤ cⁿ·d(x₁, x₀)。"
+  },
+  {
+   "start": 1001.55,
+   "end": 1010.025,
+   "text": "Now take n less than m. By the triangle inequality, d of x n, x m is at most the sum of all the steps from n to m.",
+   "translation": "取 n < m。由三角不等式，d(x_n, x_m) 不超过从 n 到 m 所有步长之和。"
+  },
+  {
+   "start": 1010.475,
+   "end": 1020.125,
+   "text": "That sum is at most c to the n, plus c to the n plus one, and so on up to c to the m minus one, all times d of x one, x zero.",
+   "translation": "这个和不超过 (cⁿ + cⁿ⁺¹ + … + c^{m−1})·d(x₁, x₀)。"
+  },
+  {
+   "start": 1020.575,
+   "end": 1027.4,
+   "text": "And this geometric sum is at most c to the n, over one minus c, times d of x one, x zero.",
+   "translation": "而这个几何级数不超过 cⁿ/(1 − c)·d(x₁, x₀)。"
+  },
+  {
+   "start": 1027.85,
+   "end": 1030.55,
+   "text": "This is where c less than one is used.",
+   "translation": "这里用到了 c < 1。"
+  },
+  {
+   "start": 1031.0,
+   "end": 1034.875,
+   "text": "Since c to the n tends to zero, the sequence is Cauchy.",
+   "translation": "因为 cⁿ → 0，这个序列是柯西列。"
+  },
+  {
+   "start": 1035.325,
+   "end": 1041.625,
+   "text": "Because X is complete, it converges to some point x in X. This is where completeness is used.",
+   "translation": "因为 X 完备，它收敛到 X 中某点 x。这里用到了完备性。"
+  },
+  {
+   "start": 1042.075,
+   "end": 1051.475,
+   "text": "Finally, a contraction is continuous, so phi of x is the limit of phi of x n, which is the limit of x n plus one, which is x.",
+   "translation": "最后，压缩映射连续，所以 φ(x) = lim φ(x_n) = lim x_{n+1} = x。"
+  },
+  {
+   "start": 1051.925,
+   "end": 1056.375,
+   "text": "So x is a fixed point, and by uniqueness, it is the only one.",
+   "translation": "所以 x 是不动点，由唯一性，它是唯一的。"
+  },
+  {
+   "start": 1056.825,
+   "end": 1062.475,
+   "text": "The proof is an algorithm: iterate, and the iterates converge geometrically fast.",
+   "translation": "这个证明本身就是一个算法：反复迭代，迭代点以几何速度收敛。"
+  },
+  {
+   "start": 1062.925,
+   "end": 1068.65,
+   "text": "Completeness and c less than one may look like technicalities. Next, we remove them.",
+   "translation": "完备性和 c < 1 看起来像技术条件。下一章就拿掉它们。"
+  },
+  {
+   "start": 1072.65,
+   "end": 1074.85,
+   "text": "First, remove completeness.",
+   "translation": "第一，去掉完备性。"
+  },
+  {
+   "start": 1075.3,
+   "end": 1083.175,
+   "text": "Let X be the interval from zero to one, with one included and zero removed, and let phi of x be x over two.",
+   "translation": "设 X 是去掉 0、包含 1 的区间 (0, 1]，φ(x) = x/2。"
+  },
+  {
+   "start": 1083.625,
+   "end": 1092.35,
+   "text": "Phi maps X into the interval up to one half, inside X, and it halves every distance: a contraction with c equal to one half.",
+   "translation": "φ 把 X 映到 (0, 1/2] ⊂ X，并把所有距离减半：c = 1/2 的压缩映射。"
+  },
+  {
+   "start": 1092.8,
+   "end": 1099.425,
+   "text": "Iterate from one: one, one half, one quarter, and so on. x n equals two to the minus n.",
+   "translation": "从 1 开始迭代：1, 1/2, 1/4, …，即 x_n = 2⁻ⁿ。"
+  },
+  {
+   "start": 1099.875,
+   "end": 1105.25,
+   "text": "This is a Cauchy sequence. Its limit is zero, but zero was removed from X.",
+   "translation": "这是柯西列。它的极限是 0，但 0 已经从 X 中挖掉了。"
+  },
+  {
+   "start": 1105.7,
+   "end": 1113.25,
+   "text": "A fixed point would satisfy x equals x over two, so it would be zero, which is not in X. There is no fixed point.",
+   "translation": "不动点要满足 x = x/2，只能是 0，而 0 不在 X 中。所以没有不动点。"
+  },
+  {
+   "start": 1113.7,
+   "end": 1117.975,
+   "text": "The step that broke is the one where completeness supplies the limit.",
+   "translation": "坏掉的正是由完备性给出极限的那一步。"
+  },
+  {
+   "start": 1118.425,
+   "end": 1124.375,
+   "text": "Second, allow c equal to one. Let phi of x be x plus one, on the real line.",
+   "translation": "第二，允许 c = 1。在实数轴上令 φ(x) = x + 1。"
+  },
+  {
+   "start": 1124.825,
+   "end": 1128.475,
+   "text": "Distances are preserved exactly, never reduced.",
+   "translation": "距离被精确保持，从不缩小。"
+  },
+  {
+   "start": 1128.925,
+   "end": 1135.95,
+   "text": "Phi of x equals x has no solution, and the iterates, x zero plus n, drift off to infinity.",
+   "translation": "φ(x) = x 无解，迭代点 x₀ + n 漂向无穷远。"
+  },
+  {
+   "start": 1136.4,
+   "end": 1143.1,
+   "text": "Third, the subtle case: every pair of points moves strictly closer, but with no uniform constant.",
+   "translation": "第三，微妙的情形：每一对点都严格靠近，却没有统一的常数。"
+  },
+  {
+   "start": 1143.55,
+   "end": 1150.625,
+   "text": "Let X be the interval from one to infinity. It is a closed subset of the real line, so it is complete.",
+   "translation": "设 X = [1, ∞)。它是实数轴的闭子集，所以完备。"
+  },
+  {
+   "start": 1151.075,
+   "end": 1157.7,
+   "text": "Let phi of x be x plus one over x. Phi of x is at least two, so phi maps X into itself.",
+   "translation": "令 φ(x) = x + 1/x。φ(x) ≥ 2，所以 φ 把 X 映到自身。"
+  },
+  {
+   "start": 1158.15,
+   "end": 1166.2,
+   "text": "The distance between phi x and phi y equals the distance between x and y, times one minus one over x y.",
+   "translation": "φx 与 φy 的距离等于 x 与 y 的距离乘以 1 − 1/(xy)。"
+  },
+  {
+   "start": 1166.65,
+   "end": 1175.15,
+   "text": "Since x y is at least one, that factor is at least zero and strictly less than one, so distinct points always move strictly closer.",
+   "translation": "因为 xy ≥ 1，这个因子 ≥ 0 且严格小于 1，所以不同的点总是严格靠近。"
+  },
+  {
+   "start": 1175.6,
+   "end": 1181.575,
+   "text": "Yet phi of x minus x equals one over x, which is positive. There is no fixed point.",
+   "translation": "可是 φ(x) − x = 1/x > 0，没有不动点。"
+  },
+  {
+   "start": 1182.025,
+   "end": 1188.175,
+   "text": "On the cobweb, the curve approaches the diagonal but never meets it, and the iterates climb forever.",
+   "translation": "在蛛网图上，曲线逼近对角线却永不相交，迭代点一直往上爬。"
+  },
+  {
+   "start": 1188.625,
+   "end": 1195.225,
+   "text": "The contraction factor, one minus one over x n times x n plus one, creeps toward one.",
+   "translation": "压缩因子 1 − 1/(x_n x_{n+1}) 慢慢逼近 1。"
+  },
+  {
+   "start": 1195.675,
+   "end": 1200.925,
+   "text": "No uniform c below one exists, so the geometric series bound fails.",
+   "translation": "不存在统一的 c < 1，所以几何级数界失效。"
+  },
+  {
+   "start": 1201.375,
+   "end": 1205.075,
+   "text": "Where will completeness come from in the inverse function theorem?",
+   "translation": "在反函数定理中，完备性从哪里来？"
+  },
+  {
+   "start": 1205.525,
+   "end": 1212.075,
+   "text": "We will apply the principle on a closed ball, which is a closed subset of R n, and therefore complete.",
+   "translation": "我们会在闭球上使用这个原理；闭球是 ℝⁿ 的闭子集，因而完备。"
+  },
+  {
+   "start": 1212.525,
+   "end": 1219.8,
+   "text": "An open ball is not complete: a sequence inside it can converge to a point on its boundary, outside the ball.",
+   "translation": "开球不完备：球内的序列可以收敛到球外的边界点上。"
+  },
+  {
+   "start": 1220.25,
+   "end": 1226.8,
+   "text": "Keep this in mind. Now we turn the equation, f of x equals y, into a fixed point problem.",
+   "translation": "记住这一点。现在我们把方程 f(x) = y 变成一个不动点问题。"
+  },
+  {
+   "start": 1230.8,
+   "end": 1233.025,
+   "text": "Here is the idea of the proof.",
+   "translation": "先说证明的思路。"
+  },
+  {
+   "start": 1233.475,
+   "end": 1242.825,
+   "text": "To solve f of x equals y, Newton's method updates x to x plus the inverse of f prime of x, times y minus f of x.",
+   "translation": "解 f(x) = y 时，牛顿法把 x 更新为 x + f′(x)⁻¹(y − f(x))。"
+  },
+  {
+   "start": 1243.275,
+   "end": 1248.325,
+   "text": "Geometrically, it follows the tangent line at the current point to the level y.",
+   "translation": "几何上，它沿着当前点的切线走到高度 y。"
+  },
+  {
+   "start": 1248.775,
+   "end": 1255.125,
+   "text": "But that needs f prime of x to be invertible at every step, which is part of what we are trying to prove.",
+   "translation": "但这需要每一步的 f′(x) 都可逆，而这正是我们要证的内容之一。"
+  },
+  {
+   "start": 1255.575,
+   "end": 1262.025,
+   "text": "So freeze the slope at the base point: use capital A, equal to f prime of a, at every step.",
+   "translation": "所以把斜率冻结在基点：每一步都用 A = f′(a)。"
+  },
+  {
+   "start": 1262.475,
+   "end": 1271.925,
+   "text": "All the lines are now parallel. This is the frozen Newton map: phi y of x equals x, plus A inverse times y minus f of x.",
+   "translation": "现在所有直线都平行。这就是冻结牛顿映射：φ_y(x) = x + A⁻¹(y − f(x))。"
+  },
+  {
+   "start": 1272.375,
+   "end": 1277.8,
+   "text": "As long as f prime stays close to capital A, each step at least halves the error.",
+   "translation": "只要 f′ 一直接近 A，每一步至少把误差减半。"
+  },
+  {
+   "start": 1278.25,
+   "end": 1286.8,
+   "text": "A word on notation. We follow Rudin: f is our capital F, the point a is our x zero, and capital A is f prime of a.",
+   "translation": "关于记号：我们沿用 Rudin，f 就是我们的 F，点 a 就是 x₀，A = f′(a)。"
+  },
+  {
+   "start": 1287.25,
+   "end": 1293.575,
+   "text": "Where Rudin uses an arbitrary point, we will call it p, to avoid confusion with the base point.",
+   "translation": "Rudin 用到任意点的地方，我们记作 p，以免和基点混淆。"
+  },
+  {
+   "start": 1294.025,
+   "end": 1302.675,
+   "text": "Step one. Since capital A is invertible, choose lambda positive, with two lambda times the norm of A inverse equal to one.",
+   "translation": "第一步：A 可逆，取 λ > 0 使 2λ‖A⁻¹‖ = 1。"
+  },
+  {
+   "start": 1303.125,
+   "end": 1313.35,
+   "text": "Step two. f prime is continuous at the point a, so on some open ball U centered at a, the norm of f prime of x minus A is less than lambda.",
+   "translation": "第二步：f′ 在 a 处连续，所以存在以 a 为中心的开球 U，在 U 上 ‖f′(x) − A‖ < λ。"
+  },
+  {
+   "start": 1313.8,
+   "end": 1319.575,
+   "text": "This is where C one is used. It is exactly the step that failed for the wiggling example.",
+   "translation": "这里用到了 C¹，这正是摆动例子中失败的那一步。"
+  },
+  {
+   "start": 1320.025,
+   "end": 1328.325,
+   "text": "In our example, f of u, v is u plus one quarter v squared, and v plus one quarter u squared, with base point zero.",
+   "translation": "我们的例子：f(u, v) = (u + v²/4, v + u²/4)，基点为 0。"
+  },
+  {
+   "start": 1328.775,
+   "end": 1332.925,
+   "text": "There, capital A is the identity, and lambda is one half.",
+   "translation": "这时 A 是单位矩阵，λ = 1/2。"
+  },
+  {
+   "start": 1333.375,
+   "end": 1343.025,
+   "text": "Each small parallelogram shows f prime at a point. Inside the unit ball, every one is within lambda of capital A. Outside, some are not.",
+   "translation": "每个小平行四边形表示一点处的 f′。单位球内每个都与 A 相差小于 λ，球外则不然。"
+  },
+  {
+   "start": 1343.475,
+   "end": 1350.55,
+   "text": "Step three. For each y, define phi y of x as x, plus A inverse times y minus f of x.",
+   "translation": "第三步：对每个 y，定义 φ_y(x) = x + A⁻¹(y − f(x))。"
+  },
+  {
+   "start": 1351.0,
+   "end": 1362.05,
+   "text": "The key observation: f of x equals y exactly when A inverse times y minus f of x is zero, that is, exactly when phi y of x equals x.",
+   "translation": "关键观察：f(x) = y 当且仅当 A⁻¹(y − f(x)) = 0，也就是当且仅当 φ_y(x) = x。"
+  },
+  {
+   "start": 1362.5,
+   "end": 1368.9,
+   "text": "That is because A inverse is itself invertible, so it sends only the zero vector to zero.",
+   "translation": "这是因为 A⁻¹ 本身可逆，只把零向量映到零。"
+  },
+  {
+   "start": 1369.35,
+   "end": 1373.25,
+   "text": "Solving the equation is the same as finding a fixed point.",
+   "translation": "解方程就等于找不动点。"
+  },
+  {
+   "start": 1373.7,
+   "end": 1383.325,
+   "text": "Watch the iteration from the base point, for the target y equal to zero point six, zero point five. The images f of x n approach y.",
+   "translation": "看从基点出发、目标为 y = (0.6, 0.5) 的迭代：像 f(x_n) 逐步逼近 y。"
+  },
+  {
+   "start": 1383.775,
+   "end": 1393.675,
+   "text": "Step four. The derivative of phi y is the identity minus A inverse f prime of x, which equals A inverse, times A minus f prime of x.",
+   "translation": "第四步：φ_y 的导数是 I − A⁻¹f′(x) = A⁻¹(A − f′(x))。"
+  },
+  {
+   "start": 1394.125,
+   "end": 1404.425,
+   "text": "On U, its norm is at most the norm of A inverse times the norm of A minus f prime of x, which is below lambda times the norm of A inverse: one half.",
+   "translation": "所以在 U 上，它的范数 ≤ ‖A⁻¹‖‖A − f′(x)‖ < ‖A⁻¹‖λ = 1/2。"
+  },
+  {
+   "start": 1404.875,
+   "end": 1411.375,
+   "text": "Step five turns this derivative bound into a distance bound, using the mean value inequality.",
+   "translation": "第五步用中值不等式，把这个导数界变成距离界。"
+  },
+  {
+   "start": 1411.825,
+   "end": 1419.35,
+   "text": "Lemma: if E is convex, and the derivative of phi has norm at most M on E, then phi is M Lipschitz on E.",
+   "translation": "引理：若 E 是凸集，且 φ 的导数在 E 上范数不超过 M，则 φ 在 E 上是 M-Lipschitz 的。"
+  },
+  {
+   "start": 1419.8,
+   "end": 1428.225,
+   "text": "Proof: let u be phi of x one, minus phi of x two, and walk along the segment, gamma of t, from x two to x one.",
+   "translation": "证明：令 u = φ(x₁) − φ(x₂)，沿线段 γ(t) 从 x₂ 走到 x₁。"
+  },
+  {
+   "start": 1428.675,
+   "end": 1432.975,
+   "text": "Let s of t be the dot product of u with phi of gamma of t.",
+   "translation": "令 s(t) = u·φ(γ(t))。"
+  },
+  {
+   "start": 1433.425,
+   "end": 1442.45,
+   "text": "By the one variable mean value theorem, s of one minus s of zero equals s prime of tau, for some tau between zero and one.",
+   "translation": "由一元中值定理，存在 0 与 1 之间的 τ，使 s(1) − s(0) = s′(τ)。"
+  },
+  {
+   "start": 1442.9,
+   "end": 1453.35,
+   "text": "It equals u dotted with phi prime of gamma of tau, times x one minus x two, at most the norm of u times M times the norm of x one minus x two.",
+   "translation": "即 u·φ′(γ(τ))(x₁ − x₂) ≤ ‖u‖·M·‖x₁ − x₂‖。"
+  },
+  {
+   "start": 1453.8,
+   "end": 1461.925,
+   "text": "But s of one minus s of zero is u dotted with u, the squared norm of u. Dividing by the norm of u gives the claim.",
+   "translation": "而 s(1) − s(0) = u·u = ‖u‖²。两边除以 ‖u‖ 即得结论。"
+  },
+  {
+   "start": 1462.375,
+   "end": 1473.9,
+   "text": "U is a ball, hence convex. So for all x one and x two in U, phi y of x one and phi y of x two are at most half as far apart as x one and x two.",
+   "translation": "U 是球，因而是凸集。对 U 中任意 x₁, x₂：‖φ_y(x₁) − φ_y(x₂)‖ ≤ ½‖x₁ − x₂‖。"
+  },
+  {
+   "start": 1474.35,
+   "end": 1482.0,
+   "text": "Step six. So phi y has at most one fixed point in U, by the same argument as uniqueness for contractions.",
+   "translation": "第六步：于是 φ_y 在 U 中至多有一个不动点，论证与压缩映射的唯一性相同。"
+  },
+  {
+   "start": 1482.45,
+   "end": 1491.35,
+   "text": "If two points of U both solved f of x equals y, both would be fixed points, and their distance would be at most half of itself, hence zero.",
+   "translation": "若 U 中两点都是 f(x) = y 的解，它们都是不动点，距离不超过自身的一半，因而为 0。"
+  },
+  {
+   "start": 1491.8,
+   "end": 1499.25,
+   "text": "So for each y, the equation f of x equals y has at most one solution in U: f is one to one on U.",
+   "translation": "所以对每个 y，方程 f(x) = y 在 U 中至多一个解：f 在 U 上是单射。"
+  },
+  {
+   "start": 1499.7,
+   "end": 1504.775,
+   "text": "Note what we have not used yet: completeness, or the existence of a solution.",
+   "translation": "注意我们还没用到的东西：完备性，以及解的存在性。"
+  },
+  {
+   "start": 1505.225,
+   "end": 1514.85,
+   "text": "Why not run true Newton? It needs f prime invertible everywhere. Freezing only needs invertibility at one point, plus continuity of f prime.",
+   "translation": "为什么不用真正的牛顿法？它需要 f′ 处处可逆；冻结只需要一点处可逆，加上 f′ 连续。"
+  },
+  {
+   "start": 1515.3,
+   "end": 1520.75,
+   "text": "And the constant one half is a convenient choice. Any constant below one would work.",
+   "translation": "常数 1/2 只是方便的选择，任何小于 1 的常数都行。"
+  },
+  {
+   "start": 1521.2,
+   "end": 1527.8,
+   "text": "What remains: is the image, f of U, an open set, so that every nearby y is actually reached?",
+   "translation": "还剩下的问题：像 f(U) 是开集吗？也就是说，附近的每个 y 都真的能被取到吗？"
+  },
+  {
+   "start": 1531.8,
+   "end": 1538.375,
+   "text": "We know that f is one to one on U. Now we show that the image V, equal to f of U, is open.",
+   "translation": "已知 f 在 U 上是单射。现在证明像 V = f(U) 是开集。"
+  },
+  {
+   "start": 1538.825,
+   "end": 1544.65,
+   "text": "Take any point y zero in V. Then y zero equals f of p, for some point p in U.",
+   "translation": "任取 V 中一点 y₀，则 y₀ = f(p)，p ∈ U。"
+  },
+  {
+   "start": 1545.1,
+   "end": 1552.75,
+   "text": "Since U is open, choose r positive, so that the closed ball B bar, of radius r around p, lies inside U.",
+   "translation": "因为 U 是开集，可取 r > 0，使以 p 为中心、半径 r 的闭球 B̄ 含于 U。"
+  },
+  {
+   "start": 1553.2,
+   "end": 1558.025,
+   "text": "Claim: every y within distance lambda r of y zero is in V.",
+   "translation": "断言：凡是与 y₀ 距离小于 λr 的 y，都在 V 中。"
+  },
+  {
+   "start": 1558.475,
+   "end": 1563.4,
+   "text": "Then V contains a ball around each of its points, which is what open means.",
+   "translation": "这样 V 包含它每一点周围的一个球，这正是开集的含义。"
+  },
+  {
+   "start": 1563.85,
+   "end": 1568.575,
+   "text": "Fix such a y, and use the map phi, equal to phi y, from before.",
+   "translation": "固定这样一个 y，使用前面的映射 φ = φ_y。"
+  },
+  {
+   "start": 1569.025,
+   "end": 1572.225,
+   "text": "Step four. How far does phi move the center p?",
+   "translation": "第四步：φ 把中心 p 移动了多远？"
+  },
+  {
+   "start": 1572.675,
+   "end": 1580.775,
+   "text": "Phi of p minus p equals A inverse times y minus f of p, which is A inverse times y minus y zero.",
+   "translation": "φ(p) − p = A⁻¹(y − f(p)) = A⁻¹(y − y₀)。"
+  },
+  {
+   "start": 1581.225,
+   "end": 1591.475,
+   "text": "Its norm is at most the norm of A inverse times the norm of y minus y zero, less than the norm of A inverse times lambda r, which is r over two.",
+   "translation": "它的范数 ≤ ‖A⁻¹‖·‖y − y₀‖ < ‖A⁻¹‖λr = r/2。"
+  },
+  {
+   "start": 1591.925,
+   "end": 1595.075,
+   "text": "So the center moves by less than half the radius.",
+   "translation": "所以中心的移动不到半径的一半。"
+  },
+  {
+   "start": 1595.525,
+   "end": 1599.225,
+   "text": "Step five. Phi maps the closed ball into itself.",
+   "translation": "第五步：φ 把闭球映进它自己。"
+  },
+  {
+   "start": 1599.675,
+   "end": 1606.425,
+   "text": "For x in B bar, the triangle inequality bounds the distance from phi of x to p by two terms.",
+   "translation": "对 B̄ 中的 x，三角不等式把 φ(x) 到 p 的距离拆成两项之和。"
+  },
+  {
+   "start": 1606.875,
+   "end": 1613.4,
+   "text": "The first is the distance from phi of x to phi of p, the second the distance from phi of p to p.",
+   "translation": "第一项是 φ(x) 到 φ(p) 的距离，第二项是 φ(p) 到 p 的距离。"
+  },
+  {
+   "start": 1613.85,
+   "end": 1621.675,
+   "text": "Since B bar lies inside U, the first term is at most half the distance from x to p, which is at most r over two.",
+   "translation": "因为 B̄ ⊆ U，第一项 ≤ ½‖x − p‖ ≤ r/2。"
+  },
+  {
+   "start": 1622.125,
+   "end": 1627.925,
+   "text": "The second term is less than r over two, by step four. Together, they are less than r.",
+   "translation": "由第四步，第二项 < r/2。两项合起来小于 r。"
+  },
+  {
+   "start": 1628.375,
+   "end": 1634.2,
+   "text": "Both halves come from the same choice: two lambda times the norm of A inverse equals one.",
+   "translation": "两个“一半”都来自同一个选择：2λ‖A⁻¹‖ = 1。"
+  },
+  {
+   "start": 1634.65,
+   "end": 1640.05,
+   "text": "So phi maps B bar into the open ball B, and in particular into B bar.",
+   "translation": "所以 φ 把 B̄ 映进开球 B，当然也映进 B̄。"
+  },
+  {
+   "start": 1640.5,
+   "end": 1648.75,
+   "text": "Step six. B bar is a closed subset of R n, so it is complete, and phi is a contraction on it, with constant one half.",
+   "translation": "第六步：B̄ 是 ℝⁿ 的闭子集，因而完备；φ 是 B̄ 上常数为 1/2 的压缩映射。"
+  },
+  {
+   "start": 1649.2,
+   "end": 1656.175,
+   "text": "The contraction mapping principle gives a fixed point x in B bar, which means that f of x equals y.",
+   "translation": "压缩映射原理给出 B̄ 中的不动点 x，也就是 f(x) = y。"
+  },
+  {
+   "start": 1656.625,
+   "end": 1663.975,
+   "text": "Step seven. That x lies in B bar, inside U, so y equals f of x is in f of U, which is V.",
+   "translation": "第七步：x ∈ B̄ ⊆ U，所以 y = f(x) ∈ f(U) = V。"
+  },
+  {
+   "start": 1664.425,
+   "end": 1670.125,
+   "text": "The claim is proved: the whole disk of radius lambda r around y zero lies in V.",
+   "translation": "断言得证：y₀ 周围半径 λr 的整个圆盘都在 V 中。"
+  },
+  {
+   "start": 1670.575,
+   "end": 1676.55,
+   "text": "Since y zero was arbitrary, every point of V has such a disk around it. V is open.",
+   "translation": "因为 y₀ 是任取的，V 的每一点周围都有这样的圆盘。V 是开集。"
+  },
+  {
+   "start": 1677.0,
+   "end": 1686.7,
+   "text": "The closed ball did two jobs: it sits inside U, where the contraction estimate holds, and it is complete, so the limit of the iterates stays in it.",
+   "translation": "闭球做了两件事：它在 U 内，压缩估计成立；它完备，迭代的极限仍留在其中。"
+  },
+  {
+   "start": 1687.15,
+   "end": 1695.6,
+   "text": "Combined with injectivity: f restricted to U is a bijection onto the open set V. Call its inverse g, from V to U.",
+   "translation": "结合单射性：f 限制在 U 上是到开集 V 的双射。把它的逆记为 g: V → U。"
+  },
+  {
+   "start": 1696.05,
+   "end": 1698.425,
+   "text": "The first half of the proof is done.",
+   "translation": "证明的前半部分完成了。"
+  },
+  {
+   "start": 1698.875,
+   "end": 1705.425,
+   "text": "The inverse g exists. But is it differentiable, and is its derivative the inverse of f prime?",
+   "translation": "逆 g 存在了。但它可微吗？它的导数是 f′ 的逆吗？"
+  },
+  {
+   "start": 1709.425,
+   "end": 1717.35,
+   "text": "When we stated the theorem, we flagged an assumption: the derivative formula needed g to be differentiable. Now we prove it.",
+   "translation": "陈述定理时，我们标出了一个假定：导数公式需要 g 可微。现在来证明它。"
+  },
+  {
+   "start": 1717.8,
+   "end": 1722.475,
+   "text": "Take y in V, and an increment k, with y plus k also in V.",
+   "translation": "取 y ∈ V 和增量 k，使 y + k 也在 V 中。"
+  },
+  {
+   "start": 1722.925,
+   "end": 1731.3,
+   "text": "Let x be g of y, and x plus h be g of y plus k. So h is the change in x caused by the change k in y.",
+   "translation": "令 x = g(y)，x + h = g(y + k)。h 就是 y 变化 k 时 x 的变化。"
+  },
+  {
+   "start": 1731.75,
+   "end": 1735.9,
+   "text": "Since g is one to one, a nonzero k gives a nonzero h.",
+   "translation": "因为 g 是单射，k ≠ 0 时 h ≠ 0。"
+  },
+  {
+   "start": 1736.35,
+   "end": 1743.675,
+   "text": "Step two. Use the same map phi. Its contraction estimate holds on U for any value of the parameter y.",
+   "translation": "第二步：使用同一个映射 φ。对任何参数 y，它的压缩估计在 U 上都成立。"
+  },
+  {
+   "start": 1744.125,
+   "end": 1754.65,
+   "text": "Phi of x plus h, minus phi of x, equals h plus A inverse times f of x minus f of x plus h. That is h minus A inverse k.",
+   "translation": "φ(x + h) − φ(x) = h + A⁻¹(f(x) − f(x + h)) = h − A⁻¹k。"
+  },
+  {
+   "start": 1755.1,
+   "end": 1762.45,
+   "text": "Step three. By the one half Lipschitz bound, the norm of h minus A inverse k is at most half the norm of h.",
+   "translation": "第三步：由 1/2-Lipschitz 估计，‖h − A⁻¹k‖ ≤ ½‖h‖。"
+  },
+  {
+   "start": 1762.9,
+   "end": 1771.95,
+   "text": "So the norm of A inverse k is at least the norm of h, minus the norm of h minus A inverse k, which is at least half the norm of h.",
+   "translation": "所以 ‖A⁻¹k‖ ≥ ‖h‖ − ‖h − A⁻¹k‖ ≥ ½‖h‖。"
+  },
+  {
+   "start": 1772.4,
+   "end": 1781.225,
+   "text": "Therefore the norm of h is at most twice the norm of A inverse k, which is at most twice the norm of A inverse, times the norm of k.",
+   "translation": "因此 ‖h‖ ≤ 2‖A⁻¹k‖ ≤ 2‖A⁻¹‖·‖k‖，"
+  },
+  {
+   "start": 1781.675,
+   "end": 1789.4,
+   "text": "And twice the norm of A inverse is one over lambda. So the norm of h is at most the norm of k, over lambda.",
+   "translation": "而 2‖A⁻¹‖ = 1/λ，所以 ‖h‖ ≤ ‖k‖/λ。"
+  },
+  {
+   "start": 1789.85,
+   "end": 1798.7,
+   "text": "So g never stretches distances by more than the factor one over lambda. In particular, as k goes to zero, h goes to zero.",
+   "translation": "所以 g 对距离的放大从不超过 1/λ 倍。特别地，k → 0 时 h → 0。"
+  },
+  {
+   "start": 1799.15,
+   "end": 1806.65,
+   "text": "Compare with the cube root. There, h is the cube root of k, and h over k blows up as k goes to zero.",
+   "translation": "对比立方根：那里 h = k^{1/3}，k → 0 时 h/k 趋于无穷。"
+  },
+  {
+   "start": 1807.1,
+   "end": 1815.25,
+   "text": "Without such a bound, there is no differentiability. Here the bound comes from the invertibility of capital A, through lambda.",
+   "translation": "没有这样的控制，就没有可微性。这里的控制来自 A 的可逆性，经由 λ 给出。"
+  },
+  {
+   "start": 1815.7,
+   "end": 1826.675,
+   "text": "Step four. Since x is in U, the norm of f prime of x minus A, times the norm of A inverse, is less than lambda times the norm of A inverse: one half.",
+   "translation": "第四步：因为 x ∈ U，‖f′(x) − A‖·‖A⁻¹‖ < λ‖A⁻¹‖ = 1/2。"
+  },
+  {
+   "start": 1827.125,
+   "end": 1837.45,
+   "text": "Perturbation lemma: if capital A is invertible, and the norm of B minus A, times the norm of A inverse, is less than one, then B is invertible.",
+   "translation": "扰动引理：若 A 可逆，且 ‖B − A‖·‖A⁻¹‖ < 1，则 B 可逆。"
+  },
+  {
+   "start": 1837.9,
+   "end": 1843.225,
+   "text": "Indeed, B equals A times the identity minus A inverse times A minus B.",
+   "translation": "事实上，B = A(I − A⁻¹(A − B))。"
+  },
+  {
+   "start": 1843.675,
+   "end": 1852.75,
+   "text": "The matrix A inverse times A minus B has norm less than one, so the Neumann series, the sum of its powers, inverts the second factor.",
+   "translation": "矩阵 A⁻¹(A − B) 的范数小于 1，所以诺伊曼级数，即它的幂之和，给出第二个因子的逆。"
+  },
+  {
+   "start": 1853.2,
+   "end": 1857.225,
+   "text": "So f prime of x is invertible. Call its inverse T.",
+   "translation": "所以 f′(x) 可逆，把它的逆记为 T。"
+  },
+  {
+   "start": 1857.675,
+   "end": 1865.725,
+   "text": "Step five. An algebraic identity: g of y plus k, minus g of y, minus T k, equals h minus T k.",
+   "translation": "第五步：一个代数恒等式。g(y + k) − g(y) − Tk = h − Tk，"
+  },
+  {
+   "start": 1866.175,
+   "end": 1874.45,
+   "text": "And h minus T k equals minus T, times f of x plus h, minus f of x, minus f prime of x h.",
+   "translation": "而 h − Tk = −T[f(x + h) − f(x) − f′(x)h]。"
+  },
+  {
+   "start": 1874.9,
+   "end": 1882.85,
+   "text": "To check it, use T times f prime of x h equals h, and f of x plus h, minus f of x, equals k.",
+   "translation": "验证时用到 T·f′(x)h = h，以及 f(x + h) − f(x) = k。"
+  },
+  {
+   "start": 1883.3,
+   "end": 1892.325,
+   "text": "Step six. Divide by the norm of k. The left side is at most the norm of T, times the remainder of f, divided by the norm of k.",
+   "translation": "第六步：除以 ‖k‖。左边不超过 ‖T‖ 乘以 f 的余项再除以 ‖k‖。"
+  },
+  {
+   "start": 1892.775,
+   "end": 1898.675,
+   "text": "By step three, one over the norm of k is at most one over lambda times the norm of h.",
+   "translation": "由第三步，1/‖k‖ ≤ 1/(λ‖h‖)。"
+  },
+  {
+   "start": 1899.125,
+   "end": 1906.0,
+   "text": "So the ratio is at most the norm of T over lambda, times the remainder of f divided by the norm of h.",
+   "translation": "所以这个比值不超过 (‖T‖/λ) 乘以 f 的余项除以 ‖h‖。"
+  },
+  {
+   "start": 1906.45,
+   "end": 1917.5,
+   "text": "Step seven. As k goes to zero, h goes to zero by step three, and the remainder of f over the norm of h goes to zero, because f is differentiable at x.",
+   "translation": "第七步：k → 0 时，由第三步 h → 0；而 f 在 x 处可微，所以 f 的余项除以 ‖h‖ 趋于 0。"
+  },
+  {
+   "start": 1917.95,
+   "end": 1925.475,
+   "text": "So g is differentiable at y, with derivative T: g prime of y is the inverse of f prime of g of y.",
+   "translation": "所以 g 在 y 处可微，导数为 T：g′(y) = [f′(g(y))]⁻¹。"
+  },
+  {
+   "start": 1925.925,
+   "end": 1932.95,
+   "text": "For our example, the error ratio of g, computed numerically, indeed drops to zero as k shrinks.",
+   "translation": "对我们的例子，数值计算的 g 的误差比，确实随 k 缩小而趋于 0。"
+  },
+  {
+   "start": 1933.4,
+   "end": 1935.95,
+   "text": "The flagged assumption is now proved.",
+   "translation": "之前标出的假定，现在证明了。"
+  },
+  {
+   "start": 1936.4,
+   "end": 1945.95,
+   "text": "Step eight: g is C one. Its derivative is a composition: y goes to g of y, then to f prime of g of y, then to the matrix inverse.",
+   "translation": "第八步：g 是 C¹ 的。它的导数是复合：y ↦ g(y) ↦ f′(g(y)) ↦ 矩阵的逆。"
+  },
+  {
+   "start": 1946.4,
+   "end": 1954.975,
+   "text": "g is differentiable, hence continuous. And f prime is continuous, from U into the set Omega of invertible matrices.",
+   "translation": "g 可微，因而连续；f′ 是从 U 到可逆矩阵集合 Ω 的连续映射。"
+  },
+  {
+   "start": 1955.425,
+   "end": 1965.675,
+   "text": "Inversion is continuous on Omega: by Cramer's rule, each entry of the inverse is a rational function of the entries, over the nonzero determinant.",
+   "translation": "求逆在 Ω 上连续：由克拉默法则，逆矩阵的每个元素都是原元素的有理函数，分母是非零的行列式。"
+  },
+  {
+   "start": 1966.125,
+   "end": 1972.95,
+   "text": "A composition of continuous maps is continuous, so g prime is continuous, and g is C one.",
+   "translation": "连续映射的复合连续，所以 g′ 连续，g 是 C¹ 的。"
+  },
+  {
+   "start": 1973.4,
+   "end": 1979.525,
+   "text": "A supplementary remark on higher regularity: inversion on Omega is in fact smooth.",
+   "translation": "关于更高正则性的补充说明：Ω 上的求逆实际上是光滑的。"
+  },
+  {
+   "start": 1979.975,
+   "end": 1988.5,
+   "text": "If f is C k, and g is known to be C j for some j less than k, then g prime is C j, so g is C j plus one.",
+   "translation": "若 f 是 C^k，且已知 g 是 C^j（j < k），则 g′ 是 C^j，于是 g 是 C^{j+1}。"
+  },
+  {
+   "start": 1988.95,
+   "end": 1994.2,
+   "text": "Starting from j equal to one, induction reaches k. Smooth f gives smooth g.",
+   "translation": "从 j = 1 开始归纳即到 k。f 光滑则 g 光滑。"
+  },
+  {
+   "start": 1994.65,
+   "end": 2001.75,
+   "text": "Looking back, step three, the bound on h, is the heart of the matter. It is exactly what fails for the cube root.",
+   "translation": "回头看，第三步对 h 的控制是关键，而立方根恰好缺少它。"
+  },
+  {
+   "start": 2002.2,
+   "end": 2011.4,
+   "text": "And step four shows f prime invertible on all of U: invertibility at one point spreads to a ball, thanks to continuity of the derivative.",
+   "translation": "第四步说明 f′ 在整个 U 上可逆：靠导数的连续性，一点处的可逆性扩散到一个球。"
+  },
+  {
+   "start": 2011.85,
+   "end": 2013.825,
+   "text": "The theorem is proved.",
+   "translation": "定理证毕。"
+  },
+  {
+   "start": 2017.825,
+   "end": 2020.175,
+   "text": "Let us look back at the whole proof.",
+   "translation": "回顾整个证明。"
+  },
+  {
+   "start": 2020.625,
+   "end": 2031.025,
+   "text": "Injectivity: C one gives a ball where f prime stays close to capital A, so the frozen Newton map is a one half contraction, and f is one to one.",
+   "translation": "单射：C¹ 给出一个 f′ 始终接近 A 的球，于是冻结牛顿映射是 1/2-压缩，f 是单射。"
+  },
+  {
+   "start": 2031.475,
+   "end": 2036.5,
+   "text": "The wiggling example shows what happens without continuity of the derivative.",
+   "translation": "摆动的例子说明了导数不连续时会怎样。"
+  },
+  {
+   "start": 2036.95,
+   "end": 2044.65,
+   "text": "Openness: a closed ball is complete, so the contraction principle produces solutions, and the image is open.",
+   "translation": "开性：闭球完备，压缩映射原理给出解，于是像是开集。"
+  },
+  {
+   "start": 2045.1,
+   "end": 2049.8,
+   "text": "The interval with zero removed shows what happens without completeness.",
+   "translation": "挖掉 0 的区间说明了没有完备性时会怎样。"
+  },
+  {
+   "start": 2050.25,
+   "end": 2059.6,
+   "text": "Differentiability: the increment bound and an algebraic identity give g prime as the inverse of f prime, and then C one and C k.",
+   "translation": "可微性：增量控制和代数恒等式给出 g′ = (f′)⁻¹，进而得到 C¹ 与 C^k。"
+  },
+  {
+   "start": 2060.05,
+   "end": 2064.275,
+   "text": "The cube root shows what happens without an invertible derivative.",
+   "translation": "立方根说明了导数不可逆时会怎样。"
+  },
+  {
+   "start": 2064.725,
+   "end": 2069.325,
+   "text": "Every hypothesis was used, and every one has a counterexample.",
+   "translation": "每个条件都用上了，每个条件都有反例。"
+  },
+  {
+   "start": 2069.775,
+   "end": 2080.375,
+   "text": "What did we buy? A finite check in linear algebra, whether one matrix is invertible, yields a geometric conclusion: smooth coordinates exist nearby.",
+   "translation": "我们得到了什么？一个有限的线性代数检验，即矩阵是否可逆，换来几何结论：附近存在光滑坐标。"
+  },
+  {
+   "start": 2080.825,
+   "end": 2089.9,
+   "text": "Polar coordinates again: the derivative is invertible, so near any point with r positive, r and theta serve as local coordinates.",
+   "translation": "再看极坐标：导数可逆，所以在任何 r > 0 的点附近，r 和 θ 可以充当局部坐标。"
+  },
+  {
+   "start": 2090.35,
+   "end": 2092.475,
+   "text": "That is a chart in embryo.",
+   "translation": "这就是 chart 的雏形。"
+  },
+  {
+   "start": 2092.925,
+   "end": 2098.275,
+   "text": "What is missing? The theorem needs a square map: n equations in n unknowns.",
+   "translation": "还缺什么？定理需要方阵映射：n 个方程，n 个未知数。"
+  },
+  {
+   "start": 2098.725,
+   "end": 2107.35,
+   "text": "A constraint set, h of x equals c, with h from R n to R k and k less than n, has fewer equations than unknowns.",
+   "translation": "约束集合 h(x) = c，其中 h: ℝⁿ → ℝᵏ 且 k < n，方程比未知数少。"
+  },
+  {
+   "start": 2107.8,
+   "end": 2113.825,
+   "text": "Take the unit circle, x squared plus y squared equals one: one equation, two unknowns.",
+   "translation": "以单位圆 x² + y² = 1 为例：一个方程，两个未知数。"
+  },
+  {
+   "start": 2114.275,
+   "end": 2121.825,
+   "text": "Its derivative is the row two x, two y: a one by two matrix. It is not square, so it cannot be inverted.",
+   "translation": "它的导数是行向量 (2x, 2y)：1×2 矩阵。不是方阵，无从求逆。"
+  },
+  {
+   "start": 2122.275,
+   "end": 2131.525,
+   "text": "In the next episode, we fix this with a trick: pad the map to a square one, capital F of x, y equals x, together with f of x, y.",
+   "translation": "下一集用一个技巧解决：把映射补成方的，F(x, y) = (x, f(x, y))。"
+  },
+  {
+   "start": 2131.975,
+   "end": 2139.8,
+   "text": "Then the inverse function theorem gives the implicit function theorem: near a point, the circle is the graph of a function.",
+   "translation": "然后由反函数定理推出隐函数定理：在一点附近，圆是一个函数的图像。"
+  },
+  {
+   "start": 2140.25,
+   "end": 2145.45,
+   "text": "That is the next link in the chain, toward tangent spaces and the orthogonal group.",
+   "translation": "这是链条上的下一环，通向切空间与正交群。"
+  }
+ ]
+}

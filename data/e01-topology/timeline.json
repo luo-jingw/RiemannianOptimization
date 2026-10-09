@@ -1,0 +1,2397 @@
+{
+ "language": "en",
+ "episode": "e01-topology",
+ "duration": 2040.275,
+ "chapters": [
+  {
+   "id": "c01-why-curved",
+   "index": 0,
+   "start": 5.0,
+   "end": 254.3,
+   "title": "Why Optimization on Curved Spaces Needs a New Language",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    9.7,
+    19.45,
+    27.45,
+    35.45,
+    43.3,
+    52.25,
+    55.5,
+    63.975,
+    71.575,
+    80.875,
+    91.75,
+    97.55,
+    106.3,
+    112.975,
+    119.525,
+    126.1,
+    136.8,
+    144.675,
+    151.25,
+    156.5,
+    162.95,
+    170.175,
+    174.625,
+    181.35,
+    185.15,
+    190.075,
+    193.45,
+    199.65,
+    205.25,
+    212.75,
+    220.275,
+    224.775,
+    229.15,
+    236.475,
+    240.225
+   ],
+   "sentenceEnds": [
+    9.25,
+    19.0,
+    27.0,
+    35.0,
+    42.85,
+    51.8,
+    55.05,
+    63.525,
+    71.125,
+    80.425,
+    91.3,
+    97.1,
+    105.85,
+    112.525,
+    119.075,
+    125.65,
+    136.35,
+    144.225,
+    150.8,
+    156.05,
+    162.5,
+    169.725,
+    174.175,
+    180.9,
+    184.7,
+    189.625,
+    193.0,
+    199.2,
+    204.8,
+    212.3,
+    219.825,
+    224.325,
+    228.7,
+    236.025,
+    239.775,
+    247.7
+   ]
+  },
+  {
+   "id": "c02-metric-and-balls",
+   "index": 1,
+   "start": 254.3,
+   "end": 497.85,
+   "title": "Distance, Open Balls and Open Sets",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    6.85,
+    13.525,
+    20.95,
+    28.0,
+    32.375,
+    39.25,
+    47.275,
+    53.775,
+    61.05,
+    65.75,
+    72.325,
+    80.9,
+    87.65,
+    96.225,
+    103.725,
+    110.55,
+    117.625,
+    126.425,
+    132.75,
+    137.575,
+    144.3,
+    153.925,
+    163.475,
+    166.525,
+    175.975,
+    185.85,
+    189.15,
+    198.25,
+    201.275,
+    210.85,
+    216.6,
+    223.15,
+    229.3,
+    235.15
+   ],
+   "sentenceEnds": [
+    6.4,
+    13.075,
+    20.5,
+    27.55,
+    31.925,
+    38.8,
+    46.825,
+    53.325,
+    60.6,
+    65.3,
+    71.875,
+    80.45,
+    87.2,
+    95.775,
+    103.275,
+    110.1,
+    117.175,
+    125.975,
+    132.3,
+    137.125,
+    143.85,
+    153.475,
+    163.025,
+    166.075,
+    175.525,
+    185.4,
+    188.7,
+    197.8,
+    200.825,
+    210.4,
+    216.15,
+    222.7,
+    228.85,
+    234.7,
+    241.95
+   ]
+  },
+  {
+   "id": "c03-topology-axioms",
+   "index": 2,
+   "start": 497.85,
+   "end": 754.8,
+   "title": "Topology: Keep Only the Open Sets",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.975,
+    16.75,
+    20.875,
+    27.75,
+    33.05,
+    39.55,
+    47.575,
+    53.875,
+    62.15,
+    67.8,
+    75.625,
+    82.7,
+    87.525,
+    95.075,
+    102.4,
+    110.5,
+    118.9,
+    122.675,
+    126.25,
+    135.875,
+    144.425,
+    149.475,
+    156.5,
+    159.875,
+    168.075,
+    173.85,
+    181.15,
+    188.85,
+    195.925,
+    202.0,
+    209.85,
+    214.55,
+    223.775,
+    231.475,
+    237.275,
+    242.4,
+    248.55
+   ],
+   "sentenceEnds": [
+    9.525,
+    16.3,
+    20.425,
+    27.3,
+    32.6,
+    39.1,
+    47.125,
+    53.425,
+    61.7,
+    67.35,
+    75.175,
+    82.25,
+    87.075,
+    94.625,
+    101.95,
+    110.05,
+    118.45,
+    122.225,
+    125.8,
+    135.425,
+    143.975,
+    149.025,
+    156.05,
+    159.425,
+    167.625,
+    173.4,
+    180.7,
+    188.4,
+    195.475,
+    201.55,
+    209.4,
+    214.1,
+    223.325,
+    231.025,
+    236.825,
+    241.95,
+    248.1,
+    255.35
+   ]
+  },
+  {
+   "id": "c04-convergence",
+   "index": 3,
+   "start": 754.8,
+   "end": 1017.8,
+   "title": "Convergence: Open Sets Decide Which Sequences Converge",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    8.55,
+    18.95,
+    24.175,
+    32.325,
+    38.45,
+    42.5,
+    47.625,
+    55.975,
+    63.35,
+    70.05,
+    77.775,
+    86.875,
+    94.25,
+    100.2,
+    109.5,
+    113.475,
+    119.05,
+    128.475,
+    133.55,
+    141.75,
+    147.9,
+    154.95,
+    163.225,
+    170.6,
+    178.4,
+    182.7,
+    189.75,
+    198.45,
+    205.6,
+    214.575,
+    222.475,
+    231.8,
+    240.95,
+    249.45,
+    256.925
+   ],
+   "sentenceEnds": [
+    8.1,
+    18.5,
+    23.725,
+    31.875,
+    38.0,
+    42.05,
+    47.175,
+    55.525,
+    62.9,
+    69.6,
+    77.325,
+    86.425,
+    93.8,
+    99.75,
+    109.05,
+    113.025,
+    118.6,
+    128.025,
+    133.1,
+    141.3,
+    147.45,
+    154.5,
+    162.775,
+    170.15,
+    177.95,
+    182.25,
+    189.3,
+    198.0,
+    205.15,
+    214.125,
+    222.025,
+    231.35,
+    240.5,
+    249.0,
+    256.475,
+    261.4
+   ]
+  },
+  {
+   "id": "c05-continuity",
+   "index": 4,
+   "start": 1017.8,
+   "end": 1271.25,
+   "title": "Continuity: Preimages of Open Sets Are Open",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    6.975,
+    18.425,
+    25.275,
+    32.975,
+    40.95,
+    50.975,
+    59.175,
+    69.525,
+    72.625,
+    81.35,
+    89.425,
+    95.775,
+    102.675,
+    111.9,
+    115.4,
+    122.125,
+    131.375,
+    139.075,
+    142.625,
+    148.975,
+    157.125,
+    163.225,
+    170.95,
+    180.175,
+    185.625,
+    190.425,
+    197.575,
+    204.375,
+    210.8,
+    217.15,
+    226.425,
+    231.875,
+    241.025,
+    245.025
+   ],
+   "sentenceEnds": [
+    6.525,
+    17.975,
+    24.825,
+    32.525,
+    40.5,
+    50.525,
+    58.725,
+    69.075,
+    72.175,
+    80.9,
+    88.975,
+    95.325,
+    102.225,
+    111.45,
+    114.95,
+    121.675,
+    130.925,
+    138.625,
+    142.175,
+    148.525,
+    156.675,
+    162.775,
+    170.5,
+    179.725,
+    185.175,
+    189.975,
+    197.125,
+    203.925,
+    210.35,
+    216.7,
+    225.975,
+    231.425,
+    240.575,
+    244.575,
+    251.85
+   ]
+  },
+  {
+   "id": "c06-preimage-not-image",
+   "index": 5,
+   "start": 1271.25,
+   "end": 1436.425,
+   "title": "Why Preimages, Not Images",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    11.25,
+    16.125,
+    22.075,
+    30.05,
+    35.275,
+    42.95,
+    49.05,
+    59.3,
+    67.225,
+    75.75,
+    83.75,
+    87.95,
+    93.45,
+    101.925,
+    112.25,
+    120.825,
+    125.375,
+    132.625,
+    139.575,
+    148.6,
+    156.275
+   ],
+   "sentenceEnds": [
+    10.8,
+    15.675,
+    21.625,
+    29.6,
+    34.825,
+    42.5,
+    48.6,
+    58.85,
+    66.775,
+    75.3,
+    83.3,
+    87.5,
+    93.0,
+    101.475,
+    111.8,
+    120.375,
+    124.925,
+    132.175,
+    139.125,
+    148.15,
+    155.825,
+    163.575
+   ]
+  },
+  {
+   "id": "c07-homeomorphism",
+   "index": 6,
+   "start": 1436.425,
+   "end": 1638.85,
+   "title": "Homeomorphism: Sameness in the Topological Sense",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    5.55,
+    10.575,
+    18.5,
+    28.65,
+    33.375,
+    40.2,
+    49.15,
+    57.6,
+    65.175,
+    72.125,
+    76.775,
+    85.05,
+    89.175,
+    98.125,
+    102.375,
+    109.675,
+    120.3,
+    127.625,
+    133.475,
+    141.1,
+    149.45,
+    156.55,
+    166.125,
+    177.225,
+    184.825,
+    193.1
+   ],
+   "sentenceEnds": [
+    5.1,
+    10.125,
+    18.05,
+    28.2,
+    32.925,
+    39.75,
+    48.7,
+    57.15,
+    64.725,
+    71.675,
+    76.325,
+    84.6,
+    88.725,
+    97.675,
+    101.925,
+    109.225,
+    119.85,
+    127.175,
+    133.025,
+    140.65,
+    149.0,
+    156.1,
+    165.675,
+    176.775,
+    184.375,
+    192.65,
+    200.825
+   ]
+  },
+  {
+   "id": "c08-continuous-inverse",
+   "index": 7,
+   "start": 1638.85,
+   "end": 1870.9,
+   "title": "Why the Continuous Inverse Cannot Be Dropped",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.475,
+    13.8,
+    23.375,
+    30.05,
+    37.95,
+    48.175,
+    54.95,
+    61.2,
+    67.55,
+    75.875,
+    80.125,
+    89.025,
+    97.475,
+    102.35,
+    110.975,
+    119.65,
+    123.2,
+    133.575,
+    140.3,
+    149.525,
+    155.825,
+    161.375,
+    170.0,
+    179.975,
+    184.325,
+    190.05,
+    196.95,
+    204.025,
+    211.175,
+    222.075
+   ],
+   "sentenceEnds": [
+    8.025,
+    13.35,
+    22.925,
+    29.6,
+    37.5,
+    47.725,
+    54.5,
+    60.75,
+    67.1,
+    75.425,
+    79.675,
+    88.575,
+    97.025,
+    101.9,
+    110.525,
+    119.2,
+    122.75,
+    133.125,
+    139.85,
+    149.075,
+    155.375,
+    160.925,
+    169.55,
+    179.525,
+    183.875,
+    189.6,
+    196.5,
+    203.575,
+    210.725,
+    221.625,
+    230.45
+   ]
+  },
+  {
+   "id": "c09-bridge-to-charts",
+   "index": 8,
+   "start": 1870.9,
+   "end": 2035.275,
+   "title": "Summary and the Road to Charts",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    5.3,
+    10.375,
+    14.525,
+    22.2,
+    27.675,
+    34.65,
+    39.35,
+    47.15,
+    58.125,
+    66.275,
+    70.55,
+    78.175,
+    83.5,
+    90.625,
+    96.125,
+    102.45,
+    111.3,
+    115.7,
+    124.15,
+    129.775,
+    135.225,
+    142.575,
+    146.9,
+    155.425
+   ],
+   "sentenceEnds": [
+    4.85,
+    9.925,
+    14.075,
+    21.75,
+    27.225,
+    34.2,
+    38.9,
+    46.7,
+    57.675,
+    65.825,
+    70.1,
+    77.725,
+    83.05,
+    90.175,
+    95.675,
+    102.0,
+    110.85,
+    115.25,
+    123.7,
+    129.325,
+    134.775,
+    142.125,
+    146.45,
+    154.975,
+    162.775
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 14.25,
+   "text": "Many optimization problems do not live in flat space: their unknowns are constrained to a curved set.",
+   "translation": "许多优化问题并不生活在平直空间里：未知量被约束在一个弯曲的集合上。"
+  },
+  {
+   "start": 14.7,
+   "end": 24.0,
+   "text": "Here is a simple example. Minimize f of x equals x transpose, capital A, x, over all unit vectors x in R three.",
+   "translation": "一个简单的例子：在 ℝ³ 的所有单位向量 x 上，最小化 f(x) = xᵀAx。"
+  },
+  {
+   "start": 24.45,
+   "end": 32.0,
+   "text": "Capital A is the diagonal matrix with entries one, two and three, and the colors on the sphere show the value of f.",
+   "translation": "A 是对角矩阵 diag(1, 2, 3)，球面上的颜色表示 f 的取值。"
+  },
+  {
+   "start": 32.45,
+   "end": 40.0,
+   "text": "On the sphere, f equals x one squared plus two x two squared plus three x three squared, which is at least one.",
+   "translation": "在球面上 f = x₁² + 2x₂² + 3x₃²，它不小于 1。"
+  },
+  {
+   "start": 40.45,
+   "end": 47.85,
+   "text": "So the minimum value is one, attained at plus and minus e one, the eigenvectors of the smallest eigenvalue.",
+   "translation": "所以最小值是 1，在 ±e₁ 处取到，也就是最小特征值对应的特征向量。"
+  },
+  {
+   "start": 48.3,
+   "end": 56.8,
+   "text": "In flat space we would simply follow the negative gradient: x plus equals x minus alpha times the gradient of f at x.",
+   "translation": "在平直空间里，我们只需沿负梯度走：x⁺ = x − α∇f(x)。"
+  },
+  {
+   "start": 57.25,
+   "end": 60.05,
+   "text": "Let us try that at a point x on the sphere.",
+   "translation": "在球面上的一点 x 试一试。"
+  },
+  {
+   "start": 60.5,
+   "end": 68.525,
+   "text": "The arrow points downhill, but its tip is no longer on the sphere: here x plus has norm less than one, it cuts inside.",
+   "translation": "箭头指向下坡，但端点已不在球面上：这里 x⁺ 的范数小于 1，切进了球内。"
+  },
+  {
+   "start": 68.975,
+   "end": 76.125,
+   "text": "This is not bad luck. Let us compute the squared norm of x minus alpha g, for any step direction g.",
+   "translation": "这不是运气不好。对任意步方向 g，计算 x − αg 的范数平方。"
+  },
+  {
+   "start": 76.575,
+   "end": 85.425,
+   "text": "Expanding the inner product gives x transpose x, minus two alpha x transpose g, plus alpha squared g transpose g.",
+   "translation": "展开内积得到 xᵀx − 2α xᵀg + α² gᵀg。"
+  },
+  {
+   "start": 85.875,
+   "end": 96.3,
+   "text": "On the sphere x transpose x is one, so the squared norm is one, minus two alpha x transpose g, plus alpha squared times the norm of g squared.",
+   "translation": "在球面上 xᵀx = 1，所以范数平方为 1 − 2α xᵀg + α²‖g‖²。"
+  },
+  {
+   "start": 96.75,
+   "end": 102.1,
+   "text": "Now suppose the step is tangent to the sphere, so x transpose g equals zero.",
+   "translation": "现在假设这一步与球面相切，即 xᵀg = 0。"
+  },
+  {
+   "start": 102.55,
+   "end": 110.85,
+   "text": "Then the squared norm is one plus alpha squared times the norm of g squared, which is bigger than one whenever g is not zero.",
+   "translation": "这时范数平方为 1 + α²‖g‖²，只要 g ≠ 0，它就严格大于 1。"
+  },
+  {
+   "start": 111.3,
+   "end": 117.525,
+   "text": "So even a perfectly tangent step leaves the sphere, and the larger the step, the farther it goes.",
+   "translation": "所以即使是完全相切的一步也会离开球面，步长越大，离得越远。"
+  },
+  {
+   "start": 117.975,
+   "end": 124.075,
+   "text": "Watch the tip of a tangent step of length one, as alpha grows from zero to zero point eight.",
+   "translation": "看一个长度为 1 的切向步，α 从 0 增加到 0.8 时端点的位置。"
+  },
+  {
+   "start": 124.525,
+   "end": 130.65,
+   "text": "The norm climbs from one to about one point two eight, and the line touches the sphere only at x.",
+   "translation": "范数从 1 增加到约 1.28，这条直线只在 x 处与球面接触。"
+  },
+  {
+   "start": 131.1,
+   "end": 141.35,
+   "text": "If x transpose g is not zero, the squared norm equals one for only one nonzero step size: two x transpose g, over the norm of g squared.",
+   "translation": "若 xᵀg ≠ 0，范数平方等于 1 的非零步长只有一个：α = 2xᵀg / ‖g‖²。"
+  },
+  {
+   "start": 141.8,
+   "end": 149.225,
+   "text": "Every other step size leaves the constraint set. The flat-space update does not respect the shape of the problem.",
+   "translation": "其余所有步长都离开约束集。平直空间的更新不尊重问题的形状。"
+  },
+  {
+   "start": 149.675,
+   "end": 155.8,
+   "text": "A natural reaction is to put coordinates on the sphere, and then optimize in those coordinates.",
+   "translation": "一个自然的想法是：给球面装上坐标，再在坐标里做优化。"
+  },
+  {
+   "start": 156.25,
+   "end": 161.05,
+   "text": "The most familiar coordinates are latitude theta and longitude lambda.",
+   "translation": "最熟悉的坐标是纬度 θ 和经度 λ。"
+  },
+  {
+   "start": 161.5,
+   "end": 167.5,
+   "text": "They give the point: cosine theta cosine lambda, cosine theta sine lambda, sine theta.",
+   "translation": "它们给出点 (cos θ cos λ, cos θ sin λ, sin θ)。"
+  },
+  {
+   "start": 167.95,
+   "end": 174.725,
+   "text": "Picture the flat rectangle of longitudes and latitudes, wrapped around the sphere like a map around a globe.",
+   "translation": "想象经纬度构成的平面矩形，像地图包住地球仪一样包到球面上。"
+  },
+  {
+   "start": 175.175,
+   "end": 179.175,
+   "text": "Now look at the north pole, where theta equals pi over two.",
+   "translation": "现在看北极，即 θ = π/2 处。"
+  },
+  {
+   "start": 179.625,
+   "end": 185.9,
+   "text": "The entire top edge of the rectangle, every longitude, is squeezed into one single point.",
+   "translation": "矩形的整条上边界，也就是所有经度，被挤压成同一个点。"
+  },
+  {
+   "start": 186.35,
+   "end": 189.7,
+   "text": "At the pole, longitude is simply not defined.",
+   "translation": "在极点处，经度根本没有定义。"
+  },
+  {
+   "start": 190.15,
+   "end": 194.625,
+   "text": "Worse, take two points P and Q on opposite sides of the pole.",
+   "translation": "更糟的是，在极点两侧取两点 P 和 Q。"
+  },
+  {
+   "start": 195.075,
+   "end": 198.0,
+   "text": "On the sphere they are very close to each other.",
+   "translation": "在球面上，它们彼此非常接近。"
+  },
+  {
+   "start": 198.45,
+   "end": 204.2,
+   "text": "But their longitudes are zero and pi, so in the coordinate rectangle they are far apart.",
+   "translation": "但它们的经度分别是 0 和 π，在坐标矩形里相距很远。"
+  },
+  {
+   "start": 204.65,
+   "end": 209.8,
+   "text": "A gradient step taken in these coordinates would be badly distorted near the pole.",
+   "translation": "在这套坐标里走梯度步，在极点附近会被严重扭曲。"
+  },
+  {
+   "start": 210.25,
+   "end": 217.3,
+   "text": "Euler angles for rotations have the same defect, known as gimbal lock; we only mention the analogy here.",
+   "translation": "旋转的欧拉角有同样的缺陷，称为万向节锁；这里只作类比。"
+  },
+  {
+   "start": 217.75,
+   "end": 224.825,
+   "text": "In fact, no single coordinate system that is continuous in both directions can cover the whole sphere.",
+   "translation": "事实上，没有任何一套双向连续的坐标能覆盖整个球面。"
+  },
+  {
+   "start": 225.275,
+   "end": 229.325,
+   "text": "We state this fact without proof; this series does not prove it.",
+   "translation": "这个事实这里只陈述，本系列不证明。"
+  },
+  {
+   "start": 229.775,
+   "end": 233.7,
+   "text": "Yet near every single point, good coordinates do exist.",
+   "translation": "但在每一点附近，好的坐标都存在。"
+  },
+  {
+   "start": 234.15,
+   "end": 241.025,
+   "text": "So the program is: a space that looks locally like R n, with the local pieces fitting together well.",
+   "translation": "所以纲领是：空间局部像 ℝⁿ，而且各个局部之间拼接得好。"
+  },
+  {
+   "start": 241.475,
+   "end": 244.775,
+   "text": "But to say locally, we first need to say near.",
+   "translation": "但要说“局部”，先要能说“附近”。"
+  },
+  {
+   "start": 245.225,
+   "end": 252.7,
+   "text": "And on a space without coordinates, nearness itself must be defined from scratch. That is the job of this episode.",
+   "translation": "而在没有坐标的空间里，“附近”本身需要从头定义。这正是本集的任务。"
+  },
+  {
+   "start": 256.7,
+   "end": 260.7,
+   "text": "The most basic meaning of near is: at distance less than r.",
+   "translation": "“附近”最朴素的意思是：距离小于 r。"
+  },
+  {
+   "start": 261.15,
+   "end": 267.375,
+   "text": "To use this on any set, we keep only the essential properties of distance. That is a metric.",
+   "translation": "为了在任何集合上使用它，只保留距离的本质性质，这就是度量。"
+  },
+  {
+   "start": 267.825,
+   "end": 274.8,
+   "text": "A metric on a set X is a function d that assigns to each pair of points a number that is zero or positive.",
+   "translation": "集合 X 上的度量是一个函数 d，给每一对点指定一个非负数。"
+  },
+  {
+   "start": 275.25,
+   "end": 281.85,
+   "text": "It satisfies three axioms. First, d of x, y is zero exactly when x equals y.",
+   "translation": "它满足三条公理。第一，d(x, y) = 0 当且仅当 x = y。"
+  },
+  {
+   "start": 282.3,
+   "end": 286.225,
+   "text": "Second, symmetry: d of x, y equals d of y, x.",
+   "translation": "第二，对称性：d(x, y) = d(y, x)。"
+  },
+  {
+   "start": 286.675,
+   "end": 293.1,
+   "text": "Third, the triangle inequality: d of x, z is at most d of x, y plus d of y, z.",
+   "translation": "第三，三角不等式：d(x, z) ≤ d(x, y) + d(y, z)。"
+  },
+  {
+   "start": 293.55,
+   "end": 301.125,
+   "text": "With a metric we define the open ball B r of x: all points y whose distance to x is strictly less than r.",
+   "translation": "有了度量，定义开球 B_r(x)：到 x 的距离严格小于 r 的所有点 y。"
+  },
+  {
+   "start": 301.575,
+   "end": 307.625,
+   "text": "The boundary circle is drawn dashed, because points at distance exactly r are not included.",
+   "translation": "边界圆画成虚线，因为距离恰好为 r 的点不包含在内。"
+  },
+  {
+   "start": 308.075,
+   "end": 314.9,
+   "text": "A subset U of X is called open if every point of U has some ball around it that stays inside U.",
+   "translation": "X 的子集 U 称为开集，如果 U 的每一点周围都有一个球完全留在 U 里。"
+  },
+  {
+   "start": 315.35,
+   "end": 319.6,
+   "text": "In words: an open set leaves some room around each of its points.",
+   "translation": "换句话说：开集在它的每一点周围都留有余地。"
+  },
+  {
+   "start": 320.05,
+   "end": 326.175,
+   "text": "The first thing to check is that the name open ball is honest: an open ball is an open set.",
+   "translation": "首先要验证“开球”这个名字名副其实：开球是开集。"
+  },
+  {
+   "start": 326.625,
+   "end": 334.75,
+   "text": "Take any point y in the ball B r of x, and let s be r minus d of x, y. Since y is inside, s is positive.",
+   "translation": "在 B_r(x) 中任取一点 y，令 s = r − d(x, y)。因为 y 在球内，s > 0。"
+  },
+  {
+   "start": 335.2,
+   "end": 341.5,
+   "text": "We claim that the small ball of radius s around y lies entirely inside the big ball.",
+   "translation": "我们断言：以 y 为中心、半径为 s 的小球完全落在大球里。"
+  },
+  {
+   "start": 341.95,
+   "end": 350.075,
+   "text": "Take any z in the small ball. By the triangle inequality, d of x, z is at most d of x, y plus d of y, z.",
+   "translation": "在小球中任取 z。由三角不等式，d(x, z) ≤ d(x, y) + d(y, z)。"
+  },
+  {
+   "start": 350.525,
+   "end": 357.575,
+   "text": "And d of y, z is less than s, so the sum is less than d of x, y plus s, which is exactly r.",
+   "translation": "而 d(y, z) < s，所以和小于 d(x, y) + s，恰好等于 r。"
+  },
+  {
+   "start": 358.025,
+   "end": 364.4,
+   "text": "So z lies in the big ball. Since z was arbitrary, the small ball is inside the big ball.",
+   "translation": "所以 z 在大球里。z 是任取的，故小球包含在大球中。"
+  },
+  {
+   "start": 364.85,
+   "end": 371.475,
+   "text": "And since y was arbitrary too, every point of B r of x has room around it: the ball is open.",
+   "translation": "y 也是任取的，所以 B_r(x) 的每一点周围都有余地：开球是开集。"
+  },
+  {
+   "start": 371.925,
+   "end": 380.275,
+   "text": "Notice that the key step was exactly the triangle inequality. Without that axiom, balls would have no reason to be open.",
+   "translation": "注意关键一步正是三角不等式。没有这条公理，球就没有理由是开集。"
+  },
+  {
+   "start": 380.725,
+   "end": 386.6,
+   "text": "Now compare the closed disk: the points with norm at most one, including the boundary circle.",
+   "translation": "再看闭圆盘：范数不超过 1 的点，包括边界圆。"
+  },
+  {
+   "start": 387.05,
+   "end": 391.425,
+   "text": "Take a point b on the boundary circle, and any small ball around it.",
+   "translation": "在边界圆上取一点 b，以及它周围任意小的球。"
+  },
+  {
+   "start": 391.875,
+   "end": 398.15,
+   "text": "However small the radius, part of the ball sticks out of the disk. So the closed disk is not open.",
+   "translation": "无论半径多小，球总有一部分伸出圆盘。所以闭圆盘不是开集。"
+  },
+  {
+   "start": 398.6,
+   "end": 407.775,
+   "text": "Different metrics can live on the same set. On the plane, besides the Euclidean distance d two, there is the maximum distance d infinity.",
+   "translation": "同一个集合上可以有不同的度量。平面上除了欧氏距离 d₂，还有最大值距离 d_∞。"
+  },
+  {
+   "start": 408.225,
+   "end": 417.325,
+   "text": "d infinity of x, y is the largest coordinate difference: the maximum over i of the absolute value of x i minus y i.",
+   "translation": "d_∞(x, y) 是坐标差的最大值：max_i |x_i − y_i|。"
+  },
+  {
+   "start": 417.775,
+   "end": 420.375,
+   "text": "Its balls are not disks but squares.",
+   "translation": "它的球不是圆盘，而是正方形。"
+  },
+  {
+   "start": 420.825,
+   "end": 429.825,
+   "text": "For any vector v in R n, the largest coordinate is at most the Euclidean norm, which is at most root n times the largest coordinate.",
+   "translation": "对 ℝⁿ 中任意向量 v：max_i |v_i| ≤ ‖v‖₂ ≤ √n · max_i |v_i|。"
+  },
+  {
+   "start": 430.275,
+   "end": 439.7,
+   "text": "In terms of balls: the square of radius r over root n sits inside the disk of radius r, which sits inside the square of radius r.",
+   "translation": "换成球：半径 r/√n 的正方形在半径 r 的圆盘里，圆盘又在半径 r 的正方形里。"
+  },
+  {
+   "start": 440.15,
+   "end": 443.0,
+   "text": "Squares inside disks inside squares.",
+   "translation": "方中有圆，圆中有方。"
+  },
+  {
+   "start": 443.45,
+   "end": 452.1,
+   "text": "Now suppose U is open for d two. Each point x of U has a disk inside U, and so also the smaller square inside that disk.",
+   "translation": "设 U 在 d₂ 下是开集。U 中每点 x 周围有圆盘在 U 内，于是圆盘里的小正方形也在 U 内。"
+  },
+  {
+   "start": 452.55,
+   "end": 455.125,
+   "text": "So U is open for d infinity.",
+   "translation": "所以 U 在 d_∞ 下是开集。"
+  },
+  {
+   "start": 455.575,
+   "end": 464.7,
+   "text": "Conversely, if U is open for d infinity, each point has a square inside U, and the disk of the same radius sits inside that square.",
+   "translation": "反之，若 U 在 d_∞ 下是开集，每点周围有正方形在 U 内，同半径的圆盘又在正方形里。"
+  },
+  {
+   "start": 465.15,
+   "end": 470.45,
+   "text": "So U is open for d two. The two metrics have exactly the same open sets.",
+   "translation": "所以 U 在 d₂ 下是开集。两种度量的开集完全相同。"
+  },
+  {
+   "start": 470.9,
+   "end": 477.0,
+   "text": "Look at an irregular open set: at each sample point, both a disk and a square fit inside.",
+   "translation": "看一个不规则的开集：在每个采样点处，圆盘和正方形都能放进去。"
+  },
+  {
+   "start": 477.45,
+   "end": 483.15,
+   "text": "The numbers differ and the balls have different shapes, but the meaning of near is identical.",
+   "translation": "距离数值不同，球的形状也不同，但“附近”的含义完全一样。"
+  },
+  {
+   "start": 483.6,
+   "end": 489.0,
+   "text": "So what really matters is not the distance values, but the collection of open sets.",
+   "translation": "所以真正重要的不是距离的数值，而是开集族。"
+  },
+  {
+   "start": 489.45,
+   "end": 496.25,
+   "text": "This raises a question: can we take the open sets as the starting point, and drop the distance altogether?",
+   "translation": "由此产生一个问题：能否直接以开集为出发点，完全抛开距离？"
+  },
+  {
+   "start": 500.25,
+   "end": 507.375,
+   "text": "In a metric space, what mattered were the open sets. So let us take their properties as the definition itself.",
+   "translation": "在度量空间里，重要的是开集。所以把开集的性质直接作为定义。"
+  },
+  {
+   "start": 507.825,
+   "end": 514.15,
+   "text": "A topology on a set X is a collection tau of subsets of X, satisfying three axioms.",
+   "translation": "集合 X 上的拓扑是 X 的子集族 τ，满足三条公理。"
+  },
+  {
+   "start": 514.6,
+   "end": 518.275,
+   "text": "First: the empty set and X itself belong to tau.",
+   "translation": "第一：空集和 X 本身属于 τ。"
+  },
+  {
+   "start": 518.725,
+   "end": 525.15,
+   "text": "Second: the union of any collection of members of tau, finite or infinite, belongs to tau.",
+   "translation": "第二：τ 中任意多个成员的并，无论有限还是无限，都属于 τ。"
+  },
+  {
+   "start": 525.6,
+   "end": 530.45,
+   "text": "Third: the intersection of finitely many members of tau belongs to tau.",
+   "translation": "第三：τ 中有限多个成员的交属于 τ。"
+  },
+  {
+   "start": 530.9,
+   "end": 536.95,
+   "text": "The members of tau are called open sets, and the pair X, tau is called a topological space.",
+   "translation": "τ 的成员称为开集，(X, τ) 称为拓扑空间。"
+  },
+  {
+   "start": 537.4,
+   "end": 544.975,
+   "text": "Notice the asymmetry: any unions, but only finite intersections. We will see why the word finite is essential.",
+   "translation": "注意这里的不对称：任意并，但只有有限交。我们会看到“有限”为什么必不可少。"
+  },
+  {
+   "start": 545.425,
+   "end": 551.275,
+   "text": "First, let us check that the open sets of a metric space satisfy all three axioms.",
+   "translation": "先验证度量空间的开集满足这三条公理。"
+  },
+  {
+   "start": 551.725,
+   "end": 559.55,
+   "text": "The empty set is open because it has no points to check. The whole space X is open because every ball lies in X.",
+   "translation": "空集是开集，因为没有需要检查的点。X 是开集，因为每个球都在 X 里。"
+  },
+  {
+   "start": 560.0,
+   "end": 565.2,
+   "text": "For unions, take a point x in the union of a family of open sets U alpha.",
+   "translation": "对于并：在一族开集 U_α 的并中取一点 x。"
+  },
+  {
+   "start": 565.65,
+   "end": 573.025,
+   "text": "Then x lies in at least one of them, say U beta, which is open, so some ball around x lies in U beta.",
+   "translation": "x 至少属于其中一个，记为 U_β；U_β 是开集，所以 x 周围有球在 U_β 里。"
+  },
+  {
+   "start": 573.475,
+   "end": 580.1,
+   "text": "That ball also lies in the bigger union. So the union is open, no matter how many sets we join.",
+   "translation": "这个球也在更大的并集里。所以并集是开集，无论并了多少个。"
+  },
+  {
+   "start": 580.55,
+   "end": 584.925,
+   "text": "For a finite intersection, take a point x in U one through U m.",
+   "translation": "对于有限交：在 U₁ 到 U_m 的交中取一点 x。"
+  },
+  {
+   "start": 585.375,
+   "end": 592.475,
+   "text": "Each U i is open, so there is a radius r i with the ball of radius r i around x inside U i.",
+   "translation": "每个 U_i 是开集，所以存在半径 r_i，使 B_{r_i}(x) ⊆ U_i。"
+  },
+  {
+   "start": 592.925,
+   "end": 599.8,
+   "text": "Let r be the smallest of r one through r m. The minimum of finitely many positive numbers is positive.",
+   "translation": "令 r 为 r₁, …, r_m 中最小的。有限个正数的最小值仍为正。"
+  },
+  {
+   "start": 600.25,
+   "end": 607.9,
+   "text": "The ball of radius r lies inside every U i, hence inside their intersection. So the intersection is open.",
+   "translation": "半径 r 的球在每个 U_i 里，因而在它们的交里。所以交集是开集。"
+  },
+  {
+   "start": 608.35,
+   "end": 616.3,
+   "text": "What goes wrong with infinitely many sets? Consider the open intervals U n, from minus one over n to one over n.",
+   "translation": "无穷多个会出什么问题？考虑开区间 U_n = (−1/n, 1/n)。"
+  },
+  {
+   "start": 616.75,
+   "end": 620.075,
+   "text": "Each one is open. But as n grows, they shrink.",
+   "translation": "每一个都是开集。但随着 n 增大，它们不断收缩。"
+  },
+  {
+   "start": 620.525,
+   "end": 623.65,
+   "text": "Their intersection is the single point zero.",
+   "translation": "它们的交集只是单点 {0}。"
+  },
+  {
+   "start": 624.1,
+   "end": 633.275,
+   "text": "Zero belongs to every U n. If x is not zero, choose n bigger than one over the absolute value of x; then x is not in U n.",
+   "translation": "0 属于每个 U_n。若 x ≠ 0，取 n > 1/|x|，则 x ∉ U_n。"
+  },
+  {
+   "start": 633.725,
+   "end": 641.825,
+   "text": "But the set containing only zero is not open: every interval from minus r to r contains points other than zero.",
+   "translation": "但单点集 {0} 不是开集：每个区间 (−r, r) 都含有非零点。"
+  },
+  {
+   "start": 642.275,
+   "end": 646.875,
+   "text": "However small r becomes, there are always nonzero points inside.",
+   "translation": "无论 r 多小，里面总有非零点。"
+  },
+  {
+   "start": 647.325,
+   "end": 653.9,
+   "text": "Where does the proof break? The radii are one over n, and the minimum becomes an infimum, which is zero.",
+   "translation": "证明在哪里失效？半径是 1/n，最小值变成了下确界，而下确界是 0。"
+  },
+  {
+   "start": 654.35,
+   "end": 657.275,
+   "text": "A radius of zero gives no ball at all.",
+   "translation": "半径为 0 就根本没有球。"
+  },
+  {
+   "start": 657.725,
+   "end": 665.475,
+   "text": "So if the third axiom allowed infinite intersections, the ordinary open sets of R would not form a topology.",
+   "translation": "所以如果第三条公理允许无穷交，ℝ 的普通开集就不构成拓扑。"
+  },
+  {
+   "start": 665.925,
+   "end": 671.25,
+   "text": "The word finite is exactly what lets the metric open sets be a topology.",
+   "translation": "“有限”二字，正是让度量开集成为拓扑的条件。"
+  },
+  {
+   "start": 671.7,
+   "end": 678.55,
+   "text": "A single set can carry very different topologies. Take a set with four points: a, b, c and d.",
+   "translation": "同一个集合可以带有截然不同的拓扑。取一个四点集合 {a, b, c, d}。"
+  },
+  {
+   "start": 679.0,
+   "end": 686.25,
+   "text": "The trivial topology has only two open sets: the empty set and the whole set. It is the coarsest possible.",
+   "translation": "平凡拓扑只有两个开集：空集和全集。它是最粗的拓扑。"
+  },
+  {
+   "start": 686.7,
+   "end": 693.325,
+   "text": "The discrete topology declares every subset open, all sixteen of them. It is the finest possible.",
+   "translation": "离散拓扑规定每个子集都是开集，共 16 个。它是最细的拓扑。"
+  },
+  {
+   "start": 693.775,
+   "end": 699.4,
+   "text": "It is also the topology of the discrete metric, where distinct points are at distance one.",
+   "translation": "它也是离散度量诱导的拓扑：不同的点之间距离为 1。"
+  },
+  {
+   "start": 699.85,
+   "end": 707.25,
+   "text": "Which sets are open decides which points count as near. In the next chapter, it decides which sequences converge.",
+   "translation": "哪些集合是开集，决定了哪些点算“附近”。下一章会看到，它决定哪些数列收敛。"
+  },
+  {
+   "start": 707.7,
+   "end": 711.95,
+   "text": "One more construction we will need is the subspace topology.",
+   "translation": "还需要一个构造：子空间拓扑。"
+  },
+  {
+   "start": 712.4,
+   "end": 721.175,
+   "text": "For a subset, capital A, of X, the open sets of capital A are the intersections of capital A with open sets U of X.",
+   "translation": "对 X 的子集 A，A 的开集定义为 U ∩ A，其中 U 是 X 的开集。"
+  },
+  {
+   "start": 721.625,
+   "end": 728.875,
+   "text": "The axioms hold: the empty set and capital A are the empty set and X, intersected with capital A.",
+   "translation": "公理成立：∅ 与 A 分别是 ∅ 与 X 和 A 的交。"
+  },
+  {
+   "start": 729.325,
+   "end": 734.675,
+   "text": "And intersecting with capital A commutes with unions and with finite intersections.",
+   "translation": "而与 A 取交，和并运算、有限交运算都可交换。"
+  },
+  {
+   "start": 735.125,
+   "end": 739.8,
+   "text": "This is how the circle S one, inside the plane, gets its topology.",
+   "translation": "平面中的圆 S¹ 就是这样获得拓扑的。"
+  },
+  {
+   "start": 740.25,
+   "end": 745.95,
+   "text": "An open disk U meets the circle in an open arc, and that arc is open in S one.",
+   "translation": "开圆盘 U 与圆相交得到一段开弧，这段弧在 S¹ 中是开集。"
+  },
+  {
+   "start": 746.4,
+   "end": 753.2,
+   "text": "As the disk moves, the arc moves with it. Circles and spheres in this series get their topology this way.",
+   "translation": "圆盘移动，开弧随之移动。本系列中圆与球面的拓扑都由此而来。"
+  },
+  {
+   "start": 757.2,
+   "end": 762.9,
+   "text": "With open sets alone, we can now say what convergence means, without any distance.",
+   "translation": "只用开集，就能说清收敛的含义，不需要任何距离。"
+  },
+  {
+   "start": 763.35,
+   "end": 773.3,
+   "text": "A sequence x k converges to x if, for every open set U containing x, there is an index K with x k in U for all k at least K.",
+   "translation": "x_k → x，若对每个含 x 的开集 U，存在 K，使 k ≥ K 时 x_k ∈ U。"
+  },
+  {
+   "start": 773.75,
+   "end": 778.525,
+   "text": "In words: the sequence eventually stays inside every neighborhood of x.",
+   "translation": "换句话说：数列最终待在 x 的每一个邻域里。"
+  },
+  {
+   "start": 778.975,
+   "end": 786.675,
+   "text": "Here is the sequence x k equals minus one to the power k, divided by k, approaching zero on the real line.",
+   "translation": "例如数列 x_k = (−1)ᵏ / k，在实数轴上趋于 0。"
+  },
+  {
+   "start": 787.125,
+   "end": 792.8,
+   "text": "Take an open interval U around zero. Only finitely many terms lie outside it.",
+   "translation": "取一个包含 0 的开区间 U，只有有限项在它外面。"
+  },
+  {
+   "start": 793.25,
+   "end": 796.85,
+   "text": "From some index K on, every term is inside.",
+   "translation": "从某个下标 K 开始，每一项都在里面。"
+  },
+  {
+   "start": 797.3,
+   "end": 801.975,
+   "text": "Now shrink U. The index K moves to the right, but it always exists.",
+   "translation": "现在缩小 U。下标 K 向右移动，但它总是存在。"
+  },
+  {
+   "start": 802.425,
+   "end": 810.325,
+   "text": "For U from minus one half to one half, K is three. For one fifth, K is six. For one twentieth, K is twenty one.",
+   "translation": "U = (−1/2, 1/2) 时 K = 3；1/5 时 K = 6；1/20 时 K = 21。"
+  },
+  {
+   "start": 810.775,
+   "end": 817.7,
+   "text": "In a metric space, this agrees with the familiar epsilon N definition. Let us prove both directions.",
+   "translation": "在度量空间里，它与熟悉的 ε–N 定义一致。我们证明两个方向。"
+  },
+  {
+   "start": 818.15,
+   "end": 824.4,
+   "text": "First, suppose x k converges in the topological sense, and let epsilon be positive.",
+   "translation": "先设 x_k 在拓扑意义下收敛，任取 ε > 0。"
+  },
+  {
+   "start": 824.85,
+   "end": 832.125,
+   "text": "The ball of radius epsilon around x is an open set containing x, as we proved in chapter two.",
+   "translation": "B_ε(x) 是含 x 的开集，这在第二章已经证明。"
+  },
+  {
+   "start": 832.575,
+   "end": 841.225,
+   "text": "So there is a K with x k in that ball for all k at least K. That says exactly: d of x k, x is less than epsilon.",
+   "translation": "所以存在 K，使 k ≥ K 时 x_k ∈ B_ε(x)，也就是 d(x_k, x) < ε。"
+  },
+  {
+   "start": 841.675,
+   "end": 848.6,
+   "text": "Conversely, suppose the epsilon N definition holds, and let U be any open set containing x.",
+   "translation": "反之，设 ε–N 定义成立，U 是任意含 x 的开集。"
+  },
+  {
+   "start": 849.05,
+   "end": 854.55,
+   "text": "Because U is open, some ball of radius epsilon around x lies inside U.",
+   "translation": "因为 U 是开集，存在 ε > 0 使 B_ε(x) ⊆ U。"
+  },
+  {
+   "start": 855.0,
+   "end": 863.85,
+   "text": "By epsilon N, there is a K with d of x k, x less than epsilon for k at least K. So x k is in the ball, hence in U.",
+   "translation": "由 ε–N，存在 K，使 k ≥ K 时 d(x_k, x) < ε，于是 x_k ∈ B_ε(x) ⊆ U。"
+  },
+  {
+   "start": 864.3,
+   "end": 867.825,
+   "text": "Both definitions describe the same convergence.",
+   "translation": "两个定义描述的是同一种收敛。"
+  },
+  {
+   "start": 868.275,
+   "end": 873.4,
+   "text": "Next: in a metric space, a sequence cannot converge to two different points.",
+   "translation": "接下来：在度量空间里，数列不能收敛到两个不同的点。"
+  },
+  {
+   "start": 873.85,
+   "end": 882.825,
+   "text": "Suppose x k converges to x and also to y, with x different from y. Let r be half the distance between them, which is positive.",
+   "translation": "设 x_k → x 且 x_k → y，x ≠ y。令 r = d(x, y)/2 > 0。"
+  },
+  {
+   "start": 883.275,
+   "end": 887.9,
+   "text": "The two balls of radius r around x and around y are disjoint.",
+   "translation": "以 x 和 y 为中心、半径为 r 的两个球互不相交。"
+  },
+  {
+   "start": 888.35,
+   "end": 896.1,
+   "text": "If some z were in both, then d of x, y would be at most d of x, z plus d of z, y, which is less than two r.",
+   "translation": "若某个 z 同属两球，则 d(x, y) ≤ d(x, z) + d(z, y) < 2r。"
+  },
+  {
+   "start": 896.55,
+   "end": 902.25,
+   "text": "But two r is d of x, y itself, a contradiction. So the balls do not overlap.",
+   "translation": "但 2r 就是 d(x, y)，矛盾。所以两球不相交。"
+  },
+  {
+   "start": 902.7,
+   "end": 909.3,
+   "text": "Now, eventually x k is in the ball around x, and eventually it is also in the ball around y.",
+   "translation": "而 x_k 最终在 x 的球里，最终也在 y 的球里。"
+  },
+  {
+   "start": 909.75,
+   "end": 917.575,
+   "text": "Past both indices, x k would lie in two disjoint sets at once. That is impossible, so the limit is unique.",
+   "translation": "超过两个下标后，x_k 同时属于两个不相交的集合，不可能。所以极限唯一。"
+  },
+  {
+   "start": 918.025,
+   "end": 924.95,
+   "text": "The key step was separating x and y by disjoint open sets. What if a topology has no such sets?",
+   "translation": "关键一步是用不相交的开集把 x 和 y 分开。如果拓扑里没有这样的开集呢？"
+  },
+  {
+   "start": 925.4,
+   "end": 932.75,
+   "text": "Switch to the trivial topology on a set X with at least two points. The only nonempty open set is X itself.",
+   "translation": "换成至少有两点的集合 X 上的平凡拓扑。唯一的非空开集就是 X 本身。"
+  },
+  {
+   "start": 933.2,
+   "end": 937.05,
+   "text": "Pick any sequence, and any point x as a candidate limit.",
+   "translation": "任取一个数列，再任取一点 x 作为候选极限。"
+  },
+  {
+   "start": 937.5,
+   "end": 944.1,
+   "text": "The only open set containing x is X, and every term lies in X. So K equals one works.",
+   "translation": "含 x 的开集只有 X，而每一项都在 X 里，所以取 K = 1 即可。"
+  },
+  {
+   "start": 944.55,
+   "end": 952.8,
+   "text": "So the sequence converges to x. But x was arbitrary: it also converges to y, and to z, to every point at once.",
+   "translation": "所以数列收敛到 x。但 x 是任取的：它也收敛到 y、z，同时收敛到每一点。"
+  },
+  {
+   "start": 953.25,
+   "end": 959.95,
+   "text": "Now the opposite extreme: the discrete topology, where the single point set containing x is open.",
+   "translation": "再看另一个极端：离散拓扑，单点集 {x} 是开集。"
+  },
+  {
+   "start": 960.4,
+   "end": 968.925,
+   "text": "If x k converges to x, then eventually x k lies in that single point set, so the sequence is eventually equal to x.",
+   "translation": "若 x_k → x，则最终 x_k ∈ {x}，即数列最终等于 x。"
+  },
+  {
+   "start": 969.375,
+   "end": 976.825,
+   "text": "Conversely, a sequence that is eventually equal to x is eventually inside every open set containing x.",
+   "translation": "反之，最终等于 x 的数列，最终落在每个含 x 的开集里。"
+  },
+  {
+   "start": 977.275,
+   "end": 986.15,
+   "text": "So one over k, which converges to zero on the real line, does not converge to zero in the discrete topology: it never equals zero.",
+   "translation": "所以 1/k 在实数轴上收敛到 0，在离散拓扑中却不收敛到 0：它从不等于 0。"
+  },
+  {
+   "start": 986.6,
+   "end": 995.3,
+   "text": "The same sequence can converge to every point, or to none. Convergence is decided by the open sets, not by the sequence alone.",
+   "translation": "同一个数列可以收敛到每一点，也可以不收敛。收敛由开集决定，而不只取决于数列。"
+  },
+  {
+   "start": 995.75,
+   "end": 1003.8,
+   "text": "For optimization this matters. An algorithm produces iterates x k, and a limit is only meaningful if it is unique.",
+   "translation": "这对优化很重要。算法产生迭代点 x_k，只有极限唯一，极限才有意义。"
+  },
+  {
+   "start": 1004.25,
+   "end": 1011.275,
+   "text": "The property we need is: distinct points have disjoint open neighborhoods. It is called the Hausdorff condition.",
+   "translation": "我们需要的性质是：不同的点有不相交的开邻域。这称为 Hausdorff 条件。"
+  },
+  {
+   "start": 1011.725,
+   "end": 1016.2,
+   "text": "In episode two, it becomes part of the definition of a manifold.",
+   "translation": "在第二集，它将成为流形定义的一部分。"
+  },
+  {
+   "start": 1020.2,
+   "end": 1024.325,
+   "text": "Continuity, too, can be expressed with open sets alone.",
+   "translation": "连续性同样可以只用开集来表述。"
+  },
+  {
+   "start": 1024.775,
+   "end": 1035.775,
+   "text": "Recall epsilon delta: f is continuous at x zero if for every epsilon there is a delta, such that inputs within delta give outputs within epsilon.",
+   "translation": "回忆 ε–δ：f 在 x₀ 连续，若对每个 ε 存在 δ，使输入相差小于 δ 时输出相差小于 ε。"
+  },
+  {
+   "start": 1036.225,
+   "end": 1042.625,
+   "text": "On the graph: first choose a horizontal band of half-width epsilon around f of x zero.",
+   "translation": "在图像上：先取 f(x₀) 周围半宽为 ε 的水平带。"
+  },
+  {
+   "start": 1043.075,
+   "end": 1050.325,
+   "text": "Then find a vertical band of half-width delta, so that the curve over that band stays inside the epsilon band.",
+   "translation": "再找一条半宽为 δ 的竖直带，使这段曲线留在 ε 带里。"
+  },
+  {
+   "start": 1050.775,
+   "end": 1058.3,
+   "text": "In the language of open sets: whatever target neighborhood V we choose, a whole neighborhood of inputs is sent into V.",
+   "translation": "用开集的语言说：无论选哪个目标邻域 V，都有一整块输入邻域被送进 V。"
+  },
+  {
+   "start": 1058.75,
+   "end": 1068.325,
+   "text": "Definition: a map f from X to Y is continuous if, for every open set V in Y, the preimage f inverse of V is open in X.",
+   "translation": "定义：f: X → Y 连续，若对 Y 中每个开集 V，原像 f⁻¹(V) 在 X 中是开集。"
+  },
+  {
+   "start": 1068.775,
+   "end": 1076.525,
+   "text": "The preimage is the set of all x whose image f of x lies in V. It makes sense even when f has no inverse.",
+   "translation": "原像是所有满足 f(x) ∈ V 的 x 的集合。即使 f 没有逆，它也有意义。"
+  },
+  {
+   "start": 1076.975,
+   "end": 1086.875,
+   "text": "For example, for f of x equals x squared, and V the interval from one to four, the preimage is minus two to minus one, together with one to two.",
+   "translation": "例如 f(x) = x²，V = (1, 4)，原像是 (−2, −1) ∪ (1, 2)。"
+  },
+  {
+   "start": 1087.325,
+   "end": 1089.975,
+   "text": "It has two pieces, and it is open.",
+   "translation": "它由两段组成，是开集。"
+  },
+  {
+   "start": 1090.425,
+   "end": 1098.7,
+   "text": "In a metric space, this agrees with epsilon delta continuity at every point. First, assume the preimage definition.",
+   "translation": "在度量空间中，它与每点的 ε–δ 连续等价。先假设原像定义成立。"
+  },
+  {
+   "start": 1099.15,
+   "end": 1106.775,
+   "text": "Fix a point x and a positive epsilon. The ball V of radius epsilon around f of x is open in Y.",
+   "translation": "固定点 x 和 ε > 0。V = B_ε(f(x)) 在 Y 中是开集。"
+  },
+  {
+   "start": 1107.225,
+   "end": 1113.125,
+   "text": "So its preimage is open in X, and it contains x, because f of x lies in V.",
+   "translation": "所以它的原像在 X 中是开集，并且含有 x，因为 f(x) ∈ V。"
+  },
+  {
+   "start": 1113.575,
+   "end": 1120.025,
+   "text": "By the definition of open, some ball of radius delta around x lies inside the preimage.",
+   "translation": "由开集的定义，存在 δ > 0，使 B_δ(x) 包含在原像里。"
+  },
+  {
+   "start": 1120.475,
+   "end": 1129.25,
+   "text": "That means: if d of x, x prime is less than delta, then f of x prime is in V, so it is within epsilon of f of x.",
+   "translation": "也就是说：若 d(x, x′) < δ，则 f(x′) ∈ V，即 d(f(x), f(x′)) < ε。"
+  },
+  {
+   "start": 1129.7,
+   "end": 1132.75,
+   "text": "That is epsilon delta continuity at x.",
+   "translation": "这正是 x 处的 ε–δ 连续。"
+  },
+  {
+   "start": 1133.2,
+   "end": 1139.475,
+   "text": "Conversely, assume epsilon delta continuity at every point, and let V be open in Y.",
+   "translation": "反之，假设每点都 ε–δ 连续，V 是 Y 中的开集。"
+  },
+  {
+   "start": 1139.925,
+   "end": 1148.725,
+   "text": "Take any x in the preimage of V. Since f of x is in V and V is open, some epsilon ball around f of x lies in V.",
+   "translation": "在 V 的原像中任取 x。f(x) ∈ V 且 V 开，所以存在 ε 使 B_ε(f(x)) ⊆ V。"
+  },
+  {
+   "start": 1149.175,
+   "end": 1156.425,
+   "text": "By epsilon delta, some delta ball around x is mapped into that epsilon ball, and therefore into V.",
+   "translation": "由 ε–δ，存在 δ，使 B_δ(x) 被送进这个 ε 球，因而送进 V。"
+  },
+  {
+   "start": 1156.875,
+   "end": 1159.975,
+   "text": "So the delta ball lies in the preimage of V.",
+   "translation": "所以 B_δ(x) 包含在 V 的原像里。"
+  },
+  {
+   "start": 1160.425,
+   "end": 1166.325,
+   "text": "Since x was any point of the preimage, the preimage is open. The two definitions agree.",
+   "translation": "x 是原像中任意一点，所以原像是开集。两个定义等价。"
+  },
+  {
+   "start": 1166.775,
+   "end": 1174.475,
+   "text": "What the preimage definition gains is that it never mentions distance, so it works on spaces with no natural metric.",
+   "translation": "原像定义的好处是完全不提距离，因此适用于没有自然度量的空间。"
+  },
+  {
+   "start": 1174.925,
+   "end": 1180.575,
+   "text": "Two consequences follow quickly. First, continuous maps preserve convergence.",
+   "translation": "由此很快得到两个推论。第一，连续映射保持收敛。"
+  },
+  {
+   "start": 1181.025,
+   "end": 1188.3,
+   "text": "Let f be continuous, let x k converge to x, and let V be any open set containing f of x.",
+   "translation": "设 f 连续，x_k → x，V 是任意含 f(x) 的开集。"
+  },
+  {
+   "start": 1188.75,
+   "end": 1197.525,
+   "text": "The preimage of V is open and contains x, so eventually x k lies in the preimage, which means f of x k lies in V.",
+   "translation": "V 的原像是含 x 的开集，所以最终 x_k 在原像里，即 f(x_k) ∈ V。"
+  },
+  {
+   "start": 1197.975,
+   "end": 1202.975,
+   "text": "So f of x k converges to f of x. We will need this in chapter eight.",
+   "translation": "所以 f(x_k) → f(x)。第八章会用到这一点。"
+  },
+  {
+   "start": 1203.425,
+   "end": 1207.775,
+   "text": "Second, a composition of continuous maps is continuous.",
+   "translation": "第二，连续映射的复合仍然连续。"
+  },
+  {
+   "start": 1208.225,
+   "end": 1214.925,
+   "text": "Let f go from X to Y and g from Y to Z, both continuous, and let W be open in Z.",
+   "translation": "设 f: X → Y、g: Y → Z 都连续，W 是 Z 中的开集。"
+  },
+  {
+   "start": 1215.375,
+   "end": 1221.725,
+   "text": "The preimage of W under g after f equals f inverse of g inverse of W.",
+   "translation": "W 在 g∘f 下的原像等于 f⁻¹(g⁻¹(W))。"
+  },
+  {
+   "start": 1222.175,
+   "end": 1228.15,
+   "text": "g inverse of W is open in Y, and its preimage under f is open in X. Done.",
+   "translation": "g⁻¹(W) 在 Y 中是开集，它在 f 下的原像在 X 中是开集。证毕。"
+  },
+  {
+   "start": 1228.6,
+   "end": 1234.5,
+   "text": "Finally, continuity depends on the topologies on both sides, not only on the formula.",
+   "translation": "最后，连续性取决于两边的拓扑，而不只取决于公式。"
+  },
+  {
+   "start": 1234.95,
+   "end": 1243.775,
+   "text": "The identity map from R with the discrete topology to R with the standard topology is continuous: on the left, every set is open.",
+   "translation": "恒等映射 id: (ℝ, 离散) → (ℝ, 标准) 连续：左边每个集合都是开集。"
+  },
+  {
+   "start": 1244.225,
+   "end": 1249.225,
+   "text": "But the identity from standard R to discrete R is not continuous.",
+   "translation": "但恒等映射 id: (ℝ, 标准) → (ℝ, 离散) 不连续。"
+  },
+  {
+   "start": 1249.675,
+   "end": 1258.375,
+   "text": "The single point zero is open on the right, in the discrete topology, but its preimage, again the point zero, is not open in standard R.",
+   "translation": "{0} 在右边的离散拓扑中是开集，但它的原像仍是 {0}，在标准 ℝ 中不开。"
+  },
+  {
+   "start": 1258.825,
+   "end": 1262.375,
+   "text": "Same formula, different open sets, different answer.",
+   "translation": "同一个公式，不同的开集，不同的结论。"
+  },
+  {
+   "start": 1262.825,
+   "end": 1269.65,
+   "text": "Charts, transition maps and smooth maps in episode two are all built on this notion of continuity.",
+   "translation": "第二集中的坐标卡、转移映射和光滑映射，都建立在这个连续性概念之上。"
+  },
+  {
+   "start": 1273.65,
+   "end": 1282.05,
+   "text": "Why does the definition use preimages, and not images? Suppose we defined continuity as: images of open sets are open.",
+   "translation": "定义为什么用原像而不用像？假如把连续定义为：开集的像是开集。"
+  },
+  {
+   "start": 1282.5,
+   "end": 1286.925,
+   "text": "Start with the constant map c, which sends every real number to zero.",
+   "translation": "先看常值映射 c，它把每个实数都送到 0。"
+  },
+  {
+   "start": 1287.375,
+   "end": 1292.875,
+   "text": "Take the open interval from minus one to one. Every one of its points is sent to zero.",
+   "translation": "取开区间 (−1, 1)。它的每一个点都被送到 0。"
+  },
+  {
+   "start": 1293.325,
+   "end": 1300.85,
+   "text": "Its image is the single point zero, which is not open. So c sends an open set to a set that is not open.",
+   "translation": "它的像是单点 {0}，不是开集。所以 c 把开集送成了非开集。"
+  },
+  {
+   "start": 1301.3,
+   "end": 1306.075,
+   "text": "Yet c is surely continuous, and the preimage definition agrees.",
+   "translation": "然而 c 显然是连续的，原像定义也同意这一点。"
+  },
+  {
+   "start": 1306.525,
+   "end": 1313.75,
+   "text": "For an open set V, the preimage under c is all of R if V contains zero, and empty if it does not.",
+   "translation": "对开集 V，若 0 ∈ V，则 c⁻¹(V) = ℝ；若 0 ∉ V，则 c⁻¹(V) = ∅。"
+  },
+  {
+   "start": 1314.2,
+   "end": 1319.85,
+   "text": "Both are open. So c is continuous, but an image-based definition would reject it.",
+   "translation": "两者都是开集。所以 c 连续，但基于像的定义会把它排除在外。"
+  },
+  {
+   "start": 1320.3,
+   "end": 1330.1,
+   "text": "A second example: f of x equals x squared. It is epsilon delta continuous, so by chapter five it is continuous in the preimage sense.",
+   "translation": "第二个例子：f(x) = x²。它 ε–δ 连续，由第五章，它在原像意义下连续。"
+  },
+  {
+   "start": 1330.55,
+   "end": 1338.025,
+   "text": "The image of the open interval from minus one to one is the half-open interval from zero to one, including zero.",
+   "translation": "开区间 (−1, 1) 的像是半开区间 [0, 1)，包含 0。"
+  },
+  {
+   "start": 1338.475,
+   "end": 1346.55,
+   "text": "Indeed, for x in that interval, x squared is at least zero and less than one; and every such y is the square of root y.",
+   "translation": "确实：对区间中的 x，0 ≤ x² < 1；反之每个这样的 y 都是 √y 的平方。"
+  },
+  {
+   "start": 1347.0,
+   "end": 1354.55,
+   "text": "This image is not open: every small interval around zero contains negative numbers, which are not in the image.",
+   "translation": "这个像不是开集：0 周围的每个小区间都含有负数，而负数不在像里。"
+  },
+  {
+   "start": 1355.0,
+   "end": 1358.75,
+   "text": "However small the interval, its negative half sticks out.",
+   "translation": "无论区间多小，它的负半部分总会伸出去。"
+  },
+  {
+   "start": 1359.2,
+   "end": 1364.25,
+   "text": "There is also a structural reason. Preimages commute with set operations.",
+   "translation": "还有一个结构上的原因：原像与集合运算可交换。"
+  },
+  {
+   "start": 1364.7,
+   "end": 1372.725,
+   "text": "The preimage of a union is the union of the preimages, and the preimage of an intersection is the intersection of the preimages.",
+   "translation": "并的原像是原像的并，交的原像是原像的交。"
+  },
+  {
+   "start": 1373.175,
+   "end": 1383.05,
+   "text": "Both follow from one line: x is in the left side exactly when f of x is in the union or intersection, exactly when x is in the right side.",
+   "translation": "两者都只需一行：x 属于左边 ⇔ f(x) 属于相应的并或交 ⇔ x 属于右边。"
+  },
+  {
+   "start": 1383.5,
+   "end": 1391.625,
+   "text": "Images do not commute with intersections. Take capital A from minus two to minus one, and capital B from one to two.",
+   "translation": "像与交不可交换。取 A = (−2, −1)，B = (1, 2)。"
+  },
+  {
+   "start": 1392.075,
+   "end": 1396.175,
+   "text": "They are disjoint, so the image of their intersection is empty.",
+   "translation": "它们不相交，所以交集的像是空集。"
+  },
+  {
+   "start": 1396.625,
+   "end": 1403.425,
+   "text": "But x squared sends both onto the interval from one to four, so the images intersect in that whole interval.",
+   "translation": "但 x² 把两者都送到 (1, 4)，所以像的交是整个区间 (1, 4)。"
+  },
+  {
+   "start": 1403.875,
+   "end": 1410.375,
+   "text": "This is why preimages fit the topology axioms, which are statements about unions and intersections.",
+   "translation": "这就是原像与拓扑公理相配的原因：公理本身说的就是并与交。"
+  },
+  {
+   "start": 1410.825,
+   "end": 1419.4,
+   "text": "And the direction matches epsilon delta: first the output tolerance, the open set V; then the input tolerance, its preimage.",
+   "translation": "方向也与 ε–δ 一致：先给输出的容许范围，即开集 V，再问输入的容许范围，即原像。"
+  },
+  {
+   "start": 1419.85,
+   "end": 1427.075,
+   "text": "Maps that do send open sets to open sets are called open maps. Continuity is about the other direction.",
+   "translation": "把开集映为开集的映射称为开映射。连续说的是另一个方向。"
+  },
+  {
+   "start": 1427.525,
+   "end": 1434.825,
+   "text": "A map that preserves open sets in both directions makes two spaces topologically the same. That is next.",
+   "translation": "在两个方向上都保持开集的映射，使两个空间在拓扑上相同。这是下一章的内容。"
+  },
+  {
+   "start": 1438.825,
+   "end": 1441.525,
+   "text": "When should two spaces count as the same?",
+   "translation": "两个空间什么时候算“一样”？"
+  },
+  {
+   "start": 1441.975,
+   "end": 1446.55,
+   "text": "First, their points should correspond one to one. That is a bijection.",
+   "translation": "首先，点要一一对应，也就是双射。"
+  },
+  {
+   "start": 1447.0,
+   "end": 1454.475,
+   "text": "But that is not enough. Nearness must correspond too: open sets on one side should match open sets on the other.",
+   "translation": "但这还不够。“附近”也要对应：一边的开集要恰好对应另一边的开集。"
+  },
+  {
+   "start": 1454.925,
+   "end": 1464.625,
+   "text": "Definition: a map f from X to Y is a homeomorphism if f is a bijection, f is continuous, and f inverse is continuous.",
+   "translation": "定义：f: X → Y 是同胚，若 f 是双射，f 连续，并且 f⁻¹ 连续。"
+  },
+  {
+   "start": 1465.075,
+   "end": 1469.35,
+   "text": "If such a map exists, we say X and Y are homeomorphic.",
+   "translation": "如果存在这样的映射，就说 X 与 Y 同胚。"
+  },
+  {
+   "start": 1469.8,
+   "end": 1476.175,
+   "text": "The point is that such an f matches the open sets of X with the open sets of Y, one to one.",
+   "translation": "关键在于：这样的 f 把 X 的开集与 Y 的开集一一对应起来。"
+  },
+  {
+   "start": 1476.625,
+   "end": 1485.125,
+   "text": "Let U be open in X. Since f is a bijection, a point y lies in f of U exactly when f inverse of y lies in U.",
+   "translation": "设 U 在 X 中开。因为 f 是双射，y ∈ f(U) 当且仅当 f⁻¹(y) ∈ U。"
+  },
+  {
+   "start": 1485.575,
+   "end": 1493.575,
+   "text": "So f of U is the preimage of U under the map f inverse. Since f inverse is continuous, f of U is open.",
+   "translation": "所以 f(U) 是 U 在映射 f⁻¹ 下的原像。因为 f⁻¹ 连续，f(U) 是开集。"
+  },
+  {
+   "start": 1494.025,
+   "end": 1501.15,
+   "text": "Here the third condition was used. Without a continuous inverse, images of open sets need not be open.",
+   "translation": "这里用到了第三个条件。没有连续的逆，开集的像不一定是开集。"
+  },
+  {
+   "start": 1501.6,
+   "end": 1508.1,
+   "text": "Conversely, if V is open in Y, its preimage under f is open, because f is continuous.",
+   "translation": "反之，若 V 在 Y 中开，它在 f 下的原像是开集，因为 f 连续。"
+  },
+  {
+   "start": 1508.55,
+   "end": 1512.75,
+   "text": "And f of that preimage is V again, because f is onto.",
+   "translation": "而这个原像的像又是 V，因为 f 是满射。"
+  },
+  {
+   "start": 1513.2,
+   "end": 1521.025,
+   "text": "So sending U to f of U is a bijection between the open sets, with inverse sending V to f inverse of V.",
+   "translation": "所以 U ↦ f(U) 是开集族之间的双射，逆为 V ↦ f⁻¹(V)。"
+  },
+  {
+   "start": 1521.475,
+   "end": 1525.15,
+   "text": "Bijective on points, and bijective on open sets.",
+   "translation": "点上是双射，开集上也是双射。"
+  },
+  {
+   "start": 1525.6,
+   "end": 1534.1,
+   "text": "Here is an example that may be surprising: the open interval from minus one to one is homeomorphic to the entire real line.",
+   "translation": "一个也许出人意料的例子：开区间 (−1, 1) 与整条实数轴同胚。"
+  },
+  {
+   "start": 1534.55,
+   "end": 1538.35,
+   "text": "Take f of x equals tangent of pi x over two.",
+   "translation": "取 f(x) = tan(πx/2)。"
+  },
+  {
+   "start": 1538.8,
+   "end": 1545.65,
+   "text": "Tangent is strictly increasing between minus pi over two and pi over two, so f is one to one.",
+   "translation": "tan 在 (−π/2, π/2) 上严格递增，所以 f 是单射。"
+  },
+  {
+   "start": 1546.1,
+   "end": 1556.275,
+   "text": "As x approaches plus or minus one, f of x goes to plus or minus infinity, so by the intermediate value theorem every real number is reached.",
+   "translation": "当 x → ±1 时 f(x) → ±∞，由介值定理，每个实数都能取到。"
+  },
+  {
+   "start": 1556.725,
+   "end": 1563.6,
+   "text": "f is continuous, and its inverse, two over pi times the arc tangent of y, is continuous too.",
+   "translation": "f 连续，它的逆 f⁻¹(y) = (2/π) arctan y 也连续。"
+  },
+  {
+   "start": 1564.05,
+   "end": 1569.45,
+   "text": "So f is a homeomorphism. Points near the ends are pulled out toward infinity.",
+   "translation": "所以 f 是同胚。靠近端点的点被拉向无穷远。"
+  },
+  {
+   "start": 1569.9,
+   "end": 1577.075,
+   "text": "A short open interval inside becomes a long open interval. Length changes, but openness does not.",
+   "translation": "里面一段短的开区间变成一段长的开区间。长度变了，开性不变。"
+  },
+  {
+   "start": 1577.525,
+   "end": 1585.425,
+   "text": "Length and boundedness are not topological properties. A bounded interval and the whole line are topologically the same.",
+   "translation": "长度和有界性都不是拓扑性质。有界区间与整条直线在拓扑上相同。"
+  },
+  {
+   "start": 1585.875,
+   "end": 1592.525,
+   "text": "That is why looking locally like R n is the same as looking locally like an open subset of R n.",
+   "translation": "这就是为什么“局部像 ℝⁿ”与“局部像 ℝⁿ 的开子集”是一回事。"
+  },
+  {
+   "start": 1592.975,
+   "end": 1602.1,
+   "text": "Homeomorphism behaves like an equality. The identity is a homeomorphism, and the inverse of a homeomorphism is one too.",
+   "translation": "同胚的行为像等号：恒等映射是同胚，同胚的逆也是同胚。"
+  },
+  {
+   "start": 1602.55,
+   "end": 1613.2,
+   "text": "A composition of homeomorphisms is one as well: bijections compose to bijections, and by chapter five, continuous maps compose to continuous maps.",
+   "translation": "同胚的复合也是同胚：双射复合为双射，由第五章，连续映射复合仍连续。"
+  },
+  {
+   "start": 1613.65,
+   "end": 1620.8,
+   "text": "Similarly, an open disk can be deformed into an open square. We only show this picture; we do not prove it.",
+   "translation": "类似地，开圆盘可以变形为开正方形。这里只展示，不证明。"
+  },
+  {
+   "start": 1621.25,
+   "end": 1629.075,
+   "text": "A homeomorphism keeps open sets, convergence and continuity, while distance, length and boundedness may change.",
+   "translation": "同胚保持开集、收敛与连续性，而距离、长度与有界性都可以改变。"
+  },
+  {
+   "start": 1629.525,
+   "end": 1637.25,
+   "text": "But is the third condition really needed? Is the inverse of a continuous bijection not automatically continuous?",
+   "translation": "但第三个条件真的需要吗？连续双射的逆难道不会自动连续吗？"
+  },
+  {
+   "start": 1641.25,
+   "end": 1646.875,
+   "text": "Take the half-open interval from zero to two pi, which includes zero but not two pi.",
+   "translation": "取半开区间 [0, 2π)，包含 0，不包含 2π。"
+  },
+  {
+   "start": 1647.325,
+   "end": 1652.2,
+   "text": "Bend it into a circle with the map f of t equals cosine t, sine t.",
+   "translation": "用映射 f(t) = (cos t, sin t) 把它弯成一个圆。"
+  },
+  {
+   "start": 1652.65,
+   "end": 1661.775,
+   "text": "The start, t equals zero, lands at the point one, zero. The end approaches the same point but never arrives, because two pi is excluded.",
+   "translation": "起点 t = 0 落在点 (1, 0)。终点逼近同一点却永远到不了，因为 2π 被排除了。"
+  },
+  {
+   "start": 1662.225,
+   "end": 1668.45,
+   "text": "Both spaces carry the subspace topology: the interval from R, and the circle from the plane.",
+   "translation": "两个空间都取子空间拓扑：区间来自 ℝ，圆来自平面。"
+  },
+  {
+   "start": 1668.9,
+   "end": 1676.35,
+   "text": "First, f is continuous: its components cosine and sine are continuous, and its values lie on the circle.",
+   "translation": "第一，f 连续：分量 cos 和 sin 都连续，取值都在圆上。"
+  },
+  {
+   "start": 1676.8,
+   "end": 1686.575,
+   "text": "Second, f is one to one. If f of s equals f of t, the cosines and the sines agree, so s minus t is a multiple of two pi.",
+   "translation": "第二，f 是单射。若 f(s) = f(t)，则余弦、正弦都相等，所以 s − t 是 2π 的整数倍。"
+  },
+  {
+   "start": 1687.025,
+   "end": 1693.35,
+   "text": "But s and t both lie in the interval, so they differ by less than two pi. Hence s equals t.",
+   "translation": "但 s 和 t 都在区间内，相差小于 2π，所以 s = t。"
+  },
+  {
+   "start": 1693.8,
+   "end": 1699.6,
+   "text": "Third, f is onto: every point of the circle has a polar angle t in the interval.",
+   "translation": "第三，f 是满射：圆上每一点都有一个位于区间内的极角 t。"
+  },
+  {
+   "start": 1700.05,
+   "end": 1705.95,
+   "text": "So f is a continuous bijection. Now we show that its inverse is not continuous.",
+   "translation": "所以 f 是连续双射。下面证明它的逆不连续。"
+  },
+  {
+   "start": 1706.4,
+   "end": 1714.275,
+   "text": "Consider the points p k equals f of two pi minus one over k, for k equal to one, two, three, and so on.",
+   "translation": "考虑点 p_k = f(2π − 1/k)，k = 1, 2, 3, …。"
+  },
+  {
+   "start": 1714.725,
+   "end": 1718.525,
+   "text": "On the circle, they approach the point one, zero from below.",
+   "translation": "在圆上，它们从下方逼近点 (1, 0)。"
+  },
+  {
+   "start": 1718.975,
+   "end": 1727.425,
+   "text": "Indeed, the squared distance from p k to the point one, zero is two minus two cosine of one over k, which tends to zero.",
+   "translation": "确实，p_k 到 (1, 0) 的距离平方是 2 − 2cos(1/k)，趋于 0。"
+  },
+  {
+   "start": 1727.875,
+   "end": 1735.875,
+   "text": "Now send them back with f inverse. The parameters are two pi minus one over k, crowding at the right end of the interval.",
+   "translation": "现在用 f⁻¹ 把它们送回去。参数是 2π − 1/k，挤在区间右端。"
+  },
+  {
+   "start": 1736.325,
+   "end": 1740.75,
+   "text": "But f inverse of the point one, zero is zero, at the left end.",
+   "translation": "但 f⁻¹(1, 0) = 0，在区间左端。"
+  },
+  {
+   "start": 1741.2,
+   "end": 1749.375,
+   "text": "For every k the gap is more than pi, so f inverse of p k does not converge to f inverse of the point one, zero.",
+   "translation": "对每个 k，两者相差都大于 π，所以 f⁻¹(p_k) 不收敛到 f⁻¹(1, 0)。"
+  },
+  {
+   "start": 1749.825,
+   "end": 1758.05,
+   "text": "If f inverse were continuous, it would preserve convergence, as chapter five proved. So f inverse is not continuous.",
+   "translation": "若 f⁻¹ 连续，由第五章它应保持收敛。矛盾，所以 f⁻¹ 不连续。"
+  },
+  {
+   "start": 1758.5,
+   "end": 1761.6,
+   "text": "The same failure is visible with open sets.",
+   "translation": "从开集的角度也能看到同样的失效。"
+  },
+  {
+   "start": 1762.05,
+   "end": 1771.975,
+   "text": "The set from zero to one, including zero, is the interval from minus one to one intersected with the domain, so it is open in the subspace topology.",
+   "translation": "[0, 1) = (−1, 1) ∩ [0, 2π)，所以它在子空间拓扑中是开集。"
+  },
+  {
+   "start": 1772.425,
+   "end": 1778.7,
+   "text": "Its image is an arc that starts at the point one, zero and runs counterclockwise to angle one.",
+   "translation": "它的像是一段弧：从点 (1, 0) 出发，逆时针走到角度 1。"
+  },
+  {
+   "start": 1779.15,
+   "end": 1787.925,
+   "text": "Any open set of the circle containing the point one, zero also contains points just below it, with angles slightly less than two pi.",
+   "translation": "圆上任何含 (1, 0) 的开集，都含有它下方、角度略小于 2π 的点。"
+  },
+  {
+   "start": 1788.375,
+   "end": 1794.225,
+   "text": "Those points are not in the arc. So the image of this open set is not open in the circle.",
+   "translation": "这些点不在弧上。所以这个开集的像在圆上不是开集。"
+  },
+  {
+   "start": 1794.675,
+   "end": 1799.775,
+   "text": "This is exactly the step of chapter seven that needed a continuous inverse.",
+   "translation": "这正是第七章中需要连续逆的那一步。"
+  },
+  {
+   "start": 1800.225,
+   "end": 1808.4,
+   "text": "So the third condition cannot be dropped. Continuity and bijectivity alone do not make two spaces topologically the same.",
+   "translation": "所以第三个条件不能省。仅有连续与双射，不足以使两个空间拓扑相同。"
+  },
+  {
+   "start": 1808.85,
+   "end": 1818.375,
+   "text": "Intuitively, removing the point pi cuts the interval in two, while removing any point leaves the circle in one piece. We mention this without proof.",
+   "translation": "直观上，去掉 π 会把区间断成两段，而圆去掉任一点仍连成一片。这里只提及，不证明。"
+  },
+  {
+   "start": 1818.825,
+   "end": 1822.725,
+   "text": "Now imagine using t as a coordinate on the circle.",
+   "translation": "现在设想把 t 当作圆上的坐标。"
+  },
+  {
+   "start": 1823.175,
+   "end": 1828.45,
+   "text": "Two points just on either side of the point one, zero are very close on the circle.",
+   "translation": "紧挨在 (1, 0) 两侧的两个点，在圆上非常接近。"
+  },
+  {
+   "start": 1828.9,
+   "end": 1835.35,
+   "text": "But their coordinates are zero point zero five and about six point two three, more than six apart.",
+   "translation": "但它们的坐标是 0.05 和约 6.23，相差超过 6。"
+  },
+  {
+   "start": 1835.8,
+   "end": 1842.425,
+   "text": "A small step on the circle becomes a huge jump in coordinates. Gradient steps would tear at the seam.",
+   "translation": "圆上的一小步在坐标里变成巨大的跳跃。梯度步会在接缝处撕裂。"
+  },
+  {
+   "start": 1842.875,
+   "end": 1849.575,
+   "text": "That is why a chart must be a homeomorphism: coordinates must preserve nearness in both directions.",
+   "translation": "这就是坐标卡必须是同胚的原因：坐标必须在两个方向上都保持“附近”。"
+  },
+  {
+   "start": 1850.025,
+   "end": 1860.475,
+   "text": "On the open interval from zero to two pi, f is a homeomorphism onto the circle minus the point one, zero. We state this here; episode two uses it.",
+   "translation": "在开区间 (0, 2π) 上，f 是到 S¹ \\ {(1, 0)} 的同胚。这里只陈述，第二集会用到。"
+  },
+  {
+   "start": 1860.925,
+   "end": 1869.3,
+   "text": "So a single angle cannot serve as a chart for the whole circle. Two overlapping open arcs, each with its own coordinate, can.",
+   "translation": "所以单个角度不能作为整个圆的坐标卡。两段重叠的开弧、各带自己的坐标，就可以。"
+  },
+  {
+   "start": 1873.3,
+   "end": 1875.75,
+   "text": "Let us collect the chain of ideas.",
+   "translation": "我们把这条思路串起来。"
+  },
+  {
+   "start": 1876.2,
+   "end": 1880.825,
+   "text": "Distance gave us open balls, and open balls gave us open sets.",
+   "translation": "距离给出开球，开球给出开集。"
+  },
+  {
+   "start": 1881.275,
+   "end": 1884.975,
+   "text": "We kept only the open sets, and that is a topology.",
+   "translation": "只保留开集，就得到拓扑。"
+  },
+  {
+   "start": 1885.425,
+   "end": 1892.65,
+   "text": "With open sets we defined convergence and continuity, and proved that they agree with the epsilon definitions.",
+   "translation": "用开集定义了收敛和连续，并证明它们与 ε 定义一致。"
+  },
+  {
+   "start": 1893.1,
+   "end": 1898.125,
+   "text": "And a homeomorphism matches points and open sets, in both directions.",
+   "translation": "同胚则在两个方向上对应点与开集。"
+  },
+  {
+   "start": 1898.575,
+   "end": 1905.1,
+   "text": "Back to the sphere from chapter one. We now have the words to say what a good local coordinate system is.",
+   "translation": "回到第一章的球面。现在我们有词汇来说明什么是好的局部坐标。"
+  },
+  {
+   "start": 1905.55,
+   "end": 1909.8,
+   "text": "A chart on a topological space M is a pair: U, phi.",
+   "translation": "拓扑空间 M 上的坐标卡是一对 (U, φ)。"
+  },
+  {
+   "start": 1910.25,
+   "end": 1917.6,
+   "text": "U is an open subset of M, and phi is a homeomorphism from U onto an open subset of R n.",
+   "translation": "U 是 M 的开子集，φ 是从 U 到 ℝⁿ 某个开子集的同胚。"
+  },
+  {
+   "start": 1918.05,
+   "end": 1928.575,
+   "text": "Every word comes from this episode: open set from chapter three, homeomorphism from chapter seven, and open subset of R n from the interval example.",
+   "translation": "每个词都来自本集：开集来自第三章，同胚来自第七章，ℝⁿ 的开子集来自区间的例子。"
+  },
+  {
+   "start": 1929.025,
+   "end": 1936.725,
+   "text": "A topological manifold is a space where every point lies in the domain of some chart, plus two technical conditions.",
+   "translation": "拓扑流形是每一点都落在某个坐标卡定义域中的空间，另加两个技术条件。"
+  },
+  {
+   "start": 1937.175,
+   "end": 1941.0,
+   "text": "They are the Hausdorff condition, and second countability.",
+   "translation": "它们是 Hausdorff 条件与第二可数性。"
+  },
+  {
+   "start": 1941.45,
+   "end": 1948.625,
+   "text": "Let us check a chart on the circle. Take the upper half, where y is positive, and let phi of x, y equal x.",
+   "translation": "来验证圆上的一个坐标卡。取上半圆 y > 0，令 φ(x, y) = x。"
+  },
+  {
+   "start": 1949.075,
+   "end": 1953.95,
+   "text": "phi is the restriction of a coordinate projection, so it is continuous.",
+   "translation": "φ 是坐标投影的限制，所以连续。"
+  },
+  {
+   "start": 1954.4,
+   "end": 1961.075,
+   "text": "Its image is the open interval from minus one to one: on the upper half, x squared is less than one.",
+   "translation": "它的像是开区间 (−1, 1)：在上半圆上 x² < 1。"
+  },
+  {
+   "start": 1961.525,
+   "end": 1966.575,
+   "text": "And every such x comes from the point x, root of one minus x squared.",
+   "translation": "而每个这样的 x 都来自点 (x, √(1 − x²))。"
+  },
+  {
+   "start": 1967.025,
+   "end": 1972.9,
+   "text": "Call that map psi. It is continuous, and phi after psi is the identity on the interval.",
+   "translation": "记这个映射为 ψ，它连续，并且 φ∘ψ 是区间上的恒等映射。"
+  },
+  {
+   "start": 1973.35,
+   "end": 1981.75,
+   "text": "And psi after phi is the identity on the upper half, because y equals root of one minus x squared when y is positive.",
+   "translation": "而 ψ∘φ 是上半圆上的恒等映射，因为 y > 0 时 y = √(1 − x²)。"
+  },
+  {
+   "start": 1982.2,
+   "end": 1986.15,
+   "text": "So phi is a bijection, with continuous inverse psi.",
+   "translation": "所以 φ 是双射，且逆 ψ 连续。"
+  },
+  {
+   "start": 1986.6,
+   "end": 1994.6,
+   "text": "The upper half is open in the circle, by the subspace topology, and the interval is open in R. So U, phi is a chart.",
+   "translation": "由子空间拓扑，上半圆在圆中是开集，区间在 ℝ 中是开集。所以 (U, φ) 是坐标卡。"
+  },
+  {
+   "start": 1995.05,
+   "end": 2000.225,
+   "text": "Compare chapter eight: the angle tried to cover the whole circle at once, and failed.",
+   "translation": "对比第八章：角度试图一次覆盖整个圆，结果失败了。"
+  },
+  {
+   "start": 2000.675,
+   "end": 2005.675,
+   "text": "A chart covers only an open piece, so it can be a true homeomorphism.",
+   "translation": "坐标卡只覆盖一块开集，所以可以是真正的同胚。"
+  },
+  {
+   "start": 2006.125,
+   "end": 2013.025,
+   "text": "The price is that we need several charts: the upper, lower, left and right halves cover the circle together.",
+   "translation": "代价是需要多个坐标卡：上、下、左、右四个半圆一起覆盖整个圆。"
+  },
+  {
+   "start": 2013.475,
+   "end": 2017.35,
+   "text": "Where charts overlap, they must agree in a suitable sense.",
+   "translation": "坐标卡重叠的地方，它们必须以适当的方式相容。"
+  },
+  {
+   "start": 2017.8,
+   "end": 2025.875,
+   "text": "Also, a topological manifold only supports continuity, not derivatives. Gradient descent needs a smooth structure.",
+   "translation": "此外，拓扑流形只能谈连续，不能谈导数。梯度下降需要光滑结构。"
+  },
+  {
+   "start": 2026.325,
+   "end": 2033.675,
+   "text": "How overlapping charts fit together, and when we can do calculus on a manifold, is the subject of episode two.",
+   "translation": "重叠的坐标卡如何相容，何时能在流形上做微积分，是第二集的主题。"
+  }
+ ]
+}

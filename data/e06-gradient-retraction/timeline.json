@@ -1,0 +1,2537 @@
+{
+ "language": "en",
+ "episode": "e06-gradient-retraction",
+ "duration": 2244.675,
+ "chapters": [
+  {
+   "id": "c01-two-questions",
+   "index": 0,
+   "start": 5.0,
+   "end": 177.725,
+   "title": "One Step, Two Questions",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    11.15,
+    21.425,
+    26.825,
+    31.325,
+    37.45,
+    43.525,
+    52.4,
+    59.05,
+    66.4,
+    70.0,
+    74.575,
+    81.175,
+    84.275,
+    92.025,
+    99.9,
+    107.575,
+    111.35,
+    118.175,
+    127.025,
+    133.8,
+    139.275,
+    147.9,
+    154.975,
+    163.65
+   ],
+   "sentenceEnds": [
+    10.7,
+    20.975,
+    26.375,
+    30.875,
+    37.0,
+    43.075,
+    51.95,
+    58.6,
+    65.95,
+    69.55,
+    74.125,
+    80.725,
+    83.825,
+    91.575,
+    99.45,
+    107.125,
+    110.9,
+    117.725,
+    126.575,
+    133.35,
+    138.825,
+    147.45,
+    154.525,
+    163.2,
+    171.125
+   ]
+  },
+  {
+   "id": "c02-differential-by-curves",
+   "index": 1,
+   "start": 177.725,
+   "end": 493.225,
+   "title": "The Differential, Defined by Curves",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    9.875,
+    17.05,
+    25.975,
+    31.15,
+    35.0,
+    42.575,
+    50.825,
+    59.525,
+    68.15,
+    77.05,
+    86.25,
+    90.625,
+    97.95,
+    105.975,
+    113.925,
+    119.725,
+    125.4,
+    135.975,
+    146.0,
+    154.2,
+    158.3,
+    163.975,
+    172.975,
+    181.275,
+    188.3,
+    196.025,
+    203.225,
+    211.275,
+    219.025,
+    226.5,
+    237.15,
+    246.725,
+    249.75,
+    257.95,
+    266.725,
+    274.275,
+    283.925,
+    292.275,
+    299.625,
+    307.75
+   ],
+   "sentenceEnds": [
+    9.425,
+    16.6,
+    25.525,
+    30.7,
+    34.55,
+    42.125,
+    50.375,
+    59.075,
+    67.7,
+    76.6,
+    85.8,
+    90.175,
+    97.5,
+    105.525,
+    113.475,
+    119.275,
+    124.95,
+    135.525,
+    145.55,
+    153.75,
+    157.85,
+    163.525,
+    172.525,
+    180.825,
+    187.85,
+    195.575,
+    202.775,
+    210.825,
+    218.575,
+    226.05,
+    236.7,
+    246.275,
+    249.3,
+    257.5,
+    266.275,
+    273.825,
+    283.475,
+    291.825,
+    299.175,
+    307.3,
+    313.9
+   ]
+  },
+  {
+   "id": "c03-covector-not-direction",
+   "index": 2,
+   "start": 493.225,
+   "end": 691.1,
+   "title": "A Covector Measures, It Does Not Point",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    8.425,
+    17.875,
+    24.775,
+    27.9,
+    36.2,
+    40.5,
+    48.725,
+    55.95,
+    62.425,
+    70.6,
+    75.75,
+    79.5,
+    82.8,
+    93.1,
+    99.975,
+    107.55,
+    116.15,
+    123.825,
+    131.65,
+    141.125,
+    147.75,
+    154.625,
+    158.5,
+    168.225,
+    172.5,
+    179.425,
+    185.575,
+    191.75
+   ],
+   "sentenceEnds": [
+    7.975,
+    17.425,
+    24.325,
+    27.45,
+    35.75,
+    40.05,
+    48.275,
+    55.5,
+    61.975,
+    70.15,
+    75.3,
+    79.05,
+    82.35,
+    92.65,
+    99.525,
+    107.1,
+    115.7,
+    123.375,
+    131.2,
+    140.675,
+    147.3,
+    154.175,
+    158.05,
+    167.775,
+    172.05,
+    178.975,
+    185.125,
+    191.3,
+    196.275
+   ]
+  },
+  {
+   "id": "c04-riesz",
+   "index": 3,
+   "start": 691.1,
+   "end": 958.15,
+   "title": "The Riesz Representation Theorem",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    9.925,
+    16.975,
+    21.4,
+    28.425,
+    35.725,
+    41.325,
+    49.5,
+    60.675,
+    69.5,
+    71.65,
+    78.125,
+    90.4,
+    96.7,
+    101.975,
+    110.475,
+    116.625,
+    127.3,
+    136.975,
+    145.2,
+    156.7,
+    162.625,
+    173.725,
+    182.3,
+    188.2,
+    196.0,
+    204.85,
+    209.95,
+    218.85,
+    224.125,
+    232.65,
+    243.15,
+    247.4,
+    257.45
+   ],
+   "sentenceEnds": [
+    9.475,
+    16.525,
+    20.95,
+    27.975,
+    35.275,
+    40.875,
+    49.05,
+    60.225,
+    69.05,
+    71.2,
+    77.675,
+    89.95,
+    96.25,
+    101.525,
+    110.025,
+    116.175,
+    126.85,
+    136.525,
+    144.75,
+    156.25,
+    162.175,
+    173.275,
+    181.85,
+    187.75,
+    195.55,
+    204.4,
+    209.5,
+    218.4,
+    223.675,
+    232.2,
+    242.7,
+    246.95,
+    257.0,
+    265.45
+   ]
+  },
+  {
+   "id": "c05-metric-matters",
+   "index": 4,
+   "start": 958.15,
+   "end": 1128.075,
+   "title": "Change the Inner Product, Change the Gradient",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.95,
+    20.125,
+    23.175,
+    29.525,
+    37.8,
+    47.225,
+    54.1,
+    60.525,
+    69.95,
+    76.9,
+    81.875,
+    88.2,
+    93.525,
+    98.675,
+    103.0,
+    108.25,
+    117.075,
+    126.65,
+    128.9,
+    132.6,
+    140.875,
+    145.975,
+    152.55,
+    156.45,
+    161.2
+   ],
+   "sentenceEnds": [
+    8.5,
+    19.675,
+    22.725,
+    29.075,
+    37.35,
+    46.775,
+    53.65,
+    60.075,
+    69.5,
+    76.45,
+    81.425,
+    87.75,
+    93.075,
+    98.225,
+    102.55,
+    107.8,
+    116.625,
+    126.2,
+    128.45,
+    132.15,
+    140.425,
+    145.525,
+    152.1,
+    156.0,
+    160.75,
+    168.325
+   ]
+  },
+  {
+   "id": "c06-riemannian-metric-gradient",
+   "index": 5,
+   "start": 1128.075,
+   "end": 1388.0,
+   "title": "Riemannian Metric and Riemannian Gradient",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.3,
+    17.325,
+    28.075,
+    37.0,
+    44.1,
+    54.275,
+    62.4,
+    70.3,
+    77.75,
+    84.5,
+    88.8,
+    98.625,
+    105.525,
+    110.275,
+    113.525,
+    120.35,
+    125.9,
+    136.2,
+    140.3,
+    150.0,
+    157.175,
+    169.65,
+    180.775,
+    191.65,
+    198.075,
+    206.15,
+    212.525,
+    219.8,
+    227.475,
+    230.65,
+    238.475,
+    242.35,
+    248.375
+   ],
+   "sentenceEnds": [
+    8.85,
+    16.875,
+    27.625,
+    36.55,
+    43.65,
+    53.825,
+    61.95,
+    69.85,
+    77.3,
+    84.05,
+    88.35,
+    98.175,
+    105.075,
+    109.825,
+    113.075,
+    119.9,
+    125.45,
+    135.75,
+    139.85,
+    149.55,
+    156.725,
+    169.2,
+    180.325,
+    191.2,
+    197.625,
+    205.7,
+    212.075,
+    219.35,
+    227.025,
+    230.2,
+    238.025,
+    241.9,
+    247.925,
+    258.325
+   ]
+  },
+  {
+   "id": "c07-steepest-ascent",
+   "index": 6,
+   "start": 1388.0,
+   "end": 1588.1,
+   "title": "Why the Gradient: Steepest Ascent",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    8.525,
+    15.45,
+    23.65,
+    29.875,
+    36.75,
+    46.85,
+    53.25,
+    62.025,
+    71.075,
+    75.525,
+    82.275,
+    90.4,
+    98.875,
+    107.775,
+    114.0,
+    123.1,
+    132.425,
+    143.425,
+    152.225,
+    160.425,
+    166.45,
+    174.075,
+    181.8,
+    185.0,
+    193.6
+   ],
+   "sentenceEnds": [
+    8.075,
+    15.0,
+    23.2,
+    29.425,
+    36.3,
+    46.4,
+    52.8,
+    61.575,
+    70.625,
+    75.075,
+    81.825,
+    89.95,
+    98.425,
+    107.325,
+    113.55,
+    122.65,
+    131.975,
+    142.975,
+    151.775,
+    159.975,
+    166.0,
+    173.625,
+    181.35,
+    184.55,
+    193.15,
+    198.5
+   ]
+  },
+  {
+   "id": "c08-retraction",
+   "index": 7,
+   "start": 1588.1,
+   "end": 1849.7,
+   "title": "Retraction: From Tangent Vector to a Step on M",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.725,
+    13.125,
+    20.2,
+    25.75,
+    31.225,
+    36.25,
+    44.225,
+    49.725,
+    56.175,
+    59.475,
+    70.0,
+    81.225,
+    89.075,
+    96.575,
+    105.15,
+    111.175,
+    117.25,
+    127.475,
+    130.8,
+    138.275,
+    148.275,
+    153.025,
+    161.6,
+    169.275,
+    174.775,
+    178.825,
+    189.725,
+    199.275,
+    206.25,
+    216.75,
+    227.525,
+    235.9,
+    243.325,
+    251.3
+   ],
+   "sentenceEnds": [
+    9.275,
+    12.675,
+    19.75,
+    25.3,
+    30.775,
+    35.8,
+    43.775,
+    49.275,
+    55.725,
+    59.025,
+    69.55,
+    80.775,
+    88.625,
+    96.125,
+    104.7,
+    110.725,
+    116.8,
+    127.025,
+    130.35,
+    137.825,
+    147.825,
+    152.575,
+    161.15,
+    168.825,
+    174.325,
+    178.375,
+    189.275,
+    198.825,
+    205.8,
+    216.3,
+    227.075,
+    235.45,
+    242.875,
+    250.85,
+    260.0
+   ]
+  },
+  {
+   "id": "c09-sphere-retraction-descent",
+   "index": 8,
+   "start": 1849.7,
+   "end": 2123.475,
+   "title": "A Sphere Retraction and the Descent Property",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    6.7,
+    17.325,
+    23.675,
+    28.025,
+    39.575,
+    47.3,
+    54.4,
+    60.175,
+    66.0,
+    77.4,
+    87.45,
+    93.525,
+    105.475,
+    115.225,
+    121.5,
+    130.575,
+    138.85,
+    144.9,
+    153.175,
+    158.75,
+    169.0,
+    174.475,
+    181.975,
+    185.95,
+    192.3,
+    203.825,
+    211.275,
+    219.325,
+    227.7,
+    237.45,
+    248.6,
+    257.475,
+    263.625
+   ],
+   "sentenceEnds": [
+    6.25,
+    16.875,
+    23.225,
+    27.575,
+    39.125,
+    46.85,
+    53.95,
+    59.725,
+    65.55,
+    76.95,
+    87.0,
+    93.075,
+    105.025,
+    114.775,
+    121.05,
+    130.125,
+    138.4,
+    144.45,
+    152.725,
+    158.3,
+    168.55,
+    174.025,
+    181.525,
+    185.5,
+    191.85,
+    203.375,
+    210.825,
+    218.875,
+    227.25,
+    237.0,
+    248.15,
+    257.025,
+    263.175,
+    272.175
+   ]
+  },
+  {
+   "id": "c10-series-recap",
+   "index": 9,
+   "start": 2123.475,
+   "end": 2239.675,
+   "title": "Recap: From Open Sets to One Descent Step",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    6.025,
+    12.5,
+    20.925,
+    28.4,
+    38.7,
+    47.3,
+    54.025,
+    58.3,
+    61.1,
+    68.625,
+    73.8,
+    79.6,
+    88.8,
+    95.1,
+    102.15,
+    109.6
+   ],
+   "sentenceEnds": [
+    5.575,
+    12.05,
+    20.475,
+    27.95,
+    38.25,
+    46.85,
+    53.575,
+    57.85,
+    60.65,
+    68.175,
+    73.35,
+    79.15,
+    88.35,
+    94.65,
+    101.7,
+    109.15,
+    114.6
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 15.7,
+   "text": "In flat space, gradient descent is a single line: x next equals x minus alpha times the gradient of f at x.",
+   "translation": "在平直空间里，梯度下降只有一行：x_{k+1} = x_k − α∇f(x_k)。"
+  },
+  {
+   "start": 16.15,
+   "end": 25.975,
+   "text": "For a small step, f of x minus alpha grad f equals f of x, minus alpha times the squared norm of the gradient, plus higher order terms.",
+   "translation": "小步长时，f(x − α∇f) = f(x) − α‖∇f(x)‖² + 高阶项。"
+  },
+  {
+   "start": 26.425,
+   "end": 31.375,
+   "text": "So unless the gradient vanishes, a small enough step always decreases f.",
+   "translation": "所以只要梯度不为零，足够小的一步一定让 f 下降。"
+  },
+  {
+   "start": 31.825,
+   "end": 35.875,
+   "text": "This one line quietly answers two different questions at once.",
+   "translation": "这一行公式同时悄悄回答了两个不同的问题。"
+  },
+  {
+   "start": 36.325,
+   "end": 42.0,
+   "text": "The term minus grad f of x answers the first question: which direction should we move?",
+   "translation": "−∇f(x) 这一项回答第一个问题：往哪个方向走？"
+  },
+  {
+   "start": 42.45,
+   "end": 48.075,
+   "text": "The addition, x plus something, answers the second question: how do we actually move?",
+   "translation": "加法 x + (·) 回答第二个问题：具体怎么走？"
+  },
+  {
+   "start": 48.525,
+   "end": 56.95,
+   "text": "In R n nobody notices the difference, because directions and points live in the same space, and moving is just adding vectors.",
+   "translation": "在 ℝⁿ 中没人注意到区别：方向和点在同一个空间里，移动就是向量相加。"
+  },
+  {
+   "start": 57.4,
+   "end": 63.6,
+   "text": "Now constrain x to the unit sphere, and take the height function, f of x equals x three.",
+   "translation": "现在把 x 限制在单位球面上，取高度函数 f(x) = x₃。"
+  },
+  {
+   "start": 64.05,
+   "end": 70.95,
+   "text": "Extended to all of R three, the height function has Euclidean gradient e three, the vertical unit vector.",
+   "translation": "延拓到整个 ℝ³ 后，高度函数的欧氏梯度是竖直单位向量 e₃。"
+  },
+  {
+   "start": 71.4,
+   "end": 74.55,
+   "text": "Take the step x minus alpha times e three.",
+   "translation": "走一步：x − α e₃。"
+  },
+  {
+   "start": 75.0,
+   "end": 79.125,
+   "text": "The new point no longer has norm one. It has left the sphere.",
+   "translation": "新点的范数不再等于 1：它离开了球面。"
+  },
+  {
+   "start": 79.575,
+   "end": 85.725,
+   "text": "The step answered the moving question with plain addition, and addition does not respect the constraint.",
+   "translation": "这一步用普通加法回答了“怎么走”，而加法不尊重约束。"
+  },
+  {
+   "start": 86.175,
+   "end": 88.825,
+   "text": "Worse, even the direction is wrong.",
+   "translation": "更糟的是，连方向都是错的。"
+  },
+  {
+   "start": 89.275,
+   "end": 96.575,
+   "text": "Here is the tangent plane at x, the set of legal directions, which episode five identified as x perp.",
+   "translation": "这是 x 处的切平面，即合法方向的集合；第五集证明了它就是 x^⊥。"
+  },
+  {
+   "start": 97.025,
+   "end": 104.45,
+   "text": "The vector e three splits into a part inside the tangent plane, and a part along x that points straight out of the sphere.",
+   "translation": "e₃ 分解为切平面内的分量，以及沿 x、直指球外的分量。"
+  },
+  {
+   "start": 104.9,
+   "end": 112.125,
+   "text": "That normal part is not a legal direction. So the first question already fails, before any step is taken.",
+   "translation": "法向分量不是合法方向。所以还没迈步，第一个问题就已经失败了。"
+  },
+  {
+   "start": 112.575,
+   "end": 115.9,
+   "text": "The same failure happens on the orthogonal group.",
+   "translation": "同样的失败也发生在正交群上。"
+  },
+  {
+   "start": 116.35,
+   "end": 122.725,
+   "text": "Take R, a rotation by thirty degrees, and some matrix G, and form R minus alpha G.",
+   "translation": "取 R 为 30° 旋转，G 为某个矩阵，构造 R − αG。"
+  },
+  {
+   "start": 123.175,
+   "end": 131.575,
+   "text": "As alpha grows from zero, R minus alpha G, transposed, times R minus alpha G, drifts away from the identity.",
+   "translation": "随着 α 从 0 增大，(R − αG)ᵀ(R − αG) 逐渐偏离单位矩阵。"
+  },
+  {
+   "start": 132.025,
+   "end": 138.35,
+   "text": "So R minus alpha G is no longer orthogonal. Again the step leaves the constraint set.",
+   "translation": "所以 R − αG 不再正交：这一步又离开了约束集。"
+  },
+  {
+   "start": 138.8,
+   "end": 143.825,
+   "text": "The lesson: on a curved set, the two questions must be answered separately.",
+   "translation": "结论：在弯曲的集合上，两个问题必须分开回答。"
+  },
+  {
+   "start": 144.275,
+   "end": 152.45,
+   "text": "Question one, direction. We need to know how f changes along each tangent direction, which is the differential, d f at x.",
+   "translation": "问题一，方向：需要知道 f 沿每个切方向如何变化，即微分 df_x。"
+  },
+  {
+   "start": 152.9,
+   "end": 159.525,
+   "text": "And we need an inner product to say what steepest means. Together they produce the Riemannian gradient.",
+   "translation": "还需要一个内积来说明什么叫“最陡”。二者合起来给出黎曼梯度。"
+  },
+  {
+   "start": 159.975,
+   "end": 168.2,
+   "text": "Question two, moving. We need a rule that turns a tangent vector into a point of the manifold. That rule is a retraction.",
+   "translation": "问题二，移动：需要一条把切向量变成流形上的点的规则，这就是 retraction。"
+  },
+  {
+   "start": 168.65,
+   "end": 176.125,
+   "text": "This episode builds both tools, and proves that together they give a step that decreases f, at least to first order.",
+   "translation": "本集构造这两个工具，并证明二者合起来给出让 f 下降的一步，至少在一阶意义下。"
+  },
+  {
+   "start": 180.125,
+   "end": 187.15,
+   "text": "To answer the first question, we need to know how fast f changes when we leave x in a tangent direction v.",
+   "translation": "要回答第一个问题，需要知道沿切方向 v 离开 x 时，f 变化有多快。"
+  },
+  {
+   "start": 187.6,
+   "end": 194.325,
+   "text": "In R n we would differentiate f of x plus t v. But here f is defined only on the sphere.",
+   "translation": "在 ℝⁿ 中我们会对 f(x + tv) 求导。但这里 f 只定义在球面上。"
+  },
+  {
+   "start": 194.775,
+   "end": 203.25,
+   "text": "The straight line x plus t v leaves the sphere at once: its squared norm is one plus t squared times the squared norm of v.",
+   "translation": "直线 x + tv 立刻离开球面：‖x + tv‖² = 1 + t²‖v‖²。"
+  },
+  {
+   "start": 203.7,
+   "end": 208.425,
+   "text": "So f of x plus t v is simply undefined for t not zero.",
+   "translation": "所以 t ≠ 0 时，f(x + tv) 根本没有定义。"
+  },
+  {
+   "start": 208.875,
+   "end": 212.275,
+   "text": "Instead, walk along a curve that stays inside M.",
+   "translation": "换个办法：沿着一条留在 M 内的曲线走。"
+  },
+  {
+   "start": 212.725,
+   "end": 219.85,
+   "text": "Let gamma be a smooth curve in M, with gamma of zero equal to x, and gamma prime of zero equal to v.",
+   "translation": "设 γ 是 M 中的光滑曲线，γ(0) = x，γ'(0) = v。"
+  },
+  {
+   "start": 220.3,
+   "end": 228.1,
+   "text": "Then f composed with gamma is an ordinary function of one real variable, and it has a slope at t equals zero.",
+   "translation": "那么 f∘γ 是普通的一元实函数，在 t = 0 处有斜率。"
+  },
+  {
+   "start": 228.55,
+   "end": 236.8,
+   "text": "Definition: the differential of f at x, applied to v, is the derivative of f of gamma of t, at t equals zero.",
+   "translation": "定义：df_x[v] := (f∘γ)'(0)。"
+  },
+  {
+   "start": 237.25,
+   "end": 245.425,
+   "text": "More generally, if f maps M into another manifold N, then f composed with gamma is a curve in N through f of x.",
+   "translation": "更一般地，若 f: M → N，则 f∘γ 是 N 中过 f(x) 的曲线。"
+  },
+  {
+   "start": 245.875,
+   "end": 254.325,
+   "text": "Its velocity lies in the tangent space of N at f of x. So d f at x maps T x M into T f of x N.",
+   "translation": "它的速度在 T_{f(x)}N 中，所以 df_x: T_xM → T_{f(x)}N。"
+  },
+  {
+   "start": 254.775,
+   "end": 263.525,
+   "text": "We give the proof for real valued f. For f into R m, or into a submanifold of R m, it works component by component.",
+   "translation": "下面对实值 f 给出证明；f 映到 ℝ^m 或其子流形时，逐分量同理。"
+  },
+  {
+   "start": 263.975,
+   "end": 267.9,
+   "text": "But there is a problem: many curves have the same velocity.",
+   "translation": "但有个问题：许多曲线有相同的速度。"
+  },
+  {
+   "start": 268.35,
+   "end": 275.225,
+   "text": "Here is a second curve, gamma two, with the same velocity v at x, but bending differently afterwards.",
+   "translation": "这是第二条曲线 γ₂：在 x 处速度同样是 v，之后弯曲方式不同。"
+  },
+  {
+   "start": 275.675,
+   "end": 283.25,
+   "text": "Along the two curves, the values of f separate away from zero, but at zero the two graphs share one tangent line.",
+   "translation": "沿两条曲线，f 的取值在远处分开，但在 0 处两个图像有同一条切线。"
+  },
+  {
+   "start": 283.7,
+   "end": 291.2,
+   "text": "Is that a coincidence? If the value depended on the curve, d f at x of v would not be a function of v at all.",
+   "translation": "这是巧合吗？如果值依赖于曲线，df_x[v] 就根本不是 v 的函数。"
+  },
+  {
+   "start": 291.65,
+   "end": 297.0,
+   "text": "We now prove that it is well defined, for M a regular level set in R n.",
+   "translation": "下面对 ℝⁿ 中的正则水平集 M 证明它是良定义的。"
+  },
+  {
+   "start": 297.45,
+   "end": 302.675,
+   "text": "From episode four: after reordering coordinates, write x as the pair a, b.",
+   "translation": "由第四集：重排坐标后，记 x = (a, b)。"
+  },
+  {
+   "start": 303.125,
+   "end": 313.25,
+   "text": "Near x, M is a graph. There are open sets A and B and a smooth map g from A to B, with M inside A cross B equal to the points u, g of u.",
+   "translation": "M 在 x 附近是图像：存在开集 A、B 与光滑 g: A → B，使 M ∩ (A×B) = {(u, g(u))}。"
+  },
+  {
+   "start": 313.7,
+   "end": 323.275,
+   "text": "The chart phi is the projection pi onto the first n minus k coordinates, which is linear. Its inverse is psi of u equals u, g of u.",
+   "translation": "chart φ 是投影 π（取前 n − k 个坐标），它是线性的；逆为 ψ(u) = (u, g(u))。"
+  },
+  {
+   "start": 323.725,
+   "end": 331.475,
+   "text": "Step one. Gamma is continuous and A cross B is open, so for small t the curve stays inside the chart domain.",
+   "translation": "第一步：γ 连续且 A×B 是开集，所以 t 很小时曲线留在 chart 的定义域内。"
+  },
+  {
+   "start": 331.925,
+   "end": 335.575,
+   "text": "There, gamma of t equals psi of phi of gamma of t.",
+   "translation": "在那里，γ(t) = ψ(φ(γ(t)))。"
+  },
+  {
+   "start": 336.025,
+   "end": 341.25,
+   "text": "Step two. So f of gamma equals f of psi, composed with pi of gamma.",
+   "translation": "第二步：所以 f∘γ = (f∘ψ)∘(π∘γ)。"
+  },
+  {
+   "start": 341.7,
+   "end": 350.25,
+   "text": "f of psi is smooth, because that is what smoothness of f on M means. And pi of gamma is a smooth curve in R n minus k.",
+   "translation": "f∘ψ 光滑，这正是 f 在 M 上光滑的含义；π∘γ 是 ℝ^{n−k} 中的光滑曲线。"
+  },
+  {
+   "start": 350.7,
+   "end": 358.55,
+   "text": "Step three, the chain rule. The derivative at zero is D of f psi at a, applied to the velocity of pi of gamma.",
+   "translation": "第三步，链式法则：在 0 处的导数是 D(f∘ψ)(a) 作用在 π∘γ 的速度上。"
+  },
+  {
+   "start": 359.0,
+   "end": 365.575,
+   "text": "Since pi is linear, the velocity of pi of gamma is pi of gamma prime of zero, which is pi of v.",
+   "translation": "因为 π 线性，(π∘γ)'(0) = π(γ'(0)) = π(v)。"
+  },
+  {
+   "start": 366.025,
+   "end": 373.3,
+   "text": "Look at the result: D of f psi at a, applied to pi of v. The curve gamma has disappeared. Only v remains.",
+   "translation": "看结果：D(f∘ψ)(a)·π(v)。曲线 γ 消失了，只剩下 v。"
+  },
+  {
+   "start": 373.75,
+   "end": 380.5,
+   "text": "So any two curves through x with velocity v give the same number. The differential is well defined.",
+   "translation": "所以任意两条过 x、速度为 v 的曲线给出同一个数：微分是良定义的。"
+  },
+  {
+   "start": 380.95,
+   "end": 388.55,
+   "text": "The chart was only a tool. The definition never mentions a chart, so the value cannot depend on which chart we used.",
+   "translation": "chart 只是证明工具；定义本身不涉及 chart，所以值与 chart 的选取无关。"
+  },
+  {
+   "start": 389.0,
+   "end": 396.3,
+   "text": "Step four, linearity. The vector v goes to pi of v, and then to D of f psi at a, applied to pi of v.",
+   "translation": "第四步，线性：v ↦ π(v) ↦ D(f∘ψ)(a)·π(v)。"
+  },
+  {
+   "start": 396.75,
+   "end": 403.775,
+   "text": "Both maps are linear, and a composition of linear maps is linear. So d f at x is a linear map.",
+   "translation": "两个映射都是线性的，线性映射的复合仍线性，所以 df_x 是线性映射。"
+  },
+  {
+   "start": 404.225,
+   "end": 414.425,
+   "text": "And every tangent vector is the velocity of some curve, by the definition of the tangent space. So d f at x is defined on all of T x M.",
+   "translation": "由切空间的定义，每个切向量都是某条曲线的速度，所以 df_x 在整个 T_xM 上有定义。"
+  },
+  {
+   "start": 414.875,
+   "end": 424.0,
+   "text": "This proof covers embedded regular level sets. On a general smooth manifold the same statement holds, using an arbitrary chart.",
+   "translation": "这个证明针对嵌入的正则水平集；一般光滑流形上同样的结论成立，换用任意 chart 即可。"
+  },
+  {
+   "start": 424.45,
+   "end": 427.025,
+   "text": "Finally, a rule for computing it.",
+   "translation": "最后，给出一条计算规则。"
+  },
+  {
+   "start": 427.475,
+   "end": 435.225,
+   "text": "Suppose f is the restriction to M of a smooth function f bar, defined on an open set of R n around x.",
+   "translation": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̄ 在 M 上的限制。"
+  },
+  {
+   "start": 435.675,
+   "end": 444.0,
+   "text": "Then f of gamma equals f bar of gamma for small t, and the ordinary chain rule gives D f bar of x, applied to v.",
+   "translation": "那么 t 很小时 f∘γ = f̄∘γ，普通链式法则给出 Df̄(x)[v]。"
+  },
+  {
+   "start": 444.45,
+   "end": 451.55,
+   "text": "For the height function, f bar of x is x three, so d f at x of v equals e three transpose v.",
+   "translation": "对高度函数，f̄(x) = x₃，所以 df_x[v] = e₃ᵀv。"
+  },
+  {
+   "start": 452.0,
+   "end": 461.2,
+   "text": "Different extensions give the same answer. Take f bar two equal to x three, plus five times the quantity x transpose x minus one.",
+   "translation": "不同的延拓给出同一个答案。取 f̄₂ = x₃ + 5(xᵀx − 1)。"
+  },
+  {
+   "start": 461.65,
+   "end": 469.55,
+   "text": "It agrees with x three on the sphere, but its Euclidean gradient is e three plus ten x, which points far out of the sphere.",
+   "translation": "它在球面上与 x₃ 相等，但欧氏梯度是 e₃ + 10x，远远指向球外。"
+  },
+  {
+   "start": 470.0,
+   "end": 476.9,
+   "text": "The difference of the two derivatives is ten x transpose v, and that is zero for every v in x perp.",
+   "translation": "两个导数之差是 10xᵀv，对每个 v ∈ x^⊥ 都等于 0。"
+  },
+  {
+   "start": 477.35,
+   "end": 485.025,
+   "text": "So the extensions disagree in R three, but agree on the tangent space, exactly as the definition demands.",
+   "translation": "所以延拓在 ℝ³ 中不同，但在切空间上一致，正如定义所要求的。"
+  },
+  {
+   "start": 485.475,
+   "end": 491.625,
+   "text": "Keep this in mind: a Euclidean gradient is not intrinsic to M. We will need something better.",
+   "translation": "记住：欧氏梯度不是 M 内在的量，我们需要更好的东西。"
+  },
+  {
+   "start": 495.625,
+   "end": 501.2,
+   "text": "For a real valued f, the differential eats a tangent vector and returns a number.",
+   "translation": "对实值 f，微分吃进一个切向量，吐出一个数。"
+  },
+  {
+   "start": 501.65,
+   "end": 510.65,
+   "text": "Lift the tangent plane off the sphere and lay it flat. As v turns a full circle, d f at x of v rises and falls like a cosine.",
+   "translation": "把切平面从球上摘下铺平。v 转一整圈时，df_x[v] 像余弦一样起伏。"
+  },
+  {
+   "start": 511.1,
+   "end": 517.55,
+   "text": "So d f at x is a measuring device: a linear map from T x M to the real numbers.",
+   "translation": "所以 df_x 是测量工具：从 T_xM 到实数的线性映射。"
+  },
+  {
+   "start": 518.0,
+   "end": 520.675,
+   "text": "Linear maps of this kind have a name.",
+   "translation": "这类线性映射有一个名字。"
+  },
+  {
+   "start": 521.125,
+   "end": 528.975,
+   "text": "For a finite dimensional real vector space V, the dual space V star is the set of all linear maps from V to R.",
+   "translation": "对有限维实向量空间 V，对偶空间 V* 是所有线性映射 V → ℝ 的集合。"
+  },
+  {
+   "start": 529.425,
+   "end": 533.275,
+   "text": "Its elements are called linear functionals, or covectors.",
+   "translation": "它的元素称为线性泛函，或余向量。"
+  },
+  {
+   "start": 533.725,
+   "end": 541.5,
+   "text": "V star is itself a vector space: add two functionals pointwise, or scale one, and the result is still linear.",
+   "translation": "V* 本身是向量空间：两个泛函逐点相加或数乘，结果仍然线性。"
+  },
+  {
+   "start": 541.95,
+   "end": 548.725,
+   "text": "And for f from M to R, the differential d f at x is an element of the dual of T x M.",
+   "translation": "对 f: M → ℝ，微分 df_x 是 (T_xM)* 的元素。"
+  },
+  {
+   "start": 549.175,
+   "end": 555.2,
+   "text": "How should we picture a covector? Take ell of v equals two v one plus v two, on R two.",
+   "translation": "怎样画出一个余向量？在 ℝ² 上取 ℓ(v) = 2v₁ + v₂。"
+  },
+  {
+   "start": 555.65,
+   "end": 563.375,
+   "text": "Its level sets, where ell is constant, are parallel, equally spaced lines: ell equals minus one, zero, one, two.",
+   "translation": "它的等值集是等间距的平行直线：ℓ = −1, 0, 1, 2。"
+  },
+  {
+   "start": 563.825,
+   "end": 568.525,
+   "text": "The value ell of v counts how many of these lines the arrow v crosses.",
+   "translation": "ℓ(v) 的值就是箭头 v 穿过的线的条数。"
+  },
+  {
+   "start": 568.975,
+   "end": 572.275,
+   "text": "Next, V star has the same dimension as V.",
+   "translation": "接下来证明：V* 与 V 维数相同。"
+  },
+  {
+   "start": 572.725,
+   "end": 575.575,
+   "text": "Pick a basis e one through e d of V.",
+   "translation": "取 V 的一组基 e₁, …, e_d。"
+  },
+  {
+   "start": 576.025,
+   "end": 585.875,
+   "text": "Define the dual basis: e upper i is the linear functional with e upper i of e j equal to one if i equals j, and zero otherwise.",
+   "translation": "定义对偶基：e^i 是满足 e^i(e_j) = δ_ij 的线性泛函。"
+  },
+  {
+   "start": 586.325,
+   "end": 592.75,
+   "text": "This defines each e upper i, because a linear map is determined by its values on a basis.",
+   "translation": "这确定了每个 e^i，因为线性映射由它在基上的取值唯一确定。"
+  },
+  {
+   "start": 593.2,
+   "end": 600.325,
+   "text": "In the plane, e upper one is a stack of vertical lines, and e upper two is a stack of horizontal lines.",
+   "translation": "在平面上，e¹ 是一族竖直线，e² 是一族水平线。"
+  },
+  {
+   "start": 600.775,
+   "end": 608.925,
+   "text": "They span. For any ell, and any v equal to the sum of v j e j, ell of v is the sum of v j times ell of e j.",
+   "translation": "它们张成 V*：对任意 ℓ 与 v = Σ v_j e_j，ℓ(v) = Σ v_j ℓ(e_j)。"
+  },
+  {
+   "start": 609.375,
+   "end": 616.6,
+   "text": "And v j is exactly e upper j of v. So ell equals the sum of ell of e j, times e upper j.",
+   "translation": "而 v_j 正是 e^j(v)，所以 ℓ = Σ ℓ(e_j) e^j。"
+  },
+  {
+   "start": 617.05,
+   "end": 624.425,
+   "text": "For our example, ell equals two e upper one plus e upper two: the two stacks combine into the slanted one.",
+   "translation": "在例子中 ℓ = 2e¹ + e²：两族线组合成那族斜线。"
+  },
+  {
+   "start": 624.875,
+   "end": 633.9,
+   "text": "They are independent. If a combination of the e upper i is the zero functional, apply it to e j, and you get c j equals zero.",
+   "translation": "它们线性无关：若 Σ c_i e^i = 0，作用在 e_j 上得 c_j = 0。"
+  },
+  {
+   "start": 634.35,
+   "end": 640.525,
+   "text": "So the dual basis has d elements, and the dimension of V star equals the dimension of V.",
+   "translation": "所以对偶基有 d 个元素，dim V* = dim V。"
+  },
+  {
+   "start": 640.975,
+   "end": 647.4,
+   "text": "In particular, the dual of T x M has dimension n minus k, the same as T x M.",
+   "translation": "特别地，(T_xM)* 的维数是 n − k，与 T_xM 相同。"
+  },
+  {
+   "start": 647.85,
+   "end": 651.275,
+   "text": "Same dimension, but not the same kind of object.",
+   "translation": "维数相同，但不是同一类对象。"
+  },
+  {
+   "start": 651.725,
+   "end": 661.0,
+   "text": "A covector is not a direction. x plus d f at x means nothing, since d f at x is a function, not a vector in T x M.",
+   "translation": "余向量不是方向：x + df_x 没有意义，因为 df_x 是函数，不是 T_xM 中的向量。"
+  },
+  {
+   "start": 661.45,
+   "end": 665.275,
+   "text": "Could we simply pick the steepest arrow out of the stack of lines?",
+   "translation": "能不能直接从线族中挑出“最陡”的箭头？"
+  },
+  {
+   "start": 665.725,
+   "end": 672.2,
+   "text": "Perpendicular to the lines seems natural, but perpendicular already presumes a notion of angle.",
+   "translation": "垂直于线看起来很自然，但“垂直”已经预设了角度的概念。"
+  },
+  {
+   "start": 672.65,
+   "end": 678.35,
+   "text": "And steepest means the largest increase per unit length, which presumes a notion of length.",
+   "translation": "而“最陡”指单位长度上增长最大，这又预设了长度的概念。"
+  },
+  {
+   "start": 678.8,
+   "end": 684.525,
+   "text": "Neither angle nor length is part of a vector space. Both come from an inner product.",
+   "translation": "角度和长度都不是向量空间自带的，它们来自内积。"
+  },
+  {
+   "start": 684.975,
+   "end": 689.5,
+   "text": "So to turn a covector into a direction, we need one more structure.",
+   "translation": "所以要把余向量变成方向，还需要一样结构。"
+  },
+  {
+   "start": 693.5,
+   "end": 700.575,
+   "text": "An inner product on V takes two vectors to a number, and it is bilinear, symmetric, and positive definite.",
+   "translation": "V 上的内积把两个向量变成一个数，满足双线性、对称、正定。"
+  },
+  {
+   "start": 701.025,
+   "end": 707.625,
+   "text": "Positive definite means that the inner product of v with itself is positive, for every nonzero v.",
+   "translation": "正定是指：对每个非零 v，⟨v, v⟩ > 0。"
+  },
+  {
+   "start": 708.075,
+   "end": 712.05,
+   "text": "An inner product already turns vectors into covectors.",
+   "translation": "内积本身就能把向量变成余向量。"
+  },
+  {
+   "start": 712.5,
+   "end": 719.075,
+   "text": "Fix u. The map sending v to the inner product of u and v is linear in v, so it is a covector.",
+   "translation": "固定 u。映射 v ↦ ⟨u, v⟩ 关于 v 线性，所以是一个余向量。"
+  },
+  {
+   "start": 719.525,
+   "end": 726.375,
+   "text": "Its level lines are perpendicular to u. As u grows they crowd together, and as u turns they turn with it.",
+   "translation": "它的等值线垂直于 u。u 变长时线变密，u 转动时线随之转动。"
+  },
+  {
+   "start": 726.825,
+   "end": 731.975,
+   "text": "For u equal to two, one, we get exactly the stack two v one plus v two.",
+   "translation": "当 u = (2, 1) 时，正好得到线族 2v₁ + v₂。"
+  },
+  {
+   "start": 732.425,
+   "end": 740.15,
+   "text": "The Riesz representation theorem says the converse: every covector arises this way, from exactly one vector.",
+   "translation": "Riesz 表示定理说的是反方向：每个余向量都恰好由一个向量这样产生。"
+  },
+  {
+   "start": 740.6,
+   "end": 751.325,
+   "text": "Precisely: for a finite dimensional real inner product space V, capital Phi, sending u to the inner product with u, is an isomorphism onto V star.",
+   "translation": "精确地说：V 为有限维实内积空间，则 Φ(u) = ⟨u, ·⟩ 是 V → V* 的线性同构。"
+  },
+  {
+   "start": 751.775,
+   "end": 760.15,
+   "text": "Equivalently, for every ell in V star, there is a unique u with ell of v equal to the inner product of u and v, for all v.",
+   "translation": "等价地：对每个 ℓ ∈ V*，存在唯一 u，使 ℓ(v) = ⟨u, v⟩ 对所有 v 成立。"
+  },
+  {
+   "start": 760.6,
+   "end": 762.3,
+   "text": "Here is the proof.",
+   "translation": "下面给出证明。"
+  },
+  {
+   "start": 762.75,
+   "end": 768.775,
+   "text": "First, Phi of u lies in V star, because the inner product is linear in its second slot.",
+   "translation": "第一，Φ(u) ∈ V*，因为内积对第二个变量线性。"
+  },
+  {
+   "start": 769.225,
+   "end": 781.05,
+   "text": "Second, Phi is linear. Phi of alpha u plus beta w, applied to v, is alpha times u dot v, plus beta times w dot v, by linearity in the first slot.",
+   "translation": "第二，Φ 线性：由第一个变量的线性，Φ(αu + βw)(v) = α⟨u, v⟩ + β⟨w, v⟩。"
+  },
+  {
+   "start": 781.5,
+   "end": 787.35,
+   "text": "In the picture, the covectors of u and of w add up to the covector of their sum.",
+   "translation": "在图中，u 与 w 的余向量相加，等于它们之和的余向量。"
+  },
+  {
+   "start": 787.8,
+   "end": 792.625,
+   "text": "Third, Phi is injective. Suppose Phi of u is the zero functional.",
+   "translation": "第三，Φ 单射。设 Φ(u) 是零泛函。"
+  },
+  {
+   "start": 793.075,
+   "end": 801.125,
+   "text": "Feed u to its own covector. Phi of u, applied to u, is the inner product of u with itself, and it must be zero.",
+   "translation": "把 u 喂给它自己的余向量：Φ(u)(u) = ⟨u, u⟩，它必须为 0。"
+  },
+  {
+   "start": 801.575,
+   "end": 807.275,
+   "text": "By positive definiteness, u is zero. So the kernel of Phi contains only zero.",
+   "translation": "由正定性，u = 0。所以 ker Φ = {0}。"
+  },
+  {
+   "start": 807.725,
+   "end": 817.95,
+   "text": "Fourth, Phi is onto. By rank nullity, the dimension of the image is the dimension of V minus the dimension of the kernel: d minus zero, which is d.",
+   "translation": "第四，Φ 满射。由秩–零化度，dim im Φ = dim V − dim ker Φ = d − 0 = d。"
+  },
+  {
+   "start": 818.4,
+   "end": 827.625,
+   "text": "And V star also has dimension d, as we proved. A subspace of full dimension is the whole space, so the image is all of V star.",
+   "translation": "而 dim V* 也是 d。满维数的子空间就是整个空间，所以 im Φ = V*。"
+  },
+  {
+   "start": 828.075,
+   "end": 835.85,
+   "text": "Linear, injective, and onto: Phi is an isomorphism, and each ell has exactly one representing vector.",
+   "translation": "线性、单射、满射：Φ 是同构，每个 ℓ 恰有一个代表向量。"
+  },
+  {
+   "start": 836.3,
+   "end": 847.35,
+   "text": "Uniqueness is also direct. If u and u prime both represent ell, then u minus u prime is orthogonal to every v, even itself, so u equals u prime.",
+   "translation": "唯一性也可直接看出：若 u、u' 都代表 ℓ，则 u − u' 与所有 v 正交，包括它自己，所以 u = u'。"
+  },
+  {
+   "start": 847.8,
+   "end": 853.275,
+   "text": "Where exactly did we use positive definiteness? Remove it, and watch the proof break.",
+   "translation": "正定性到底用在哪里？去掉它，看证明怎样坏掉。"
+  },
+  {
+   "start": 853.725,
+   "end": 864.375,
+   "text": "Take the degenerate form b of u, v equals u one times v one. It is bilinear and symmetric, but b of e two with itself is zero, though e two is not.",
+   "translation": "取退化形式 b(u, v) = u₁v₁：双线性且对称，但 b(e₂, e₂) = 0，而 e₂ ≠ 0。"
+  },
+  {
+   "start": 864.825,
+   "end": 872.95,
+   "text": "Every covector it produces is u one times v one: a stack of vertical lines, or nothing at all when u one is zero.",
+   "translation": "它产生的每个余向量都是 u₁v₁：一族竖直线，或在 u₁ = 0 时什么都没有。"
+  },
+  {
+   "start": 873.4,
+   "end": 878.85,
+   "text": "Now try to represent ell of v equals v two, whose level lines are horizontal.",
+   "translation": "现在试着表示 ℓ(v) = v₂，它的等值线是水平的。"
+  },
+  {
+   "start": 879.3,
+   "end": 886.65,
+   "text": "Sweep u over the plane. The stacks stay vertical, and never match. The functional v two has no representative.",
+   "translation": "让 u 扫过平面：线族始终竖直，永远对不上。泛函 v₂ 没有代表元。"
+  },
+  {
+   "start": 887.1,
+   "end": 895.5,
+   "text": "Injectivity failed, since e two lies in the kernel. Then the image is only one dimensional, so surjectivity fails as well.",
+   "translation": "单射失败了，因为 e₂ 在核中；于是像只有一维，满射也失败。"
+  },
+  {
+   "start": 895.95,
+   "end": 900.6,
+   "text": "With a genuine inner product, we call the representing vector ell sharp.",
+   "translation": "在真正的内积下，代表向量记作 ℓ^♯。"
+  },
+  {
+   "start": 901.05,
+   "end": 909.5,
+   "text": "There is an explicit formula. Take an orthonormal basis e i, and set u equal to the sum of ell of e i, times e i.",
+   "translation": "有显式公式：取规范正交基 {e_i}，令 u = Σ ℓ(e_i) e_i。"
+  },
+  {
+   "start": 909.95,
+   "end": 914.775,
+   "text": "Then the inner product of u with e j is ell of e j, for every j.",
+   "translation": "那么对每个 j，⟨u, e_j⟩ = ℓ(e_j)。"
+  },
+  {
+   "start": 915.225,
+   "end": 923.3,
+   "text": "Two linear functionals that agree on a basis agree everywhere. So u represents ell, and by uniqueness, u is ell sharp.",
+   "translation": "在基上相等的两个线性泛函处处相等，所以 u 代表 ℓ，由唯一性 u = ℓ^♯。"
+  },
+  {
+   "start": 923.75,
+   "end": 933.8,
+   "text": "For ell equal to two v one plus v two, with the standard inner product, ell of e one is two and ell of e two is one, so ell sharp is two, one.",
+   "translation": "对 ℓ = 2v₁ + v₂ 与标准内积，ℓ(e₁) = 2，ℓ(e₂) = 1，所以 ℓ^♯ = (2, 1)。"
+  },
+  {
+   "start": 934.25,
+   "end": 938.05,
+   "text": "It is perpendicular to the level lines, as expected.",
+   "translation": "正如预期，它垂直于等值线。"
+  },
+  {
+   "start": 938.5,
+   "end": 948.1,
+   "text": "Finite dimension was used too: it makes injective imply onto. Infinite dimensions need a completeness assumption, which this course does not need.",
+   "translation": "有限维也用到了：它使单射推出满射。无穷维需要完备性假设，本课程用不到。"
+  },
+  {
+   "start": 948.55,
+   "end": 956.55,
+   "text": "On a manifold, we will take V to be T x M with its inner product, and the gradient will be the sharp of d f at x.",
+   "translation": "在流形上，取 V = T_xM 及其内积，梯度就是 df_x 的 ♯。"
+  },
+  {
+   "start": 960.55,
+   "end": 966.65,
+   "text": "The sharp of a covector depends on the inner product. Here is an example that shows how much.",
+   "translation": "余向量的 ♯ 依赖于内积。下面的例子展示这种依赖有多大。"
+  },
+  {
+   "start": 967.1,
+   "end": 977.825,
+   "text": "Take one covector on R two: d f of v equals v one plus v two, the differential of the linear function f of v equals v one plus v two.",
+   "translation": "在 ℝ² 上取一个余向量：df[v] = v₁ + v₂，即线性函数 f(v) = v₁ + v₂ 的微分。"
+  },
+  {
+   "start": 978.275,
+   "end": 980.875,
+   "text": "Its level lines run diagonally.",
+   "translation": "它的等值线沿对角方向。"
+  },
+  {
+   "start": 981.325,
+   "end": 987.225,
+   "text": "Now take two rulers. First, the usual inner product, whose unit vectors form a circle.",
+   "translation": "再取两把尺子。第一把是通常的内积，单位向量构成圆。"
+  },
+  {
+   "start": 987.675,
+   "end": 995.5,
+   "text": "Second, the inner product u transpose capital A v, with capital A the diagonal matrix with entries four and one.",
+   "translation": "第二把是内积 uᵀAv，其中 A = diag(4, 1)。"
+  },
+  {
+   "start": 995.95,
+   "end": 1004.925,
+   "text": "It is symmetric because capital A is symmetric, bilinear by matrix multiplication, and positive definite because capital A is.",
+   "translation": "因为 A 对称，它对称；由矩阵乘法，它双线性；因为 A 正定，它正定。"
+  },
+  {
+   "start": 1005.375,
+   "end": 1011.8,
+   "text": "Its unit vectors satisfy four v one squared plus v two squared equals one: an ellipse.",
+   "translation": "它的单位向量满足 4v₁² + v₂² = 1：一个椭圆。"
+  },
+  {
+   "start": 1012.25,
+   "end": 1018.225,
+   "text": "With the usual inner product, the gradient is one, one, perpendicular to the level lines.",
+   "translation": "在通常内积下，梯度是 (1, 1)，垂直于等值线。"
+  },
+  {
+   "start": 1018.675,
+   "end": 1027.65,
+   "text": "With the capital A inner product, the gradient u must satisfy u transpose capital A v equals v one plus v two, for every v.",
+   "translation": "在 A-内积下，梯度 u 必须满足：对所有 v，uᵀAv = v₁ + v₂。"
+  },
+  {
+   "start": 1028.1,
+   "end": 1034.6,
+   "text": "Since capital A is symmetric, this says that capital A times u equals the vector one, one.",
+   "translation": "因为 A 对称，这就是 A u = (1, 1)ᵀ。"
+  },
+  {
+   "start": 1035.05,
+   "end": 1039.575,
+   "text": "So u is A inverse times one, one, which is one quarter, one.",
+   "translation": "所以 u = A⁻¹(1, 1)ᵀ = (1/4, 1)。"
+  },
+  {
+   "start": 1040.025,
+   "end": 1045.9,
+   "text": "In general, the gradient for this inner product is A inverse times the Euclidean gradient.",
+   "translation": "一般地，这个内积下的梯度是 A⁻¹∇f。"
+  },
+  {
+   "start": 1046.35,
+   "end": 1051.225,
+   "text": "The two gradients are not parallel. They differ by about thirty one degrees.",
+   "translation": "两个梯度不平行，夹角约 31°。"
+  },
+  {
+   "start": 1051.675,
+   "end": 1056.375,
+   "text": "Yet each one is perpendicular to the level lines, in its own geometry.",
+   "translation": "然而它们各自都垂直于等值线，在各自的几何中。"
+  },
+  {
+   "start": 1056.825,
+   "end": 1060.7,
+   "text": "The level direction is w equals one, minus one.",
+   "translation": "等值线方向是 w = (1, −1)。"
+  },
+  {
+   "start": 1061.15,
+   "end": 1065.95,
+   "text": "In the usual sense, one, one dotted with one, minus one gives zero.",
+   "translation": "在通常意义下，(1, 1)·(1, −1) = 0。"
+  },
+  {
+   "start": 1066.4,
+   "end": 1074.775,
+   "text": "In the capital A sense, one quarter, one, times capital A, times one, minus one, gives one minus one, which is also zero.",
+   "translation": "在 A 意义下，(1/4, 1) A (1, −1)ᵀ = 1 − 1 = 0。"
+  },
+  {
+   "start": 1075.225,
+   "end": 1084.35,
+   "text": "To see it, stretch the plane by the square root of capital A. The ellipse becomes a circle, and the purple arrow becomes perpendicular to the lines.",
+   "translation": "用 A^{1/2} 拉伸平面：椭圆变成圆，紫色箭头与等值线成直角。"
+  },
+  {
+   "start": 1084.8,
+   "end": 1086.6,
+   "text": "Then undo the stretch.",
+   "translation": "再把拉伸变回去。"
+  },
+  {
+   "start": 1087.05,
+   "end": 1090.3,
+   "text": "There is a second way to find the steepest direction.",
+   "translation": "还有第二种方法找出最陡方向。"
+  },
+  {
+   "start": 1090.75,
+   "end": 1098.575,
+   "text": "Push a level line outward from the origin until it last touches the unit circle. The touching point lies on the white arrow.",
+   "translation": "把等值线从原点向外推，直到最后接触单位圆：切点落在白色箭头上。"
+  },
+  {
+   "start": 1099.025,
+   "end": 1103.675,
+   "text": "Do the same with the ellipse. The touching point lies on the purple arrow.",
+   "translation": "对椭圆做同样的事：切点落在紫色箭头上。"
+  },
+  {
+   "start": 1104.125,
+   "end": 1110.25,
+   "text": "The tangency point is the steepest unit direction. Chapter seven proves this in general.",
+   "translation": "切点就是最陡的单位方向。第七章给出一般证明。"
+  },
+  {
+   "start": 1110.7,
+   "end": 1114.15,
+   "text": "So the same differential gives two different gradients.",
+   "translation": "所以同一个微分给出了两个不同的梯度。"
+  },
+  {
+   "start": 1114.6,
+   "end": 1118.9,
+   "text": "If d f alone determined the gradient, there could be only one.",
+   "translation": "如果梯度只由 df 决定，就只能有一个。"
+  },
+  {
+   "start": 1119.35,
+   "end": 1126.475,
+   "text": "Therefore a gradient needs a metric. On a manifold, we must choose an inner product on every tangent space.",
+   "translation": "因此梯度需要度量：在流形上，必须在每个切空间上选定一个内积。"
+  },
+  {
+   "start": 1130.475,
+   "end": 1136.925,
+   "text": "On a manifold, every tangent space is a different vector space, so each one needs its own ruler.",
+   "translation": "在流形上，每个切空间都是不同的向量空间，所以每个都需要自己的尺子。"
+  },
+  {
+   "start": 1137.375,
+   "end": 1144.95,
+   "text": "A Riemannian metric assigns to every point x of M an inner product, g x, on the tangent space T x M.",
+   "translation": "黎曼度量给 M 的每个点 x 指定 T_xM 上的一个内积 g_x。"
+  },
+  {
+   "start": 1145.4,
+   "end": 1155.7,
+   "text": "The assignment must vary smoothly: for smooth tangent vector fields U and V, the function x maps to g x of U of x, V of x, must be smooth.",
+   "translation": "这种指定要光滑：对光滑切向量场 U、V，函数 x ↦ g_x(U(x), V(x)) 光滑。"
+  },
+  {
+   "start": 1156.15,
+   "end": 1164.625,
+   "text": "This rules out rulers that jump from point to point; otherwise the gradient would jump too, and later smoothness arguments would fail.",
+   "translation": "这排除了逐点跳变的尺子；否则梯度也会跳变，后续的光滑性论证会失效。"
+  },
+  {
+   "start": 1165.075,
+   "end": 1171.725,
+   "text": "A smooth manifold together with a Riemannian metric is called a Riemannian manifold, written M, g.",
+   "translation": "带黎曼度量的光滑流形称为黎曼流形，记作 (M, g)。"
+  },
+  {
+   "start": 1172.175,
+   "end": 1181.9,
+   "text": "For an embedded submanifold of R n, a common choice is to restrict the Euclidean inner product: g x of u, v equals u transpose v.",
+   "translation": "对 ℝⁿ 的嵌入子流形，常见的选择是限制欧氏内积：g_x(u, v) = uᵀv。"
+  },
+  {
+   "start": 1182.35,
+   "end": 1190.025,
+   "text": "It is still positive definite, because u transpose u is the squared norm of u, which is positive for u not zero.",
+   "translation": "它仍然正定，因为 uᵀu = ‖u‖²，u ≠ 0 时为正。"
+  },
+  {
+   "start": 1190.475,
+   "end": 1197.925,
+   "text": "Symmetry and bilinearity are inherited from R n, and for smooth vector fields, U transpose V is smooth.",
+   "translation": "对称与双线性继承自 ℝⁿ；对光滑向量场，UᵀV 光滑。"
+  },
+  {
+   "start": 1198.375,
+   "end": 1205.375,
+   "text": "On the orthogonal group, the same idea gives g at R of H, K equals the trace of H transpose K.",
+   "translation": "在正交群上，同样的想法给出 g_R(H, K) = tr(HᵀK)。"
+  },
+  {
+   "start": 1205.825,
+   "end": 1212.125,
+   "text": "On the sphere, the unit vectors of this metric form an ordinary circle in each tangent plane.",
+   "translation": "在球面上，这个度量的单位向量在每个切平面上构成普通的圆。"
+  },
+  {
+   "start": 1212.575,
+   "end": 1216.425,
+   "text": "Now the definition this episode has been building toward.",
+   "translation": "现在给出本集一直在铺垫的定义。"
+  },
+  {
+   "start": 1216.875,
+   "end": 1226.25,
+   "text": "Let f from M to R be smooth. The Riemannian gradient of f at x is the unique vector grad f of x in T x M, such that",
+   "translation": "设 f: M → ℝ 光滑。f 在 x 处的黎曼梯度是 T_xM 中唯一的向量 grad f(x)，使得"
+  },
+  {
+   "start": 1226.7,
+   "end": 1233.15,
+   "text": "d f at x of v equals g x of grad f of x and v, for every tangent vector v.",
+   "translation": "对每个切向量 v，df_x[v] = g_x(grad f(x), v)。"
+  },
+  {
+   "start": 1233.6,
+   "end": 1237.9,
+   "text": "In one line: grad f of x is the sharp of d f at x.",
+   "translation": "一句话：grad f(x) = (df_x)^♯。"
+  },
+  {
+   "start": 1238.35,
+   "end": 1241.15,
+   "text": "Why does it exist, and why is it unique?",
+   "translation": "为什么它存在，又为什么唯一？"
+  },
+  {
+   "start": 1241.6,
+   "end": 1247.975,
+   "text": "Fix x. T x M is a finite dimensional vector space, of dimension n minus k.",
+   "translation": "固定 x。T_xM 是有限维向量空间，维数为 n − k。"
+  },
+  {
+   "start": 1248.425,
+   "end": 1253.525,
+   "text": "g x is an inner product on it, and d f at x is a covector on it.",
+   "translation": "g_x 是其上的内积，df_x 是其上的余向量。"
+  },
+  {
+   "start": 1253.975,
+   "end": 1263.825,
+   "text": "So the Riesz theorem gives exactly one vector u in T x M with d f at x equal to g x of u with dot. That u is the gradient.",
+   "translation": "由 Riesz 定理，T_xM 中恰有一个 u 使 df_x = g_x(u, ·)，这个 u 就是梯度。"
+  },
+  {
+   "start": 1264.275,
+   "end": 1267.925,
+   "text": "Let us compute it on the sphere, with the embedded metric.",
+   "translation": "下面在球面上、用嵌入度量来计算它。"
+  },
+  {
+   "start": 1268.375,
+   "end": 1277.625,
+   "text": "Take f of x equals a transpose x, for a fixed vector a. By the extension rule, d f at x of v equals a transpose v.",
+   "translation": "取 f(x) = aᵀx，a 为固定向量。由延拓规则，df_x[v] = aᵀv。"
+  },
+  {
+   "start": 1278.075,
+   "end": 1284.8,
+   "text": "Guess u equals a, minus a transpose x times x. That removes from a its component along x.",
+   "translation": "猜 u = a − (aᵀx)x，即从 a 中去掉沿 x 的分量。"
+  },
+  {
+   "start": 1285.25,
+   "end": 1297.275,
+   "text": "Check one: u is tangent. x transpose u equals x transpose a, minus a transpose x times x transpose x, which is zero, since x transpose x is one.",
+   "translation": "检验一：u 是切向量。xᵀu = xᵀa − (aᵀx)(xᵀx) = 0，因为 xᵀx = 1。"
+  },
+  {
+   "start": 1297.725,
+   "end": 1308.4,
+   "text": "Check two: for any v in x perp, u transpose v equals a transpose v, minus a transpose x times x transpose v, and the last term vanishes.",
+   "translation": "检验二：对任意 v ∈ x^⊥，uᵀv = aᵀv − (aᵀx)(xᵀv)，最后一项为零。"
+  },
+  {
+   "start": 1308.85,
+   "end": 1319.275,
+   "text": "So u transpose v equals d f at x of v for every tangent v. By uniqueness, grad f of x equals a, minus a transpose x times x.",
+   "translation": "所以对每个切向量 v，uᵀv = df_x[v]。由唯一性，grad f(x) = a − (aᵀx)x。"
+  },
+  {
+   "start": 1319.725,
+   "end": 1325.7,
+   "text": "For the height function, a is e three, and the gradient is e three minus x three times x.",
+   "translation": "对高度函数，a = e₃，梯度为 e₃ − x₃x。"
+  },
+  {
+   "start": 1326.15,
+   "end": 1333.775,
+   "text": "In the picture, e three splits into its tangent part, which is the gradient, and its normal part, x three times x.",
+   "translation": "在图中，e₃ 分解为切向部分（即梯度）和法向部分 x₃x。"
+  },
+  {
+   "start": 1334.225,
+   "end": 1340.15,
+   "text": "Draw this vector at every point. The field runs along the meridians, toward the north pole.",
+   "translation": "在每个点画出这个向量：向量场沿经线指向北极。"
+  },
+  {
+   "start": 1340.6,
+   "end": 1347.425,
+   "text": "At the poles it vanishes: there x is plus or minus e three, and e three minus x three x is zero.",
+   "translation": "在两极它为零：那里 x = ±e₃，e₃ − x₃x = 0。"
+  },
+  {
+   "start": 1347.875,
+   "end": 1355.1,
+   "text": "That matches intuition. The height function has its maximum and minimum there, so there is no uphill direction.",
+   "translation": "这符合直觉：高度函数在两极取最大和最小值，没有上坡方向。"
+  },
+  {
+   "start": 1355.55,
+   "end": 1358.275,
+   "text": "Why not just use the Euclidean gradient?",
+   "translation": "为什么不直接用欧氏梯度？"
+  },
+  {
+   "start": 1358.725,
+   "end": 1366.1,
+   "text": "Recall the two extensions of the height function. Their Euclidean gradients are e three, and e three plus ten x.",
+   "translation": "回忆高度函数的两个延拓：它们的欧氏梯度分别是 e₃ 和 e₃ + 10x。"
+  },
+  {
+   "start": 1366.55,
+   "end": 1369.975,
+   "text": "Both stick out of the sphere, and they differ from each other.",
+   "translation": "两者都伸出球面，而且彼此不同。"
+  },
+  {
+   "start": 1370.425,
+   "end": 1376.0,
+   "text": "But both project onto the tangent plane to the same white arrow: the Riemannian gradient.",
+   "translation": "但它们投影到切平面后落在同一个白色箭头上：黎曼梯度。"
+  },
+  {
+   "start": 1376.45,
+   "end": 1386.4,
+   "text": "The Riemannian gradient lies in T x M, and it does not depend on the extension, because its definition uses only d f at x and g x.",
+   "translation": "黎曼梯度在 T_xM 中，且与延拓无关，因为它的定义只用到 df_x 和 g_x。"
+  },
+  {
+   "start": 1390.4,
+   "end": 1396.075,
+   "text": "Why is this vector called the gradient? Because it points in the direction of steepest ascent.",
+   "translation": "为什么这个向量叫梯度？因为它指向最速上升方向。"
+  },
+  {
+   "start": 1396.525,
+   "end": 1403.0,
+   "text": "To compare directions fairly, compare only unit vectors: those whose g x norm equals one.",
+   "translation": "要公平比较方向，只比较单位向量：g_x-范数为 1 的向量。"
+  },
+  {
+   "start": 1403.45,
+   "end": 1411.2,
+   "text": "Without that restriction, scaling v by lambda scales d f at x of v by lambda too, so there would be no maximum.",
+   "translation": "若不加限制，v 放大 λ 倍，df_x[v] 也放大 λ 倍，就没有最大值。"
+  },
+  {
+   "start": 1411.65,
+   "end": 1417.425,
+   "text": "Lay the tangent plane flat, draw its unit circle, and turn a unit vector v around it.",
+   "translation": "把切平面铺平，画出单位圆，让单位向量 v 绕圆旋转。"
+  },
+  {
+   "start": 1417.875,
+   "end": 1424.3,
+   "text": "The value d f at x of v traces a cosine curve, and its peak lines up with the gradient.",
+   "translation": "df_x[v] 描出一条余弦曲线，峰值正对梯度方向。"
+  },
+  {
+   "start": 1424.75,
+   "end": 1434.4,
+   "text": "The tool for the proof is the Cauchy Schwarz inequality: the absolute value of the inner product of u and v is at most norm u times norm v.",
+   "translation": "证明的工具是柯西–施瓦茨不等式：|⟨u, v⟩| ≤ ‖u‖‖v‖。"
+  },
+  {
+   "start": 1434.85,
+   "end": 1440.8,
+   "text": "Equality holds exactly when u and v are linearly dependent. We prove it from one square.",
+   "translation": "等号当且仅当 u、v 线性相关时成立。我们从一个平方出发证明。"
+  },
+  {
+   "start": 1441.25,
+   "end": 1449.575,
+   "text": "If v is zero, both sides are zero. Otherwise, for every real t, the squared norm of u minus t v is non negative.",
+   "translation": "若 v = 0，两边都为 0。否则对每个实数 t，‖u − tv‖² ≥ 0。"
+  },
+  {
+   "start": 1450.025,
+   "end": 1458.625,
+   "text": "Expand it: the norm of u squared, minus two t times the inner product of u and v, plus t squared times the norm of v squared.",
+   "translation": "展开：‖u‖² − 2t⟨u, v⟩ + t²‖v‖²。"
+  },
+  {
+   "start": 1459.075,
+   "end": 1463.075,
+   "text": "This is a parabola in t that never dips below zero.",
+   "translation": "这是关于 t 的抛物线，永远不低于 0。"
+  },
+  {
+   "start": 1463.525,
+   "end": 1469.825,
+   "text": "Its lowest point is at t star, the inner product of u and v, over the squared norm of v.",
+   "translation": "最低点在 t* = ⟨u, v⟩ / ‖v‖²。"
+  },
+  {
+   "start": 1470.275,
+   "end": 1477.95,
+   "text": "Plug in t star. Zero is at most the norm of u squared, minus the inner product squared over the norm of v squared.",
+   "translation": "代入 t*：0 ≤ ‖u‖² − ⟨u, v⟩² / ‖v‖²。"
+  },
+  {
+   "start": 1478.4,
+   "end": 1486.425,
+   "text": "Multiply through: the inner product squared is at most the norm of u squared times the norm of v squared. That is Cauchy Schwarz.",
+   "translation": "两边同乘：⟨u, v⟩² ≤ ‖u‖²‖v‖²。这就是柯西–施瓦茨。"
+  },
+  {
+   "start": 1486.875,
+   "end": 1495.325,
+   "text": "When is it an equality? Exactly when the minimum of the parabola is zero, that is, when u minus t star v has norm zero.",
+   "translation": "何时取等号？恰好当抛物线最小值为 0，即 ‖u − t*v‖ = 0。"
+  },
+  {
+   "start": 1495.775,
+   "end": 1501.55,
+   "text": "By positive definiteness, that means u equals t star v: u and v are parallel.",
+   "translation": "由正定性，这意味着 u = t*v：u 与 v 平行。"
+  },
+  {
+   "start": 1502.0,
+   "end": 1510.65,
+   "text": "In the picture, u minus t star v is the gap from u to the line through v. It shrinks to zero exactly when v turns toward u.",
+   "translation": "在图中，u − t*v 是 u 到 v 所在直线的残差，恰好在 v 转到 u 的方向时缩为 0。"
+  },
+  {
+   "start": 1511.1,
+   "end": 1519.975,
+   "text": "Now apply it. For a unit vector v, d f at x of v equals g x of grad f and v, which is at most the norm of grad f.",
+   "translation": "现在应用它：对单位向量 v，df_x[v] = g_x(grad f, v) ≤ ‖grad f‖。"
+  },
+  {
+   "start": 1520.425,
+   "end": 1530.975,
+   "text": "Choose v star, the gradient over its norm. Then d f at x of v star is g x of grad with grad, over the norm of grad, which is the norm of grad f.",
+   "translation": "取 v* = grad/‖grad‖，则 df_x[v*] = ‖grad‖²/‖grad‖ = ‖grad f‖。"
+  },
+  {
+   "start": 1531.425,
+   "end": 1539.775,
+   "text": "So the bound is attained. By the equality case, a maximizer must be parallel to the gradient, so v star is the only one.",
+   "translation": "上界取到了。由等号条件，最大点必须与梯度平行，所以 v* 是唯一的最大点。"
+  },
+  {
+   "start": 1540.225,
+   "end": 1547.975,
+   "text": "In the same way, d f at x of v is at least minus the norm of grad f, with equality only at minus v star.",
+   "translation": "同理，df_x[v] ≥ −‖grad f‖，等号仅在 −v* 处成立。"
+  },
+  {
+   "start": 1548.425,
+   "end": 1554.0,
+   "text": "So the gradient direction is the steepest ascent, and its opposite is the steepest descent.",
+   "translation": "所以梯度方向是最速上升方向，反方向是最速下降方向。"
+  },
+  {
+   "start": 1554.45,
+   "end": 1561.625,
+   "text": "Now change the ruler. Take the covector and the unit ellipse from chapter five, in place of the unit circle.",
+   "translation": "现在换尺子：取第五章的余向量与单位椭圆，代替单位圆。"
+  },
+  {
+   "start": 1562.075,
+   "end": 1569.35,
+   "text": "The winning direction slides along the ellipse, and stops on the purple arrow, A inverse times the Euclidean gradient.",
+   "translation": "最优方向沿椭圆滑动，停在紫色箭头 A⁻¹∇f 上。"
+  },
+  {
+   "start": 1569.8,
+   "end": 1572.55,
+   "text": "The metric decides what steepest means.",
+   "translation": "度量决定了什么叫“最陡”。"
+  },
+  {
+   "start": 1573.0,
+   "end": 1581.15,
+   "text": "One more case. If the gradient is zero, then d f at x is zero, and every direction has zero first order change.",
+   "translation": "还有一种情形：若梯度为零，则 df_x = 0，每个方向的一阶变化都是零。"
+  },
+  {
+   "start": 1581.6,
+   "end": 1586.5,
+   "text": "Such a point is called a critical point, like the north pole for the height function.",
+   "translation": "这样的点称为临界点，例如高度函数的北极。"
+  },
+  {
+   "start": 1590.5,
+   "end": 1597.375,
+   "text": "The first question is answered: move in the direction minus grad f of x, which lies in T x M.",
+   "translation": "第一个问题已解决：沿 −grad f(x) 方向走，它在 T_xM 中。"
+  },
+  {
+   "start": 1597.825,
+   "end": 1600.775,
+   "text": "Now the second question: how do we move?",
+   "translation": "现在是第二个问题：怎么走？"
+  },
+  {
+   "start": 1601.225,
+   "end": 1607.85,
+   "text": "The straight step, x minus t grad f, leaves the sphere, and the farther we go, the farther away it gets.",
+   "translation": "直线步 x − t·grad f 离开球面，走得越远，离得越远。"
+  },
+  {
+   "start": 1608.3,
+   "end": 1613.4,
+   "text": "The idea: take the step in the tangent plane, then bring the point back onto M.",
+   "translation": "想法是：先在切平面里走一步，再把点拉回到 M 上。"
+  },
+  {
+   "start": 1613.85,
+   "end": 1618.875,
+   "text": "As t grows, the pulled back points trace a curve on the sphere, starting at x.",
+   "translation": "随着 t 增大，拉回的点在球面上描出一条从 x 出发的曲线。"
+  },
+  {
+   "start": 1619.325,
+   "end": 1623.9,
+   "text": "Not every way of pulling back is acceptable. Here is the definition.",
+   "translation": "并非所有拉回方式都可以接受。下面是定义。"
+  },
+  {
+   "start": 1624.35,
+   "end": 1631.875,
+   "text": "A retraction at a point x of M is a smooth map R x from T x M to M, satisfying two conditions.",
+   "translation": "M 在点 x 处的 retraction 是光滑映射 R_x: T_xM → M，满足两个条件。"
+  },
+  {
+   "start": 1632.325,
+   "end": 1637.375,
+   "text": "Condition one: R x of zero equals x. A zero step does not move.",
+   "translation": "条件一：R_x(0) = x。零步不移动。"
+  },
+  {
+   "start": 1637.825,
+   "end": 1643.825,
+   "text": "Condition two: the differential of R x at zero is the identity map of T x M.",
+   "translation": "条件二：d(R_x)_0 是 T_xM 上的恒等映射。"
+  },
+  {
+   "start": 1644.275,
+   "end": 1647.125,
+   "text": "Let us check that condition two makes sense.",
+   "translation": "先确认条件二有意义。"
+  },
+  {
+   "start": 1647.575,
+   "end": 1657.65,
+   "text": "T x M is a vector space. Its tangent space at zero is itself, because the line c of t equals t v has velocity v at zero.",
+   "translation": "T_xM 是向量空间，它在 0 处的切空间就是它自己，因为直线 c(t) = tv 在 0 处速度为 v。"
+  },
+  {
+   "start": 1658.1,
+   "end": 1668.875,
+   "text": "And by condition one, R x sends zero to x, so its differential at zero maps T x M into T x M. Asking it to be the identity is meaningful.",
+   "translation": "由条件一，R_x 把 0 送到 x，所以 d(R_x)_0 把 T_xM 映到 T_xM，要求它是恒等映射是有意义的。"
+  },
+  {
+   "start": 1669.325,
+   "end": 1676.725,
+   "text": "Some retractions are defined only near zero. The examples in this episode are defined on all of T x M.",
+   "translation": "有些 retraction 只在 0 附近有定义；本集的例子在整个 T_xM 上有定义。"
+  },
+  {
+   "start": 1677.175,
+   "end": 1684.225,
+   "text": "Now the key consequence. Fix v in T x M, and define gamma of t equals R x of t v.",
+   "translation": "现在看关键推论：取 v ∈ T_xM，定义 γ(t) = R_x(tv)。"
+  },
+  {
+   "start": 1684.675,
+   "end": 1692.8,
+   "text": "Write it as R x composed with the line c of t equals t v, where c of zero is zero and c prime of zero is v.",
+   "translation": "把它写成 R_x∘c，其中 c(t) = tv，c(0) = 0，c'(0) = v。"
+  },
+  {
+   "start": 1693.25,
+   "end": 1698.825,
+   "text": "First, gamma of zero equals R x of zero, which is x, by condition one.",
+   "translation": "第一，由条件一，γ(0) = R_x(0) = x。"
+  },
+  {
+   "start": 1699.275,
+   "end": 1704.9,
+   "text": "Second, gamma prime of zero is the derivative of R x composed with c, at zero.",
+   "translation": "第二，γ'(0) = (R_x∘c)'(0)。"
+  },
+  {
+   "start": 1705.35,
+   "end": 1715.125,
+   "text": "By the curve definition of the differential, applied to the smooth map R x at zero with the curve c, this equals d R x at zero, applied to v.",
+   "translation": "由微分的曲线定义（光滑映射 R_x、点 0、曲线 c），它等于 d(R_x)_0[v]。"
+  },
+  {
+   "start": 1715.575,
+   "end": 1718.45,
+   "text": "By condition two, that is v itself.",
+   "translation": "由条件二，这就是 v 本身。"
+  },
+  {
+   "start": 1718.9,
+   "end": 1725.925,
+   "text": "So every retraction curve, t maps to R x of t v, starts at x with velocity exactly v.",
+   "translation": "所以每条 retraction 曲线 t ↦ R_x(tv) 都从 x 出发，速度恰为 v。"
+  },
+  {
+   "start": 1726.375,
+   "end": 1735.925,
+   "text": "So it can serve as the representative curve in the definition of d f at x: the slope of f along it, at zero, is d f at x of v.",
+   "translation": "所以它可以作为 df_x 定义中的代表曲线：f 沿它在 0 处的斜率就是 df_x[v]。"
+  },
+  {
+   "start": 1736.375,
+   "end": 1740.675,
+   "text": "Each condition is necessary. First, drop condition one.",
+   "translation": "每个条件都是必需的。先去掉条件一。"
+  },
+  {
+   "start": 1741.125,
+   "end": 1749.25,
+   "text": "Shift by a fixed nonzero tangent vector w zero: R tilde of v equals R x of v plus w zero.",
+   "translation": "用固定的非零切向量 w₀ 平移：R̃_x(v) = R_x(v + w₀)。"
+  },
+  {
+   "start": 1749.7,
+   "end": 1756.925,
+   "text": "Now slide the step length down to zero. The point does not return to x. It stays at R x of w zero.",
+   "translation": "把步长滑到 0：点并没有回到 x，而是停在 R_x(w₀)。"
+  },
+  {
+   "start": 1757.375,
+   "end": 1762.425,
+   "text": "However small the step, f may increase. The small step guarantee is gone.",
+   "translation": "无论步长多小，f 都可能增大。“小步下降”的保证消失了。"
+  },
+  {
+   "start": 1762.875,
+   "end": 1766.475,
+   "text": "Next, keep condition one but drop condition two.",
+   "translation": "接下来保留条件一，去掉条件二。"
+  },
+  {
+   "start": 1766.925,
+   "end": 1777.375,
+   "text": "First example: R tilde of v equals x plus two v, normalized. It sends zero to x, but its differential at zero is two times the identity.",
+   "translation": "例一：R̃_x(v) = (x + 2v)/‖x + 2v‖。它把 0 送到 x，但 d(R̃_x)_0 = 2·id。"
+  },
+  {
+   "start": 1777.825,
+   "end": 1786.925,
+   "text": "The curve leaves x at twice the speed. The first order rate along minus grad f becomes minus two times the squared norm of the gradient.",
+   "translation": "曲线以两倍速度离开 x：沿 −grad f 的一阶变化率变成 −2‖grad f‖²。"
+  },
+  {
+   "start": 1787.375,
+   "end": 1793.9,
+   "text": "The direction is still downhill, but the link between the step length t and the tangent vector is broken.",
+   "translation": "方向仍是下坡，但步长 t 与切向量之间的对应被破坏了。"
+  },
+  {
+   "start": 1794.35,
+   "end": 1804.4,
+   "text": "Second example: let Q theta rotate the tangent plane by an angle theta, and set R tilde of v equal to x plus Q theta v, normalized.",
+   "translation": "例二：令 Q_θ 为切平面上转角 θ 的旋转，R̃_x(v) = (x + Q_θv)/‖x + Q_θv‖。"
+  },
+  {
+   "start": 1804.85,
+   "end": 1815.175,
+   "text": "Its differential at zero is Q theta. The first order rate along minus grad f becomes minus the squared norm of the gradient, times cosine theta.",
+   "translation": "它的 d(R̃_x)_0 = Q_θ，沿 −grad f 的一阶变化率变成 −‖grad f‖² cos θ。"
+  },
+  {
+   "start": 1815.625,
+   "end": 1823.55,
+   "text": "Turn theta from zero toward one hundred eighty degrees. The red curve swings around x, and the slope rises through zero.",
+   "translation": "把 θ 从 0° 转向 180°：红色曲线绕 x 旋转，斜率穿过 0 上升。"
+  },
+  {
+   "start": 1824.0,
+   "end": 1830.975,
+   "text": "At ninety degrees there is no first order decrease at all. Beyond ninety degrees, the step goes uphill.",
+   "translation": "在 90° 时完全没有一阶下降；超过 90°，这一步变成上坡。"
+  },
+  {
+   "start": 1831.425,
+   "end": 1838.95,
+   "text": "So condition two is what makes the step follow the tangent vector to first order: the right direction and the right speed.",
+   "translation": "所以条件二保证这一步在一阶上跟随切向量：方向对，速度也对。"
+  },
+  {
+   "start": 1839.4,
+   "end": 1848.1,
+   "text": "The conditions control only the starting point and the first order behavior. Different retractions may differ at second order and beyond.",
+   "translation": "这两个条件只控制起点与一阶行为；不同的 retraction 在二阶及以上可以不同。"
+  },
+  {
+   "start": 1852.1,
+   "end": 1855.95,
+   "text": "Here is a concrete example of a retraction, on the sphere.",
+   "translation": "下面是球面上 retraction 的一个具体例子。"
+  },
+  {
+   "start": 1856.4,
+   "end": 1866.575,
+   "text": "Step to x plus v in the tangent plane, then rescale to unit length: R x of v equals x plus v, divided by the norm of x plus v.",
+   "translation": "在切平面里走到 x + v，再缩放回单位长度：R_x(v) = (x + v)/‖x + v‖。"
+  },
+  {
+   "start": 1867.025,
+   "end": 1872.925,
+   "text": "Geometrically, the ray from the origin through x plus v meets the sphere at R x of v.",
+   "translation": "几何上，从原点出发穿过 x + v 的射线与球面交于 R_x(v)。"
+  },
+  {
+   "start": 1873.375,
+   "end": 1877.275,
+   "text": "First, it is defined everywhere, and it lands on the sphere.",
+   "translation": "首先，它处处有定义，并且落在球面上。"
+  },
+  {
+   "start": 1877.725,
+   "end": 1888.825,
+   "text": "The squared norm of x plus v is one, plus two x transpose v, plus norm v squared. As v is perpendicular to x, that is one plus norm v squared.",
+   "translation": "‖x + v‖² = 1 + 2xᵀv + ‖v‖²；因为 v ⊥ x，它等于 1 + ‖v‖²。"
+  },
+  {
+   "start": 1889.275,
+   "end": 1896.55,
+   "text": "This is Pythagoras: x has length one, v is perpendicular to it, and x plus v is the hypotenuse.",
+   "translation": "这就是勾股定理：x 长为 1，v 垂直于它，x + v 是斜边。"
+  },
+  {
+   "start": 1897.0,
+   "end": 1903.65,
+   "text": "So the denominator is at least one, never zero, and the result has norm one: it lies on the sphere.",
+   "translation": "所以分母至少为 1，从不为零，结果的范数为 1：它在球面上。"
+  },
+  {
+   "start": 1904.1,
+   "end": 1909.425,
+   "text": "It is smooth, as a quotient of smooth functions with a nonvanishing denominator.",
+   "translation": "它是分母不为零的光滑函数之商，所以光滑。"
+  },
+  {
+   "start": 1909.875,
+   "end": 1915.25,
+   "text": "Condition one: R x of zero equals x over the norm of x, which is x.",
+   "translation": "条件一：R_x(0) = x/‖x‖ = x。"
+  },
+  {
+   "start": 1915.7,
+   "end": 1926.65,
+   "text": "Condition two: take the line t v, and let capital N of t be the norm of x plus t v, the square root of one plus t squared times the norm of v squared.",
+   "translation": "条件二：取直线 tv，令 N(t) = ‖x + tv‖ = √(1 + t²‖v‖²)。"
+  },
+  {
+   "start": 1927.1,
+   "end": 1936.7,
+   "text": "Capital N of zero is one. Its derivative is t times the norm of v squared, over that square root, which is zero at t equals zero.",
+   "translation": "N(0) = 1，N'(t) = t‖v‖² / √(1 + t²‖v‖²)，所以 N'(0) = 0。"
+  },
+  {
+   "start": 1937.15,
+   "end": 1942.775,
+   "text": "The graph of capital N is flat at zero: to first order, the rescaling does nothing.",
+   "translation": "N 的图像在 0 处是平的：在一阶意义下，缩放什么也没做。"
+  },
+  {
+   "start": 1943.225,
+   "end": 1954.725,
+   "text": "By the quotient rule, the derivative at zero of x plus t v over capital N is v times N of zero, minus x times N prime of zero, over N of zero squared.",
+   "translation": "由商的求导法则，在 0 处的导数 = (v·N(0) − x·N'(0)) / N(0)²。"
+  },
+  {
+   "start": 1955.175,
+   "end": 1964.475,
+   "text": "That is v times one, minus x times zero, over one, which is v. So the differential at zero is the identity, and this is a retraction.",
+   "translation": "即 (v·1 − x·0)/1 = v。所以 d(R_x)_0 = id，这是一个 retraction。"
+  },
+  {
+   "start": 1964.925,
+   "end": 1970.75,
+   "text": "Now combine the two answers: the direction minus grad f of x, and the move R x.",
+   "translation": "现在把两个答案合起来：方向 −grad f(x)，移动 R_x。"
+  },
+  {
+   "start": 1971.2,
+   "end": 1979.825,
+   "text": "Watch the point slide along the curve gamma of t equals R x of minus t grad f. The color cools: f is going down.",
+   "translation": "看点沿曲线 γ(t) = R_x(−t·grad f) 滑动：颜色变冷，f 在下降。"
+  },
+  {
+   "start": 1980.275,
+   "end": 1988.1,
+   "text": "Here is the theorem. For any retraction R x, let phi of t be f of R x of minus t grad f of x.",
+   "translation": "定理：对任意 retraction R_x，令 φ(t) = f(R_x(−t·grad f(x)))。"
+  },
+  {
+   "start": 1988.55,
+   "end": 1994.15,
+   "text": "Then phi prime of zero equals minus the squared g x norm of grad f of x.",
+   "translation": "则 φ'(0) = −‖grad f(x)‖²_x。"
+  },
+  {
+   "start": 1994.6,
+   "end": 2002.425,
+   "text": "Proof. Let v be minus grad f of x, which lies in T x M, and let gamma of t be R x of t v.",
+   "translation": "证明：令 v = −grad f(x) ∈ T_xM，γ(t) = R_x(tv)。"
+  },
+  {
+   "start": 2002.875,
+   "end": 2008.0,
+   "text": "By the previous chapter, gamma of zero is x, and gamma prime of zero is v.",
+   "translation": "由上一章，γ(0) = x，γ'(0) = v。"
+  },
+  {
+   "start": 2008.45,
+   "end": 2018.25,
+   "text": "By the curve definition of the differential, phi prime of zero equals d f at x of gamma prime of zero, which is d f at x of minus grad f.",
+   "translation": "由微分的曲线定义，φ'(0) = df_x[γ'(0)] = df_x[−grad f]。"
+  },
+  {
+   "start": 2018.7,
+   "end": 2023.725,
+   "text": "By linearity of the differential, this is minus d f at x of grad f.",
+   "translation": "由微分的线性，它等于 −df_x[grad f]。"
+  },
+  {
+   "start": 2024.175,
+   "end": 2031.225,
+   "text": "By the definition of the gradient, with v equal to grad f, this is minus g x of grad f with itself.",
+   "translation": "由梯度的定义（取 v = grad f），它等于 −g_x(grad f, grad f)。"
+  },
+  {
+   "start": 2031.675,
+   "end": 2035.2,
+   "text": "And that is minus the squared norm of grad f of x.",
+   "translation": "这就是 −‖grad f(x)‖²_x。"
+  },
+  {
+   "start": 2035.65,
+   "end": 2041.55,
+   "text": "If the gradient is not zero, this number is strictly negative, by positive definiteness.",
+   "translation": "若梯度不为零，由正定性，这个数严格为负。"
+  },
+  {
+   "start": 2042.0,
+   "end": 2053.075,
+   "text": "The quotient phi of t minus phi of zero, over t, tends to this negative number. So phi of t is below phi of zero for all t between zero and a t bar.",
+   "translation": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̄，使 0<t<t̄ 时 φ(t)<φ(0)。"
+  },
+  {
+   "start": 2053.525,
+   "end": 2060.525,
+   "text": "Let us check the numbers. For the height function, the squared norm of the gradient is one minus x three squared.",
+   "translation": "核对数值：对高度函数，‖grad f‖² = 1 − x₃²。"
+  },
+  {
+   "start": 2060.975,
+   "end": 2068.575,
+   "text": "At our point, x three is cosine of fifty degrees, so the predicted slope is about minus zero point five nine.",
+   "translation": "在我们的点上 x₃ = cos 50°，所以预测斜率约为 −0.59。"
+  },
+  {
+   "start": 2069.025,
+   "end": 2076.95,
+   "text": "Plot phi of t. The tangent line at zero has exactly that slope. It hugs the curve near zero, and then the two separate.",
+   "translation": "画出 φ(t)：0 处切线的斜率正是这个值。它在 0 附近贴着曲线，之后分开。"
+  },
+  {
+   "start": 2077.4,
+   "end": 2086.7,
+   "text": "This is only first order. It promises that small steps decrease f, but says nothing about how large t bar is, or how to choose the step.",
+   "translation": "这只是一阶结论：它保证小步下降，但不告诉我们 t̄ 多大，也不说明如何选步长。"
+  },
+  {
+   "start": 2087.15,
+   "end": 2097.85,
+   "text": "Every hypothesis was used. If condition two fails, gamma prime of zero is no longer v, and the slope changes by a factor of two, or of cosine theta.",
+   "translation": "每个假设都用到了：若违反条件二，γ'(0) 不再是 v，斜率会多出因子 2 或 cos θ。"
+  },
+  {
+   "start": 2098.3,
+   "end": 2106.725,
+   "text": "With the Euclidean gradient in place of grad f, the step is not even defined, because R x accepts only tangent vectors.",
+   "translation": "若用欧氏梯度代替 grad f，这一步甚至没有定义，因为 R_x 只接受切向量。"
+  },
+  {
+   "start": 2107.175,
+   "end": 2112.875,
+   "text": "Finally, move x toward the north pole. The gradient shrinks, and the slope tends to zero.",
+   "translation": "最后，把 x 移向北极：梯度缩短，斜率趋于 0。"
+  },
+  {
+   "start": 2113.325,
+   "end": 2121.875,
+   "text": "So the slope is negative exactly when grad f of x is not zero. Away from critical points, small steps always decrease f.",
+   "translation": "所以斜率为负当且仅当 grad f(x) ≠ 0：在临界点之外，小步一定让 f 下降。"
+  },
+  {
+   "start": 2125.875,
+   "end": 2129.05,
+   "text": "Let us climb the whole tree once more, from the bottom.",
+   "translation": "让我们从底部再把整棵树爬一遍。"
+  },
+  {
+   "start": 2129.5,
+   "end": 2135.525,
+   "text": "Episode one, topology: we can talk about nearness and continuity without coordinates.",
+   "translation": "第一集，拓扑：不用坐标也能谈论“附近”与连续。"
+  },
+  {
+   "start": 2135.975,
+   "end": 2143.95,
+   "text": "Episode two, charts and smooth atlases: we can do calculus on M, and smoothness does not depend on the coordinates.",
+   "translation": "第二集，chart 与光滑图册：可以在 M 上做微积分，光滑性不依赖坐标。"
+  },
+  {
+   "start": 2144.4,
+   "end": 2151.425,
+   "text": "Episode three, the inverse function theorem: an invertible derivative makes a map locally invertible.",
+   "translation": "第三集，反函数定理：导数可逆使映射局部可逆。"
+  },
+  {
+   "start": 2151.875,
+   "end": 2161.725,
+   "text": "Episode four, the implicit function theorem and regular level sets: sets defined by equations are manifolds, without building charts by hand.",
+   "translation": "第四集，隐函数定理与正则水平集：方程定义的集合是流形，无需手工构造 chart。"
+  },
+  {
+   "start": 2162.175,
+   "end": 2170.325,
+   "text": "Episode five, tangent spaces: the legal directions at x form the kernel of D h of x, which we can compute.",
+   "translation": "第五集，切空间：x 处的合法方向构成 ker Dh(x)，可以计算。"
+  },
+  {
+   "start": 2170.775,
+   "end": 2177.05,
+   "text": "This episode: the differential, the Riesz theorem and a metric turn the change of f into a direction.",
+   "translation": "本集：微分、Riesz 定理与度量把“f 怎样变化”变成一个方向。"
+  },
+  {
+   "start": 2177.5,
+   "end": 2181.325,
+   "text": "And a retraction turns that direction into a point on M.",
+   "translation": "而 retraction 把这个方向变成 M 上的一个点。"
+  },
+  {
+   "start": 2181.775,
+   "end": 2184.125,
+   "text": "At the top, two branches meet.",
+   "translation": "在树顶，两个分支汇合。"
+  },
+  {
+   "start": 2184.575,
+   "end": 2191.65,
+   "text": "On the left, the Riemannian gradient, built from the differential, the Riesz theorem, the metric, and the tangent space.",
+   "translation": "左边是黎曼梯度，由微分、Riesz 定理、度量与切空间构成。"
+  },
+  {
+   "start": 2192.1,
+   "end": 2196.825,
+   "text": "On the right, the retraction, built from the tangent space and the differential.",
+   "translation": "右边是 retraction，由切空间与微分构成。"
+  },
+  {
+   "start": 2197.275,
+   "end": 2202.625,
+   "text": "They meet in a single step: x goes to R x of minus t grad f of x.",
+   "translation": "它们汇合成一步：x ↦ R_x(−t·grad f(x))。"
+  },
+  {
+   "start": 2203.075,
+   "end": 2211.825,
+   "text": "Back on the sphere, here is that step: the direction minus grad f in the tangent plane, and the retraction curve carrying x downhill.",
+   "translation": "回到球面，这就是那一步：切平面里的方向 −grad f，以及把 x 带下坡的 retraction 曲线。"
+  },
+  {
+   "start": 2212.275,
+   "end": 2218.125,
+   "text": "We proved that, for small t, this step decreases f, unless x is a critical point.",
+   "translation": "我们证明了：t 很小时，这一步让 f 下降，除非 x 是临界点。"
+  },
+  {
+   "start": 2218.575,
+   "end": 2225.175,
+   "text": "That is where the course stands now: the definition of a retraction, and the first order descent property.",
+   "translation": "这正是课程目前的进度：retraction 的定义与一阶下降性质。"
+  },
+  {
+   "start": 2225.625,
+   "end": 2232.625,
+   "text": "How to choose the step size, how to repeat the step, and whether the iterates converge are questions still ahead of us.",
+   "translation": "如何选步长、如何重复这一步、迭代是否收敛，这些问题还在前方。"
+  },
+  {
+   "start": 2233.075,
+   "end": 2238.075,
+   "text": "Next, we turn one step into an algorithm: Riemannian gradient descent.",
+   "translation": "下一步：把一步变成一个算法——黎曼梯度下降。"
+  }
+ ]
+}

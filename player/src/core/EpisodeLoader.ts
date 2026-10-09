@@ -1,3 +1,4 @@
+import type { DataSource } from "./DataSource";
 import type { Timeline } from "./Timeline";
 
 export interface SeriesEpisode {
@@ -27,19 +28,24 @@ async function fetchJson<T>(url: string): Promise<T> {
 }
 
 export class EpisodeLoader {
-  /** `seriesUrl` is the series manifest to read; the default is the project's content/series.json. */
-  async load(episodeId: string, seriesUrl = "/data/content/series.json"): Promise<EpisodeData> {
-    const series = await fetchJson<SeriesManifest>(seriesUrl);
+  constructor(private readonly source: DataSource) {}
+
+  async series(): Promise<SeriesManifest> {
+    return fetchJson<SeriesManifest>(this.source.seriesUrl);
+  }
+
+  async load(episodeId: string): Promise<EpisodeData> {
+    const series = await this.series();
     const ordered = [...series.episodes].sort((a, b) => a.order - b.order);
     const index = ordered.findIndex((e) => e.id === episodeId);
     if (index < 0) throw new Error(`episode ${episodeId} not in series.json`);
-    const timeline = await fetchJson<Timeline>(`/data/build/${episodeId}/en/timeline.json`);
+    const timeline = await fetchJson<Timeline>(this.source.timelineUrl(episodeId));
     return {
       series,
       episode: ordered[index],
       next: ordered[index + 1],
       timeline,
-      audioUrl: `/data/build/${episodeId}/en/audio/mix.wav`,
+      audioUrl: this.source.audioUrl(episodeId),
     };
   }
 }

@@ -6,6 +6,9 @@ export class PreviewClock {
               private readonly duration: number) {}
 
   start(at: number): void {
+    this.audio.addEventListener("ended", () => {
+      this.playing = false;
+    });
     this.audio.currentTime = at;
     this.onFrame(at);
     const loop = (): void => {
@@ -29,6 +32,10 @@ export class PreviewClock {
     const clamped = Math.max(0, Math.min(this.duration, t));
     this.audio.currentTime = clamped;
     this.onFrame(clamped);
+  }
+
+  get isPlaying(): boolean {
+    return this.playing;
   }
 
   get time(): number {

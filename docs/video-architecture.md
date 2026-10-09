@@ -27,6 +27,15 @@ validate → narrate (cached by text hash) → timeline → subtitles → music 
 
 Capture splits frames into 60 s chunks taken from a queue by N workers; a chunk whose browser dies is re-rendered in a new browser (up to 3 attempts). Measured throughput: 23–42 frames/s with 2–5 workers.
 
+## Web version
+
+`cd player && npx tsx render/build-site.ts` builds a static site into `site/`: the same renderer playing live in the
+browser (landing page with all delivered episodes, control bar with seek and chapter menu, keyboard shortcuts).
+Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a`, the AAC track copied from the latest
+delivered MP4; the build refuses an episode whose timeline differs from that delivery. Measured size: 314 MB
+(audio 44–59 MB per episode). The dev server and the static site differ only in the `DataSource`
+(`player/src/core/DataSource.ts`).
+
 ## Measured series results
 
 | Episode | Minutes | Sentences | LUFS | Peak dBFS |

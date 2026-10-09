@@ -39,6 +39,7 @@ package registries, model hubs, cloud APIs).
 | Service | Scope | Source | Notes |
 |---|---|---|---|
 | Hugging Face (hexgrad/Kokoro-82M, Systran faster-whisper small.en) | public model download, no token | anonymous | cached in ~/.cache/huggingface |
+| GitHub `luo-jingw/RiemannianOptimization` (remote `origin`) | push to this repository | default SSH key `~/.ssh/id_ed25519`, authenticates as luo-jingw (repo owner) | `notes/`, `build/`, `output/`, `site/` are not pushed |
 
 Do not assume a global or default identity applies.
 See `AGENTS.md` → Credentials and Environment Isolation.

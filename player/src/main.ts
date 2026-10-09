@@ -7,6 +7,7 @@ import "@fontsource/noto-sans-sc/500.css";
 import "@fontsource/noto-sans-sc/700.css";
 import "katex/dist/katex.min.css";
 import "./styles.css";
+import { DevDataSource, StaticDataSource, type DataSource } from "./core/DataSource";
 import { EpisodeLoader } from "./core/EpisodeLoader";
 import { EpisodeRenderer } from "./core/EpisodeRenderer";
 import { FRAME_HEIGHT, FRAME_WIDTH } from "./core/Frame";
@@ -16,6 +17,8 @@ import { FormulaLayer } from "./layers/FormulaLayer";
 import { StageLayer } from "./layers/StageLayer";
 import { EPISODE_SCENES } from "./episodes/registry";
 import { Palette } from "./primitives/Palette";
+import { EpisodeIndex } from "./web/EpisodeIndex";
+import { PlayerControls } from "./web/PlayerControls";
 
 declare global {
   interface Window {
@@ -37,6 +40,16 @@ async function boot(): Promise<void> {
   const capture = params.get("capture") === "1";
   if (capture) document.body.classList.add("capture");
 
+  // Dev server reads project files; the static site (vite build) reads its own data/ folder.
+  const source: DataSource = import.meta.env.DEV ? new DevDataSource(params.get("series") ?? undefined) : new StaticDataSource();
+  const loader = new EpisodeLoader(source);
+  if (!episodeId && !capture) {
+    document.body.classList.add("index");
+    new EpisodeIndex().render(document.body, await loader.series());
+    window.playerInfo = { ready: true, duration: 0, missingScenes: [], error: null };
+    return;
+  }
+
   const frame = document.getElementById("frame") as HTMLDivElement;
   const stage = new StageLayer(frame, Palette.background);
   const formulas = new FormulaLayer(frame);
@@ -44,7 +57,7 @@ async function boot(): Promise<void> {
   overlay.className = "overlay-layer";
   frame.appendChild(overlay);
 
-  const data = await new EpisodeLoader().load(episodeId, params.get("series") ?? undefined);
+  const data = await loader.load(episodeId);
   const registry = new SceneRegistry(EPISODE_SCENES[episodeId] ?? {});
   const renderer = new EpisodeRenderer(data, { stage, formulas }, registry, overlay);
 
@@ -61,23 +74,29 @@ async function boot(): Promise<void> {
   if (capture) return;
 
   const fit = (): void => {
-    const s = Math.min(window.innerWidth / FRAME_WIDTH, (window.innerHeight - 40) / FRAME_HEIGHT);
+    const s = Math.min(window.innerWidth / FRAME_WIDTH, (window.innerHeight - 56) / FRAME_HEIGHT);
     frame.style.transform = `scale(${s})`;
   };
   fit();
   window.addEventListener("resize", fit);
+  document.title = `E${data.episode.order} · ${data.episode.title}`;
   const audio = new Audio(data.audioUrl);
-  const controls = document.getElementById("controls") as HTMLDivElement;
+  audio.preload = "auto";
+  let controls: PlayerControls | null = null;
   const clock = new PreviewClock(audio, (t) => {
     renderer.renderAt(t);
-    const ch = data.timeline.chapters.find((c) => t >= c.start && t < c.end);
-    controls.textContent = `${episodeId}  t=${t.toFixed(2)}s / ${data.timeline.duration.toFixed(1)}s  ${ch ? ch.id : ""}  [space] play/pause  [←/→] ±5s  [,/.] ±1 frame  [n/p] chapter`;
+    controls?.update(t, clock.isPlaying);
   }, data.timeline.duration);
+  controls = new PlayerControls(document.getElementById("controls") as HTMLDivElement, frame, data.timeline,
+    `Episode ${data.episode.order} · ${data.episode.title}`, { toggle: () => clock.toggle(), seek: (t) => clock.seek(t) });
   clock.start(Number(params.get("t") ?? "0"));
   window.addEventListener("keydown", (ev) => {
+    if ((ev.target as HTMLElement).tagName === "SELECT") return;
     const t = clock.time;
-    if (ev.key === " ") clock.toggle();
-    else if (ev.key === "ArrowRight") clock.seek(t + 5);
+    if (ev.key === " ") {
+      ev.preventDefault();
+      clock.toggle();
+    } else if (ev.key === "ArrowRight") clock.seek(t + 5);
     else if (ev.key === "ArrowLeft") clock.seek(t - 5);
     else if (ev.key === ".") clock.seek(t + 1 / 30);
     else if (ev.key === ",") clock.seek(t - 1 / 30);

@@ -1,0 +1,1240 @@
+{
+ "episode": "e04-implicit-level-sets",
+ "title": "Implicit Functions and Regular Level Sets",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-why-equations",
+   "chapter": "Motivation",
+   "title": "Why Let Equations Build the Charts",
+   "music": "motivation",
+   "terms": [
+    "smooth-manifold",
+    "chart",
+    "transition-map",
+    "orthogonal-group",
+    "inverse-function-theorem",
+    "implicit-function-theorem",
+    "regular-level-set-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "In the last two episodes, we built smooth manifolds out of charts, and we proved the inverse function theorem.",
+     "zh": "前两集里，我们用 chart 搭建了光滑流形，并证明了反函数定理。"
+    },
+    {
+     "en": "Now we put the two together, and ask a practical question.",
+     "zh": "现在把两者结合起来，问一个实际的问题。"
+    },
+    {
+     "en": "How do we know that a set described by equations is a smooth manifold?",
+     "zh": "怎样知道一个由方程描述的集合是光滑流形？"
+    },
+    {
+     "en": "For the sphere, charts are easy to draw.",
+     "zh": "对球面来说，chart 很容易画出来。"
+    },
+    {
+     "en": "Cut it into six hemispheres: upper and lower, front and back, left and right.",
+     "zh": "把它切成六个半球：上和下、前和后、左和右。"
+    },
+    {
+     "en": "Each hemisphere projects onto a flat disk in a coordinate plane, and that projection is a chart.",
+     "zh": "每个半球投影到某个坐标平面上的圆盘，这个投影就是一个 chart。"
+    },
+    {
+     "en": "Six charts cover the whole sphere, and the transition maps can be checked by hand.",
+     "zh": "六个 chart 覆盖整个球面，转移映射可以手工验证。"
+    },
+    {
+     "en": "Now consider the orthogonal group, O three: all three by three matrices R with R transpose R equal to the identity.",
+     "zh": "再看正交群 O(3)：所有满足 RᵀR = I 的 3×3 矩阵 R。"
+    },
+    {
+     "en": "A three by three matrix has nine entries, so O three lives in a nine dimensional space.",
+     "zh": "3×3 矩阵有九个元素，所以 O(3) 住在九维空间里。"
+    },
+    {
+     "en": "R transpose R is symmetric, so the matrix equation amounts to six distinct scalar equations.",
+     "zh": "RᵀR 是对称矩阵，所以这个矩阵方程相当于六个不同的标量方程。"
+    },
+    {
+     "en": "Nine variables, six equations. There is no hemisphere to draw, and no picture to guess charts from.",
+     "zh": "九个变量，六个方程。没有半球可画，也没有图可以用来猜 chart。"
+    },
+    {
+     "en": "Recall what a smooth manifold demands: a chart around every point, and smooth transition maps wherever two charts overlap.",
+     "zh": "回忆光滑流形的要求：每一点附近都有 chart，任意两个 chart 重叠处转移映射光滑。"
+    },
+    {
+     "en": "Building charts one by one, proving that they cover the set, and checking every transition map does not scale to sets like this.",
+     "zh": "逐个构造 chart、证明它们覆盖集合、再检查每个转移映射，对这类集合行不通。"
+    },
+    {
+     "en": "What we want is a machine. Feed in the equations, and get charts out.",
+     "zh": "我们想要一台机器：输入方程，输出 chart。"
+    },
+    {
+     "en": "But not every system of equations can be fed into such a machine.",
+     "zh": "但并不是所有方程组都能放进这台机器。"
+    },
+    {
+     "en": "Take x squared minus y squared equals zero. The equation is perfectly smooth.",
+     "zh": "看 x² − y² = 0。这个方程完全光滑。"
+    },
+    {
+     "en": "Its solution set is two lines crossing at the origin.",
+     "zh": "它的解集是在原点交叉的两条直线。"
+    },
+    {
+     "en": "Near the crossing, the set looks like a plus sign, not like a line. It is not a manifold there.",
+     "zh": "在交叉点附近，集合像一个加号，而不像一条线。它在那里不是流形。"
+    },
+    {
+     "en": "So the machine needs a condition on the equations. We will find out exactly what it is, and come back to this cross near the end.",
+     "zh": "所以这台机器需要对方程加条件。我们会找出它到底是什么，并在最后回到这个十字。"
+    },
+    {
+     "en": "Here is the route of this episode.",
+     "zh": "下面是本集的路线。"
+    },
+    {
+     "en": "We start from the inverse function theorem, which we have already proved.",
+     "zh": "从已经证明过的反函数定理出发。"
+    },
+    {
+     "en": "From it we derive the implicit function theorem, which solves some variables in terms of the others.",
+     "zh": "由它推出隐函数定理：用一部分变量解出另一部分变量。"
+    },
+    {
+     "en": "From that we derive the regular level set theorem, which turns equations into charts.",
+     "zh": "再由它推出正则水平集定理：把方程变成 chart。"
+    },
+    {
+     "en": "In the end, inventing an atlas is replaced by two mechanical steps: differentiate the equations, and check a rank.",
+     "zh": "最终，“发明一套 atlas”被换成两步机械计算：对方程求导，再检查秩。"
+    }
+   ]
+  },
+  {
+   "id": "c02-circle-and-linear",
+   "chapter": "Definition",
+   "title": "Solving Locally on the Circle, and the Linear Case",
+   "music": "definition",
+   "terms": [
+    "level-set",
+    "local-graph",
+    "kernel",
+    "best-linear-approximation",
+    "implicit-function-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "Let us start with the most familiar equation: f of x, y equals x squared plus y squared minus one.",
+     "zh": "从最熟悉的方程开始：f(x, y) = x² + y² − 1。"
+    },
+    {
+     "en": "Its graph is a bowl, and the solutions of f equals zero are where the bowl meets the flat plane at height zero.",
+     "zh": "它的图像是一个碗；f = 0 的解，就是碗与高度为 0 的平面相交的地方。"
+    },
+    {
+     "en": "That intersection is the unit circle.",
+     "zh": "交线就是单位圆。"
+    },
+    {
+     "en": "Looking from above, we keep only the circle in the plane.",
+     "zh": "从正上方看，只保留平面里的这个圆。"
+    },
+    {
+     "en": "The circle is not the graph of a single function y of x: each x between minus one and one has two values of y.",
+     "zh": "这个圆不是某一个函数 y(x) 的图像：−1 与 1 之间的每个 x 都对应两个 y。"
+    },
+    {
+     "en": "But locally it is. Near the point p, zero point six, zero point eight, the circle is the graph of y equals the square root of one minus x squared.",
+     "zh": "但局部上是。在点 p = (0.6, 0.8) 附近，圆就是 y = √(1 − x²) 的图像。"
+    },
+    {
+     "en": "Precisely: there are open intervals A around a and B around b, such that inside the box A times B, f of x, y equals zero exactly when y equals g of x.",
+     "zh": "准确地说：存在开区间 A ∋ a、B ∋ b，使得在盒子 A × B 内，f(x, y) = 0 ⇔ y = g(x)。"
+    },
+    {
+     "en": "We call this solving for y locally.",
+     "zh": "这叫作局部地解出 y。"
+    },
+    {
+     "en": "Let the box slide along the circle toward the right.",
+     "zh": "让盒子沿着圆向右滑动。"
+    },
+    {
+     "en": "It still works, but the box has to get narrower and narrower.",
+     "zh": "仍然可以，但盒子必须越来越窄。"
+    },
+    {
+     "en": "At the point one, zero, it fails, no matter how small the box is.",
+     "zh": "到了点 (1, 0)，无论盒子多小都不行。"
+    },
+    {
+     "en": "To the left of x equals one, each vertical line meets the circle twice, so there are two values of y.",
+     "zh": "在 x = 1 左边，每条竖线与圆交两次，所以有两个 y。"
+    },
+    {
+     "en": "To the right, a vertical line misses the circle entirely, so there is no value of y at all.",
+     "zh": "在右边，竖线与圆完全不相交，所以一个 y 也没有。"
+    },
+    {
+     "en": "Shrinking the box does not help: however small it is, the same two failures appear.",
+     "zh": "缩小盒子没有用：无论多小，同样的两种失败都会出现。"
+    },
+    {
+     "en": "What is special about this point? The partial derivative of f with respect to y is two y, and here y is zero.",
+     "zh": "这一点有什么特别？f 对 y 的偏导数是 2y，而这里 y = 0。"
+    },
+    {
+     "en": "But the partial derivative with respect to x is two x, which equals two, not zero.",
+     "zh": "但 f 对 x 的偏导数是 2x，等于 2，不是 0。"
+    },
+    {
+     "en": "So turn the box sideways and solve for x instead: x equals the square root of one minus y squared.",
+     "zh": "所以把盒子转个方向，改为解 x：x = √(1 − y²)。"
+    },
+    {
+     "en": "Every horizontal line in this box meets the circle exactly once.",
+     "zh": "这个盒子里每条横线都恰好与圆交一次。"
+    },
+    {
+     "en": "Which variable we solve for is a choice, and the derivative tells us which choice works.",
+     "zh": "解哪个变量是一种选择，而导数告诉我们哪种选择可行。"
+    },
+    {
+     "en": "Around the whole circle: on the top and bottom arcs we solve for y, and on the left and right arcs we solve for x.",
+     "zh": "绕圆一周：在上弧和下弧解 y，在左弧和右弧解 x。"
+    },
+    {
+     "en": "Four overlapping pieces cover the circle, just like the four charts of the circle in episode two.",
+     "zh": "四段相互重叠的弧覆盖整个圆，正如第二集中圆的四个 chart。"
+    },
+    {
+     "en": "Why does the derivative decide? Look first at the linear case.",
+     "zh": "为什么由导数决定？先看线性情形。"
+    },
+    {
+     "en": "Let f of x, y be A times x plus B times y, with the matrix A of size k by d, and the matrix B of size k by k.",
+     "zh": "设 f(x, y) = Ax + By，其中 A 是 k×d 矩阵，B 是 k×k 矩阵。"
+    },
+    {
+     "en": "The block B multiplies exactly the variables we want to solve for.",
+     "zh": "B 这一块乘的，正是我们想解出的变量。"
+    },
+    {
+     "en": "If B is invertible, then A times x plus B times y equals zero means B times y equals minus A times x.",
+     "zh": "若 B 可逆，那么 Ax + By = 0 意味着 By = −Ax。"
+    },
+    {
+     "en": "Multiplying by B inverse gives y equals minus B inverse A x. The solution exists and is unique, for every x.",
+     "zh": "两边左乘 B⁻¹，得 y = −B⁻¹Ax。对每个 x，解都存在且唯一。"
+    },
+    {
+     "en": "If B is not invertible, two things go wrong.",
+     "zh": "若 B 不可逆，会出两种问题。"
+    },
+    {
+     "en": "First, B has a nonzero kernel vector w. If x, y is a solution, so is x, y plus w, because B w is zero. Solutions are not unique.",
+     "zh": "第一，B 有非零的核向量 w。若 (x, y) 是解，(x, y + w) 也是解，因为 Bw = 0。解不唯一。"
+    },
+    {
+     "en": "Second, the range of B is a proper subspace. Whenever A x falls outside it, there is no solution at all.",
+     "zh": "第二，B 的值域是真子空间。只要 Ax 落在它之外，就根本没有解。"
+    },
+    {
+     "en": "Whether that happens depends on A, so existence may fail too.",
+     "zh": "这是否发生取决于 A，所以存在性也可能失败。"
+    },
+    {
+     "en": "These are exactly the two failures we saw at the point one, zero: two values of y on one side, none on the other.",
+     "zh": "这正是在点 (1, 0) 看到的两种失败：一侧有两个 y，另一侧一个也没有。"
+    },
+    {
+     "en": "A nonlinear f is not linear, but near the point a, b, f is approximately linear.",
+     "zh": "非线性的 f 不是线性的，但在点 (a, b) 附近近似线性。"
+    },
+    {
+     "en": "Since f of a, b is zero, f of x, y is approximately D x f times x minus a, plus D y f times y minus b.",
+     "zh": "由于 f(a, b) = 0，f(x, y) ≈ D_x f·(x − a) + D_y f·(y − b)。"
+    },
+    {
+     "en": "D x f plays the role of A, and D y f plays the role of B.",
+     "zh": "D_x f 扮演 A 的角色，D_y f 扮演 B 的角色。"
+    },
+    {
+     "en": "So the natural condition is that D y f, at the point a, b, is invertible.",
+     "zh": "所以自然的条件是：D_y f 在点 (a, b) 处可逆。"
+    },
+    {
+     "en": "The linear approximation can only be trusted near the point, so the conclusion can only be local.",
+     "zh": "线性近似只在该点附近可信，所以结论只能是局部的。"
+    },
+    {
+     "en": "Turning the linear statement into a local nonlinear statement is exactly the job of the inverse function theorem.",
+     "zh": "把线性结论推广成非线性的局部结论，正是反函数定理的工作。"
+    },
+    {
+     "en": "And the derivative of the solution will turn out to be the linear answer, minus B inverse A, evaluated point by point.",
+     "zh": "而解的导数，将会正是线性情形的答案 −B⁻¹A，在每一点取值。"
+    }
+   ]
+  },
+  {
+   "id": "c03-ift-proof",
+   "chapter": "Proof",
+   "title": "Deriving the Implicit Function Theorem",
+   "music": "proof",
+   "terms": [
+    "implicit-function-theorem",
+    "inverse-function-theorem",
+    "diffeomorphism",
+    "jacobian"
+   ],
+   "sentences": [
+    {
+     "en": "The inverse function theorem only handles square maps: n equations in n unknowns.",
+     "zh": "反函数定理只处理方阵映射：n 个方程，n 个未知数。"
+    },
+    {
+     "en": "Our situation is different. We have k equations, but d plus k unknowns.",
+     "zh": "我们的情形不同：只有 k 个方程，却有 d + k 个未知数。"
+    },
+    {
+     "en": "That is d equations too few, so the theorem cannot be applied to f directly.",
+     "zh": "方程少了 d 个，所以不能直接对 f 使用这个定理。"
+    },
+    {
+     "en": "The trick is to supply the missing d equations ourselves, by copying the free variable x.",
+     "zh": "技巧是自己补上缺的 d 个方程：把自由变量 x 原样抄一份。"
+    },
+    {
+     "en": "Define capital F of x, y as the pair: x itself, and f of x, y.",
+     "zh": "定义 F(x, y) = (x, f(x, y))：第一分量是 x 本身，第二分量是 f(x, y)。"
+    },
+    {
+     "en": "Now F maps d plus k variables to d plus k values, so it is square, and it sends the point a, b to a, zero.",
+     "zh": "现在 F 把 d + k 个变量映到 d + k 个值，是方阵映射，并且把点 (a, b) 送到 (a, 0)。"
+    },
+    {
+     "en": "Let us watch what F does to the circle.",
+     "zh": "来看 F 对圆做了什么。"
+    },
+    {
+     "en": "Each point keeps its horizontal coordinate, while its height is replaced by the value of f.",
+     "zh": "每个点保留横坐标，而纵坐标被换成 f 的值。"
+    },
+    {
+     "en": "Every point of the circle has f equal to zero, so the whole circle lands on the horizontal axis.",
+     "zh": "圆上每一点都满足 f = 0，所以整个圆都落到横轴上。"
+    },
+    {
+     "en": "So F straightens the curved solution set: solving f equals zero becomes reading off v equals zero.",
+     "zh": "F 把弯曲的解集拉直了：解 f = 0 变成了读出 v = 0。"
+    },
+    {
+     "en": "Next, we compute the derivative of F at the point a, b.",
+     "zh": "接下来计算 F 在点 (a, b) 处的导数。"
+    },
+    {
+     "en": "The first row comes from the first component, x. Its derivative is the identity in x, and zero in y.",
+     "zh": "第一行来自第一分量 x：它对 x 的导数是单位阵，对 y 的导数是 0。"
+    },
+    {
+     "en": "The second row is just the two partial derivatives of f.",
+     "zh": "第二行就是 f 的两个偏导数。"
+    },
+    {
+     "en": "So D F is block lower triangular, with a zero block in the upper right corner.",
+     "zh": "所以 DF 是分块下三角矩阵，右上角是零块。"
+    },
+    {
+     "en": "For such a matrix, the determinant is the product of the determinants of the diagonal blocks.",
+     "zh": "这种矩阵的行列式等于对角块行列式的乘积。"
+    },
+    {
+     "en": "That gives one, times the determinant of D y f, which is nonzero by assumption.",
+     "zh": "结果是 1 乘以 det D_y f，而它按假设不为零。"
+    },
+    {
+     "en": "So the hypothesis on D y f is exactly what makes D F invertible.",
+     "zh": "所以关于 D_y f 的假设，恰好就是让 DF 可逆的条件。"
+    },
+    {
+     "en": "Now the inverse function theorem applies.",
+     "zh": "现在可以使用反函数定理了。"
+    },
+    {
+     "en": "F restricts to a diffeomorphism from an open set U zero around a, b, onto an open set V zero around a, zero.",
+     "zh": "F 限制成从 (a, b) 附近的开集 U₀ 到 (a, 0) 附近的开集 V₀ 的微分同胚。"
+    },
+    {
+     "en": "Write the inverse in components, capital X and capital Y.",
+     "zh": "把逆映射写成分量形式：F⁻¹ = (X, Y)。"
+    },
+    {
+     "en": "What is the first component, X?",
+     "zh": "第一分量 X 是什么？"
+    },
+    {
+     "en": "Let x, y be the point that F inverse sends u, v to.",
+     "zh": "设 (x, y) = F⁻¹(u, v)。"
+    },
+    {
+     "en": "Then u, v equals F of x, y, which is x, together with f of x, y.",
+     "zh": "那么 (u, v) = F(x, y) = (x, f(x, y))。"
+    },
+    {
+     "en": "Comparing first components gives u equals x.",
+     "zh": "比较第一分量，得到 u = x。"
+    },
+    {
+     "en": "So F inverse never changes the first coordinate. It equals u, together with Y of u, v.",
+     "zh": "所以 F⁻¹ 从不改动第一个坐标：F⁻¹(u, v) = (u, Y(u, v))。"
+    },
+    {
+     "en": "Now restrict attention to the horizontal axis, v equals zero.",
+     "zh": "现在只看横轴 v = 0。"
+    },
+    {
+     "en": "Define g of u as Y of u, zero, for every u whose point u, zero lies in V zero.",
+     "zh": "对所有满足 (u, 0) ∈ V₀ 的 u，定义 g(u) = Y(u, 0)。"
+    },
+    {
+     "en": "Then g is smooth, as a composition of smooth maps, and g of a equals b.",
+     "zh": "g 是光滑映射的复合，因而光滑，并且 g(a) = b。"
+    },
+    {
+     "en": "Pulling the axis back through F inverse traces out exactly the graph of g.",
+     "zh": "把横轴经 F⁻¹ 拉回去，画出的正是 g 的图像。"
+    },
+    {
+     "en": "First direction: every point on the graph is a solution.",
+     "zh": "第一个方向：图像上的每一点都是解。"
+    },
+    {
+     "en": "Apply F to u, g of u. We get u, zero, and by the definition of F, this is u, together with f of u, g of u.",
+     "zh": "对 (u, g(u)) 作用 F，得到 (u, 0)；按 F 的定义，它又等于 (u, f(u, g(u)))。"
+    },
+    {
+     "en": "So f of u, g of u equals zero.",
+     "zh": "所以 f(u, g(u)) = 0。"
+    },
+    {
+     "en": "Second direction: every nearby solution lies on the graph.",
+     "zh": "第二个方向：附近的每个解都在图像上。"
+    },
+    {
+     "en": "If x, y lies in U zero and f of x, y is zero, then F sends it to x, zero.",
+     "zh": "若 (x, y) ∈ U₀ 且 f(x, y) = 0，那么 F 把它送到 (x, 0)。"
+    },
+    {
+     "en": "But F also sends x, g of x to x, zero, and F is one to one on U zero.",
+     "zh": "而 F 也把 (x, g(x)) 送到 (x, 0)，并且 F 在 U₀ 上是单射。"
+    },
+    {
+     "en": "Hence y equals g of x. This is the step that uses injectivity.",
+     "zh": "因此 y = g(x)。用到单射性的正是这一步。"
+    },
+    {
+     "en": "Notice that the mirror point below also maps to x, zero. It lies outside U zero, which is why the conclusion is only local.",
+     "zh": "注意下方的镜像点也被送到 (x, 0)；它在 U₀ 之外，这正是结论只能是局部的原因。"
+    },
+    {
+     "en": "Finally, shrink to a box, A times B, around a, b, inside U zero.",
+     "zh": "最后，在 U₀ 内取一个包含 (a, b) 的盒子 A × B。"
+    },
+    {
+     "en": "Inside the box, f of x, y equals zero exactly when y equals g of x. The same argument shows that g is unique.",
+     "zh": "在盒子里，f(x, y) = 0 当且仅当 y = g(x)；同样的论证说明 g 是唯一的。"
+    },
+    {
+     "en": "What if D y f is not invertible? Look at the circle at the point one, zero.",
+     "zh": "如果 D_y f 不可逆呢？看圆上的点 (1, 0)。"
+    },
+    {
+     "en": "There, the second column of D F is zero, and F squashes a small square into a thin sliver along a line.",
+     "zh": "在那里 DF 的第二列为零，F 把一个小正方形压成沿一条直线的细条。"
+    },
+    {
+     "en": "The inverse function theorem says nothing there, and indeed, y cannot be solved as a function of x near that point.",
+     "zh": "反函数定理在那里不适用；事实上，在那一点附近确实无法把 y 解成 x 的函数。"
+    },
+    {
+     "en": "The key design was to carry x along unchanged.",
+     "zh": "整个证明的关键设计，是让 x 原封不动地跟着走。"
+    },
+    {
+     "en": "Copying x made the map square, and it forced F inverse to keep x as the free variable, so that y is determined by x.",
+     "zh": "抄一份 x 让映射变成方阵，也迫使 F⁻¹ 保持 x 为自由变量，于是 y 由 x 决定。"
+    }
+   ]
+  },
+  {
+   "id": "c04-implicit-derivative",
+   "chapter": "Proof",
+   "title": "The Derivative of g Without Solving for g",
+   "music": "proof",
+   "terms": [
+    "implicit-function-theorem",
+    "chain-rule",
+    "local-graph"
+   ],
+   "sentences": [
+    {
+     "en": "We now know that g exists and is smooth. But usually there is no formula for it.",
+     "zh": "现在知道 g 存在且光滑，但它通常没有显式公式。"
+    },
+    {
+     "en": "What we do have is an identity: f of x, g of x equals zero, for every x in A.",
+     "zh": "我们手上有的是一个恒等式：对 A 中每个 x，f(x, g(x)) = 0。"
+    },
+    {
+     "en": "And an identity can be differentiated on both sides.",
+     "zh": "而恒等式两边可以同时求导。"
+    },
+    {
+     "en": "Write capital Phi of x for the point x, g of x. Then f composed with Phi is identically zero.",
+     "zh": "记 Φ(x) = (x, g(x))。那么 f ∘ Φ 恒等于 0。"
+    },
+    {
+     "en": "By the chain rule, its derivative is D f at Phi of x, times D Phi of x.",
+     "zh": "由链式法则，它的导数是 Df(Φ(x)) 乘以 DΦ(x)。"
+    },
+    {
+     "en": "D f is a row of two blocks, D x f and D y f. D Phi is a column of two blocks: the identity, and D g.",
+     "zh": "Df 是两块组成的行 [D_x f, D_y f]；DΦ 是两块组成的列：单位阵与 Dg。"
+    },
+    {
+     "en": "Multiplying the blocks gives D x f plus D y f times D g.",
+     "zh": "按块相乘得到 D_x f + D_y f·Dg。"
+    },
+    {
+     "en": "The derivative of the zero function is zero, so D x f plus D y f times D g equals zero.",
+     "zh": "零函数的导数为零，所以 D_x f + D_y f·Dg = 0。"
+    },
+    {
+     "en": "To solve for D g, we need D y f to be invertible, not only at the point a, b, but at every point x, g of x.",
+     "zh": "要解出 Dg，需要 D_y f 可逆：不只在 (a, b)，而是在每个点 (x, g(x))。"
+    },
+    {
+     "en": "The determinant of D y f at x, g of x depends continuously on x and is nonzero at a, so it stays nonzero near a. If needed, we shrink A.",
+     "zh": "det D_y f(x, g(x)) 关于 x 连续，在 a 处非零，所以在 a 附近保持非零；必要时缩小 A。"
+    },
+    {
+     "en": "Multiplying by the inverse of D y f gives the formula: D g equals minus D y f inverse, times D x f.",
+     "zh": "左乘 D_y f 的逆，得到公式：Dg = −[D_y f]⁻¹ D_x f。"
+    },
+    {
+     "en": "Compare it with the linear case, y equals minus B inverse A x. It is the same formula, applied point by point.",
+     "zh": "与线性情形 y = −B⁻¹Ax 对比：这是同一个公式，逐点应用。"
+    },
+    {
+     "en": "Let us check it on the circle.",
+     "zh": "在圆上检验一下。"
+    },
+    {
+     "en": "Here D x f is two x, and D y f is two y. So g prime equals minus two x over two y, which is minus x over y.",
+     "zh": "这里 D_x f = 2x，D_y f = 2y。所以 g′ = −2x/(2y) = −x/y。"
+    },
+    {
+     "en": "At p, that is minus zero point six over zero point eight, which is minus zero point seven five.",
+     "zh": "在 p 处，就是 −0.6/0.8 = −0.75。"
+    },
+    {
+     "en": "Directly, g of x is the square root of one minus x squared, and its derivative is minus x over the square root of one minus x squared.",
+     "zh": "直接算：g(x) = √(1 − x²)，导数是 −x/√(1 − x²)。"
+    },
+    {
+     "en": "Since y is that square root, this is again minus x over y, so minus zero point seven five at p. The two answers agree.",
+     "zh": "因为 y 就是这个平方根，结果仍是 −x/y，在 p 处为 −0.75。两个答案一致。"
+    },
+    {
+     "en": "Now push the point toward one, zero.",
+     "zh": "现在把点推向 (1, 0)。"
+    },
+    {
+     "en": "The slope grows steeper: minus three, minus ten, without bound.",
+     "zh": "斜率越来越陡：−3、−10，没有上界。"
+    },
+    {
+     "en": "At one, zero, the formula reads minus one over zero, and the tangent line is vertical.",
+     "zh": "在 (1, 0)，公式变成 −1/0，切线是竖直的。"
+    },
+    {
+     "en": "A vertical tangent is not the graph of any differentiable function of x. The formula breaks down exactly where the hypothesis on D y f fails.",
+     "zh": "竖直切线不可能是 x 的可微函数的图像。公式恰好在 D_y f 的假设失效处崩溃。"
+    }
+   ]
+  },
+  {
+   "id": "c05-regular-value",
+   "chapter": "Definition",
+   "title": "Regular Values: Full Rank at Every Point",
+   "music": "definition",
+   "terms": [
+    "regular-value",
+    "rank",
+    "surjective",
+    "level-set",
+    "implicit-function-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "The implicit function theorem needs one thing: a k by k block of the derivative that is invertible.",
+     "zh": "隐函数定理只需要一件事：导数中有一个可逆的 k×k 块。"
+    },
+    {
+     "en": "So far, that block was the last k columns, the derivatives with respect to y.",
+     "zh": "到目前为止，这一块是最后 k 列，即对 y 的导数。"
+    },
+    {
+     "en": "Consider a map h from R five to R two, and suppose its derivative at a point is this matrix.",
+     "zh": "考虑映射 h : ℝ⁵ → ℝ²，设它在某点的导数是这个矩阵。"
+    },
+    {
+     "en": "Its last two columns are zero, so the last block is singular.",
+     "zh": "它的最后两列全是零，所以最后那一块是奇异的。"
+    },
+    {
+     "en": "But the matrix still has rank two, because its two rows are independent.",
+     "zh": "但这个矩阵的秩仍然是 2，因为它的两行线性无关。"
+    },
+    {
+     "en": "Row rank equals column rank, so the columns also span a two dimensional space.",
+     "zh": "行秩等于列秩，所以这些列也张成一个二维空间。"
+    },
+    {
+     "en": "Draw the five columns as vectors in the plane. Two of them are zero, but columns one and two are independent.",
+     "zh": "把五列画成平面中的向量：其中两个是零向量，但第 1、2 列线性无关。"
+    },
+    {
+     "en": "In general, the n columns span a k dimensional space, and every spanning set contains a basis.",
+     "zh": "一般地，n 个列张成 k 维空间，而任何张成组都包含一组基。"
+    },
+    {
+     "en": "So some k columns are independent, and their k by k block is invertible.",
+     "zh": "所以有 k 列线性无关，它们组成的 k×k 块可逆。"
+    },
+    {
+     "en": "Now rename the coordinates: permute them so that these columns come last.",
+     "zh": "现在重新命名坐标：做一个置换，把这些列移到最后。"
+    },
+    {
+     "en": "A permutation of coordinates is a linear isomorphism, so it changes neither whether a set is a smooth manifold, nor its dimension.",
+     "zh": "坐标置换是线性同构，所以不改变集合是否为光滑流形，也不改变维数。"
+    },
+    {
+     "en": "After the swap, the last block is the identity, and the implicit function theorem applies.",
+     "zh": "交换之后，最后一块是单位阵，隐函数定理可以使用。"
+    },
+    {
+     "en": "What does a full rank derivative mean? h maps R n to R k, so D h of x is a k by n matrix.",
+     "zh": "导数满秩是什么意思？h 把 ℝⁿ 映到 ℝᵏ，所以 Dh(x) 是 k×n 矩阵。"
+    },
+    {
+     "en": "Its image is a subspace of R k, whose dimension is the rank. So D h of x is surjective exactly when its rank is k.",
+     "zh": "它的像是 ℝᵏ 的子空间，维数等于秩。所以 Dh(x) 满射当且仅当秩为 k。"
+    },
+    {
+     "en": "Definition. A value c is a regular value of h if D h of x is surjective at every point x of h inverse of c.",
+     "zh": "定义：若对 h⁻¹(c) 中每一点 x，Dh(x) 都是满射，则称 c 是 h 的正则值。"
+    },
+    {
+     "en": "Every point. Full rank at some of the points is not enough.",
+     "zh": "是每一点。只在部分点满秩是不够的。"
+    },
+    {
+     "en": "Example: h of x, y equals x squared plus y squared, with derivative two x, two y.",
+     "zh": "例子：h(x, y) = x² + y²，导数是 (2x, 2y)。"
+    },
+    {
+     "en": "On the level set h equals one, the point is never the origin, so the derivative is a nonzero row of rank one. One is a regular value.",
+     "zh": "在水平集 h = 1 上，点永远不是原点，所以导数是秩为 1 的非零行。1 是正则值。"
+    },
+    {
+     "en": "At the level zero, the level set is only the origin, and the derivative there is zero. So zero is not a regular value.",
+     "zh": "在水平 0，水平集只有原点，而那里的导数为零。所以 0 不是正则值。"
+    },
+    {
+     "en": "A single bad point is enough to break regularity. Take h equals x squared minus y squared, at the level zero.",
+     "zh": "一个坏点就足以破坏正则性。看 h = x² − y²，水平为 0。"
+    },
+    {
+     "en": "Along the two lines the rank is one, until we reach the origin, where the derivative vanishes and the rank drops to zero.",
+     "zh": "沿着两条直线秩都是 1，直到原点：那里导数为零，秩降为 0。"
+    },
+    {
+     "en": "So zero is not a regular value of this h, even though almost every point of the set is fine.",
+     "zh": "所以 0 不是这个 h 的正则值，尽管集合中几乎每一点都没问题。"
+    },
+    {
+     "en": "Notice also that the last column alone would not do.",
+     "zh": "还要注意，只看最后一列是不行的。"
+    },
+    {
+     "en": "On the circle at one, zero, the derivative is two, zero: the y column is zero, but the x column is not.",
+     "zh": "圆在 (1, 0) 处导数是 (2, 0)：y 列为零，但 x 列不是。"
+    },
+    {
+     "en": "Being allowed to choose the columns is what lets us cover the whole circle.",
+     "zh": "正因为可以选择列，才能覆盖整个圆。"
+    },
+    {
+     "en": "Two more remarks. Regularity is a property of the function h and the value c together, not of the set alone.",
+     "zh": "再补充两点。正则性是函数 h 与值 c 共同的性质，而不只是集合的性质。"
+    },
+    {
+     "en": "And if h inverse of c is empty, the condition holds vacuously, so c counts as a regular value.",
+     "zh": "若 h⁻¹(c) 是空集，条件空真成立，c 也算正则值。"
+    },
+    {
+     "en": "With full rank at every point, we can pick an invertible block at every point, and so apply the implicit function theorem at every point.",
+     "zh": "每一点都满秩，就能在每一点选出可逆块，从而在每一点使用隐函数定理。"
+    }
+   ]
+  },
+  {
+   "id": "c06-level-set-theorem",
+   "chapter": "Proof",
+   "title": "The Regular Level Set Theorem",
+   "music": "proof",
+   "terms": [
+    "regular-level-set-theorem",
+    "embedded-submanifold",
+    "regular-value",
+    "chart",
+    "transition-map",
+    "graph-parametrization",
+    "coordinate-projection",
+    "subspace-topology"
+   ],
+   "sentences": [
+    {
+     "en": "Here is the main theorem of this episode.",
+     "zh": "下面是本集的主定理。"
+    },
+    {
+     "en": "Let U be open in R n, let h from U to R k be smooth, and let c be a regular value of h.",
+     "zh": "设 U 是 ℝⁿ 中的开集，h : U → ℝᵏ 光滑，c 是 h 的正则值。"
+    },
+    {
+     "en": "Then the level set M, h inverse of c, is a smooth embedded submanifold of R n, of dimension n minus k.",
+     "zh": "那么水平集 M = h⁻¹(c) 是 ℝⁿ 的 n − k 维光滑嵌入子流形。"
+    },
+    {
+     "en": "We draw the proof on the sphere, but every step works in general.",
+     "zh": "我们在球面上画出证明，但每一步对一般情形都成立。"
+    },
+    {
+     "en": "First, topology. M carries the subspace topology of R n, so it is automatically Hausdorff and second countable.",
+     "zh": "先看拓扑。M 带 ℝⁿ 的子空间拓扑，因此自动是 Hausdorff、第二可数的。"
+    },
+    {
+     "en": "Now fix a point p of M.",
+     "zh": "现在固定 M 中一点 p。"
+    },
+    {
+     "en": "Since c is regular, D h of p has rank k. So after permuting coordinates, we can write p as a, b, with D y h at a, b invertible.",
+     "zh": "由于 c 正则，Dh(p) 秩为 k。重排坐标后可写 p = (a, b)，且 D_y h(a, b) 可逆。"
+    },
+    {
+     "en": "Here x has n minus k components, and y has k components.",
+     "zh": "这里 x 有 n − k 个分量，y 有 k 个分量。"
+    },
+    {
+     "en": "Let f of x, y be h of x, y minus c. Then f of a, b is zero, and D y f equals D y h, which is invertible.",
+     "zh": "令 f(x, y) = h(x, y) − c。则 f(a, b) = 0，且 D_y f = D_y h 可逆。"
+    },
+    {
+     "en": "The implicit function theorem gives a box A times B around p, and a smooth map g from A to B.",
+     "zh": "隐函数定理给出 p 周围的盒子 A × B，以及光滑映射 g : A → B。"
+    },
+    {
+     "en": "Inside the box, M is exactly the graph of g: the points x, g of x, for x in A.",
+     "zh": "在盒子里，M 恰好是 g 的图像：所有点 (x, g(x))，x ∈ A。"
+    },
+    {
+     "en": "A graph comes with natural coordinates: the free variable x itself.",
+     "zh": "图像自带天然的坐标：自由变量 x 本身。"
+    },
+    {
+     "en": "So let W be M intersected with the box, and define phi on W as the projection that forgets y: phi of x, y equals x.",
+     "zh": "令 W = M ∩ (A × B)，定义 φ 为忘掉 y 的投影：φ(x, y) = x。"
+    },
+    {
+     "en": "W is open in M, because the box is open in R n. And phi is continuous, as the restriction of a linear map.",
+     "zh": "W 在 M 中是开集，因为盒子在 ℝⁿ 中是开集。φ 是线性映射的限制，因此连续。"
+    },
+    {
+     "en": "In the other direction, define psi from A to M by psi of x equals x, g of x. It is smooth, because g is.",
+     "zh": "反方向，定义 ψ : A → M，ψ(x) = (x, g(x))。因为 g 光滑，ψ 也光滑。"
+    },
+    {
+     "en": "Let us check that the two maps are inverse to each other.",
+     "zh": "检验这两个映射互为逆映射。"
+    },
+    {
+     "en": "First, phi of psi of x is phi of x, g of x, which is x.",
+     "zh": "第一，φ(ψ(x)) = φ(x, g(x)) = x。"
+    },
+    {
+     "en": "Second, take a point x, y in W. Because W lies on the graph, y equals g of x, so psi of phi of x, y is x, g of x, which is x, y.",
+     "zh": "第二，取 (x, y) ∈ W。W 在图像上，故 y = g(x)，所以 ψ(φ(x, y)) = (x, y)。"
+    },
+    {
+     "en": "Both maps are continuous and inverse to each other, so phi is a homeomorphism from W onto the open set A. It is a chart.",
+     "zh": "两个映射都连续且互逆，所以 φ 是从 W 到开集 A 的同胚：它是一个 chart。"
+    },
+    {
+     "en": "The chart takes values in R n minus k, and p was arbitrary, so M is a topological manifold of dimension n minus k.",
+     "zh": "这个 chart 取值于 ℝⁿ⁻ᵏ，而 p 是任意的，所以 M 是 n − k 维拓扑流形。"
+    },
+    {
+     "en": "The count is natural: n unknowns, minus k independent equations, leaves n minus k free directions.",
+     "zh": "这个计数很自然：n 个未知数，减去 k 个独立方程，剩下 n − k 个自由方向。"
+    },
+    {
+     "en": "It remains to show that these charts fit together smoothly.",
+     "zh": "还需要证明这些 chart 光滑地拼接在一起。"
+    },
+    {
+     "en": "Take a second point, where a different set of coordinates may be solved for.",
+     "zh": "取第二个点，在那里可能要解出另一组坐标。"
+    },
+    {
+     "en": "On the equator, the vertical partial derivative is zero, so we solve for a horizontal coordinate, and project sideways instead.",
+     "zh": "在赤道上，竖直方向的偏导数为零，所以改为解一个水平坐标，向侧面投影。"
+    },
+    {
+     "en": "Where the two boxes overlap, we need the transition map: phi two, composed with phi one inverse.",
+     "zh": "在两个盒子重叠处，需要转移映射 φ₂ ∘ φ₁⁻¹。"
+    },
+    {
+     "en": "But phi one inverse is psi one, and phi two is the restriction of a linear projection, pi two.",
+     "zh": "而 φ₁⁻¹ 就是 ψ₁，φ₂ 是线性投影 π₂ 的限制。"
+    },
+    {
+     "en": "So the transition map is pi two composed with psi one: a linear map after a smooth map. It is smooth.",
+     "zh": "所以转移映射是 π₂ ∘ ψ₁：光滑映射之后接线性映射，因此光滑。"
+    },
+    {
+     "en": "Its domain is open, because phi one is a homeomorphism and the overlap is open in M.",
+     "zh": "它的定义域是开集，因为 φ₁ 是同胚，而重叠部分在 M 中是开集。"
+    },
+    {
+     "en": "The same argument works in the other direction. So these charts form a smooth atlas, and M is a smooth manifold.",
+     "zh": "反方向同理。所以这些 chart 构成光滑图册，M 是光滑流形。"
+    },
+    {
+     "en": "Finally, embedded. Each psi is smooth into R n, its derivative, the identity stacked over D g, is injective, and M carries the subspace topology.",
+     "zh": "最后是嵌入：每个 ψ 是到 ℝⁿ 的光滑映射，导数 [I; Dg] 是单射，且 M 带子空间拓扑。"
+    },
+    {
+     "en": "That is exactly what it means for M to be an embedded submanifold.",
+     "zh": "这正是 M 为嵌入子流形的含义。"
+    },
+    {
+     "en": "Do this at every point, and the boxes cover the whole sphere.",
+     "zh": "在每一点都这样做，盒子就覆盖了整个球面。"
+    },
+    {
+     "en": "Notice what we never did: we never guessed a chart.",
+     "zh": "注意我们从未做过的事：我们从未猜过任何 chart。"
+    },
+    {
+     "en": "The equation, together with a rank check, forced the charts to exist, and told us how to build them.",
+     "zh": "方程加上秩的检查，迫使 chart 存在，并告诉我们如何构造它们。"
+    },
+    {
+     "en": "And the hypothesis is used where we pick an invertible block. At the crossing of two lines, no such block exists, and the proof cannot even start.",
+     "zh": "假设用在选出可逆块那一步。在两线交叉处不存在这样的块，证明根本无法开始。"
+    }
+   ]
+  },
+  {
+   "id": "c07-sphere",
+   "chapter": "Example",
+   "title": "The Sphere: One Derivative, Zero Charts",
+   "music": "definition",
+   "terms": [
+    "directional-derivative",
+    "regular-value",
+    "level-set",
+    "embedded-submanifold",
+    "regular-level-set-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "Let us test the machine on the sphere, in any dimension.",
+     "zh": "用任意维数的球面来检验这台机器。"
+    },
+    {
+     "en": "S n minus one is the set of x in R n with x transpose x equal to one.",
+     "zh": "Sⁿ⁻¹ 是 ℝⁿ 中满足 xᵀx = 1 的所有 x。"
+    },
+    {
+     "en": "So it is the level set h inverse of one, for h of x equals x transpose x. Here k is one: a single equation.",
+     "zh": "所以它是水平集 h⁻¹(1)，其中 h(x) = xᵀx。这里 k = 1：只有一个方程。"
+    },
+    {
+     "en": "We need the derivative of h, and the cleanest route is the directional derivative.",
+     "zh": "需要求 h 的导数，最简洁的办法是方向导数。"
+    },
+    {
+     "en": "Expand h of x plus t v: it is x transpose x, plus two t times x transpose v, plus t squared times v transpose v.",
+     "zh": "展开 h(x + tv) = xᵀx + 2t·xᵀv + t²·vᵀv。"
+    },
+    {
+     "en": "The derivative in the direction v is the coefficient of t: D h of x, applied to v, equals two x transpose v.",
+     "zh": "沿方向 v 的导数是 t 的一次项系数：Dh(x)[v] = 2xᵀv。"
+    },
+    {
+     "en": "Is it surjective, onto the real line? On the sphere, x is never zero.",
+     "zh": "它是到实数轴 ℝ 的满射吗？在球面上，x 永远不为零。"
+    },
+    {
+     "en": "Take v equal to x. Then D h of x, applied to x, is two x transpose x, which is two, not zero.",
+     "zh": "取 v = x，则 Dh(x)[x] = 2xᵀx = 2 ≠ 0。"
+    },
+    {
+     "en": "And scaling v reaches every number: the direction s times x over two gives exactly s.",
+     "zh": "缩放 v 就能得到任意数：方向 s·x/2 恰好给出 s。"
+    },
+    {
+     "en": "So D h of x has rank one at every point of the sphere, and one is a regular value.",
+     "zh": "所以 Dh(x) 在球面每一点秩都为 1，1 是正则值。"
+    },
+    {
+     "en": "By the theorem, S n minus one is a smooth embedded submanifold of R n, of dimension n minus one.",
+     "zh": "由定理，Sⁿ⁻¹ 是 ℝⁿ 的 n − 1 维光滑嵌入子流形。"
+    },
+    {
+     "en": "One derivative, and not a single chart written by hand.",
+     "zh": "一次求导，一个 chart 都没有手写。"
+    },
+    {
+     "en": "The proof also tells us which coordinate to solve for, and where.",
+     "zh": "证明还告诉我们在哪里解哪个坐标。"
+    },
+    {
+     "en": "The partial derivative with respect to x i is two x i. Near the north and south poles, x three is large, so we solve for x three.",
+     "zh": "对 xᵢ 的偏导是 2xᵢ。在南北极附近 x₃ 较大，所以解 x₃。"
+    },
+    {
+     "en": "Where x one is large, we solve for x one; where x two is large, we solve for x two.",
+     "zh": "x₁ 较大的地方解 x₁；x₂ 较大的地方解 x₂。"
+    },
+    {
+     "en": "On the equator, two x three is zero, so x three cannot be solved for there. But x one or x two can.",
+     "zh": "在赤道上 2x₃ = 0，所以那里不能解 x₃，但可以解 x₁ 或 x₂。"
+    },
+    {
+     "en": "It is the same situation as the circle at one, zero, and the freedom to choose columns takes care of it.",
+     "zh": "这与圆在 (1, 0) 处的情形相同，选择列的自由解决了它。"
+    },
+    {
+     "en": "Now keep the same h, but change the value.",
+     "zh": "现在保持 h 不变，只改变水平值。"
+    },
+    {
+     "en": "At the level zero, h inverse of zero is just the origin, where D h is zero. So zero is not a regular value.",
+     "zh": "在水平 0，h⁻¹(0) 只有原点，而那里 Dh = 0。所以 0 不是正则值。"
+    },
+    {
+     "en": "And indeed the set is a single point, not a manifold of dimension n minus one.",
+     "zh": "事实上这个集合是一个点，而不是 n − 1 维流形。"
+    },
+    {
+     "en": "At the level minus one, the level set is empty. Minus one is regular vacuously, and the theorem only describes the empty set.",
+     "zh": "在水平 −1，水平集是空集。−1 空真地是正则值，定理描述的只是空集。"
+    },
+    {
+     "en": "The same three steps, expand, keep the linear term, check surjectivity, will handle the orthogonal group in the next episode.",
+     "zh": "同样的三步：展开、取一次项、检查满射，下一集将用来处理正交群。"
+    }
+   ]
+  },
+  {
+   "id": "c08-when-regularity-fails",
+   "chapter": "Counterexample",
+   "title": "When Regularity Fails",
+   "music": "counterexample",
+   "terms": [
+    "regular-value",
+    "topological-manifold",
+    "homeomorphism",
+    "cusp",
+    "regular-parametrization",
+    "embedded-submanifold",
+    "connected"
+   ],
+   "sentences": [
+    {
+     "en": "The theorem gives a sufficient condition. What happens when regularity fails?",
+     "zh": "定理给出的是充分条件。正则性不成立时会发生什么？"
+    },
+    {
+     "en": "Take h of x, y equals x squared minus y squared, a saddle, and slice it at height c.",
+     "zh": "取 h(x, y) = x² − y²，一个马鞍面，在高度 c 处切一刀。"
+    },
+    {
+     "en": "As c moves from one down to minus one, the slice changes shape.",
+     "zh": "当 c 从 1 降到 −1，切口的形状随之变化。"
+    },
+    {
+     "en": "The derivative, two x, minus two y, vanishes only at the origin, which lies on the level set only when c is zero.",
+     "zh": "导数 (2x, −2y) 只在原点为零，而原点只有在 c = 0 时才在水平集上。"
+    },
+    {
+     "en": "So every nonzero c is regular, and its level set is a hyperbola with two branches, a perfectly good curve.",
+     "zh": "所以每个非零的 c 都正则，水平集是有两支的双曲线，完全正常的曲线。"
+    },
+    {
+     "en": "Only at c equals zero do the branches meet, and the level set becomes two crossing lines.",
+     "zh": "只有在 c = 0 时两支相遇，水平集变成两条交叉直线。"
+    },
+    {
+     "en": "At the origin, D h is zero, zero. The rank has dropped.",
+     "zh": "在原点 Dh = (0, 0)，秩下降了。"
+    },
+    {
+     "en": "Zoom in. A point on a circle looks straighter and straighter as we zoom in.",
+     "zh": "放大来看。圆上一点越放大越像直线。"
+    },
+    {
+     "en": "The cross looks the same at every scale. It never looks like a line.",
+     "zh": "十字在每个尺度下都一样，永远不像一条线。"
+    },
+    {
+     "en": "Here is a proof that the cross is not a manifold at the origin.",
+     "zh": "下面证明十字在原点处不是流形。"
+    },
+    {
+     "en": "Suppose a neighborhood N of the origin in the cross were homeomorphic to an open interval, with the origin sent to a point t.",
+     "zh": "假设十字中原点的某个邻域 N 同胚于开区间，原点被送到点 t。"
+    },
+    {
+     "en": "Since N is open in the cross, it contains a small piece of all four arms.",
+     "zh": "因为 N 在十字中是开集，它包含四条臂各自的一小段。"
+    },
+    {
+     "en": "Remove the origin. The four arms no longer touch, so N minus the origin falls apart into at least four pieces.",
+     "zh": "去掉原点。四条臂不再相连，所以 N 去掉原点后至少分成四块。"
+    },
+    {
+     "en": "Remove the point t from the interval, and it falls apart into exactly two pieces.",
+     "zh": "从区间中去掉点 t，它恰好分成两块。"
+    },
+    {
+     "en": "A homeomorphism matches up the pieces, and four is not two. So the cross is not even a topological manifold at the origin.",
+     "zh": "同胚会把这些块一一对应，而四不等于二。所以十字在原点处连拓扑流形都不是。"
+    },
+    {
+     "en": "The second example is subtler: the cusp, y squared equals x cubed.",
+     "zh": "第二个例子更微妙：尖点 y² = x³。"
+    },
+    {
+     "en": "Here h is y squared minus x cubed, with derivative minus three x squared, two y. At the origin it is zero again.",
+     "zh": "这里 h = y² − x³，导数为 (−3x², 2y)。在原点处它又是零。"
+    },
+    {
+     "en": "Unlike the cross, the cusp is a topological manifold.",
+     "zh": "与十字不同，尖点是拓扑流形。"
+    },
+    {
+     "en": "Solving for x gives x equals the absolute value of y, to the power two thirds. So the cusp is the graph of a continuous function of y.",
+     "zh": "解出 x 得 x = |y|^(2/3)。所以尖点是 y 的一个连续函数的图像。"
+    },
+    {
+     "en": "Projecting to the y axis is continuous, and so is its inverse, which lifts y back to the curve. So the cusp is homeomorphic to a line.",
+     "zh": "向 y 轴的投影连续，它的逆把 y 抬回曲线，也连续。所以尖点同胚于直线。"
+    },
+    {
+     "en": "But it is not a smooth embedded submanifold: at the origin, the curve has no tangent line.",
+     "zh": "但它不是光滑嵌入子流形：在原点处曲线没有切线。"
+    },
+    {
+     "en": "To prove this, we use one fact that we state without proof here.",
+     "zh": "为了证明这一点，我们使用一个在此只陈述、不证明的事实。"
+    },
+    {
+     "en": "A one dimensional embedded submanifold has, near each point, a smooth parametrization with nonzero velocity.",
+     "zh": "一维嵌入子流形在每一点附近都有速度非零的光滑参数化。"
+    },
+    {
+     "en": "Suppose the cusp had such a parametrization gamma, with gamma of zero at the origin, and gamma prime of zero not zero.",
+     "zh": "假设尖点有这样的参数化 γ，γ(0) 为原点，且 γ′(0) ≠ 0。"
+    },
+    {
+     "en": "On the curve, x is never negative, so x of t has a minimum at t equals zero, and x prime of zero is zero.",
+     "zh": "曲线上 x 从不为负，所以 x(t) 在 t = 0 取最小值，x′(0) = 0。"
+    },
+    {
+     "en": "Since the velocity is not zero, y prime of zero must be nonzero.",
+     "zh": "由于速度不为零，y′(0) 必须非零。"
+    },
+    {
+     "en": "By the one dimensional inverse function theorem, t is then a smooth function of y near zero, and so x becomes a smooth function of y.",
+     "zh": "由一维反函数定理，t 在 0 附近是 y 的光滑函数，于是 x 成为 y 的光滑函数。"
+    },
+    {
+     "en": "But on the curve, x equals the absolute value of y to the two thirds, which is not differentiable at zero. Its slope blows up.",
+     "zh": "但曲线上 x = |y|^(2/3)，它在 0 处不可微，斜率趋于无穷。"
+    },
+    {
+     "en": "That is a contradiction, so the cusp is not a smooth embedded submanifold.",
+     "zh": "矛盾。所以尖点不是光滑嵌入子流形。"
+    },
+    {
+     "en": "Careful: the cusp can be traced by a smooth curve, gamma of t equals t squared, t cubed.",
+     "zh": "注意：尖点可以被一条光滑曲线扫出：γ(t) = (t², t³)。"
+    },
+    {
+     "en": "But its velocity, two t, three t squared, is zero at t equals zero. The parametrization is smooth, but not regular.",
+     "zh": "但它的速度 (2t, 3t²) 在 t = 0 时为零。这个参数化光滑，但不正则。"
+    },
+    {
+     "en": "Being traced by a smooth curve is not enough. The velocity must not vanish.",
+     "zh": "能被光滑曲线扫出并不够，速度必须不为零。"
+    },
+    {
+     "en": "The third example goes the other way.",
+     "zh": "第三个例子方向相反。"
+    },
+    {
+     "en": "Take h of x equals x transpose x minus one, all squared. Its zero set is again the unit sphere, a manifold.",
+     "zh": "取 h(x) = (xᵀx − 1)²。它的零点集仍是单位球面，是流形。"
+    },
+    {
+     "en": "Its graph is a trough, and the circle runs along the bottom of the trough.",
+     "zh": "它的图像是一道环形槽，圆就沿着槽底。"
+    },
+    {
+     "en": "By the chain rule, D h of x applied to v is two times x transpose x minus one, times two x transpose v.",
+     "zh": "由链式法则，Dh(x)[v] = 2(xᵀx − 1)·2xᵀv。"
+    },
+    {
+     "en": "On the sphere, x transpose x minus one is zero, so the derivative vanishes everywhere on the set. The bottom of the trough is flat.",
+     "zh": "在球面上 xᵀx − 1 = 0，所以导数在集合上处处为零。槽底是平的。"
+    },
+    {
+     "en": "So zero is not a regular value. The theorem does not apply, and yet the set is a manifold.",
+     "zh": "所以 0 不是正则值。定理不适用，但集合仍是流形。"
+    },
+    {
+     "en": "Regularity is a property of the equation, not only of the set.",
+     "zh": "正则性是方程的性质，而不只是集合的性质。"
+    },
+    {
+     "en": "The same sphere is regular for x transpose x equals one, but not for this squared equation.",
+     "zh": "同一个球面，对 xᵀx = 1 是正则的，对平方后的方程则不是。"
+    },
+    {
+     "en": "So the theorem goes in one direction only: a regular value implies a manifold, and the converse is false.",
+     "zh": "所以定理只有一个方向：正则值推出流形，反过来不成立。"
+    },
+    {
+     "en": "Two last warnings. At c equals one, the hyperbola is a regular level set, yet it has two separate branches.",
+     "zh": "最后两点提醒：c = 1 时双曲线是正则水平集，却有两条分开的分支。"
+    },
+    {
+     "en": "And for x transpose x equals minus one, the level set is empty, which is vacuously regular.",
+     "zh": "而 xᵀx = −1 的水平集是空集，它空真地正则。"
+    },
+    {
+     "en": "The theorem promises neither connectedness nor nonemptiness.",
+     "zh": "定理既不保证连通，也不保证非空。"
+    },
+    {
+     "en": "In every failure we saw, the trouble sits exactly at a point where the rank drops.",
+     "zh": "在我们看到的每个失败中，问题都恰好出在秩下降的点上。"
+    },
+    {
+     "en": "Without regularity, anything can happen.",
+     "zh": "没有正则性，什么都可能发生。"
+    },
+    {
+     "en": "The set may fail to be a manifold, like the cross; be topological but not smooth, like the cusp; or still be a manifold, like the squared sphere.",
+     "zh": "集合可能不是流形，如十字；可能拓扑上是但不光滑，如尖点；也可能仍是流形，如平方球面。"
+    }
+   ]
+  },
+  {
+   "id": "c09-recap-bridge",
+   "chapter": "Recap",
+   "title": "Two Mechanical Steps, and What Comes Next",
+   "music": "recap",
+   "terms": [
+    "regular-level-set-theorem",
+    "implicit-function-theorem",
+    "graph-parametrization",
+    "tangent-space",
+    "kernel",
+    "orthogonal-group"
+   ],
+   "sentences": [
+    {
+     "en": "Let us put the whole episode into one chain.",
+     "zh": "把整集串成一条链。"
+    },
+    {
+     "en": "An invertible derivative gives a local inverse. That is the inverse function theorem.",
+     "zh": "可逆的导数给出局部逆映射：这是反函数定理。"
+    },
+    {
+     "en": "A local inverse of the map that copies x gives an implicit graph. That is the implicit function theorem.",
+     "zh": "对“抄一份 x”的映射取局部逆，得到隐式图像：这是隐函数定理。"
+    },
+    {
+     "en": "An implicit graph gives a local chart, by forgetting the solved variables.",
+     "zh": "隐式图像给出局部 chart：忘掉被解出的变量即可。"
+    },
+    {
+     "en": "And charts at every point, which regularity guarantees, make the level set a manifold. That is the regular level set theorem.",
+     "zh": "正则性保证每一点都有 chart，于是水平集是流形：这是正则水平集定理。"
+    },
+    {
+     "en": "In practice, this leaves a short recipe.",
+     "zh": "实际使用时，只剩一个简短的步骤。"
+    },
+    {
+     "en": "Step one: differentiate the equations, and check that the derivative has full rank on the level set.",
+     "zh": "第一步：对方程求导，检查导数在水平集上满秩。"
+    },
+    {
+     "en": "Step two, which comes in the next episode: take the kernel of the derivative.",
+     "zh": "第二步留到下一集：取导数的核。"
+    },
+    {
+     "en": "Keep the limits in mind: regularity is sufficient but not necessary, and a regular level set may be disconnected.",
+     "zh": "记住它的边界：正则性是充分而非必要条件，正则水平集也可能不连通。"
+    },
+    {
+     "en": "The graph parametrization psi will come back.",
+     "zh": "图像参数化 ψ 还会再出现。"
+    },
+    {
+     "en": "Its derivative, the identity stacked over D g, is injective.",
+     "zh": "它的导数 [I; Dg] 是单射。"
+    },
+    {
+     "en": "The coordinate lines of the chart are lifted to curves on the sphere, and their velocities at p are tangent arrows.",
+     "zh": "chart 的坐标线被抬升为球面上的曲线，它们在 p 处的速度是切向箭头。"
+    },
+    {
+     "en": "Next episode, we show that these arrows span the tangent space, and that it equals the kernel of D h.",
+     "zh": "下一集将证明这些箭头张成切空间，并且它等于 Dh 的核。"
+    },
+    {
+     "en": "And we run the same machine on the orthogonal group: expand R transpose R, keep the linear term, and check surjectivity.",
+     "zh": "并且把同一台机器用在正交群上：展开 RᵀR，取一次项，检查满射。"
+    }
+   ]
+  }
+ ]
+}

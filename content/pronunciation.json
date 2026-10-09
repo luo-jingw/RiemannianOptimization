@@ -1,0 +1,39 @@
+{
+ "entries": [
+  {
+   "pattern": "\\bRiesz\\b",
+   "phonemes": "ɹˈis",
+   "note": "Riesz is pronounced 'reese'"
+  },
+  {
+   "pattern": "\\bA inverse\\b",
+   "phonemes": "ˈA ˈɪnvˌɜɹs",
+   "note": "matrix A, not the article"
+  },
+  {
+   "pattern": "\\ba(?=\\s*[,.;:)]|\\s+equals\\b|\\s+to\\b|\\s+and\\b)",
+   "phonemes": "ˈA",
+   "note": "variable a: an article is never followed by punctuation, 'equals', 'to' or 'and'"
+  },
+  {
+   "pattern": "\\b[Cc]ovectors\\b",
+   "phonemes": "kˈOvˌɛktəɹz",
+   "note": "G2P drops the vowel of 'vec'"
+  },
+  {
+   "pattern": "\\b[Cc]ovector\\b",
+   "phonemes": "kˈOvˌɛktəɹ",
+   "note": "G2P drops the vowel of 'vec'"
+  },
+  {
+   "pattern": "\\b[Ss]ubmanifolds\\b",
+   "phonemes": "sˈʌbmˈænəfˌOldz",
+   "note": "stress on 'man'"
+  },
+  {
+   "pattern": "\\b[Ss]ubmanifold\\b",
+   "phonemes": "sˈʌbmˈænəfˌOld",
+   "note": "stress on 'man'"
+  }
+ ]
+}

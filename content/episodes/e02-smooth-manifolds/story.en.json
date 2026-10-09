@@ -1,0 +1,1333 @@
+{
+ "episode": "e02-smooth-manifolds",
+ "title": "Charts, Atlases and Smooth Manifolds",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-recap-e01",
+   "chapter": "Recap",
+   "title": "Tools from the Last Episode",
+   "music": "recap",
+   "terms": [
+    "open-set",
+    "continuity",
+    "preimage",
+    "bijection",
+    "homeomorphism"
+   ],
+   "sentences": [
+    {
+     "en": "Before we build manifolds, let us gather three tools from the last episode.",
+     "zh": "在构造流形之前，先从上一集取出三件工具。"
+    },
+    {
+     "en": "Last time we described nearness using only open sets, with no distances and no coordinates.",
+     "zh": "上一集我们只用开集来描述“靠近”，不需要距离，也不需要坐标。"
+    },
+    {
+     "en": "A topology is a collection of open sets that contains the empty set and the whole space.",
+     "zh": "拓扑是一组开集，它包含空集 ∅ 和全空间，"
+    },
+    {
+     "en": "It is closed under arbitrary unions and finite intersections.",
+     "zh": "并且对任意并和有限交封闭。"
+    },
+    {
+     "en": "A map f is continuous when the preimage of every open set is open.",
+     "zh": "映射 f 连续，是指每个开集的原像都是开集。"
+    },
+    {
+     "en": "And a homeomorphism is a bijection that is continuous, with a continuous inverse.",
+     "zh": "同胚是连续的双射，并且它的逆映射也连续。"
+    },
+    {
+     "en": "Both directions matter. Wrap the interval from zero to two pi around the circle, sending t to cosine t, sine t.",
+     "zh": "两个方向都重要。把区间 [0, 2π) 卷到圆上：t ↦ (cos t, sin t)。"
+    },
+    {
+     "en": "This map is a continuous bijection.",
+     "zh": "这个映射是连续双射。"
+    },
+    {
+     "en": "But take a small open arc around the point one, zero.",
+     "zh": "但在点 (1, 0) 附近取一小段开弧。"
+    },
+    {
+     "en": "Points just above one, zero come from parameters near zero, and points just below come from parameters near two pi.",
+     "zh": "(1, 0) 上方的点来自 0 附近的参数，下方的点来自 2π 附近的参数。"
+    },
+    {
+     "en": "So the inverse tears this arc into two distant pieces. It is not continuous at one, zero, and the map is not a homeomorphism.",
+     "zh": "所以逆映射把这段弧撕成相距很远的两段：它在 (1, 0) 处不连续，这不是同胚。"
+    },
+    {
+     "en": "A homeomorphism matches open sets with open sets, so it preserves nearness. It says nothing about smoothness.",
+     "zh": "同胚把开集一一对应到开集，因而保持靠近关系；它不涉及光滑性。"
+    },
+    {
+     "en": "In this episode, a chart will be exactly a homeomorphism onto an open subset of R d.",
+     "zh": "本集中，chart 恰好就是到 ℝᵈ 某个开子集的同胚。"
+    }
+   ]
+  },
+  {
+   "id": "c02-charts-on-the-circle",
+   "chapter": "Charts",
+   "title": "Charts on the Circle",
+   "music": "definition",
+   "terms": [
+    "chart",
+    "homeomorphism",
+    "open-set",
+    "subspace-topology",
+    "compact",
+    "connected",
+    "stereographic-projection",
+    "bijection"
+   ],
+   "sentences": [
+    {
+     "en": "A small piece of the Earth fits on a flat map with nothing torn, but no single flat map covers the whole globe.",
+     "zh": "地球上的一小块区域可以毫无撕裂地画在平面地图上，但没有一张平面地图能盖住整个地球。"
+    },
+    {
+     "en": "The circle S one is the one-dimensional version of this story.",
+     "zh": "圆 S¹ 是这件事的一维版本。"
+    },
+    {
+     "en": "S one is the set of points x, y in the plane with x squared plus y squared equal to one.",
+     "zh": "S¹ 是平面上满足 x² + y² = 1 的点 (x, y) 的集合。"
+    },
+    {
+     "en": "Here is the definition. Let M be a topological space.",
+     "zh": "定义如下。设 M 是一个拓扑空间。"
+    },
+    {
+     "en": "A chart of dimension d is a pair U, phi, where U is an open subset of M,",
+     "zh": "d 维 chart 是一对 (U, φ)，其中 U 是 M 的开子集，"
+    },
+    {
+     "en": "and phi is a homeomorphism from U onto an open subset of R d.",
+     "zh": "φ 是从 U 到 ℝᵈ 某个开子集的同胚。"
+    },
+    {
+     "en": "The numbers phi of p are called the local coordinates of the point p.",
+     "zh": "φ(p) 称为点 p 的局部坐标。"
+    },
+    {
+     "en": "Let us build one. Take the upper half of the circle, where y is positive, and call it U plus.",
+     "zh": "来构造一个。取圆的上半部分（y > 0），记作 U₊。"
+    },
+    {
+     "en": "The chart phi plus simply records the x coordinate of each point.",
+     "zh": "chart φ₊ 只记录每个点的 x 坐标。"
+    },
+    {
+     "en": "Dropping each point straight down, the open upper arc lands on the open interval from minus one to one.",
+     "zh": "把每个点竖直落下，开的上半弧落在开区间 (−1, 1) 上。"
+    },
+    {
+     "en": "The inverse lifts x back to the circle: phi plus inverse of x is the point x, square root of one minus x squared.",
+     "zh": "逆映射把 x 抬回圆上：φ₊⁻¹(x) = (x, √(1 − x²))。"
+    },
+    {
+     "en": "As x slides across the interval, the lifted point slides along the arc.",
+     "zh": "x 在区间中滑动，抬起的点就沿圆弧滑动。"
+    },
+    {
+     "en": "Now let us check, one item at a time, that this really is a chart.",
+     "zh": "现在逐条检查它确实是一个 chart。"
+    },
+    {
+     "en": "First, U plus is open in S one, because it is the circle intersected with the open upper half plane.",
+     "zh": "第一，U₊ 在 S¹ 中是开集：它是圆与开上半平面的交。"
+    },
+    {
+     "en": "In the subspace topology, such an intersection is an open set of the circle.",
+     "zh": "在子空间拓扑中，这样的交就是圆上的开集。"
+    },
+    {
+     "en": "Second, phi plus is continuous, since it is the coordinate projection restricted to U plus.",
+     "zh": "第二，φ₊ 连续：它是坐标投影在 U₊ 上的限制。"
+    },
+    {
+     "en": "Third, it is injective. Suppose two points of U plus have the same x.",
+     "zh": "第三，单射。设 U₊ 中两点的 x 相同。"
+    },
+    {
+     "en": "Both heights are the positive square root of one minus x squared, so the points coincide.",
+     "zh": "两者的高度都是正根 √(1 − x²)，所以两点重合。"
+    },
+    {
+     "en": "It is also onto the interval. Take any x strictly between minus one and one.",
+     "zh": "它也满射到这个区间。任取 −1 < x < 1。"
+    },
+    {
+     "en": "The point x, square root of one minus x squared, lies in U plus and maps to x.",
+     "zh": "点 (x, √(1 − x²)) 属于 U₊，并且被映到 x。"
+    },
+    {
+     "en": "Fourth, the inverse is continuous, because the square root is continuous on the interval from zero to one.",
+     "zh": "第四，逆映射连续，因为 √ 在 (0, 1] 上连续。"
+    },
+    {
+     "en": "Finally, the image, the open interval from minus one to one, is open in R. So phi plus is a chart.",
+     "zh": "最后，像 (−1, 1) 是 ℝ 中的开集。所以 φ₊ 是一个 chart。"
+    },
+    {
+     "en": "Why insist that the domain and the image be open? Suppose we include the two endpoints.",
+     "zh": "为什么要求定义域和像是开集？假设把两个端点也算进来。"
+    },
+    {
+     "en": "On the closed upper half circle, the same projection is still injective, but its image is the closed interval from minus one to one.",
+     "zh": "在闭上半圆上，同样的投影仍是单射，但像变成闭区间 [−1, 1]。"
+    },
+    {
+     "en": "Zoom in at the point one, zero. On the circle, every small neighborhood of it contains points on both sides.",
+     "zh": "在点 (1, 0) 处放大：圆上它的每个小邻域两侧都有点。"
+    },
+    {
+     "en": "At the endpoint one of the interval, a small neighborhood only reaches to the left.",
+     "zh": "而在区间端点 1 处，小邻域只伸向左侧。"
+    },
+    {
+     "en": "The closed interval is not open, and the chart would wrongly report a boundary point on a circle that has no boundary.",
+     "zh": "闭区间不是开集；这样的 chart 会在一个没有边界的圆上误报出边界点。"
+    },
+    {
+     "en": "Being injective is not enough either. The map must be a homeomorphism, continuous in both directions.",
+     "zh": "只是单射也不够：映射必须是同胚，两个方向都连续。"
+    },
+    {
+     "en": "Recall the wrapped interval. Its inverse is a bijection, but it jumps at one, zero.",
+     "zh": "回想卷起来的区间：它的逆是双射，但在 (1, 0) 处跳变。"
+    },
+    {
+     "en": "And its image, from zero to two pi with zero included, is not open either.",
+     "zh": "而且它的像 [0, 2π) 也不是开集。"
+    },
+    {
+     "en": "Without continuity, neighboring points of the manifold could get coordinates far apart.",
+     "zh": "没有连续性，流形上相邻的点可能拿到相距很远的坐标，"
+    },
+    {
+     "en": "Then convergence on the manifold would be invisible in coordinates.",
+     "zh": "那样流形上的收敛在坐标里就看不出来。"
+    },
+    {
+     "en": "So why not one chart for the whole circle? Project the whole circle onto the x axis.",
+     "zh": "那为什么不用一个 chart 盖住整个圆？把整圆投影到 x 轴上。"
+    },
+    {
+     "en": "Every x strictly between minus one and one is claimed by two points, one above and one below. The projection is not injective.",
+     "zh": "每个 −1 < x < 1 都被上下两个点争抢，投影不是单射。"
+    },
+    {
+     "en": "In fact, no single chart can cover the circle, however clever. Let us prove it.",
+     "zh": "事实上，无论多巧妙，任何单个 chart 都盖不住圆。我们来证明。"
+    },
+    {
+     "en": "We borrow two facts from analysis, and state them without proof.",
+     "zh": "我们借用两条分析学的事实，只陈述，不证明。"
+    },
+    {
+     "en": "Fact one: a bounded closed subset of R d is compact, and the continuous image of a compact set is compact.",
+     "zh": "事实一：ℝᵈ 中有界闭集是紧集；紧集在连续映射下的像是紧集。"
+    },
+    {
+     "en": "Fact two: R d is connected, so its only subsets that are both open and closed are the empty set and R d itself.",
+     "zh": "事实二：ℝᵈ 连通，既开又闭的子集只有 ∅ 和 ℝᵈ 本身。"
+    },
+    {
+     "en": "Now suppose phi is a chart defined on the whole circle, a homeomorphism onto an open set V in R d.",
+     "zh": "现在假设 φ 是定义在整个圆上的 chart，是到 ℝᵈ 中开集 V 的同胚。"
+    },
+    {
+     "en": "A third borrowed fact, invariance of dimension, forces d to be one, but the argument below works for any d.",
+     "zh": "第三条借用的事实——维数不变性——迫使 d = 1；不过下面的论证对任意 d 都成立。"
+    },
+    {
+     "en": "The circle is bounded and closed in the plane, so it is compact, and therefore V, its continuous image, is compact.",
+     "zh": "圆在平面中有界且闭，所以是紧集；因此它的连续像 V 也是紧集。"
+    },
+    {
+     "en": "A compact subset of R d is bounded and closed. So V is closed, V is open, and V is not empty.",
+     "zh": "ℝᵈ 中的紧集有界且闭。所以 V 是闭集，又是开集，并且非空。"
+    },
+    {
+     "en": "By connectedness, V must be all of R d. But V is bounded, and R d is not. That is a contradiction.",
+     "zh": "由连通性，V 只能是整个 ℝᵈ；但 V 有界而 ℝᵈ 无界，矛盾。"
+    },
+    {
+     "en": "So every atlas of the circle needs at least two charts.",
+     "zh": "所以圆的任何图册都至少需要两个 chart。"
+    },
+    {
+     "en": "Here is one that works: four half circles.",
+     "zh": "这里有一个可行的图册：四个半圆。"
+    },
+    {
+     "en": "The upper half U plus and the lower half U minus both use the coordinate x.",
+     "zh": "上半圆 U₊ 和下半圆 U₋ 都用坐标 x。"
+    },
+    {
+     "en": "The right half U r and the left half U l both use the coordinate y.",
+     "zh": "右半圆 U_r 和左半圆 U_l 都用坐标 y。"
+    },
+    {
+     "en": "Together they cover the circle, because no point of the circle has x and y both equal to zero.",
+     "zh": "它们合起来覆盖整个圆，因为圆上没有点的 x 和 y 同时为 0。"
+    },
+    {
+     "en": "Neighboring half circles overlap on open quarter arcs.",
+     "zh": "相邻的半圆在开的四分之一圆弧上重叠。"
+    },
+    {
+     "en": "Another atlas uses stereographic projection from the north pole N, at zero, one.",
+     "zh": "另一个图册用球极投影：从北极 N = (0, 1) 出发投影。"
+    },
+    {
+     "en": "Draw the line from N through a point p of the circle, and let u be where it meets the x axis.",
+     "zh": "从 N 过圆上一点 p 画直线，它与 x 轴的交点记为 u。"
+    },
+    {
+     "en": "This gives sigma N of x, y equals x over one minus y, defined everywhere except at N.",
+     "zh": "这给出 σ_N(x, y) = x / (1 − y)，除 N 之外处处有定义。"
+    },
+    {
+     "en": "As p approaches N, the line becomes horizontal, and u runs off to infinity.",
+     "zh": "p 趋近 N 时，直线趋于水平，u 跑向无穷远。"
+    },
+    {
+     "en": "To invert it, parametrize the line through N and the point u, zero as t times u, together with one minus t.",
+     "zh": "求逆：过 N 与点 (u, 0) 的直线参数化为 (tu, 1 − t)。"
+    },
+    {
+     "en": "Substituting into the circle equation, t times the quantity t times u squared plus one, minus two, equals zero.",
+     "zh": "代入圆的方程：t(t(u² + 1) − 2) = 0。"
+    },
+    {
+     "en": "The root t equals zero is N itself, so the other root is t equals two over u squared plus one.",
+     "zh": "根 t = 0 对应 N 本身，所以另一个根是 t = 2 / (u² + 1)。"
+    },
+    {
+     "en": "Hence sigma N inverse of u is two u over u squared plus one, together with u squared minus one over u squared plus one.",
+     "zh": "因此 σ_N⁻¹(u) = (2u / (u² + 1), (u² − 1) / (u² + 1))。"
+    },
+    {
+     "en": "Checking back, one minus y equals two over u squared plus one, so x over one minus y is exactly u.",
+     "zh": "反向验证：1 − y = 2 / (u² + 1)，所以 x / (1 − y) 恰好等于 u。"
+    },
+    {
+     "en": "Projecting from the south pole instead gives sigma S equals x over one plus y, defined away from S, and the two projections together cover the circle.",
+     "zh": "改从南极投影得到 σ_S = x / (1 + y)，在 S 以外有定义；两个投影合起来覆盖整个圆。"
+    }
+   ]
+  },
+  {
+   "id": "c03-topological-manifold",
+   "chapter": "Topological manifolds",
+   "title": "Why We Also Need Hausdorff",
+   "music": "counterexample",
+   "terms": [
+    "topological-manifold",
+    "locally-euclidean",
+    "hausdorff",
+    "second-countable",
+    "line-with-two-origins",
+    "convergence",
+    "chart"
+   ],
+   "sentences": [
+    {
+     "en": "Looking like R d near every point does not stop a space from misbehaving globally.",
+     "zh": "每一点附近都像 ℝᵈ，并不能阻止空间在整体上出现病态。"
+    },
+    {
+     "en": "Charts alone are not enough to define a manifold.",
+     "zh": "仅有 chart 还不足以定义流形。"
+    },
+    {
+     "en": "A topological space M is a d-dimensional topological manifold if it satisfies three conditions.",
+     "zh": "拓扑空间 M 称为 d 维拓扑流形，若满足三个条件。"
+    },
+    {
+     "en": "First, it is locally Euclidean: every point lies in the domain of some d-dimensional chart.",
+     "zh": "一，局部欧氏：每个点都落在某个 d 维 chart 的定义域内。"
+    },
+    {
+     "en": "Second, it is Hausdorff: any two distinct points p and q have disjoint open sets, U containing p and V containing q.",
+     "zh": "二，Hausdorff：任意两个不同点 p、q，存在不相交的开集 U ∋ p、V ∋ q；"
+    },
+    {
+     "en": "Third, it is second countable: its topology has a countable basis.",
+     "zh": "三，第二可数：拓扑有一个可数的基。"
+    },
+    {
+     "en": "The circle is a one-dimensional topological manifold. The four half-circle charts make it locally Euclidean.",
+     "zh": "圆是 1 维拓扑流形：四个半圆 chart 说明它局部欧氏。"
+    },
+    {
+     "en": "It inherits the other two conditions from the plane, since every subspace of R two is Hausdorff and second countable.",
+     "zh": "另外两条继承自平面，因为 ℝ² 的子空间都是 Hausdorff 且第二可数的。"
+    },
+    {
+     "en": "Why do we need Hausdorff? Here is a space that is locally Euclidean but not Hausdorff: the line with two origins.",
+     "zh": "为什么需要 Hausdorff？这里有一个局部欧氏但不 Hausdorff 的空间：双原点直线。"
+    },
+    {
+     "en": "Take two copies of the real line, an upper copy and a lower copy.",
+     "zh": "取实直线的两份拷贝：上面一份，下面一份。"
+    },
+    {
+     "en": "Glue them at every point t except zero: t on the upper copy and t on the lower copy become the same point.",
+     "zh": "除 0 以外的每个 t 都粘合：上面的 t 和下面的 t 成为同一个点。"
+    },
+    {
+     "en": "The zeros are not glued. What remains is one line, but with two origins, zero a and zero b.",
+     "zh": "两个零点不粘合。结果是一条直线，但有两个原点 0_a 和 0_b。"
+    },
+    {
+     "en": "A set is open exactly when its part in each copy is open in R.",
+     "zh": "一个集合是开集，当且仅当它在每一份拷贝中的部分都是 ℝ 中的开集。"
+    },
+    {
+     "en": "So take any open set around zero a. It contains an interval from minus epsilon to epsilon, with its zero replaced by zero a.",
+     "zh": "所以任取 0_a 的开邻域，它包含一段 (−ε, ε)，只是其中的零点换成了 0_a。"
+    },
+    {
+     "en": "Near every point, this space still looks like the real line.",
+     "zh": "在每个点附近，这个空间仍然像实直线。"
+    },
+    {
+     "en": "The upper copy is open in this space, and reading off t is a homeomorphism from it onto R. That is a chart around zero a.",
+     "zh": "上面一份是这个空间中的开集，读出 t 给出它到 ℝ 的同胚：这是包含 0_a 的 chart。"
+    },
+    {
+     "en": "The lower copy gives a chart around zero b, and every other point lies in both charts.",
+     "zh": "下面一份给出包含 0_b 的 chart；其余每个点同时落在两个 chart 中。"
+    },
+    {
+     "en": "But the two origins cannot be separated.",
+     "zh": "但两个原点分不开。"
+    },
+    {
+     "en": "Take open sets around zero a and around zero b. The first contains some interval from zero to epsilon, the second some interval from zero to delta.",
+     "zh": "取 0_a 与 0_b 的开邻域：前者包含某段 (0, ε)，后者包含某段 (0, δ)。"
+    },
+    {
+     "en": "However small we make them, both contain the point half the smaller of epsilon and delta. They always overlap.",
+     "zh": "无论取多小，两者都包含点 min(ε, δ)/2，总是重叠。"
+    },
+    {
+     "en": "So there are no disjoint neighborhoods, and the space is not Hausdorff.",
+     "zh": "所以不存在不相交的邻域，这个空间不是 Hausdorff 的。"
+    },
+    {
+     "en": "Now watch the sequence x k equals one over k.",
+     "zh": "现在看数列 x_k = 1/k。"
+    },
+    {
+     "en": "Take any open set around zero a. It contains some interval from zero to epsilon, and once k is larger than one over epsilon, x k lies inside.",
+     "zh": "任取 0_a 的开邻域，它包含某段 (0, ε)；当 k > 1/ε 时，x_k 落在其中。"
+    },
+    {
+     "en": "So x k converges to zero a. By the same argument, x k also converges to zero b.",
+     "zh": "所以 x_k → 0_a。同样的论证说明 x_k → 0_b。"
+    },
+    {
+     "en": "One sequence, two limits. For an optimization algorithm, the question of where the iterates converge would have no unique answer.",
+     "zh": "一个数列，两个极限。对优化算法而言，“迭代收敛到哪里”就没有唯一答案。"
+    },
+    {
+     "en": "Worse, continuous functions cannot even tell the two limits apart.",
+     "zh": "更糟的是，连续函数甚至无法区分这两个极限。"
+    },
+    {
+     "en": "For any continuous f on this space, f of zero a equals the limit of f of one over k, which equals f of zero b.",
+     "zh": "对这个空间上任意连续函数 f，f(0_a) = lim f(1/k) = f(0_b)。"
+    },
+    {
+     "en": "Both equalities hold because continuous maps send convergent sequences to convergent sequences, and limits in R are unique.",
+     "zh": "两个等号成立，是因为连续映射把收敛数列映成收敛数列，而 ℝ 中的极限唯一。"
+    },
+    {
+     "en": "In a Hausdorff space this cannot happen. Claim: if x k converges to x and also to y, then x equals y.",
+     "zh": "在 Hausdorff 空间里这不会发生。命题：若 x_k → x 且 x_k → y，则 x = y。"
+    },
+    {
+     "en": "Suppose x and y are different. By the Hausdorff property, there are disjoint open sets, U containing x and V containing y.",
+     "zh": "反设 x ≠ y。由 Hausdorff 性质，存在不相交的开集 U ∋ x、V ∋ y。"
+    },
+    {
+     "en": "Since x k converges to x, there is an index K one such that x k lies in U for all k at least K one.",
+     "zh": "由 x_k → x，存在 K₁，使得 k ≥ K₁ 时 x_k ∈ U。"
+    },
+    {
+     "en": "Since x k converges to y, there is an index K two such that x k lies in V for all k at least K two.",
+     "zh": "由 x_k → y，存在 K₂，使得 k ≥ K₂ 时 x_k ∈ V。"
+    },
+    {
+     "en": "Take k equal to the larger of K one and K two. Then x k lies in both U and V, but their intersection is empty. Contradiction.",
+     "zh": "取 k = max(K₁, K₂)，则 x_k 同时属于 U 和 V，但 U ∩ V = ∅，矛盾。"
+    },
+    {
+     "en": "So limits are unique, and the line with two origins fails exactly at the first step: the disjoint open sets do not exist.",
+     "zh": "所以极限唯一。双原点直线恰好在第一步失败：不相交的开集不存在。"
+    },
+    {
+     "en": "The third condition, second countability, rules out spaces that are too large.",
+     "zh": "第三个条件，第二可数，排除了“过大”的空间。"
+    },
+    {
+     "en": "For example, take uncountably many disjoint copies of the real line. It is locally Euclidean and Hausdorff, but it has no countable basis.",
+     "zh": "例如不可数多条实直线的不交并：它局部欧氏、Hausdorff，但没有可数的基。"
+    },
+    {
+     "en": "This condition is technical, and this course does not develop it. It is used later, for example when a Riemannian metric is built on a manifold.",
+     "zh": "这是技术性条件，本课程不展开；后面会用到它，例如在流形上构造黎曼度量。"
+    },
+    {
+     "en": "So a topological manifold is locally Euclidean, Hausdorff, and second countable.",
+     "zh": "所以拓扑流形是局部欧氏、Hausdorff、第二可数的空间。"
+    }
+   ]
+  },
+  {
+   "id": "c04-transition-maps",
+   "chapter": "Transition maps",
+   "title": "Two Coordinates for One Point",
+   "music": "definition",
+   "terms": [
+    "transition-map",
+    "chart",
+    "stereographic-projection",
+    "open-set"
+   ],
+   "sentences": [
+    {
+     "en": "Two maps of the same city give one building two different coordinates, and there is a formula to convert between them.",
+     "zh": "同一座城市的两张地图，给同一栋楼不同的坐标，两者之间有一个换算公式。"
+    },
+    {
+     "en": "On a manifold, a point usually lies in several charts at once.",
+     "zh": "在流形上，一个点通常同时落在好几个 chart 里。"
+    },
+    {
+     "en": "Take the upper half circle U plus, with coordinate x, and the right half circle U r, with coordinate y.",
+     "zh": "取上半圆 U₊，坐标为 x；以及右半圆 U_r，坐标为 y。"
+    },
+    {
+     "en": "They overlap on the open quarter arc in the first quadrant, where x and y are both positive.",
+     "zh": "它们在第一象限的开四分之一圆弧上重叠，那里 x、y 都为正。"
+    },
+    {
+     "en": "Pick a point p in the overlap, say p equals zero point six, zero point eight.",
+     "zh": "在重叠区取一点 p，比如 p = (0.6, 0.8)。"
+    },
+    {
+     "en": "The first chart gives p the number zero point six. The second gives it zero point eight.",
+     "zh": "第一个 chart 给 p 的数是 0.6，第二个给的是 0.8。"
+    },
+    {
+     "en": "Converting one coordinate into the other is called a transition map.",
+     "zh": "把一个坐标换算成另一个坐标，叫做转移映射。"
+    },
+    {
+     "en": "In general, for charts U, phi and V, psi with overlapping domains, the transition map is psi composed with phi inverse,",
+     "zh": "一般地，对定义域相交的两个 chart (U, φ)、(V, ψ)，转移映射是 ψ∘φ⁻¹，"
+    },
+    {
+     "en": "going from phi of U intersect V, to psi of U intersect V.",
+     "zh": "从 φ(U ∩ V) 映到 ψ(U ∩ V)。"
+    },
+    {
+     "en": "A homeomorphism carries the open set U intersect V to an open set, so both of these are open subsets of R d.",
+     "zh": "同胚把开集 U ∩ V 映成开集，所以这两个集合都是 ℝᵈ 的开子集。"
+    },
+    {
+     "en": "So a transition map is an ordinary map between open sets of R d, and ordinary calculus applies to it.",
+     "zh": "所以转移映射是 ℝᵈ 开集之间的普通映射，可以直接用普通的微积分。"
+    },
+    {
+     "en": "Let us compute it for our two half circles.",
+     "zh": "来计算两个半圆之间的转移映射。"
+    },
+    {
+     "en": "Points of U plus have x between minus one and one, and the overlap adds the condition that x is positive.",
+     "zh": "U₊ 中的点满足 −1 < x < 1，重叠区再加上条件 x > 0。"
+    },
+    {
+     "en": "So phi plus maps the overlap onto the interval from zero to one. By the same reasoning, so does phi r.",
+     "zh": "所以 φ₊ 把重叠区映满 (0, 1)；同理，φ_r 也是。"
+    },
+    {
+     "en": "Now take x in that interval. Phi plus inverse lifts it to the point x, square root of one minus x squared.",
+     "zh": "取该区间中的 x，φ₊⁻¹ 把它抬到点 (x, √(1 − x²))。"
+    },
+    {
+     "en": "Phi r reads off the y coordinate, so the transition map sends x to the square root of one minus x squared.",
+     "zh": "φ_r 读出 y 坐标，所以转移映射把 x 送到 √(1 − x²)。"
+    },
+    {
+     "en": "As p slides along the overlap, its pair of coordinates traces out this curve.",
+     "zh": "p 沿重叠弧滑动时，它的两个坐标描出这条曲线。"
+    },
+    {
+     "en": "Is it smooth? On the open interval, one minus x squared is positive, and the square root is infinitely differentiable on the positive reals.",
+     "zh": "它光滑吗？在开区间上 1 − x² > 0，而 √ 在 (0, ∞) 上无穷次可微。"
+    },
+    {
+     "en": "So the composition is smooth, with derivative minus x over the square root of one minus x squared.",
+     "zh": "所以复合映射光滑，导数为 −x / √(1 − x²)。"
+    },
+    {
+     "en": "The inverse transition map, from y back to x, is the square root of one minus y squared, smooth by the same argument.",
+     "zh": "反方向的转移映射，从 y 回到 x，是 √(1 − y²)，同理光滑。"
+    },
+    {
+     "en": "Notice what happens near x equals one. The slope blows up, and the tangent line turns vertical.",
+     "zh": "注意 x 接近 1 时：斜率发散，切线变得竖直。"
+    },
+    {
+     "en": "But x equals one is not in the domain. The overlap is open, so its endpoints are excluded.",
+     "zh": "但 x = 1 不在定义域中：重叠区是开集，端点不包含在内。"
+    },
+    {
+     "en": "If we allowed the closure of the overlap, the transition map would fail to be differentiable at its endpoint. Openness protects smoothness.",
+     "zh": "如果允许重叠区的闭包，转移映射在端点处就不可微。开集这一要求保护了光滑性。"
+    },
+    {
+     "en": "Now the stereographic charts.",
+     "zh": "再看球极投影的两个 chart。"
+    },
+    {
+     "en": "A point p, away from both poles, projects from N to u, and from S to v.",
+     "zh": "不在两极的点 p，从 N 投影得到 u，从 S 投影得到 v。"
+    },
+    {
+     "en": "The two charts overlap on the circle without N and S, and sigma N maps that overlap onto the real line without zero.",
+     "zh": "两个 chart 的重叠区是 S¹ 去掉 N、S；σ_N 把它映满 ℝ∖{0}。"
+    },
+    {
+     "en": "Earlier we found that sigma N inverse of u is two u over u squared plus one, together with u squared minus one over u squared plus one.",
+     "zh": "前面已求得 σ_N⁻¹(u) = (2u / (u² + 1), (u² − 1) / (u² + 1))。"
+    },
+    {
+     "en": "For nonzero u this point is not S, so we may apply sigma S, which divides x by one plus y.",
+     "zh": "u ≠ 0 时这个点不是 S，所以可以作用 σ_S：用 x 除以 1 + y。"
+    },
+    {
+     "en": "Here one plus y equals two u squared over u squared plus one.",
+     "zh": "这里 1 + y = 2u² / (u² + 1)。"
+    },
+    {
+     "en": "Dividing, the factors u squared plus one cancel, and two u over two u squared leaves one over u.",
+     "zh": "相除后 u² + 1 约去，2u / 2u² 剩下 1/u。"
+    },
+    {
+     "en": "So the transition map is u maps to one over u, smooth on the real line without zero, and it is its own inverse.",
+     "zh": "所以转移映射是 u ↦ 1/u，在 ℝ∖{0} 上光滑，并且是它自身的逆。"
+    },
+    {
+     "en": "Transition maps are ordinary functions between open sets of R d. Next we ask what goes wrong when they are not smooth.",
+     "zh": "转移映射是 ℝᵈ 开集之间的普通函数。下一章问：如果它们不光滑，会出什么问题？"
+    }
+   ]
+  },
+  {
+   "id": "c05-why-compatibility",
+   "chapter": "Smooth atlases",
+   "title": "Why Charts Must Be Smoothly Compatible",
+   "music": "counterexample",
+   "terms": [
+    "smooth-compatibility",
+    "smooth-atlas",
+    "maximal-atlas",
+    "smooth-manifold",
+    "transition-map",
+    "homeomorphism"
+   ],
+   "sentences": [
+    {
+     "en": "We would like to say that a function on a manifold is smooth when it looks smooth in coordinates.",
+     "zh": "我们希望这样定义：流形上的函数光滑，就是它在坐标里看起来光滑。"
+    },
+    {
+     "en": "But there are many coordinate systems. If converting between two of them is not smooth, they can disagree.",
+     "zh": "但坐标系不止一套。如果两套坐标之间的换算不光滑，它们就可能给出不同的结论。"
+    },
+    {
+     "en": "Here is the simplest example. The manifold is the real line, with its usual topology.",
+     "zh": "最简单的例子：流形就是实直线，取通常的拓扑。"
+    },
+    {
+     "en": "The first chart is the identity: the point p gets the coordinate x equals p.",
+     "zh": "第一个 chart 是恒等映射：点 p 的坐标是 x = p。"
+    },
+    {
+     "en": "The second chart, kappa, gives p the coordinate u equals p cubed.",
+     "zh": "第二个 chart κ 给 p 的坐标是 u = p³。"
+    },
+    {
+     "en": "Evenly spaced points keep their spacing in the first chart, but in the second they bunch up near zero and spread out far away.",
+     "zh": "等距的点在第一个 chart 里保持等距；在第二个里，它们在 0 附近挤在一起，远处则拉开。"
+    },
+    {
+     "en": "Both charts are homeomorphisms.",
+     "zh": "两个 chart 都是同胚。"
+    },
+    {
+     "en": "The identity clearly is. And p cubed is strictly increasing and onto, so it is a continuous bijection.",
+     "zh": "恒等映射显然是。p³ 严格递增且满射，所以是连续双射；"
+    },
+    {
+     "en": "Its inverse, the real cube root, is continuous too.",
+     "zh": "它的逆，实立方根，也连续。"
+    },
+    {
+     "en": "Now take the function f of p equals p.",
+     "zh": "现在取函数 f(p) = p。"
+    },
+    {
+     "en": "In the first chart, its coordinate expression, f after identity inverse, is x itself: a straight line, perfectly smooth.",
+     "zh": "在第一个 chart 中，坐标表示 f∘id⁻¹(x) = x：一条直线，完全光滑。"
+    },
+    {
+     "en": "In the second chart, the coordinate expression, f after kappa inverse, is the cube root of u.",
+     "zh": "在第二个 chart 中，坐标表示 f∘κ⁻¹(u) 是 u 的立方根。"
+    },
+    {
+     "en": "At u equals zero, this curve stands vertical.",
+     "zh": "在 u = 0 处，这条曲线竖直。"
+    },
+    {
+     "en": "The difference quotient, the cube root of h divided by h, equals h to the minus two thirds, and it grows without bound as h goes to zero.",
+     "zh": "差商 h^(1/3) / h = h^(−2/3)，当 h → 0 时无界增大。"
+    },
+    {
+     "en": "At h equals zero point one, it is about four point six. At zero point zero one, about twenty one point five. At zero point zero zero one, one hundred.",
+     "zh": "h = 0.1 时约为 4.6，h = 0.01 时约为 21.5，h = 0.001 时为 100。"
+    },
+    {
+     "en": "So in the second chart, f is not even differentiable at zero.",
+     "zh": "所以在第二个 chart 中，f 在 0 处甚至不可微。"
+    },
+    {
+     "en": "The same function is smooth in one chart and not smooth in the other. Which answer is right?",
+     "zh": "同一个函数，在一个 chart 中光滑，在另一个中不光滑。哪个答案对？"
+    },
+    {
+     "en": "The trouble lies in the conversion between the two charts.",
+     "zh": "毛病出在两个 chart 之间的换算上。"
+    },
+    {
+     "en": "Kappa after identity inverse sends x to x cubed, which is smooth.",
+     "zh": "κ∘id⁻¹ 把 x 送到 x³，是光滑的。"
+    },
+    {
+     "en": "But identity after kappa inverse sends u to the cube root of u, which is not.",
+     "zh": "但 id∘κ⁻¹ 把 u 送到 u 的立方根，不光滑。"
+    },
+    {
+     "en": "Two charts are called smoothly compatible if their domains do not meet, or if both transition maps are infinitely differentiable.",
+     "zh": "两个 chart 称为光滑相容，若它们的定义域不相交，或者两个方向的转移映射都是 C∞。"
+    },
+    {
+     "en": "Equivalently, the transition map is a diffeomorphism between open subsets of R d.",
+     "zh": "等价地说，转移映射是 ℝᵈ 开子集之间的微分同胚。"
+    },
+    {
+     "en": "The identity and kappa fail this test, and that failure is exactly what made the verdict on f ambiguous.",
+     "zh": "恒等映射与 κ 通不过这个检验，正是这一点让 f 的判定产生歧义。"
+    },
+    {
+     "en": "A smooth atlas is a collection of charts whose domains cover M, any two of which are smoothly compatible.",
+     "zh": "光滑图册是一族 chart：定义域覆盖 M，且两两光滑相容。"
+    },
+    {
+     "en": "The four half circles form a smooth atlas on the circle. So do the two stereographic projections.",
+     "zh": "四个半圆构成圆上的光滑图册，两个球极投影也是。"
+    },
+    {
+     "en": "Moreover, every half-circle chart is compatible with every stereographic chart, so together they still form one smooth atlas.",
+     "zh": "而且每个半圆 chart 都与每个球极投影 chart 相容，所以合起来仍是一个光滑图册。"
+    },
+    {
+     "en": "But they are different sets of charts.",
+     "zh": "但它们是不同的 chart 集合。"
+    },
+    {
+     "en": "If a smooth manifold were a space plus one particular atlas, the same circle would count as two different manifolds.",
+     "zh": "若光滑流形定义为“空间 + 某个具体图册”，同一个圆就成了两个不同的流形。"
+    },
+    {
+     "en": "The fix is the maximal atlas: a smooth atlas that cannot be enlarged by any chart compatible with all of its charts.",
+     "zh": "解决办法是极大图册：一个光滑图册，不能再加入任何与其全部 chart 相容的新 chart。"
+    },
+    {
+     "en": "A maximal atlas is also called a smooth structure, and a smooth manifold is a topological manifold together with a smooth structure.",
+     "zh": "极大图册也叫光滑结构；光滑流形就是拓扑流形加上一个光滑结构。"
+    },
+    {
+     "en": "Claim: every smooth atlas lies in exactly one maximal atlas.",
+     "zh": "命题：每个光滑图册都包含在唯一的极大图册中。"
+    },
+    {
+     "en": "Call the given atlas script A. Let A-bar be the set of all charts compatible with every chart of script A.",
+     "zh": "设给定图册为 A。令 Ā 为与 A 中每个 chart 都相容的全部 chart。"
+    },
+    {
+     "en": "Clearly, A-bar contains script A.",
+     "zh": "显然 A ⊆ Ā。"
+    },
+    {
+     "en": "Step two: any two charts of A-bar are compatible with each other. Take U one, phi one and U two, phi two in A-bar.",
+     "zh": "第二步：Ā 中任意两个 chart 互相相容。取 (U₁, φ₁)、(U₂, φ₂) ∈ Ā。"
+    },
+    {
+     "en": "Pick x in phi one of U one intersect U two, and let p be phi one inverse of x.",
+     "zh": "取 x ∈ φ₁(U₁ ∩ U₂)，令 p = φ₁⁻¹(x)。"
+    },
+    {
+     "en": "Choose a chart W, theta of the original atlas that contains p.",
+     "zh": "在原图册中取一个包含 p 的 chart (W, θ)。"
+    },
+    {
+     "en": "On the open set phi one of U one intersect U two intersect W, which contains x, the transition map can pass through the theta coordinates.",
+     "zh": "在包含 x 的开集 φ₁(U₁ ∩ U₂ ∩ W) 上，转移映射可以经过 θ 坐标中转。"
+    },
+    {
+     "en": "Phi two after phi one inverse equals phi two after theta inverse, composed with theta after phi one inverse.",
+     "zh": "φ₂∘φ₁⁻¹ = (φ₂∘θ⁻¹)∘(θ∘φ₁⁻¹)。"
+    },
+    {
+     "en": "Both factors are smooth, because both charts of A-bar are compatible with theta. So the composition is smooth near x.",
+     "zh": "两个因子都光滑，因为 Ā 中的两个 chart 都与 θ 相容。所以复合在 x 附近光滑。"
+    },
+    {
+     "en": "Smoothness is a local property and x was arbitrary, so the transition map is smooth on its whole domain. The reverse direction is the same.",
+     "zh": "光滑是局部性质，x 任意，所以转移映射在整个定义域上光滑；反方向同理。"
+    },
+    {
+     "en": "Step three, maximality: a chart compatible with everything in A-bar is in particular compatible with script A, so it already lies in A-bar.",
+     "zh": "第三步，极大性：与 Ā 中所有 chart 相容的 chart，特别地与 A 相容，所以已经在 Ā 中。"
+    },
+    {
+     "en": "Step four, uniqueness: any maximal atlas B containing script A consists of charts compatible with script A, so B lies inside A-bar.",
+     "zh": "第四步，唯一性：任何包含 A 的极大图册 B 由与 A 相容的 chart 组成，所以 B ⊆ Ā。"
+    },
+    {
+     "en": "A-bar is a smooth atlas containing B, so by the maximality of B, the two are equal.",
+     "zh": "Ā 是包含 B 的光滑图册，由 B 的极大性，两者相等。"
+    },
+    {
+     "en": "So the half circles and the stereographic charts determine the same smooth structure on the circle.",
+     "zh": "所以半圆图册与球极投影图册决定圆上同一个光滑结构。"
+    },
+    {
+     "en": "On the other hand, the single chart kappa is a smooth atlas on the real line by itself.",
+     "zh": "另一方面，单个 chart κ 自己就是 ℝ 上的一个光滑图册。"
+    },
+    {
+     "en": "It determines a different smooth structure from the identity, since the two are not compatible.",
+     "zh": "它与恒等映射不相容，所以决定一个不同的光滑结构。"
+    },
+    {
+     "en": "A smooth structure is extra data, chosen on top of the topology.",
+     "zh": "光滑结构是在拓扑之上额外选择的数据。"
+    }
+   ]
+  },
+  {
+   "id": "c06-smooth-maps",
+   "chapter": "Smooth maps",
+   "title": "Smooth Maps Do Not Depend on the Charts",
+   "music": "proof",
+   "terms": [
+    "smooth-map",
+    "coordinate-representation",
+    "smooth-compatibility",
+    "continuity",
+    "chain-rule",
+    "transition-map"
+   ],
+   "sentences": [
+    {
+     "en": "With a smooth structure in hand, we can define smooth maps between manifolds.",
+     "zh": "有了光滑结构，就可以定义流形之间的光滑映射。"
+    },
+    {
+     "en": "The idea: move the map into coordinates, and judge smoothness there.",
+     "zh": "思路：把映射搬进坐标里，在坐标里判断光滑性。"
+    },
+    {
+     "en": "Let M and N be smooth manifolds of dimensions m and n, and let F from M to N be continuous.",
+     "zh": "设 M、N 分别是 m 维、n 维光滑流形，F : M → N 连续。"
+    },
+    {
+     "en": "F is smooth if for every point p there are charts U, phi around p and V, psi around F of p, with F of U inside V,",
+     "zh": "称 F 光滑，若对每个 p，有 chart (U, φ) ∋ p、(V, ψ) ∋ F(p)，且 F(U) ⊆ V，"
+    },
+    {
+     "en": "such that the coordinate representation, F hat equals psi after F after phi inverse, is infinitely differentiable from phi of U to psi of V.",
+     "zh": "并且坐标表示 F̂ = ψ∘F∘φ⁻¹ : φ(U) → ψ(V) 是 C∞ 的。"
+    },
+    {
+     "en": "Why assume F continuous? Given a chart V around F of p, we can shrink U to U intersect F inverse of V.",
+     "zh": "为什么要求 F 连续？给定 F(p) 附近的 chart V，可以把 U 缩小为 U ∩ F⁻¹(V)。"
+    },
+    {
+     "en": "Continuity makes this set open, so the condition F of U inside V can always be arranged.",
+     "zh": "连续性保证它仍是开集，所以条件 F(U) ⊆ V 总能满足。"
+    },
+    {
+     "en": "But the definition picks one pair of charts. What if we choose another pair?",
+     "zh": "但定义只挑了一对 chart。换一对 chart 呢？"
+    },
+    {
+     "en": "We must prove that the answer does not depend on that choice.",
+     "zh": "我们必须证明，结论与这个选择无关。"
+    },
+    {
+     "en": "Suppose F is smooth near p with respect to U, phi and V, psi.",
+     "zh": "设 F 在 p 附近关于 (U, φ)、(V, ψ) 光滑。"
+    },
+    {
+     "en": "Take any other charts U prime, phi prime around p, and V prime, psi prime around F of p.",
+     "zh": "另取任意 chart (U′, φ′) ∋ p 和 (V′, ψ′) ∋ F(p)。"
+    },
+    {
+     "en": "Step one, a common domain. Let W be U intersect U prime, intersect F inverse of V intersect V prime.",
+     "zh": "第一步，公共定义域。令 W = U ∩ U′ ∩ F⁻¹(V ∩ V′)。"
+    },
+    {
+     "en": "U intersect U prime is open. F is continuous and V intersect V prime is open, so its preimage is open. Hence W is an open set containing p.",
+     "zh": "U ∩ U′ 是开集；F 连续而 V ∩ V′ 是开集，所以其原像是开集。因此 W 是包含 p 的开集。"
+    },
+    {
+     "en": "So phi prime of W is an open subset of R m containing phi prime of p.",
+     "zh": "于是 φ′(W) 是 ℝᵐ 中包含 φ′(p) 的开集。"
+    },
+    {
+     "en": "Step two, split the new representation.",
+     "zh": "第二步，拆分新的坐标表示。"
+    },
+    {
+     "en": "For x in phi prime of W, the point phi prime inverse of x lies in U, so we may insert phi inverse after phi, which is the identity on U.",
+     "zh": "对 x ∈ φ′(W)，点 φ′⁻¹(x) 属于 U，所以可以插入 φ⁻¹∘φ，它是 U 上的恒等映射。"
+    },
+    {
+     "en": "Its image under F lies in V, so we may also insert psi inverse after psi, the identity on V.",
+     "zh": "它在 F 下的像属于 V，所以还可以插入 ψ⁻¹∘ψ，即 V 上的恒等映射。"
+    },
+    {
+     "en": "This gives: psi prime after F after phi prime inverse equals psi prime after psi inverse, then F hat, then phi after phi prime inverse.",
+     "zh": "于是 ψ′∘F∘φ′⁻¹ = (ψ′∘ψ⁻¹)∘F̂∘(φ∘φ′⁻¹)。"
+    },
+    {
+     "en": "Step three, each piece is smooth.",
+     "zh": "第三步，每一段都光滑。"
+    },
+    {
+     "en": "Phi after phi prime inverse is a transition map between charts of the maximal atlas of M, so it is smooth by compatibility.",
+     "zh": "φ∘φ′⁻¹ 是 M 的极大图册中两个 chart 之间的转移映射，由相容性是光滑的。"
+    },
+    {
+     "en": "The middle piece, psi after F after phi inverse, is smooth by assumption.",
+     "zh": "中间一段 ψ∘F∘φ⁻¹ 按假设光滑。"
+    },
+    {
+     "en": "Psi prime after psi inverse is a transition map between charts of N, smooth again by compatibility.",
+     "zh": "ψ′∘ψ⁻¹ 是 N 的两个 chart 之间的转移映射，同样由相容性光滑。"
+    },
+    {
+     "en": "Step four: a composition of smooth maps between open subsets of Euclidean space is smooth, by the chain rule applied at every order.",
+     "zh": "第四步：欧氏空间开集之间光滑映射的复合仍光滑，这由逐阶使用链式法则得到。"
+    },
+    {
+     "en": "So the new coordinate representation is smooth near phi prime of p. Smoothness does not depend on the charts.",
+     "zh": "所以新的坐标表示在 φ′(p) 附近光滑。光滑性与 chart 的选择无关。"
+    },
+    {
+     "en": "The same argument shows that a composition of smooth maps is smooth.",
+     "zh": "同样的论证说明光滑映射的复合仍光滑："
+    },
+    {
+     "en": "The representation of G after F is the representation of G, composed with the representation of F.",
+     "zh": "G∘F 的坐标表示就是 G 的坐标表示与 F 的坐标表示的复合。"
+    },
+    {
+     "en": "Now see where the proof needs each hypothesis.",
+     "zh": "现在看证明在哪里用到了每个条件。"
+    },
+    {
+     "en": "If the charts were not compatible, a transition piece could fail to be smooth, and the chain would break right there.",
+     "zh": "如果 chart 不相容，某段转移映射可能不光滑，链条就在那里断开。"
+    },
+    {
+     "en": "Back on the real line, switch the chart from the identity to kappa.",
+     "zh": "回到实直线：把 chart 从恒等映射换成 κ。"
+    },
+    {
+     "en": "Then the transition piece, identity after kappa inverse, is the cube root. That is the broken link.",
+     "zh": "这时转移段 id∘κ⁻¹ 就是立方根，正是断开的那一环。"
+    },
+    {
+     "en": "Then the same function f of p equals p flips from smooth to not smooth.",
+     "zh": "于是同一个 f(p) = p 的判定从“光滑”翻转为“不光滑”。"
+    },
+    {
+     "en": "And if F were not continuous, the preimage of V intersect V prime might not be open.",
+     "zh": "若 F 不连续，V ∩ V′ 的原像可能不是开集。"
+    },
+    {
+     "en": "Then W would not be open, and smoothness near phi prime of p would make no sense.",
+     "zh": "那样 W 就不是开集，“在 φ′(p) 附近光滑”无从谈起。"
+    },
+    {
+     "en": "Finally, an example: the height function on the circle, F of x, y equals y, with values in R and the identity chart.",
+     "zh": "最后看一个例子：圆上的高度函数 F(x, y) = y，取值于 ℝ，ℝ 用恒等 chart。"
+    },
+    {
+     "en": "In the chart phi plus, F hat of x is the square root of one minus x squared, for x between minus one and one. That is smooth.",
+     "zh": "在 chart φ₊ 下，F̂(x) = √(1 − x²)，−1 < x < 1，光滑。"
+    },
+    {
+     "en": "In the chart phi r, the point with coordinate y has height y, so F hat of y is just y. That is also smooth.",
+     "zh": "在 chart φ_r 下，坐标为 y 的点高度就是 y，所以 F̂(y) = y，也光滑。"
+    },
+    {
+     "en": "On the overlap, the two charts give the same verdict, as the theorem promised.",
+     "zh": "在重叠区上，两个 chart 给出相同的结论，正如定理所保证的。"
+    },
+    {
+     "en": "In Riemannian optimization, the objective f from M to R is exactly such a smooth map, and this is what smooth means for it.",
+     "zh": "在黎曼优化中，目标函数 f : M → ℝ 正是这样的光滑映射，“f 光滑”指的就是这个意思。"
+    }
+   ]
+  },
+  {
+   "id": "c07-diffeomorphism",
+   "chapter": "Diffeomorphisms",
+   "title": "A Stronger Kind of Sameness",
+   "music": "counterexample",
+   "terms": [
+    "diffeomorphism",
+    "homeomorphism",
+    "smooth-map",
+    "chain-rule",
+    "inverse-function-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "A homeomorphism is sameness in the topological sense. What is sameness in the smooth sense?",
+     "zh": "同胚是拓扑意义下的“相同”。光滑意义下的“相同”是什么？"
+    },
+    {
+     "en": "A homeomorphism may crumple a space, as long as nothing is torn or glued.",
+     "zh": "同胚可以把空间揉皱，只要不撕裂、不粘连。"
+    },
+    {
+     "en": "A diffeomorphism must also be smooth in both directions, with no creases or cusps.",
+     "zh": "微分同胚还要求两个方向都光滑，不能有折痕或尖点。"
+    },
+    {
+     "en": "Definition: F from M to N is a diffeomorphism if F is a bijection, F is smooth, and F inverse is smooth.",
+     "zh": "定义：F : M → N 是微分同胚，若 F 是双射、F 光滑、并且 F⁻¹ 光滑。"
+    },
+    {
+     "en": "Consider F of x equals x cubed, on the real line with its standard smooth structure.",
+     "zh": "考虑 F(x) = x³，实直线取标准光滑结构。"
+    },
+    {
+     "en": "F is a polynomial, so it is smooth.",
+     "zh": "F 是多项式，所以光滑。"
+    },
+    {
+     "en": "It is strictly increasing: if x one is less than x two, then x one cubed is less than x two cubed. So it is injective.",
+     "zh": "它严格递增：若 x₁ < x₂，则 x₁³ < x₂³。所以是单射。"
+    },
+    {
+     "en": "It is onto: F is continuous and runs from minus infinity to plus infinity, so by the intermediate value theorem it takes every value.",
+     "zh": "它是满射：F 连续，从 −∞ 增到 +∞，由介值定理取遍所有值。"
+    },
+    {
+     "en": "Evenly spaced inputs land bunched together near zero.",
+     "zh": "等距的输入，在 0 附近被挤到一起。"
+    },
+    {
+     "en": "Its inverse is the cube root, obtained by reflecting the graph across the line y equals x.",
+     "zh": "它的逆是立方根，把图像关于直线 y = x 翻折得到。"
+    },
+    {
+     "en": "The cube root is continuous, so F is a homeomorphism.",
+     "zh": "立方根连续，所以 F 是同胚。"
+    },
+    {
+     "en": "But look at the inverse at zero.",
+     "zh": "但看逆映射在 0 处的情形。"
+    },
+    {
+     "en": "The difference quotient, F inverse of h minus F inverse of zero, over h, equals h to the minus two thirds.",
+     "zh": "差商 (F⁻¹(h) − F⁻¹(0)) / h = h^(−2/3)。"
+    },
+    {
+     "en": "At h equals zero point one, it is four point six. At zero point zero one, twenty one point five. At zero point zero zero one, one hundred.",
+     "zh": "h = 0.1 时为 4.6，h = 0.01 时为 21.5，h = 0.001 时为 100，发散。"
+    },
+    {
+     "en": "So F inverse is not differentiable at zero, and F is a smooth bijection that is not a diffeomorphism.",
+     "zh": "所以 F⁻¹ 在 0 处不可微；F 是光滑双射，却不是微分同胚。"
+    },
+    {
+     "en": "The root cause is the derivative of F at zero, which is zero.",
+     "zh": "根源在于 F 在 0 处的导数为零。"
+    },
+    {
+     "en": "A small segment of length two epsilon around zero is squashed to length two epsilon cubed. One direction is flattened.",
+     "zh": "0 附近长度为 2ε 的小线段被压成长度 2ε³，一个方向被压扁了。"
+    },
+    {
+     "en": "Any inverse would have to stretch it back infinitely fast.",
+     "zh": "任何逆映射都必须以无限快的速率把它拉回去。"
+    },
+    {
+     "en": "In general, suppose F is a diffeomorphism, and differentiate the identity F inverse after F equals the identity map.",
+     "zh": "一般地，设 F 是微分同胚，对恒等式 F⁻¹∘F = id 求导。"
+    },
+    {
+     "en": "The chain rule gives: the derivative of F inverse at F of x, times F prime of x, equals one.",
+     "zh": "由链式法则：(F⁻¹)′(F(x)) · F′(x) = 1。"
+    },
+    {
+     "en": "So F prime of x can never be zero. For x cubed, this necessary condition fails at zero.",
+     "zh": "所以 F′(x) 永远不能为零。对 x³，这个必要条件在 0 处不满足。"
+    },
+    {
+     "en": "The inverse function theorem in the next episode shows that a nonzero derivative is also sufficient, locally.",
+     "zh": "下一集的反函数定理将说明：导数非零在局部上也是充分的。"
+    },
+    {
+     "en": "Now a positive example, which answers a question from the compatibility chapter.",
+     "zh": "再看一个正面的例子，它回答了相容性一章留下的问题。"
+    },
+    {
+     "en": "Give the domain the smooth structure of the chart kappa, give the target the structure of the identity, and consider the same map, p cubed.",
+     "zh": "定义域取 chart κ 的光滑结构，目标取恒等 chart 的结构，考虑同一个映射 p³。"
+    },
+    {
+     "en": "Its coordinate representation is identity after kappa after kappa inverse, which sends u to u.",
+     "zh": "它的坐标表示是 id∘κ∘κ⁻¹，把 u 送到 u。"
+    },
+    {
+     "en": "Its inverse has the representation kappa after kappa inverse after identity inverse, which sends x to x.",
+     "zh": "它的逆的坐标表示是 κ∘κ⁻¹∘id⁻¹，把 x 送到 x。"
+    },
+    {
+     "en": "Both are smooth, so this map is a diffeomorphism. The two smooth structures are different, but as smooth manifolds they are essentially the same.",
+     "zh": "两者都光滑，所以这是微分同胚。两个光滑结构不同，但作为光滑流形本质相同。"
+    },
+    {
+     "en": "Diffeomorphisms are exactly the changes of variables that preserve smoothness.",
+     "zh": "微分同胚恰好是保持光滑性的变量替换。"
+    },
+    {
+     "en": "If F from M to N is a diffeomorphism and f on N is smooth, then f after F is smooth, as a composition of smooth maps.",
+     "zh": "若 F : M → N 是微分同胚，f 在 N 上光滑，则 f∘F 光滑，因为它是光滑映射的复合。"
+    },
+    {
+     "en": "Conversely, if f after F is smooth, then f equals f after F, after F inverse, which is smooth too.",
+     "zh": "反之，若 f∘F 光滑，则 f = (f∘F)∘F⁻¹ 也光滑。"
+    },
+    {
+     "en": "So changing the variables of an optimization problem by a diffeomorphism keeps smoothness intact.",
+     "zh": "所以用微分同胚对优化问题重新参数化，光滑性完整保留。"
+    },
+    {
+     "en": "Let us fill in the dictionary between the topological world and the smooth world.",
+     "zh": "来填写拓扑世界与光滑世界之间的对照表。"
+    },
+    {
+     "en": "Homeomorphisms correspond to diffeomorphisms.",
+     "zh": "同胚对应微分同胚。"
+    },
+    {
+     "en": "Continuous maps correspond to smooth maps.",
+     "zh": "连续映射对应光滑映射。"
+    },
+    {
+     "en": "And charts onto open subsets of R d correspond to compatible charts, which together form a smooth atlas.",
+     "zh": "到 ℝᵈ 开子集的 chart，对应彼此相容、组成光滑图册的 chart。"
+    }
+   ]
+  },
+  {
+   "id": "c08-intrinsic-vs-extrinsic",
+   "chapter": "Outlook",
+   "title": "Intrinsic and Extrinsic Views",
+   "music": "motivation",
+   "terms": [
+    "intrinsic-view",
+    "extrinsic-view",
+    "orthogonal-group",
+    "symmetric-matrix",
+    "euler-angles",
+    "chart",
+    "inverse-function-theorem",
+    "regular-level-set-theorem"
+   ],
+   "sentences": [
+    {
+     "en": "There are two ways to look at a manifold.",
+     "zh": "看流形有两种方式。"
+    },
+    {
+     "en": "The intrinsic view is like being handed a stack of maps and conversion tables, with no mention of any space outside.",
+     "zh": "内蕴视角就像只拿到一叠地图和换算表，完全不提外部空间。"
+    },
+    {
+     "en": "The manifold is a topological space with a maximal smooth atlas, and nothing more.",
+     "zh": "流形就是一个拓扑空间加上一个极大光滑图册，仅此而已。"
+    },
+    {
+     "en": "The extrinsic view is like being told that the Earth is the set of points in space at distance one from the center.",
+     "zh": "外蕴视角就像被告知：地球是空间中到球心距离为 1 的点的集合。"
+    },
+    {
+     "en": "The manifold is a subset of R n, cut out by an equation, h of x equals c.",
+     "zh": "流形是 ℝⁿ 的子集，由方程 h(x) = c 切出来。"
+    },
+    {
+     "en": "Look again at the half-circle chart. It is really just solving an equation.",
+     "zh": "再看半圆 chart：它其实就是在解方程。"
+    },
+    {
+     "en": "From x squared plus y squared equals one, on the upper arc we solve for y, and get y equals the square root of one minus x squared.",
+     "zh": "从 x² + y² = 1 出发，在上半弧上解出 y，得到 y = √(1 − x²)。"
+    },
+    {
+     "en": "This works only where the partial derivative with respect to y, which is two y, is nonzero.",
+     "zh": "这只在对 y 的偏导数 2y 不为零的地方可行。"
+    },
+    {
+     "en": "As the point approaches one, zero, two y goes to zero, and the tangent line turns vertical.",
+     "zh": "点趋近 (1, 0) 时，2y → 0，切线变得竖直。"
+    },
+    {
+     "en": "There we cannot solve for y. Instead we solve for x, and get x equals the square root of one minus y squared on the right arc.",
+     "zh": "在那里无法解出 y；改为解出 x，在右半弧上得到 x = √(1 − y²)。"
+    },
+    {
+     "en": "The sphere works the same way. S two is the set of points in R three with squared norm one.",
+     "zh": "球面也一样。S² 是 ℝ³ 中满足 ‖x‖² = 1 的点的集合。"
+    },
+    {
+     "en": "Each of six open hemispheres can be described by solving for one coordinate.",
+     "zh": "六个开半球，每一个都可以通过解出一个坐标来描述。"
+    },
+    {
+     "en": "For example, on the upper hemisphere, z equals the square root of one minus x squared minus y squared, and the chart sends x, y, z to x, y.",
+     "zh": "例如在上半球，z = √(1 − x² − y²)，chart 把 (x, y, z) 送到 (x, y)。"
+    },
+    {
+     "en": "The six hemispheres, positive and negative in x, y and z, cover the whole sphere.",
+     "zh": "x、y、z 正负两侧共六个半球，覆盖整个球面。"
+    },
+    {
+     "en": "Now a space we really care about in optimization: the orthogonal group O n.",
+     "zh": "现在看优化中真正关心的空间：正交群 O(n)。"
+    },
+    {
+     "en": "It is the set of n by n real matrices R with R transpose R equal to the identity.",
+     "zh": "它是满足 RᵀR = I 的 n×n 实矩阵 R 的集合。"
+    },
+    {
+     "en": "That is n squared variables. How many equations?",
+     "zh": "变量有 n² 个。方程有几个？"
+    },
+    {
+     "en": "The i, j entry of R transpose R is the inner product of column i with column j.",
+     "zh": "RᵀR 的 (i, j) 元是第 i 列与第 j 列的内积。"
+    },
+    {
+     "en": "That is symmetric in i and j, so the i, j equation and the j, i equation are the same equation.",
+     "zh": "它关于 i、j 对称，所以 (i, j) 与 (j, i) 是同一个方程。"
+    },
+    {
+     "en": "The independent ones sit on and above the diagonal: n on the diagonal, and n times n minus one, over two, above it.",
+     "zh": "独立的方程位于对角线及其上方：对角线 n 个，上方 n(n − 1)/2 个。"
+    },
+    {
+     "en": "In total, n times n plus one, over two equations.",
+     "zh": "合计 n(n + 1)/2 个方程。"
+    },
+    {
+     "en": "So the expected dimension is n squared minus n times n plus one, over two, which simplifies to n times n minus one, over two.",
+     "zh": "所以预期维数是 n² − n(n + 1)/2，化简为 n(n − 1)/2。"
+    },
+    {
+     "en": "For n equals two that is one, the single angle of a plane rotation. For n equals three: nine variables, six equations, expected dimension three.",
+     "zh": "n = 2 时为 1，即平面旋转的一个角度；n = 3 时：9 个变量，6 个方程，预期维数 3。"
+    },
+    {
+     "en": "But this is only an expectation. When the count gives the true dimension, and how to build charts, is the job of a later theorem. Here we only count.",
+     "zh": "但这只是预期。计数何时给出真实维数、如何构造 chart，是后面定理的任务。这里只计数。"
+    },
+    {
+     "en": "So can we build charts for O three by hand, the way we did for the circle?",
+     "zh": "那么，能像对圆那样，手工构造 O(3) 的 chart 吗？"
+    },
+    {
+     "en": "Which six of the nine entries should we solve for? What are the explicit formulas?",
+     "zh": "九个元素中该解出哪六个？显式表达式是什么？"
+    },
+    {
+     "en": "And how do we cover all of O three with charts whose transition maps are smooth? By hand, this does not work.",
+     "zh": "又如何用转移映射光滑的 chart 覆盖整个 O(3)？手工做不下去。"
+    },
+    {
+     "en": "What about a familiar parametrization, such as Euler angles? Here is a supplementary illustration.",
+     "zh": "熟悉的参数化，比如欧拉角，行不行？下面是一个补充示例。"
+    },
+    {
+     "en": "In Z X Z Euler angles, a frame turns about z, then about the new x axis, then about the new z axis.",
+     "zh": "在 ZXZ 欧拉角中，坐标架先绕 z 轴转，再绕新的 x 轴转，最后绕新的 z 轴转。"
+    },
+    {
+     "en": "When the middle angle goes to zero, the first and the third rotation axes coincide.",
+     "zh": "当中间角趋于 0 时，第一和第三个旋转轴重合。"
+    },
+    {
+     "en": "Then the two outer angles act only through their sum: three parameters control only two degrees of freedom.",
+     "zh": "此时两个外角只通过它们的和起作用：三个参数只控制两个自由度。"
+    },
+    {
+     "en": "Near those orientations the map is not a local homeomorphism, so a single convenient parametrization cannot serve as a chart.",
+     "zh": "在这些姿态附近，映射不是局部同胚，所以一个方便的参数化不能充当 chart。"
+    },
+    {
+     "en": "What we need is a machine that turns equations into charts.",
+     "zh": "我们需要一台把方程变成 chart 的机器。"
+    },
+    {
+     "en": "Feed it an equation, h of x equals c, together with a condition on the rank of the derivative.",
+     "zh": "输入方程 h(x) = c，以及关于导数秩的条件，"
+    },
+    {
+     "en": "It returns charts, with smooth transition maps guaranteed.",
+     "zh": "它就输出 chart，并保证转移映射光滑。"
+    },
+    {
+     "en": "The circle already hinted at the condition: we could solve for y exactly where the partial derivative two y was nonzero.",
+     "zh": "圆已经暗示了这个条件：恰好在偏导数 2y 非零的地方能解出 y。"
+    },
+    {
+     "en": "That machine is built in the next two episodes: the inverse function theorem in episode three, and regular level sets in episode four.",
+     "zh": "这台机器在接下来两集中搭建：第三集的反函数定理，第四集的正则水平集。"
+    }
+   ]
+  }
+ ]
+}

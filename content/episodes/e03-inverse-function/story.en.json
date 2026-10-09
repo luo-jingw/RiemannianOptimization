@@ -1,0 +1,1351 @@
+{
+ "episode": "e03-inverse-function",
+ "title": "The Inverse Function Theorem",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-why-ift",
+   "chapter": "Motivation",
+   "title": "A Machine for Making Charts",
+   "music": "motivation",
+   "terms": [
+    "chart",
+    "diffeomorphism",
+    "inverse-function-theorem",
+    "local-diffeomorphism",
+    "orthogonal-group"
+   ],
+   "sentences": [
+    {
+     "en": "At the end of the last episode, we were stuck.",
+     "zh": "上一集结束时，我们卡住了。"
+    },
+    {
+     "en": "A chart must be a homeomorphism from an open piece of the space onto an open set in R d, and the transition maps between charts must be smooth.",
+     "zh": "chart 必须是从空间的一块开集到 ℝ^d 中开集的同胚，而且 chart 之间的转移映射必须光滑。"
+    },
+    {
+     "en": "For the sphere, we could still draw charts by hand.",
+     "zh": "对球面，我们还能手工画出 chart。"
+    },
+    {
+     "en": "The upper hemisphere projects straight down onto a disk, and the front hemisphere projects sideways onto another disk.",
+     "zh": "上半球竖直投影到一个圆盘上，前半球水平投影到另一个圆盘上。"
+    },
+    {
+     "en": "Where the two hemispheres overlap, switching from one disk to the other is a smooth map, and six such hemispheres cover the sphere.",
+     "zh": "在两个半球的重叠处，从一个圆盘换到另一个圆盘是光滑映射；六个这样的半球覆盖整个球面。"
+    },
+    {
+     "en": "But now consider the orthogonal group, O of n: all n by n matrices R with R transpose R equal to the identity.",
+     "zh": "但现在考虑正交群 O(n)：所有满足 RᵀR = I 的 n×n 矩阵 R。"
+    },
+    {
+     "en": "It has dimension n times n minus one, over two, and it sits inside the space of all n by n matrices, which has dimension n squared.",
+     "zh": "它的维数是 n(n−1)/2，位于全体 n×n 矩阵构成的 n² 维空间里。"
+    },
+    {
+     "en": "Already for n equal to three, that is a three dimensional set inside a nine dimensional space.",
+     "zh": "仅 n = 3 时，它就是 9 维空间里的一个 3 维集合。"
+    },
+    {
+     "en": "We cannot draw it, and there is no obvious way to write down its charts by hand.",
+     "zh": "我们画不出它，也没有明显的办法手工写出它的 chart。"
+    },
+    {
+     "en": "What we need is a machine.",
+     "zh": "我们需要一台机器。"
+    },
+    {
+     "en": "Feed it the defining equation, h of x equals c, together with one derivative computation.",
+     "zh": "输入定义方程 h(x) = c，再加上一次导数计算。"
+    },
+    {
+     "en": "Out comes a guarantee that charts exist, without ever writing them down.",
+     "zh": "输出的是 chart 存在的保证，而不必把它们写出来。"
+    },
+    {
+     "en": "The engine of that machine is the inverse function theorem.",
+     "zh": "这台机器的引擎就是反函数定理。"
+    },
+    {
+     "en": "It is a local statement: if the linearization of a map F at a point is invertible, then near that point, F is a diffeomorphism.",
+     "zh": "它是一个局部定理：如果映射 F 在一点的线性化可逆，那么在该点附近 F 是微分同胚。"
+    },
+    {
+     "en": "And a local diffeomorphism is exactly something that can serve as a change of coordinates.",
+     "zh": "而局部微分同胚，恰好就是可以充当坐标变换的东西。"
+    },
+    {
+     "en": "Polar coordinates are a familiar example: the map r, theta to r cos theta, r sin theta has an invertible derivative wherever r is positive.",
+     "zh": "极坐标就是熟悉的例子：映射 (r, θ) ↦ (r cos θ, r sin θ) 在 r > 0 处导数可逆。"
+    },
+    {
+     "en": "So near each such point, it can be inverted smoothly, and r and theta become legitimate local coordinates.",
+     "zh": "所以在每个这样的点附近它可以光滑地求逆，r 和 θ 就成了合法的局部坐标。"
+    },
+    {
+     "en": "In this episode, we only deal with square systems: n equations in n unknowns.",
+     "zh": "本集只处理方的方程组：n 个方程，n 个未知数。"
+    },
+    {
+     "en": "Constraint sets usually have fewer equations than unknowns. Handling that is the job of the next episode.",
+     "zh": "约束集合的方程通常比未知数少，那是下一集的任务。"
+    },
+    {
+     "en": "Here is the road ahead.",
+     "zh": "这是后面的路线。"
+    },
+    {
+     "en": "The inverse function theorem gives the implicit function theorem, which gives the regular level set theorem.",
+     "zh": "反函数定理推出隐函数定理，隐函数定理推出正则水平集定理。"
+    },
+    {
+     "en": "That theorem identifies the tangent space as the kernel of D h, and finally makes O of n a manifold we can optimize on.",
+     "zh": "正则水平集定理给出切空间等于 Dh 的核，最终让 O(n) 成为可以在上面做优化的流形。"
+    },
+    {
+     "en": "Along the way, we will test every hypothesis of the theorem.",
+     "zh": "途中，我们会检验这个定理的每一个条件。"
+    },
+    {
+     "en": "The map must be C one, its derivative must be invertible at the point, and the conclusion is only local.",
+     "zh": "映射必须是 C¹ 的，导数必须在该点可逆，而结论只是局部的。"
+    },
+    {
+     "en": "Each of these will get a counterexample, showing what breaks without it.",
+     "zh": "每一条都会配一个反例，说明去掉它会坏在哪里。"
+    },
+    {
+     "en": "To understand what an invertible derivative means, we first have to see the derivative as a linear map.",
+     "zh": "要理解“导数可逆”的意思，首先要把导数看成一个线性映射。"
+    }
+   ]
+  },
+  {
+   "id": "c02-derivative-as-linear-map",
+   "chapter": "Definition",
+   "title": "The Derivative as the Best Linear Approximation",
+   "music": "definition",
+   "terms": [
+    "best-linear-approximation",
+    "little-o",
+    "jacobian",
+    "directional-derivative",
+    "chain-rule",
+    "operator-norm"
+   ],
+   "sentences": [
+    {
+     "en": "What exactly is the derivative of a map from R n to R m?",
+     "zh": "从 ℝⁿ 到 ℝᵐ 的映射，它的导数究竟是什么？"
+    },
+    {
+     "en": "Take a map F of the plane that bends a square grid into a curved one.",
+     "zh": "取平面上的一个映射 F，它把方格网弯成一张曲线网格。"
+    },
+    {
+     "en": "Now zoom in on a small window around the image point, F of x.",
+     "zh": "现在放大像点 F(x) 周围的一个小窗口。"
+    },
+    {
+     "en": "The more we magnify, the straighter the image grid becomes.",
+     "zh": "放得越大，像网格就越直。"
+    },
+    {
+     "en": "In the limit, we see a grid of parallelograms: the image of the square grid under a linear map.",
+     "zh": "在极限下我们看到一张平行四边形网格：方格网在某个线性映射下的像。"
+    },
+    {
+     "en": "That linear map is the derivative, D F of x.",
+     "zh": "这个线性映射就是导数 DF(x)。"
+    },
+    {
+     "en": "Precisely: F is differentiable at x if there is a linear map, D F of x, with the following property.",
+     "zh": "精确地说：若存在线性映射 DF(x) 具有如下性质，则称 F 在 x 处可微。"
+    },
+    {
+     "en": "F of x plus h equals F of x, plus D F of x times h, plus a remainder r of h.",
+     "zh": "F(x+h) = F(x) + DF(x)h + r(h)，"
+    },
+    {
+     "en": "And the remainder must be small compared with h: the norm of r of h, divided by the norm of h, tends to zero.",
+     "zh": "并且余项相对 h 很小：‖r(h)‖ / ‖h‖ → 0。"
+    },
+    {
+     "en": "We write this as little o of the norm of h.",
+     "zh": "记作 o(‖h‖)。"
+    },
+    {
+     "en": "The requirement is only that the remainder is smaller than first order. It does not have to be of second order.",
+     "zh": "要求只是余项比一阶更小，并不要求它是二阶小量。"
+    },
+    {
+     "en": "In the standard basis, D F of x is the Jacobian matrix of partial derivatives.",
+     "zh": "在标准基下，DF(x) 就是偏导数构成的雅可比矩阵。"
+    },
+    {
+     "en": "And F is called C one when the map from x to D F of x is continuous.",
+     "zh": "如果 x ↦ DF(x) 连续，就称 F 是 C¹ 的。"
+    },
+    {
+     "en": "Why insist on little o? Because it makes the linear approximation unique.",
+     "zh": "为什么坚持 o(‖h‖)？因为它让线性近似唯一。"
+    },
+    {
+     "en": "Here is another candidate: a matrix B that is close to D F of x, but not equal to it.",
+     "zh": "这是另一个候选：一个接近 DF(x) 但不相等的矩阵 B。"
+    },
+    {
+     "en": "For the true derivative, the error divided by the norm of h shrinks to zero as h shrinks.",
+     "zh": "对真正的导数，误差除以 ‖h‖ 随 h 缩小而趋于 0。"
+    },
+    {
+     "en": "For B, the same ratio levels off at a positive constant.",
+     "zh": "对 B，同样的比值停在一个正常数上。"
+    },
+    {
+     "en": "If we only asked the error to be of the same order as h, then B, and every other linear map, would count as an approximation too.",
+     "zh": "如果只要求误差与 h 同阶，那么 B 以及任何别的线性映射也都算“近似”。"
+    },
+    {
+     "en": "Here is the most useful way to compute a derivative in practice.",
+     "zh": "下面是实际计算导数最有用的方法。"
+    },
+    {
+     "en": "Move from x along a straight line in the direction v: t goes to x plus t v.",
+     "zh": "从 x 出发沿方向 v 走直线：t ↦ x + tv。"
+    },
+    {
+     "en": "Its image is a curve: t goes to F of x plus t v.",
+     "zh": "它的像是一条曲线：t ↦ F(x + tv)。"
+    },
+    {
+     "en": "The velocity of that curve at t equal to zero is exactly D F of x, applied to v.",
+     "zh": "这条曲线在 t = 0 处的速度，恰好就是 DF(x)[v]。"
+    },
+    {
+     "en": "Proof: put h equal to t v in the definition.",
+     "zh": "证明：在定义中取 h = tv。"
+    },
+    {
+     "en": "Then F of x plus t v, minus F of x, equals t times D F of x v, plus r of t v.",
+     "zh": "于是 F(x+tv) − F(x) = t·DF(x)v + r(tv)。"
+    },
+    {
+     "en": "Divide by t. The remainder has norm equal to the norm of v, times the norm of r of t v over the norm of t v, and that tends to zero.",
+     "zh": "除以 t。余项的范数等于 ‖v‖·‖r(tv)‖/‖tv‖，它趋于 0。"
+    },
+    {
+     "en": "So the difference quotient converges to D F of x v.",
+     "zh": "所以差商收敛到 DF(x)v。"
+    },
+    {
+     "en": "Example: the squared length, h of x equals x transpose x.",
+     "zh": "例子：长度平方 h(x) = xᵀx。"
+    },
+    {
+     "en": "Expand: x plus t v, transposed, times x plus t v, equals x transpose x, plus two t x transpose v, plus t squared v transpose v.",
+     "zh": "展开：(x+tv)ᵀ(x+tv) = xᵀx + 2t xᵀv + t² vᵀv。"
+    },
+    {
+     "en": "The coefficient of t is the derivative: D h of x, applied to v, equals two x transpose v.",
+     "zh": "t 的一次项系数就是导数：Dh(x)[v] = 2xᵀv。"
+    },
+    {
+     "en": "No partial derivatives are needed. We will reuse this trick for the sphere and for the orthogonal group.",
+     "zh": "不需要任何偏导数。后面的球面和正交群都会再用这个技巧。"
+    },
+    {
+     "en": "Two more tools. First, the chain rule.",
+     "zh": "还有两个工具。第一个是链式法则。"
+    },
+    {
+     "en": "The derivative of G composed with F at x is D G at F of x, times D F of x.",
+     "zh": "G∘F 在 x 处的导数等于 DG(F(x)) 乘以 DF(x)。"
+    },
+    {
+     "en": "The linearization of a composition is the composition of the linearizations.",
+     "zh": "复合的线性化等于线性化的复合。"
+    },
+    {
+     "en": "Second, the operator norm of a matrix: the largest value of the norm of A h, over all unit vectors h.",
+     "zh": "第二个是矩阵的算子范数：‖Ah‖ 在所有单位向量 h 上的最大值。"
+    },
+    {
+     "en": "So the norm of A h is at most the operator norm times the norm of h. Every estimate in the proof rests on this inequality.",
+     "zh": "于是 ‖Ah‖ ≤ ‖A‖‖h‖。证明里所有的估计都靠这个不等式。"
+    },
+    {
+     "en": "A caution: having all partial derivatives is weaker than being differentiable, but every map in this series is at least C one.",
+     "zh": "注意：存在全部偏导数弱于可微，但本系列中的映射都至少是 C¹ 的。"
+    },
+    {
+     "en": "Now that the derivative is a linear map, we can ask: if that linear map is invertible, is F itself invertible near x?",
+     "zh": "导数既然是线性映射，就可以问：这个线性映射可逆时，F 本身在 x 附近可逆吗？"
+    }
+   ]
+  },
+  {
+   "id": "c03-ift-statement",
+   "chapter": "Statement",
+   "title": "The Theorem and Its Picture",
+   "music": "definition",
+   "terms": [
+    "inverse-function-theorem",
+    "diffeomorphism",
+    "open-set",
+    "jacobian",
+    "chain-rule"
+   ],
+   "sentences": [
+    {
+     "en": "An invertible linear map does two things.",
+     "zh": "一个可逆的线性映射做到了两件事。"
+    },
+    {
+     "en": "It never flattens a direction into a lower dimension, and it never folds two points onto one.",
+     "zh": "它从不把某个方向压扁成更低维，也从不把两个点折到一起。"
+    },
+    {
+     "en": "The inverse function theorem says that this first order nondegeneracy persists in a small enough neighborhood.",
+     "zh": "反函数定理说：这种一阶的非退化性，在足够小的邻域里一直保持。"
+    },
+    {
+     "en": "Watch the same map F as before deform a small disk around the point x zero.",
+     "zh": "看同一个映射 F 如何把点 x₀ 周围的小圆盘变形。"
+    },
+    {
+     "en": "The grid bends, but it does not tear and it does not fold: a small blob goes to a small blob.",
+     "zh": "网格弯曲了，但不撕裂也不折叠：小团变成小团。"
+    },
+    {
+     "en": "Here is the statement.",
+     "zh": "下面是定理的陈述。"
+    },
+    {
+     "en": "Let U be an open subset of R n, let F from U to R n be C one, and let x zero be a point of U.",
+     "zh": "设 U 是 ℝⁿ 的开子集，F: U → ℝⁿ 是 C¹ 映射，x₀ ∈ U。"
+    },
+    {
+     "en": "If D F of x zero is invertible, then there are open sets U zero containing x zero, and V zero containing F of x zero, with three properties.",
+     "zh": "若 DF(x₀) 可逆，则存在开集 U₀ ∋ x₀ 与 V₀ ∋ F(x₀)，具有三条性质。"
+    },
+    {
+     "en": "First, F restricted to U zero is one to one: distinct points have distinct images.",
+     "zh": "第一，F 限制在 U₀ 上是单射：不同的点有不同的像。"
+    },
+    {
+     "en": "Second, the image of U zero is exactly V zero, an open set: every point near F of x zero is hit.",
+     "zh": "第二，U₀ 的像恰好是开集 V₀：F(x₀) 附近每个点都被取到。"
+    },
+    {
+     "en": "Third, the inverse map from V zero back to U zero is C one, and its derivative at F of x zero is the inverse matrix of D F of x zero.",
+     "zh": "第三，从 V₀ 回到 U₀ 的逆映射是 C¹ 的，且它在 F(x₀) 处的导数是 DF(x₀) 的逆矩阵。"
+    },
+    {
+     "en": "In other words, F restricted to U zero is a C one diffeomorphism onto V zero.",
+     "zh": "换句话说，F 限制在 U₀ 上是到 V₀ 的 C¹ 微分同胚。"
+    },
+    {
+     "en": "If F is C k, or smooth, then the local inverse is C k, or smooth, as well.",
+     "zh": "若 F 是 C^k 或光滑的，局部逆也是 C^k 或光滑的。"
+    },
+    {
+     "en": "For a linear map, capital A times x, with capital A invertible, all of this is obvious and even global: the inverse is A inverse times y.",
+     "zh": "对线性映射 Ax，A 可逆时这一切都显然，甚至是全局的：逆就是 A⁻¹y。"
+    },
+    {
+     "en": "The theorem extends this to nonlinear maps, at the price of being only local.",
+     "zh": "定理把它推广到非线性映射，代价是只在局部成立。"
+    },
+    {
+     "en": "What does invertibility rule out? Look at the singular matrix with rows one, zero, and zero, zero.",
+     "zh": "可逆性排除了什么？看行为 (1, 0) 与 (0, 0) 的奇异矩阵。"
+    },
+    {
+     "en": "It squashes the unit disk onto a segment.",
+     "zh": "它把单位圆盘压成一条线段。"
+    },
+    {
+     "en": "Different points land on the same point, so the map is not one to one.",
+     "zh": "不同的点落到同一点，所以它不是单射。"
+    },
+    {
+     "en": "And points off the segment are never reached, so the image contains no neighborhood of any point.",
+     "zh": "线段外的点一个也取不到，所以像不包含任何点的邻域。"
+    },
+    {
+     "en": "An invertible derivative rules out both failures at once.",
+     "zh": "导数可逆同时排除了这两种失败。"
+    },
+    {
+     "en": "Finally, the derivative formula.",
+     "zh": "最后是导数公式。"
+    },
+    {
+     "en": "Call the inverse g. Then g of F of x equals x, for every x in U zero.",
+     "zh": "把逆记为 g。则对所有 x ∈ U₀，g(F(x)) = x。"
+    },
+    {
+     "en": "Differentiate both sides at x zero, using the chain rule: D g at F of x zero, times D F of x zero, equals the identity.",
+     "zh": "在 x₀ 处对两边求导，用链式法则：Dg(F(x₀))·DF(x₀) = I。"
+    },
+    {
+     "en": "So D g at F of x zero is the inverse of D F of x zero.",
+     "zh": "所以 Dg(F(x₀)) 就是 DF(x₀) 的逆。"
+    },
+    {
+     "en": "But notice: this computation assumes that g is differentiable.",
+     "zh": "但注意：这个计算假定了 g 可微。"
+    },
+    {
+     "en": "That assumption is the real content of the theorem, and we will have to prove it.",
+     "zh": "这个假定才是定理真正的内容，我们必须证明它。"
+    },
+    {
+     "en": "Each hypothesis looks obviously necessary. Let us remove them one at a time and see what breaks.",
+     "zh": "每个条件看起来都显然需要。我们逐个去掉，看看会坏在哪里。"
+    }
+   ]
+  },
+  {
+   "id": "c04-ift-necessity",
+   "chapter": "Counterexamples",
+   "title": "What Breaks Without Each Hypothesis",
+   "music": "counterexample",
+   "terms": [
+    "inverse-function-theorem",
+    "homeomorphism",
+    "local-diffeomorphism",
+    "diffeomorphism",
+    "chart"
+   ],
+   "sentences": [
+    {
+     "en": "Here are four examples, each breaking a different part of the conclusion.",
+     "zh": "下面是四个例子，每个打破结论的不同部分。"
+    },
+    {
+     "en": "First, F of x equals x cubed.",
+     "zh": "第一个：F(x) = x³。"
+    },
+    {
+     "en": "It is a smooth bijection of the real line, and its inverse, the cube root, is continuous.",
+     "zh": "它是实数轴上的光滑双射，其逆，即立方根，是连续的。"
+    },
+    {
+     "en": "So F is a homeomorphism. But its derivative at zero is three times zero squared, which is zero.",
+     "zh": "所以 F 是同胚。但它在 0 处的导数是 3·0² = 0。"
+    },
+    {
+     "en": "The graph of x cubed is flat at the origin, so the graph of the cube root is vertical there.",
+     "zh": "x³ 的图像在原点是平的，所以立方根的图像在那里是竖直的。"
+    },
+    {
+     "en": "Suppose the inverse g were differentiable at zero.",
+     "zh": "假设逆 g 在 0 处可微。"
+    },
+    {
+     "en": "Differentiating g of x cubed equals x, at x equal to zero, gives g prime of zero, times zero, equals one.",
+     "zh": "对 g(x³) = x 在 x = 0 处求导，得 g′(0)·0 = 1。"
+    },
+    {
+     "en": "That is impossible. So the inverse exists, but it is not differentiable.",
+     "zh": "这不可能。所以逆存在，但不可微。"
+    },
+    {
+     "en": "An invertible derivative is not needed for an inverse to exist. It is needed for the inverse to be differentiable.",
+     "zh": "逆的存在并不需要导数可逆；逆的可微性才需要它。"
+    },
+    {
+     "en": "Second, F of x equals x squared, again with derivative zero at the origin.",
+     "zh": "第二个：F(x) = x²，在原点的导数同样是 0。"
+    },
+    {
+     "en": "In any interval from minus epsilon to epsilon, the points plus and minus epsilon over two have the same image, so F is not one to one.",
+     "zh": "在任何区间 (−ε, ε) 里，点 ±ε/2 的像相同，所以 F 不是单射。"
+    },
+    {
+     "en": "And no negative number is ever reached, so zero is not an interior point of the image.",
+     "zh": "而且负数一个也取不到，所以 0 不是像的内点。"
+    },
+    {
+     "en": "In two dimensions, the map x, y to x squared, y folds the plane along the y axis.",
+     "zh": "在二维中，映射 (x, y) ↦ (x², y) 把平面沿 y 轴对折。"
+    },
+    {
+     "en": "Without an invertible derivative, both injectivity and openness of the image can fail.",
+     "zh": "导数不可逆时，单射和像为开集都可能失败。"
+    },
+    {
+     "en": "Third, polar coordinates: F of r, theta equals r cos theta, r sin theta, for positive r and any theta.",
+     "zh": "第三个：极坐标 F(r, θ) = (r cos θ, r sin θ)，r > 0，θ 任意。"
+    },
+    {
+     "en": "The Jacobian has columns cos theta, sin theta, and minus r sin theta, r cos theta.",
+     "zh": "雅可比矩阵的两列是 (cos θ, sin θ) 和 (−r sin θ, r cos θ)。"
+    },
+    {
+     "en": "Its determinant is r cos squared theta plus r sin squared theta, which is r, positive everywhere.",
+     "zh": "行列式是 r cos²θ + r sin²θ = r，处处为正。"
+    },
+    {
+     "en": "So the derivative is invertible at every point. Yet F of r, theta equals F of r, theta plus two pi.",
+     "zh": "所以导数处处可逆。可是 F(r, θ) = F(r, θ + 2π)。"
+    },
+    {
+     "en": "Rolling the strip onto the annulus, the second turn lands exactly on top of the first.",
+     "zh": "把长条卷到圆环上，第二圈正好叠在第一圈上。"
+    },
+    {
+     "en": "Each small square still maps one to one onto its image, so F is a local diffeomorphism, but not a global one.",
+     "zh": "每个小方块仍然一一映到它的像上，所以 F 是局部微分同胚，但不是全局的。"
+    },
+    {
+     "en": "That is why the conclusion is only local, and why a manifold generally needs more than one chart.",
+     "zh": "这就是结论只是局部的原因，也是流形一般需要不止一个 chart 的原因。"
+    },
+    {
+     "en": "Fourth, and most subtle: F of x equals x plus two x squared sine of one over x, with F of zero equal to zero.",
+     "zh": "第四个，也最微妙：F(x) = x + 2x² sin(1/x)，并令 F(0) = 0。"
+    },
+    {
+     "en": "At zero, the difference quotient is one plus two h sine of one over h, which tends to one. So F prime of zero equals one: invertible.",
+     "zh": "在 0 处，差商是 1 + 2h sin(1/h)，趋于 1。所以 F′(0) = 1，可逆。"
+    },
+    {
+     "en": "Away from zero, F prime of x equals one, plus four x sine of one over x, minus two cosine of one over x.",
+     "zh": "在 0 以外，F′(x) = 1 + 4x sin(1/x) − 2cos(1/x)。"
+    },
+    {
+     "en": "At the points x k, equal to one over two k pi, the sine vanishes, the cosine is one, and the derivative is minus one.",
+     "zh": "在点 x_k = 1/(2kπ) 处，正弦为 0，余弦为 1，导数为 −1。"
+    },
+    {
+     "en": "At the points y k, equal to one over two k plus one, times pi, the cosine is minus one, and the derivative is three.",
+     "zh": "在点 y_k = 1/((2k+1)π) 处，余弦为 −1，导数为 3。"
+    },
+    {
+     "en": "Both kinds of points come arbitrarily close to zero, so every neighborhood of zero has places where F decreases and places where it increases.",
+     "zh": "两类点都任意接近 0，所以 0 的每个邻域里既有 F 递减之处，也有 F 递增之处。"
+    },
+    {
+     "en": "A continuous one to one function on an interval must be strictly monotone. So F is not one to one on any neighborhood of zero.",
+     "zh": "区间上的连续单射必定严格单调。所以 F 在 0 的任何邻域上都不是单射。"
+    },
+    {
+     "en": "Zooming in does not help: at every scale the graph keeps wiggling, and a horizontal line cuts it three times.",
+     "zh": "放大也没用：在任何尺度下图像都在摆动，一条水平线与它交于三点。"
+    },
+    {
+     "en": "Here F is differentiable everywhere. What fails is the continuity of its derivative at zero.",
+     "zh": "这里 F 处处可微，坏掉的是导数在 0 处的连续性。"
+    },
+    {
+     "en": "Invertibility at a single point does not spread to a neighborhood unless the derivative is continuous.",
+     "zh": "除非导数连续，否则一点处的可逆性不会扩散到邻域。"
+    },
+    {
+     "en": "This is exactly what the C one hypothesis is for: it lets nondegeneracy at one point propagate to a whole ball.",
+     "zh": "这正是 C¹ 条件的作用：让一点处的非退化性传播到整个球。"
+    },
+    {
+     "en": "In summary. x cubed: the inverse exists but is not differentiable. x squared: injectivity and openness fail.",
+     "zh": "总结：x³ 的逆存在但不可微；x² 的单射和开性都失败。"
+    },
+    {
+     "en": "Polar coordinates: locally fine, but not globally one to one.",
+     "zh": "极坐标：局部没问题，但全局不是单射。"
+    },
+    {
+     "en": "And the wiggling example: invertible at a point, but with a discontinuous derivative, it is not one to one anywhere near that point.",
+     "zh": "摆动的例子：在一点可逆，但导数不连续，在该点附近哪里都不是单射。"
+    },
+    {
+     "en": "To prove the theorem, we need a tool that constructs solutions: the contraction mapping principle.",
+     "zh": "要证明这个定理，我们需要一个能构造出解的工具：压缩映射原理。"
+    }
+   ]
+  },
+  {
+   "id": "c05-contraction-principle",
+   "chapter": "The Tool",
+   "title": "The Contraction Mapping Principle",
+   "music": "proof",
+   "terms": [
+    "contraction",
+    "fixed-point",
+    "metric",
+    "cauchy-sequence",
+    "complete-metric-space",
+    "continuity",
+    "triangle-inequality"
+   ],
+   "sentences": [
+    {
+     "en": "How can we prove that an equation has exactly one solution, without solving it?",
+     "zh": "怎样不解方程，就证明一个方程恰有一个解？"
+    },
+    {
+     "en": "Here is a map of the plane that rotates by thirty degrees, halves all distances, and then shifts.",
+     "zh": "这是平面上的一个映射：旋转 30 度，把所有距离减半，再平移。"
+    },
+    {
+     "en": "Apply it to a cloud of points, again and again.",
+     "zh": "把它反复作用在一团点上。"
+    },
+    {
+     "en": "Every distance is cut in half at each step, so the whole cloud collapses toward a single point.",
+     "zh": "每一步所有距离都减半，于是整团点向一个点塌缩。"
+    },
+    {
+     "en": "That point does not move. It is a fixed point of the map.",
+     "zh": "这个点不动，它是映射的不动点。"
+    },
+    {
+     "en": "Definition. Let X be a metric space with distance d, and let phi be a map from X to itself.",
+     "zh": "定义：设 X 是带距离 d 的度量空间，φ 是从 X 到自身的映射。"
+    },
+    {
+     "en": "Phi is a contraction if there is a constant c less than one, such that d of phi x, phi y is at most c times d of x, y, for all x and y.",
+     "zh": "若存在常数 c < 1，使对所有 x, y 有 d(φx, φy) ≤ c·d(x, y)，则称 φ 为压缩映射。"
+    },
+    {
+     "en": "We also need completeness. A sequence is Cauchy if its terms eventually stay arbitrarily close to each other.",
+     "zh": "还需要完备性。若一个序列的项最终彼此任意接近，就称它是柯西列。"
+    },
+    {
+     "en": "A metric space is complete if every Cauchy sequence converges to a point of the space. R n, and every closed subset of R n, are complete.",
+     "zh": "若每个柯西列都收敛到空间中的点，空间就是完备的。ℝⁿ 及其闭子集都完备。"
+    },
+    {
+     "en": "The theorem: if X is complete and phi is a contraction, then phi has exactly one fixed point.",
+     "zh": "定理：若 X 完备且 φ 是压缩映射，则 φ 恰有一个不动点。"
+    },
+    {
+     "en": "Uniqueness first. Suppose phi of x equals x, and phi of y equals y.",
+     "zh": "先证唯一性。设 φ(x) = x，φ(y) = y。"
+    },
+    {
+     "en": "Then d of x, y equals d of phi x, phi y, which is at most c times d of x, y.",
+     "zh": "则 d(x, y) = d(φx, φy) ≤ c·d(x, y)。"
+    },
+    {
+     "en": "Since c is less than one, this forces d of x, y to be zero. So x equals y.",
+     "zh": "因为 c < 1，只能 d(x, y) = 0，所以 x = y。"
+    },
+    {
+     "en": "Now existence. Start anywhere, at x zero, and iterate: x n plus one equals phi of x n.",
+     "zh": "再证存在性。任取起点 x₀，迭代：x_{n+1} = φ(x_n)。"
+    },
+    {
+     "en": "Here is a one dimensional picture, with phi of x equal to cosine x over two, starting from x zero equal to two.",
+     "zh": "这是一维的图：φ(x) = cos(x)/2，从 x₀ = 2 出发。"
+    },
+    {
+     "en": "Its derivative is at most one half in absolute value, so by the mean value theorem it is a contraction, with c equal to one half.",
+     "zh": "它的导数绝对值不超过 1/2，由中值定理，它是 c = 1/2 的压缩映射。"
+    },
+    {
+     "en": "Each step of the cobweb goes vertically to the curve, then horizontally to the diagonal.",
+     "zh": "蛛网的每一步先竖直走到曲线，再水平走到对角线。"
+    },
+    {
+     "en": "Consecutive distances shrink: d of x n plus one, x n is at most c times d of x n, x n minus one.",
+     "zh": "相邻距离不断缩小：d(x_{n+1}, x_n) ≤ c·d(x_n, x_{n−1})。"
+    },
+    {
+     "en": "By induction, it is at most c to the n, times d of x one, x zero.",
+     "zh": "归纳得 d(x_{n+1}, x_n) ≤ cⁿ·d(x₁, x₀)。"
+    },
+    {
+     "en": "Now take n less than m. By the triangle inequality, d of x n, x m is at most the sum of all the steps from n to m.",
+     "zh": "取 n < m。由三角不等式，d(x_n, x_m) 不超过从 n 到 m 所有步长之和。"
+    },
+    {
+     "en": "That sum is at most c to the n, plus c to the n plus one, and so on up to c to the m minus one, all times d of x one, x zero.",
+     "zh": "这个和不超过 (cⁿ + cⁿ⁺¹ + … + c^{m−1})·d(x₁, x₀)。"
+    },
+    {
+     "en": "And this geometric sum is at most c to the n, over one minus c, times d of x one, x zero.",
+     "zh": "而这个几何级数不超过 cⁿ/(1 − c)·d(x₁, x₀)。"
+    },
+    {
+     "en": "This is where c less than one is used.",
+     "zh": "这里用到了 c < 1。"
+    },
+    {
+     "en": "Since c to the n tends to zero, the sequence is Cauchy.",
+     "zh": "因为 cⁿ → 0，这个序列是柯西列。"
+    },
+    {
+     "en": "Because X is complete, it converges to some point x in X. This is where completeness is used.",
+     "zh": "因为 X 完备，它收敛到 X 中某点 x。这里用到了完备性。"
+    },
+    {
+     "en": "Finally, a contraction is continuous, so phi of x is the limit of phi of x n, which is the limit of x n plus one, which is x.",
+     "zh": "最后，压缩映射连续，所以 φ(x) = lim φ(x_n) = lim x_{n+1} = x。"
+    },
+    {
+     "en": "So x is a fixed point, and by uniqueness, it is the only one.",
+     "zh": "所以 x 是不动点，由唯一性，它是唯一的。"
+    },
+    {
+     "en": "The proof is an algorithm: iterate, and the iterates converge geometrically fast.",
+     "zh": "这个证明本身就是一个算法：反复迭代，迭代点以几何速度收敛。"
+    },
+    {
+     "en": "Completeness and c less than one may look like technicalities. Next, we remove them.",
+     "zh": "完备性和 c < 1 看起来像技术条件。下一章就拿掉它们。"
+    }
+   ]
+  },
+  {
+   "id": "c06-contraction-necessity",
+   "chapter": "Counterexamples",
+   "title": "Why Completeness and c < 1 Are Needed",
+   "music": "counterexample",
+   "terms": [
+    "contraction",
+    "fixed-point",
+    "complete-metric-space",
+    "cauchy-sequence",
+    "open-ball"
+   ],
+   "sentences": [
+    {
+     "en": "First, remove completeness.",
+     "zh": "第一，去掉完备性。"
+    },
+    {
+     "en": "Let X be the interval from zero to one, with one included and zero removed, and let phi of x be x over two.",
+     "zh": "设 X 是去掉 0、包含 1 的区间 (0, 1]，φ(x) = x/2。"
+    },
+    {
+     "en": "Phi maps X into the interval up to one half, inside X, and it halves every distance: a contraction with c equal to one half.",
+     "zh": "φ 把 X 映到 (0, 1/2] ⊂ X，并把所有距离减半：c = 1/2 的压缩映射。"
+    },
+    {
+     "en": "Iterate from one: one, one half, one quarter, and so on. x n equals two to the minus n.",
+     "zh": "从 1 开始迭代：1, 1/2, 1/4, …，即 x_n = 2⁻ⁿ。"
+    },
+    {
+     "en": "This is a Cauchy sequence. Its limit is zero, but zero was removed from X.",
+     "zh": "这是柯西列。它的极限是 0，但 0 已经从 X 中挖掉了。"
+    },
+    {
+     "en": "A fixed point would satisfy x equals x over two, so it would be zero, which is not in X. There is no fixed point.",
+     "zh": "不动点要满足 x = x/2，只能是 0，而 0 不在 X 中。所以没有不动点。"
+    },
+    {
+     "en": "The step that broke is the one where completeness supplies the limit.",
+     "zh": "坏掉的正是由完备性给出极限的那一步。"
+    },
+    {
+     "en": "Second, allow c equal to one. Let phi of x be x plus one, on the real line.",
+     "zh": "第二，允许 c = 1。在实数轴上令 φ(x) = x + 1。"
+    },
+    {
+     "en": "Distances are preserved exactly, never reduced.",
+     "zh": "距离被精确保持，从不缩小。"
+    },
+    {
+     "en": "Phi of x equals x has no solution, and the iterates, x zero plus n, drift off to infinity.",
+     "zh": "φ(x) = x 无解，迭代点 x₀ + n 漂向无穷远。"
+    },
+    {
+     "en": "Third, the subtle case: every pair of points moves strictly closer, but with no uniform constant.",
+     "zh": "第三，微妙的情形：每一对点都严格靠近，却没有统一的常数。"
+    },
+    {
+     "en": "Let X be the interval from one to infinity. It is a closed subset of the real line, so it is complete.",
+     "zh": "设 X = [1, ∞)。它是实数轴的闭子集，所以完备。"
+    },
+    {
+     "en": "Let phi of x be x plus one over x. Phi of x is at least two, so phi maps X into itself.",
+     "zh": "令 φ(x) = x + 1/x。φ(x) ≥ 2，所以 φ 把 X 映到自身。"
+    },
+    {
+     "en": "The distance between phi x and phi y equals the distance between x and y, times one minus one over x y.",
+     "zh": "φx 与 φy 的距离等于 x 与 y 的距离乘以 1 − 1/(xy)。"
+    },
+    {
+     "en": "Since x y is at least one, that factor is at least zero and strictly less than one, so distinct points always move strictly closer.",
+     "zh": "因为 xy ≥ 1，这个因子 ≥ 0 且严格小于 1，所以不同的点总是严格靠近。"
+    },
+    {
+     "en": "Yet phi of x minus x equals one over x, which is positive. There is no fixed point.",
+     "zh": "可是 φ(x) − x = 1/x > 0，没有不动点。"
+    },
+    {
+     "en": "On the cobweb, the curve approaches the diagonal but never meets it, and the iterates climb forever.",
+     "zh": "在蛛网图上，曲线逼近对角线却永不相交，迭代点一直往上爬。"
+    },
+    {
+     "en": "The contraction factor, one minus one over x n times x n plus one, creeps toward one.",
+     "zh": "压缩因子 1 − 1/(x_n x_{n+1}) 慢慢逼近 1。"
+    },
+    {
+     "en": "No uniform c below one exists, so the geometric series bound fails.",
+     "zh": "不存在统一的 c < 1，所以几何级数界失效。"
+    },
+    {
+     "en": "Where will completeness come from in the inverse function theorem?",
+     "zh": "在反函数定理中，完备性从哪里来？"
+    },
+    {
+     "en": "We will apply the principle on a closed ball, which is a closed subset of R n, and therefore complete.",
+     "zh": "我们会在闭球上使用这个原理；闭球是 ℝⁿ 的闭子集，因而完备。"
+    },
+    {
+     "en": "An open ball is not complete: a sequence inside it can converge to a point on its boundary, outside the ball.",
+     "zh": "开球不完备：球内的序列可以收敛到球外的边界点上。"
+    },
+    {
+     "en": "Keep this in mind. Now we turn the equation, f of x equals y, into a fixed point problem.",
+     "zh": "记住这一点。现在我们把方程 f(x) = y 变成一个不动点问题。"
+    }
+   ]
+  },
+  {
+   "id": "c07-ift-proof-injective",
+   "chapter": "Proof, part 1",
+   "title": "Frozen Newton Iteration and Local Injectivity",
+   "music": "proof",
+   "terms": [
+    "newton-iteration",
+    "contraction",
+    "fixed-point",
+    "mean-value-inequality",
+    "operator-norm",
+    "chain-rule"
+   ],
+   "sentences": [
+    {
+     "en": "Here is the idea of the proof.",
+     "zh": "先说证明的思路。"
+    },
+    {
+     "en": "To solve f of x equals y, Newton's method updates x to x plus the inverse of f prime of x, times y minus f of x.",
+     "zh": "解 f(x) = y 时，牛顿法把 x 更新为 x + f′(x)⁻¹(y − f(x))。"
+    },
+    {
+     "en": "Geometrically, it follows the tangent line at the current point to the level y.",
+     "zh": "几何上，它沿着当前点的切线走到高度 y。"
+    },
+    {
+     "en": "But that needs f prime of x to be invertible at every step, which is part of what we are trying to prove.",
+     "zh": "但这需要每一步的 f′(x) 都可逆，而这正是我们要证的内容之一。"
+    },
+    {
+     "en": "So freeze the slope at the base point: use capital A, equal to f prime of a, at every step.",
+     "zh": "所以把斜率冻结在基点：每一步都用 A = f′(a)。"
+    },
+    {
+     "en": "All the lines are now parallel. This is the frozen Newton map: phi y of x equals x, plus A inverse times y minus f of x.",
+     "zh": "现在所有直线都平行。这就是冻结牛顿映射：φ_y(x) = x + A⁻¹(y − f(x))。"
+    },
+    {
+     "en": "As long as f prime stays close to capital A, each step at least halves the error.",
+     "zh": "只要 f′ 一直接近 A，每一步至少把误差减半。"
+    },
+    {
+     "en": "A word on notation. We follow Rudin: f is our capital F, the point a is our x zero, and capital A is f prime of a.",
+     "zh": "关于记号：我们沿用 Rudin，f 就是我们的 F，点 a 就是 x₀，A = f′(a)。"
+    },
+    {
+     "en": "Where Rudin uses an arbitrary point, we will call it p, to avoid confusion with the base point.",
+     "zh": "Rudin 用到任意点的地方，我们记作 p，以免和基点混淆。"
+    },
+    {
+     "en": "Step one. Since capital A is invertible, choose lambda positive, with two lambda times the norm of A inverse equal to one.",
+     "zh": "第一步：A 可逆，取 λ > 0 使 2λ‖A⁻¹‖ = 1。"
+    },
+    {
+     "en": "Step two. f prime is continuous at the point a, so on some open ball U centered at a, the norm of f prime of x minus A is less than lambda.",
+     "zh": "第二步：f′ 在 a 处连续，所以存在以 a 为中心的开球 U，在 U 上 ‖f′(x) − A‖ < λ。"
+    },
+    {
+     "en": "This is where C one is used. It is exactly the step that failed for the wiggling example.",
+     "zh": "这里用到了 C¹，这正是摆动例子中失败的那一步。"
+    },
+    {
+     "en": "In our example, f of u, v is u plus one quarter v squared, and v plus one quarter u squared, with base point zero.",
+     "zh": "我们的例子：f(u, v) = (u + v²/4, v + u²/4)，基点为 0。"
+    },
+    {
+     "en": "There, capital A is the identity, and lambda is one half.",
+     "zh": "这时 A 是单位矩阵，λ = 1/2。"
+    },
+    {
+     "en": "Each small parallelogram shows f prime at a point. Inside the unit ball, every one is within lambda of capital A. Outside, some are not.",
+     "zh": "每个小平行四边形表示一点处的 f′。单位球内每个都与 A 相差小于 λ，球外则不然。"
+    },
+    {
+     "en": "Step three. For each y, define phi y of x as x, plus A inverse times y minus f of x.",
+     "zh": "第三步：对每个 y，定义 φ_y(x) = x + A⁻¹(y − f(x))。"
+    },
+    {
+     "en": "The key observation: f of x equals y exactly when A inverse times y minus f of x is zero, that is, exactly when phi y of x equals x.",
+     "zh": "关键观察：f(x) = y 当且仅当 A⁻¹(y − f(x)) = 0，也就是当且仅当 φ_y(x) = x。"
+    },
+    {
+     "en": "That is because A inverse is itself invertible, so it sends only the zero vector to zero.",
+     "zh": "这是因为 A⁻¹ 本身可逆，只把零向量映到零。"
+    },
+    {
+     "en": "Solving the equation is the same as finding a fixed point.",
+     "zh": "解方程就等于找不动点。"
+    },
+    {
+     "en": "Watch the iteration from the base point, for the target y equal to zero point six, zero point five. The images f of x n approach y.",
+     "zh": "看从基点出发、目标为 y = (0.6, 0.5) 的迭代：像 f(x_n) 逐步逼近 y。"
+    },
+    {
+     "en": "Step four. The derivative of phi y is the identity minus A inverse f prime of x, which equals A inverse, times A minus f prime of x.",
+     "zh": "第四步：φ_y 的导数是 I − A⁻¹f′(x) = A⁻¹(A − f′(x))。"
+    },
+    {
+     "en": "On U, its norm is at most the norm of A inverse times the norm of A minus f prime of x, which is below lambda times the norm of A inverse: one half.",
+     "zh": "所以在 U 上，它的范数 ≤ ‖A⁻¹‖‖A − f′(x)‖ < ‖A⁻¹‖λ = 1/2。"
+    },
+    {
+     "en": "Step five turns this derivative bound into a distance bound, using the mean value inequality.",
+     "zh": "第五步用中值不等式，把这个导数界变成距离界。"
+    },
+    {
+     "en": "Lemma: if E is convex, and the derivative of phi has norm at most M on E, then phi is M Lipschitz on E.",
+     "zh": "引理：若 E 是凸集，且 φ 的导数在 E 上范数不超过 M，则 φ 在 E 上是 M-Lipschitz 的。"
+    },
+    {
+     "en": "Proof: let u be phi of x one, minus phi of x two, and walk along the segment, gamma of t, from x two to x one.",
+     "zh": "证明：令 u = φ(x₁) − φ(x₂)，沿线段 γ(t) 从 x₂ 走到 x₁。"
+    },
+    {
+     "en": "Let s of t be the dot product of u with phi of gamma of t.",
+     "zh": "令 s(t) = u·φ(γ(t))。"
+    },
+    {
+     "en": "By the one variable mean value theorem, s of one minus s of zero equals s prime of tau, for some tau between zero and one.",
+     "zh": "由一元中值定理，存在 0 与 1 之间的 τ，使 s(1) − s(0) = s′(τ)。"
+    },
+    {
+     "en": "It equals u dotted with phi prime of gamma of tau, times x one minus x two, at most the norm of u times M times the norm of x one minus x two.",
+     "zh": "即 u·φ′(γ(τ))(x₁ − x₂) ≤ ‖u‖·M·‖x₁ − x₂‖。"
+    },
+    {
+     "en": "But s of one minus s of zero is u dotted with u, the squared norm of u. Dividing by the norm of u gives the claim.",
+     "zh": "而 s(1) − s(0) = u·u = ‖u‖²。两边除以 ‖u‖ 即得结论。"
+    },
+    {
+     "en": "U is a ball, hence convex. So for all x one and x two in U, phi y of x one and phi y of x two are at most half as far apart as x one and x two.",
+     "zh": "U 是球，因而是凸集。对 U 中任意 x₁, x₂：‖φ_y(x₁) − φ_y(x₂)‖ ≤ ½‖x₁ − x₂‖。"
+    },
+    {
+     "en": "Step six. So phi y has at most one fixed point in U, by the same argument as uniqueness for contractions.",
+     "zh": "第六步：于是 φ_y 在 U 中至多有一个不动点，论证与压缩映射的唯一性相同。"
+    },
+    {
+     "en": "If two points of U both solved f of x equals y, both would be fixed points, and their distance would be at most half of itself, hence zero.",
+     "zh": "若 U 中两点都是 f(x) = y 的解，它们都是不动点，距离不超过自身的一半，因而为 0。"
+    },
+    {
+     "en": "So for each y, the equation f of x equals y has at most one solution in U: f is one to one on U.",
+     "zh": "所以对每个 y，方程 f(x) = y 在 U 中至多一个解：f 在 U 上是单射。"
+    },
+    {
+     "en": "Note what we have not used yet: completeness, or the existence of a solution.",
+     "zh": "注意我们还没用到的东西：完备性，以及解的存在性。"
+    },
+    {
+     "en": "Why not run true Newton? It needs f prime invertible everywhere. Freezing only needs invertibility at one point, plus continuity of f prime.",
+     "zh": "为什么不用真正的牛顿法？它需要 f′ 处处可逆；冻结只需要一点处可逆，加上 f′ 连续。"
+    },
+    {
+     "en": "And the constant one half is a convenient choice. Any constant below one would work.",
+     "zh": "常数 1/2 只是方便的选择，任何小于 1 的常数都行。"
+    },
+    {
+     "en": "What remains: is the image, f of U, an open set, so that every nearby y is actually reached?",
+     "zh": "还剩下的问题：像 f(U) 是开集吗？也就是说，附近的每个 y 都真的能被取到吗？"
+    }
+   ]
+  },
+  {
+   "id": "c08-ift-proof-open",
+   "chapter": "Proof, part 2",
+   "title": "The Image Is Open",
+   "music": "proof",
+   "terms": [
+    "open-set",
+    "open-ball",
+    "contraction",
+    "fixed-point",
+    "complete-metric-space",
+    "triangle-inequality"
+   ],
+   "sentences": [
+    {
+     "en": "We know that f is one to one on U. Now we show that the image V, equal to f of U, is open.",
+     "zh": "已知 f 在 U 上是单射。现在证明像 V = f(U) 是开集。"
+    },
+    {
+     "en": "Take any point y zero in V. Then y zero equals f of p, for some point p in U.",
+     "zh": "任取 V 中一点 y₀，则 y₀ = f(p)，p ∈ U。"
+    },
+    {
+     "en": "Since U is open, choose r positive, so that the closed ball B bar, of radius r around p, lies inside U.",
+     "zh": "因为 U 是开集，可取 r > 0，使以 p 为中心、半径 r 的闭球 B̄ 含于 U。"
+    },
+    {
+     "en": "Claim: every y within distance lambda r of y zero is in V.",
+     "zh": "断言：凡是与 y₀ 距离小于 λr 的 y，都在 V 中。"
+    },
+    {
+     "en": "Then V contains a ball around each of its points, which is what open means.",
+     "zh": "这样 V 包含它每一点周围的一个球，这正是开集的含义。"
+    },
+    {
+     "en": "Fix such a y, and use the map phi, equal to phi y, from before.",
+     "zh": "固定这样一个 y，使用前面的映射 φ = φ_y。"
+    },
+    {
+     "en": "Step four. How far does phi move the center p?",
+     "zh": "第四步：φ 把中心 p 移动了多远？"
+    },
+    {
+     "en": "Phi of p minus p equals A inverse times y minus f of p, which is A inverse times y minus y zero.",
+     "zh": "φ(p) − p = A⁻¹(y − f(p)) = A⁻¹(y − y₀)。"
+    },
+    {
+     "en": "Its norm is at most the norm of A inverse times the norm of y minus y zero, less than the norm of A inverse times lambda r, which is r over two.",
+     "zh": "它的范数 ≤ ‖A⁻¹‖·‖y − y₀‖ < ‖A⁻¹‖λr = r/2。"
+    },
+    {
+     "en": "So the center moves by less than half the radius.",
+     "zh": "所以中心的移动不到半径的一半。"
+    },
+    {
+     "en": "Step five. Phi maps the closed ball into itself.",
+     "zh": "第五步：φ 把闭球映进它自己。"
+    },
+    {
+     "en": "For x in B bar, the triangle inequality bounds the distance from phi of x to p by two terms.",
+     "zh": "对 B̄ 中的 x，三角不等式把 φ(x) 到 p 的距离拆成两项之和。"
+    },
+    {
+     "en": "The first is the distance from phi of x to phi of p, the second the distance from phi of p to p.",
+     "zh": "第一项是 φ(x) 到 φ(p) 的距离，第二项是 φ(p) 到 p 的距离。"
+    },
+    {
+     "en": "Since B bar lies inside U, the first term is at most half the distance from x to p, which is at most r over two.",
+     "zh": "因为 B̄ ⊆ U，第一项 ≤ ½‖x − p‖ ≤ r/2。"
+    },
+    {
+     "en": "The second term is less than r over two, by step four. Together, they are less than r.",
+     "zh": "由第四步，第二项 < r/2。两项合起来小于 r。"
+    },
+    {
+     "en": "Both halves come from the same choice: two lambda times the norm of A inverse equals one.",
+     "zh": "两个“一半”都来自同一个选择：2λ‖A⁻¹‖ = 1。"
+    },
+    {
+     "en": "So phi maps B bar into the open ball B, and in particular into B bar.",
+     "zh": "所以 φ 把 B̄ 映进开球 B，当然也映进 B̄。"
+    },
+    {
+     "en": "Step six. B bar is a closed subset of R n, so it is complete, and phi is a contraction on it, with constant one half.",
+     "zh": "第六步：B̄ 是 ℝⁿ 的闭子集，因而完备；φ 是 B̄ 上常数为 1/2 的压缩映射。"
+    },
+    {
+     "en": "The contraction mapping principle gives a fixed point x in B bar, which means that f of x equals y.",
+     "zh": "压缩映射原理给出 B̄ 中的不动点 x，也就是 f(x) = y。"
+    },
+    {
+     "en": "Step seven. That x lies in B bar, inside U, so y equals f of x is in f of U, which is V.",
+     "zh": "第七步：x ∈ B̄ ⊆ U，所以 y = f(x) ∈ f(U) = V。"
+    },
+    {
+     "en": "The claim is proved: the whole disk of radius lambda r around y zero lies in V.",
+     "zh": "断言得证：y₀ 周围半径 λr 的整个圆盘都在 V 中。"
+    },
+    {
+     "en": "Since y zero was arbitrary, every point of V has such a disk around it. V is open.",
+     "zh": "因为 y₀ 是任取的，V 的每一点周围都有这样的圆盘。V 是开集。"
+    },
+    {
+     "en": "The closed ball did two jobs: it sits inside U, where the contraction estimate holds, and it is complete, so the limit of the iterates stays in it.",
+     "zh": "闭球做了两件事：它在 U 内，压缩估计成立；它完备，迭代的极限仍留在其中。"
+    },
+    {
+     "en": "Combined with injectivity: f restricted to U is a bijection onto the open set V. Call its inverse g, from V to U.",
+     "zh": "结合单射性：f 限制在 U 上是到开集 V 的双射。把它的逆记为 g: V → U。"
+    },
+    {
+     "en": "The first half of the proof is done.",
+     "zh": "证明的前半部分完成了。"
+    },
+    {
+     "en": "The inverse g exists. But is it differentiable, and is its derivative the inverse of f prime?",
+     "zh": "逆 g 存在了。但它可微吗？它的导数是 f′ 的逆吗？"
+    }
+   ]
+  },
+  {
+   "id": "c09-ift-proof-derivative",
+   "chapter": "Proof, part 3",
+   "title": "The Inverse Is Differentiable",
+   "music": "proof",
+   "terms": [
+    "best-linear-approximation",
+    "operator-norm",
+    "little-o",
+    "inverse-function-theorem",
+    "determinant"
+   ],
+   "sentences": [
+    {
+     "en": "When we stated the theorem, we flagged an assumption: the derivative formula needed g to be differentiable. Now we prove it.",
+     "zh": "陈述定理时，我们标出了一个假定：导数公式需要 g 可微。现在来证明它。"
+    },
+    {
+     "en": "Take y in V, and an increment k, with y plus k also in V.",
+     "zh": "取 y ∈ V 和增量 k，使 y + k 也在 V 中。"
+    },
+    {
+     "en": "Let x be g of y, and x plus h be g of y plus k. So h is the change in x caused by the change k in y.",
+     "zh": "令 x = g(y)，x + h = g(y + k)。h 就是 y 变化 k 时 x 的变化。"
+    },
+    {
+     "en": "Since g is one to one, a nonzero k gives a nonzero h.",
+     "zh": "因为 g 是单射，k ≠ 0 时 h ≠ 0。"
+    },
+    {
+     "en": "Step two. Use the same map phi. Its contraction estimate holds on U for any value of the parameter y.",
+     "zh": "第二步：使用同一个映射 φ。对任何参数 y，它的压缩估计在 U 上都成立。"
+    },
+    {
+     "en": "Phi of x plus h, minus phi of x, equals h plus A inverse times f of x minus f of x plus h. That is h minus A inverse k.",
+     "zh": "φ(x + h) − φ(x) = h + A⁻¹(f(x) − f(x + h)) = h − A⁻¹k。"
+    },
+    {
+     "en": "Step three. By the one half Lipschitz bound, the norm of h minus A inverse k is at most half the norm of h.",
+     "zh": "第三步：由 1/2-Lipschitz 估计，‖h − A⁻¹k‖ ≤ ½‖h‖。"
+    },
+    {
+     "en": "So the norm of A inverse k is at least the norm of h, minus the norm of h minus A inverse k, which is at least half the norm of h.",
+     "zh": "所以 ‖A⁻¹k‖ ≥ ‖h‖ − ‖h − A⁻¹k‖ ≥ ½‖h‖。"
+    },
+    {
+     "en": "Therefore the norm of h is at most twice the norm of A inverse k, which is at most twice the norm of A inverse, times the norm of k.",
+     "zh": "因此 ‖h‖ ≤ 2‖A⁻¹k‖ ≤ 2‖A⁻¹‖·‖k‖，"
+    },
+    {
+     "en": "And twice the norm of A inverse is one over lambda. So the norm of h is at most the norm of k, over lambda.",
+     "zh": "而 2‖A⁻¹‖ = 1/λ，所以 ‖h‖ ≤ ‖k‖/λ。"
+    },
+    {
+     "en": "So g never stretches distances by more than the factor one over lambda. In particular, as k goes to zero, h goes to zero.",
+     "zh": "所以 g 对距离的放大从不超过 1/λ 倍。特别地，k → 0 时 h → 0。"
+    },
+    {
+     "en": "Compare with the cube root. There, h is the cube root of k, and h over k blows up as k goes to zero.",
+     "zh": "对比立方根：那里 h = k^{1/3}，k → 0 时 h/k 趋于无穷。"
+    },
+    {
+     "en": "Without such a bound, there is no differentiability. Here the bound comes from the invertibility of capital A, through lambda.",
+     "zh": "没有这样的控制，就没有可微性。这里的控制来自 A 的可逆性，经由 λ 给出。"
+    },
+    {
+     "en": "Step four. Since x is in U, the norm of f prime of x minus A, times the norm of A inverse, is less than lambda times the norm of A inverse: one half.",
+     "zh": "第四步：因为 x ∈ U，‖f′(x) − A‖·‖A⁻¹‖ < λ‖A⁻¹‖ = 1/2。"
+    },
+    {
+     "en": "Perturbation lemma: if capital A is invertible, and the norm of B minus A, times the norm of A inverse, is less than one, then B is invertible.",
+     "zh": "扰动引理：若 A 可逆，且 ‖B − A‖·‖A⁻¹‖ < 1，则 B 可逆。"
+    },
+    {
+     "en": "Indeed, B equals A times the identity minus A inverse times A minus B.",
+     "zh": "事实上，B = A(I − A⁻¹(A − B))。"
+    },
+    {
+     "en": "The matrix A inverse times A minus B has norm less than one, so the Neumann series, the sum of its powers, inverts the second factor.",
+     "zh": "矩阵 A⁻¹(A − B) 的范数小于 1，所以诺伊曼级数，即它的幂之和，给出第二个因子的逆。"
+    },
+    {
+     "en": "So f prime of x is invertible. Call its inverse T.",
+     "zh": "所以 f′(x) 可逆，把它的逆记为 T。"
+    },
+    {
+     "en": "Step five. An algebraic identity: g of y plus k, minus g of y, minus T k, equals h minus T k.",
+     "zh": "第五步：一个代数恒等式。g(y + k) − g(y) − Tk = h − Tk，"
+    },
+    {
+     "en": "And h minus T k equals minus T, times f of x plus h, minus f of x, minus f prime of x h.",
+     "zh": "而 h − Tk = −T[f(x + h) − f(x) − f′(x)h]。"
+    },
+    {
+     "en": "To check it, use T times f prime of x h equals h, and f of x plus h, minus f of x, equals k.",
+     "zh": "验证时用到 T·f′(x)h = h，以及 f(x + h) − f(x) = k。"
+    },
+    {
+     "en": "Step six. Divide by the norm of k. The left side is at most the norm of T, times the remainder of f, divided by the norm of k.",
+     "zh": "第六步：除以 ‖k‖。左边不超过 ‖T‖ 乘以 f 的余项再除以 ‖k‖。"
+    },
+    {
+     "en": "By step three, one over the norm of k is at most one over lambda times the norm of h.",
+     "zh": "由第三步，1/‖k‖ ≤ 1/(λ‖h‖)。"
+    },
+    {
+     "en": "So the ratio is at most the norm of T over lambda, times the remainder of f divided by the norm of h.",
+     "zh": "所以这个比值不超过 (‖T‖/λ) 乘以 f 的余项除以 ‖h‖。"
+    },
+    {
+     "en": "Step seven. As k goes to zero, h goes to zero by step three, and the remainder of f over the norm of h goes to zero, because f is differentiable at x.",
+     "zh": "第七步：k → 0 时，由第三步 h → 0；而 f 在 x 处可微，所以 f 的余项除以 ‖h‖ 趋于 0。"
+    },
+    {
+     "en": "So g is differentiable at y, with derivative T: g prime of y is the inverse of f prime of g of y.",
+     "zh": "所以 g 在 y 处可微，导数为 T：g′(y) = [f′(g(y))]⁻¹。"
+    },
+    {
+     "en": "For our example, the error ratio of g, computed numerically, indeed drops to zero as k shrinks.",
+     "zh": "对我们的例子，数值计算的 g 的误差比，确实随 k 缩小而趋于 0。"
+    },
+    {
+     "en": "The flagged assumption is now proved.",
+     "zh": "之前标出的假定，现在证明了。"
+    },
+    {
+     "en": "Step eight: g is C one. Its derivative is a composition: y goes to g of y, then to f prime of g of y, then to the matrix inverse.",
+     "zh": "第八步：g 是 C¹ 的。它的导数是复合：y ↦ g(y) ↦ f′(g(y)) ↦ 矩阵的逆。"
+    },
+    {
+     "en": "g is differentiable, hence continuous. And f prime is continuous, from U into the set Omega of invertible matrices.",
+     "zh": "g 可微，因而连续；f′ 是从 U 到可逆矩阵集合 Ω 的连续映射。"
+    },
+    {
+     "en": "Inversion is continuous on Omega: by Cramer's rule, each entry of the inverse is a rational function of the entries, over the nonzero determinant.",
+     "zh": "求逆在 Ω 上连续：由克拉默法则，逆矩阵的每个元素都是原元素的有理函数，分母是非零的行列式。"
+    },
+    {
+     "en": "A composition of continuous maps is continuous, so g prime is continuous, and g is C one.",
+     "zh": "连续映射的复合连续，所以 g′ 连续，g 是 C¹ 的。"
+    },
+    {
+     "en": "A supplementary remark on higher regularity: inversion on Omega is in fact smooth.",
+     "zh": "关于更高正则性的补充说明：Ω 上的求逆实际上是光滑的。"
+    },
+    {
+     "en": "If f is C k, and g is known to be C j for some j less than k, then g prime is C j, so g is C j plus one.",
+     "zh": "若 f 是 C^k，且已知 g 是 C^j（j < k），则 g′ 是 C^j，于是 g 是 C^{j+1}。"
+    },
+    {
+     "en": "Starting from j equal to one, induction reaches k. Smooth f gives smooth g.",
+     "zh": "从 j = 1 开始归纳即到 k。f 光滑则 g 光滑。"
+    },
+    {
+     "en": "Looking back, step three, the bound on h, is the heart of the matter. It is exactly what fails for the cube root.",
+     "zh": "回头看，第三步对 h 的控制是关键，而立方根恰好缺少它。"
+    },
+    {
+     "en": "And step four shows f prime invertible on all of U: invertibility at one point spreads to a ball, thanks to continuity of the derivative.",
+     "zh": "第四步说明 f′ 在整个 U 上可逆：靠导数的连续性，一点处的可逆性扩散到一个球。"
+    },
+    {
+     "en": "The theorem is proved.",
+     "zh": "定理证毕。"
+    }
+   ]
+  },
+  {
+   "id": "c10-what-ift-buys",
+   "chapter": "Recap",
+   "title": "What the Theorem Buys, and What Is Missing",
+   "music": "recap",
+   "terms": [
+    "inverse-function-theorem",
+    "chart",
+    "local-diffeomorphism",
+    "implicit-function-theorem",
+    "level-set"
+   ],
+   "sentences": [
+    {
+     "en": "Let us look back at the whole proof.",
+     "zh": "回顾整个证明。"
+    },
+    {
+     "en": "Injectivity: C one gives a ball where f prime stays close to capital A, so the frozen Newton map is a one half contraction, and f is one to one.",
+     "zh": "单射：C¹ 给出一个 f′ 始终接近 A 的球，于是冻结牛顿映射是 1/2-压缩，f 是单射。"
+    },
+    {
+     "en": "The wiggling example shows what happens without continuity of the derivative.",
+     "zh": "摆动的例子说明了导数不连续时会怎样。"
+    },
+    {
+     "en": "Openness: a closed ball is complete, so the contraction principle produces solutions, and the image is open.",
+     "zh": "开性：闭球完备，压缩映射原理给出解，于是像是开集。"
+    },
+    {
+     "en": "The interval with zero removed shows what happens without completeness.",
+     "zh": "挖掉 0 的区间说明了没有完备性时会怎样。"
+    },
+    {
+     "en": "Differentiability: the increment bound and an algebraic identity give g prime as the inverse of f prime, and then C one and C k.",
+     "zh": "可微性：增量控制和代数恒等式给出 g′ = (f′)⁻¹，进而得到 C¹ 与 C^k。"
+    },
+    {
+     "en": "The cube root shows what happens without an invertible derivative.",
+     "zh": "立方根说明了导数不可逆时会怎样。"
+    },
+    {
+     "en": "Every hypothesis was used, and every one has a counterexample.",
+     "zh": "每个条件都用上了，每个条件都有反例。"
+    },
+    {
+     "en": "What did we buy? A finite check in linear algebra, whether one matrix is invertible, yields a geometric conclusion: smooth coordinates exist nearby.",
+     "zh": "我们得到了什么？一个有限的线性代数检验，即矩阵是否可逆，换来几何结论：附近存在光滑坐标。"
+    },
+    {
+     "en": "Polar coordinates again: the derivative is invertible, so near any point with r positive, r and theta serve as local coordinates.",
+     "zh": "再看极坐标：导数可逆，所以在任何 r > 0 的点附近，r 和 θ 可以充当局部坐标。"
+    },
+    {
+     "en": "That is a chart in embryo.",
+     "zh": "这就是 chart 的雏形。"
+    },
+    {
+     "en": "What is missing? The theorem needs a square map: n equations in n unknowns.",
+     "zh": "还缺什么？定理需要方阵映射：n 个方程，n 个未知数。"
+    },
+    {
+     "en": "A constraint set, h of x equals c, with h from R n to R k and k less than n, has fewer equations than unknowns.",
+     "zh": "约束集合 h(x) = c，其中 h: ℝⁿ → ℝᵏ 且 k < n，方程比未知数少。"
+    },
+    {
+     "en": "Take the unit circle, x squared plus y squared equals one: one equation, two unknowns.",
+     "zh": "以单位圆 x² + y² = 1 为例：一个方程，两个未知数。"
+    },
+    {
+     "en": "Its derivative is the row two x, two y: a one by two matrix. It is not square, so it cannot be inverted.",
+     "zh": "它的导数是行向量 (2x, 2y)：1×2 矩阵。不是方阵，无从求逆。"
+    },
+    {
+     "en": "In the next episode, we fix this with a trick: pad the map to a square one, capital F of x, y equals x, together with f of x, y.",
+     "zh": "下一集用一个技巧解决：把映射补成方的，F(x, y) = (x, f(x, y))。"
+    },
+    {
+     "en": "Then the inverse function theorem gives the implicit function theorem: near a point, the circle is the graph of a function.",
+     "zh": "然后由反函数定理推出隐函数定理：在一点附近，圆是一个函数的图像。"
+    },
+    {
+     "en": "That is the next link in the chain, toward tangent spaces and the orthogonal group.",
+     "zh": "这是链条上的下一环，通向切空间与正交群。"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1548 @@
+{
+ "episode": "e05-tangent-orthogonal",
+ "title": "Tangent Spaces and the Orthogonal Group",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-why-directions",
+   "chapter": "Motivation",
+   "title": "An Optimizer Needs Directions",
+   "music": "motivation",
+   "terms": [
+    "level-set",
+    "regular-value",
+    "constrained-optimization",
+    "tangent-space"
+   ],
+   "sentences": [
+    {
+     "en": "Last episode, we saw that the unit sphere is a regular level set: the points where h of x, which is x transpose x, equals one.",
+     "zh": "上一集我们看到，单位球面是正则水平集：满足 h(x) = xᵀx = 1 的点。"
+    },
+    {
+     "en": "Pick a point p on the sphere. An optimizer standing at p wants to take a step.",
+     "zh": "在球面上取一点 p。站在 p 处的优化器想迈出一步。"
+    },
+    {
+     "en": "In the flat space R three, every direction is allowed: p plus t v stays in the space, for any v.",
+     "zh": "在平直的 ℝ³ 中，任何方向都可以走：对任意 v，p + tv 都还在空间里。"
+    },
+    {
+     "en": "On the sphere, that is no longer true.",
+     "zh": "在球面上就不是这样了。"
+    },
+    {
+     "en": "Push each arrow forward, and its tip leaves the sphere. The red segments show how far it has drifted.",
+     "zh": "让每根箭头向前推进，箭头端点就离开了球面。红色线段表示它偏离了多远。"
+    },
+    {
+     "en": "So the real question is not whether p plus t v leaves the sphere, but how fast it leaves.",
+     "zh": "所以真正的问题不是 p + tv 会不会离开球面，而是离开得有多快。"
+    },
+    {
+     "en": "Expand the squared length: the norm of p plus t v, squared, is one, plus two t p transpose v, plus t squared times the norm of v, squared.",
+     "zh": "展开长度的平方：‖p+tv‖² = 1 + 2t pᵀv + t²‖v‖²。"
+    },
+    {
+     "en": "If p transpose v is not zero, the middle term wins for small t, and the distance grows linearly in t.",
+     "zh": "若 pᵀv ≠ 0，小 t 时中间项占主导，距离随 t 线性增长。"
+    },
+    {
+     "en": "If p transpose v is zero, the middle term vanishes, and the distance grows only like t squared.",
+     "zh": "若 pᵀv = 0，中间项消失，距离只按 t² 增长。"
+    },
+    {
+     "en": "Such a step still leaves the sphere, but only at second order. To first order, it stays on.",
+     "zh": "这样的一步仍会离开球面，但只是二阶的。在一阶意义下，它留在球面上。"
+    },
+    {
+     "en": "The directions with p transpose v equal to zero fill a plane through p.",
+     "zh": "满足 pᵀv = 0 的方向铺成一张过 p 的平面。"
+    },
+    {
+     "en": "These directions graze the sphere, instead of cutting through it.",
+     "zh": "这些方向擦着球面而过，而不是穿过它。"
+    },
+    {
+     "en": "Can we describe these directions without using the formula for h? Here is a tempting idea.",
+     "zh": "能不能不用 h 的公式来描述这些方向？有一个诱人的想法。"
+    },
+    {
+     "en": "Take a nearby point q on the sphere, look at q minus p, and normalize it to unit length.",
+     "zh": "在球面上取 p 附近的点 q，看 q − p，并把它归一化为单位长度。"
+    },
+    {
+     "en": "Now let q slide toward p.",
+     "zh": "现在让 q 滑向 p。"
+    },
+    {
+     "en": "Along one path, the normalized difference settles on one direction. Along another path, it settles on a different one.",
+     "zh": "沿一条路径，归一化的差收敛到一个方向；沿另一条路径，收敛到另一个方向。"
+    },
+    {
+     "en": "So the difference of two points does not single out a direction: the answer depends on how q moves.",
+     "zh": "所以两点之差确定不了唯一的方向：答案取决于 q 怎样运动。"
+    },
+    {
+     "en": "Worse, on an abstract manifold, points cannot be subtracted at all.",
+     "zh": "更糟的是，在抽象流形上，点与点根本不能相减。"
+    },
+    {
+     "en": "What does carry a direction is motion: a path that moves through p while staying inside the set.",
+     "zh": "真正携带方向的是运动：一条穿过 p、并始终留在集合内的路径。"
+    },
+    {
+     "en": "So the question for this episode is: which directions keep us on M, to first order?",
+     "zh": "所以本集的问题是：哪些方向能让我们在一阶意义下留在 M 上？"
+    },
+    {
+     "en": "And can we compute them just by differentiating the constraint, without drawing any chart?",
+     "zh": "能不能不画任何 chart，只对约束求导就把它们算出来？"
+    },
+    {
+     "en": "These feasible directions will be the stage for the gradient and the retraction in the next episode.",
+     "zh": "这些可行方向将是下一集中梯度与 retraction 的舞台。"
+    }
+   ]
+  },
+  {
+   "id": "c02-tangent-by-curves",
+   "chapter": "Definition",
+   "title": "Tangent Vectors as Velocities of Curves",
+   "music": "definition",
+   "terms": [
+    "tangent-vector",
+    "smooth-curve",
+    "tangent-space",
+    "embedded-submanifold",
+    "chain-rule"
+   ],
+   "sentences": [
+    {
+     "en": "Imagine an ant crawling along the sphere.",
+     "zh": "想象一只蚂蚁在球面上爬。"
+    },
+    {
+     "en": "Whatever path it takes, at the moment it passes through p, its velocity points along the surface.",
+     "zh": "无论它走哪条路，经过 p 的那一刻，它的速度都贴着球面。"
+    },
+    {
+     "en": "That velocity is an arrow at p, and it is exactly the kind of direction we are looking for.",
+     "zh": "这个速度是 p 处的一根箭头，正是我们要找的那种方向。"
+    },
+    {
+     "en": "This gives the official definition.",
+     "zh": "由此得到正式的定义。"
+    },
+    {
+     "en": "Let M be a smooth embedded submanifold of R n, and let p be a point of M.",
+     "zh": "设 M 是 ℝⁿ 的光滑嵌入子流形，p 是 M 中的一点。"
+    },
+    {
+     "en": "A vector v in R n is a tangent vector to M at p if there is a smooth curve gamma, from minus epsilon to epsilon, into M,",
+     "zh": "称 ℝⁿ 中的向量 v 为 M 在 p 处的切向量，如果存在光滑曲线 γ:(−ε,ε) → M，"
+    },
+    {
+     "en": "with gamma of zero equal to p,",
+     "zh": "满足 γ(0) = p，"
+    },
+    {
+     "en": "and gamma prime of zero equal to v.",
+     "zh": "并且 γ'(0) = v。"
+    },
+    {
+     "en": "The set of all tangent vectors at p is called the tangent space, T p M.",
+     "zh": "p 处所有切向量组成的集合称为切空间，记作 T_pM。"
+    },
+    {
+     "en": "The curve must stay inside M for all small times. Only its velocity lives in the bigger space R n.",
+     "zh": "曲线在小的时间内必须始终留在 M 里；只有它的速度属于更大的空间 ℝⁿ。"
+    },
+    {
+     "en": "Let us compute two examples on the sphere, at the point p equals one, zero, zero.",
+     "zh": "在球面上的点 p = (1, 0, 0) 处算两个例子。"
+    },
+    {
+     "en": "The equator, gamma of t equals cos t, sin t, zero, passes through p at time zero.",
+     "zh": "赤道 γ(t) = (cos t, sin t, 0) 在时刻 0 经过 p。"
+    },
+    {
+     "en": "Its velocity is minus sin t, cos t, zero, which at time zero is zero, one, zero.",
+     "zh": "它的速度是 (−sin t, cos t, 0)，在时刻 0 等于 (0, 1, 0)。"
+    },
+    {
+     "en": "The meridian, gamma of t equals cos t, zero, sin t, also passes through p.",
+     "zh": "经线 γ(t) = (cos t, 0, sin t) 也经过 p。"
+    },
+    {
+     "en": "Its velocity at time zero is zero, zero, one.",
+     "zh": "它在时刻 0 的速度是 (0, 0, 1)。"
+    },
+    {
+     "en": "Both arrows are tangent vectors, and both are perpendicular to p.",
+     "zh": "两根箭头都是切向量，并且都与 p 垂直。"
+    },
+    {
+     "en": "Now take many curves through p, each a different smooth path on the sphere.",
+     "zh": "现在取许多条穿过 p 的曲线，每条都是球面上不同的光滑路径。"
+    },
+    {
+     "en": "Mark the tip of each velocity arrow.",
+     "zh": "标出每根速度箭头的端点。"
+    },
+    {
+     "en": "The tips spread out over a plane through p, the same plane we met in the last chapter.",
+     "zh": "这些端点铺满一张过 p 的平面，正是上一章遇到的那张平面。"
+    },
+    {
+     "en": "But a picture is not a proof. What does the definition alone tell us about the set T p M?",
+     "zh": "但图画不是证明。仅凭定义，我们对集合 T_pM 知道些什么？"
+    },
+    {
+     "en": "First, it is closed under scaling.",
+     "zh": "第一，它对数乘封闭。"
+    },
+    {
+     "en": "If v is the velocity of gamma, run the same path at a different speed: sigma of t equals gamma of s t.",
+     "zh": "若 v 是 γ 的速度，就以不同速度走同一条路：σ(t) = γ(st)。"
+    },
+    {
+     "en": "For small t, sigma of t is still on M, and sigma of zero is p.",
+     "zh": "对小的 t，σ(t) 仍在 M 上，并且 σ(0) = p。"
+    },
+    {
+     "en": "By the chain rule, sigma prime of zero equals s times gamma prime of zero, which is s v.",
+     "zh": "由链式法则，σ'(0) = s·γ'(0) = s·v。"
+    },
+    {
+     "en": "With s equal to two, the ant moves twice as fast, and the arrow doubles.",
+     "zh": "s = 2 时，蚂蚁快了一倍，箭头也长了一倍。"
+    },
+    {
+     "en": "With s equal to minus one, it walks the same path backward, and the arrow flips.",
+     "zh": "s = −1 时，它沿同一路径倒着走，箭头反向。"
+    },
+    {
+     "en": "With s equal to zero, the ant stands still at p, and the velocity is the zero vector.",
+     "zh": "s = 0 时，蚂蚁停在 p 不动，速度是零向量。"
+    },
+    {
+     "en": "So every multiple of a tangent vector is again a tangent vector.",
+     "zh": "所以切向量的任意倍数仍是切向量。"
+    },
+    {
+     "en": "What about sums? Take two curves, gamma one and gamma two, with velocities v one and v two.",
+     "zh": "那么加法呢？取两条曲线 γ₁、γ₂，速度分别为 v₁、v₂。"
+    },
+    {
+     "en": "The obvious candidate is gamma one of t, plus gamma two of t, minus p. Its velocity at zero is v one plus v two.",
+     "zh": "最自然的候选是 γ₁(t) + γ₂(t) − p，它在 0 处的速度是 v₁ + v₂。"
+    },
+    {
+     "en": "But this curve does not stay on the sphere.",
+     "zh": "但这条曲线并不留在球面上。"
+    },
+    {
+     "en": "Adding two points of the sphere and subtracting a third gives, in general, a point off the sphere.",
+     "zh": "球面上两点相加再减去第三点，一般得到球面外的点。"
+    },
+    {
+     "en": "So the definition alone does not tell us that a sum of tangent vectors is again tangent.",
+     "zh": "所以仅凭定义，推不出切向量之和仍是切向量。"
+    },
+    {
+     "en": "At this point, T p M is only a set, closed under scaling. Whether it is a vector space is a question for a theorem.",
+     "zh": "此时 T_pM 只是一个对数乘封闭的集合；它是否是向量空间，要由定理回答。"
+    },
+    {
+     "en": "That theorem will also tell us how to compute T p M without drawing a single curve.",
+     "zh": "这个定理还会告诉我们，怎样不画一条曲线就算出 T_pM。"
+    },
+    {
+     "en": "To prove it, we first need one tool from linear algebra: the rank-nullity theorem.",
+     "zh": "为了证明它，先需要一个线性代数工具：秩–零化度定理。"
+    }
+   ]
+  },
+  {
+   "id": "c03-rank-nullity",
+   "chapter": "Toolbox",
+   "title": "The Rank-Nullity Theorem",
+   "music": "proof",
+   "terms": [
+    "rank-nullity",
+    "kernel",
+    "image-linear",
+    "rank"
+   ],
+   "sentences": [
+    {
+     "en": "A linear map L, from R n to R k, takes n dimensions in, and sends some of them to zero.",
+     "zh": "线性映射 L: ℝⁿ → ℝᵏ 接收 n 个维度，并把其中一些压成 0。"
+    },
+    {
+     "en": "The kernel of L is the set of vectors v with L v equal to zero. The image of L is the set of all outputs L v.",
+     "zh": "L 的核是满足 Lv = 0 的向量 v 的集合；L 的像是所有输出 Lv 的集合。"
+    },
+    {
+     "en": "The rank of L is the dimension of its image.",
+     "zh": "L 的秩是它的像的维数。"
+    },
+    {
+     "en": "Here is an example: the two by three matrix with rows one, one, zero, and zero, zero, one.",
+     "zh": "举个例子：两行分别为 (1, 1, 0) 和 (0, 0, 1) 的 2×3 矩阵。"
+    },
+    {
+     "en": "It sends x, y, z to the pair x plus y, and z.",
+     "zh": "它把 (x, y, z) 送到 (x + y, z)。"
+    },
+    {
+     "en": "Watch the points of a grid in R three travel to their images in the plane.",
+     "zh": "看 ℝ³ 中网格上的点飞向它们在平面上的像。"
+    },
+    {
+     "en": "The points on the purple line, where x plus y is zero and z is zero, all land on the origin. That line is the kernel.",
+     "zh": "紫色直线上满足 x + y = 0、z = 0 的点全部落到原点。这条直线就是核。"
+    },
+    {
+     "en": "The images fill the whole plane, so the rank is two.",
+     "zh": "像铺满了整个平面，所以秩是 2。"
+    },
+    {
+     "en": "One dimension crushed, two dimensions surviving: one plus two equals three.",
+     "zh": "一个维度被压扁，两个维度活下来：1 + 2 = 3。"
+    },
+    {
+     "en": "The rank-nullity theorem says this always happens: the dimension of the kernel, plus the rank, equals n.",
+     "zh": "秩–零化度定理说这总是成立：核的维数加上秩等于 n。"
+    },
+    {
+     "en": "Here is the proof. Let r be the dimension of the kernel, and choose a basis v one through v r of the kernel.",
+     "zh": "下面是证明。设 r = dim ker L，取核的一组基 v₁, …, v_r。"
+    },
+    {
+     "en": "Extend it to a basis of all of R n, by adding vectors v r plus one, through v n.",
+     "zh": "添加向量 v_{r+1}, …, v_n，把它扩充成整个 ℝⁿ 的基。"
+    },
+    {
+     "en": "In our example, r is one. The kernel vector is one, minus one, zero, and we add one, zero, zero, and zero, zero, one.",
+     "zh": "在例子中 r = 1：核向量是 (1, −1, 0)，再添上 (1, 0, 0) 和 (0, 0, 1)。"
+    },
+    {
+     "en": "Claim: the vectors L v r plus one, through L v n, form a basis of the image.",
+     "zh": "断言：L v_{r+1}, …, L v_n 构成像的一组基。"
+    },
+    {
+     "en": "First, they span the image.",
+     "zh": "第一，它们张成像。"
+    },
+    {
+     "en": "Any output w is L v for some v, and v is a combination of the basis: the sum of c i v i.",
+     "zh": "任一输出 w 都是某个 v 的像 Lv，而 v 是基的组合：v = Σ cᵢvᵢ。"
+    },
+    {
+     "en": "Then w is the sum of c i times L v i. The terms with i at most r vanish, because those v i lie in the kernel.",
+     "zh": "于是 w = Σ cᵢ Lvᵢ。i ≤ r 的项都是零，因为这些 vᵢ 在核里。"
+    },
+    {
+     "en": "So w is a combination of L v r plus one, through L v n, alone.",
+     "zh": "所以 w 只是 L v_{r+1}, …, L v_n 的组合。"
+    },
+    {
+     "en": "Second, they are linearly independent.",
+     "zh": "第二，它们线性无关。"
+    },
+    {
+     "en": "Suppose the sum of c i L v i, over i greater than r, is zero.",
+     "zh": "设 Σ_{i>r} cᵢ Lvᵢ = 0。"
+    },
+    {
+     "en": "By linearity, L applied to the sum of c i v i is zero, so that sum lies in the kernel.",
+     "zh": "由线性，L(Σ_{i>r} cᵢvᵢ) = 0，所以这个和在核里。"
+    },
+    {
+     "en": "So it can be written in the kernel basis, as a sum of d j v j, over j up to r.",
+     "zh": "于是它可以用核的基写出：Σ_{j≤r} d_j v_j。"
+    },
+    {
+     "en": "Move everything to one side. We get a combination of v one through v n that equals zero.",
+     "zh": "全部移到一边，就得到 v₁, …, v_n 的一个等于零的组合。"
+    },
+    {
+     "en": "Since v one through v n are linearly independent, every coefficient is zero. In particular, every c i is zero.",
+     "zh": "因为 v₁, …, v_n 线性无关，所有系数都是零；特别地，每个 cᵢ 都是零。"
+    },
+    {
+     "en": "So the image has a basis of n minus r vectors. The rank is n minus r, and the kernel dimension plus the rank is n.",
+     "zh": "所以像有一组 n − r 个向量的基：秩为 n − r，核的维数加秩等于 n。"
+    },
+    {
+     "en": "Now watch what happens when the rank drops.",
+     "zh": "现在看看秩下降时会发生什么。"
+    },
+    {
+     "en": "Replace the matrix by rows one, one, zero, and two, two, zero. The second row is twice the first, so the rank is one.",
+     "zh": "把矩阵换成两行 (1, 1, 0) 和 (2, 2, 0)。第二行是第一行的两倍，所以秩是 1。"
+    },
+    {
+     "en": "The image collapses onto a line, and the kernel swells from a line into a plane.",
+     "zh": "像塌缩成一条直线，核从一条直线膨胀成一张平面。"
+    },
+    {
+     "en": "Two plus one is still three. Lose one dimension of image, and the kernel gains exactly one.",
+     "zh": "2 + 1 仍然是 3。像少一个维度，核就恰好多一个维度。"
+    },
+    {
+     "en": "This is the linear algebra behind a later failure: when regularity fails, the kernel becomes too big.",
+     "zh": "这正是后面一个失效现象的线性代数根源：正则性失效时，核会变得太大。"
+    },
+    {
+     "en": "Two consequences will be used repeatedly.",
+     "zh": "有两个推论会反复用到。"
+    },
+    {
+     "en": "First, if a k by n matrix has rank k, which means it maps onto R k, then its kernel has dimension n minus k.",
+     "zh": "第一，若 k×n 矩阵的秩为 k，也就是它映满 ℝᵏ，那么它的核是 n − k 维的。"
+    },
+    {
+     "en": "Second, if W is a subspace of V, and both have the same finite dimension, then W equals V.",
+     "zh": "第二，若 W 是 V 的子空间，且两者有相同的有限维数，则 W = V。"
+    },
+    {
+     "en": "The reason: a basis of W is a set of independent vectors in V, as many as the dimension of V, so it is already a basis of V.",
+     "zh": "理由：W 的基是 V 中 dim V 个线性无关的向量，所以它已经是 V 的基。"
+    },
+    {
+     "en": "With these tools ready, we can start computing tangent spaces.",
+     "zh": "工具齐备，可以开始计算切空间了。"
+    }
+   ]
+  },
+  {
+   "id": "c04-kernel-contains-tangent",
+   "chapter": "Proof, step 1",
+   "title": "Step One: Tangent Vectors Lie in the Kernel",
+   "music": "proof",
+   "terms": [
+    "tangent-space",
+    "kernel",
+    "chain-rule",
+    "level-set",
+    "regular-value"
+   ],
+   "sentences": [
+    {
+     "en": "We now prove the first half of the main theorem: every tangent vector lies in the kernel of D h of p.",
+     "zh": "现在证明主定理的前一半：每个切向量都在 Dh(p) 的核里。"
+    },
+    {
+     "en": "The setting: h is a smooth map from an open set U in R n to R k, c is a regular value, and M is the level set h inverse of c.",
+     "zh": "设定：h 是从 ℝⁿ 中开集 U 到 ℝᵏ 的光滑映射，c 是正则值，M 是水平集 h⁻¹(c)。"
+    },
+    {
+     "en": "The idea is simple. While you move inside M, the value of h never changes: it is always c.",
+     "zh": "想法很简单：只要在 M 内移动，h 的值就不变，始终等于 c。"
+    },
+    {
+     "en": "Here a ball moves along a curve gamma on the sphere, and on the right we plot h of gamma of t.",
+     "zh": "这里一个小球沿球面上的曲线 γ 运动，右边画出 h(γ(t))。"
+    },
+    {
+     "en": "The graph is perfectly flat, at height one.",
+     "zh": "图像完全是平的，停在高度 1。"
+    },
+    {
+     "en": "Compare a red ball that leaves along the straight line p plus t v, where v is not tangent.",
+     "zh": "对比一个红色小球，它沿直线 p + tv 离开，其中 v 不是切向。"
+    },
+    {
+     "en": "Now h of p plus t v is one, plus two t p transpose v, plus t squared times the norm of v, squared: a parabola.",
+     "zh": "这时 h(p+tv) = 1 + 2t pᵀv + t²‖v‖²，是一条抛物线。"
+    },
+    {
+     "en": "Its slope at time zero is two p transpose v, which is not zero.",
+     "zh": "它在时刻 0 的斜率是 2pᵀv，不为零。"
+    },
+    {
+     "en": "On the sphere the slope is zero; off the sphere it is not. Let us turn this into a proof.",
+     "zh": "在球面上斜率为零，离开球面就不为零。下面把它变成证明。"
+    },
+    {
+     "en": "Take any tangent vector v at p.",
+     "zh": "任取 p 处的切向量 v。"
+    },
+    {
+     "en": "By definition, there is a smooth curve gamma into M, with gamma of zero equal to p, and gamma prime of zero equal to v.",
+     "zh": "由定义，存在光滑曲线 γ 落在 M 中，满足 γ(0) = p，γ'(0) = v。"
+    },
+    {
+     "en": "Because gamma of t lies in M, which is h inverse of c, we have h of gamma of t equal to c, for every t.",
+     "zh": "因为 γ(t) 在 M = h⁻¹(c) 中，对所有 t 都有 h(γ(t)) = c。"
+    },
+    {
+     "en": "So the function that sends t to h of gamma of t is constant, and its derivative is zero for every t.",
+     "zh": "所以函数 t ↦ h(γ(t)) 是常数，它的导数对所有 t 都是零。"
+    },
+    {
+     "en": "By the chain rule, that derivative is D h at gamma of t, applied to gamma prime of t.",
+     "zh": "由链式法则，这个导数等于 Dh(γ(t)) 作用在 γ'(t) 上。"
+    },
+    {
+     "en": "Set t equal to zero: D h of p, applied to v, equals zero.",
+     "zh": "令 t = 0：Dh(p)·v = 0。"
+    },
+    {
+     "en": "So v lies in the kernel of D h of p. Since v was any tangent vector, T p M is contained in the kernel.",
+     "zh": "所以 v ∈ ker Dh(p)。v 是任意切向量，故 T_pM ⊆ ker Dh(p)。"
+    },
+    {
+     "en": "On the sphere, h of x is x transpose x, so D h of p, applied to v, is two p transpose v.",
+     "zh": "在球面上 h(x) = xᵀx，所以 Dh(p)·v = 2pᵀv。"
+    },
+    {
+     "en": "So the condition D h of p v equals zero says that v is perpendicular to p.",
+     "zh": "于是条件 Dh(p)v = 0 说的是：v 与 p 垂直。"
+    },
+    {
+     "en": "In other words, the kernel is the plane perpendicular to the gradient, which is two p.",
+     "zh": "换句话说，核是垂直于梯度 2p 的平面。"
+    },
+    {
+     "en": "It coincides with the orange plane of velocities that we found by drawing curves.",
+     "zh": "它与我们画曲线得到的橙色速度平面重合。"
+    },
+    {
+     "en": "With k constraints, D h of p has k rows: the gradients of h one through h k, transposed.",
+     "zh": "有 k 个约束时，Dh(p) 有 k 行：∇h₁, …, ∇h_k 的转置。"
+    },
+    {
+     "en": "A vector is in the kernel exactly when it is perpendicular to every one of these gradients.",
+     "zh": "一个向量在核里，当且仅当它与每个梯度都垂直。"
+    },
+    {
+     "en": "For example, the cylinder x squared plus y squared equals one, cut by the plane z equals y over two, gives a closed curve.",
+     "zh": "例如，圆柱 x² + y² = 1 被平面 z = y/2 截出一条闭曲线。"
+    },
+    {
+     "en": "At a point of that curve, the two gradients point in different directions, and the directions perpendicular to both form a line.",
+     "zh": "在曲线上一点，两个梯度方向不同，与两者都垂直的方向构成一条直线。"
+    },
+    {
+     "en": "By what we just proved, every velocity of the curve at that point lies on this line.",
+     "zh": "由刚才的证明，曲线在这一点的每个速度都落在这条直线上。"
+    },
+    {
+     "en": "Notice what we did not use. Nowhere did we need c to be a regular value.",
+     "zh": "注意我们没有用到什么：完全没有用到 c 是正则值。"
+    },
+    {
+     "en": "This inclusion holds for any level set. Regularity will enter in the second step.",
+     "zh": "这个包含关系对任何水平集都成立。正则性要到第二步才出场。"
+    },
+    {
+     "en": "We now have an upper bound: T p M sits inside the kernel. Next, we must show that the kernel is not too big.",
+     "zh": "现在有了上界：T_pM 在核里面。接下来要证明核不会太大。"
+    }
+   ]
+  },
+  {
+   "id": "c05-tangent-equals-kernel",
+   "chapter": "Proof, step 2",
+   "title": "Step Two: A Dimension Squeeze",
+   "music": "proof",
+   "terms": [
+    "tangent-space",
+    "kernel",
+    "graph-parametrization",
+    "implicit-function-theorem",
+    "rank-nullity",
+    "image-linear"
+   ],
+   "sentences": [
+    {
+     "en": "The first step showed that T p M sits inside the kernel of D h of p. Could the kernel be strictly bigger?",
+     "zh": "第一步说明 T_pM 在 Dh(p) 的核里。核会不会严格更大？"
+    },
+    {
+     "en": "To rule this out, we build enough tangent vectors from the other side.",
+     "zh": "为了排除这种可能，我们从另一边造出足够多的切向量。"
+    },
+    {
+     "en": "The tool is the graph parametrization from the implicit function theorem.",
+     "zh": "工具是隐函数定理给出的图像参数化。"
+    },
+    {
+     "en": "Since c is a regular value, D h of p has rank k, so it has k linearly independent columns.",
+     "zh": "因为 c 是正则值，Dh(p) 的秩为 k，所以它有 k 个线性无关的列。"
+    },
+    {
+     "en": "Reorder the coordinates so that these are the last k columns. Then the block D y h, at p, is invertible.",
+     "zh": "重排坐标，让它们成为最后 k 列。于是 p 处的分块 D_y h 可逆。"
+    },
+    {
+     "en": "Reordering coordinates is a permutation, a linear isomorphism, so it changes nothing about kernels, images or dimensions.",
+     "zh": "重排坐标是一个置换，是线性同构，不改变核、像和维数。"
+    },
+    {
+     "en": "Write p as the pair a, b. The first block, a, lives in R n minus k, and the second block, b, lives in R k.",
+     "zh": "把 p 写成 (a, b)：第一块 a ∈ ℝⁿ⁻ᵏ，第二块 b ∈ ℝᵏ。"
+    },
+    {
+     "en": "The implicit function theorem gives an open neighborhood of a, and a smooth map g with g of a equals b,",
+     "zh": "隐函数定理给出 a 的一个开邻域 A，以及满足 g(a) = b 的光滑映射 g，"
+    },
+    {
+     "en": "such that near p, the set M is exactly the graph of g.",
+     "zh": "使得在 p 附近，M 恰好是 g 的图像。"
+    },
+    {
+     "en": "So psi of x, the pair x, g of x, parametrizes M near p, and psi of a equals p.",
+     "zh": "所以 ψ(x) = (x, g(x)) 在 p 附近参数化 M，并且 ψ(a) = p。"
+    },
+    {
+     "en": "For the upper hemisphere, g of x one, x two, is the square root of one minus x one squared, minus x two squared.",
+     "zh": "对上半球面，g(x₁, x₂) = √(1 − x₁² − x₂²)。"
+    },
+    {
+     "en": "Psi lifts each point of the parameter disk straight up onto the sphere.",
+     "zh": "ψ 把参数圆盘上的每个点竖直抬到球面上。"
+    },
+    {
+     "en": "Now pick any direction xi in the parameter space, and draw the straight line through a, in the direction xi.",
+     "zh": "现在在参数空间中任取方向 ξ，画出过 a、方向为 ξ 的直线。"
+    },
+    {
+     "en": "Because the neighborhood is open, this line stays inside it for all small t, say for t between minus epsilon and epsilon.",
+     "zh": "因为这个邻域是开集，对小的 t，比如 |t| < ε，这条直线都留在邻域里。"
+    },
+    {
+     "en": "Push the line through psi, and we get a curve gamma.",
+     "zh": "把直线经 ψ 推过去，就得到一条曲线 γ。"
+    },
+    {
+     "en": "This curve lies in M, it passes through p at time zero, and it is smooth, as a composition of smooth maps.",
+     "zh": "这条曲线在 M 中，在时刻 0 经过 p，并且作为光滑映射的复合是光滑的。"
+    },
+    {
+     "en": "So its velocity is a tangent vector. By the chain rule, gamma prime of zero equals D psi of a, applied to xi.",
+     "zh": "所以它的速度是切向量。由链式法则，γ'(0) = Dψ(a)ξ。"
+    },
+    {
+     "en": "Every xi gives one, so the whole image of D psi of a, is contained in T p M.",
+     "zh": "每个 ξ 都给出一个，所以 Dψ(a) 的整个像都包含在 T_pM 中。"
+    },
+    {
+     "en": "How big is this image? Compute D psi of a, applied to xi.",
+     "zh": "这个像有多大？计算 Dψ(a)ξ。"
+    },
+    {
+     "en": "Since psi of x is the pair x, g of x, its derivative applied to xi is the pair xi, and D g of a, applied to xi.",
+     "zh": "因为 ψ(x) = (x, g(x))，它的导数作用在 ξ 上得到 (ξ, Dg(a)ξ)。"
+    },
+    {
+     "en": "The first block is xi itself: the identity matrix of size n minus k sits on top.",
+     "zh": "第一块就是 ξ 本身：上方是 n − k 阶单位矩阵。"
+    },
+    {
+     "en": "In the picture, each velocity arrow stands directly above its xi. Its shadow on the parameter plane is xi.",
+     "zh": "在图中，每根速度箭头都正好立在它的 ξ 上方，它在参数平面上的影子就是 ξ。"
+    },
+    {
+     "en": "So if the velocity is zero, its first block xi is zero. This derivative is injective.",
+     "zh": "所以若速度为零，它的第一块 ξ 就为零。这个导数是单射。"
+    },
+    {
+     "en": "By rank-nullity, the dimension of its image is n minus k, minus zero, which is n minus k.",
+     "zh": "由秩–零化度定理，它的像的维数是 (n − k) − 0 = n − k。"
+    },
+    {
+     "en": "Now the other end. D h of p is a k by n matrix of rank k.",
+     "zh": "再看另一端：Dh(p) 是秩为 k 的 k×n 矩阵。"
+    },
+    {
+     "en": "By rank-nullity, its kernel has dimension n minus k.",
+     "zh": "由秩–零化度定理，它的核是 n − k 维的。"
+    },
+    {
+     "en": "Put the three sets together.",
+     "zh": "把三个集合放在一起。"
+    },
+    {
+     "en": "First, by the curves we just built, T p M contains the image of D psi of a.",
+     "zh": "第一，由刚才造的曲线，T_pM 包含 Dψ(a) 的像。"
+    },
+    {
+     "en": "Second, by the first step, T p M is contained in the kernel of D h of p.",
+     "zh": "第二，由第一步，T_pM 包含于 Dh(p) 的核。"
+    },
+    {
+     "en": "The innermost and the outermost sets are both subspaces, and both have dimension n minus k.",
+     "zh": "最里层和最外层都是子空间，维数都是 n − k。"
+    },
+    {
+     "en": "A subspace inside another of the same dimension must equal it. So the image equals the kernel.",
+     "zh": "一个子空间包含于同维数的另一个子空间，二者必相等。所以像等于核。"
+    },
+    {
+     "en": "And T p M, squeezed between two equal sets, equals both of them.",
+     "zh": "夹在两个相等集合之间的 T_pM，也等于它们。"
+    },
+    {
+     "en": "So T p M equals the kernel of D h of p, and also equals the image of D psi of a.",
+     "zh": "所以 T_pM = ker Dh(p) = im Dψ(a)。"
+    },
+    {
+     "en": "Back on the sphere: the orange plane of velocities and the purple kernel are the same plane.",
+     "zh": "回到球面：橙色的速度平面与紫色的核是同一张平面。"
+    },
+    {
+     "en": "Notice where regularity entered: the invertible block is what produced g and psi.",
+     "zh": "注意正则性在哪里出场：正是可逆分块给出了 g 和 ψ。"
+    },
+    {
+     "en": "Notice also why injectivity mattered. Without it, the image could be smaller than n minus k, and the squeeze would not close.",
+     "zh": "也注意单射为什么重要：没有它，像可能小于 n − k 维，夹逼就合不拢。"
+    },
+    {
+     "en": "There is a bonus. Since the kernel is a subspace, T p M is a vector space of dimension n minus k.",
+     "zh": "还有一个附带结果：核是子空间，所以 T_pM 是 n − k 维向量空间。"
+    },
+    {
+     "en": "In particular, a sum of tangent vectors is again tangent. The question left open by the definition is answered.",
+     "zh": "特别地，切向量之和仍是切向量。定义留下的问题得到了回答。"
+    },
+    {
+     "en": "And the theorem turns finding tangent vectors into solving a linear system: D h of p, v, equals zero.",
+     "zh": "这个定理把寻找切向量变成解线性方程组：Dh(p)v = 0。"
+    },
+    {
+     "en": "Next, we see what goes wrong when regularity fails.",
+     "zh": "接下来看正则性失效时会出什么问题。"
+    }
+   ]
+  },
+  {
+   "id": "c06-regularity-and-sphere",
+   "chapter": "Counterexamples",
+   "title": "Why Regularity Matters, and the Sphere",
+   "music": "counterexample",
+   "terms": [
+    "regular-value",
+    "kernel",
+    "tangent-space",
+    "level-set"
+   ],
+   "sentences": [
+    {
+     "en": "The theorem uses two ingredients: an equation h of x equals c, and regularity. What happens if regularity fails?",
+     "zh": "定理用到两样东西：方程 h(x) = c，以及正则性。正则性失效会怎样？"
+    },
+    {
+     "en": "Here is the same sphere, described by two different equations.",
+     "zh": "这是同一个球面，用两个不同的方程描述。"
+    },
+    {
+     "en": "On the left, h of x is x transpose x, at level one.",
+     "zh": "左边是 h(x) = xᵀx，取水平值 1。"
+    },
+    {
+     "en": "On the right, h tilde of x is x transpose x minus one, squared, at level zero. Its zero set is exactly the same unit sphere.",
+     "zh": "右边是 h̃(x) = (xᵀx − 1)²，取水平值 0。它的零集恰好是同一个单位球面。"
+    },
+    {
+     "en": "With the good equation, the gradient at p is two p, and the kernel of D h of p is the plane perpendicular to it.",
+     "zh": "用好的方程，p 处的梯度是 2p，Dh(p) 的核是与它垂直的平面。"
+    },
+    {
+     "en": "That plane is exactly the tangent plane.",
+     "zh": "这张平面恰好就是切平面。"
+    },
+    {
+     "en": "Now differentiate the bad equation. By the chain rule, D h tilde of x, applied to v, is two times x transpose x minus one, times two x transpose v.",
+     "zh": "现在对坏方程求导。由链式法则，Dh̃(x)[v] = 2(xᵀx − 1)·2xᵀv。"
+    },
+    {
+     "en": "That is four times x transpose x minus one, times x transpose v.",
+     "zh": "也就是 4(xᵀx − 1)·xᵀv。"
+    },
+    {
+     "en": "On the sphere, x transpose x equals one, so the first factor is zero. The derivative vanishes identically.",
+     "zh": "在球面上 xᵀx = 1，第一个因子为零，导数恒等于零。"
+    },
+    {
+     "en": "Watch the gradient of h tilde as a test point moves in toward the sphere. It shrinks, and on the sphere it is exactly zero.",
+     "zh": "看测试点向球面靠近时 h̃ 的梯度：它不断缩短，到球面上恰好为零。"
+    },
+    {
+     "en": "So D h tilde of p is the zero map, and its kernel is all of R three.",
+     "zh": "所以 Dh̃(p) 是零映射，它的核是整个 ℝ³。"
+    },
+    {
+     "en": "But the set has not changed. Its tangent plane is still two dimensional.",
+     "zh": "但集合本身没有变，它的切平面仍是二维的。"
+    },
+    {
+     "en": "The kernel is too big: three dimensions instead of two.",
+     "zh": "核太大了：三维，而不是二维。"
+    },
+    {
+     "en": "Which step of the proof broke?",
+     "zh": "证明的哪一步坏了？"
+    },
+    {
+     "en": "The first step still holds: every tangent vector lies in the kernel, because the kernel contains everything.",
+     "zh": "第一步依然成立：每个切向量都在核里，因为核包含一切。"
+    },
+    {
+     "en": "The second step fails at its very start. Every block of D h tilde of p is zero, so no block is invertible.",
+     "zh": "第二步一开始就失败了：Dh̃(p) 的每个分块都是零，没有可逆的分块。"
+    },
+    {
+     "en": "The implicit function theorem gives no g and no psi, and the squeeze never happens.",
+     "zh": "隐函数定理给不出 g 和 ψ，夹逼也就无从谈起。"
+    },
+    {
+     "en": "So regularity is what makes the kernel the right size. The conclusion depends on the equation, not only on the set.",
+     "zh": "所以正是正则性让核的大小恰到好处。结论依赖于方程，而不只是集合。"
+    },
+    {
+     "en": "In this example, a better equation existed. Sometimes the set itself is the problem.",
+     "zh": "这个例子里存在更好的方程。但有时问题出在集合本身。"
+    },
+    {
+     "en": "Take h of x, y equals x squared minus y squared, in the plane, at level zero.",
+     "zh": "在平面上取 h(x, y) = x² − y²，水平值为 0。"
+    },
+    {
+     "en": "Its zero set is the pair of lines y equals x, and y equals minus x, crossing at the origin.",
+     "zh": "它的零集是两条直线 y = x 与 y = −x，在原点交叉。"
+    },
+    {
+     "en": "At the origin, D h is two x, minus two y, evaluated at zero: the zero matrix. Its kernel is the whole plane.",
+     "zh": "在原点，Dh = (2x, −2y) 取值为零矩阵，它的核是整个平面。"
+    },
+    {
+     "en": "The curve definition was stated for manifolds, but the same recipe, velocities of curves inside the set, makes sense for any subset.",
+     "zh": "曲线定义原本是对流形给出的，但同样的做法，即集合内曲线的速度，对任何子集都有意义。"
+    },
+    {
+     "en": "So let us generalize it, and compute the velocities here.",
+     "zh": "所以我们把它推广过来，在这里计算速度。"
+    },
+    {
+     "en": "Let gamma of t, with coordinates x of t and y of t, be a smooth curve in the set, through the origin at time zero, with velocity u, w.",
+     "zh": "设 γ(t) = (x(t), y(t)) 是集合内的光滑曲线，时刻 0 经过原点，速度为 (u, w)。"
+    },
+    {
+     "en": "Staying in the set means that the absolute value of x of t equals the absolute value of y of t, for every t.",
+     "zh": "留在集合内意味着：对所有 t，|x(t)| = |y(t)|。"
+    },
+    {
+     "en": "Near zero, x of t is u t plus an error that is small compared with t, and likewise y of t is w t plus such an error.",
+     "zh": "在 0 附近，x(t) = ut + o(t)，y(t) = wt + o(t)。"
+    },
+    {
+     "en": "Divide by the absolute value of t, and let t go to zero. We get: the absolute value of u equals the absolute value of w.",
+     "zh": "两边除以 |t|，令 t → 0，得到 |u| = |w|。"
+    },
+    {
+     "en": "So every velocity lies on one of the two lines.",
+     "zh": "所以每个速度都落在两条直线之一上。"
+    },
+    {
+     "en": "And both lines are reached: the straight curves t, t, and t, minus t, have velocities one, one, and one, minus one.",
+     "zh": "两条直线都能取到：直线曲线 (t, t) 与 (t, −t) 的速度分别是 (1, 1) 和 (1, −1)。"
+    },
+    {
+     "en": "A smooth curve that switches from one line to the other must come to a stop at the origin. Its velocity there is zero.",
+     "zh": "从一条线换到另一条线的光滑曲线，必须在原点停下来，那里的速度为零。"
+    },
+    {
+     "en": "So the set of velocities is the union of the two lines, not the whole plane.",
+     "zh": "所以速度集合是两条直线的并，而不是整个平面。"
+    },
+    {
+     "en": "It is not even a vector space: one, one, plus one, minus one, is two, zero, which lies on neither line.",
+     "zh": "它甚至不是向量空间：(1, 1) + (1, −1) = (2, 0)，不在任何一条线上。"
+    },
+    {
+     "en": "Here the kernel is too big, and the true set of velocities is not even closed under addition.",
+     "zh": "这里核太大，而真正的速度集合甚至对加法不封闭。"
+    },
+    {
+     "en": "Now the positive side. Back to the sphere, with the good equation.",
+     "zh": "现在看正面。回到球面，用好的方程。"
+    },
+    {
+     "en": "For S n minus one, take h of x equals x transpose x. Its derivative is D h of x, applied to v, equals two x transpose v.",
+     "zh": "对 Sⁿ⁻¹，取 h(x) = xᵀx。它的导数是 Dh(x)[v] = 2xᵀv。"
+    },
+    {
+     "en": "For a point x on the sphere, x is not zero, so this linear map is not zero, and its rank is one.",
+     "zh": "球面上的点 x 不为零，所以这个线性映射不为零，秩为 1。"
+    },
+    {
+     "en": "So one is a regular value, and the theorem gives T x S n minus one equals the kernel: all v with x transpose v equal to zero.",
+     "zh": "所以 1 是正则值，定理给出 T_xSⁿ⁻¹ = 核 = {v : xᵀv = 0}。"
+    },
+    {
+     "en": "That is x perp, the orthogonal complement of x, a space of dimension n minus one.",
+     "zh": "这就是 x^⊥，即 x 的正交补，维数为 n − 1。"
+    },
+    {
+     "en": "No chart of the sphere was needed, only one derivative.",
+     "zh": "不需要球面的任何 chart，只需要一次求导。"
+    },
+    {
+     "en": "As the point moves over the sphere, the tangent plane moves with it, always perpendicular to the point.",
+     "zh": "点在球面上移动时，切平面随之移动，始终与该点垂直。"
+    },
+    {
+     "en": "Next, we apply the same machine to matrices, where the first trap is the choice of codomain.",
+     "zh": "接下来把同一套机器用到矩阵上，第一个陷阱是陪域的选择。"
+    }
+   ]
+  },
+  {
+   "id": "c07-on-differential-codomain",
+   "chapter": "The orthogonal group",
+   "title": "O(n): the Differential, and Why the Codomain Is Sym(n)",
+   "music": "definition",
+   "terms": [
+    "orthogonal-group",
+    "frobenius-inner-product",
+    "symmetric-matrix",
+    "skew-symmetric-matrix",
+    "direct-sum",
+    "directional-derivative",
+    "regular-value"
+   ],
+   "sentences": [
+    {
+     "en": "Now the main example of this episode: the orthogonal group.",
+     "zh": "现在进入本集的主要例子：正交群。"
+    },
+    {
+     "en": "O n is the set of n by n real matrices R with R transpose R equal to the identity.",
+     "zh": "O(n) 是满足 RᵀR = I 的 n×n 实矩阵 R 的集合。"
+    },
+    {
+     "en": "Its columns are orthonormal, so R preserves lengths and angles. These matrices are the rotations and the reflections.",
+     "zh": "它的列是标准正交的，所以 R 保持长度和角度。这些矩阵就是旋转和反射。"
+    },
+    {
+     "en": "To use our theorem, think of a matrix as a point. An n by n matrix has n squared entries, so the space of matrices is just R n squared.",
+     "zh": "为了用定理，把矩阵看成点。n×n 矩阵有 n² 个条目，所以矩阵空间就是 ℝ^{n²}。"
+    },
+    {
+     "en": "The matching inner product is the Frobenius inner product: the trace of A transpose B, the sum of products of matching entries.",
+     "zh": "相应的内积是 Frobenius 内积：tr(AᵀB)，即对应条目乘积之和。"
+    },
+    {
+     "en": "Two subspaces of matrices will matter. Symmetric matrices satisfy S transpose equals S.",
+     "zh": "有两个矩阵子空间很重要。对称矩阵满足 Sᵀ = S。"
+    },
+    {
+     "en": "Skew-symmetric matrices satisfy omega transpose equals minus omega.",
+     "zh": "反对称矩阵满足 Ωᵀ = −Ω。"
+    },
+    {
+     "en": "Every matrix splits into one of each.",
+     "zh": "每个矩阵都能分成这两种各一个。"
+    },
+    {
+     "en": "Take the matrix plus its transpose, over two, and the matrix minus its transpose, over two. The first part is symmetric, the second is skew.",
+     "zh": "取 (A + Aᵀ)/2 和 (A − Aᵀ)/2：前者对称，后者反对称。"
+    },
+    {
+     "en": "Their sum gives back the original matrix.",
+     "zh": "两者相加就回到原矩阵。"
+    },
+    {
+     "en": "The split is unique: a matrix that is both symmetric and skew equals its transpose and minus its transpose, so it is zero.",
+     "zh": "这种分解唯一：既对称又反对称的矩阵 A = Aᵀ = −A，所以 A = 0。"
+    },
+    {
+     "en": "So the space of matrices is the direct sum of Sym n and Skew n.",
+     "zh": "所以矩阵空间是 Sym(n) 与 Skew(n) 的直和。"
+    },
+    {
+     "en": "Count dimensions.",
+     "zh": "数一数维数。"
+    },
+    {
+     "en": "A symmetric matrix is determined by its diagonal and the entries above it.",
+     "zh": "对称矩阵由对角线及其上方的条目决定。"
+    },
+    {
+     "en": "That is n, plus n times n minus one over two, which is n times n plus one, over two.",
+     "zh": "共 n + n(n−1)/2 = n(n+1)/2 个。"
+    },
+    {
+     "en": "For a skew matrix, each diagonal entry equals its own negative, so it is zero. Only the strict upper triangle is free: n times n minus one, over two.",
+     "zh": "反对称矩阵的对角元等于自身的相反数，所以为零；只有严格上三角是自由的：n(n−1)/2。"
+    },
+    {
+     "en": "For n equal to three, that is six plus three, which is nine. The two dimensions add up to n squared, as they must.",
+     "zh": "n = 3 时是 6 + 3 = 9。两个维数之和是 n²，理应如此。"
+    },
+    {
+     "en": "Now look at the constraint. Define F of R as R transpose R, minus the identity.",
+     "zh": "现在看约束。定义 F(R) = RᵀR − I。"
+    },
+    {
+     "en": "R transpose R equals the identity looks like n squared equations, one for each entry.",
+     "zh": "RᵀR = I 看起来像是 n² 个方程，每个条目一个。"
+    },
+    {
+     "en": "But look at n equal to two. The entry in row one, column two, is r one one r one two, plus r two one r two two.",
+     "zh": "但看 n = 2 的情形：第 (1,2) 个条目是 r₁₁r₁₂ + r₂₁r₂₂。"
+    },
+    {
+     "en": "The entry in row two, column one, is exactly the same expression.",
+     "zh": "第 (2,1) 个条目恰好是同一个表达式。"
+    },
+    {
+     "en": "In general, R transpose R is always symmetric, since its transpose is R transpose R again. Entry i, j and entry j, i give the same equation.",
+     "zh": "一般地，RᵀR 总是对称的，它的转置还是 RᵀR。条目 (i,j) 与 (j,i) 给出同一个方程。"
+    },
+    {
+     "en": "So F takes values in Sym n, and O n is the zero set of F, viewed as a map into Sym n.",
+     "zh": "所以 F 取值于 Sym(n)，O(n) 是 F: ℝ^{n×n} → Sym(n) 的零集。"
+    },
+    {
+     "en": "Next, the derivative, by the directional derivative trick.",
+     "zh": "接下来用方向导数技巧求导数。"
+    },
+    {
+     "en": "Expand F of R plus t H: the transpose of R plus t H, times R plus t H, minus the identity.",
+     "zh": "展开 F(R + tH) = (R + tH)ᵀ(R + tH) − I。"
+    },
+    {
+     "en": "This is R transpose R minus the identity, plus t times R transpose H plus H transpose R, plus t squared H transpose H.",
+     "zh": "它等于 RᵀR − I + t(RᵀH + HᵀR) + t²HᵀH。"
+    },
+    {
+     "en": "The derivative at t equal to zero is the coefficient of t: D F of R, applied to H, is R transpose H plus H transpose R.",
+     "zh": "t = 0 处的导数就是 t 的系数：DF(R)[H] = RᵀH + HᵀR。"
+    },
+    {
+     "en": "As expected, this is symmetric: its transpose is H transpose R plus R transpose H, the same matrix.",
+     "zh": "如预期，它是对称的：它的转置 HᵀR + RᵀH 还是同一个矩阵。"
+    },
+    {
+     "en": "Here is the trap. Suppose we had kept all n by n matrices as the codomain.",
+     "zh": "陷阱在这里：假设我们把陪域取成全部 n×n 矩阵。"
+    },
+    {
+     "en": "Call that map F tilde. Its differential produces only symmetric matrices, whatever H we feed it.",
+     "zh": "把这个映射记作 F̃。无论输入什么 H，它的微分只产生对称矩阵。"
+    },
+    {
+     "en": "Feed it thirty random directions H. Every output lands in the symmetric part, and the skew part stays at zero.",
+     "zh": "输入 30 个随机方向 H：每个输出都落在对称部分，反对称部分始终为零。"
+    },
+    {
+     "en": "For n at least two, Sym n has dimension n times n plus one, over two, which is less than n squared. So D F tilde of R is never onto.",
+     "zh": "当 n ≥ 2 时，dim Sym(n) = n(n+1)/2 < n²，所以 DF̃(R) 永远不是满射。"
+    },
+    {
+     "en": "So zero is not a regular value of F tilde, and the regular level set theorem cannot be applied to it.",
+     "zh": "所以 0 不是 F̃ 的正则值，正则水平集定理无法用于 F̃。"
+    },
+    {
+     "en": "This does not say that O n fails to be a manifold. It only says that this formulation gives no conclusion.",
+     "zh": "这并不是说 O(n) 不是流形，只是说这种写法得不出结论。"
+    },
+    {
+     "en": "A naive count also goes wrong: n squared unknowns, minus n squared equations, would give dimension zero.",
+     "zh": "朴素的计数也会出错：n² 个未知数减去 n² 个方程，会得到维数 0。"
+    },
+    {
+     "en": "But O two contains a whole circle of rotations, so its dimension is certainly not zero.",
+     "zh": "但 O(2) 包含一整圈旋转，它的维数显然不是 0。"
+    },
+    {
+     "en": "The repeated equations were counted twice.",
+     "zh": "重复的方程被算了两次。"
+    },
+    {
+     "en": "The fix is to choose the codomain Sym n. It is a linear subspace of the matrices.",
+     "zh": "解决办法是取陪域为 Sym(n)，它是矩阵空间的线性子空间。"
+    },
+    {
+     "en": "Its upper triangular entries identify it with R to the power n times n plus one, over two.",
+     "zh": "用上三角条目，可以把它与 ℝ^{n(n+1)/2} 等同起来。"
+    },
+    {
+     "en": "So it is a finite-dimensional vector space, and the regular level set theorem applies to F, from matrices into Sym n.",
+     "zh": "所以它是有限维向量空间，正则水平集定理适用于 F: ℝ^{n×n} → Sym(n)。"
+    },
+    {
+     "en": "This is the matrix version of the lesson from the sphere: write the constraints so that their number equals the number of independent conditions.",
+     "zh": "这是球面那个教训的矩阵版：方程的写法要让方程个数等于独立条件的个数。"
+    },
+    {
+     "en": "Next, we show that with this codomain, D F of R is onto, at every point of O n.",
+     "zh": "接下来证明：取这个陪域时，DF(R) 在 O(n) 的每一点都是满射。"
+    }
+   ]
+  },
+  {
+   "id": "c08-on-surjective-dimension",
+   "chapter": "Proof",
+   "title": "O(n) Is a Manifold of Dimension n(n-1)/2",
+   "music": "proof",
+   "terms": [
+    "orthogonal-group",
+    "regular-value",
+    "surjective",
+    "symmetric-matrix",
+    "embedded-submanifold"
+   ],
+   "sentences": [
+    {
+     "en": "We need to show that D F of R is onto Sym n, for every R in O n.",
+     "zh": "需要证明：对每个 R ∈ O(n)，DF(R) 都映满 Sym(n)。"
+    },
+    {
+     "en": "So fix R in O n, and a symmetric target S. We must solve R transpose H plus H transpose R equals S, for H.",
+     "zh": "固定 R ∈ O(n) 和对称目标 S，要对 H 解方程 RᵀH + HᵀR = S。"
+    },
+    {
+     "en": "Here is how to guess a solution. The left side is a matrix plus its own transpose: H transpose R is the transpose of R transpose H.",
+     "zh": "下面是猜解的办法。左边是一个矩阵加它自己的转置：HᵀR 是 RᵀH 的转置。"
+    },
+    {
+     "en": "And S is symmetric, so it splits evenly: S equals S over two, plus the transpose of S over two.",
+     "zh": "而 S 对称，可以平分：S = S/2 + (S/2)ᵀ。"
+    },
+    {
+     "en": "So it is enough to make R transpose H equal to S over two. The second term then equals S over two automatically.",
+     "zh": "所以只需让 RᵀH = S/2，第二项就自动等于 S/2。"
+    },
+    {
+     "en": "First, a fact about R. Since R transpose R is the identity, R is invertible with inverse R transpose, and so R R transpose is the identity too.",
+     "zh": "先看 R 的一个性质：RᵀR = I，所以 R 可逆且 R⁻¹ = Rᵀ，从而 RRᵀ = I。"
+    },
+    {
+     "en": "Multiply R transpose H equals S over two, on the left, by R. We get H equals R S over two.",
+     "zh": "把 RᵀH = S/2 两边左乘 R，得到 H = RS/2。"
+    },
+    {
+     "en": "Now check it, line by line.",
+     "zh": "现在逐行验证。"
+    },
+    {
+     "en": "R transpose H is one half R transpose R S, which is one half S, using R transpose R equals the identity.",
+     "zh": "RᵀH = ½RᵀRS = ½S，用到 RᵀR = I。"
+    },
+    {
+     "en": "H transpose R is one half S transpose R transpose R, which is one half S transpose, which is one half S, using the symmetry of S.",
+     "zh": "HᵀR = ½SᵀRᵀR = ½Sᵀ = ½S，用到 S 的对称性。"
+    },
+    {
+     "en": "Add them: D F of R, applied to H, is one half S plus one half S, which is S.",
+     "zh": "相加：DF(R)[H] = ½S + ½S = S。"
+    },
+    {
+     "en": "Every symmetric S is reached, so D F of R is onto.",
+     "zh": "每个对称的 S 都能取到，所以 DF(R) 是满射。"
+    },
+    {
+     "en": "R was an arbitrary point of O n, so zero is a regular value of F.",
+     "zh": "R 是 O(n) 中任意一点，所以 0 是 F 的正则值。"
+    },
+    {
+     "en": "By the regular level set theorem, O n is a smooth embedded submanifold of the space of n by n matrices.",
+     "zh": "由正则水平集定理，O(n) 是 n×n 矩阵空间的光滑嵌入子流形。"
+    },
+    {
+     "en": "Both checks used R transpose R equals the identity. For a general matrix R, one half R S need not solve the equation.",
+     "zh": "两步验证都用到了 RᵀR = I。对一般矩阵 R，½RS 不一定是解。"
+    },
+    {
+     "en": "That is fine: a regular value only asks for surjectivity at points of the level set.",
+     "zh": "这没有关系：正则值只要求在水平集上的点满射。"
+    },
+    {
+     "en": "And with the wrong codomain, no H could ever produce a skew target, so this argument depends on choosing Sym n.",
+     "zh": "而用错误的陪域时，任何 H 都得不到反对称的目标，所以这个论证依赖于取 Sym(n)。"
+    },
+    {
+     "en": "Let us check with numbers. Take n equal to two, the rotation by angle zero point seven, and S with a single one in the top left corner.",
+     "zh": "用数值检验：取 n = 2，转角 0.7 的旋转，S 只在左上角有一个 1。"
+    },
+    {
+     "en": "Then H is one half R S. Computing R transpose H plus H transpose R, entry by entry, gives back S, with error zero to three decimals.",
+     "zh": "于是 H = ½RS。逐个条目计算 RᵀH + HᵀR，得到的正是 S，误差在三位小数内为零。"
+    },
+    {
+     "en": "Now the dimension.",
+     "zh": "现在算维数。"
+    },
+    {
+     "en": "The regular level set theorem says: the dimension is the dimension of the domain, minus the dimension of the codomain.",
+     "zh": "正则水平集定理说：维数等于定义域的维数减去陪域的维数。"
+    },
+    {
+     "en": "That is n squared, minus n times n plus one, over two, which simplifies to n times n minus one, over two.",
+     "zh": "即 n² − n(n+1)/2，化简为 n(n−1)/2。"
+    },
+    {
+     "en": "For n equal to two, four minus three is one. For n equal to three, nine minus six is three. For n equal to four, sixteen minus ten is six.",
+     "zh": "n = 2 时 4 − 3 = 1；n = 3 时 9 − 6 = 3；n = 4 时 16 − 10 = 6。"
+    },
+    {
+     "en": "For n equal to two, one dimension means one parameter: the rotation angle theta.",
+     "zh": "n = 2 时，一维意味着一个参数：旋转角 θ。"
+    },
+    {
+     "en": "As theta runs once around, the rotations trace out a circle inside O two.",
+     "zh": "θ 转一整圈，旋转就在 O(2) 中画出一个圆。"
+    },
+    {
+     "en": "For n equal to three, the three dimensions are the three independent ways to rotate in space. We will meet them at the end of the episode.",
+     "zh": "n = 3 时，三个维度就是空间中三种独立的转动方式。本集最后会见到它们。"
+    },
+    {
+     "en": "Now that O n is a manifold, what is its tangent space at R?",
+     "zh": "既然 O(n) 是流形，它在 R 处的切空间是什么？"
+    }
+   ]
+  },
+  {
+   "id": "c09-on-tangent",
+   "chapter": "Proof",
+   "title": "The Tangent Space of O(n): Infinitesimal Rotations",
+   "music": "proof",
+   "terms": [
+    "tangent-space",
+    "orthogonal-group",
+    "skew-symmetric-matrix",
+    "infinitesimal-rotation",
+    "kernel"
+   ],
+   "sentences": [
+    {
+     "en": "We know that O n is a manifold, and we know how to compute tangent spaces of regular level sets.",
+     "zh": "我们知道 O(n) 是流形，也知道怎样计算正则水平集的切空间。"
+    },
+    {
+     "en": "By the theorem, the tangent space at R is the kernel of D F of R: all H with R transpose H plus H transpose R equal to zero.",
+     "zh": "由定理，R 处的切空间是 DF(R) 的核：所有满足 RᵀH + HᵀR = 0 的 H。"
+    },
+    {
+     "en": "Let us solve this linear system.",
+     "zh": "来解这个线性方程组。"
+    },
+    {
+     "en": "Given such an H, define omega as R transpose H.",
+     "zh": "给定这样的 H，定义 Ω = RᵀH。"
+    },
+    {
+     "en": "Then omega transpose is H transpose R. So the condition says: omega plus omega transpose equals zero.",
+     "zh": "于是 Ωᵀ = HᵀR，条件就变成 Ω + Ωᵀ = 0。"
+    },
+    {
+     "en": "That is, omega is skew-symmetric. Its diagonal is zero, and each entry below the diagonal is the negative of its mirror above.",
+     "zh": "也就是说 Ω 是反对称的：对角线为零，对角线下方的每个条目是其上方镜像条目的相反数。"
+    },
+    {
+     "en": "To recover H, use R R transpose equals the identity: H equals R R transpose H, which is R omega.",
+     "zh": "为了还原 H，用 RRᵀ = I：H = RRᵀH = RΩ。"
+    },
+    {
+     "en": "So every tangent vector has the form R omega, with omega skew.",
+     "zh": "所以每个切向量都形如 RΩ，其中 Ω 反对称。"
+    },
+    {
+     "en": "Conversely, take H equal to R omega, with omega skew.",
+     "zh": "反过来，取 H = RΩ，Ω 反对称。"
+    },
+    {
+     "en": "Then R transpose H plus H transpose R is R transpose R omega, plus omega transpose R transpose R, which is omega plus omega transpose, which is zero.",
+     "zh": "则 RᵀH + HᵀR = RᵀRΩ + ΩᵀRᵀR = Ω + Ωᵀ = 0。"
+    },
+    {
+     "en": "So every R omega is a tangent vector. Both inclusions hold: the tangent space of O n at R is R times Skew n.",
+     "zh": "所以每个 RΩ 都是切向量。两个包含都成立：T_R O(n) = R·Skew(n)。"
+    },
+    {
+     "en": "At the identity, it is just Skew n. At another point R, we multiply on the left by R.",
+     "zh": "在单位元处它就是 Skew(n)；在别的点 R 处，左乘 R 即可。"
+    },
+    {
+     "en": "Multiplying by R is injective, since R is invertible, so the dimension stays n times n minus one, over two.",
+     "zh": "R 可逆，所以左乘 R 是单射，维数仍是 n(n−1)/2。"
+    },
+    {
+     "en": "That matches the dimension we computed from the level set. The two counts agree.",
+     "zh": "这与用水平集算出的维数一致，两种计数吻合。"
+    },
+    {
+     "en": "Let us see this directly for n equal to two.",
+     "zh": "我们在 n = 2 时直接验证。"
+    },
+    {
+     "en": "The rotation by angle theta has columns cos theta, sin theta, and minus sin theta, cos theta.",
+     "zh": "转角 θ 的旋转矩阵，两列分别是 (cos θ, sin θ) 和 (−sin θ, cos θ)。"
+    },
+    {
+     "en": "Let theta depend on time, and differentiate. Each entry picks up a factor theta prime.",
+     "zh": "让 θ 随时间变化并求导，每个条目都多出一个因子 θ'。"
+    },
+    {
+     "en": "The derivative has columns minus sin theta, cos theta, and minus cos theta, minus sin theta, all times theta prime.",
+     "zh": "导数的两列是 (−sin θ, cos θ) 和 (−cos θ, −sin θ)，再乘以 θ'。"
+    },
+    {
+     "en": "Factor out the rotation: this equals R of theta, times the matrix with rows zero, minus theta prime, and theta prime, zero.",
+     "zh": "提出旋转矩阵：它等于 R(θ) 乘以两行为 (0, −θ') 与 (θ', 0) 的矩阵。"
+    },
+    {
+     "en": "That second matrix is skew. So the velocity is R times a skew matrix, just as the theorem predicts.",
+     "zh": "第二个矩阵是反对称的。所以速度是 R 乘一个反对称矩阵，正如定理所说。"
+    },
+    {
+     "en": "In the picture, the tips of the two axes move perpendicular to the axes themselves.",
+     "zh": "在图中，两根坐标轴的端点都沿垂直于轴本身的方向运动。"
+    },
+    {
+     "en": "Why does a skew matrix describe a rotation? Take a curve R of t in O n, with R of zero equal to the identity, and velocity omega.",
+     "zh": "为什么反对称矩阵描述旋转？取 O(n) 中的曲线 R(t)，R(0) = I，速度为 Ω。"
+    },
+    {
+     "en": "A point x is carried to R of t x, and its velocity at time zero is omega x.",
+     "zh": "点 x 被带到 R(t)x，它在时刻 0 的速度是 Ωx。"
+    },
+    {
+     "en": "Now x transpose omega x is a number, so it equals its own transpose, x transpose omega transpose x, which is minus x transpose omega x.",
+     "zh": "xᵀΩx 是一个数，等于它自己的转置 xᵀΩᵀx，也就是 −xᵀΩx。"
+    },
+    {
+     "en": "A number equal to its own negative is zero. So x transpose omega x is zero: omega x is perpendicular to x.",
+     "zh": "等于自身相反数的数是零。所以 xᵀΩx = 0：Ωx 与 x 垂直。"
+    },
+    {
+     "en": "Every point moves perpendicular to its own position. Distances from the origin do not change to first order: this is pure rotation.",
+     "zh": "每个点都沿垂直于自身位置的方向运动。到原点的距离一阶不变：这是纯旋转。"
+    },
+    {
+     "en": "Compare a matrix with a symmetric part S. The curve identity plus t S moves x with velocity S x.",
+     "zh": "对比带对称部分 S 的矩阵：曲线 I + tS 让 x 以速度 Sx 运动。"
+    },
+    {
+     "en": "The squared length of the moved point is the norm of x, squared, plus two t x transpose S x, plus terms of order t squared.",
+     "zh": "移动后点的长度平方是 ‖x‖² + 2t xᵀSx + O(t²)。"
+    },
+    {
+     "en": "Wherever x transpose S x is not zero, lengths change at first order. The circle stretches into an ellipse.",
+     "zh": "只要 xᵀSx ≠ 0，长度就会一阶地改变。圆被拉成椭圆。"
+    },
+    {
+     "en": "A nonzero symmetric S always has such an x, so the identity plus t S leaves O n at first order. Symmetric parts mean stretching.",
+     "zh": "非零对称矩阵 S 总有这样的 x，所以 I + tS 一阶地离开 O(n)。对称部分意味着伸缩。"
+    },
+    {
+     "en": "One remark: the step H equals R R transpose H used that R is square.",
+     "zh": "一点说明：H = RRᵀH 这一步用到了 R 是方阵。"
+    },
+    {
+     "en": "For non-square matrices with orthonormal columns, that step changes, and we do not pursue it here.",
+     "zh": "对列标准正交的非方阵，这一步会改变，这里不展开。"
+    },
+    {
+     "en": "So the tangent vectors of O n at R are R times infinitesimal rotations: R omega, with omega skew.",
+     "zh": "所以 O(n) 在 R 处的切向量是 R 乘以无穷小旋转：RΩ，Ω 反对称。"
+    },
+    {
+     "en": "One question remains: O n contains reflections too. What about the rotations alone?",
+     "zh": "还剩一个问题：O(n) 里也有反射。只看旋转会怎样？"
+    }
+   ]
+  },
+  {
+   "id": "c10-so3-and-bridge",
+   "chapter": "Recap",
+   "title": "SO(n), the Three Rotations of SO(3), and What Comes Next",
+   "music": "recap",
+   "terms": [
+    "special-orthogonal-group",
+    "determinant",
+    "rotation-generator",
+    "infinitesimal-rotation",
+    "tangent-space",
+    "riemannian-gradient",
+    "retraction"
+   ],
+   "sentences": [
+    {
+     "en": "O n contains reflections as well as rotations. The rotations form the special orthogonal group.",
+     "zh": "O(n) 既含旋转也含反射。旋转组成特殊正交群。"
+    },
+    {
+     "en": "First, determinants. For R in O n, the determinant of R, squared, is the determinant of R transpose times the determinant of R.",
+     "zh": "先看行列式。对 R ∈ O(n)，(det R)² = det(Rᵀ)·det(R)。"
+    },
+    {
+     "en": "That is the determinant of R transpose R, the determinant of the identity, which is one. So the determinant of R is plus or minus one.",
+     "zh": "也就是 det(RᵀR) = det I = 1。所以 det R = ±1。"
+    },
+    {
+     "en": "S O n is the set of R in O n with determinant equal to plus one.",
+     "zh": "SO(n) 是 O(n) 中行列式等于 +1 的 R 的集合。"
+    },
+    {
+     "en": "Picture O two. The rotations by an angle theta form one circle, with determinant plus one.",
+     "zh": "想象 O(2)。转角为 θ 的旋转组成一个圆，行列式为 +1。"
+    },
+    {
+     "en": "A rotation combined with a reflection, R of theta times the diagonal matrix one, minus one, forms a second circle, with determinant minus one.",
+     "zh": "旋转再加一次反射，R(θ)·diag(1, −1)，组成第二个圆，行列式为 −1。"
+    },
+    {
+     "en": "Moving along the first circle turns the frame. Jumping to the second circle mirrors it.",
+     "zh": "沿第一个圆移动，坐标架在转动；跳到第二个圆，坐标架被镜像。"
+    },
+    {
+     "en": "Can we walk from one circle to the other inside O two?",
+     "zh": "能不能在 O(2) 内从一个圆走到另一个圆？"
+    },
+    {
+     "en": "The determinant is a polynomial in the entries, so it is continuous.",
+     "zh": "行列式是条目的多项式，所以是连续的。"
+    },
+    {
+     "en": "Along any continuous path from determinant plus one to determinant minus one, the determinant would have to pass through zero.",
+     "zh": "沿任何从 det = +1 到 det = −1 的连续路径，行列式都必须经过 0。"
+    },
+    {
+     "en": "But a matrix with determinant zero is not in O n. So no such path stays inside O n.",
+     "zh": "但行列式为零的矩阵不在 O(n) 中，所以这样的路径不可能留在 O(n) 内。"
+    },
+    {
+     "en": "Here is the precise statement we need. Take R zero in S O n.",
+     "zh": "下面是我们需要的精确陈述。取 R₀ ∈ SO(n)。"
+    },
+    {
+     "en": "By continuity, there is an open neighborhood W of R zero, in the space of matrices, on which the determinant is positive.",
+     "zh": "由连续性，在矩阵空间中存在 R₀ 的开邻域 W，W 上行列式为正。"
+    },
+    {
+     "en": "Every point of O n inside W has determinant plus or minus one, and positive, so it is plus one. So W intersect O n lies in S O n.",
+     "zh": "W 中 O(n) 的点行列式为 ±1 且为正，所以等于 +1。于是 W ∩ O(n) ⊆ SO(n)。"
+    },
+    {
+     "en": "So S O n is open in O n. The same argument for determinant minus one shows that its complement is open too, so S O n is also closed in O n.",
+     "zh": "所以 SO(n) 在 O(n) 中是开集。对 det = −1 同理，补集也开，故 SO(n) 也是闭集。"
+    },
+    {
+     "en": "Near R zero, the two sets coincide. A chart of O n around R zero, restricted to W, is a chart of S O n.",
+     "zh": "在 R₀ 附近两个集合重合。O(n) 在 R₀ 附近的 chart 限制到 W 上，就是 SO(n) 的 chart。"
+    },
+    {
+     "en": "Tangent vectors only see curves for small times, and for small times those curves stay in W.",
+     "zh": "切向量只看曲线在小时间内的行为，而小时间内这些曲线都留在 W 里。"
+    },
+    {
+     "en": "So the tangent space of S O n at R is the same as for O n: R times Skew n. The dimension is again n times n minus one, over two.",
+     "zh": "所以 SO(n) 在 R 处的切空间与 O(n) 相同：R·Skew(n)，维数仍是 n(n−1)/2。"
+    },
+    {
+     "en": "We have not shown that S O n is connected, and we did not need to. Local agreement is enough.",
+     "zh": "我们没有证明 SO(n) 连通，也不需要：局部相同就够了。"
+    },
+    {
+     "en": "Now the case that matters most in practice: S O three, the rotations of space.",
+     "zh": "现在看实际中最重要的情形：SO(3)，空间中的旋转。"
+    },
+    {
+     "en": "Its dimension is three times two, over two, which is three.",
+     "zh": "它的维数是 3·2/2 = 3。"
+    },
+    {
+     "en": "A basis of Skew three is given by three generators: L x, L y and L z.",
+     "zh": "Skew(3) 的一组基由三个生成元给出：L_x、L_y、L_z。"
+    },
+    {
+     "en": "L x has rows zero, zero, zero; zero, zero, minus one; and zero, one, zero. It turns the frame about the x axis.",
+     "zh": "L_x 的三行是 (0,0,0)、(0,0,−1)、(0,1,0)，它让坐标架绕 x 轴转动。"
+    },
+    {
+     "en": "L y turns it about the y axis.",
+     "zh": "L_y 让它绕 y 轴转动。"
+    },
+    {
+     "en": "And L z turns it about the z axis.",
+     "zh": "L_z 让它绕 z 轴转动。"
+    },
+    {
+     "en": "Every skew three by three matrix is a combination: omega one L x, plus omega two L y, plus omega three L z.",
+     "zh": "每个 3×3 反对称矩阵都是组合：Ω = ω₁L_x + ω₂L_y + ω₃L_z。"
+    },
+    {
+     "en": "Apply it to a vector v. The first component is omega two v three, minus omega three v two.",
+     "zh": "作用在向量 v 上，第一个分量是 ω₂v₃ − ω₃v₂。"
+    },
+    {
+     "en": "The other two are omega three v one minus omega one v three, and omega one v two minus omega two v one.",
+     "zh": "另外两个是 ω₃v₁ − ω₁v₃ 和 ω₁v₂ − ω₂v₁。"
+    },
+    {
+     "en": "That is exactly the cross product of omega with v.",
+     "zh": "这恰好是叉积 ω × v。"
+    },
+    {
+     "en": "So a tangent vector at the identity is an angular velocity: a rotation about the axis omega, at an angular speed equal to the length of omega.",
+     "zh": "所以单位元处的切向量就是角速度：绕 ω 轴转动，角速度大小为 ‖ω‖。"
+    },
+    {
+     "en": "Three dimensions means three independent rotational degrees of freedom.",
+     "zh": "三维意味着三个独立的旋转自由度。"
+    },
+    {
+     "en": "At a general orientation R, the velocity is R omega: the current frame, turned by an infinitesimal rotation.",
+     "zh": "在一般姿态 R 处，速度是 RΩ：当前的坐标架再叠加一个无穷小旋转。"
+    },
+    {
+     "en": "Let us review the episode.",
+     "zh": "回顾一下本集。"
+    },
+    {
+     "en": "Tangent vectors were defined as velocities of curves inside M.",
+     "zh": "切向量被定义为 M 内曲线的速度。"
+    },
+    {
+     "en": "For a regular level set, the chain rule put them inside the kernel of D h, and a dimension count made the two equal.",
+     "zh": "对正则水平集，链式法则把它们放进 Dh 的核里，维数计数让两者相等。"
+    },
+    {
+     "en": "Regularity was necessary: without it, the kernel can be too big.",
+     "zh": "正则性是必要的：没有它，核可能太大。"
+    },
+    {
+     "en": "For O n, the codomain had to be Sym n. Then D F was onto, the dimension was n times n minus one, over two, and the tangent space was R times Skew n.",
+     "zh": "对 O(n)，陪域必须是 Sym(n)。于是 DF 满射，维数为 n(n−1)/2，切空间为 R·Skew(n)。"
+    },
+    {
+     "en": "We now know which directions are feasible. Two questions remain.",
+     "zh": "现在我们知道哪些方向可行了。还剩两个问题。"
+    },
+    {
+     "en": "First: among all tangent directions, which one should an optimizer choose?",
+     "zh": "第一：在所有切方向中，优化器应该选哪一个？"
+    },
+    {
+     "en": "Second: a straight step along a tangent direction leaves the manifold. How do we move, and stay on M?",
+     "zh": "第二：沿切方向直走会离开流形。怎样移动才能留在 M 上？"
+    },
+    {
+     "en": "The next episode answers both, with the Riemannian gradient and the retraction.",
+     "zh": "下一集用黎曼梯度和 retraction 回答这两个问题。"
+    }
+   ]
+  }
+ ]
+}

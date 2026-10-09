@@ -1,0 +1,21 @@
+[project]
+name = "rvideo"
+version = "0.1.0"
+description = "Build pipeline for the Riemannian Optimization explainer series"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "kokoro>=0.9.4",
+    "soundfile>=0.12",
+    "numpy>=1.26",
+    "scipy>=1.11",
+]
+
+[project.scripts]
+rvideo = "rvideo.cli.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["rvideo*"]

@@ -1,0 +1,26 @@
+{
+  "name": "rvideo-player",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "capture": "tsx render/capture.ts"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@fontsource/noto-sans-sc": "^5.1.0",
+    "katex": "^0.16.11",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.9.0",
+    "@types/three": "^0.169.0",
+    "puppeteer-core": "^23.11.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

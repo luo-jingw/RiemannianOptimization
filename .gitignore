@@ -1,0 +1,10 @@
+build/
+output/
+.venv/
+player/node_modules/
+player/dist/
+__pycache__/
+*.pyc
+notes/
+site/
+*.egg-info/

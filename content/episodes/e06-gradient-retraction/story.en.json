@@ -1,0 +1,1359 @@
+{
+ "episode": "e06-gradient-retraction",
+ "title": "Riemannian Gradient and Retraction",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-two-questions",
+   "chapter": "Chapter 1",
+   "title": "One Step, Two Questions",
+   "music": "motivation",
+   "terms": [
+    "constrained-optimization",
+    "tangent-space",
+    "orthogonal-group",
+    "retraction"
+   ],
+   "sentences": [
+    {
+     "en": "In flat space, gradient descent is a single line: x next equals x minus alpha times the gradient of f at x.",
+     "zh": "在平直空间里，梯度下降只有一行：x_{k+1} = x_k − α∇f(x_k)。"
+    },
+    {
+     "en": "For a small step, f of x minus alpha grad f equals f of x, minus alpha times the squared norm of the gradient, plus higher order terms.",
+     "zh": "小步长时，f(x − α∇f) = f(x) − α‖∇f(x)‖² + 高阶项。"
+    },
+    {
+     "en": "So unless the gradient vanishes, a small enough step always decreases f.",
+     "zh": "所以只要梯度不为零，足够小的一步一定让 f 下降。"
+    },
+    {
+     "en": "This one line quietly answers two different questions at once.",
+     "zh": "这一行公式同时悄悄回答了两个不同的问题。"
+    },
+    {
+     "en": "The term minus grad f of x answers the first question: which direction should we move?",
+     "zh": "−∇f(x) 这一项回答第一个问题：往哪个方向走？"
+    },
+    {
+     "en": "The addition, x plus something, answers the second question: how do we actually move?",
+     "zh": "加法 x + (·) 回答第二个问题：具体怎么走？"
+    },
+    {
+     "en": "In R n nobody notices the difference, because directions and points live in the same space, and moving is just adding vectors.",
+     "zh": "在 ℝⁿ 中没人注意到区别：方向和点在同一个空间里，移动就是向量相加。"
+    },
+    {
+     "en": "Now constrain x to the unit sphere, and take the height function, f of x equals x three.",
+     "zh": "现在把 x 限制在单位球面上，取高度函数 f(x) = x₃。"
+    },
+    {
+     "en": "Extended to all of R three, the height function has Euclidean gradient e three, the vertical unit vector.",
+     "zh": "延拓到整个 ℝ³ 后，高度函数的欧氏梯度是竖直单位向量 e₃。"
+    },
+    {
+     "en": "Take the step x minus alpha times e three.",
+     "zh": "走一步：x − α e₃。"
+    },
+    {
+     "en": "The new point no longer has norm one. It has left the sphere.",
+     "zh": "新点的范数不再等于 1：它离开了球面。"
+    },
+    {
+     "en": "The step answered the moving question with plain addition, and addition does not respect the constraint.",
+     "zh": "这一步用普通加法回答了“怎么走”，而加法不尊重约束。"
+    },
+    {
+     "en": "Worse, even the direction is wrong.",
+     "zh": "更糟的是，连方向都是错的。"
+    },
+    {
+     "en": "Here is the tangent plane at x, the set of legal directions, which episode five identified as x perp.",
+     "zh": "这是 x 处的切平面，即合法方向的集合；第五集证明了它就是 x^⊥。"
+    },
+    {
+     "en": "The vector e three splits into a part inside the tangent plane, and a part along x that points straight out of the sphere.",
+     "zh": "e₃ 分解为切平面内的分量，以及沿 x、直指球外的分量。"
+    },
+    {
+     "en": "That normal part is not a legal direction. So the first question already fails, before any step is taken.",
+     "zh": "法向分量不是合法方向。所以还没迈步，第一个问题就已经失败了。"
+    },
+    {
+     "en": "The same failure happens on the orthogonal group.",
+     "zh": "同样的失败也发生在正交群上。"
+    },
+    {
+     "en": "Take R, a rotation by thirty degrees, and some matrix G, and form R minus alpha G.",
+     "zh": "取 R 为 30° 旋转，G 为某个矩阵，构造 R − αG。"
+    },
+    {
+     "en": "As alpha grows from zero, R minus alpha G, transposed, times R minus alpha G, drifts away from the identity.",
+     "zh": "随着 α 从 0 增大，(R − αG)ᵀ(R − αG) 逐渐偏离单位矩阵。"
+    },
+    {
+     "en": "So R minus alpha G is no longer orthogonal. Again the step leaves the constraint set.",
+     "zh": "所以 R − αG 不再正交：这一步又离开了约束集。"
+    },
+    {
+     "en": "The lesson: on a curved set, the two questions must be answered separately.",
+     "zh": "结论：在弯曲的集合上，两个问题必须分开回答。"
+    },
+    {
+     "en": "Question one, direction. We need to know how f changes along each tangent direction, which is the differential, d f at x.",
+     "zh": "问题一，方向：需要知道 f 沿每个切方向如何变化，即微分 df_x。"
+    },
+    {
+     "en": "And we need an inner product to say what steepest means. Together they produce the Riemannian gradient.",
+     "zh": "还需要一个内积来说明什么叫“最陡”。二者合起来给出黎曼梯度。"
+    },
+    {
+     "en": "Question two, moving. We need a rule that turns a tangent vector into a point of the manifold. That rule is a retraction.",
+     "zh": "问题二，移动：需要一条把切向量变成流形上的点的规则，这就是 retraction。"
+    },
+    {
+     "en": "This episode builds both tools, and proves that together they give a step that decreases f, at least to first order.",
+     "zh": "本集构造这两个工具，并证明二者合起来给出让 f 下降的一步，至少在一阶意义下。"
+    }
+   ]
+  },
+  {
+   "id": "c02-differential-by-curves",
+   "chapter": "Chapter 2",
+   "title": "The Differential, Defined by Curves",
+   "music": "proof",
+   "terms": [
+    "differential",
+    "smooth-curve",
+    "chart",
+    "chain-rule",
+    "tangent-space",
+    "level-set"
+   ],
+   "sentences": [
+    {
+     "en": "To answer the first question, we need to know how fast f changes when we leave x in a tangent direction v.",
+     "zh": "要回答第一个问题，需要知道沿切方向 v 离开 x 时，f 变化有多快。"
+    },
+    {
+     "en": "In R n we would differentiate f of x plus t v. But here f is defined only on the sphere.",
+     "zh": "在 ℝⁿ 中我们会对 f(x + tv) 求导。但这里 f 只定义在球面上。"
+    },
+    {
+     "en": "The straight line x plus t v leaves the sphere at once: its squared norm is one plus t squared times the squared norm of v.",
+     "zh": "直线 x + tv 立刻离开球面：‖x + tv‖² = 1 + t²‖v‖²。"
+    },
+    {
+     "en": "So f of x plus t v is simply undefined for t not zero.",
+     "zh": "所以 t ≠ 0 时，f(x + tv) 根本没有定义。"
+    },
+    {
+     "en": "Instead, walk along a curve that stays inside M.",
+     "zh": "换个办法：沿着一条留在 M 内的曲线走。"
+    },
+    {
+     "en": "Let gamma be a smooth curve in M, with gamma of zero equal to x, and gamma prime of zero equal to v.",
+     "zh": "设 γ 是 M 中的光滑曲线，γ(0) = x，γ'(0) = v。"
+    },
+    {
+     "en": "Then f composed with gamma is an ordinary function of one real variable, and it has a slope at t equals zero.",
+     "zh": "那么 f∘γ 是普通的一元实函数，在 t = 0 处有斜率。"
+    },
+    {
+     "en": "Definition: the differential of f at x, applied to v, is the derivative of f of gamma of t, at t equals zero.",
+     "zh": "定义：df_x[v] := (f∘γ)'(0)。"
+    },
+    {
+     "en": "More generally, if f maps M into another manifold N, then f composed with gamma is a curve in N through f of x.",
+     "zh": "更一般地，若 f: M → N，则 f∘γ 是 N 中过 f(x) 的曲线。"
+    },
+    {
+     "en": "Its velocity lies in the tangent space of N at f of x. So d f at x maps T x M into T f of x N.",
+     "zh": "它的速度在 T_{f(x)}N 中，所以 df_x: T_xM → T_{f(x)}N。"
+    },
+    {
+     "en": "We give the proof for real valued f. For f into R m, or into a submanifold of R m, it works component by component.",
+     "zh": "下面对实值 f 给出证明；f 映到 ℝ^m 或其子流形时，逐分量同理。"
+    },
+    {
+     "en": "But there is a problem: many curves have the same velocity.",
+     "zh": "但有个问题：许多曲线有相同的速度。"
+    },
+    {
+     "en": "Here is a second curve, gamma two, with the same velocity v at x, but bending differently afterwards.",
+     "zh": "这是第二条曲线 γ₂：在 x 处速度同样是 v，之后弯曲方式不同。"
+    },
+    {
+     "en": "Along the two curves, the values of f separate away from zero, but at zero the two graphs share one tangent line.",
+     "zh": "沿两条曲线，f 的取值在远处分开，但在 0 处两个图像有同一条切线。"
+    },
+    {
+     "en": "Is that a coincidence? If the value depended on the curve, d f at x of v would not be a function of v at all.",
+     "zh": "这是巧合吗？如果值依赖于曲线，df_x[v] 就根本不是 v 的函数。"
+    },
+    {
+     "en": "We now prove that it is well defined, for M a regular level set in R n.",
+     "zh": "下面对 ℝⁿ 中的正则水平集 M 证明它是良定义的。"
+    },
+    {
+     "en": "From episode four: after reordering coordinates, write x as the pair a, b.",
+     "zh": "由第四集：重排坐标后，记 x = (a, b)。"
+    },
+    {
+     "en": "Near x, M is a graph. There are open sets A and B and a smooth map g from A to B, with M inside A cross B equal to the points u, g of u.",
+     "zh": "M 在 x 附近是图像：存在开集 A、B 与光滑 g: A → B，使 M ∩ (A×B) = {(u, g(u))}。"
+    },
+    {
+     "en": "The chart phi is the projection pi onto the first n minus k coordinates, which is linear. Its inverse is psi of u equals u, g of u.",
+     "zh": "chart φ 是投影 π（取前 n − k 个坐标），它是线性的；逆为 ψ(u) = (u, g(u))。"
+    },
+    {
+     "en": "Step one. Gamma is continuous and A cross B is open, so for small t the curve stays inside the chart domain.",
+     "zh": "第一步：γ 连续且 A×B 是开集，所以 t 很小时曲线留在 chart 的定义域内。"
+    },
+    {
+     "en": "There, gamma of t equals psi of phi of gamma of t.",
+     "zh": "在那里，γ(t) = ψ(φ(γ(t)))。"
+    },
+    {
+     "en": "Step two. So f of gamma equals f of psi, composed with pi of gamma.",
+     "zh": "第二步：所以 f∘γ = (f∘ψ)∘(π∘γ)。"
+    },
+    {
+     "en": "f of psi is smooth, because that is what smoothness of f on M means. And pi of gamma is a smooth curve in R n minus k.",
+     "zh": "f∘ψ 光滑，这正是 f 在 M 上光滑的含义；π∘γ 是 ℝ^{n−k} 中的光滑曲线。"
+    },
+    {
+     "en": "Step three, the chain rule. The derivative at zero is D of f psi at a, applied to the velocity of pi of gamma.",
+     "zh": "第三步，链式法则：在 0 处的导数是 D(f∘ψ)(a) 作用在 π∘γ 的速度上。"
+    },
+    {
+     "en": "Since pi is linear, the velocity of pi of gamma is pi of gamma prime of zero, which is pi of v.",
+     "zh": "因为 π 线性，(π∘γ)'(0) = π(γ'(0)) = π(v)。"
+    },
+    {
+     "en": "Look at the result: D of f psi at a, applied to pi of v. The curve gamma has disappeared. Only v remains.",
+     "zh": "看结果：D(f∘ψ)(a)·π(v)。曲线 γ 消失了，只剩下 v。"
+    },
+    {
+     "en": "So any two curves through x with velocity v give the same number. The differential is well defined.",
+     "zh": "所以任意两条过 x、速度为 v 的曲线给出同一个数：微分是良定义的。"
+    },
+    {
+     "en": "The chart was only a tool. The definition never mentions a chart, so the value cannot depend on which chart we used.",
+     "zh": "chart 只是证明工具；定义本身不涉及 chart，所以值与 chart 的选取无关。"
+    },
+    {
+     "en": "Step four, linearity. The vector v goes to pi of v, and then to D of f psi at a, applied to pi of v.",
+     "zh": "第四步，线性：v ↦ π(v) ↦ D(f∘ψ)(a)·π(v)。"
+    },
+    {
+     "en": "Both maps are linear, and a composition of linear maps is linear. So d f at x is a linear map.",
+     "zh": "两个映射都是线性的，线性映射的复合仍线性，所以 df_x 是线性映射。"
+    },
+    {
+     "en": "And every tangent vector is the velocity of some curve, by the definition of the tangent space. So d f at x is defined on all of T x M.",
+     "zh": "由切空间的定义，每个切向量都是某条曲线的速度，所以 df_x 在整个 T_xM 上有定义。"
+    },
+    {
+     "en": "This proof covers embedded regular level sets. On a general smooth manifold the same statement holds, using an arbitrary chart.",
+     "zh": "这个证明针对嵌入的正则水平集；一般光滑流形上同样的结论成立，换用任意 chart 即可。"
+    },
+    {
+     "en": "Finally, a rule for computing it.",
+     "zh": "最后，给出一条计算规则。"
+    },
+    {
+     "en": "Suppose f is the restriction to M of a smooth function f bar, defined on an open set of R n around x.",
+     "zh": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̄ 在 M 上的限制。"
+    },
+    {
+     "en": "Then f of gamma equals f bar of gamma for small t, and the ordinary chain rule gives D f bar of x, applied to v.",
+     "zh": "那么 t 很小时 f∘γ = f̄∘γ，普通链式法则给出 Df̄(x)[v]。"
+    },
+    {
+     "en": "For the height function, f bar of x is x three, so d f at x of v equals e three transpose v.",
+     "zh": "对高度函数，f̄(x) = x₃，所以 df_x[v] = e₃ᵀv。"
+    },
+    {
+     "en": "Different extensions give the same answer. Take f bar two equal to x three, plus five times the quantity x transpose x minus one.",
+     "zh": "不同的延拓给出同一个答案。取 f̄₂ = x₃ + 5(xᵀx − 1)。"
+    },
+    {
+     "en": "It agrees with x three on the sphere, but its Euclidean gradient is e three plus ten x, which points far out of the sphere.",
+     "zh": "它在球面上与 x₃ 相等，但欧氏梯度是 e₃ + 10x，远远指向球外。"
+    },
+    {
+     "en": "The difference of the two derivatives is ten x transpose v, and that is zero for every v in x perp.",
+     "zh": "两个导数之差是 10xᵀv，对每个 v ∈ x^⊥ 都等于 0。"
+    },
+    {
+     "en": "So the extensions disagree in R three, but agree on the tangent space, exactly as the definition demands.",
+     "zh": "所以延拓在 ℝ³ 中不同，但在切空间上一致，正如定义所要求的。"
+    },
+    {
+     "en": "Keep this in mind: a Euclidean gradient is not intrinsic to M. We will need something better.",
+     "zh": "记住：欧氏梯度不是 M 内在的量，我们需要更好的东西。"
+    }
+   ]
+  },
+  {
+   "id": "c03-covector-not-direction",
+   "chapter": "Chapter 3",
+   "title": "A Covector Measures, It Does Not Point",
+   "music": "definition",
+   "terms": [
+    "dual-space",
+    "covector",
+    "dual-basis",
+    "differential"
+   ],
+   "sentences": [
+    {
+     "en": "For a real valued f, the differential eats a tangent vector and returns a number.",
+     "zh": "对实值 f，微分吃进一个切向量，吐出一个数。"
+    },
+    {
+     "en": "Lift the tangent plane off the sphere and lay it flat. As v turns a full circle, d f at x of v rises and falls like a cosine.",
+     "zh": "把切平面从球上摘下铺平。v 转一整圈时，df_x[v] 像余弦一样起伏。"
+    },
+    {
+     "en": "So d f at x is a measuring device: a linear map from T x M to the real numbers.",
+     "zh": "所以 df_x 是测量工具：从 T_xM 到实数的线性映射。"
+    },
+    {
+     "en": "Linear maps of this kind have a name.",
+     "zh": "这类线性映射有一个名字。"
+    },
+    {
+     "en": "For a finite dimensional real vector space V, the dual space V star is the set of all linear maps from V to R.",
+     "zh": "对有限维实向量空间 V，对偶空间 V* 是所有线性映射 V → ℝ 的集合。"
+    },
+    {
+     "en": "Its elements are called linear functionals, or covectors.",
+     "zh": "它的元素称为线性泛函，或余向量。"
+    },
+    {
+     "en": "V star is itself a vector space: add two functionals pointwise, or scale one, and the result is still linear.",
+     "zh": "V* 本身是向量空间：两个泛函逐点相加或数乘，结果仍然线性。"
+    },
+    {
+     "en": "And for f from M to R, the differential d f at x is an element of the dual of T x M.",
+     "zh": "对 f: M → ℝ，微分 df_x 是 (T_xM)* 的元素。"
+    },
+    {
+     "en": "How should we picture a covector? Take ell of v equals two v one plus v two, on R two.",
+     "zh": "怎样画出一个余向量？在 ℝ² 上取 ℓ(v) = 2v₁ + v₂。"
+    },
+    {
+     "en": "Its level sets, where ell is constant, are parallel, equally spaced lines: ell equals minus one, zero, one, two.",
+     "zh": "它的等值集是等间距的平行直线：ℓ = −1, 0, 1, 2。"
+    },
+    {
+     "en": "The value ell of v counts how many of these lines the arrow v crosses.",
+     "zh": "ℓ(v) 的值就是箭头 v 穿过的线的条数。"
+    },
+    {
+     "en": "Next, V star has the same dimension as V.",
+     "zh": "接下来证明：V* 与 V 维数相同。"
+    },
+    {
+     "en": "Pick a basis e one through e d of V.",
+     "zh": "取 V 的一组基 e₁, …, e_d。"
+    },
+    {
+     "en": "Define the dual basis: e upper i is the linear functional with e upper i of e j equal to one if i equals j, and zero otherwise.",
+     "zh": "定义对偶基：e^i 是满足 e^i(e_j) = δ_ij 的线性泛函。"
+    },
+    {
+     "en": "This defines each e upper i, because a linear map is determined by its values on a basis.",
+     "zh": "这确定了每个 e^i，因为线性映射由它在基上的取值唯一确定。"
+    },
+    {
+     "en": "In the plane, e upper one is a stack of vertical lines, and e upper two is a stack of horizontal lines.",
+     "zh": "在平面上，e¹ 是一族竖直线，e² 是一族水平线。"
+    },
+    {
+     "en": "They span. For any ell, and any v equal to the sum of v j e j, ell of v is the sum of v j times ell of e j.",
+     "zh": "它们张成 V*：对任意 ℓ 与 v = Σ v_j e_j，ℓ(v) = Σ v_j ℓ(e_j)。"
+    },
+    {
+     "en": "And v j is exactly e upper j of v. So ell equals the sum of ell of e j, times e upper j.",
+     "zh": "而 v_j 正是 e^j(v)，所以 ℓ = Σ ℓ(e_j) e^j。"
+    },
+    {
+     "en": "For our example, ell equals two e upper one plus e upper two: the two stacks combine into the slanted one.",
+     "zh": "在例子中 ℓ = 2e¹ + e²：两族线组合成那族斜线。"
+    },
+    {
+     "en": "They are independent. If a combination of the e upper i is the zero functional, apply it to e j, and you get c j equals zero.",
+     "zh": "它们线性无关：若 Σ c_i e^i = 0，作用在 e_j 上得 c_j = 0。"
+    },
+    {
+     "en": "So the dual basis has d elements, and the dimension of V star equals the dimension of V.",
+     "zh": "所以对偶基有 d 个元素，dim V* = dim V。"
+    },
+    {
+     "en": "In particular, the dual of T x M has dimension n minus k, the same as T x M.",
+     "zh": "特别地，(T_xM)* 的维数是 n − k，与 T_xM 相同。"
+    },
+    {
+     "en": "Same dimension, but not the same kind of object.",
+     "zh": "维数相同，但不是同一类对象。"
+    },
+    {
+     "en": "A covector is not a direction. x plus d f at x means nothing, since d f at x is a function, not a vector in T x M.",
+     "zh": "余向量不是方向：x + df_x 没有意义，因为 df_x 是函数，不是 T_xM 中的向量。"
+    },
+    {
+     "en": "Could we simply pick the steepest arrow out of the stack of lines?",
+     "zh": "能不能直接从线族中挑出“最陡”的箭头？"
+    },
+    {
+     "en": "Perpendicular to the lines seems natural, but perpendicular already presumes a notion of angle.",
+     "zh": "垂直于线看起来很自然，但“垂直”已经预设了角度的概念。"
+    },
+    {
+     "en": "And steepest means the largest increase per unit length, which presumes a notion of length.",
+     "zh": "而“最陡”指单位长度上增长最大，这又预设了长度的概念。"
+    },
+    {
+     "en": "Neither angle nor length is part of a vector space. Both come from an inner product.",
+     "zh": "角度和长度都不是向量空间自带的，它们来自内积。"
+    },
+    {
+     "en": "So to turn a covector into a direction, we need one more structure.",
+     "zh": "所以要把余向量变成方向，还需要一样结构。"
+    }
+   ]
+  },
+  {
+   "id": "c04-riesz",
+   "chapter": "Chapter 4",
+   "title": "The Riesz Representation Theorem",
+   "music": "proof",
+   "terms": [
+    "inner-product",
+    "riesz-representation",
+    "sharp-map",
+    "rank-nullity",
+    "dual-space"
+   ],
+   "sentences": [
+    {
+     "en": "An inner product on V takes two vectors to a number, and it is bilinear, symmetric, and positive definite.",
+     "zh": "V 上的内积把两个向量变成一个数，满足双线性、对称、正定。"
+    },
+    {
+     "en": "Positive definite means that the inner product of v with itself is positive, for every nonzero v.",
+     "zh": "正定是指：对每个非零 v，⟨v, v⟩ > 0。"
+    },
+    {
+     "en": "An inner product already turns vectors into covectors.",
+     "zh": "内积本身就能把向量变成余向量。"
+    },
+    {
+     "en": "Fix u. The map sending v to the inner product of u and v is linear in v, so it is a covector.",
+     "zh": "固定 u。映射 v ↦ ⟨u, v⟩ 关于 v 线性，所以是一个余向量。"
+    },
+    {
+     "en": "Its level lines are perpendicular to u. As u grows they crowd together, and as u turns they turn with it.",
+     "zh": "它的等值线垂直于 u。u 变长时线变密，u 转动时线随之转动。"
+    },
+    {
+     "en": "For u equal to two, one, we get exactly the stack two v one plus v two.",
+     "zh": "当 u = (2, 1) 时，正好得到线族 2v₁ + v₂。"
+    },
+    {
+     "en": "The Riesz representation theorem says the converse: every covector arises this way, from exactly one vector.",
+     "zh": "Riesz 表示定理说的是反方向：每个余向量都恰好由一个向量这样产生。"
+    },
+    {
+     "en": "Precisely: for a finite dimensional real inner product space V, capital Phi, sending u to the inner product with u, is an isomorphism onto V star.",
+     "zh": "精确地说：V 为有限维实内积空间，则 Φ(u) = ⟨u, ·⟩ 是 V → V* 的线性同构。"
+    },
+    {
+     "en": "Equivalently, for every ell in V star, there is a unique u with ell of v equal to the inner product of u and v, for all v.",
+     "zh": "等价地：对每个 ℓ ∈ V*，存在唯一 u，使 ℓ(v) = ⟨u, v⟩ 对所有 v 成立。"
+    },
+    {
+     "en": "Here is the proof.",
+     "zh": "下面给出证明。"
+    },
+    {
+     "en": "First, Phi of u lies in V star, because the inner product is linear in its second slot.",
+     "zh": "第一，Φ(u) ∈ V*，因为内积对第二个变量线性。"
+    },
+    {
+     "en": "Second, Phi is linear. Phi of alpha u plus beta w, applied to v, is alpha times u dot v, plus beta times w dot v, by linearity in the first slot.",
+     "zh": "第二，Φ 线性：由第一个变量的线性，Φ(αu + βw)(v) = α⟨u, v⟩ + β⟨w, v⟩。"
+    },
+    {
+     "en": "In the picture, the covectors of u and of w add up to the covector of their sum.",
+     "zh": "在图中，u 与 w 的余向量相加，等于它们之和的余向量。"
+    },
+    {
+     "en": "Third, Phi is injective. Suppose Phi of u is the zero functional.",
+     "zh": "第三，Φ 单射。设 Φ(u) 是零泛函。"
+    },
+    {
+     "en": "Feed u to its own covector. Phi of u, applied to u, is the inner product of u with itself, and it must be zero.",
+     "zh": "把 u 喂给它自己的余向量：Φ(u)(u) = ⟨u, u⟩，它必须为 0。"
+    },
+    {
+     "en": "By positive definiteness, u is zero. So the kernel of Phi contains only zero.",
+     "zh": "由正定性，u = 0。所以 ker Φ = {0}。"
+    },
+    {
+     "en": "Fourth, Phi is onto. By rank nullity, the dimension of the image is the dimension of V minus the dimension of the kernel: d minus zero, which is d.",
+     "zh": "第四，Φ 满射。由秩–零化度，dim im Φ = dim V − dim ker Φ = d − 0 = d。"
+    },
+    {
+     "en": "And V star also has dimension d, as we proved. A subspace of full dimension is the whole space, so the image is all of V star.",
+     "zh": "而 dim V* 也是 d。满维数的子空间就是整个空间，所以 im Φ = V*。"
+    },
+    {
+     "en": "Linear, injective, and onto: Phi is an isomorphism, and each ell has exactly one representing vector.",
+     "zh": "线性、单射、满射：Φ 是同构，每个 ℓ 恰有一个代表向量。"
+    },
+    {
+     "en": "Uniqueness is also direct. If u and u prime both represent ell, then u minus u prime is orthogonal to every v, even itself, so u equals u prime.",
+     "zh": "唯一性也可直接看出：若 u、u' 都代表 ℓ，则 u − u' 与所有 v 正交，包括它自己，所以 u = u'。"
+    },
+    {
+     "en": "Where exactly did we use positive definiteness? Remove it, and watch the proof break.",
+     "zh": "正定性到底用在哪里？去掉它，看证明怎样坏掉。"
+    },
+    {
+     "en": "Take the degenerate form b of u, v equals u one times v one. It is bilinear and symmetric, but b of e two with itself is zero, though e two is not.",
+     "zh": "取退化形式 b(u, v) = u₁v₁：双线性且对称，但 b(e₂, e₂) = 0，而 e₂ ≠ 0。"
+    },
+    {
+     "en": "Every covector it produces is u one times v one: a stack of vertical lines, or nothing at all when u one is zero.",
+     "zh": "它产生的每个余向量都是 u₁v₁：一族竖直线，或在 u₁ = 0 时什么都没有。"
+    },
+    {
+     "en": "Now try to represent ell of v equals v two, whose level lines are horizontal.",
+     "zh": "现在试着表示 ℓ(v) = v₂，它的等值线是水平的。"
+    },
+    {
+     "en": "Sweep u over the plane. The stacks stay vertical, and never match. The functional v two has no representative.",
+     "zh": "让 u 扫过平面：线族始终竖直，永远对不上。泛函 v₂ 没有代表元。"
+    },
+    {
+     "en": "Injectivity failed, since e two lies in the kernel. Then the image is only one dimensional, so surjectivity fails as well.",
+     "zh": "单射失败了，因为 e₂ 在核中；于是像只有一维，满射也失败。"
+    },
+    {
+     "en": "With a genuine inner product, we call the representing vector ell sharp.",
+     "zh": "在真正的内积下，代表向量记作 ℓ^♯。"
+    },
+    {
+     "en": "There is an explicit formula. Take an orthonormal basis e i, and set u equal to the sum of ell of e i, times e i.",
+     "zh": "有显式公式：取规范正交基 {e_i}，令 u = Σ ℓ(e_i) e_i。"
+    },
+    {
+     "en": "Then the inner product of u with e j is ell of e j, for every j.",
+     "zh": "那么对每个 j，⟨u, e_j⟩ = ℓ(e_j)。"
+    },
+    {
+     "en": "Two linear functionals that agree on a basis agree everywhere. So u represents ell, and by uniqueness, u is ell sharp.",
+     "zh": "在基上相等的两个线性泛函处处相等，所以 u 代表 ℓ，由唯一性 u = ℓ^♯。"
+    },
+    {
+     "en": "For ell equal to two v one plus v two, with the standard inner product, ell of e one is two and ell of e two is one, so ell sharp is two, one.",
+     "zh": "对 ℓ = 2v₁ + v₂ 与标准内积，ℓ(e₁) = 2，ℓ(e₂) = 1，所以 ℓ^♯ = (2, 1)。"
+    },
+    {
+     "en": "It is perpendicular to the level lines, as expected.",
+     "zh": "正如预期，它垂直于等值线。"
+    },
+    {
+     "en": "Finite dimension was used too: it makes injective imply onto. Infinite dimensions need a completeness assumption, which this course does not need.",
+     "zh": "有限维也用到了：它使单射推出满射。无穷维需要完备性假设，本课程用不到。"
+    },
+    {
+     "en": "On a manifold, we will take V to be T x M with its inner product, and the gradient will be the sharp of d f at x.",
+     "zh": "在流形上，取 V = T_xM 及其内积，梯度就是 df_x 的 ♯。"
+    }
+   ]
+  },
+  {
+   "id": "c05-metric-matters",
+   "chapter": "Chapter 5",
+   "title": "Change the Inner Product, Change the Gradient",
+   "music": "counterexample",
+   "terms": [
+    "inner-product",
+    "sharp-map",
+    "symmetric-matrix",
+    "riemannian-metric"
+   ],
+   "sentences": [
+    {
+     "en": "The sharp of a covector depends on the inner product. Here is an example that shows how much.",
+     "zh": "余向量的 ♯ 依赖于内积。下面的例子展示这种依赖有多大。"
+    },
+    {
+     "en": "Take one covector on R two: d f of v equals v one plus v two, the differential of the linear function f of v equals v one plus v two.",
+     "zh": "在 ℝ² 上取一个余向量：df[v] = v₁ + v₂，即线性函数 f(v) = v₁ + v₂ 的微分。"
+    },
+    {
+     "en": "Its level lines run diagonally.",
+     "zh": "它的等值线沿对角方向。"
+    },
+    {
+     "en": "Now take two rulers. First, the usual inner product, whose unit vectors form a circle.",
+     "zh": "再取两把尺子。第一把是通常的内积，单位向量构成圆。"
+    },
+    {
+     "en": "Second, the inner product u transpose capital A v, with capital A the diagonal matrix with entries four and one.",
+     "zh": "第二把是内积 uᵀAv，其中 A = diag(4, 1)。"
+    },
+    {
+     "en": "It is symmetric because capital A is symmetric, bilinear by matrix multiplication, and positive definite because capital A is.",
+     "zh": "因为 A 对称，它对称；由矩阵乘法，它双线性；因为 A 正定，它正定。"
+    },
+    {
+     "en": "Its unit vectors satisfy four v one squared plus v two squared equals one: an ellipse.",
+     "zh": "它的单位向量满足 4v₁² + v₂² = 1：一个椭圆。"
+    },
+    {
+     "en": "With the usual inner product, the gradient is one, one, perpendicular to the level lines.",
+     "zh": "在通常内积下，梯度是 (1, 1)，垂直于等值线。"
+    },
+    {
+     "en": "With the capital A inner product, the gradient u must satisfy u transpose capital A v equals v one plus v two, for every v.",
+     "zh": "在 A-内积下，梯度 u 必须满足：对所有 v，uᵀAv = v₁ + v₂。"
+    },
+    {
+     "en": "Since capital A is symmetric, this says that capital A times u equals the vector one, one.",
+     "zh": "因为 A 对称，这就是 A u = (1, 1)ᵀ。"
+    },
+    {
+     "en": "So u is A inverse times one, one, which is one quarter, one.",
+     "zh": "所以 u = A⁻¹(1, 1)ᵀ = (1/4, 1)。"
+    },
+    {
+     "en": "In general, the gradient for this inner product is A inverse times the Euclidean gradient.",
+     "zh": "一般地，这个内积下的梯度是 A⁻¹∇f。"
+    },
+    {
+     "en": "The two gradients are not parallel. They differ by about thirty one degrees.",
+     "zh": "两个梯度不平行，夹角约 31°。"
+    },
+    {
+     "en": "Yet each one is perpendicular to the level lines, in its own geometry.",
+     "zh": "然而它们各自都垂直于等值线，在各自的几何中。"
+    },
+    {
+     "en": "The level direction is w equals one, minus one.",
+     "zh": "等值线方向是 w = (1, −1)。"
+    },
+    {
+     "en": "In the usual sense, one, one dotted with one, minus one gives zero.",
+     "zh": "在通常意义下，(1, 1)·(1, −1) = 0。"
+    },
+    {
+     "en": "In the capital A sense, one quarter, one, times capital A, times one, minus one, gives one minus one, which is also zero.",
+     "zh": "在 A 意义下，(1/4, 1) A (1, −1)ᵀ = 1 − 1 = 0。"
+    },
+    {
+     "en": "To see it, stretch the plane by the square root of capital A. The ellipse becomes a circle, and the purple arrow becomes perpendicular to the lines.",
+     "zh": "用 A^{1/2} 拉伸平面：椭圆变成圆，紫色箭头与等值线成直角。"
+    },
+    {
+     "en": "Then undo the stretch.",
+     "zh": "再把拉伸变回去。"
+    },
+    {
+     "en": "There is a second way to find the steepest direction.",
+     "zh": "还有第二种方法找出最陡方向。"
+    },
+    {
+     "en": "Push a level line outward from the origin until it last touches the unit circle. The touching point lies on the white arrow.",
+     "zh": "把等值线从原点向外推，直到最后接触单位圆：切点落在白色箭头上。"
+    },
+    {
+     "en": "Do the same with the ellipse. The touching point lies on the purple arrow.",
+     "zh": "对椭圆做同样的事：切点落在紫色箭头上。"
+    },
+    {
+     "en": "The tangency point is the steepest unit direction. Chapter seven proves this in general.",
+     "zh": "切点就是最陡的单位方向。第七章给出一般证明。"
+    },
+    {
+     "en": "So the same differential gives two different gradients.",
+     "zh": "所以同一个微分给出了两个不同的梯度。"
+    },
+    {
+     "en": "If d f alone determined the gradient, there could be only one.",
+     "zh": "如果梯度只由 df 决定，就只能有一个。"
+    },
+    {
+     "en": "Therefore a gradient needs a metric. On a manifold, we must choose an inner product on every tangent space.",
+     "zh": "因此梯度需要度量：在流形上，必须在每个切空间上选定一个内积。"
+    }
+   ]
+  },
+  {
+   "id": "c06-riemannian-metric-gradient",
+   "chapter": "Chapter 6",
+   "title": "Riemannian Metric and Riemannian Gradient",
+   "music": "definition",
+   "terms": [
+    "riemannian-metric",
+    "riemannian-manifold",
+    "riemannian-gradient",
+    "riesz-representation",
+    "frobenius-inner-product"
+   ],
+   "sentences": [
+    {
+     "en": "On a manifold, every tangent space is a different vector space, so each one needs its own ruler.",
+     "zh": "在流形上，每个切空间都是不同的向量空间，所以每个都需要自己的尺子。"
+    },
+    {
+     "en": "A Riemannian metric assigns to every point x of M an inner product, g x, on the tangent space T x M.",
+     "zh": "黎曼度量给 M 的每个点 x 指定 T_xM 上的一个内积 g_x。"
+    },
+    {
+     "en": "The assignment must vary smoothly: for smooth tangent vector fields U and V, the function x maps to g x of U of x, V of x, must be smooth.",
+     "zh": "这种指定要光滑：对光滑切向量场 U、V，函数 x ↦ g_x(U(x), V(x)) 光滑。"
+    },
+    {
+     "en": "This rules out rulers that jump from point to point; otherwise the gradient would jump too, and later smoothness arguments would fail.",
+     "zh": "这排除了逐点跳变的尺子；否则梯度也会跳变，后续的光滑性论证会失效。"
+    },
+    {
+     "en": "A smooth manifold together with a Riemannian metric is called a Riemannian manifold, written M, g.",
+     "zh": "带黎曼度量的光滑流形称为黎曼流形，记作 (M, g)。"
+    },
+    {
+     "en": "For an embedded submanifold of R n, a common choice is to restrict the Euclidean inner product: g x of u, v equals u transpose v.",
+     "zh": "对 ℝⁿ 的嵌入子流形，常见的选择是限制欧氏内积：g_x(u, v) = uᵀv。"
+    },
+    {
+     "en": "It is still positive definite, because u transpose u is the squared norm of u, which is positive for u not zero.",
+     "zh": "它仍然正定，因为 uᵀu = ‖u‖²，u ≠ 0 时为正。"
+    },
+    {
+     "en": "Symmetry and bilinearity are inherited from R n, and for smooth vector fields, U transpose V is smooth.",
+     "zh": "对称与双线性继承自 ℝⁿ；对光滑向量场，UᵀV 光滑。"
+    },
+    {
+     "en": "On the orthogonal group, the same idea gives g at R of H, K equals the trace of H transpose K.",
+     "zh": "在正交群上，同样的想法给出 g_R(H, K) = tr(HᵀK)。"
+    },
+    {
+     "en": "On the sphere, the unit vectors of this metric form an ordinary circle in each tangent plane.",
+     "zh": "在球面上，这个度量的单位向量在每个切平面上构成普通的圆。"
+    },
+    {
+     "en": "Now the definition this episode has been building toward.",
+     "zh": "现在给出本集一直在铺垫的定义。"
+    },
+    {
+     "en": "Let f from M to R be smooth. The Riemannian gradient of f at x is the unique vector grad f of x in T x M, such that",
+     "zh": "设 f: M → ℝ 光滑。f 在 x 处的黎曼梯度是 T_xM 中唯一的向量 grad f(x)，使得"
+    },
+    {
+     "en": "d f at x of v equals g x of grad f of x and v, for every tangent vector v.",
+     "zh": "对每个切向量 v，df_x[v] = g_x(grad f(x), v)。"
+    },
+    {
+     "en": "In one line: grad f of x is the sharp of d f at x.",
+     "zh": "一句话：grad f(x) = (df_x)^♯。"
+    },
+    {
+     "en": "Why does it exist, and why is it unique?",
+     "zh": "为什么它存在，又为什么唯一？"
+    },
+    {
+     "en": "Fix x. T x M is a finite dimensional vector space, of dimension n minus k.",
+     "zh": "固定 x。T_xM 是有限维向量空间，维数为 n − k。"
+    },
+    {
+     "en": "g x is an inner product on it, and d f at x is a covector on it.",
+     "zh": "g_x 是其上的内积，df_x 是其上的余向量。"
+    },
+    {
+     "en": "So the Riesz theorem gives exactly one vector u in T x M with d f at x equal to g x of u with dot. That u is the gradient.",
+     "zh": "由 Riesz 定理，T_xM 中恰有一个 u 使 df_x = g_x(u, ·)，这个 u 就是梯度。"
+    },
+    {
+     "en": "Let us compute it on the sphere, with the embedded metric.",
+     "zh": "下面在球面上、用嵌入度量来计算它。"
+    },
+    {
+     "en": "Take f of x equals a transpose x, for a fixed vector a. By the extension rule, d f at x of v equals a transpose v.",
+     "zh": "取 f(x) = aᵀx，a 为固定向量。由延拓规则，df_x[v] = aᵀv。"
+    },
+    {
+     "en": "Guess u equals a, minus a transpose x times x. That removes from a its component along x.",
+     "zh": "猜 u = a − (aᵀx)x，即从 a 中去掉沿 x 的分量。"
+    },
+    {
+     "en": "Check one: u is tangent. x transpose u equals x transpose a, minus a transpose x times x transpose x, which is zero, since x transpose x is one.",
+     "zh": "检验一：u 是切向量。xᵀu = xᵀa − (aᵀx)(xᵀx) = 0，因为 xᵀx = 1。"
+    },
+    {
+     "en": "Check two: for any v in x perp, u transpose v equals a transpose v, minus a transpose x times x transpose v, and the last term vanishes.",
+     "zh": "检验二：对任意 v ∈ x^⊥，uᵀv = aᵀv − (aᵀx)(xᵀv)，最后一项为零。"
+    },
+    {
+     "en": "So u transpose v equals d f at x of v for every tangent v. By uniqueness, grad f of x equals a, minus a transpose x times x.",
+     "zh": "所以对每个切向量 v，uᵀv = df_x[v]。由唯一性，grad f(x) = a − (aᵀx)x。"
+    },
+    {
+     "en": "For the height function, a is e three, and the gradient is e three minus x three times x.",
+     "zh": "对高度函数，a = e₃，梯度为 e₃ − x₃x。"
+    },
+    {
+     "en": "In the picture, e three splits into its tangent part, which is the gradient, and its normal part, x three times x.",
+     "zh": "在图中，e₃ 分解为切向部分（即梯度）和法向部分 x₃x。"
+    },
+    {
+     "en": "Draw this vector at every point. The field runs along the meridians, toward the north pole.",
+     "zh": "在每个点画出这个向量：向量场沿经线指向北极。"
+    },
+    {
+     "en": "At the poles it vanishes: there x is plus or minus e three, and e three minus x three x is zero.",
+     "zh": "在两极它为零：那里 x = ±e₃，e₃ − x₃x = 0。"
+    },
+    {
+     "en": "That matches intuition. The height function has its maximum and minimum there, so there is no uphill direction.",
+     "zh": "这符合直觉：高度函数在两极取最大和最小值，没有上坡方向。"
+    },
+    {
+     "en": "Why not just use the Euclidean gradient?",
+     "zh": "为什么不直接用欧氏梯度？"
+    },
+    {
+     "en": "Recall the two extensions of the height function. Their Euclidean gradients are e three, and e three plus ten x.",
+     "zh": "回忆高度函数的两个延拓：它们的欧氏梯度分别是 e₃ 和 e₃ + 10x。"
+    },
+    {
+     "en": "Both stick out of the sphere, and they differ from each other.",
+     "zh": "两者都伸出球面，而且彼此不同。"
+    },
+    {
+     "en": "But both project onto the tangent plane to the same white arrow: the Riemannian gradient.",
+     "zh": "但它们投影到切平面后落在同一个白色箭头上：黎曼梯度。"
+    },
+    {
+     "en": "The Riemannian gradient lies in T x M, and it does not depend on the extension, because its definition uses only d f at x and g x.",
+     "zh": "黎曼梯度在 T_xM 中，且与延拓无关，因为它的定义只用到 df_x 和 g_x。"
+    }
+   ]
+  },
+  {
+   "id": "c07-steepest-ascent",
+   "chapter": "Chapter 7",
+   "title": "Why the Gradient: Steepest Ascent",
+   "music": "proof",
+   "terms": [
+    "cauchy-schwarz",
+    "steepest-ascent",
+    "critical-point",
+    "riemannian-gradient"
+   ],
+   "sentences": [
+    {
+     "en": "Why is this vector called the gradient? Because it points in the direction of steepest ascent.",
+     "zh": "为什么这个向量叫梯度？因为它指向最速上升方向。"
+    },
+    {
+     "en": "To compare directions fairly, compare only unit vectors: those whose g x norm equals one.",
+     "zh": "要公平比较方向，只比较单位向量：g_x-范数为 1 的向量。"
+    },
+    {
+     "en": "Without that restriction, scaling v by lambda scales d f at x of v by lambda too, so there would be no maximum.",
+     "zh": "若不加限制，v 放大 λ 倍，df_x[v] 也放大 λ 倍，就没有最大值。"
+    },
+    {
+     "en": "Lay the tangent plane flat, draw its unit circle, and turn a unit vector v around it.",
+     "zh": "把切平面铺平，画出单位圆，让单位向量 v 绕圆旋转。"
+    },
+    {
+     "en": "The value d f at x of v traces a cosine curve, and its peak lines up with the gradient.",
+     "zh": "df_x[v] 描出一条余弦曲线，峰值正对梯度方向。"
+    },
+    {
+     "en": "The tool for the proof is the Cauchy Schwarz inequality: the absolute value of the inner product of u and v is at most norm u times norm v.",
+     "zh": "证明的工具是柯西–施瓦茨不等式：|⟨u, v⟩| ≤ ‖u‖‖v‖。"
+    },
+    {
+     "en": "Equality holds exactly when u and v are linearly dependent. We prove it from one square.",
+     "zh": "等号当且仅当 u、v 线性相关时成立。我们从一个平方出发证明。"
+    },
+    {
+     "en": "If v is zero, both sides are zero. Otherwise, for every real t, the squared norm of u minus t v is non negative.",
+     "zh": "若 v = 0，两边都为 0。否则对每个实数 t，‖u − tv‖² ≥ 0。"
+    },
+    {
+     "en": "Expand it: the norm of u squared, minus two t times the inner product of u and v, plus t squared times the norm of v squared.",
+     "zh": "展开：‖u‖² − 2t⟨u, v⟩ + t²‖v‖²。"
+    },
+    {
+     "en": "This is a parabola in t that never dips below zero.",
+     "zh": "这是关于 t 的抛物线，永远不低于 0。"
+    },
+    {
+     "en": "Its lowest point is at t star, the inner product of u and v, over the squared norm of v.",
+     "zh": "最低点在 t* = ⟨u, v⟩ / ‖v‖²。"
+    },
+    {
+     "en": "Plug in t star. Zero is at most the norm of u squared, minus the inner product squared over the norm of v squared.",
+     "zh": "代入 t*：0 ≤ ‖u‖² − ⟨u, v⟩² / ‖v‖²。"
+    },
+    {
+     "en": "Multiply through: the inner product squared is at most the norm of u squared times the norm of v squared. That is Cauchy Schwarz.",
+     "zh": "两边同乘：⟨u, v⟩² ≤ ‖u‖²‖v‖²。这就是柯西–施瓦茨。"
+    },
+    {
+     "en": "When is it an equality? Exactly when the minimum of the parabola is zero, that is, when u minus t star v has norm zero.",
+     "zh": "何时取等号？恰好当抛物线最小值为 0，即 ‖u − t*v‖ = 0。"
+    },
+    {
+     "en": "By positive definiteness, that means u equals t star v: u and v are parallel.",
+     "zh": "由正定性，这意味着 u = t*v：u 与 v 平行。"
+    },
+    {
+     "en": "In the picture, u minus t star v is the gap from u to the line through v. It shrinks to zero exactly when v turns toward u.",
+     "zh": "在图中，u − t*v 是 u 到 v 所在直线的残差，恰好在 v 转到 u 的方向时缩为 0。"
+    },
+    {
+     "en": "Now apply it. For a unit vector v, d f at x of v equals g x of grad f and v, which is at most the norm of grad f.",
+     "zh": "现在应用它：对单位向量 v，df_x[v] = g_x(grad f, v) ≤ ‖grad f‖。"
+    },
+    {
+     "en": "Choose v star, the gradient over its norm. Then d f at x of v star is g x of grad with grad, over the norm of grad, which is the norm of grad f.",
+     "zh": "取 v* = grad/‖grad‖，则 df_x[v*] = ‖grad‖²/‖grad‖ = ‖grad f‖。"
+    },
+    {
+     "en": "So the bound is attained. By the equality case, a maximizer must be parallel to the gradient, so v star is the only one.",
+     "zh": "上界取到了。由等号条件，最大点必须与梯度平行，所以 v* 是唯一的最大点。"
+    },
+    {
+     "en": "In the same way, d f at x of v is at least minus the norm of grad f, with equality only at minus v star.",
+     "zh": "同理，df_x[v] ≥ −‖grad f‖，等号仅在 −v* 处成立。"
+    },
+    {
+     "en": "So the gradient direction is the steepest ascent, and its opposite is the steepest descent.",
+     "zh": "所以梯度方向是最速上升方向，反方向是最速下降方向。"
+    },
+    {
+     "en": "Now change the ruler. Take the covector and the unit ellipse from chapter five, in place of the unit circle.",
+     "zh": "现在换尺子：取第五章的余向量与单位椭圆，代替单位圆。"
+    },
+    {
+     "en": "The winning direction slides along the ellipse, and stops on the purple arrow, A inverse times the Euclidean gradient.",
+     "zh": "最优方向沿椭圆滑动，停在紫色箭头 A⁻¹∇f 上。"
+    },
+    {
+     "en": "The metric decides what steepest means.",
+     "zh": "度量决定了什么叫“最陡”。"
+    },
+    {
+     "en": "One more case. If the gradient is zero, then d f at x is zero, and every direction has zero first order change.",
+     "zh": "还有一种情形：若梯度为零，则 df_x = 0，每个方向的一阶变化都是零。"
+    },
+    {
+     "en": "Such a point is called a critical point, like the north pole for the height function.",
+     "zh": "这样的点称为临界点，例如高度函数的北极。"
+    }
+   ]
+  },
+  {
+   "id": "c08-retraction",
+   "chapter": "Chapter 8",
+   "title": "Retraction: From Tangent Vector to a Step on M",
+   "music": "definition",
+   "terms": [
+    "retraction",
+    "differential",
+    "tangent-space",
+    "smooth-curve"
+   ],
+   "sentences": [
+    {
+     "en": "The first question is answered: move in the direction minus grad f of x, which lies in T x M.",
+     "zh": "第一个问题已解决：沿 −grad f(x) 方向走，它在 T_xM 中。"
+    },
+    {
+     "en": "Now the second question: how do we move?",
+     "zh": "现在是第二个问题：怎么走？"
+    },
+    {
+     "en": "The straight step, x minus t grad f, leaves the sphere, and the farther we go, the farther away it gets.",
+     "zh": "直线步 x − t·grad f 离开球面，走得越远，离得越远。"
+    },
+    {
+     "en": "The idea: take the step in the tangent plane, then bring the point back onto M.",
+     "zh": "想法是：先在切平面里走一步，再把点拉回到 M 上。"
+    },
+    {
+     "en": "As t grows, the pulled back points trace a curve on the sphere, starting at x.",
+     "zh": "随着 t 增大，拉回的点在球面上描出一条从 x 出发的曲线。"
+    },
+    {
+     "en": "Not every way of pulling back is acceptable. Here is the definition.",
+     "zh": "并非所有拉回方式都可以接受。下面是定义。"
+    },
+    {
+     "en": "A retraction at a point x of M is a smooth map R x from T x M to M, satisfying two conditions.",
+     "zh": "M 在点 x 处的 retraction 是光滑映射 R_x: T_xM → M，满足两个条件。"
+    },
+    {
+     "en": "Condition one: R x of zero equals x. A zero step does not move.",
+     "zh": "条件一：R_x(0) = x。零步不移动。"
+    },
+    {
+     "en": "Condition two: the differential of R x at zero is the identity map of T x M.",
+     "zh": "条件二：d(R_x)_0 是 T_xM 上的恒等映射。"
+    },
+    {
+     "en": "Let us check that condition two makes sense.",
+     "zh": "先确认条件二有意义。"
+    },
+    {
+     "en": "T x M is a vector space. Its tangent space at zero is itself, because the line c of t equals t v has velocity v at zero.",
+     "zh": "T_xM 是向量空间，它在 0 处的切空间就是它自己，因为直线 c(t) = tv 在 0 处速度为 v。"
+    },
+    {
+     "en": "And by condition one, R x sends zero to x, so its differential at zero maps T x M into T x M. Asking it to be the identity is meaningful.",
+     "zh": "由条件一，R_x 把 0 送到 x，所以 d(R_x)_0 把 T_xM 映到 T_xM，要求它是恒等映射是有意义的。"
+    },
+    {
+     "en": "Some retractions are defined only near zero. The examples in this episode are defined on all of T x M.",
+     "zh": "有些 retraction 只在 0 附近有定义；本集的例子在整个 T_xM 上有定义。"
+    },
+    {
+     "en": "Now the key consequence. Fix v in T x M, and define gamma of t equals R x of t v.",
+     "zh": "现在看关键推论：取 v ∈ T_xM，定义 γ(t) = R_x(tv)。"
+    },
+    {
+     "en": "Write it as R x composed with the line c of t equals t v, where c of zero is zero and c prime of zero is v.",
+     "zh": "把它写成 R_x∘c，其中 c(t) = tv，c(0) = 0，c'(0) = v。"
+    },
+    {
+     "en": "First, gamma of zero equals R x of zero, which is x, by condition one.",
+     "zh": "第一，由条件一，γ(0) = R_x(0) = x。"
+    },
+    {
+     "en": "Second, gamma prime of zero is the derivative of R x composed with c, at zero.",
+     "zh": "第二，γ'(0) = (R_x∘c)'(0)。"
+    },
+    {
+     "en": "By the curve definition of the differential, applied to the smooth map R x at zero with the curve c, this equals d R x at zero, applied to v.",
+     "zh": "由微分的曲线定义（光滑映射 R_x、点 0、曲线 c），它等于 d(R_x)_0[v]。"
+    },
+    {
+     "en": "By condition two, that is v itself.",
+     "zh": "由条件二，这就是 v 本身。"
+    },
+    {
+     "en": "So every retraction curve, t maps to R x of t v, starts at x with velocity exactly v.",
+     "zh": "所以每条 retraction 曲线 t ↦ R_x(tv) 都从 x 出发，速度恰为 v。"
+    },
+    {
+     "en": "So it can serve as the representative curve in the definition of d f at x: the slope of f along it, at zero, is d f at x of v.",
+     "zh": "所以它可以作为 df_x 定义中的代表曲线：f 沿它在 0 处的斜率就是 df_x[v]。"
+    },
+    {
+     "en": "Each condition is necessary. First, drop condition one.",
+     "zh": "每个条件都是必需的。先去掉条件一。"
+    },
+    {
+     "en": "Shift by a fixed nonzero tangent vector w zero: R tilde of v equals R x of v plus w zero.",
+     "zh": "用固定的非零切向量 w₀ 平移：R̃_x(v) = R_x(v + w₀)。"
+    },
+    {
+     "en": "Now slide the step length down to zero. The point does not return to x. It stays at R x of w zero.",
+     "zh": "把步长滑到 0：点并没有回到 x，而是停在 R_x(w₀)。"
+    },
+    {
+     "en": "However small the step, f may increase. The small step guarantee is gone.",
+     "zh": "无论步长多小，f 都可能增大。“小步下降”的保证消失了。"
+    },
+    {
+     "en": "Next, keep condition one but drop condition two.",
+     "zh": "接下来保留条件一，去掉条件二。"
+    },
+    {
+     "en": "First example: R tilde of v equals x plus two v, normalized. It sends zero to x, but its differential at zero is two times the identity.",
+     "zh": "例一：R̃_x(v) = (x + 2v)/‖x + 2v‖。它把 0 送到 x，但 d(R̃_x)_0 = 2·id。"
+    },
+    {
+     "en": "The curve leaves x at twice the speed. The first order rate along minus grad f becomes minus two times the squared norm of the gradient.",
+     "zh": "曲线以两倍速度离开 x：沿 −grad f 的一阶变化率变成 −2‖grad f‖²。"
+    },
+    {
+     "en": "The direction is still downhill, but the link between the step length t and the tangent vector is broken.",
+     "zh": "方向仍是下坡，但步长 t 与切向量之间的对应被破坏了。"
+    },
+    {
+     "en": "Second example: let Q theta rotate the tangent plane by an angle theta, and set R tilde of v equal to x plus Q theta v, normalized.",
+     "zh": "例二：令 Q_θ 为切平面上转角 θ 的旋转，R̃_x(v) = (x + Q_θv)/‖x + Q_θv‖。"
+    },
+    {
+     "en": "Its differential at zero is Q theta. The first order rate along minus grad f becomes minus the squared norm of the gradient, times cosine theta.",
+     "zh": "它的 d(R̃_x)_0 = Q_θ，沿 −grad f 的一阶变化率变成 −‖grad f‖² cos θ。"
+    },
+    {
+     "en": "Turn theta from zero toward one hundred eighty degrees. The red curve swings around x, and the slope rises through zero.",
+     "zh": "把 θ 从 0° 转向 180°：红色曲线绕 x 旋转，斜率穿过 0 上升。"
+    },
+    {
+     "en": "At ninety degrees there is no first order decrease at all. Beyond ninety degrees, the step goes uphill.",
+     "zh": "在 90° 时完全没有一阶下降；超过 90°，这一步变成上坡。"
+    },
+    {
+     "en": "So condition two is what makes the step follow the tangent vector to first order: the right direction and the right speed.",
+     "zh": "所以条件二保证这一步在一阶上跟随切向量：方向对，速度也对。"
+    },
+    {
+     "en": "The conditions control only the starting point and the first order behavior. Different retractions may differ at second order and beyond.",
+     "zh": "这两个条件只控制起点与一阶行为；不同的 retraction 在二阶及以上可以不同。"
+    }
+   ]
+  },
+  {
+   "id": "c09-sphere-retraction-descent",
+   "chapter": "Chapter 9",
+   "title": "A Sphere Retraction and the Descent Property",
+   "music": "proof",
+   "terms": [
+    "retraction",
+    "descent-property",
+    "riemannian-gradient",
+    "differential",
+    "critical-point"
+   ],
+   "sentences": [
+    {
+     "en": "Here is a concrete example of a retraction, on the sphere.",
+     "zh": "下面是球面上 retraction 的一个具体例子。"
+    },
+    {
+     "en": "Step to x plus v in the tangent plane, then rescale to unit length: R x of v equals x plus v, divided by the norm of x plus v.",
+     "zh": "在切平面里走到 x + v，再缩放回单位长度：R_x(v) = (x + v)/‖x + v‖。"
+    },
+    {
+     "en": "Geometrically, the ray from the origin through x plus v meets the sphere at R x of v.",
+     "zh": "几何上，从原点出发穿过 x + v 的射线与球面交于 R_x(v)。"
+    },
+    {
+     "en": "First, it is defined everywhere, and it lands on the sphere.",
+     "zh": "首先，它处处有定义，并且落在球面上。"
+    },
+    {
+     "en": "The squared norm of x plus v is one, plus two x transpose v, plus norm v squared. As v is perpendicular to x, that is one plus norm v squared.",
+     "zh": "‖x + v‖² = 1 + 2xᵀv + ‖v‖²；因为 v ⊥ x，它等于 1 + ‖v‖²。"
+    },
+    {
+     "en": "This is Pythagoras: x has length one, v is perpendicular to it, and x plus v is the hypotenuse.",
+     "zh": "这就是勾股定理：x 长为 1，v 垂直于它，x + v 是斜边。"
+    },
+    {
+     "en": "So the denominator is at least one, never zero, and the result has norm one: it lies on the sphere.",
+     "zh": "所以分母至少为 1，从不为零，结果的范数为 1：它在球面上。"
+    },
+    {
+     "en": "It is smooth, as a quotient of smooth functions with a nonvanishing denominator.",
+     "zh": "它是分母不为零的光滑函数之商，所以光滑。"
+    },
+    {
+     "en": "Condition one: R x of zero equals x over the norm of x, which is x.",
+     "zh": "条件一：R_x(0) = x/‖x‖ = x。"
+    },
+    {
+     "en": "Condition two: take the line t v, and let capital N of t be the norm of x plus t v, the square root of one plus t squared times the norm of v squared.",
+     "zh": "条件二：取直线 tv，令 N(t) = ‖x + tv‖ = √(1 + t²‖v‖²)。"
+    },
+    {
+     "en": "Capital N of zero is one. Its derivative is t times the norm of v squared, over that square root, which is zero at t equals zero.",
+     "zh": "N(0) = 1，N'(t) = t‖v‖² / √(1 + t²‖v‖²)，所以 N'(0) = 0。"
+    },
+    {
+     "en": "The graph of capital N is flat at zero: to first order, the rescaling does nothing.",
+     "zh": "N 的图像在 0 处是平的：在一阶意义下，缩放什么也没做。"
+    },
+    {
+     "en": "By the quotient rule, the derivative at zero of x plus t v over capital N is v times N of zero, minus x times N prime of zero, over N of zero squared.",
+     "zh": "由商的求导法则，在 0 处的导数 = (v·N(0) − x·N'(0)) / N(0)²。"
+    },
+    {
+     "en": "That is v times one, minus x times zero, over one, which is v. So the differential at zero is the identity, and this is a retraction.",
+     "zh": "即 (v·1 − x·0)/1 = v。所以 d(R_x)_0 = id，这是一个 retraction。"
+    },
+    {
+     "en": "Now combine the two answers: the direction minus grad f of x, and the move R x.",
+     "zh": "现在把两个答案合起来：方向 −grad f(x)，移动 R_x。"
+    },
+    {
+     "en": "Watch the point slide along the curve gamma of t equals R x of minus t grad f. The color cools: f is going down.",
+     "zh": "看点沿曲线 γ(t) = R_x(−t·grad f) 滑动：颜色变冷，f 在下降。"
+    },
+    {
+     "en": "Here is the theorem. For any retraction R x, let phi of t be f of R x of minus t grad f of x.",
+     "zh": "定理：对任意 retraction R_x，令 φ(t) = f(R_x(−t·grad f(x)))。"
+    },
+    {
+     "en": "Then phi prime of zero equals minus the squared g x norm of grad f of x.",
+     "zh": "则 φ'(0) = −‖grad f(x)‖²_x。"
+    },
+    {
+     "en": "Proof. Let v be minus grad f of x, which lies in T x M, and let gamma of t be R x of t v.",
+     "zh": "证明：令 v = −grad f(x) ∈ T_xM，γ(t) = R_x(tv)。"
+    },
+    {
+     "en": "By the previous chapter, gamma of zero is x, and gamma prime of zero is v.",
+     "zh": "由上一章，γ(0) = x，γ'(0) = v。"
+    },
+    {
+     "en": "By the curve definition of the differential, phi prime of zero equals d f at x of gamma prime of zero, which is d f at x of minus grad f.",
+     "zh": "由微分的曲线定义，φ'(0) = df_x[γ'(0)] = df_x[−grad f]。"
+    },
+    {
+     "en": "By linearity of the differential, this is minus d f at x of grad f.",
+     "zh": "由微分的线性，它等于 −df_x[grad f]。"
+    },
+    {
+     "en": "By the definition of the gradient, with v equal to grad f, this is minus g x of grad f with itself.",
+     "zh": "由梯度的定义（取 v = grad f），它等于 −g_x(grad f, grad f)。"
+    },
+    {
+     "en": "And that is minus the squared norm of grad f of x.",
+     "zh": "这就是 −‖grad f(x)‖²_x。"
+    },
+    {
+     "en": "If the gradient is not zero, this number is strictly negative, by positive definiteness.",
+     "zh": "若梯度不为零，由正定性，这个数严格为负。"
+    },
+    {
+     "en": "The quotient phi of t minus phi of zero, over t, tends to this negative number. So phi of t is below phi of zero for all t between zero and a t bar.",
+     "zh": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̄，使 0<t<t̄ 时 φ(t)<φ(0)。"
+    },
+    {
+     "en": "Let us check the numbers. For the height function, the squared norm of the gradient is one minus x three squared.",
+     "zh": "核对数值：对高度函数，‖grad f‖² = 1 − x₃²。"
+    },
+    {
+     "en": "At our point, x three is cosine of fifty degrees, so the predicted slope is about minus zero point five nine.",
+     "zh": "在我们的点上 x₃ = cos 50°，所以预测斜率约为 −0.59。"
+    },
+    {
+     "en": "Plot phi of t. The tangent line at zero has exactly that slope. It hugs the curve near zero, and then the two separate.",
+     "zh": "画出 φ(t)：0 处切线的斜率正是这个值。它在 0 附近贴着曲线，之后分开。"
+    },
+    {
+     "en": "This is only first order. It promises that small steps decrease f, but says nothing about how large t bar is, or how to choose the step.",
+     "zh": "这只是一阶结论：它保证小步下降，但不告诉我们 t̄ 多大，也不说明如何选步长。"
+    },
+    {
+     "en": "Every hypothesis was used. If condition two fails, gamma prime of zero is no longer v, and the slope changes by a factor of two, or of cosine theta.",
+     "zh": "每个假设都用到了：若违反条件二，γ'(0) 不再是 v，斜率会多出因子 2 或 cos θ。"
+    },
+    {
+     "en": "With the Euclidean gradient in place of grad f, the step is not even defined, because R x accepts only tangent vectors.",
+     "zh": "若用欧氏梯度代替 grad f，这一步甚至没有定义，因为 R_x 只接受切向量。"
+    },
+    {
+     "en": "Finally, move x toward the north pole. The gradient shrinks, and the slope tends to zero.",
+     "zh": "最后，把 x 移向北极：梯度缩短，斜率趋于 0。"
+    },
+    {
+     "en": "So the slope is negative exactly when grad f of x is not zero. Away from critical points, small steps always decrease f.",
+     "zh": "所以斜率为负当且仅当 grad f(x) ≠ 0：在临界点之外，小步一定让 f 下降。"
+    }
+   ]
+  },
+  {
+   "id": "c10-series-recap",
+   "chapter": "Chapter 10",
+   "title": "Recap: From Open Sets to One Descent Step",
+   "music": "recap",
+   "terms": [
+    "topology",
+    "smooth-atlas",
+    "implicit-function-theorem",
+    "tangent-space",
+    "riemannian-gradient",
+    "retraction"
+   ],
+   "sentences": [
+    {
+     "en": "Let us climb the whole tree once more, from the bottom.",
+     "zh": "让我们从底部再把整棵树爬一遍。"
+    },
+    {
+     "en": "Episode one, topology: we can talk about nearness and continuity without coordinates.",
+     "zh": "第一集，拓扑：不用坐标也能谈论“附近”与连续。"
+    },
+    {
+     "en": "Episode two, charts and smooth atlases: we can do calculus on M, and smoothness does not depend on the coordinates.",
+     "zh": "第二集，chart 与光滑图册：可以在 M 上做微积分，光滑性不依赖坐标。"
+    },
+    {
+     "en": "Episode three, the inverse function theorem: an invertible derivative makes a map locally invertible.",
+     "zh": "第三集，反函数定理：导数可逆使映射局部可逆。"
+    },
+    {
+     "en": "Episode four, the implicit function theorem and regular level sets: sets defined by equations are manifolds, without building charts by hand.",
+     "zh": "第四集，隐函数定理与正则水平集：方程定义的集合是流形，无需手工构造 chart。"
+    },
+    {
+     "en": "Episode five, tangent spaces: the legal directions at x form the kernel of D h of x, which we can compute.",
+     "zh": "第五集，切空间：x 处的合法方向构成 ker Dh(x)，可以计算。"
+    },
+    {
+     "en": "This episode: the differential, the Riesz theorem and a metric turn the change of f into a direction.",
+     "zh": "本集：微分、Riesz 定理与度量把“f 怎样变化”变成一个方向。"
+    },
+    {
+     "en": "And a retraction turns that direction into a point on M.",
+     "zh": "而 retraction 把这个方向变成 M 上的一个点。"
+    },
+    {
+     "en": "At the top, two branches meet.",
+     "zh": "在树顶，两个分支汇合。"
+    },
+    {
+     "en": "On the left, the Riemannian gradient, built from the differential, the Riesz theorem, the metric, and the tangent space.",
+     "zh": "左边是黎曼梯度，由微分、Riesz 定理、度量与切空间构成。"
+    },
+    {
+     "en": "On the right, the retraction, built from the tangent space and the differential.",
+     "zh": "右边是 retraction，由切空间与微分构成。"
+    },
+    {
+     "en": "They meet in a single step: x goes to R x of minus t grad f of x.",
+     "zh": "它们汇合成一步：x ↦ R_x(−t·grad f(x))。"
+    },
+    {
+     "en": "Back on the sphere, here is that step: the direction minus grad f in the tangent plane, and the retraction curve carrying x downhill.",
+     "zh": "回到球面，这就是那一步：切平面里的方向 −grad f，以及把 x 带下坡的 retraction 曲线。"
+    },
+    {
+     "en": "We proved that, for small t, this step decreases f, unless x is a critical point.",
+     "zh": "我们证明了：t 很小时，这一步让 f 下降，除非 x 是临界点。"
+    },
+    {
+     "en": "That is where the course stands now: the definition of a retraction, and the first order descent property.",
+     "zh": "这正是课程目前的进度：retraction 的定义与一阶下降性质。"
+    },
+    {
+     "en": "How to choose the step size, how to repeat the step, and whether the iterates converge are questions still ahead of us.",
+     "zh": "如何选步长、如何重复这一步、迭代是否收敛，这些问题还在前方。"
+    },
+    {
+     "en": "Next, we turn one step into an algorithm: Riemannian gradient descent.",
+     "zh": "下一步：把一步变成一个算法——黎曼梯度下降。"
+    }
+   ]
+  }
+ ]
+}

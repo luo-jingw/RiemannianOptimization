@@ -1,0 +1,655 @@
+{
+ "terms": [
+  {
+   "id": "topology",
+   "en": "topology",
+   "zh": "拓扑",
+   "symbol": "τ",
+   "spoken": "topology"
+  },
+  {
+   "id": "open-set",
+   "en": "open set",
+   "zh": "开集",
+   "symbol": "U",
+   "spoken": "open set"
+  },
+  {
+   "id": "open-ball",
+   "en": "open ball",
+   "zh": "开球",
+   "symbol": "B_r(x)",
+   "spoken": "open ball"
+  },
+  {
+   "id": "metric",
+   "en": "metric (distance)",
+   "zh": "度量（距离）",
+   "symbol": "d",
+   "spoken": "metric"
+  },
+  {
+   "id": "convergence",
+   "en": "convergence",
+   "zh": "收敛",
+   "symbol": "x_k → x",
+   "spoken": "converges"
+  },
+  {
+   "id": "continuity",
+   "en": "continuous map",
+   "zh": "连续映射",
+   "symbol": "f",
+   "spoken": "continuous"
+  },
+  {
+   "id": "preimage",
+   "en": "preimage",
+   "zh": "原像",
+   "symbol": "f^{-1}(V)",
+   "spoken": "preimage"
+  },
+  {
+   "id": "bijection",
+   "en": "bijection",
+   "zh": "双射",
+   "symbol": "",
+   "spoken": "bijection"
+  },
+  {
+   "id": "homeomorphism",
+   "en": "homeomorphism",
+   "zh": "同胚",
+   "symbol": "≅",
+   "spoken": "homeomorphism"
+  },
+  {
+   "id": "hausdorff",
+   "en": "Hausdorff",
+   "zh": "豪斯多夫（可分离）",
+   "symbol": "",
+   "spoken": "Hausdorff"
+  },
+  {
+   "id": "second-countable",
+   "en": "second countable",
+   "zh": "第二可数",
+   "symbol": "",
+   "spoken": "second countable"
+  },
+  {
+   "id": "chart",
+   "en": "coordinate chart",
+   "zh": "坐标卡",
+   "symbol": "(U, φ)",
+   "spoken": "chart"
+  },
+  {
+   "id": "topological-manifold",
+   "en": "topological manifold",
+   "zh": "拓扑流形",
+   "symbol": "M",
+   "spoken": "topological manifold"
+  },
+  {
+   "id": "transition-map",
+   "en": "transition map",
+   "zh": "转移映射",
+   "symbol": "ψ∘φ^{-1}",
+   "spoken": "transition map"
+  },
+  {
+   "id": "smooth-atlas",
+   "en": "smooth atlas",
+   "zh": "光滑图册",
+   "symbol": "",
+   "spoken": "smooth atlas"
+  },
+  {
+   "id": "smooth-manifold",
+   "en": "smooth manifold",
+   "zh": "光滑流形",
+   "symbol": "M",
+   "spoken": "smooth manifold"
+  },
+  {
+   "id": "smooth-map",
+   "en": "smooth map",
+   "zh": "光滑映射",
+   "symbol": "F",
+   "spoken": "smooth map"
+  },
+  {
+   "id": "diffeomorphism",
+   "en": "diffeomorphism",
+   "zh": "微分同胚",
+   "symbol": "",
+   "spoken": "diffeomorphism"
+  },
+  {
+   "id": "jacobian",
+   "en": "derivative (Jacobian)",
+   "zh": "导数（雅可比矩阵）",
+   "symbol": "DF(x)",
+   "spoken": "D F of x"
+  },
+  {
+   "id": "inverse-function-theorem",
+   "en": "inverse function theorem",
+   "zh": "反函数定理",
+   "symbol": "",
+   "spoken": "inverse function theorem"
+  },
+  {
+   "id": "contraction",
+   "en": "contraction mapping",
+   "zh": "压缩映射",
+   "symbol": "",
+   "spoken": "contraction"
+  },
+  {
+   "id": "fixed-point",
+   "en": "fixed point",
+   "zh": "不动点",
+   "symbol": "φ(x)=x",
+   "spoken": "fixed point"
+  },
+  {
+   "id": "complete-metric-space",
+   "en": "complete metric space",
+   "zh": "完备度量空间",
+   "symbol": "",
+   "spoken": "complete metric space"
+  },
+  {
+   "id": "implicit-function-theorem",
+   "en": "implicit function theorem",
+   "zh": "隐函数定理",
+   "symbol": "",
+   "spoken": "implicit function theorem"
+  },
+  {
+   "id": "regular-value",
+   "en": "regular value",
+   "zh": "正则值",
+   "symbol": "c",
+   "spoken": "regular value"
+  },
+  {
+   "id": "level-set",
+   "en": "level set",
+   "zh": "水平集",
+   "symbol": "h^{-1}(c)",
+   "spoken": "level set"
+  },
+  {
+   "id": "embedded-submanifold",
+   "en": "embedded submanifold",
+   "zh": "嵌入子流形",
+   "symbol": "",
+   "spoken": "embedded submanifold"
+  },
+  {
+   "id": "rank-nullity",
+   "en": "rank–nullity theorem",
+   "zh": "秩–零化度定理",
+   "symbol": "",
+   "spoken": "rank nullity theorem"
+  },
+  {
+   "id": "tangent-space",
+   "en": "tangent space",
+   "zh": "切空间",
+   "symbol": "T_pM",
+   "spoken": "tangent space"
+  },
+  {
+   "id": "kernel",
+   "en": "kernel (null space)",
+   "zh": "核（零空间）",
+   "symbol": "ker",
+   "spoken": "kernel"
+  },
+  {
+   "id": "orthogonal-group",
+   "en": "orthogonal group",
+   "zh": "正交群",
+   "symbol": "O(n)",
+   "spoken": "O of n"
+  },
+  {
+   "id": "special-orthogonal-group",
+   "en": "special orthogonal group",
+   "zh": "特殊正交群",
+   "symbol": "SO(n)",
+   "spoken": "S O of n"
+  },
+  {
+   "id": "symmetric-matrix",
+   "en": "symmetric matrices",
+   "zh": "对称矩阵",
+   "symbol": "Sym(n)",
+   "spoken": "symmetric matrices"
+  },
+  {
+   "id": "skew-symmetric-matrix",
+   "en": "skew-symmetric matrices",
+   "zh": "反对称矩阵",
+   "symbol": "Skew(n)",
+   "spoken": "skew symmetric matrices"
+  },
+  {
+   "id": "differential",
+   "en": "differential",
+   "zh": "微分",
+   "symbol": "df_x",
+   "spoken": "d f at x"
+  },
+  {
+   "id": "dual-space",
+   "en": "dual space",
+   "zh": "对偶空间",
+   "symbol": "V^*",
+   "spoken": "dual space"
+  },
+  {
+   "id": "riesz-representation",
+   "en": "Riesz representation theorem",
+   "zh": "里斯表示定理",
+   "symbol": "",
+   "spoken": "Riesz representation theorem"
+  },
+  {
+   "id": "riemannian-metric",
+   "en": "Riemannian metric",
+   "zh": "黎曼度量",
+   "symbol": "g_x",
+   "spoken": "Riemannian metric"
+  },
+  {
+   "id": "riemannian-manifold",
+   "en": "Riemannian manifold",
+   "zh": "黎曼流形",
+   "symbol": "(M, g)",
+   "spoken": "Riemannian manifold"
+  },
+  {
+   "id": "riemannian-gradient",
+   "en": "Riemannian gradient",
+   "zh": "黎曼梯度",
+   "symbol": "grad f(x)",
+   "spoken": "Riemannian gradient"
+  },
+  {
+   "id": "retraction",
+   "en": "retraction",
+   "zh": "收回映射（retraction）",
+   "symbol": "R_x",
+   "spoken": "retraction"
+  },
+  {
+   "id": "constrained-optimization",
+   "en": "constrained optimization",
+   "zh": "约束优化",
+   "symbol": "min f(x) s.t. x ∈ M",
+   "spoken": "constrained optimization"
+  },
+  {
+   "id": "triangle-inequality",
+   "en": "triangle inequality",
+   "zh": "三角不等式",
+   "symbol": "d(x,z) ≤ d(x,y)+d(y,z)",
+   "spoken": "triangle inequality"
+  },
+  {
+   "id": "trivial-topology",
+   "en": "trivial topology",
+   "zh": "平凡拓扑",
+   "symbol": "{∅, X}",
+   "spoken": "trivial topology"
+  },
+  {
+   "id": "discrete-topology",
+   "en": "discrete topology",
+   "zh": "离散拓扑",
+   "symbol": "2^X",
+   "spoken": "discrete topology"
+  },
+  {
+   "id": "subspace-topology",
+   "en": "subspace topology",
+   "zh": "子空间拓扑",
+   "symbol": "{U ∩ A}",
+   "spoken": "subspace topology"
+  },
+  {
+   "id": "open-map",
+   "en": "open map",
+   "zh": "开映射",
+   "symbol": "",
+   "spoken": "open map"
+  },
+  {
+   "id": "neighborhood",
+   "en": "neighborhood",
+   "zh": "邻域",
+   "symbol": "U ∋ x",
+   "spoken": "neighborhood"
+  },
+  {
+   "id": "locally-euclidean",
+   "en": "locally Euclidean",
+   "zh": "局部欧氏",
+   "symbol": "",
+   "spoken": "locally Euclidean"
+  },
+  {
+   "id": "stereographic-projection",
+   "en": "stereographic projection",
+   "zh": "球极投影",
+   "symbol": "σ_N",
+   "spoken": "stereographic projection"
+  },
+  {
+   "id": "compact",
+   "en": "compact set",
+   "zh": "紧集",
+   "symbol": "",
+   "spoken": "compact"
+  },
+  {
+   "id": "connected",
+   "en": "connected space",
+   "zh": "连通空间",
+   "symbol": "",
+   "spoken": "connected"
+  },
+  {
+   "id": "line-with-two-origins",
+   "en": "line with two origins",
+   "zh": "双原点直线",
+   "symbol": "",
+   "spoken": "line with two origins"
+  },
+  {
+   "id": "maximal-atlas",
+   "en": "maximal atlas (smooth structure)",
+   "zh": "极大图册（光滑结构）",
+   "symbol": "",
+   "spoken": "maximal atlas"
+  },
+  {
+   "id": "coordinate-representation",
+   "en": "coordinate representation",
+   "zh": "坐标表示",
+   "symbol": "F̂ = ψ∘F∘φ⁻¹",
+   "spoken": "coordinate representation"
+  },
+  {
+   "id": "smooth-compatibility",
+   "en": "smoothly compatible charts",
+   "zh": "光滑相容",
+   "symbol": "",
+   "spoken": "smoothly compatible"
+  },
+  {
+   "id": "intrinsic-view",
+   "en": "intrinsic view",
+   "zh": "内蕴视角",
+   "symbol": "",
+   "spoken": "intrinsic"
+  },
+  {
+   "id": "extrinsic-view",
+   "en": "extrinsic view",
+   "zh": "外蕴视角",
+   "symbol": "",
+   "spoken": "extrinsic"
+  },
+  {
+   "id": "euler-angles",
+   "en": "Euler angles",
+   "zh": "欧拉角",
+   "symbol": "",
+   "spoken": "Euler angles"
+  },
+  {
+   "id": "best-linear-approximation",
+   "en": "best linear approximation",
+   "zh": "最佳线性近似",
+   "symbol": "F(x+h)=F(x)+DF(x)h+o(‖h‖)",
+   "spoken": "best linear approximation"
+  },
+  {
+   "id": "directional-derivative",
+   "en": "directional derivative",
+   "zh": "方向导数",
+   "symbol": "DF(x)[v]",
+   "spoken": "D F of x applied to v"
+  },
+  {
+   "id": "chain-rule",
+   "en": "chain rule",
+   "zh": "链式法则",
+   "symbol": "D(G∘F)=DG·DF",
+   "spoken": "chain rule"
+  },
+  {
+   "id": "operator-norm",
+   "en": "operator norm",
+   "zh": "算子范数",
+   "symbol": "‖A‖",
+   "spoken": "operator norm"
+  },
+  {
+   "id": "cauchy-sequence",
+   "en": "Cauchy sequence",
+   "zh": "柯西列",
+   "symbol": "",
+   "spoken": "Cauchy sequence"
+  },
+  {
+   "id": "mean-value-inequality",
+   "en": "mean value inequality",
+   "zh": "中值不等式",
+   "symbol": "",
+   "spoken": "mean value inequality"
+  },
+  {
+   "id": "local-diffeomorphism",
+   "en": "local diffeomorphism",
+   "zh": "局部微分同胚",
+   "symbol": "",
+   "spoken": "local diffeomorphism"
+  },
+  {
+   "id": "newton-iteration",
+   "en": "Newton iteration",
+   "zh": "牛顿迭代",
+   "symbol": "x ← x + A⁻¹(y − f(x))",
+   "spoken": "Newton iteration"
+  },
+  {
+   "id": "little-o",
+   "en": "little-o",
+   "zh": "高阶无穷小",
+   "symbol": "o(‖h‖)",
+   "spoken": "little o of the norm of h"
+  },
+  {
+   "id": "local-graph",
+   "en": "local graph representation",
+   "zh": "局部图像表示",
+   "symbol": "y = g(x)",
+   "spoken": "local graph"
+  },
+  {
+   "id": "graph-parametrization",
+   "en": "graph parametrization",
+   "zh": "图像参数化",
+   "symbol": "ψ(x) = (x, g(x))",
+   "spoken": "graph parametrization"
+  },
+  {
+   "id": "block-lower-triangular",
+   "en": "block lower-triangular matrix",
+   "zh": "分块下三角矩阵",
+   "symbol": "",
+   "spoken": "block lower triangular matrix"
+  },
+  {
+   "id": "rank",
+   "en": "rank",
+   "zh": "秩",
+   "symbol": "rank",
+   "spoken": "rank"
+  },
+  {
+   "id": "surjective",
+   "en": "surjective (onto)",
+   "zh": "满射",
+   "symbol": "",
+   "spoken": "surjective"
+  },
+  {
+   "id": "coordinate-projection",
+   "en": "coordinate projection",
+   "zh": "坐标投影",
+   "symbol": "π",
+   "spoken": "coordinate projection"
+  },
+  {
+   "id": "cusp",
+   "en": "cusp",
+   "zh": "尖点",
+   "symbol": "y² = x³",
+   "spoken": "cusp"
+  },
+  {
+   "id": "regular-parametrization",
+   "en": "regular parametrization",
+   "zh": "正则参数化",
+   "symbol": "γ'(t) ≠ 0",
+   "spoken": "regular parametrization"
+  },
+  {
+   "id": "regular-level-set-theorem",
+   "en": "regular level-set theorem",
+   "zh": "正则水平集定理",
+   "symbol": "",
+   "spoken": "regular level set theorem"
+  },
+  {
+   "id": "tangent-vector",
+   "en": "tangent vector",
+   "zh": "切向量",
+   "symbol": "v = γ'(0)",
+   "spoken": "tangent vector"
+  },
+  {
+   "id": "smooth-curve",
+   "en": "smooth curve",
+   "zh": "光滑曲线",
+   "symbol": "γ",
+   "spoken": "gamma"
+  },
+  {
+   "id": "image-linear",
+   "en": "image (range) of a linear map",
+   "zh": "像（值域）",
+   "symbol": "im A",
+   "spoken": "image of A"
+  },
+  {
+   "id": "frobenius-inner-product",
+   "en": "Frobenius inner product",
+   "zh": "弗罗贝尼乌斯内积",
+   "symbol": "⟨A,B⟩ = tr(AᵀB)",
+   "spoken": "trace of A transpose B"
+  },
+  {
+   "id": "determinant",
+   "en": "determinant",
+   "zh": "行列式",
+   "symbol": "det R",
+   "spoken": "determinant of R"
+  },
+  {
+   "id": "infinitesimal-rotation",
+   "en": "infinitesimal rotation",
+   "zh": "无穷小旋转",
+   "symbol": "Ω ∈ Skew(n)",
+   "spoken": "omega"
+  },
+  {
+   "id": "rotation-generator",
+   "en": "rotation generator",
+   "zh": "旋转生成元",
+   "symbol": "L_x, L_y, L_z",
+   "spoken": "L x, L y, L z"
+  },
+  {
+   "id": "direct-sum",
+   "en": "direct sum",
+   "zh": "直和",
+   "symbol": "⊕",
+   "spoken": "direct sum"
+  },
+  {
+   "id": "inner-product",
+   "en": "inner product",
+   "zh": "内积",
+   "symbol": "⟨u, v⟩",
+   "spoken": "inner product"
+  },
+  {
+   "id": "covector",
+   "en": "linear functional (covector)",
+   "zh": "线性泛函（余向量）",
+   "symbol": "ℓ ∈ V^*",
+   "spoken": "covector"
+  },
+  {
+   "id": "dual-basis",
+   "en": "dual basis",
+   "zh": "对偶基",
+   "symbol": "e^i",
+   "spoken": "dual basis"
+  },
+  {
+   "id": "sharp-map",
+   "en": "sharp map (index raising)",
+   "zh": "升号映射（♯）",
+   "symbol": "ℓ^♯",
+   "spoken": "sharp"
+  },
+  {
+   "id": "cauchy-schwarz",
+   "en": "Cauchy–Schwarz inequality",
+   "zh": "柯西–施瓦茨不等式",
+   "symbol": "|⟨u,v⟩| ≤ ‖u‖‖v‖",
+   "spoken": "Cauchy Schwarz inequality"
+  },
+  {
+   "id": "steepest-ascent",
+   "en": "steepest ascent direction",
+   "zh": "最速上升方向",
+   "symbol": "grad f / ‖grad f‖",
+   "spoken": "steepest ascent direction"
+  },
+  {
+   "id": "critical-point",
+   "en": "critical point",
+   "zh": "临界点",
+   "symbol": "grad f(x) = 0",
+   "spoken": "critical point"
+  },
+  {
+   "id": "descent-property",
+   "en": "first-order descent property",
+   "zh": "一阶下降性质",
+   "symbol": "−‖grad f(x)‖²_x",
+   "spoken": "descent property"
+  }
+ ]
+}

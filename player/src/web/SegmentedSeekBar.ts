@@ -66,12 +66,20 @@ export class SegmentedSeekBar {
       if (!this.dragging) return;
       this.dragging = false;
       if (this.el.hasPointerCapture(ev.pointerId)) this.el.releasePointerCapture(ev.pointerId);
+      const r = this.el.getBoundingClientRect();
+      const inside = ev.clientX >= r.left && ev.clientX <= r.right && ev.clientY >= r.top && ev.clientY <= r.bottom;
+      if (!inside) this.clearHover();
     };
     this.el.addEventListener("pointerup", release);
     this.el.addEventListener("pointercancel", release);
     this.el.addEventListener("pointerleave", () => {
-      if (!this.dragging) this.tooltip.style.opacity = "0";
+      if (!this.dragging) this.clearHover();
     });
+  }
+
+  private clearHover(): void {
+    this.tooltip.style.opacity = "0";
+    for (const s of this.segments) s.el.classList.remove("seg-hover");
   }
 
   private timeAt(clientX: number): number {

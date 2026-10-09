@@ -31,6 +31,10 @@ export class PlayerControls {
     this.playButton.className = "ctl-play";
     this.playButton.textContent = "▶";
     this.playButton.onclick = () => this.actions.toggle();
+    // Clicking the picture toggles playback too.
+    overlayHost.addEventListener("click", (ev) => {
+      if (ev.target !== this.startOverlay && !this.startOverlay.contains(ev.target as Node)) this.actions.toggle();
+    });
     this.seekBar = new SegmentedSeekBar(timeline, (t) => this.actions.seek(t));
     this.timeLabel = document.createElement("span");
     this.timeLabel.className = "ctl-time";

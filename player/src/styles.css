@@ -7,9 +7,9 @@
 }
 html, body { margin: 0; padding: 0; background: #05070c; color: var(--text); font-family: var(--ui-font); overflow: hidden; }
 #viewport { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-#frame { position: relative; flex-shrink: 0; width: 1920px; height: 1080px; background: var(--bg); overflow: hidden; transform-origin: center center; }
+#frame { position: relative; flex-shrink: 0; cursor: pointer; width: 1920px; height: 1080px; background: var(--bg); overflow: hidden; transform-origin: center center; }
 body.capture #viewport { inset: auto; left: 0; top: 0; display: block; }
-body.capture #frame { transform: none !important; }
+body.capture #frame { transform: none !important; cursor: default; }
 body.capture #controls { display: none; }
 
 .formula-layer { position: absolute; left: 0; top: 0; pointer-events: none; }

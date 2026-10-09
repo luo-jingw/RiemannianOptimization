@@ -90,7 +90,13 @@ async function boot(): Promise<void> {
     controls?.update(t, clock.isPlaying);
   }, data.timeline.duration);
   controls = new PlayerControls(document.getElementById("controls") as HTMLDivElement, frame, data.timeline,
-    `Episode ${data.episode.order} · ${data.episode.title}`, { toggle: () => clock.toggle(), seek: (t) => clock.seek(t) });
+    `Episode ${data.episode.order} · ${data.episode.title}`, {
+      toggle: () => {
+        clock.toggle();
+        controls?.update(clock.time, clock.isPlaying);   // the render loop stops while paused, so refresh here
+      },
+      seek: (t) => clock.seek(t),
+    });
   clock.start(Number(params.get("t") ?? "0"));
   window.addEventListener("keydown", (ev) => {
     if ((ev.target as HTMLElement).tagName === "SELECT") return;
@@ -98,6 +104,7 @@ async function boot(): Promise<void> {
     if (ev.key === " ") {
       ev.preventDefault();
       clock.toggle();
+      controls?.update(clock.time, clock.isPlaying);
     } else if (ev.key === "ArrowRight") clock.seek(t + 5);
     else if (ev.key === "ArrowLeft") clock.seek(t - 5);
     else if (ev.key === ".") clock.seek(t + 1 / 30);

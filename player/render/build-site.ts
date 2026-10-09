@@ -7,7 +7,7 @@
  *   npx tsx render/build-site.ts
  */
 import { execFileSync, spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { build } from "vite";
 
@@ -21,6 +21,13 @@ interface SeriesEpisode {
 const playerRoot = resolve(import.meta.dirname, "..");
 const projectRoot = resolve(playerRoot, "..");
 const siteRoot = join(projectRoot, "site");
+
+const DURATION_TOLERANCE_S = 0.5;
+
+function mediaDuration(path: string): number {
+  const out = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], { encoding: "utf-8" });
+  return Number(out.stdout.trim());
+}
 
 interface Loudness {
   input_i: string;
@@ -60,17 +67,25 @@ async function main(): Promise<void> {
     mkdirSync(dest, { recursive: true });
     copyFileSync(timeline, join(dest, "timeline.json"));
     const audio = join(dest, "audio.m4a");
-    // Re-encode only when the mix is newer than the encoded audio.
-    if (existsSync(audio) && statSync(audio).mtimeMs > statSync(mix).mtimeMs) {
+    // Reuse the encoded audio only if it is newer than the mix AND complete (duration matches the timeline).
+    const timelineDuration = (JSON.parse(readFileSync(timeline, "utf-8")) as { duration: number }).duration;
+    if (existsSync(audio) && statSync(audio).mtimeMs > statSync(mix).mtimeMs
+        && Math.abs(mediaDuration(audio) - timelineDuration) < DURATION_TOLERANCE_S) {
       console.log(`[site] ${ep.id}: audio up to date, skipped`);
     } else {
       console.log(`[site] ${ep.id}: measuring loudness and encoding audio (about a minute)...`);
       const m = measureLoudness(mix);
+      const partial = `${audio}.partial.m4a`;   // written first, renamed when complete: an interrupted run leaves no truncated audio
       execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", mix, "-af",
         `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:` +
         `measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo`,
-        "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", audio]);
-      console.log(`[site] ${ep.id}: done`);
+        "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", partial]);
+      const encoded = mediaDuration(partial);
+      if (Math.abs(encoded - timelineDuration) >= DURATION_TOLERANCE_S) {
+        throw new Error(`${ep.id}: encoded audio is ${encoded.toFixed(2)} s, timeline is ${timelineDuration.toFixed(2)} s`);
+      }
+      renameSync(partial, audio);
+      console.log(`[site] ${ep.id}: done (${encoded.toFixed(1)} s)`);
     }
     report.push({ episode: ep.id, audio_bytes: statSync(audio).size });
   }

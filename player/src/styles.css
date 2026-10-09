@@ -43,6 +43,8 @@ body.capture #controls { display: none; }
 .title-chapter-main { position: absolute; left: 200px; right: 200px; top: 440px; text-align: center; font-size: 72px; font-weight: 700; line-height: 1.15; color: var(--text); }
 .outro-done { position: absolute; left: 0; right: 0; top: 360px; text-align: center; font-size: 64px; font-weight: 700; }
 .outro-next-label { position: absolute; left: 0; right: 0; top: 500px; text-align: center; font-size: 30px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.outro-next-link { pointer-events: auto; text-decoration: none; cursor: pointer; }
+.outro-next-link:hover { text-decoration: underline; color: #ffc078; }
 .outro-next { position: absolute; left: 0; right: 0; top: 550px; text-align: center; font-size: 46px; color: var(--orange); font-weight: 600; }
 
 #viewport { bottom: 56px; }

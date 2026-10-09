@@ -59,7 +59,8 @@ async function boot(): Promise<void> {
 
   const data = await loader.load(episodeId);
   const registry = new SceneRegistry(EPISODE_SCENES[episodeId] ?? {});
-  const renderer = new EpisodeRenderer(data, { stage, formulas }, registry, overlay);
+  const nextHref = !capture && data.next ? `?episode=${encodeURIComponent(data.next.id)}` : null;
+  const renderer = new EpisodeRenderer(data, { stage, formulas }, registry, overlay, nextHref);
 
   window.renderAt = async (t: number): Promise<void> => {
     renderer.renderAt(t);

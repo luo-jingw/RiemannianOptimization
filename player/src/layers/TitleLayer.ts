@@ -18,7 +18,9 @@ export class TitleLayer {
   private readonly orbitCenter = { x: 1500, y: 470, r: 190 };
   private shownChapter = -1;
 
-  constructor(parent: HTMLElement, private readonly data: EpisodeData, private readonly chapterHead: number) {
+  /** `nextHref`: link target for the next-episode title (web player only; null in capture mode). */
+  constructor(parent: HTMLElement, private readonly data: EpisodeData, private readonly chapterHead: number,
+              nextHref: string | null) {
     this.dim = this.div(parent, "title-dim");
     this.intro = this.div(parent, "title-intro");
     const order = data.episode.order;
@@ -50,9 +52,13 @@ export class TitleLayer {
     this.chapterTitle = this.div(this.chapterCard, "title-chapter-main");
     this.outro = this.div(parent, "title-outro");
     const nextLine = data.next
-      ? `<div class="outro-next-label">Next</div><div class="outro-next">Episode ${data.next.order} · ${data.next.title}</div>`
+      ? `<div class="outro-next-label">Next</div>` + (nextHref
+        ? `<a class="outro-next outro-next-link" href="${nextHref}">Episode ${data.next.order} · ${data.next.title} ▸</a>`
+        : `<div class="outro-next">Episode ${data.next.order} · ${data.next.title}</div>`)
       : `<div class="outro-next-label">Next</div><div class="outro-next">More episodes follow as the course continues</div>`;
     this.outro.innerHTML = `<div class="outro-done">End of Episode ${order}</div>${nextLine}`;
+    // Following the link must not also toggle playback through the picture's click handler.
+    this.outro.querySelector("a")?.addEventListener("click", (ev) => ev.stopPropagation());
   }
 
   private div(parent: HTMLElement, cls: string): HTMLDivElement {

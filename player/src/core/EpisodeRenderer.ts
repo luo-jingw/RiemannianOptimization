@@ -20,9 +20,9 @@ export class EpisodeRenderer {
   private readonly titles: TitleLayer;
 
   constructor(private readonly data: EpisodeData, private readonly layers: SceneLayers,
-              private readonly registry: SceneRegistry, overlayHost: HTMLElement) {
+              private readonly registry: SceneRegistry, overlayHost: HTMLElement, nextHref: string | null) {
     this.captions = new CaptionLayer(overlayHost, data.timeline.captions);
-    this.titles = new TitleLayer(overlayHost, data, CHAPTER_HEAD);
+    this.titles = new TitleLayer(overlayHost, data, CHAPTER_HEAD, nextHref);
   }
 
   /** Chapter IDs present in the timeline but without a registered scene. */

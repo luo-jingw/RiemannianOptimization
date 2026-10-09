@@ -7,7 +7,7 @@
  *   npx tsx render/build-site.ts
  */
 import { execFileSync, spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { build } from "vite";
 
@@ -39,8 +39,12 @@ function measureLoudness(wav: string): Loudness {
 }
 
 async function main(): Promise<void> {
+  // Keep data/ (encoded audio is reused); replace the hashed player bundle.
+  rmSync(join(siteRoot, "assets"), { recursive: true, force: true });
   await build({ root: playerRoot, configFile: join(playerRoot, "vite.config.ts"), base: "./", logLevel: "warn",
-    build: { outDir: siteRoot, emptyOutDir: true } });
+    // The player is one bundle by design (scenes are imported statically), so the size warning is noise.
+    build: { outDir: siteRoot, emptyOutDir: false, chunkSizeWarningLimit: 4096 } });
+  console.log("[site] player bundle built");
   const seriesPath = join(projectRoot, "content", "series.json");
   const series = JSON.parse(readFileSync(seriesPath, "utf-8")) as { title: string; episodes: SeriesEpisode[] };
   const delivered = series.episodes.filter((e) => e.status === "delivered");
@@ -56,11 +60,18 @@ async function main(): Promise<void> {
     mkdirSync(dest, { recursive: true });
     copyFileSync(timeline, join(dest, "timeline.json"));
     const audio = join(dest, "audio.m4a");
-    const m = measureLoudness(mix);
-    execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", mix, "-af",
-      `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:` +
-      `measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo`,
-      "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", audio]);
+    // Re-encode only when the mix is newer than the encoded audio.
+    if (existsSync(audio) && statSync(audio).mtimeMs > statSync(mix).mtimeMs) {
+      console.log(`[site] ${ep.id}: audio up to date, skipped`);
+    } else {
+      console.log(`[site] ${ep.id}: measuring loudness and encoding audio (about a minute)...`);
+      const m = measureLoudness(mix);
+      execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", mix, "-af",
+        `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:` +
+        `measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo`,
+        "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", audio]);
+      console.log(`[site] ${ep.id}: done`);
+    }
     report.push({ episode: ep.id, audio_bytes: statSync(audio).size });
   }
   writeFileSync(join(siteRoot, ".nojekyll"), "");

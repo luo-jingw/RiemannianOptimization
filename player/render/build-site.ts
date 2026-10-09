@@ -7,6 +7,7 @@
  *   npx tsx render/build-site.ts
  */
 import { execFileSync, spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { build } from "vite";
@@ -56,8 +57,8 @@ async function main(): Promise<void> {
   const series = JSON.parse(readFileSync(seriesPath, "utf-8")) as { title: string; episodes: SeriesEpisode[] };
   const delivered = series.episodes.filter((e) => e.status === "delivered");
   mkdirSync(join(siteRoot, "data"), { recursive: true });
-  writeFileSync(join(siteRoot, "data", "series.json"), JSON.stringify({ ...series, episodes: delivered }, null, 1));
-  const report: { episode: string; audio_bytes: number }[] = [];
+  const report: { episode: string; audio_bytes: number; audio_version: string }[] = [];
+  const versions = new Map<string, string>();
   for (const ep of delivered) {
     const buildDir = join(projectRoot, "build", ep.id, "en");
     const timeline = join(buildDir, "timeline.json");
@@ -87,8 +88,12 @@ async function main(): Promise<void> {
       renameSync(partial, audio);
       console.log(`[site] ${ep.id}: done (${encoded.toFixed(1)} s)`);
     }
-    report.push({ episode: ep.id, audio_bytes: statSync(audio).size });
+    const version = createHash("sha256").update(readFileSync(audio)).digest("hex").slice(0, 12);
+    versions.set(ep.id, version);
+    report.push({ episode: ep.id, audio_bytes: statSync(audio).size, audio_version: version });
   }
+  const published = delivered.map((e) => ({ ...e, audioVersion: versions.get(e.id) }));
+  writeFileSync(join(siteRoot, "data", "series.json"), JSON.stringify({ ...series, episodes: published }, null, 1));
   writeFileSync(join(siteRoot, ".nojekyll"), "");
   console.log(JSON.stringify({ site: siteRoot, episodes: report }));
 }

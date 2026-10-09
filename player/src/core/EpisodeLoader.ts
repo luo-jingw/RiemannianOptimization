@@ -6,6 +6,8 @@ export interface SeriesEpisode {
   order: number;
   title: string;
   status: string;
+  /** Content fingerprint of the published audio (static site only). */
+  audioVersion?: string;
 }
 
 export interface SeriesManifest {
@@ -45,7 +47,7 @@ export class EpisodeLoader {
       episode: ordered[index],
       next: ordered[index + 1],
       timeline,
-      audioUrl: this.source.audioUrl(episodeId),
+      audioUrl: this.source.audioUrl(episodeId, ordered[index].audioVersion),
     };
   }
 }

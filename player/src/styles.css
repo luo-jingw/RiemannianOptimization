@@ -51,7 +51,13 @@ body.capture #viewport { bottom: auto; }
 .ctl-home { color: #9aa4bf; text-decoration: none; white-space: nowrap; }
 .ctl-home:hover { color: #fff; }
 .ctl-play { width: 40px; height: 36px; border: none; border-radius: 8px; background: #ffa94d; color: #0b0f19; font-size: 16px; cursor: pointer; }
-.ctl-seek { flex: 1; accent-color: #ffa94d; min-width: 80px; }
+.seg-bar { position: relative; flex: 1; min-width: 80px; height: 24px; cursor: pointer; touch-action: none; }
+.seg { position: absolute; top: 9px; height: 6px; background: #2b3550; border-radius: 3px; overflow: hidden; transition: top 0.1s, height 0.1s; }
+.seg-fill { height: 100%; width: 0; background: #ffa94d; }
+.seg-current, .seg-hover { top: 7px; height: 10px; }
+.seg-hover { background: #3a4668; }
+.seg-thumb { position: absolute; top: 5px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 0 2px #ffa94d; pointer-events: none; }
+.seg-tooltip { position: absolute; bottom: 30px; transform: translateX(-50%); white-space: nowrap; padding: 5px 10px; border-radius: 6px; background: #161d2e; border: 1px solid #2b3550; color: #e8ecf4; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity 0.1s; }
 .ctl-time { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .ctl-chapters { max-width: 340px; background: #161d2e; color: #e8ecf4; border: 1px solid #2b3550; border-radius: 6px; padding: 6px; }
 .start-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: rgba(8, 11, 19, 0.55); border: none; cursor: pointer; color: #fff; z-index: 50; }

@@ -30,7 +30,9 @@ Capture splits frames into 60 s chunks taken from a queue by N workers; a chunk 
 ## Web version
 
 `cd player && npx tsx render/build-site.ts` builds a static site into `site/`: the same renderer playing live in the
-browser (landing page with all delivered episodes, control bar with seek and chapter menu, keyboard shortcuts).
+browser (landing page with all delivered episodes, control bar with a chapter-segmented seek bar — one segment per
+chapter plus intro/outro, hover tooltip with the chapter title — chapter menu, keyboard shortcuts). The playback UI
+exists only in the web player; rendered videos contain none.
 Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a` (128 kb/s AAC encoded from
 `build/<eid>/en/audio/mix.wav` with the delivery loudness normalization), so the site needs no rendered video.
 Measured size: 222 MB. Playback time is owned by `PreviewClock` (performance.now based): seeking moves the live

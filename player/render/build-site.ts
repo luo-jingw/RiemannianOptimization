@@ -1,14 +1,13 @@
 /**
  * Builds the static web version into ../site:
  *   vite build (relative base) + data/series.json + per delivered episode: timeline.json and audio.m4a.
- * Audio is copied from the latest delivered MP4 (already loudness-normalized); the build refuses an episode
- * whose current timeline differs from the one that version was muxed with.
+ * Audio is encoded from the episode's build mix (build/<eid>/en/audio/mix.wav) with the same two-pass
+ * loudness normalization as delivery (−16 LUFS, −1.5 dBTP), so the site needs no rendered video.
  *
  *   npx tsx render/build-site.ts
  */
-import { execFileSync } from "node:child_process";
-import { createHash } from "node:crypto";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { build } from "vite";
 
@@ -19,25 +18,24 @@ interface SeriesEpisode {
   status: string;
 }
 
-interface DeliveryManifest {
-  sources: { timeline_sha256: string };
-}
-
 const playerRoot = resolve(import.meta.dirname, "..");
 const projectRoot = resolve(playerRoot, "..");
 const siteRoot = join(projectRoot, "site");
 
-function sha256(path: string): string {
-  return createHash("sha256").update(readFileSync(path)).digest("hex");
+interface Loudness {
+  input_i: string;
+  input_tp: string;
+  input_lra: string;
+  input_thresh: string;
+  target_offset: string;
 }
 
-function latestVersion(episodeId: string): number {
-  const dir = join(projectRoot, "output", episodeId);
-  const versions = existsSync(dir)
-    ? readdirSync(dir).map((d) => /^v(\d+)$/.exec(d)).filter((m): m is RegExpExecArray => m !== null).map((m) => Number(m[1]))
-    : [];
-  if (versions.length === 0) throw new Error(`${episodeId}: no delivered version under output/`);
-  return Math.max(...versions);
+function measureLoudness(wav: string): Loudness {
+  const out = spawnSync("ffmpeg", ["-hide_banner", "-nostats", "-i", wav, "-af",
+    "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], { encoding: "utf-8" });
+  const blocks = out.stderr.match(/\{[^{}]*\}/g);
+  if (!blocks) throw new Error(`loudness measurement failed for ${wav}`);
+  return JSON.parse(blocks[blocks.length - 1]) as Loudness;
 }
 
 async function main(): Promise<void> {
@@ -48,22 +46,22 @@ async function main(): Promise<void> {
   const delivered = series.episodes.filter((e) => e.status === "delivered");
   mkdirSync(join(siteRoot, "data"), { recursive: true });
   writeFileSync(join(siteRoot, "data", "series.json"), JSON.stringify({ ...series, episodes: delivered }, null, 1));
-  const report: { episode: string; version: number; audio_bytes: number }[] = [];
+  const report: { episode: string; audio_bytes: number }[] = [];
   for (const ep of delivered) {
-    const version = latestVersion(ep.id);
-    const outDir = join(projectRoot, "output", ep.id, `v${version}`);
-    const manifest = JSON.parse(readFileSync(join(outDir, "manifest.json"), "utf-8")) as DeliveryManifest;
-    const timeline = join(projectRoot, "build", ep.id, "en", "timeline.json");
-    if (sha256(timeline) !== manifest.sources.timeline_sha256) {
-      throw new Error(`${ep.id}: build timeline differs from the one muxed into v${version}; re-deliver first`);
-    }
+    const buildDir = join(projectRoot, "build", ep.id, "en");
+    const timeline = join(buildDir, "timeline.json");
+    const mix = join(buildDir, "audio", "mix.wav");
+    if (!existsSync(timeline) || !existsSync(mix)) throw new Error(`${ep.id}: run rvideo audio first`);
     const dest = join(siteRoot, "data", ep.id);
     mkdirSync(dest, { recursive: true });
     copyFileSync(timeline, join(dest, "timeline.json"));
     const audio = join(dest, "audio.m4a");
-    execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", join(outDir, `${ep.id}.en.mp4`),
-      "-map", "0:a:0", "-c:a", "copy", "-movflags", "+faststart", audio]);
-    report.push({ episode: ep.id, version, audio_bytes: readFileSync(audio).length });
+    const m = measureLoudness(mix);
+    execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", mix, "-af",
+      `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:` +
+      `measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo`,
+      "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", audio]);
+    report.push({ episode: ep.id, audio_bytes: statSync(audio).size });
   }
   writeFileSync(join(siteRoot, ".nojekyll"), "");
   console.log(JSON.stringify({ site: siteRoot, episodes: report }));

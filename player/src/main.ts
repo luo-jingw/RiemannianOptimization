@@ -82,9 +82,11 @@ async function boot(): Promise<void> {
   document.title = `E${data.episode.order} · ${data.episode.title}`;
   const audio = new Audio(data.audioUrl);
   audio.preload = "auto";
+  audio.hidden = true;
+  document.body.appendChild(audio);
   let controls: PlayerControls | null = null;
   const clock = new PreviewClock(audio, (t) => {
-    renderer.renderAt(t);
+    renderer.renderAt(t);   // live rendering at the clock time
     controls?.update(t, clock.isPlaying);
   }, data.timeline.duration);
   controls = new PlayerControls(document.getElementById("controls") as HTMLDivElement, frame, data.timeline,

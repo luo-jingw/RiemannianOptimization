@@ -37,13 +37,17 @@ export class PlayerControls {
     this.seekBar.max = String(timeline.duration);
     this.seekBar.step = "0.1";
     this.seekBar.className = "ctl-seek";
-    this.seekBar.oninput = () => {
+    // While the thumb is held, playback updates never overwrite the bar.
+    this.seekBar.addEventListener("pointerdown", () => {
       this.dragging = true;
-      this.actions.seek(Number(this.seekBar.value));
-    };
-    this.seekBar.onchange = () => {
+    });
+    const release = (): void => {
       this.dragging = false;
     };
+    this.seekBar.addEventListener("pointerup", release);
+    this.seekBar.addEventListener("pointercancel", release);
+    this.seekBar.addEventListener("input", () => this.actions.seek(Number(this.seekBar.value)));
+    this.seekBar.addEventListener("change", release);
     this.timeLabel = document.createElement("span");
     this.timeLabel.className = "ctl-time";
     this.chapterSelect = document.createElement("select");

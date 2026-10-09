@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite --port 5173 --strictPort",
     "typecheck": "tsc --noEmit",
-    "capture": "tsx render/capture.ts"
+    "capture": "tsx render/capture.ts",
+    "site:build": "tsx render/build-site.ts",
+    "site:serve": "vite preview --outDir ../site --port 8000 --strictPort"
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.0",

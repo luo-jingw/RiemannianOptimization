@@ -31,9 +31,12 @@ Capture splits frames into 60 s chunks taken from a queue by N workers; a chunk 
 
 `cd player && npx tsx render/build-site.ts` builds a static site into `site/`: the same renderer playing live in the
 browser (landing page with all delivered episodes, control bar with seek and chapter menu, keyboard shortcuts).
-Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a`, the AAC track copied from the latest
-delivered MP4; the build refuses an episode whose timeline differs from that delivery. Measured size: 314 MB
-(audio 44–59 MB per episode). The dev server and the static site differ only in the `DataSource`
+Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a` (128 kb/s AAC encoded from
+`build/<eid>/en/audio/mix.wav` with the delivery loudness normalization), so the site needs no rendered video.
+Measured size: 222 MB. Playback time is owned by `PreviewClock` (performance.now based): seeking moves the live
+rendering immediately and the audio is re-synced when it drifts by more than 0.25 s. Serve with
+`npm run site:serve` (vite preview, supports HTTP Range requests for audio seeking).
+The dev server and the static site differ only in the `DataSource`
 (`player/src/core/DataSource.ts`).
 
 ## Measured series results

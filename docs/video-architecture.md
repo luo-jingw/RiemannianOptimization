@@ -45,18 +45,6 @@ Published on GitHub Pages from the `gh-pages` branch: https://luo-jingw.github.i
 The dev server and the static site differ only in the `DataSource`
 (`player/src/core/DataSource.ts`).
 
-## Publishing assets
-
-- `.venv/bin/python -m rvideo.cli.main publish` writes `output/publish/metadata.md`: Bilibili title, description,
-  tags, part titles and per-part chapters; YouTube title, description with chapter timestamps (first chapter at 0:00),
-  tags. Sources: `content/publish/episodes.json` (summaries, footers, tags) and each episode's timeline and storyboard
-  chapter titles.
-- `cd player && npx tsx render/covers.ts` renders covers from `content/publish/covers.json` into
-  `output/publish/covers/` (English-only): `<id>-youtube` (1280×720), `<id>-bilibili` (1146×717) and
-  `<id>-bilibili-4x3` (960×720), png + jpg, each rendered natively at its aspect ratio; art is a cropped frame
-  of the delivered video. The metadata lists per-episode Bilibili uploads grouped in a collection (recommended)
-  and a single multi-part submission as the alternative.
-
 ## Measured series results
 
 | Episode | Minutes | Sentences | LUFS | Peak dBFS |

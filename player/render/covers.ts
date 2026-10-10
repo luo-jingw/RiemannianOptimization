@@ -1,7 +1,8 @@
 /**
  * Renders platform covers from content/publish/covers.json: a series cover and one thumbnail per episode.
  * Art is a frame of the delivered video, cropped to its picture area (no captions); text is HTML/KaTeX.
- * Output: output/publish/covers/<id>-youtube.{png,jpg} (16:9, 1280×720) and <id>-bilibili.{png,jpg} (1146×717).
+ * Output: output/publish/covers/<id>-youtube (1280×720), <id>-bilibili (1146×717), <id>-bilibili-4x3 (960×720); png + jpg.
+ * Covers are English-only, matching the narration.
  *
  *   npx tsx render/covers.ts
  */
@@ -26,10 +27,8 @@ interface CoverSpec {
   ep?: number;
   art: Art;
   kicker?: string;
-  zh: string;
-  /** Smaller second Chinese line under the main title. */
-  zhSub?: string;
-  en: string;
+  title: string;
+  subtitle: string;
   chain?: string;
   tex: string;
   chips?: string[];
@@ -55,38 +54,41 @@ function extractArt(spec: CoverSpec): string {
 function page(spec: CoverSpec, artUrl: string): string {
   const tex = katex.renderToString(spec.tex, { throwOnError: true, output: "html" });
   const series = spec.ep === undefined;
-  const chips = (spec.chips ?? ["完整证明", "反例动画", "中英字幕"]).map((c) => `<span class="chip">${c}</span>`).join("");
+  const chips = (spec.chips ?? ["Full proofs", "Animated counterexamples", "Bilingual captions"])
+    .map((c) => `<span class="chip">${c}</span>`).join("");
   return `<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="${nm("@fontsource/noto-sans-sc/900.css")}">
-<link rel="stylesheet" href="${nm("@fontsource/noto-sans-sc/700.css")}">
+<link rel="stylesheet" href="${nm("@fontsource/inter/900.css")}">
 <link rel="stylesheet" href="${nm("@fontsource/inter/800.css")}">
 <link rel="stylesheet" href="${nm("@fontsource/inter/600.css")}">
 <link rel="stylesheet" href="${nm("katex/dist/katex.min.css")}">
 <style>
-  html, body { margin: 0; width: 1920px; height: 100vh; overflow: hidden; }
-  body { background: radial-gradient(1400px 900px at 78% 50%, #18233f 0%, #0b1020 60%, #070a14 100%); font-family: Inter, "Noto Sans SC", sans-serif; color: #e8ecf4; }
-  .art { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); max-width: 1060px; max-height: 960px;
+  html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; }
+  body { background: radial-gradient(1400px 900px at 78% 50%, #18233f 0%, #0b1020 60%, #070a14 100%); font-family: Inter, sans-serif; color: #e8ecf4; }
+  .art { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); max-width: 1000px; max-height: 92vh;
          -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 88%, transparent 100%),
                              linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
          -webkit-mask-composite: source-in; mask-composite: intersect; }
-  .left { position: absolute; left: 110px; top: 0; bottom: 0; width: ${series ? 1020 : 960}px; display: flex; flex-direction: column; justify-content: center; }
+  .left { position: absolute; left: 110px; top: 0; bottom: 0; width: 1000px; display: flex; flex-direction: column; justify-content: center; }
   .kicker { font: 600 34px Inter; letter-spacing: 0.06em; color: #9aa4bf; margin-bottom: 26px; }
-  .badge { display: inline-block; align-self: flex-start; font: 800 64px Inter; color: #0b1020; background: #ffa94d; border-radius: 18px; padding: 6px 28px; margin-bottom: 30px; }
-  .series-mini { font: 700 40px "Noto Sans SC"; color: #ffa94d; margin-bottom: 18px; }
-  .zh-sub { font: 900 76px/1.2 "Noto Sans SC"; color: #ffffff; margin-top: 10px; }
-  .zh { font: 900 ${series ? 150 : 160}px/1.12 "Noto Sans SC"; color: #ffffff; text-shadow: 0 6px 30px rgba(0,0,0,0.6); }
-  .en { font: 600 ${series ? 46 : 44}px/1.25 Inter; color: #c7cee0; margin-top: 26px; }
-  .chain { font: 700 34px "Noto Sans SC"; color: #ffd43b; margin-top: 36px; }
-  .tex { font-size: ${series ? 46 : 52}px; color: #ffd43b; margin-top: 40px; }
-  .chips { margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap; }
-  .chip { font: 700 32px "Noto Sans SC"; color: #e8ecf4; background: #18294a; border: 2px solid #3f6fae; border-radius: 999px; padding: 8px 26px; }
+  .series-mini { font: 800 36px Inter; letter-spacing: 0.04em; color: #ffa94d; margin-bottom: 20px; }
+  .badge { display: inline-block; align-self: flex-start; font: 800 60px Inter; color: #0b1020; background: #ffa94d; border-radius: 18px; padding: 6px 28px; margin-bottom: 30px; }
+  .title { font: 900 ${series ? 136 : 128}px/1.02 Inter; letter-spacing: -0.02em; color: #ffffff; text-shadow: 0 6px 30px rgba(0,0,0,0.6); }
+  .subtitle { font: 800 ${series ? 88 : 66}px/1.1 Inter; color: #ffffff; margin-top: 14px; }
+  .chain { font: 600 30px/1.35 Inter; color: #ffd43b; margin-top: 34px; max-width: 980px; }
+  .tex { font-size: ${series ? 46 : 52}px; color: #ffd43b; margin-top: 38px; }
+  .chips { margin-top: 42px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .chip { font: 700 32px Inter; color: #e8ecf4; background: #18294a; border: 2px solid #3f6fae; border-radius: 999px; padding: 8px 26px; }
+  /* 4:3 layout: narrower page, art shrinks so the text column keeps its size. */
+  @media (max-aspect-ratio: 3/2) {
+    .art { max-width: 700px; right: 0; }
+    .left { left: 80px; width: 900px; }
+  }
 </style></head><body>
 <img class="art" src="${artUrl}">
 <div class="left">
-  ${series ? `<div class="kicker">${spec.kicker ?? ""}</div>` : `<div class="series-mini">从零开始的黎曼优化</div><div class="badge">EP ${String(spec.ep).padStart(2, "0")}</div>`}
-  <div class="zh">${spec.zh}</div>
-  ${spec.zhSub ? `<div class="zh-sub">${spec.zhSub}</div>` : ""}
-  <div class="en">${spec.en}</div>
+  ${series ? `<div class="kicker">${spec.kicker ?? ""}</div>` : `<div class="series-mini">RIEMANNIAN OPTIMIZATION FROM THE GROUND UP</div><div class="badge">EP ${String(spec.ep).padStart(2, "0")}</div>`}
+  <div class="title">${spec.title}</div>
+  <div class="subtitle">${spec.subtitle}</div>
   ${spec.chain ? `<div class="chain">${spec.chain}</div>` : ""}
   <div class="tex">${tex}</div>
   <div class="chips">${chips}</div>
@@ -106,8 +108,10 @@ async function main(): Promise<void> {
     const html = join(artDir, `${spec.id}.html`);
     writeFileSync(html, page(spec, extractArt(spec)));
     // Each platform is rendered natively at its aspect ratio (no cropping of the layout).
-    for (const [suffix, w, h, height] of [["youtube", 1280, 720, 1080], ["bilibili", 1146, 717, 1201]] as const) {
-      await pageHandle.setViewport({ width: 1920, height, deviceScaleFactor: 1 });
+    // youtube 16:9; bilibili 16:10 (main cover); bilibili-4x3 (profile / feed cover).
+    for (const [suffix, w, h, height] of [["youtube", 1280, 720, 1080], ["bilibili", 1146, 717, 1201],
+      ["bilibili-4x3", 960, 720, 1200]] as const) {
+      await pageHandle.setViewport({ width: suffix === "bilibili-4x3" ? 1600 : 1920, height, deviceScaleFactor: 1 });
       await pageHandle.goto(pathToFileURL(html).href, { waitUntil: "networkidle0" });
       await pageHandle.evaluate(() => document.fonts.ready);
       const png = join(outDir, `${spec.id}-${suffix}.png`);

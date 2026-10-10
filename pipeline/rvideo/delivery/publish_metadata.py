@@ -48,26 +48,38 @@ class PublishMetadataWriter:
         s = meta["series"]
         lines: list[str] = [f"# Publishing metadata — {s['zh_title']} / {s['en_title']}", ""]
 
-        lines += ["## Bilibili（一次投稿，多 P）", "", "**标题**", "", s["bilibili_title"], "",
-                  "**简介**", "", s["zh_intro"], ""]
+        # Bilibili, recommended: one video per episode, grouped in a 合集 (collection).
+        lines += ["## Bilibili（推荐：每集单独投稿 + 合集）", "", "**合集名称**", "", s["bilibili_collection_title"], "",
+                  "**合集简介**", "", s["zh_intro"], ""]
         for ep in meta["episodes"]:
             order = series.episode(ep["id"]).order
-            lines.append(f"P{order} {ep['zh']}：{ep['zh_summary']}")
-        lines += ["", s["zh_footer"], "", "**标签**", "", "、".join(s["bilibili_tags"]), "", "**分 P 标题**", ""]
-        for ep in meta["episodes"]:
-            lines.append(f"- P{series.episode(ep['id']).order} {ep['zh']}")
-        lines += ["", "**各 P 章节（投稿后可在编辑页「视频章节」中添加）**", ""]
-        for ep in meta["episodes"]:
-            lines.append(f"P{series.episode(ep['id']).order} {ep['zh']}")
+            title = s["bilibili_episode_title"].format(order=order, zh=ep["zh"])
+            lines += [f"### EP{order}", "", f"**标题**（{len(title)} 字）", "", title, "", "**封面**", "",
+                      f"`output/publish/covers/{ep['id']}-bilibili.jpg`（16:10），`{ep['id']}-bilibili-4x3.jpg`（4:3）", "",
+                      "**简介**", "", "```", ep["zh_summary"], "",
+                      "本系列：拓扑 → 光滑流形 → 反函数定理 → 隐函数与正则水平集 → 切空间与正交群 → 黎曼梯度与 Retraction", "",
+                      s["zh_footer"], "```", "", "**标签**", "", "、".join(s["bilibili_tags"]), "",
+                      "**视频章节**（编辑页「视频章节」中添加）", "", "```"]
             lines += [f"{_stamp(c.start)} {c.zh}" for c in self._chapters(ep["id"])]
-            lines.append("")
+            lines += ["```", ""]
+
+        # Bilibili, alternative: one submission with six parts (one cover only).
+        lines += ["## Bilibili（备选：一次投稿，多 P；整个稿件只有一套封面）", "", "**标题**", "", s["bilibili_title"], "",
+                  "**封面**", "", "`output/publish/covers/series-bilibili.jpg`（16:10），`series-bilibili-4x3.jpg`（4:3）", "",
+                  "**简介**", "", "```", s["zh_intro"], ""]
+        for ep in meta["episodes"]:
+            lines.append(f"P{series.episode(ep['id']).order} {ep['zh']}：{ep['zh_summary']}")
+        lines += ["", s["zh_footer"], "```", "", "**分 P 标题**", ""]
+        lines += [f"- P{series.episode(ep['id']).order} {ep['zh']}" for ep in meta["episodes"]]
+        lines.append("")
 
         lines += ["## YouTube（每集单独上传，加入同一播放列表）", "", f"**Playlist**: {s['en_title']}", "",
                   f"**Tags**: {', '.join(s['youtube_tags'])}", ""]
         for ep in meta["episodes"]:
             entry = series.episode(ep["id"])
             title = f"{s['en_title']} · Ep {entry.order}: {entry.title}"
-            lines += [f"### Ep {entry.order}", "", "**Title**", "", title[:100], "", "**Description**", "", "```",
+            lines += [f"### Ep {entry.order}", "", "**Title**", "", title[:100], "", "**Thumbnail**", "",
+                      f"`output/publish/covers/{ep['id']}-youtube.jpg`", "", "**Description**", "", "```",
                       ep["en_summary"], "", f"{ep['zh']}｜{ep['zh_summary']}", "", "Chapters"]
             lines += [f"{_stamp(c.start)} {c.en}" for c in self._chapters(ep["id"])]
             lines += ["", s["en_footer"], "", "#RiemannianOptimization #DifferentialGeometry #Math", "```", ""]

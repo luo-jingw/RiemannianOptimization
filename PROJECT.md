@@ -55,6 +55,7 @@ Rules that apply only to this project, in addition to `AGENTS.md`.
 - Subtitles: bilingual, English line above Chinese line.
 - Background music: original procedural score (`pipeline/rvideo/music/`); each episode's key follows the circle of fifths by episode order.
 - Every theorem is presented with motivation, complete proof, and an animated counterexample for each hypothesis.
+- Covers and thumbnails are English-only (the narration is English); Bilibili: one video per episode grouped in a collection, covers at 16:10 and 4:3; YouTube: one video per episode in a playlist, 16:9 thumbnails.
 - Playback UI (chapter-segmented seek bar, controls) exists only in the web player (`player/src/web/`). Rendered/delivered videos never contain a progress bar or playback UI; capture mode hides it.
 - At most 3 episode builds run concurrently, each with one heavy process (TTS, transcription or headless Chrome) at a time: six concurrent builds froze the WSL VM (23 GB RAM).
 - Delivered versions under `output/<eid>/v<N>/` are never overwritten; a change produces a new version.

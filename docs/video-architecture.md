@@ -52,8 +52,10 @@ The dev server and the static site differ only in the `DataSource`
   tags. Sources: `content/publish/episodes.json` (summaries, footers, tags) and each episode's timeline and storyboard
   chapter titles.
 - `cd player && npx tsx render/covers.ts` renders covers from `content/publish/covers.json` into
-  `output/publish/covers/`: `<id>-youtube.{png,jpg}` (1280×720) and `<id>-bilibili.{png,jpg}` (1146×717), each
-  rendered natively at its aspect ratio; art is a cropped frame of the delivered video.
+  `output/publish/covers/` (English-only): `<id>-youtube` (1280×720), `<id>-bilibili` (1146×717) and
+  `<id>-bilibili-4x3` (960×720), png + jpg, each rendered natively at its aspect ratio; art is a cropped frame
+  of the delivered video. The metadata lists per-episode Bilibili uploads grouped in a collection (recommended)
+  and a single multi-part submission as the alternative.
 
 ## Measured series results
 

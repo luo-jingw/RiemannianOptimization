@@ -12,16 +12,15 @@
    ]
   },
   "kicker": "EECE7223 · Riemannian Optimization",
-  "zh": "从零开始的<br>黎曼优化",
-  "en": "Riemannian Optimization from the Ground Up",
-  "chain": "拓扑 → 流形 → 反函数定理 → 隐函数 → 切空间 → 黎曼梯度",
+  "chain": "Topology → Manifolds → Inverse Function Thm → Implicit Functions → Tangent Spaces → Riemannian Gradient",
   "tex": "x \\mapsto R_x\\!\\left(-t\\,\\operatorname{grad} f(x)\\right)",
   "chips": [
-   "6 集 · 3.6 小时",
-   "完整证明",
-   "反例动画",
-   "中英字幕"
-  ]
+   "6 episodes · 3.6 h",
+   "Full proofs",
+   "Animated counterexamples"
+  ],
+  "title": "Riemannian Optimization",
+  "subtitle": "from the Ground Up"
  },
  "episodes": [
   {
@@ -37,10 +36,9 @@
      860
     ]
    },
-   "zh": "拓扑",
-   "en": "Nearness Without Coordinates: Topology",
    "tex": "V\\ \\text{open} \\Rightarrow f^{-1}(V)\\ \\text{open}",
-   "zhSub": "没有坐标的「邻近」"
+   "title": "Topology",
+   "subtitle": "Nearness Without Coordinates"
   },
   {
    "id": "e02-smooth-manifolds",
@@ -55,10 +53,9 @@
      820
     ]
    },
-   "zh": "光滑流形",
-   "en": "Charts, Atlases and Smooth Manifolds",
    "tex": "\\psi\\circ\\varphi^{-1}\\in C^\\infty",
-   "zhSub": "坐标卡与图册"
+   "title": "Smooth Manifolds",
+   "subtitle": "Charts and Atlases"
   },
   {
    "id": "e03-inverse-function",
@@ -73,9 +70,9 @@
      770
     ]
    },
-   "zh": "反函数定理",
-   "en": "The Inverse Function Theorem",
-   "tex": "DF(x_0)\\ \\text{invertible} \\Rightarrow F\\ \\text{locally invertible}"
+   "tex": "DF(x_0)\\ \\text{invertible} \\Rightarrow F\\ \\text{locally invertible}",
+   "title": "Inverse Function",
+   "subtitle": "Theorem"
   },
   {
    "id": "e04-implicit-level-sets",
@@ -90,10 +87,9 @@
      800
     ]
    },
-   "zh": "隐函数定理",
-   "en": "Implicit Functions and Regular Level Sets",
    "tex": "F(x,y)=\\bigl(x,\\,f(x,y)\\bigr)",
-   "zhSub": "与正则水平集"
+   "title": "Implicit Functions",
+   "subtitle": "and Regular Level Sets"
   },
   {
    "id": "e05-tangent-orthogonal",
@@ -108,10 +104,9 @@
      820
     ]
    },
-   "zh": "切空间",
-   "en": "Tangent Spaces and the Orthogonal Group",
    "tex": "T_pM=\\ker Dh(p)",
-   "zhSub": "与正交群"
+   "title": "Tangent Spaces",
+   "subtitle": "and the Orthogonal Group"
   },
   {
    "id": "e06-gradient-retraction",
@@ -126,10 +121,9 @@
      860
     ]
    },
-   "zh": "黎曼梯度",
-   "en": "Riemannian Gradient and Retraction",
    "tex": "\\varphi'(0)=-\\|\\operatorname{grad} f(x)\\|_x^2",
-   "zhSub": "与 Retraction"
+   "title": "Riemannian Gradient",
+   "subtitle": "and Retraction"
   }
  ]
 }

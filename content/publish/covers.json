@@ -1,0 +1,135 @@
+{
+ "series": {
+  "id": "series",
+  "art": {
+   "episode": "e06-gradient-retraction",
+   "time": 2000.28,
+   "crop": [
+    100,
+    40,
+    745,
+    860
+   ]
+  },
+  "kicker": "EECE7223 · Riemannian Optimization",
+  "zh": "从零开始的<br>黎曼优化",
+  "en": "Riemannian Optimization from the Ground Up",
+  "chain": "拓扑 → 流形 → 反函数定理 → 隐函数 → 切空间 → 黎曼梯度",
+  "tex": "x \\mapsto R_x\\!\\left(-t\\,\\operatorname{grad} f(x)\\right)",
+  "chips": [
+   "6 集 · 3.6 小时",
+   "完整证明",
+   "反例动画",
+   "中英字幕"
+  ]
+ },
+ "episodes": [
+  {
+   "id": "e01-topology",
+   "ep": 1,
+   "art": {
+    "episode": "e01-topology",
+    "time": 142.12,
+    "crop": [
+     30,
+     90,
+     900,
+     860
+    ]
+   },
+   "zh": "拓扑",
+   "en": "Nearness Without Coordinates: Topology",
+   "tex": "V\\ \\text{open} \\Rightarrow f^{-1}(V)\\ \\text{open}",
+   "zhSub": "没有坐标的「邻近」"
+  },
+  {
+   "id": "e02-smooth-manifolds",
+   "ep": 2,
+   "art": {
+    "episode": "e02-smooth-manifolds",
+    "time": 895.53,
+    "crop": [
+     120,
+     120,
+     1560,
+     820
+    ]
+   },
+   "zh": "光滑流形",
+   "en": "Charts, Atlases and Smooth Manifolds",
+   "tex": "\\psi\\circ\\varphi^{-1}\\in C^\\infty",
+   "zhSub": "坐标卡与图册"
+  },
+  {
+   "id": "e03-inverse-function",
+   "ep": 3,
+   "art": {
+    "episode": "e03-inverse-function",
+    "time": 520.06,
+    "crop": [
+     120,
+     280,
+     1200,
+     770
+    ]
+   },
+   "zh": "反函数定理",
+   "en": "The Inverse Function Theorem",
+   "tex": "DF(x_0)\\ \\text{invertible} \\Rightarrow F\\ \\text{locally invertible}"
+  },
+  {
+   "id": "e04-implicit-level-sets",
+   "ep": 4,
+   "art": {
+    "episode": "e04-implicit-level-sets",
+    "time": 563.22,
+    "crop": [
+     40,
+     100,
+     1360,
+     800
+    ]
+   },
+   "zh": "隐函数定理",
+   "en": "Implicit Functions and Regular Level Sets",
+   "tex": "F(x,y)=\\bigl(x,\\,f(x,y)\\bigr)",
+   "zhSub": "与正则水平集"
+  },
+  {
+   "id": "e05-tangent-orthogonal",
+   "ep": 5,
+   "art": {
+    "episode": "e05-tangent-orthogonal",
+    "time": 935.07,
+    "crop": [
+     100,
+     180,
+     880,
+     820
+    ]
+   },
+   "zh": "切空间",
+   "en": "Tangent Spaces and the Orthogonal Group",
+   "tex": "T_pM=\\ker Dh(p)",
+   "zhSub": "与正交群"
+  },
+  {
+   "id": "e06-gradient-retraction",
+   "ep": 6,
+   "art": {
+    "episode": "e06-gradient-retraction",
+    "time": 2000.28,
+    "crop": [
+     100,
+     40,
+     745,
+     860
+    ]
+   },
+   "zh": "黎曼梯度",
+   "en": "Riemannian Gradient and Retraction",
+   "tex": "\\varphi'(0)=-\\|\\operatorname{grad} f(x)\\|_x^2",
+   "zhSub": "与 Retraction"
+  }
+ ]
+}

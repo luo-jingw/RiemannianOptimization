@@ -132,6 +132,13 @@ def cmd_deliver(paths: ProjectPaths, episode: str, version: int, workers: int, p
     return cmd_check(paths, episode, version)
 
 
+def cmd_publish(paths: ProjectPaths) -> int:
+    from rvideo.delivery.publish_metadata import PublishMetadataWriter
+    out = PublishMetadataWriter(paths).write()
+    print(f"[publish] metadata -> {out}")
+    return 0
+
+
 def cmd_mux(paths: ProjectPaths, episode: str, version: int) -> int:
     from rvideo.delivery.muxer import Muxer
     result = Muxer(paths).mux(episode, version)
@@ -141,8 +148,8 @@ def cmd_mux(paths: ProjectPaths, episode: str, version: int) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="rvideo")
-    parser.add_argument("command", choices=["validate", "narrate", "timeline", "subtitles", "music", "mix", "mux", "audio", "transcribe", "check", "deliver"])
-    parser.add_argument("episode")
+    parser.add_argument("command", choices=["validate", "narrate", "timeline", "subtitles", "music", "mix", "mux", "audio", "transcribe", "check", "deliver", "publish"])
+    parser.add_argument("episode", nargs="?", default="")
     parser.add_argument("--version", type=int, default=1)
     parser.add_argument("--workers", type=int, default=3)
     parser.add_argument("--port", type=int, default=5300)
@@ -154,6 +161,8 @@ def main(argv: list[str] | None = None) -> int:
             if code:
                 return code
         return 0
+    if args.command == "publish":
+        return cmd_publish(paths)
     if args.command == "check":
         return cmd_check(paths, args.episode, args.version)
     if args.command == "deliver":

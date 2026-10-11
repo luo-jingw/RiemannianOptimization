@@ -66,6 +66,13 @@ class Drums:
         return _highpass(_noise(n, seed), 7000, 3) * np.exp(-t / (0.12 if open_ else 0.025)) * 0.5
 
     @staticmethod
+    def crash(n: int = int(2.5 * SR), seed: int = 37) -> np.ndarray:
+        """Crash cymbal: bright noise with a fast transient and a long decay."""
+        t = _t(n)
+        body = _highpass(_noise(n, seed), 3500, 2) * np.exp(-t / 0.9)
+        return (body + _highpass(_noise(n, seed + 1), 6000, 2) * np.exp(-t / 0.05)) * 0.5
+
+    @staticmethod
     def heartbeat(n: int = int(0.6 * SR)) -> np.ndarray:
         t = _t(n)
         f = 38 + 30 * np.exp(-t / 0.06)
@@ -74,8 +81,8 @@ class Drums:
 
 class Synths:
     @staticmethod
-    def pad(midis: list[float], n: int, brightness: float = 1200.0, seed: int = 0) -> np.ndarray:
-        """Detuned saw stack, low-passed, slow attack/release; returns mono."""
+    def pad(midis: list[float], n: int, brightness: float = 1200.0, seed: int = 0, attack: float = 0.9) -> np.ndarray:
+        """Detuned saw stack, low-passed, `attack` seconds of attack and a slow release; returns mono."""
         out = np.zeros(n)
         rng = np.random.default_rng(seed)
         for m in midis:
@@ -84,7 +91,7 @@ class Synths:
         out = _lowpass(out / max(1, len(midis)), brightness)
         tt = _t(n)
         dur = n / SR
-        env = np.minimum(1.0, tt / 0.9) * np.clip((dur - tt) / 0.8, 0.0, 1.0)
+        env = np.minimum(1.0, tt / attack) * np.clip((dur - tt) / 0.8, 0.0, 1.0)
         return out * env
 
     @staticmethod

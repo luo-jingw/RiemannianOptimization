@@ -82,15 +82,16 @@
 ### s05-montage — 系列画面
 
 - 旁白（第 1 小节）："This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters."
-- 画面：飞入拼贴墙。开始时 8 个暗色占位框排成 4×2 网格；每小节一个镜头先在中央大框中出现，在框内缓慢推近（纹理缩放，不越出边框），半小节后缩小飞入自己的格子，当前格边框高亮；8 格拼满后整面墙淡出接标题。镜头取自已交付剧集（content/episodes/e00-trailer/montage.json）：
-  - 被拉直的圆（隐函数）；
-  - 压缩映射的蛛网迭代；
-  - 球面上的坐标卡拼接；
-  - 布满速度箭头的半球；
-  - 转动的坐标架（SO(3)）；
-  - 不同内积下的梯度方向；
-  - retraction 把一步拉回球面；
-  - 一张公式与证明账本的近景。
+- 画面：飞入拼贴墙，8 格都是实时动画（各自渲染到离屏纹理），每格对应系列的一个核心概念，左下角小标签：
+  1. Open sets · convergence：开集内一点，收缩的开球与趋近的数列；
+  2. Charts · transition maps：圆上两个重叠坐标卡，重叠区内一点同时有两个坐标；
+  3. Inverse function theorem：光滑映射扭曲网格，x₀ 附近的小圆盘映成小团块；
+  4. Contraction mapping：x ← ½cos x 的蛛网迭代收敛到唯一不动点；
+  5. Implicit functions：F(x,y) = (x, x²+y²−1) 把圆拉直到横轴；
+  6. Tangent spaces：经过 p 的曲线与其速度向量铺满切平面；
+  7. Rotations · SO(3)：坐标架平滑转动，轴端在单位球上画出轨迹；
+  8. Riemannian gradient · retraction：球面上沿 −grad f 迈一步再归一化拉回，迭代点下降到极小点。
+  开始时 8 个暗色占位框排成 4×2 网格；每小节一个格子先在中央大框中播放，半小节后缩小飞入自己的位置并继续播放；8 格拼满后整面墙淡出接标题。
 
 ### s06-title — 标题
 

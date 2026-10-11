@@ -126,7 +126,7 @@ export class ToolkitScene implements Scene {
     this.currentGlow = new Glow(stage, Palette.orange, 0.4, 0.7);
     this.current = new Dot(stage, this.frameP.origin, Palette.orange, 0.06, "3d");
     this.words = new ToolkitWordRow(layers.formulas);
-    this.shade = new CaptionShade(stage, "#04060b", 740, 870);
+    this.shade = new CaptionShade(stage, "#04060b", 900, 1080);   // light lift under the shadowed captions only
   }
 
   /** The circle of chart radius NEIGHBORHOOD_RADIUS around p, lifted onto the surface. */
@@ -204,7 +204,7 @@ export class ToolkitScene implements Scene {
     this.backdrop.set({ x: 960, y: 380, radius: 1100, strength: 1 }, all);
     this.dust.setOpacity(0.4 * all);
     this.terrain.setOpacity(all, all);
-    this.shade.setStrength(0.97);
+    this.shade.setStrength(0.35);
 
     // Flat up close: a ring of the surface around p, then the tangent disk settling onto it.
     const ringIn = smoothstep(c.bar(3.5), c.bar(4.5), t);

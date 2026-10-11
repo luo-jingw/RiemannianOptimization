@@ -147,6 +147,13 @@ class TrailerScore:
             if nxt is not None and nxt.music != seg.music and nxt.music in ("trailer-gallery", "trailer-title"):
                 rlen = 2 * bar
                 self._add(dry, Fx.riser(int(rlen * SR)), nxt.start - rlen, 0.32)
+            # into the title: a crescendo snare roll over the last two beats, then a crash with the impact
+            if nxt is not None and nxt.music == "trailer-title" and seg.music != "trailer-title":
+                hits = 12
+                for k in range(hits):
+                    at = nxt.start - 2 * beat + k * (2 * beat / hits)
+                    self._add(dry, Drums.snare(int(0.2 * SR), seed=21 + k), at, 0.14 + 0.36 * k / (hits - 1), 0.05)
+                self._add(dry, Drums.crash(), nxt.start, 0.42, -0.15)
 
         # sidechain: pads dip after each kick
         tt = np.arange(n) / SR
@@ -178,7 +185,8 @@ class TrailerScore:
         if long_chord and b % 4 != 0:
             pass                                          # long chords re-trigger every 4 bars only
         else:
-            pad = Synths.pad(pad_notes, int((hold + 1.0) * SR), brightness, seed=b)
+            attack = 0.02 if m == "trailer-title" and b == 0 else 0.9     # the title chord lands with the impact
+            pad = Synths.pad(pad_notes, int((hold + 1.0) * SR), brightness, seed=b, attack=attack)
             self._add(pads, pad, t0, {"trailer-open": 0.24, "trailer-credits": 0.12}.get(m, 0.30), 0.0)
 
         def kick(at: float, punch: float = 1.0) -> None:

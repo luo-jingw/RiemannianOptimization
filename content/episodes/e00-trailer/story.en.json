@@ -56,33 +56,13 @@
    "sentences": [
     {
      "bar": 0,
-     "en": "A robot arm, turning in space.",
-     "zh": "在空间中转动的机械臂。"
+     "en": "Robot arms turn through space, and drones must close their loops.",
+     "zh": "机械臂在空间中转动，无人机要闭合回环。"
     },
     {
-     "bar": 4,
-     "en": "A drone, closing its loop.",
-     "zh": "闭合回环的无人机。"
-    },
-    {
-     "bar": 7,
-     "en": "Network weights.",
-     "zh": "神经网络的权重。"
-    },
-    {
-     "bar": 10,
-     "en": "Hierarchies.",
-     "zh": "层级结构。"
-    },
-    {
-     "bar": 12,
-     "en": "Brain tissue.",
-     "zh": "脑组织。"
-    },
-    {
-     "bar": 14,
-     "en": "Patterns in data.",
-     "zh": "数据中的结构。"
+     "bar": 11,
+     "en": "Neural networks, hierarchies, the brain, the data we collect —",
+     "zh": "神经网络、层级结构、大脑、我们采集的数据——"
     }
    ]
   },
@@ -99,8 +79,8 @@
    ],
    "sentences": [
     {
-     "bar": 1,
-     "en": "They all live on manifolds: spaces that curve as a whole, yet look flat up close.",
+     "bar": 0,
+     "en": "they all live on manifolds: spaces that curve as a whole, yet look flat up close.",
      "zh": "它们都生活在流形上：整体弯曲、近看却平坦的空间。"
     },
     {

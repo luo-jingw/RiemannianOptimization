@@ -29,7 +29,9 @@ the viewer, the sections are separated by fades, and the music keeps one tempo a
   drums → half-time 120 → snare build to 128 with one empty beat → phonk drop at 128 (808, cowbell on the signature
   motif, clap, hat rolls, pumping pads) → tape stop (1.5 s, darkening) → half a second of silence → final hit and
   the bell signature.
-- Narration only where it is reasonable: short lines on bar anchors; none over the drop.
+- Narration as one through-line of seven complete sentences on bar anchors (the worlds' second line runs on into the
+  rebuild's first); none over the drop. Details are carried by big on-screen words flashing on the cuts of the
+  worlds and the drop.
 - Length follows the music (about 2:10); title card without tagline; credits unchanged.
 
 # Structure
@@ -103,10 +105,10 @@ Film sections (tempo, bars, picture, narration):
 |---|---|---|---|---|
 | s01-flat | 80 | 4 | contour map, the point steps down on the ticks | "Optimization usually lives in flat space." (1) |
 | s02-fold | 80→120 | 4 | the plane curls into a sphere; the straight step leaves it and turns red | "But the world is curved." (2) |
-| s03-worlds | 120 | 16 | six worlds, shots of 4, 3, 3, 2, 2, 2 bars, match cuts | robot arm (0), drone (4), weights (7), hierarchies (10), brain (12), data (14) |
-| s04-rebuild | 120 half-time | 16 | the terrain, tangent plane, four words, descent | "They all live on manifolds…" (1), "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step." (7) |
+| s03-worlds | 120 | 16 | six worlds, shots of 4, 3, 3, 2, 2, 2 bars, match cuts; a big word flashes on each cut (ROBOTICS, SLAM, DEEP LEARNING, HIERARCHIES, NEUROIMAGING, DATA) and settles into the corner label | "Robot arms turn through space, and drones must close their loops." (0), "Neural networks, hierarchies, the brain, the data we collect —" (11) |
+| s04-rebuild | 120 half-time | 16 | the terrain, tangent plane, four words, descent | "they all live on manifolds…" (0), "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step." (7) |
 | s05-build | 120→128 | 2 | camera rushes down the valley with the snare roll; last beat black with one orange point | — |
-| s06-drop | 128 | 9 | the course's geometry in full-screen flash cuts on the beat (twelve visualizations); bar 9 is the tape stop (1.4 s) and its silence, the picture slows, darkens and freezes | — |
+| s06-drop | 128 | 9 | the course's geometry in full-screen flash cuts on the beat (twelve visualizations, each with a big word); bar 9 is the tape stop (1.4 s) and its silence, the picture slows, darkens and freezes | — |
 | s07-title | 120 | 8 | black, then the hit: title, circle of fifths landing on C | "Riemannian Optimization, from the Ground Up." (1) |
 | s08-credits | 120 | 4 | credits as now | — |
 
@@ -201,7 +203,7 @@ Phase 1
 
 ## Phase 3
 
-Phase Status: active
+Phase Status: completed
 
 Round: 2
 
@@ -233,7 +235,7 @@ for the user.
 
 ## Phase 4
 
-Phase Status: pending
+Phase Status: active
 
 Round: 2
 

@@ -25,7 +25,8 @@
 - 无章节卡、无片头片尾卡；字幕照常烧录（英文在上、中文在下，无底框）。
 - 镜头持续运动；切换落在拍点上。
 - 色彩沿用系列色板；橙色只给主角和"当前一步"。
-- 标签克制：只在画廊里写流形名称，小号、短暂。
+- 旁白：七句完整的话，均匀分布，前后能连起来读；细节交给画面上的大字。
+- 大字：六个世界与高潮段的切换处，大号粗体词随鼓点闪出（剪辑式动态排版）；流形名称作右下角小标签。
 
 ## 段落
 
@@ -44,17 +45,20 @@
 ### s03-worlds — 六个世界（120 BPM）
 
 - 配乐：完整鼓组推进，弦乐 ostinato，圆号奏签名动机；镜头切换处为通鼓过门与镲片。
+- 旁白（第 0 小节）："Robot arms turn through space, and drones must close their loops."
+- 旁白（第 11 小节）："Neural networks, hierarchies, the brain, the data we collect —"（以破折号收尾，接到 s04 第一句）
 - 画面：六个镜头依次为 4、3、3、2、2、2 小节，每个镜头完整播放一遍各自的动画；镜头之间是匹配剪辑（推近关键元素，带径向模糊，下一个镜头从同一位置拉出，落在小节线前一个八分音符），切换瞬间在匹配点短暂描出下一个流形的轮廓线。入点：机械臂末端坐标架。
-  1. 机械臂（第 0 小节："A robot arm, turning in space."）——标签 "orientation ∈ SO(3)"。
-  2. 无人机建图（第 4 小节："A drone, closing its loop."）——"rotation averaging · SO(3)ⁿ"。
-  3. 神经网络（第 7 小节："Network weights."）——"orthonormal weights · Stiefel manifold"。
-  4. 双曲嵌入（第 10 小节："Hierarchies."）——"hyperbolic embedding · Poincaré disk"。
-  5. 扩散张量成像（第 12 小节："Brain tissue."）——"diffusion tensors · SPD matrices"。
-  6. 数据中的子空间（第 14 小节："Patterns in data."）——"principal subspace · Grassmann manifold"。出点：点云中心。
+  每次切换时，画面中央随镲片闪出一个大号粗体词，约半秒后缩成右下角的小标签（领域词 + 流形名称）：
+  1. 机械臂（第 0 小节）——ROBOTICS；"orientation ∈ SO(3)"。
+  2. 无人机建图（第 4 小节）——SLAM；"rotation averaging · SO(3)ⁿ"。
+  3. 神经网络（第 7 小节）——DEEP LEARNING；"orthonormal weights · Stiefel manifold"。
+  4. 双曲嵌入（第 10 小节）——HIERARCHIES；"hyperbolic embedding · Poincaré disk"。
+  5. 扩散张量成像（第 12 小节）——NEUROIMAGING；"diffusion tensors · SPD matrices"。
+  6. 数据中的子空间（第 14 小节）——DATA；"principal subspace · Grassmann manifold"。出点：点云中心。
 
 ### s04-rebuild — 重建（120 BPM，半速）
 
-- 旁白（第 1 小节）："They all live on manifolds: spaces that curve as a whole, yet look flat up close."
+- 旁白（第 0 小节）："they all live on manifolds: spaces that curve as a whole, yet look flat up close."（接 s03 的破折号）
 - 旁白（第 7 小节）："To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step."
 - 配乐：鼓切成半速（第一拍大鼓、第三拍军鼓），重低音，弦乐慢，钢琴单音；四个词各配一记钟声。
 - 画面：起伏地形缓慢旋转；镜头推近曲面上一点，切平面贴合；四个词依次出现，各配一个视觉（切向量、度量椭圆、梯度箭头、沿切向迈步再拉回曲面）；一串迭代点沿曲面滑向谷底。入点：曲面上的起点；出点：谷底附近的迭代点。
@@ -67,7 +71,7 @@
 ### s06-drop — 高潮（128 BPM）
 
 - 配乐：phonk 半速律动（第一拍大鼓 + 失真 808、第三拍拍手、切分大鼓、踩镲滚奏），牛铃奏签名动机，pad 随大鼓起伏；第 5 小节起加高八度牛铃与弦乐。第 9 小节为磁带停转：1.4 s 内减速到停、声音变暗，随后约 0.5 s 静音。
-- 画面：课程的十二个几何动画全屏闪切，每个两拍，踩在拍点上（开集与收敛、坐标卡、反函数与隐函数、切空间、黎曼度量、梯度与收缩映射、联络与 Hessian、测地线与指数映射、平行移动、向量传输、牛顿法、信赖域）；第 7–8 小节加快为每拍一切；第 9 小节画面随磁带停转减速、变暗、定格，然后黑场。
+- 画面：课程的十二个几何动画全屏闪切，每个两拍，踩在拍点上，每格随拍子闪出一个大字标签（开集与收敛、坐标卡、反函数与隐函数、切空间、黎曼度量、梯度与收缩映射、联络与 Hessian、测地线与指数映射、平行移动、向量传输、牛顿法、信赖域）；第 7–8 小节加快为每拍一切；第 9 小节画面随磁带停转减速、变暗、定格，然后黑场。
 
 ### s07-title — 标题（120 BPM）
 

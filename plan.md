@@ -434,7 +434,7 @@ Stills across every cut (−0.5 s … +0.3 s) and the stop; determinism and hist
 
 ## Phase 10
 
-Phase Status: active
+Phase Status: completed
 
 Round: 7
 
@@ -467,17 +467,53 @@ section against an episode bed; score preview for the user before v4.
 
 ## Phase 11
 
+Phase Status: active
+
+Round: 8
+
+### Goal
+
+Montage covering the whole expected course (Boumal-style syllabus: foundations, metrics, connections and Hessians,
+geodesics and the exponential map, parallel and vector transport, Riemannian Newton, trust regions): twelve tiles on
+a 4×3 wall, the six foundation tiles flying in two per bar, the six later topics one per bar, the full wall on the
+last bar; montage 10 bars. Trailer cover taken from the title card.
+
+### Files
+
+`content/episodes/e00-trailer/{story.en.json, storyboard.md}`, `player/src/episodes/e00-trailer/{s05-montage.ts, lib/montage-*.ts}`,
+`pipeline/rvideo/music/trailer_harmony.py`, `pipeline/rvideo/music/trailer_score.py`, `pipeline/rvideo/delivery/muxer.py`
+
+### Structures
+
+seven new `MiniViz` tiles (metrics, Hessian model, geodesics, parallel transport, vector transport, Newton, trust
+region); montage tile schedule
+
+### Affected Modules
+
+Trailer scenes, Trailer score, Delivery
+
+### Dependencies
+
+Phase 10
+
+### Observation
+
+Stills of every tile large and the full wall; determinism and history checks; chord plan covers 10 montage bars;
+cover time inside the title card.
+
+## Phase 12
+
 Phase Status: pending
 
 Round: 6
 
 ### Goal
 
-Deliver v4, rebuild and publish the web version, update docs.
+Deliver the next version, rebuild and publish the web version, update docs.
 
 ### Files
 
-`output/e00-trailer/v4/`, `site/` (gh-pages), `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`, `content/series.json`
+`output/e00-trailer/v<N>/`, `site/` (gh-pages), `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`, `content/series.json`
 
 ### Structures
 
@@ -489,7 +525,7 @@ Delivery, web version, documentation
 
 ### Dependencies
 
-Phase 8, Phase 9
+Phase 10, Phase 11
 
 ### Observation
 

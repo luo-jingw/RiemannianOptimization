@@ -4,7 +4,7 @@ import { MiniLine, type MiniViz, orthoCamera, pingPong, tileScene } from "./mont
 
 /** Implicit functions: F(x, y) = (x, x² + y² − 1) straightens the circle onto the axis v = 0. */
 export class FlattenViz implements MiniViz {
-  readonly label = "Implicit functions";
+  readonly label = "Inverse & implicit functions";
   readonly scene = tileScene();
   readonly camera = orthoCamera(3.8, 0, 0.35);
   private readonly circle = new MiniLine(this.scene, Palette.blue, 5);

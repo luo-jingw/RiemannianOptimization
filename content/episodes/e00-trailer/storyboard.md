@@ -17,7 +17,7 @@
 | s02-fold | 7 | 14 s | trailer-fold |
 | s03-gallery | 24 | 48 s | trailer-gallery（6 个应用，6/5/4/3/3/3 小节） |
 | s04-toolkit | 16 | 32 s | trailer-toolkit |
-| s05-montage | 8 | 16 s | trailer-montage |
+| s05-montage | 10 | 20 s | trailer-montage |
 | s06-title | 8 | 16 s | trailer-title |
 | s07-credits | 4 | 8 s | trailer-credits |
 
@@ -88,16 +88,20 @@
 ### s05-montage — 系列画面
 
 - 旁白（第 1 小节）："This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters."
-- 画面：飞入拼贴墙，8 格都是实时动画（各自渲染到离屏纹理），每格对应系列的一个核心概念，左下角小标签：
+- 画面：飞入拼贴墙，12 格实时动画（各自渲染到离屏纹理），按课程顺序覆盖整门课的范围，左下角小标签。课程范围按教材式大纲估计：基础 → 一阶几何 → 联络与 Hessian → 测地线与移动 → 二阶算法。
   1. Open sets · convergence：开集内一点，收缩的开球与趋近的数列；
   2. Charts · transition maps：圆上两个重叠坐标卡，重叠区内一点同时有两个坐标；
-  3. Inverse function theorem：光滑映射扭曲网格，x₀ 附近的小圆盘映成小团块；
-  4. Contraction mapping：x ← ½cos x 的蛛网迭代收敛到唯一不动点；
-  5. Implicit functions：F(x,y) = (x, x²+y²−1) 把圆拉直到横轴；
-  6. Tangent spaces：经过 p 的曲线与其速度向量铺满切平面；
-  7. Rotations · SO(3)：坐标架平滑转动，轴端在单位球上画出轨迹；
-  8. Riemannian gradient · retraction：球面上沿 −grad f 迈一步再归一化拉回，迭代点下降到极小点。
-  开始时 8 个暗色占位框排成 4×2 网格；每小节一个格子先在中央大框中播放，半小节后缩小飞入自己的位置并继续播放；8 格拼满后整面墙淡出接标题。
+  3. Inverse & implicit functions：F(x,y) = (x, x²+y²−1) 把圆拉直到横轴；
+  4. Tangent spaces：经过 p 的曲线与其速度向量铺满切平面；
+  5. Riemannian metrics：起伏曲面下的坐标平面上铺满度量单位球（沿 ∇h 压扁的椭圆），曲面上对应的是单位圆；
+  6. Riemannian gradient · retraction：球面上沿 −grad f 迈一步再归一化拉回，迭代点下降到极小点；
+  7. Connections · Riemannian Hessian：p 在球面上移动，切平面上画出二阶模型 ½⟨Hess f(p)[v], v⟩ 的等值椭圆与特征方向；
+  8. Geodesics · exponential map：测地线从 p 向各方向射出，测地圆扩到赤道再在对跖点收拢（共轭点）；
+  9. Parallel transport：向量沿测地三角形平行移动，回到起点时转了 90°（和乐）；
+  10. Vector transport：黎曼共轭梯度中，上一步方向搬到新点并投影到新切平面，再与新梯度组合；
+  11. Riemannian Newton：圆上的牛顿迭代几步到达极小点，梯度下降缓慢逼近；对数误差图对比二次与线性收敛；
+  12. Trust regions：弯曲山谷上，每步在信赖圆盘内取 dogleg 步，接受则前进（圆盘可放大），拒绝则圆盘缩小。
+  开始时 12 个暗色占位框排成 4×3 网格；前 6 格每小节两格快速飞入（先在中央大框一闪），后 6 格每格先在中央大框中播放一小节再飞入自己的位置并继续播放；最后一小节整面墙完整展示后淡出接标题。
 
 ### s06-title — 标题
 
@@ -114,4 +118,4 @@
 
 ## 估计时长
 
-75 小节，约 2:30。
+77 小节，约 2:34。

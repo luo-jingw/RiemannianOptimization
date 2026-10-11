@@ -8,27 +8,38 @@ import { Polyline } from "../../primitives/Polyline";
 import type { FormulaHandle } from "../../layers/FormulaLayer";
 import { type MiniViz, TILE_PX_H, TILE_PX_W } from "./lib/montage-kit";
 import { ChartsViz } from "./lib/montage-viz-charts";
-import { CobwebViz } from "./lib/montage-viz-cobweb";
 import { ConvergenceViz } from "./lib/montage-viz-convergence";
 import { FlattenViz } from "./lib/montage-viz-flatten";
-import { InverseViz } from "./lib/montage-viz-inverse";
+import { GeodesicsViz } from "./lib/montage-viz-geodesics";
+import { HessianViz } from "./lib/montage-viz-hessian";
+import { MetricsViz } from "./lib/montage-viz-metrics";
+import { NewtonViz } from "./lib/montage-viz-newton";
 import { RetractionViz } from "./lib/montage-viz-retraction";
-import { RotationViz } from "./lib/montage-viz-rotation";
 import { TangentViz } from "./lib/montage-viz-tangent";
+import { TransportViz } from "./lib/montage-viz-transport";
+import { TrustRegionViz } from "./lib/montage-viz-trust-region";
+import { VectorTransportViz } from "./lib/montage-viz-vector-transport";
 
 /**
- * s05 — montage as a fly-in mosaic of eight live visualizations, one per core idea of the series (lib/montage-viz-*).
- * Each tile renders its own mini scene into a render target every frame. One tile per bar: it first plays large in
- * the centre, gently pushing in inside its frame, then flies into its slot of a 4×2 wall, where it keeps animating.
+ * s05 — montage as a fly-in mosaic of twelve live visualizations covering the course, in course order
+ * (lib/montage-viz-*): the six foundation tiles fly in two per bar, the six later topics one per bar, and the full
+ * 4×3 wall holds on the last bar. Each tile renders its own mini scene into a render target every frame; it first
+ * plays large in the centre, gently pushing in inside its frame, then flies into its slot, where it keeps animating.
  */
-const SHOTS = 8;
 const PX = 120;                                   // px per world unit (view height 9 over 1080 px)
 const COLS = 4;
-const TILE_W = 400;
-const TILE_H = 225;
-const GAP = 28;
+const TILE_W = 360;
+const TILE_H = 202.5;
+const GAP = 24;
 const GRID_LEFT = (1920 - (COLS * TILE_W + (COLS - 1) * GAP)) / 2;
-const GRID_TOP = 191;
+const GRID_TOP = 120;
+/** Each tile's entrance: start bar and length in bars within the section (10 bars). */
+const SCHEDULE: readonly { start: number; bars: number }[] = [
+  { start: 0, bars: 0.5 }, { start: 0.5, bars: 0.5 }, { start: 1, bars: 0.5 }, { start: 1.5, bars: 0.5 },
+  { start: 2, bars: 0.5 }, { start: 2.5, bars: 0.5 },
+  { start: 3, bars: 1 }, { start: 4, bars: 1 }, { start: 5, bars: 1 }, { start: 6, bars: 1 }, { start: 7, bars: 1 },
+  { start: 8, bars: 1 },
+];
 const BIG_W = 1200;
 const BIG_H = 675;
 const BIG_CY = 430;
@@ -76,7 +87,7 @@ export class MontageScene implements Scene {
   setup(layers: SceneLayers, _timing: ChapterTiming): void {
     const stage = layers.stage;
     stage.setView2D(0, 0, 9);
-    for (let i = 0; i < SHOTS; i++) {
+    for (let i = 0; i < SCHEDULE.length; i++) {
       this.placeholders.push(new Polyline(stage, rectPoints(slotRect(i), 0), { color: Palette.grid, width: 1.5 }));
     }
     this.dimMaterial = new THREE.MeshBasicMaterial({ color: new THREE.Color("#05070d"), transparent: true, opacity: 0, depthWrite: false });
@@ -84,8 +95,9 @@ export class MontageScene implements Scene {
     this.dim.position.z = 0.5;
     this.dim.renderOrder = 50;
     stage.root.add(this.dim);
-    const vizzes: MiniViz[] = [new ConvergenceViz(), new ChartsViz(), new InverseViz(), new CobwebViz(),
-      new FlattenViz(), new TangentViz(), new RotationViz(), new RetractionViz()];
+    const vizzes: MiniViz[] = [new ConvergenceViz(), new ChartsViz(), new FlattenViz(), new TangentViz(), new MetricsViz(),
+      new RetractionViz(), new HessianViz(), new GeodesicsViz(), new TransportViz(), new VectorTransportViz(), new NewtonViz(),
+      new TrustRegionViz()];
     vizzes.forEach((viz, i) => {
       const target = new THREE.WebGLRenderTarget(TILE_PX_W, TILE_PX_H, { samples: 4, type: THREE.HalfFloatType });
       const material = new THREE.MeshBasicMaterial({ map: target.texture, transparent: true, opacity: 0, depthWrite: false });
@@ -106,17 +118,21 @@ export class MontageScene implements Scene {
     const fade = sectionIn * sectionOut;
     // how much a large shot is on screen (dims the wall behind it and hides the wall's labels)
     let bigness = 0;
-    for (let i = 0; i < SHOTS; i++) {
-      const local = (t - c.bar(i)) / c.bar(1);
-      const appear = i === 0 ? smoothstep(0, 0.35, t) : smoothstep(c.bar(i) - 0.12, c.bar(i) + 0.18, t);
+    for (let i = 0; i < SCHEDULE.length; i++) {
+      const a = c.bar(SCHEDULE[i].start);
+      const local = (t - a) / c.bar(SCHEDULE[i].bars);
+      const appear = i === 0 ? smoothstep(0, 0.35, t) : smoothstep(a - 0.12, a + 0.18, t);
       if (local >= -0.1 && local < FLY_END) bigness = Math.max(bigness, appear * (1 - easeInOutCubic(clamp01((local - BIG_PHASE) / (FLY_END - BIG_PHASE)))));
     }
 
-    this.placeholders.forEach((p, i) => p.setOpacity(0.5 * fade * (1 - smoothstep(c.bar(i + FLY_END - 0.1), c.bar(i + FLY_END), t))));
+    this.placeholders.forEach((p, i) => {
+      const landed = c.bar(SCHEDULE[i].start + SCHEDULE[i].bars * FLY_END);
+      p.setOpacity(0.5 * fade * (1 - smoothstep(landed - c.bar(0.1), landed, t)));
+    });
 
     this.shots.forEach((shot, i) => {
-      const a = c.bar(i);
-      const local = (t - a) / c.bar(1);             // 0..1 across this shot's bar
+      const a = c.bar(SCHEDULE[i].start);
+      const local = (t - a) / c.bar(SCHEDULE[i].bars);  // 0..1 across this tile's entrance
       const appear = i === 0 ? smoothstep(0, 0.35, t) : smoothstep(a - 0.12, a + 0.18, t);
       const fly = easeInOutCubic(clamp01((local - BIG_PHASE) / (FLY_END - BIG_PHASE)));
       const big: Rect = { cx: 960, cy: BIG_CY, w: BIG_W, h: BIG_H };
@@ -144,7 +160,7 @@ export class MontageScene implements Scene {
       shot.target.texture.repeat.set(1 / zoom, 1 / zoom);
       shot.target.texture.offset.set((1 - 1 / zoom) / 2, (1 - 1 / zoom) / 2);
       const scaleLabel = r.w / BIG_W;
-      const labelOpacity = local < FLY_END ? o : o * (1 - bigness);
+      const labelOpacity = local < FLY_END ? o : o * (1 - smoothstep(0, 0.3, bigness));   // wall labels give way to a large tile
       shot.label.set({ x: r.cx - r.w / 2 + 24 * scaleLabel, y: r.cy + r.h / 2 - 18 * scaleLabel, scale: Math.max(0.5, scaleLabel), opacity: labelOpacity });
 
       // border follows the frame; the shot being shown is highlighted

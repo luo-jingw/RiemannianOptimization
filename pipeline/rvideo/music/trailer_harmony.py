@@ -26,7 +26,8 @@ SECTION_HARMONY: dict[str, tuple[int, tuple[tuple[int, tuple[int, ...], int], ..
                             (5, MAJ7, 1), (9, MIN7, 1), (2, SUS4, 1))),                           # shot 6: ii–V of D
     "trailer-toolkit": (2, ((0, MAJ7, 2), (9, MIN7, 2), (5, MAJ7, 2), (7, SUS4, 1), (7, MAJ, 1),
                             (0, ADD9, 2), (4, MIN7, 2), (5, MAJ7, 2), (2, SUS4, 1), (2, MAJ, 1))),  # E: V of A
-    "trailer-montage": (9, ((0, ADD9, 2), (9, MIN7, 2), (5, MAJ7, 2), (8, MAJ, 1), (10, MAJ, 1))),  # F, G → C
+    "trailer-montage": (9, ((0, ADD9, 2), (9, MIN7, 2), (4, MIN7, 1), (5, MAJ7, 1), (2, MIN7, 2),
+                            (8, MAJ, 1), (10, MAJ, 1))),                                          # F, G → C
     "trailer-title": (0, ((0, ADD9, 4), (5, MAJ7, 2), (0, ADD9, 2))),
     "trailer-credits": (0, ((0, MAJ7, 4),)),
 }

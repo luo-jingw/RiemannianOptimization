@@ -25,10 +25,10 @@ from rvideo.music.trailer_reverb import Reverb
 from rvideo.schema.timeline import Timeline
 
 # (bar from the trailer start, intensity 0..1); linear between keyframes. Sections: open 0–7, fold 8–14,
-# gallery 15–38 (shots from 15, 21, 26, 30, 33, 36), toolkit 39–54, montage 55–62, title 63–70, credits 71–74.
+# gallery 15–38 (shots from 15, 21, 26, 30, 33, 36), toolkit 39–54, montage 55–64, title 65–72, credits 73–76.
 INTENSITY = ((0, 0.10), (8, 0.22), (15, 0.38), (21, 0.50), (26, 0.58), (30, 0.66), (33, 0.74), (36, 0.82),
-             (37, 0.86), (38, 0.28), (39, 0.30), (46, 0.40), (50, 0.56), (54, 0.78), (55, 0.86), (62, 0.97),
-             (63, 1.00), (67, 0.60), (71, 0.30), (75, 0.10))
+             (37, 0.86), (38, 0.28), (39, 0.30), (46, 0.40), (50, 0.56), (54, 0.78), (55, 0.86), (64, 0.97),
+             (65, 1.00), (69, 0.60), (73, 0.30), (77, 0.10))
 
 # The four toolkit words; their onsets follow player/src/episodes/e00-trailer/lib/toolkit-words.ts (wordOnsets).
 TOOLKIT_WORDS = ("direction", "distance", "gradient", "step")

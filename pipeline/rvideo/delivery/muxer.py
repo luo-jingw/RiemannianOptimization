@@ -90,8 +90,10 @@ class Muxer:
               "-metadata:s:s:0", "language=eng", "-metadata:s:s:0", "title=English / 中文",
               "-movflags", "+faststart", str(mp4)])
         (out_dir / f"{episode}.en.srt").write_bytes(srt.read_bytes())
-        if kind == "trailer" and timeline.chapters:
-            cover_t = timeline.chapters[-1].start + 0.6 * (timeline.chapters[-1].end - timeline.chapters[-1].start)
+        if kind == "trailer":
+            # the title card with every line in, before it fades (s06-title: lines settle by bar 4, fade from bar 6.2)
+            title = next(ch for ch in timeline.chapters if ch.music == "trailer-title")
+            cover_t = title.start + 5 * (timeline.bar_seconds or 2.0)
         else:
             cover_t = (timeline.chapters[0].start - 1.5) if timeline.chapters else 2.0
         cover = out_dir / "cover.png"

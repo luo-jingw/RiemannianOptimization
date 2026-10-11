@@ -79,7 +79,13 @@ def cmd_subtitles(paths: ProjectPaths, episode: str) -> int:
 def cmd_music(paths: ProjectPaths, episode: str) -> int:
     timeline = Timeline.load(paths.timeline_file(episode))
     order = SeriesManifest.load(paths.series_file).episode(episode).order
-    music = MusicComposer().compose(timeline, order)
+    if _kind(paths, episode) == "trailer":
+        from rvideo.music.trailer_score import TrailerScore
+        score = TrailerScore()
+        music = score.compose(timeline)
+        print(f"[music] {episode}: keys per bar = {' '.join(score.key_log(timeline))}")
+    else:
+        music = MusicComposer().compose(timeline, order)
     out = paths.music_wav(episode)
     out.parent.mkdir(parents=True, exist_ok=True)
     sf.write(out, music, MUSIC_RATE, subtype="PCM_24")

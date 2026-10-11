@@ -165,7 +165,7 @@ card identical (hash) before and after the change.
 
 ## Phase 2
 
-Phase Status: active
+Phase Status: completed
 
 Round: 2
 
@@ -196,7 +196,7 @@ rejected with its slot size; E03 timeline rebuild is byte-identical.
 
 ## Phase 3
 
-Phase Status: pending
+Phase Status: active
 
 Round: 2
 
@@ -227,7 +227,7 @@ the user listens to a score preview before scenes are finalized.
 
 ## Phase 4
 
-Phase Status: pending
+Phase Status: active
 
 Round: 2
 

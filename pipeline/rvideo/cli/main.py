@@ -9,7 +9,8 @@ from dataclasses import asdict
 import numpy as np
 import soundfile as sf
 
-from rvideo.audio.narration_mixer import MixSettings, NarrationMixer
+from rvideo.audio.mix_profile import MixProfile
+from rvideo.audio.narration_mixer import NarrationMixer
 from rvideo.music.music_composer import SAMPLE_RATE as MUSIC_RATE, MusicComposer
 from rvideo.narration.kokoro_synthesizer import KokoroSynthesizer
 from rvideo.paths import ProjectPaths
@@ -19,6 +20,7 @@ from rvideo.schema.series import SeriesManifest
 from rvideo.schema.story import Story
 from rvideo.schema.timeline import Timeline
 from rvideo.subtitles.srt_writer import SrtWriter
+from rvideo.timing.beat_timeline_builder import BeatTimelineBuilder
 from rvideo.timing.timeline_builder import TimelineBuilder, TimelineLayout
 from rvideo.validate.content_validator import ContentValidator
 
@@ -46,10 +48,21 @@ def cmd_narrate(paths: ProjectPaths, episode: str) -> int:
     return 0
 
 
+TRAILER_BPM = 120.0
+TRAILER_BEATS_PER_BAR = 4
+
+
+def _kind(paths: ProjectPaths, episode: str) -> str:
+    return SeriesManifest.load(paths.series_file).episode(episode).kind
+
+
 def cmd_timeline(paths: ProjectPaths, episode: str) -> int:
     story = Story.load(paths.story_file(episode))
     prov = VoiceProvenance.load(paths.provenance_file(episode))
-    timeline = TimelineBuilder(TimelineLayout()).build(story, prov)
+    if _kind(paths, episode) == "trailer":
+        timeline = BeatTimelineBuilder(TRAILER_BPM, TRAILER_BEATS_PER_BAR).build(story, prov)
+    else:
+        timeline = TimelineBuilder(TimelineLayout()).build(story, prov)
     timeline.save(paths.timeline_file(episode))
     print(f"[timeline] {episode}: duration={timeline.duration:.2f}s chapters={len(timeline.chapters)} "
           f"captions={len(timeline.captions)} -> {paths.timeline_file(episode)}")
@@ -78,7 +91,7 @@ def cmd_music(paths: ProjectPaths, episode: str) -> int:
 def cmd_mix(paths: ProjectPaths, episode: str) -> int:
     timeline = Timeline.load(paths.timeline_file(episode))
     prov = VoiceProvenance.load(paths.provenance_file(episode))
-    mixer = NarrationMixer(MixSettings())
+    mixer = NarrationMixer(MixProfile.for_kind(_kind(paths, episode)).mix)
     narration = mixer.build_narration(timeline, prov, paths.sentence_dir(episode))
     music, sr = sf.read(paths.music_wav(episode), dtype="float64")
     if sr != MUSIC_RATE:

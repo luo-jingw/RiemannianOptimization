@@ -133,7 +133,7 @@ See Structure → State Ownership.
 
 ## Phase 1
 
-Phase Status: active
+Phase Status: completed
 
 Round: 1
 
@@ -165,7 +165,7 @@ card identical (hash) before and after the change.
 
 ## Phase 2
 
-Phase Status: pending
+Phase Status: active
 
 Round: 2
 

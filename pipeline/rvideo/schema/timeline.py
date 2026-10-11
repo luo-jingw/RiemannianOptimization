@@ -33,10 +33,14 @@ class Timeline:
     duration: float
     chapters: tuple[TimelineChapter, ...]
     captions: tuple[TimelineCaption, ...]
+    bar_seconds: float | None = None    # trailers: seconds per bar of the musical grid
 
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         data = asdict(self)
+        bar = data.pop("bar_seconds")
+        if bar is not None:
+            data["barSeconds"] = bar
         # JSON uses the player's camelCase keys for sentence anchors.
         for ch in data["chapters"]:
             ch["sentenceStarts"] = ch.pop("sentence_starts")
@@ -55,5 +59,6 @@ class Timeline:
         )
         captions = tuple(TimelineCaption(start=float(c["start"]), end=float(c["end"]), text=c["text"],
                                          translation=c["translation"]) for c in raw["captions"])
+        bar = raw.get("barSeconds")
         return Timeline(language=raw["language"], episode=raw["episode"], duration=float(raw["duration"]),
-                        chapters=chapters, captions=captions)
+                        chapters=chapters, captions=captions, bar_seconds=float(bar) if bar is not None else None)

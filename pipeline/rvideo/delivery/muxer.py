@@ -9,10 +9,11 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
+from rvideo.audio.mix_profile import MixProfile
 from rvideo.paths import ProjectPaths
+from rvideo.schema.series import SeriesManifest
 from rvideo.schema.timeline import Timeline
 
-TARGET_LUFS = -16.0
 TARGET_TP = -1.5
 TARGET_LRA = 11.0
 
@@ -47,9 +48,9 @@ class Muxer:
     def __init__(self, paths: ProjectPaths) -> None:
         self._paths = paths
 
-    def _measure(self, wav: Path) -> LoudnessMeasurement:
+    def _measure(self, wav: Path, target_lufs: float) -> LoudnessMeasurement:
         proc = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(wav), "-af",
-                               f"loudnorm=I={TARGET_LUFS}:TP={TARGET_TP}:LRA={TARGET_LRA}:print_format=json",
+                               f"loudnorm=I={target_lufs}:TP={TARGET_TP}:LRA={TARGET_LRA}:print_format=json",
                                "-f", "null", "-"], capture_output=True, text=True, check=True)
         data = json.loads(re.findall(r"\{[^{}]*\}", proc.stderr)[-1])
         return LoudnessMeasurement(input_i=float(data["input_i"]), input_tp=float(data["input_tp"]),
@@ -77,8 +78,10 @@ class Muxer:
     def _write(self, episode: str, version: int, out_dir: Path, video: Path, mix: Path, srt: Path,
                timeline: Timeline) -> dict[str, object]:
         mp4 = out_dir / f"{episode}.en.mp4"
-        m = self._measure(mix)
-        loudnorm = (f"loudnorm=I={TARGET_LUFS}:TP={TARGET_TP}:LRA={TARGET_LRA}:measured_I={m.input_i}:"
+        kind = SeriesManifest.load(self._paths.series_file).episode(episode).kind
+        target = MixProfile.for_kind(kind).target_lufs
+        m = self._measure(mix, target)
+        loudnorm = (f"loudnorm=I={target}:TP={TARGET_TP}:LRA={TARGET_LRA}:measured_I={m.input_i}:"
                     f"measured_TP={m.input_tp}:measured_LRA={m.input_lra}:measured_thresh={m.input_thresh}:"
                     f"offset={m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo")
         _run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-i", str(mix), "-i", str(srt),
@@ -87,7 +90,10 @@ class Muxer:
               "-metadata:s:s:0", "language=eng", "-metadata:s:s:0", "title=English / 中文",
               "-movflags", "+faststart", str(mp4)])
         (out_dir / f"{episode}.en.srt").write_bytes(srt.read_bytes())
-        cover_t = (timeline.chapters[0].start - 1.5) if timeline.chapters else 2.0
+        if kind == "trailer" and timeline.chapters:
+            cover_t = timeline.chapters[-1].start + 0.6 * (timeline.chapters[-1].end - timeline.chapters[-1].start)
+        else:
+            cover_t = (timeline.chapters[0].start - 1.5) if timeline.chapters else 2.0
         cover = out_dir / "cover.png"
         _run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{cover_t:.3f}", "-i", str(video),
               "-frames:v", "1", str(cover)])

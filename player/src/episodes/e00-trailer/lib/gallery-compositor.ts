@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { FRAME_HEIGHT, FRAME_WIDTH } from "../../../core/Frame";
 import type { StageLayer } from "../../../layers/StageLayer";
+import { smoothstep } from "../../../primitives/Easing";
 import { Palette } from "../../../primitives/Palette";
 import type { GalleryVignette } from "./gallery-vignette";
 
@@ -11,7 +12,10 @@ void main() {
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }`;
 
-/** Crossfade of two linear-light shots, radial vignette (depth), fade to background, ordered dither. */
+/**
+ * Match cut of two linear-light shots: each shot is magnified about its own focus point, which is carried to a shared
+ * pivot, with a radial blur toward the pivot; then radial vignette (depth), fade to background, ordered dither.
+ */
 const FRAGMENT = /* glsl */ `
 uniform sampler2D tA;
 uniform sampler2D tB;
@@ -19,10 +23,32 @@ uniform float wB;
 uniform float useB;
 uniform float fade;
 uniform vec3 bg;
+uniform vec2 pivot;
+uniform vec2 focusA;
+uniform vec2 focusB;
+uniform float zoomA;
+uniform float zoomB;
+uniform float blur;
 varying vec2 vUv;
+
+vec3 tap(sampler2D tex, vec2 p) {
+  return (p.x < 0.0 || p.x > 1.0 || p.y < 0.0 || p.y > 1.0) ? bg : texture2D(tex, p).rgb;
+}
+
+vec3 shot(sampler2D tex, vec2 focus, float zoom) {
+  vec2 d = vUv - pivot;
+  if (blur < 1e-4) return tap(tex, focus + d / zoom);
+  vec3 acc = vec3(0.0);
+  for (int i = 0; i < 8; i++) {
+    float k = float(i) / 7.0;
+    acc += tap(tex, focus + d * (1.0 - blur * k) / zoom);
+  }
+  return acc / 8.0;
+}
+
 void main() {
-  vec3 a = texture2D(tA, vUv).rgb;
-  vec3 b = useB > 0.5 ? texture2D(tB, vUv).rgb : a;
+  vec3 a = shot(tA, focusA, zoomA);
+  vec3 b = useB > 0.5 ? shot(tB, focusB, zoomB) : a;
   vec3 c = mix(a, b, wB);
   vec2 d = (vUv - vec2(0.5, 0.52)) * vec2(1.7778, 1.0);
   float r = length(d);
@@ -33,6 +59,21 @@ void main() {
   float h = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
   gl_FragColor.rgb += (h - 0.5) / 255.0;
 }`;
+
+/** Extra magnification of each shot at the moment of a match cut, and the strength of the radial blur. */
+const CUT_ZOOM = 1.3;
+const CUT_BLUR = 0.22;
+
+/** A match cut in progress from the current shot to `next`. */
+export interface MatchCut {
+  readonly next: GalleryVignette;
+  /** Frame uv of the outgoing shot's key element. */
+  readonly focusA: THREE.Vector2;
+  /** Frame uv of the incoming shot's key element. */
+  readonly focusB: THREE.Vector2;
+  /** 0 at the start of the cut window, 1 at its end; the shots swap at 0.5. */
+  readonly progress: number;
+}
 
 /**
  * Renders gallery shots into offscreen targets and shows them on one full-frame quad in the stage.
@@ -57,6 +98,12 @@ export class GalleryCompositor {
         useB: { value: 0 },
         fade: { value: 0 },
         bg: { value: new THREE.Color(Palette.background) },
+        pivot: { value: new THREE.Vector2(0.5, 0.5) },
+        focusA: { value: new THREE.Vector2(0.5, 0.5) },
+        focusB: { value: new THREE.Vector2(0.5, 0.5) },
+        zoomA: { value: 1 },
+        zoomB: { value: 1 },
+        blur: { value: 0 },
       },
       depthTest: false,
       depthWrite: false,
@@ -67,17 +114,36 @@ export class GalleryCompositor {
   }
 
   /**
-   * Draws shot `a`, optionally crossfaded towards shot `b` with weight `wB`, then mixed towards the background
-   * colour by `fade`. Each shot must already have been drawn for this frame.
+   * Draws shot `a`, or the match cut from `a` to `cut.next`, then mixes towards the background colour by `fade`.
+   * Each shot must already have been drawn for this frame. Returns the frame uv of the cut's pivot (the point both
+   * shots zoom through); without a cut, the frame centre.
    */
-  compose(a: GalleryVignette, b: GalleryVignette | null, wB: number, fade: number): void {
+  compose(a: GalleryVignette, cut: MatchCut | null, fade: number): THREE.Vector2 {
     this.renderShot(a, this.targetA);
-    if (b !== null) this.renderShot(b, this.targetB);
     const u = this.material.uniforms;
-    u.wB.value = b !== null ? wB : 0;
-    u.useB.value = b !== null ? 1 : 0;
     u.fade.value = fade;
     this.stage.setView2D(0, 0, 9);
+    if (cut === null) {
+      u.useB.value = 0;
+      u.wB.value = 0;
+      u.blur.value = 0;
+      u.zoomA.value = 1;
+      u.pivot.value.set(0.5, 0.5);
+      u.focusA.value.set(0.5, 0.5);
+      return new THREE.Vector2(0.5, 0.5);
+    }
+    this.renderShot(cut.next, this.targetB);
+    const w = smoothstep(0, 1, cut.progress);
+    const pivot = new THREE.Vector2().lerpVectors(cut.focusA, cut.focusB, w);
+    u.useB.value = 1;
+    u.wB.value = smoothstep(0.4, 0.6, cut.progress);
+    u.pivot.value.copy(pivot);
+    u.focusA.value.copy(cut.focusA);
+    u.focusB.value.copy(cut.focusB);
+    u.zoomA.value = 1 + CUT_ZOOM * w;
+    u.zoomB.value = 1 + CUT_ZOOM * (1 - w);
+    u.blur.value = CUT_BLUR * Math.sin(Math.PI * cut.progress);
+    return pivot;
   }
 
   private renderShot(v: GalleryVignette, target: THREE.WebGLRenderTarget): void {

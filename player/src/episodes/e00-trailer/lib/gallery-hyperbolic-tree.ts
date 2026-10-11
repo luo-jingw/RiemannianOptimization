@@ -7,6 +7,7 @@ import { createGlowMaterial, createGlowTexture } from "./gallery-glow";
 import { type DiskPoint, conformalScale, diskRadiusOfDistance, geodesicPoints, mobiusToOrigin } from "./gallery-hyperbolic";
 import { GallerySegments } from "./gallery-segments";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 /** World radius of the unit disk. */
 const R = 2.55;
@@ -151,6 +152,10 @@ export class HyperbolicTreeVignette implements GalleryVignette {
 
   async preload(): Promise<void> {
     return;
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, new THREE.Vector3(0, 0, 0));       // the root at the disk centre
   }
 
   draw(t: number): void {

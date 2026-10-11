@@ -7,6 +7,7 @@ import { addGalleryLights } from "./gallery-lights";
 import { poseFromAxes } from "./gallery-linalg";
 import { GalleryPath } from "./gallery-polyline-path";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 /** Grid centre (voxel index units); one world unit = one 4 mm voxel. */
 const CX = 20;
@@ -91,6 +92,10 @@ export class DtiBrainVignette implements GalleryVignette {
 
   async preload(): Promise<void> {
     return;
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, FOCUS);
   }
 
   draw(t: number): void {

@@ -400,7 +400,7 @@ before v4.
 
 ## Phase 9
 
-Phase Status: active
+Phase Status: completed
 
 Round: 6
 

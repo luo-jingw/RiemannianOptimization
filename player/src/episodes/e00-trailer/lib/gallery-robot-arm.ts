@@ -12,6 +12,7 @@ import { addGalleryLights } from "./gallery-lights";
 import { GalleryPath } from "./gallery-polyline-path";
 import { GalleryTriadSet, createTriad } from "./gallery-triad";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 type JointKey = "q0" | "q1" | "q2" | "q3" | "q4" | "q5";
 const JOINT_KEYS: readonly JointKey[] = ["q0", "q1", "q2", "q3", "q4", "q5"];
@@ -123,6 +124,10 @@ export class RobotArmVignette implements GalleryVignette {
 
   private flangePosition(): THREE.Vector3 {
     return new THREE.Vector3().setFromMatrixPosition(this.flange.matrixWorld);
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, this.flangePosition());
   }
 
   draw(t: number): void {

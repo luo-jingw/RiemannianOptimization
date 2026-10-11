@@ -7,7 +7,7 @@ export interface GalleryHud {
 }
 
 /**
- * One 4-bar shot of the application gallery. It owns its own scene and camera; the gallery compositor renders it
+ * One shot of the application gallery (3 to 6 bars; the vignette always animates over 8 s of its own time). It owns its own scene and camera; the gallery compositor renders it
  * into an offscreen target so two shots can crossfade on a bar line.
  */
 export interface GalleryVignette {
@@ -21,4 +21,8 @@ export interface GalleryVignette {
    * Called for t slightly outside [0, 8] during crossfades.
    */
   draw(t: number): void;
+  /**
+   * Frame uv (0..1, y up) of the shot's key element as of the last draw: the point the match cuts zoom through.
+   */
+  matchPoint(): THREE.Vector2;
 }

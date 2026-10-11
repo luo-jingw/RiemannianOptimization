@@ -12,6 +12,7 @@ import { GalleryPath } from "./gallery-polyline-path";
 import { GallerySegments } from "./gallery-segments";
 import { GalleryTriadSet } from "./gallery-triad";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 const SAMPLES = 240;
 const KEYFRAMES = 20;
@@ -152,6 +153,10 @@ export class DroneSlamVignette implements GalleryVignette {
     const z = new THREE.Vector3(0, 0, 1);
     const y = new THREE.Vector3().crossVectors(z, x);
     return poseFromAxes(x, y, z, this.trajectory(u, lambda), out);
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, this.drone.position);
   }
 
   draw(t: number): void {

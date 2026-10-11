@@ -11,6 +11,7 @@ import { GalleryPath } from "./gallery-polyline-path";
 import { GallerySegments } from "./gallery-segments";
 import { axisArrowGeometries } from "./gallery-triad";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 const CLASS_COLORS = [Palette.blue, Palette.orange, Palette.green, Palette.red, Palette.purple, Palette.yellow, Palette.teal];
 const PLANE_HALF = 1.0;
@@ -136,6 +137,10 @@ export class PcaSubspaceVignette implements GalleryVignette {
     }
     const final = Math.pow(0.66, ITERATIONS);
     return (1 - remaining) / (1 - final);
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, new THREE.Vector3(0, 0, 0));       // the centred cloud's centroid
   }
 
   draw(t: number): void {

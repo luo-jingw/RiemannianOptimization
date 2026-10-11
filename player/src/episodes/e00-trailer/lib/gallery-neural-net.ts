@@ -11,6 +11,7 @@ import { GalleryPath } from "./gallery-polyline-path";
 import { GallerySegments } from "./gallery-segments";
 import { axisArrowGeometries } from "./gallery-triad";
 import type { GalleryHud, GalleryVignette } from "./gallery-vignette";
+import { projectToUv } from "./gallery-match";
 
 const LAYERS = [4, 6, 6, 3];
 const LAYER_X = [-3.9, -2.45, -1.0, 0.45];
@@ -190,6 +191,10 @@ export class NeuralNetVignette implements GalleryVignette {
   private columnsAt(t: number): THREE.Vector3[] {
     const q = this.weightRotation(t);
     return this.frame0.map((c) => c.clone().applyMatrix4(q));
+  }
+
+  matchPoint(): THREE.Vector2 {
+    return projectToUv(this.camera, FRAME_ORIGIN);
   }
 
   draw(t: number): void {

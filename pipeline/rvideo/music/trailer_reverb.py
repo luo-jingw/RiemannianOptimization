@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.signal import fftconvolve
 
-from rvideo.music.trailer_instruments import SR, _lowpass
+from rvideo.music.trailer_dsp import SR, lowpass
 
 
 class Reverb:
@@ -16,7 +16,7 @@ class Reverb:
         pre = int(predelay * SR)
         self.ir = np.zeros((n + pre, 2))
         for ch in range(2):
-            self.ir[pre:, ch] = _lowpass(rng.standard_normal(n), 6000) * decay
+            self.ir[pre:, ch] = lowpass(rng.standard_normal(n), 6000) * decay
         self.ir /= np.sqrt(np.sum(self.ir ** 2, axis=0, keepdims=True))
 
     def apply(self, stereo: np.ndarray, wet: float) -> np.ndarray:

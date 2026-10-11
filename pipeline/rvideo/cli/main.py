@@ -83,7 +83,7 @@ def cmd_music(paths: ProjectPaths, episode: str) -> int:
         from rvideo.music.trailer_score import TrailerScore
         score = TrailerScore()
         music = score.compose(timeline)
-        print(f"[music] {episode}: keys per bar = {' '.join(score.key_log(timeline))}")
+        print(f"[music] {episode}: key:chord per bar = {' '.join(score.key_log(timeline))}")
     else:
         music = MusicComposer().compose(timeline, order)
     out = paths.music_wav(episode)

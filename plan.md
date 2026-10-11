@@ -30,17 +30,20 @@ montage, so the three turning points (gallery → toolkit, the four toolkit word
 - Sections: flat world → fold onto a curved space → application gallery (robot arm, drone SLAM loop closure, neural
   network with orthogonal weights, hyperbolic embedding of a hierarchy, diffusion tensor brain slice, subspace fitting)
   → rebuilding the toolkit on a curved landscape → montage of series shots → title.
-- Score richer than the episode beds: pads, arpeggios, bass, synthesized drums, lead, convolution reverb, risers and
-  impacts; the key walks all twelve steps of the circle of fifths and returns to C at the title.
+- Score built on the episode palette (`music_composer.py`: additive pad, soft pluck, FM bell, sine bass, maj7 / min7 /
+  add9 harmony, legato chords, the four-note signature) and enriched with further instruments (strings, piano,
+  celesta, horn, harp, timpani, soft percussion), convolution reverb. Few key changes, one per large section, each
+  prepared by a sus4 / dominant: C (open, fold) → G (gallery) → D (toolkit) → A (montage) → ♭VI–♭VII → C (title).
 - No knowledge-point claims beyond standard, general statements; nothing tied to the current episode list.
 - Listed first on the web index as "Trailer"; no title cards, no chapter segments.
 - Gallery as one accelerating arc: shot lengths 6, 5, 4, 3, 3, 3 bars; match cuts (zoom-through about matching
   focus points, landing an eighth note before the bar line) with a brief manifold glyph at each cut; the last shot
   freezes and fades during the stop.
 - Gallery narration as a progression: two full lines, then single words, spoken on the cuts.
-- Score contrast: gallery layers build per shot (pulse → full kit → 16th hats → fills → double-time feel), pushes on
-  the cuts, no per-shot impact; a hard stop (1.5 beats, reverse swell) before the toolkit and a sub drop on its
-  downbeat; four stabs on the toolkit words with the groove suspended; a short vacuum before the title impact.
+- Score dynamics as one continuous intensity curve: layers enter and thicken gradually; harmonic rhythm follows the
+  gallery shots; turning points breathe instead of breaking: the gallery's last bar thins to pad and strings before
+  the toolkit, the four toolkit words get pitched bell accents over an unbroken bed, the title lands on full C with
+  a soft low hit and the bell signature.
 
 # Structure
 
@@ -90,12 +93,12 @@ montage, so the three turning points (gallery → toolkit, the four toolkit word
 - TypeScript: `SeriesEpisode.kind?: "episode" | "trailer"`; `ChapterTiming.barSeconds?: number`; `Cues.bar(i)` (time of
   bar i in the chapter); `TitleLayer` draws nothing for trailers; `EpisodeIndex` renders trailers in their own row.
 - Gallery shot plan: `GALLERY_SHOT_BARS = [6, 5, 4, 3, 3, 3]` in `player/src/episodes/e00-trailer/lib/gallery-shots.ts`
-  and `KEY_SPLITS["trailer-gallery"] = (0, 6, 11, 15, 18, 21)` in the score; both follow the bar anchors in
+  and the gallery's per-bar chord plan in the score (`trailer_harmony.py`); both follow the bar anchors in
   `story.en.json` (one sentence per shot, on the shot's first bar; the first on bar 1).
 - `GalleryVignette.focus(t: number): THREE.Vector2` — screen position (px) of the shot's key element at vignette
   time t; the compositor zooms through matching focus points.
 - Toolkit word onsets: one rule (character offset over the spoken interval) used by `toolkit-words.ts` for the
-  visuals and by the score for the stabs.
+  visuals and by the score for the bell accents.
 
 ## Inputs
 
@@ -135,7 +138,7 @@ content/episodes/e00-trailer/story.en.json (bars, bar anchors)
 | Series kind | `pipeline/rvideo/schema/series.py`, `player/src/core/EpisodeLoader.ts` |
 | Story beats | `pipeline/rvideo/schema/story.py`, `pipeline/rvideo/validate/content_validator.py` |
 | Beat timeline builder | `pipeline/rvideo/timing/beat_timeline_builder.py`, `pipeline/rvideo/cli/main.py` |
-| Trailer score | `pipeline/rvideo/music/trailer_score.py` (+ helpers in `pipeline/rvideo/music/`) |
+| Trailer score | `pipeline/rvideo/music/{trailer_score.py, trailer_harmony.py, trailer_orchestra.py, trailer_reverb.py}`, instruments shared with `music_composer.py` (`Voices`) |
 | Mix profile | `pipeline/rvideo/audio/mix_profile.py`, `pipeline/rvideo/audio/narration_mixer.py`, `pipeline/rvideo/delivery/muxer.py` |
 | Trailer assets | `pipeline/rvideo/assets/*.py` (data preparation), `player/public/trailer/` |
 | Trailer scenes | `player/src/episodes/e00-trailer/{index.ts, sNN-*.ts, lib/*.ts}`, `player/src/episodes/registry.ts` |
@@ -430,6 +433,39 @@ Phase 7
 Stills across every cut (−0.5 s … +0.3 s) and the stop; determinism and history checks clean.
 
 ## Phase 10
+
+Phase Status: active
+
+Round: 7
+
+### Goal
+
+Rebuild the trailer score on the episode palette: shared episode voices plus new instruments, a bar-by-bar chord
+plan with five prepared key changes, one continuous intensity curve driving the layers, breathing transitions.
+Replaces the synth/drum score of Phases 3 and 8.
+
+### Files
+
+`pipeline/rvideo/music/{trailer_score.py, trailer_harmony.py, trailer_orchestra.py}`; `trailer_instruments.py` removed
+
+### Structures
+
+`TrailerHarmony` (chord per bar, key per bar), `Orchestra` (instrument renderers), `TrailerScore` (arrangement)
+
+### Affected Modules
+
+Trailer score
+
+### Dependencies
+
+Phase 7
+
+### Observation
+
+Chord and key per bar log; RMS per bar (the intensity curve) and around each section boundary; spectral centroid per
+section against an episode bed; score preview for the user before v4.
+
+## Phase 11
 
 Phase Status: pending
 

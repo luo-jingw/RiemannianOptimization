@@ -8,12 +8,16 @@
    "id": "s01-flat",
    "chapter": "Trailer",
    "title": "Flat world",
-   "music": "trailer-open",
+   "music": "film-flat",
    "terms": [],
-   "bars": 8,
+   "bars": 4,
+   "tempo": [
+    80,
+    80
+   ],
    "sentences": [
     {
-     "bar": 2,
+     "bar": 1,
      "en": "Optimization usually lives in flat space.",
      "zh": "优化通常发生在平坦的空间里。"
     }
@@ -23,64 +27,76 @@
    "id": "s02-fold",
    "chapter": "Trailer",
    "title": "The fold",
-   "music": "trailer-fold",
+   "music": "film-fold",
    "terms": [],
-   "bars": 7,
+   "bars": 4,
+   "tempo": [
+    80,
+    120
+   ],
    "sentences": [
     {
-     "bar": 3,
-     "en": "But many real problems don't.",
-     "zh": "但许多真实问题并非如此。"
+     "bar": 2,
+     "en": "But the world is curved.",
+     "zh": "但世界是弯曲的。"
     }
    ]
   },
   {
-   "id": "s03-gallery",
+   "id": "s03-worlds",
    "chapter": "Trailer",
-   "title": "Applications",
-   "music": "trailer-gallery",
+   "title": "Worlds",
+   "music": "film-worlds",
    "terms": [],
-   "bars": 24,
+   "bars": 16,
+   "tempo": [
+    120,
+    120
+   ],
    "sentences": [
     {
-     "bar": 1,
+     "bar": 0,
      "en": "A robot arm, turning in space.",
      "zh": "在空间中转动的机械臂。"
     },
     {
-     "bar": 6,
+     "bar": 4,
      "en": "A drone, closing its loop.",
      "zh": "闭合回环的无人机。"
     },
     {
-     "bar": 11,
+     "bar": 7,
      "en": "Network weights.",
      "zh": "神经网络的权重。"
     },
     {
-     "bar": 15,
+     "bar": 10,
      "en": "Hierarchies.",
      "zh": "层级结构。"
     },
     {
-     "bar": 18,
+     "bar": 12,
      "en": "Brain tissue.",
      "zh": "脑组织。"
     },
     {
-     "bar": 21,
+     "bar": 14,
      "en": "Patterns in data.",
      "zh": "数据中的结构。"
     }
    ]
   },
   {
-   "id": "s04-toolkit",
+   "id": "s04-rebuild",
    "chapter": "Trailer",
    "title": "Rebuilding the toolkit",
-   "music": "trailer-toolkit",
+   "music": "film-rebuild",
    "terms": [],
    "bars": 16,
+   "tempo": [
+    120,
+    120
+   ],
    "sentences": [
     {
      "bar": 1,
@@ -95,27 +111,42 @@
    ]
   },
   {
-   "id": "s05-montage",
+   "id": "s05-build",
    "chapter": "Trailer",
-   "title": "The series",
-   "music": "trailer-montage",
+   "title": "Build",
+   "music": "film-build",
    "terms": [],
-   "bars": 10,
-   "sentences": [
-    {
-     "bar": 1,
-     "en": "This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters.",
-     "zh": "这个系列从零开始建立这套几何：完整的证明，以及说明每个假设为何重要的画面。"
-    }
-   ]
+   "bars": 2,
+   "tempo": [
+    120,
+    128
+   ],
+   "sentences": []
   },
   {
-   "id": "s06-title",
+   "id": "s06-drop",
+   "chapter": "Trailer",
+   "title": "The drop",
+   "music": "film-drop",
+   "terms": [],
+   "bars": 9,
+   "tempo": [
+    128,
+    128
+   ],
+   "sentences": []
+  },
+  {
+   "id": "s07-title",
    "chapter": "Trailer",
    "title": "Riemannian Optimization from the Ground Up",
-   "music": "trailer-title",
+   "music": "film-title",
    "terms": [],
    "bars": 8,
+   "tempo": [
+    120,
+    120
+   ],
    "sentences": [
     {
      "bar": 1,
@@ -125,12 +156,16 @@
    ]
   },
   {
-   "id": "s07-credits",
+   "id": "s08-credits",
    "chapter": "Trailer",
    "title": "Credits",
-   "music": "trailer-credits",
+   "music": "film-credits",
    "terms": [],
    "bars": 4,
+   "tempo": [
+    120,
+    120
+   ],
    "sentences": []
   }
  ]

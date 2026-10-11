@@ -76,7 +76,7 @@ class ContentValidator:
         errors: list[str] = []
         if kind == "trailer":
             if scene.music not in TRAILER_MUSIC:
-                errors.append(f"{scene.id}: trailer scene needs a trailer-* music category, got {scene.music!r}")
+                errors.append(f"{scene.id}: trailer scene needs a film-* music category, got {scene.music!r}")
             if scene.bars is None or scene.bars <= 0:
                 errors.append(f"{scene.id}: trailer scene needs bars > 0")
             if scene.tempo is not None and not (40 <= scene.tempo[0] <= 200 and 40 <= scene.tempo[1] <= 200):

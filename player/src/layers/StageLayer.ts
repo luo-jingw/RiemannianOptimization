@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { FRAME_HEIGHT, FRAME_WIDTH } from "../core/Frame";
+import { type SectionTransition, TransitionPass } from "../core/TransitionPass";
 
 export interface FramePoint {
   x: number;
@@ -19,6 +20,7 @@ export class StageLayer {
   private readonly ortho: THREE.OrthographicCamera;
   private readonly persp: THREE.PerspectiveCamera;
   private mode: "2d" | "3d" = "2d";
+  private transitionPass: TransitionPass | null = null;     // created on the first transition frame
 
   constructor(host: HTMLElement, background: string) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, alpha: false });
@@ -107,7 +109,13 @@ export class StageLayer {
     this.setView2D(0, 0, 9);
   }
 
-  render(): void {
+  /** Draws the stage; during a section transition, through the zoom-through pass. */
+  render(transition: SectionTransition | null = null): void {
+    if (transition !== null) {
+      this.transitionPass ??= new TransitionPass();
+      this.transitionPass.render(this.renderer, this.scene, this.camera, transition);
+      return;
+    }
     this.renderer.render(this.scene, this.camera);
   }
 }

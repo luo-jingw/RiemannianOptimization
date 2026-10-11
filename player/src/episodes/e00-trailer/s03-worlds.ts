@@ -3,7 +3,7 @@ import type { ChapterTiming, Scene, SceneContext } from "../../core/Scene";
 import type { SceneLayers } from "../../core/SceneLayers";
 import type { FormulaHandle } from "../../layers/FormulaLayer";
 import { Cues } from "../../primitives/Cues";
-import { smoothstep } from "../../primitives/Easing";
+import { clamp01, easeInOutCubic, lerp, smoothstep } from "../../primitives/Easing";
 import { Palette } from "../../primitives/Palette";
 import { GalleryCompositor, type MatchCut } from "./lib/gallery-compositor";
 import { DroneSlamVignette } from "./lib/gallery-drone-slam";
@@ -13,13 +13,15 @@ import { ManifoldGlyphs } from "./lib/gallery-manifold-glyphs";
 import { NeuralNetVignette } from "./lib/gallery-neural-net";
 import { PcaSubspaceVignette } from "./lib/gallery-pca-subspace";
 import { RobotArmVignette } from "./lib/gallery-robot-arm";
-import { GALLERY_SHOT_BARS, PUSH_SECONDS, STOP_SECONDS, VIGNETTE_SECONDS, shotStartBars } from "./lib/gallery-shots";
+import { GALLERY_SHOT_BARS, PUSH_SECONDS, VIGNETTE_SECONDS, shotStartBars } from "./lib/gallery-shots";
 import type { GalleryVignette } from "./lib/gallery-vignette";
 
 /** Half the length of a match-cut window, in seconds; the shots swap at the cut time. */
 const CUT_HALF = 0.3;
 
 interface ShotLabel {
+  /** The field, flashed large on the cut. */
+  word: string;
   /** Muted lead-in text (KaTeX text mode). */
   lead: string;
   /** The manifold, in the manifold colour. */
@@ -28,30 +30,40 @@ interface ShotLabel {
 
 /** Bottom-right labels, as in content/episodes/e00-trailer/storyboard.md (s03-gallery). */
 const LABELS: readonly ShotLabel[] = [
-  { lead: "\\text{orientation }\\in\\text{ }", manifold: "\\mathrm{SO}(3)" },
-  { lead: "\\text{rotation averaging }\\cdot\\text{ }", manifold: "\\mathrm{SO}(3)^n" },
-  { lead: "\\text{orthonormal weights }\\cdot\\text{ }", manifold: "\\text{Stiefel manifold}" },
-  { lead: "\\text{hyperbolic embedding }\\cdot\\text{ }", manifold: "\\text{Poincaré disk}" },
-  { lead: "\\text{diffusion tensors }\\cdot\\text{ }", manifold: "\\text{SPD matrices}" },
-  { lead: "\\text{principal subspace }\\cdot\\text{ }", manifold: "\\text{Grassmann manifold}" },
+  { word: "ROBOTICS", lead: "\\text{orientation }\\in\\text{ }", manifold: "\\mathrm{SO}(3)" },
+  { word: "SLAM", lead: "\\text{rotation averaging }\\cdot\\text{ }", manifold: "\\mathrm{SO}(3)^n" },
+  { word: "DEEP LEARNING", lead: "\\text{orthonormal weights }\\cdot\\text{ }", manifold: "\\text{Stiefel manifold}" },
+  { word: "HIERARCHIES", lead: "\\text{hyperbolic embedding }\\cdot\\text{ }", manifold: "\\text{Poincaré disk}" },
+  { word: "NEUROIMAGING", lead: "\\text{diffusion tensors }\\cdot\\text{ }", manifold: "\\text{SPD matrices}" },
+  { word: "DATA", lead: "\\text{principal subspace }\\cdot\\text{ }", manifold: "\\text{Grassmann manifold}" },
 ];
 
 const LABEL_X = 1840;
 const LABEL_Y = 806;
 
+/** The big word flashed on each cut: centre of the frame, then it shrinks into the corner label. */
+const WORD_X = 960;
+const WORD_Y = 470;
+const WORD_SIZE = 150;
+const WORD_HOLD = 0.45;                           // seconds at full size after the cut
+const WORD_SETTLE = 0.3;                          // seconds to shrink into the corner
+
 /**
- * E00 s03 — application gallery as one accelerating arc: six shots of 6, 5, 4, 3, 3, 3 bars (robot arm, drone loop
+ * E00 s03-worlds — six real worlds as one accelerating arc: shots of 4, 3, 3, 2, 2, 2 bars (robot arm, drone loop
  * closure, orthogonal network weights, hyperbolic hierarchy, diffusion tensors, principal subspace). Each shot plays
  * its whole vignette once, rendered offscreen; consecutive shots are joined by match cuts through their key elements,
- * landing an eighth note before the bar line, with the incoming manifold's outline at the pivot. The last shot
- * freezes and fades in the stop that ends the section.
+ * landing an eighth note before the bar line, with the incoming manifold's outline at the pivot. On every cut the
+ * field's name flashes large and settles into the corner label. The section is entered and left by zoom-throughs on
+ * the first and last shots' key elements.
  */
-export class GalleryScene implements Scene {
-  readonly id = "s03-gallery";
+export class WorldsScene implements Scene {
+  readonly id = "s03-worlds";
   private shots: GalleryVignette[] = [];
   private labels: FormulaHandle[] = [];
+  private words: FormulaHandle[] = [];
   private compositor!: GalleryCompositor;
   private glyphs!: ManifoldGlyphs;
+  private shown: GalleryVignette | null = null;
 
   setup(layers: SceneLayers, _timing: ChapterTiming): void {
     this.shots = [new RobotArmVignette(), new DroneSlamVignette(), new NeuralNetVignette(), new HyperbolicTreeVignette(), new DtiBrainVignette(), new PcaSubspaceVignette()];
@@ -61,6 +73,9 @@ export class GalleryScene implements Scene {
       tex: `\\textcolor{${Palette.muted}}{${l.lead}}\\textcolor{${Palette.blue}}{${l.manifold}}`,
       x: LABEL_X, y: LABEL_Y, size: 30, align: "right", valign: "bottom", opacity: 0,
     }));
+    this.words = LABELS.map((l) => layers.formulas.add({
+      text: l.word, x: WORD_X, y: WORD_Y, size: WORD_SIZE, weight: 800, color: "#f4f6fb", opacity: 0,
+    }));
   }
 
   async preload(): Promise<void> {
@@ -69,12 +84,11 @@ export class GalleryScene implements Scene {
 
   draw(ctx: SceneContext): void {
     const c = new Cues(ctx, ctx.localTime);
+    const t = ctx.localTime;
     const n = this.shots.length;
     const starts = shotStartBars().map((bar) => c.bar(bar));
     const lengths = GALLERY_SHOT_BARS.map((bars) => c.bar(bars));
     const cuts = starts.map((s, i) => (i === 0 ? -Infinity : s - PUSH_SECONDS));
-    const freezeAt = ctx.duration - STOP_SECONDS;
-    const t = Math.min(ctx.localTime, freezeAt);         // the last shot holds its frame through the stop
     const vignetteTime = (i: number): number => ((t - starts[i]) * VIGNETTE_SECONDS) / lengths[i];
 
     // the shot that owns t, and the match cut in progress (if t is inside a cut window)
@@ -95,19 +109,36 @@ export class GalleryScene implements Scene {
       current = this.shots[k];
       current.draw(vignetteTime(k));
     }
-    // Section edges: rise from the background on the first downbeat; fade out during the stop.
-    const fade = Math.max(1 - smoothstep(0, 0.3, ctx.localTime), smoothstep(freezeAt + 0.05, ctx.duration - 0.1, ctx.localTime));
-    const pivot = this.compositor.compose(current, cut, fade);
+    this.shown = cut !== null && cut.progress >= 0.5 ? cut.next : current;
+    const pivot = this.compositor.compose(current, cut, 0);
     if (cut !== null) this.glyphs.show(into, pivot, cut.progress);
     else this.glyphs.hide();
 
-    for (let i = 0; i < this.labels.length; i++) {
-      const from = i === 0 ? 0 : cuts[i] + CUT_HALF;
-      const to = i + 1 < n ? cuts[i + 1] - CUT_HALF : freezeAt;
-      const appear = smoothstep(from + 0.2, from + 0.6, ctx.localTime);
-      const leave = 1 - smoothstep(to - 0.25, to, ctx.localTime);
-      this.labels[i].set({ x: LABEL_X + 24 * (1 - appear), y: LABEL_Y, opacity: appear * leave });
+    for (let i = 0; i < n; i++) {
+      const at = i === 0 ? 0.1 : cuts[i];          // the moment the shot takes over the frame
+      const until = i + 1 < n ? cuts[i + 1] - CUT_HALF : ctx.duration - 0.3;
+      // big word: slams in on the cut, holds, then shrinks into the corner label and hands over to it
+      const slam = smoothstep(at - 0.02, at + 0.08, t);
+      const settle = easeInOutCubic(clamp01((t - at - WORD_HOLD) / WORD_SETTLE));
+      const wordOn = slam * (1 - smoothstep(at + WORD_HOLD + WORD_SETTLE * 0.6, at + WORD_HOLD + WORD_SETTLE, t));
+      this.words[i].set({
+        x: lerp(WORD_X, LABEL_X - 200, settle), y: lerp(WORD_Y, LABEL_Y - 20, settle),
+        scale: lerp(1.15, 1, slam) * lerp(1, 0.2, settle), opacity: t < until ? wordOn : 0,
+      });
+      const labelOn = smoothstep(at + WORD_HOLD + WORD_SETTLE * 0.5, at + WORD_HOLD + WORD_SETTLE, t);
+      const leave = 1 - smoothstep(until - 0.2, until, t);
+      this.labels[i].set({ x: LABEL_X, y: LABEL_Y, opacity: labelOn * leave });
     }
+  }
+
+  /** The zoom-through from s02 comes out of the robot arm's end effector. */
+  entryPoint(): THREE.Vector2 {
+    return this.shots[0].matchPoint();
+  }
+
+  /** The zoom-through into s04 enters the point cloud's centre. */
+  exitPoint(): THREE.Vector2 {
+    return (this.shown ?? this.shots[this.shots.length - 1]).matchPoint();
   }
 
   teardown(_layers: SceneLayers): void {

@@ -235,7 +235,7 @@ for the user.
 
 ## Phase 4
 
-Phase Status: active
+Phase Status: completed
 
 Round: 2
 
@@ -265,7 +265,7 @@ Stills across every boundary (−0.3 s … +0.3 s); determinism and history chec
 
 ## Phase 5
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 3
 
@@ -296,7 +296,7 @@ Stills at every cut and event; determinism and history checks; visual review.
 
 ## Phase 6
 
-Phase Status: pending
+Phase Status: active
 
 Round: 4
 

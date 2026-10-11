@@ -1,3 +1,4 @@
+import type * as THREE from "three";
 import type { SceneLayers } from "./SceneLayers";
 
 /** Measured timing of one chapter, in seconds relative to the chapter start. */
@@ -28,6 +29,13 @@ export interface Scene {
    */
   preload?(): Promise<void>;
   draw(ctx: SceneContext): void;
+  /**
+   * Trailers, optional: frame uv (0..1, y up) of the element the outgoing zoom-through goes into, as of the last
+   * draw. A scene without it ends without a transition.
+   */
+  exitPoint?(): THREE.Vector2;
+  /** Trailers, optional: frame uv of the element the incoming zoom-through comes out of, as of the last draw. */
+  entryPoint?(): THREE.Vector2;
   teardown(layers: SceneLayers): void;
 }
 

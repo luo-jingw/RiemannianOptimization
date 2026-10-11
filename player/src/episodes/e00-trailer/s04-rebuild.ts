@@ -22,7 +22,8 @@ import { HeightField, TerrainView } from "./lib/toolkit-terrain";
 import { ToolkitWordRow, wordOnsets } from "./lib/toolkit-words";
 
 /**
- * s04-toolkit — rebuilding the toolkit on a curved terrain (16 bars, 32 s).
+ * s04-rebuild — rebuilding the toolkit on a curved terrain (16 bars at 120 BPM, half-time feel, 32 s).
+ * Entered by a zoom-through out of p's position on the terrain, left by one into the valley's minimum.
  * b0–b6: a smooth terrain with several valleys turns slowly; the camera closes in on a point p on a
  *        hill's shoulder; a ring of the surface around p is matched by a tangent disk ("flat up close").
  * b7–b16: four words arrive with the second line, each with its visual at p:
@@ -31,7 +32,7 @@ import { ToolkitWordRow, wordOnsets } from "./lib/toolkit-words";
  *        gradient — the steepest-descent direction −grad h, tangent to the surface and pointing downhill;
  *        step — a step along the tangent plane leaves the surface and bends back onto it (retraction);
  *        then the iterates of Riemannian gradient descent slide down into the valley.
- * Sentence 0 = "They all live on manifolds ...", sentence 1 = "To optimize there ... step."
+ * Sentence 0 = "they all live on manifolds ...", sentence 1 = "To optimize there ... step."
  */
 
 const FIELD = new HeightField();
@@ -60,8 +61,10 @@ function tangentFrame(p: THREE.Vector2): TangentFrame {
   return { origin, e1, e2, n };
 }
 
-export class ToolkitScene implements Scene {
-  readonly id = "s04-toolkit";
+export class RebuildScene implements Scene {
+  readonly id = "s04-rebuild";
+  private readonly entryUv = new THREE.Vector2(0.5, 0.5);
+  private readonly exitUv = new THREE.Vector2(0.5, 0.5);
   private stage!: StageLayer;
   private backdrop!: RadialBackdrop;
   private shade!: CaptionShade;
@@ -197,9 +200,9 @@ export class ToolkitScene implements Scene {
     const pose = this.cameraPose(t, c);
     this.stage.setView3D(orbitPosition(pose), pose.target, pose.fov);
 
-    const fadeIn = smoothstep(0, 1.2, t);
-    const fadeOut = 1 - smoothstep(ctx.duration - 0.6, ctx.duration, t);
-    const all = fadeIn * fadeOut;
+    // no section fades: the zoom-throughs carry the boundaries
+    const fadeOut = 1;
+    const all = 1;
     this.backdrop.set({ x: 960, y: 380, radius: 1100, strength: 1 }, all);
     this.dust.setOpacity(0.4 * all);
     this.terrain.setOpacity(all, all);
@@ -319,6 +322,20 @@ export class ToolkitScene implements Scene {
     this.valleyGlow.set(FIELD.point(last.x, last.y, 0.05), settle * all * (0.75 + 0.25 * Math.cos((t - this.landing(ITERATES)) * Math.PI)));
 
     this.words.update(t, onsets, fadeOut * clamp01(1 - smoothstep(c.bar(14.5), c.bar(15.5), t) * 0.5));
+    const pIn = this.stage.project(FIELD.point(P.x, P.y, LIFT));
+    this.entryUv.set(pIn.x / 1920, 1 - pIn.y / 1080);
+    const pOut = this.stage.project(FIELD.point(last.x, last.y, 0.05));
+    this.exitUv.set(pOut.x / 1920, 1 - pOut.y / 1080);
+  }
+
+  /** The zoom-through from s03 comes out of p's position on the terrain. */
+  entryPoint(): THREE.Vector2 {
+    return this.entryUv.clone();
+  }
+
+  /** The zoom-through into s05 enters the valley's minimum, where the descent ends. */
+  exitPoint(): THREE.Vector2 {
+    return this.exitUv.clone();
   }
 
   teardown(_layers: SceneLayers): void {}

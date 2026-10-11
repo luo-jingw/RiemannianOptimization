@@ -1,3 +1,4 @@
+import type * as THREE from "three";
 import type { EpisodeData } from "./EpisodeLoader";
 import type { Scene } from "./Scene";
 import type { SceneLayers } from "./SceneLayers";
@@ -6,6 +7,7 @@ import type { TimelineChapter } from "./Timeline";
 import { CaptionLayer } from "../layers/CaptionLayer";
 import { TitleLayer } from "../layers/TitleLayer";
 import { PlaceholderScene } from "./PlaceholderScene";
+import { type SectionTransition, TRANSITION_SECONDS } from "./TransitionPass";
 
 /** Seconds of chapter title card before the first sentence; must equal TimelineLayout.chapter_head. */
 export const CHAPTER_HEAD = 2.4;
@@ -62,6 +64,32 @@ export class EpisodeRenderer {
     }
   }
 
+  /**
+   * Trailers: the zoom-through around chapter boundaries. In the last TRANSITION_SECONDS of a chapter the picture
+   * zooms into the scene's exit point; in the first TRANSITION_SECONDS of the next it zooms out of the entry point.
+   * Scenes without the corresponding point have no transition on that side.
+   */
+  private transitionAt(t: number): SectionTransition | null {
+    if (this.data.episode.kind !== "trailer" || !this.active) return null;
+    const { chapter, scene } = this.active;
+    const chapters = this.data.timeline.chapters;
+    const index = chapters.findIndex((c) => c.id === chapter.id);
+    const toEnd = chapter.end - t;
+    const fromStart = t - chapter.start;
+    let u = 0;
+    let center: THREE.Vector2 | null = null;
+    if (toEnd < TRANSITION_SECONDS && index + 1 < chapters.length && scene.exitPoint) {
+      u = 1 - toEnd / TRANSITION_SECONDS;
+      center = scene.exitPoint();
+    } else if (fromStart < TRANSITION_SECONDS && index > 0 && scene.entryPoint) {
+      u = 1 - fromStart / TRANSITION_SECONDS;
+      center = scene.entryPoint();
+    }
+    if (center === null || u <= 0) return null;
+    const e = u * u;
+    return { center, zoom: 1 + 1.8 * e, blur: 0.3 * e, flash: 0.04 * e * e };
+  }
+
   renderAt(t: number): void {
     const chapter = this.chapterAt(t);
     this.activate(chapter);
@@ -76,7 +104,7 @@ export class EpisodeRenderer {
         layers: this.layers,
       });
     }
-    this.layers.stage.render();
+    this.layers.stage.render(this.transitionAt(t));
     this.captions.update(t);
     this.titles.update(t);
   }

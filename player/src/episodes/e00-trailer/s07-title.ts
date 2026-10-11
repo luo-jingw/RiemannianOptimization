@@ -9,8 +9,8 @@ import { Palette } from "../../primitives/Palette";
 import { Polyline, circlePoints } from "../../primitives/Polyline";
 
 /**
- * s06 — title: the circle of fifths completes (all twelve keys light in fifths order, landing on C) as the
- * series title appears; everything fades out in the reverb tail.
+ * s07-title — after the tape stop's silence, the final hit: the title lands with it, the circle of fifths completes
+ * (all twelve keys light in fifths order, landing on C); everything fades out in the reverb tail.
  */
 const KEYS = ["C", "G", "D", "A", "E", "B", "F♯", "C♯", "A♭", "E♭", "B♭", "F"];
 const PX = 120;                                      // px per world unit (view height 9)
@@ -19,14 +19,13 @@ const CY = (540 - 420) / PX;
 const R = 190 / PX;
 
 export class TitleScene implements Scene {
-  readonly id = "s06-title";
+  readonly id = "s07-title";
   private ring!: Polyline;
   private dots: Dot[] = [];
   private labels: FormulaHandle[] = [];
   private glow!: Dot;
   private title!: FormulaHandle;
   private subtitle!: FormulaHandle;
-  private tagline!: FormulaHandle;
   private small!: FormulaHandle;
   private s1!: FormulaHandle;
 
@@ -46,8 +45,7 @@ export class TitleScene implements Scene {
     this.s1 = fl.add({ tex: "S^1", x: 1580, y: 420, size: 46, color: "#66708c" });
     this.title = fl.add({ text: "Riemannian Optimization", x: 150, y: 330, size: 84, weight: 800, align: "left", color: "#ffffff" });
     this.subtitle = fl.add({ text: "from the Ground Up", x: 150, y: 430, size: 60, weight: 700, align: "left", color: "#ffffff" });
-    this.tagline = fl.add({ text: "Full proofs  ·  Animated counterexamples  ·  English / Chinese captions", x: 152, y: 530, size: 28, align: "left", color: Palette.muted });
-    this.small = fl.add({ text: "New episodes follow the course.", x: 152, y: 590, size: 26, align: "left", color: "#8a94b0" });
+    this.small = fl.add({ text: "New episodes follow the course.", x: 152, y: 530, size: 26, align: "left", color: "#8a94b0" });
   }
 
   draw(ctx: SceneContext): void {
@@ -76,18 +74,17 @@ export class TitleScene implements Scene {
     this.glow.setOpacity(0.18 * cLit * (0.75 + 0.25 * Math.cos(t * 2.4)) * fadeOut);
     this.glow.setScale(1 + 0.15 * Math.sin(t * 1.7));
     this.s1.set({ opacity: ringIn * fadeOut });
-    const rise = (start: number): { opacity: number; dy: number } => {
-      const p = smoothstep(c.bar(start), c.bar(start + 0.6), t);
+    const rise = (start: number, bars: number): { opacity: number; dy: number } => {
+      const p = smoothstep(c.bar(start), c.bar(start + bars), t);
       return { opacity: p * fadeOut, dy: lerp(18, 0, p) };
     };
-    const a = rise(0.4);
-    this.title.set({ opacity: a.opacity, y: 330 + a.dy });
-    const b = rise(0.9);
+    // the title lands with the hit on the downbeat; the subtitle follows half a beat later
+    const a = rise(0, 0.08);
+    this.title.set({ opacity: a.opacity, y: 330 + a.dy, scale: lerp(1.06, 1, smoothstep(0, c.bar(0.5), t)) });
+    const b = rise(0.12, 0.2);
     this.subtitle.set({ opacity: b.opacity, y: 430 + b.dy });
-    const d = rise(2.4);
-    this.tagline.set({ opacity: d.opacity, y: 530 + d.dy });
-    const f = rise(3.0);
-    this.small.set({ opacity: clamp01(f.opacity), y: 590 + f.dy });
+    const f = rise(2.0, 0.6);
+    this.small.set({ opacity: clamp01(f.opacity), y: 530 + f.dy });
   }
 
   teardown(_layers: SceneLayers): void {}

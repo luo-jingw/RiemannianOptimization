@@ -18,12 +18,12 @@ import { orbitPosition } from "./lib/flat-orbit";
 import { FoldingSheet, SPHERE_CENTER, SPHERE_RADIUS, sheetMidHeight } from "./lib/fold-sheet";
 
 /**
- * s02-fold — the fold (7 bars, 14 s).
- * b0–b3: the flat sheet bends from its rim upward and closes into a sphere
- *        (every grid point moves from its plane position to its image on the sphere).
- * b3–b5: from a point on the sphere, a straight step along a tangent direction leaves the sphere;
- *        its tip turns red as it lifts off and the frame holds.
- * b5–b7: the sphere and the red step recede and fade before the gallery.
+ * s02-fold — the fold (4 bars, accelerando 80 → 120 BPM).
+ * b0–b1.8: the flat sheet bends from its rim upward and closes into a sphere
+ *          (every grid point moves from its plane position to its image on the sphere).
+ * b1.9–3: from a point on the sphere, a straight step along a tangent direction leaves the sphere;
+ *         its tip turns red as it lifts off and the frame holds.
+ * b3–b4: the camera pushes toward the red tip, which the zoom-through into s03 enters.
  */
 
 const GRID_INNER = new THREE.Color("#3f7fd6");
@@ -36,8 +36,9 @@ const STEP_LENGTH = 1.5;                    // the straight step, in units of th
 const POINT_OFFSET_AZIMUTH = -50;           // degrees from the camera azimuth at the step: toward the left limb
 const POINT_ELEVATION = 4;                  // latitude of the point on the sphere, degrees
 const STEP_HEADING = 122;                   // heading of the step above the eastward tangent, degrees
-const FOLD_START = 0.15;                    // bars
-const FOLD_END = 3;                         // bars
+const FOLD_START = 0.1;                     // bars
+const FOLD_END = 1.8;                       // bars
+const STEP_BAR = 2.5;                       // the camera pose the step point is chosen for
 
 export class FoldScene implements Scene {
   readonly id = "s02-fold";
@@ -57,6 +58,7 @@ export class FoldScene implements Scene {
   private tipDot!: Dot;
   private tipGlow!: Glow;
   private gap!: Polyline;
+  private tipUv = new THREE.Vector2(0.5, 0.5);
 
   setup(layers: SceneLayers, timing: ChapterTiming): void {
     const stage = layers.stage;
@@ -68,8 +70,8 @@ export class FoldScene implements Scene {
     this.dust = new DustField(stage, 7, 700, 9, 30, new THREE.Vector3(0, 0, -4), "#6f8fc9");
     this.sheet = new FoldingSheet(stage, 1.6, "#13233f");
 
-    // The point faces the camera as it is at the step (b4), a little left of center and above the equator.
-    const az = ((this.cameraPose(8).azimuth + POINT_OFFSET_AZIMUTH) * Math.PI) / 180;
+    // The point faces the camera as it is at the step, a little left of center and above the equator.
+    const az = ((this.cameraPose(this.grid.bar(STEP_BAR)).azimuth + POINT_OFFSET_AZIMUTH) * Math.PI) / 180;
     const el = (POINT_ELEVATION * Math.PI) / 180;
     this.normal.set(Math.cos(el) * Math.cos(az), Math.cos(el) * Math.sin(az), Math.sin(el));
     this.point.copy(SPHERE_CENTER).addScaledVector(this.normal, SPHERE_RADIUS);
@@ -87,14 +89,14 @@ export class FoldScene implements Scene {
     this.tipDot = new Dot(stage, this.point, Palette.orange, 0.06, "3d");
   }
 
-  /** Camera: continues s01's orbit, swings down and in to frame the closing sphere, then pulls away. */
+  /** Camera: continues s01's orbit, swings down and in to frame the closing sphere, then pushes toward the step. */
   private cameraPose(t: number): OrbitPose {
     const s = this.start;
-    const settle = easeInOutCubic(ramp(0, 6.5, t));
-    const away = easeInOutCubic(ramp(10, 14, t));
-    const azimuth = s.azimuth + ORBIT_DRIFT * t + 24 * smoothstep(0, 9, t);
-    const elevation = lerp(lerp(s.elevation, 20, settle), 28, away);
-    const distance = lerp(s.distance, 6.4, settle) + 9 * away * away;
+    const settle = easeInOutCubic(ramp(0, this.grid.bar(2.2), t));
+    const push = easeInOutCubic(ramp(this.grid.bar(3), this.grid.bar(4), t));
+    const azimuth = s.azimuth + ORBIT_DRIFT * t + 24 * smoothstep(0, this.grid.bar(3), t);
+    const elevation = lerp(s.elevation, 20, settle);
+    const distance = lerp(s.distance, 6.4, settle) - 1.2 * push;
     // Follow the middle of the bending sheet so the rising rim stays in frame.
     const k = this.curvature(t);
     const target = s.target.clone().lerp(new THREE.Vector3(0, 0, 0), settle);
@@ -114,7 +116,7 @@ export class FoldScene implements Scene {
     const cam = orbitPosition(pose);
     this.stage.setView3D(cam, pose.target, pose.fov);
 
-    const out = smoothstep(c.bar(5.25), c.bar(6.9), t);
+    const out = 0;
     this.backdrop.set({ x: 960, y: 420, radius: lerp(1050, 800, out), strength: 1 }, lerp(1, 0.35, out));
     this.dust.setOpacity(0.45 * (1 - out));
 
@@ -127,15 +129,15 @@ export class FoldScene implements Scene {
     }, 1, lerp(0.55, 0.96, smoothstep(0, 0.8, k)) * (1 - out));
     this.sheet.setFillColor(FILL_FLAT.clone().lerp(FILL_SPHERE, k), new THREE.Color("#0b1a33").multiplyScalar(k));
 
-    // The point and its heading (b3).
-    const show = smoothstep(c.bar(3), c.bar(3) + 0.4, t) * (1 - out);
+    // The point and its heading.
+    const show = smoothstep(c.bar(1.9), c.bar(1.9) + 0.3, t) * (1 - out);
     const lifted = this.point.clone().addScaledVector(this.normal, 0.012);
     this.pointDot.setPosition(lifted);
     this.pointDot.setScale(lerp(0.3, 1, easeOutCubic(show)));
     this.pointDot.setOpacity(show);
     this.pointGlow.set(lifted, show * 0.8);
-    const arrowGrow = easeOutCubic(ramp(c.bar(3.2), c.bar(3.6), t));
-    const stepGrow = easeInOutCubic(ramp(c.bar(3.75), c.bar(4.6), t));
+    const arrowGrow = easeOutCubic(ramp(c.bar(2.0), c.bar(2.25), t));
+    const stepGrow = easeInOutCubic(ramp(c.bar(2.3), c.bar(3.0), t));
     const arrowLen = 0.42 * arrowGrow * (1 - stepGrow);
     this.headingArrow.set(lifted, lifted.clone().addScaledVector(this.heading, Math.max(arrowLen, 1e-4)));
     this.headingArrow.setOpacity(arrowLen > 0.02 ? show : 0);
@@ -153,7 +155,7 @@ export class FoldScene implements Scene {
     this.tipDot.setPosition(tip);
     this.tipDot.setOpacity(stepGrow > 0.001 ? show : 0);
     // Freeze: at the end of the step the red tip flashes once.
-    const freeze = c.bar(4.6);
+    const freeze = c.bar(3.0);
     const flash = t >= freeze ? Math.exp(-(t - freeze) * 3) : 0;
     this.tipGlow.setColor(tipColor);
     this.tipGlow.set(tip, show * stepGrow * (0.55 + 0.45 * flash), 1 + 0.8 * flash);
@@ -162,6 +164,13 @@ export class FoldScene implements Scene {
     this.gap.setPoints([tip, foot]);
     this.gap.setOpacity(0.8 * smoothstep(freeze, freeze + 0.5, t) * (1 - out));
     this.gap.setProgress(1);
+    const p = this.stage.project(tip);
+    this.tipUv.set(p.x / 1920, 1 - p.y / 1080);
+  }
+
+  /** The zoom-through into s03 enters the red tip of the straight step. */
+  exitPoint(): THREE.Vector2 {
+    return this.tipUv.clone();
   }
 
   teardown(_layers: SceneLayers): void {}

@@ -21,7 +21,7 @@ const TOP = 300;
 const LEFT = 150;
 
 export class CreditsScene implements Scene {
-  readonly id = "s07-credits";
+  readonly id = "s08-credits";
   private handles: FormulaHandle[] = [];
   private ys: number[] = [];
 

@@ -1,0 +1,102 @@
+{
+  "model": "Universal Robots UR5e (MuJoCo Menagerie description)",
+  "file": "ur5e.glb",
+  "source": "https://github.com/google-deepmind/mujoco_menagerie/tree/main/universal_robots_ur5e",
+  "licence": "BSD-3-Clause, Copyright 2018 ROS Industrial Consortium (see SOURCES.md)",
+  "units": "metres",
+  "up_axis": "+y (root node 'ur5e' rotates the MuJoCo z-up frame to y-up)",
+  "root_node": "ur5e",
+  "application": "set joint node quaternion = rotation(axis, theta); rest pose (theta = 0) is the identity",
+  "joints": [
+    {
+      "name": "shoulder_pan_joint",
+      "node": "shoulder_pan_joint",
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "range_rad": [
+        -6.28319,
+        6.28319
+      ],
+      "home_rad": -1.5708
+    },
+    {
+      "name": "shoulder_lift_joint",
+      "node": "shoulder_lift_joint",
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_rad": [
+        -6.28319,
+        6.28319
+      ],
+      "home_rad": -1.5708
+    },
+    {
+      "name": "elbow_joint",
+      "node": "elbow_joint",
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_rad": [
+        -3.1415,
+        3.1415
+      ],
+      "home_rad": 1.5708
+    },
+    {
+      "name": "wrist_1_joint",
+      "node": "wrist_1_joint",
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_rad": [
+        -6.28319,
+        6.28319
+      ],
+      "home_rad": -1.5708
+    },
+    {
+      "name": "wrist_2_joint",
+      "node": "wrist_2_joint",
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "range_rad": [
+        -6.28319,
+        6.28319
+      ],
+      "home_rad": -1.5708
+    },
+    {
+      "name": "wrist_3_joint",
+      "node": "wrist_3_joint",
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_rad": [
+        -6.28319,
+        6.28319
+      ],
+      "home_rad": 0.0
+    }
+  ],
+  "end_effector_node": "wrist_3_joint",
+  "end_effector_offset_local": [
+    0.0,
+    0.1,
+    0.0
+  ]
+}

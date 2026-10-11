@@ -196,7 +196,7 @@ rejected with its slot size; E03 timeline rebuild is byte-identical.
 
 ## Phase 3
 
-Phase Status: active
+Phase Status: completed
 
 Round: 2
 
@@ -258,7 +258,7 @@ none
 
 ## Phase 5
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 3
 
@@ -289,7 +289,7 @@ Phase 2, Phase 3
 
 ## Phase 6
 
-Phase Status: pending
+Phase Status: active
 
 Round: 4
 

@@ -1,0 +1,38 @@
+{
+ "episode": "e00-trailer",
+ "title": "Series Trailer",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {"id": "s01-flat", "chapter": "Trailer", "title": "Flat world", "music": "trailer-open", "terms": [], "bars": 8,
+   "sentences": [
+    {"bar": 2, "en": "Optimization usually lives in flat space.", "zh": "优化通常发生在平坦的空间里。"}
+   ]},
+  {"id": "s02-fold", "chapter": "Trailer", "title": "The fold", "music": "trailer-fold", "terms": [], "bars": 7,
+   "sentences": [
+    {"bar": 3, "en": "But many real problems don't.", "zh": "但许多真实问题并非如此。"}
+   ]},
+  {"id": "s03-gallery", "chapter": "Trailer", "title": "Applications", "music": "trailer-gallery", "terms": [], "bars": 24,
+   "sentences": [
+    {"bar": 1, "en": "The orientation of a robot arm.", "zh": "机械臂的姿态。"},
+    {"bar": 5, "en": "The path of a drone that must close its loop.", "zh": "必须闭合回环的无人机航迹。"},
+    {"bar": 9, "en": "The weights of a neural network, kept orthogonal.", "zh": "保持正交的神经网络权重。"},
+    {"bar": 13, "en": "Hierarchies unfolding in hyperbolic space.", "zh": "在双曲空间中展开的层级结构。"},
+    {"bar": 17, "en": "Brain scans made of tiny ellipsoids.", "zh": "由无数小椭球构成的脑部扫描。"},
+    {"bar": 21, "en": "Subspaces hidden in data.", "zh": "隐藏在数据中的子空间。"}
+   ]},
+  {"id": "s04-toolkit", "chapter": "Trailer", "title": "Rebuilding the toolkit", "music": "trailer-toolkit", "terms": [], "bars": 16,
+   "sentences": [
+    {"bar": 1, "en": "They all live on manifolds: spaces that curve as a whole, yet look flat up close.", "zh": "它们都生活在流形上：整体弯曲、近看却平坦的空间。"},
+    {"bar": 7, "en": "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step.", "zh": "要在那里做优化，每个熟悉的概念都必须重建：方向、距离、梯度、步长。"}
+   ]},
+  {"id": "s05-montage", "chapter": "Trailer", "title": "The series", "music": "trailer-montage", "terms": [], "bars": 8,
+   "sentences": [
+    {"bar": 1, "en": "This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters.", "zh": "这个系列从零开始建立这套几何：完整的证明，以及说明每个假设为何重要的画面。"}
+   ]},
+  {"id": "s06-title", "chapter": "Trailer", "title": "Riemannian Optimization from the Ground Up", "music": "trailer-title", "terms": [], "bars": 8,
+   "sentences": [
+    {"bar": 1, "en": "Riemannian Optimization, from the Ground Up.", "zh": "从零开始的黎曼优化。"}
+   ]}
+ ]
+}

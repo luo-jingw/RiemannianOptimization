@@ -15,5 +15,5 @@ class MixProfile:
     def for_kind(kind: str) -> MixProfile:
         if kind == "trailer":
             # Music leads: louder bed, light ducking, louder delivery.
-            return MixProfile(mix=MixSettings(music_bed_dbfs=-19.0, duck_db=4.0), target_lufs=-14.0)
+            return MixProfile(mix=MixSettings(music_bed_dbfs=-22.0, duck_db=6.0), target_lufs=-14.0)
         return MixProfile(mix=MixSettings(), target_lufs=-16.0)

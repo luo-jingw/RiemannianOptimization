@@ -38,6 +38,8 @@ Trailer deliveries at −14 LUFS decode with a sample peak just above full scale
 
 `ffmpeg -i output/e00-trailer/v3/e00-trailer.en.mp4 -af astats=measure_overall=Peak_level -f null -`
 
+v4 (rebuilt score, softer transients) checks at −1.2 dBFS peak with the same muxer settings, so the overshoot depends on the score's transient content.
+
 ## Hypotheses
 
 The two-pass loudnorm reaches −14 LUFS by raising the gain; its true-peak limit is not enforced tightly enough for the dense trailer mix, and AAC encoding adds intersample overshoot.

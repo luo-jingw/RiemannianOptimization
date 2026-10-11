@@ -46,7 +46,7 @@ export class FoldScene implements Scene {
   private dust!: DustField;
   private sheet!: FoldingSheet;
   private start!: OrbitPose;
-  private barSeconds = 2;
+  private grid!: Cues;                     // bar times of this chapter (tempo map)
   private point = new THREE.Vector3();
   private normal = new THREE.Vector3();
   private heading = new THREE.Vector3();
@@ -61,8 +61,7 @@ export class FoldScene implements Scene {
   setup(layers: SceneLayers, timing: ChapterTiming): void {
     const stage = layers.stage;
     this.stage = stage;
-    if (timing.barSeconds === undefined) throw new Error("s02-fold: trailer timing without a bar grid");
-    this.barSeconds = timing.barSeconds;
+    this.grid = new Cues(timing, 0);
     this.start = flatCameraPose(FLAT_DURATION);
     this.backdrop = new RadialBackdrop(stage, { inner: "#18243f", outer: "#05070d" });
     addStandardLights(stage);
@@ -105,7 +104,7 @@ export class FoldScene implements Scene {
 
   /** Curvature fraction of the sheet: 0 → 1 over b0–b3. */
   private curvature(t: number): number {
-    return easeInOutCubic(ramp(FOLD_START * this.barSeconds, FOLD_END * this.barSeconds, t));
+    return easeInOutCubic(ramp(this.grid.bar(FOLD_START), this.grid.bar(FOLD_END), t));
   }
 
   draw(ctx: SceneContext): void {

@@ -52,7 +52,7 @@ export class EpisodeRenderer {
     const scene: Scene = factory ? factory() : new PlaceholderScene(chapter);
     this.pending = null;
     scene.setup(this.layers, { duration: chapter.end - chapter.start, sentenceStarts: chapter.sentenceStarts,
-      sentenceEnds: chapter.sentenceEnds, barSeconds: this.data.timeline.barSeconds });
+      sentenceEnds: chapter.sentenceEnds, beatTimes: chapter.beatTimes });
     this.active = { chapter, scene };
     if (scene.preload) {
       const p = scene.preload().then(() => {
@@ -72,7 +72,7 @@ export class EpisodeRenderer {
         duration: ch.end - ch.start,
         sentenceStarts: ch.sentenceStarts,
         sentenceEnds: ch.sentenceEnds,
-        barSeconds: this.data.timeline.barSeconds,
+        beatTimes: ch.beatTimes,
         layers: this.layers,
       });
     }

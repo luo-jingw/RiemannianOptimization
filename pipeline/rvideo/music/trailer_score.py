@@ -96,7 +96,10 @@ class TrailerScore:
 
     # -- composition --------------------------------------------------------------------------------------
     def compose(self, timeline: Timeline) -> np.ndarray:
-        bar = float(timeline.bar_seconds or 2.0)
+        beats = timeline.chapters[0].beat_times
+        if beats is None:
+            raise ValueError("trailer score needs a bar-grid timeline")
+        bar = beats[4]                  # this score runs on a constant tempo
         beat = bar / 4
         n = int(np.ceil(timeline.duration * SR))
         dry = np.zeros((n, 2))          # bass, drums, timpani, hits

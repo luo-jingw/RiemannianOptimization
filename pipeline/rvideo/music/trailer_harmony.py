@@ -48,9 +48,9 @@ class BarChord:
 
 class TrailerHarmony:
     def plan(self, timeline: Timeline) -> list[BarChord]:
-        if timeline.bar_seconds is None:
+        if timeline.chapters[0].beat_times is None:
             raise ValueError("trailer harmony needs a bar-grid timeline")
-        bar = timeline.bar_seconds
+        bar = timeline.chapters[0].beat_times[4]
         out: list[BarChord] = []
         for ch in timeline.chapters:
             bars = round((ch.end - ch.start) / bar)

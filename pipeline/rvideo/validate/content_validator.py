@@ -79,6 +79,8 @@ class ContentValidator:
                 errors.append(f"{scene.id}: trailer scene needs a trailer-* music category, got {scene.music!r}")
             if scene.bars is None or scene.bars <= 0:
                 errors.append(f"{scene.id}: trailer scene needs bars > 0")
+            if scene.tempo is not None and not (40 <= scene.tempo[0] <= 200 and 40 <= scene.tempo[1] <= 200):
+                errors.append(f"{scene.id}: tempo {scene.tempo} outside 40–200 BPM")
             previous = -1
             for i, s in enumerate(scene.sentences):
                 if s.bar is None:
@@ -92,6 +94,6 @@ class ContentValidator:
         else:
             if scene.music not in EPISODE_MUSIC:
                 errors.append(f"{scene.id}: episode scene uses trailer music {scene.music!r}")
-            if scene.bars is not None or any(s.bar is not None for s in scene.sentences):
-                errors.append(f"{scene.id}: bars / bar anchors are only for trailers")
+            if scene.bars is not None or scene.tempo is not None or any(s.bar is not None for s in scene.sentences):
+                errors.append(f"{scene.id}: bars / tempo / bar anchors are only for trailers")
         return errors

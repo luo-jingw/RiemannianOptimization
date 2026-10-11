@@ -42,16 +42,29 @@ export class Cues {
     return window01(this.s(i), j >= 0 ? this.s(j) : this.ctx.duration, this.t, fade);
   }
 
+  /**
+   * Time of beat `b` (fractional allowed, linear inside a beat) from the chapter start; trailers only. Beyond the
+   * last beat the final beat length continues.
+   */
+  beat(b: number): number {
+    const bt = this.ctx.beatTimes;
+    if (bt === undefined) throw new Error("Cues.beat: this chapter has no beat grid");
+    const last = bt.length - 1;
+    if (b <= 0) return b * (bt[1] - bt[0]);
+    if (b >= last) return bt[last] + (b - last) * (bt[last] - bt[last - 1]);
+    const k = Math.floor(b);
+    return bt[k] + (b - k) * (bt[k + 1] - bt[k]);
+  }
+
   /** Time of bar `i` (fractional allowed) from the chapter start; trailers only. */
   bar(i: number): number {
-    if (this.ctx.barSeconds === undefined) throw new Error("Cues.bar: this chapter has no bar grid");
-    return i * this.ctx.barSeconds;
+    return this.beat(4 * i);
   }
 
   /** Smooth 0..1 that starts at bar `i` (+offset bars) and lasts `durBars` bars; trailers only. */
   pb(i: number, durBars = 1, offsetBars = 0): number {
     const a = this.bar(i + offsetBars);
-    return smoothstep(a, a + this.bar(durBars), this.t);
+    return smoothstep(a, this.bar(i + offsetBars + durBars), this.t);
   }
 
   /** Smooth 0..1 that starts `dur` seconds before the chapter ends. */

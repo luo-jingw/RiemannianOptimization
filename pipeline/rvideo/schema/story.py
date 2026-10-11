@@ -31,6 +31,7 @@ class StoryScene:
     terms: tuple[str, ...]
     sentences: tuple[StorySentence, ...]
     bars: int | None = None          # trailers: scene length in bars
+    tempo: tuple[float, float] | None = None   # trailers: BPM at the first and the last beat (linear in between)
 
 
 @dataclass(frozen=True)
@@ -53,6 +54,7 @@ class Story:
                                             bar=int(x["bar"]) if "bar" in x else None) for x in s["sentences"])
             scenes.append(StoryScene(id=str(s["id"]), chapter=str(s["chapter"]), title=str(s["title"]),
                                      music=music, terms=tuple(str(t) for t in s.get("terms", [])),
-                                     sentences=sentences, bars=int(s["bars"]) if "bars" in s else None))
+                                     sentences=sentences, bars=int(s["bars"]) if "bars" in s else None,
+                                     tempo=(float(s["tempo"][0]), float(s["tempo"][1])) if "tempo" in s else None))
         return Story(episode=str(raw["episode"]), title=str(raw["title"]), voice=str(raw["voice"]),
                      rate=float(raw["rate"]), scenes=tuple(scenes))

@@ -91,9 +91,11 @@ class Muxer:
               "-movflags", "+faststart", str(mp4)])
         (out_dir / f"{episode}.en.srt").write_bytes(srt.read_bytes())
         if kind == "trailer":
-            # the title card with every line in, before it fades (s06-title: lines settle by bar 4, fade from bar 6.2)
-            title = next(ch for ch in timeline.chapters if ch.music == "trailer-title")
-            cover_t = title.start + 5 * (timeline.bar_seconds or 2.0)
+            # the title card with every line in, before it fades (lines settle by bar 4, fade from bar 6.2)
+            title = next(ch for ch in timeline.chapters if ch.music in ("trailer-title", "film-title"))
+            if title.beat_times is None:
+                raise ValueError(f"{title.id}: trailer chapter without beat times")
+            cover_t = title.start + title.beat_times[5 * 4]
         else:
             cover_t = (timeline.chapters[0].start - 1.5) if timeline.chapters else 2.0
         cover = out_dir / "cover.png"

@@ -48,8 +48,6 @@ def cmd_narrate(paths: ProjectPaths, episode: str) -> int:
     return 0
 
 
-TRAILER_BPM = 120.0
-TRAILER_BEATS_PER_BAR = 4
 
 
 def _kind(paths: ProjectPaths, episode: str) -> str:
@@ -60,7 +58,7 @@ def cmd_timeline(paths: ProjectPaths, episode: str) -> int:
     story = Story.load(paths.story_file(episode))
     prov = VoiceProvenance.load(paths.provenance_file(episode))
     if _kind(paths, episode) == "trailer":
-        timeline = BeatTimelineBuilder(TRAILER_BPM, TRAILER_BEATS_PER_BAR).build(story, prov)
+        timeline = BeatTimelineBuilder().build(story, prov)
     else:
         timeline = TimelineBuilder(TimelineLayout()).build(story, prov)
     timeline.save(paths.timeline_file(episode))

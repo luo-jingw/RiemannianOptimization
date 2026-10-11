@@ -15,14 +15,14 @@ export interface TimelineChapter {
   music: string;
   sentenceStarts: number[];
   sentenceEnds: number[];
+  /** Trailers only: chapter-relative start of every beat (4 per bar, tempo map applied), then the chapter end. */
+  beatTimes?: number[];
 }
 
 export interface Timeline {
   language: "en";
   episode: string;
   duration: number;
-  /** Trailers only: seconds per bar of the musical grid the timeline was built on. */
-  barSeconds?: number;
   chapters: TimelineChapter[];
   captions: TimelineCaption[];
 }

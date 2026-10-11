@@ -83,15 +83,14 @@ export class ToolkitScene implements Scene {
   private currentGlow!: Glow;
   private valleyGlow!: Glow;
   private words!: ToolkitWordRow;
-  private barSeconds = 2;
+  private grid!: Cues;                     // bar times of this chapter (tempo map)
   /** Camera azimuth (deg) at b8 that shows the descent direction at p running left to right. */
   private closeAzimuth = 0;
 
   setup(layers: SceneLayers, timing: ChapterTiming): void {
     const stage = layers.stage;
     this.stage = stage;
-    if (timing.barSeconds === undefined) throw new Error("s04-toolkit: trailer timing without a bar grid");
-    this.barSeconds = timing.barSeconds;
+    this.grid = new Cues(timing, 0);
     this.backdrop = new RadialBackdrop(stage, { inner: "#1a2846", outer: "#05070d" });
     addStandardLights(stage);
     this.dust = new DustField(stage, 11, 700, 10, 30, new THREE.Vector3(0, 0, 0), "#6f8fc9");
@@ -157,7 +156,7 @@ export class ToolkitScene implements Scene {
 
   /** Landing time of iterate k (k ≥ 1). */
   private landing(k: number): number {
-    return (FIRST_LANDING_BAR + LANDING_SPACING_BARS * (k - 1)) * this.barSeconds;
+    return this.grid.bar(FIRST_LANDING_BAR + LANDING_SPACING_BARS * (k - 1));
   }
 
   /** Chart position of the moving point: iterate k − 1 → k along the retraction curve before landing k. */

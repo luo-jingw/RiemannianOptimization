@@ -24,6 +24,7 @@ class TimelineChapter:
     music: str
     sentence_starts: tuple[float, ...]
     sentence_ends: tuple[float, ...]
+    beat_times: tuple[float, ...] | None = None   # trailers: chapter-relative start of every beat, then the end
 
 
 @dataclass(frozen=True)
@@ -33,18 +34,17 @@ class Timeline:
     duration: float
     chapters: tuple[TimelineChapter, ...]
     captions: tuple[TimelineCaption, ...]
-    bar_seconds: float | None = None    # trailers: seconds per bar of the musical grid
 
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         data = asdict(self)
-        bar = data.pop("bar_seconds")
-        if bar is not None:
-            data["barSeconds"] = bar
-        # JSON uses the player's camelCase keys for sentence anchors.
+        # JSON uses the player's camelCase keys for sentence anchors and beat times.
         for ch in data["chapters"]:
             ch["sentenceStarts"] = ch.pop("sentence_starts")
             ch["sentenceEnds"] = ch.pop("sentence_ends")
+            beats = ch.pop("beat_times")
+            if beats is not None:
+                ch["beatTimes"] = beats
         path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
     @staticmethod
@@ -54,11 +54,11 @@ class Timeline:
             TimelineChapter(id=c["id"], index=int(c["index"]), start=float(c["start"]), end=float(c["end"]),
                             title=c["title"], music=c["music"],
                             sentence_starts=tuple(float(x) for x in c["sentenceStarts"]),
-                            sentence_ends=tuple(float(x) for x in c["sentenceEnds"]))
+                            sentence_ends=tuple(float(x) for x in c["sentenceEnds"]),
+                            beat_times=tuple(float(x) for x in c["beatTimes"]) if "beatTimes" in c else None)
             for c in raw["chapters"]
         )
         captions = tuple(TimelineCaption(start=float(c["start"]), end=float(c["end"]), text=c["text"],
                                          translation=c["translation"]) for c in raw["captions"])
-        bar = raw.get("barSeconds")
         return Timeline(language=raw["language"], episode=raw["episode"], duration=float(raw["duration"]),
-                        chapters=chapters, captions=captions, bar_seconds=float(bar) if bar is not None else None)
+                        chapters=chapters, captions=captions)

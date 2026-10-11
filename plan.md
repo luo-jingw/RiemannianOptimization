@@ -1,49 +1,36 @@
 # Plan
 
-Plan Status: completed
+Plan Status: approved
 
 # Problem
 
 ## Current
 
-- Six delivered episodes (E01–E06, `output/<eid>/v1/`) and a web version on GitHub Pages.
-- Every episode is narration-driven: the timeline is built from measured sentence durations, the score is a restrained
-  bed under the voice, and each episode has intro, chapter and outro cards.
-- The series has no promotional piece.
+- `e00-trailer` v6 is delivered and published: seven sections on a fixed 120 BPM grid (flat → fold → gallery →
+  toolkit → montage → title → credits), an orchestral score on the episode palette, 2:34.
+- Each section fades in from and out to the background; the sections use different visual languages; the montage is
+  a tile wall and the title carries a promotional tagline.
 
 ## Problem
 
-A trailer for the whole series needs the opposite structure: music leads, visuals cut on bar lines, narration is sparse,
-and the content must not depend on which episodes exist (the course is ongoing). The current pipeline cannot place
-sentences on a musical grid, has no richer score, and always draws episode title cards.
-
-## Revision (v3 review)
-
-The application gallery plays as a list: six equal 4-bar shots, each a noun-phrase line, a crossfade on the bar
-line and a key change with an impact at every boundary. The score keeps one even groove from the gallery to the
-montage, so the three turning points (gallery → toolkit, the four toolkit words, montage → title) have no contrast.
+The piece reads as a course advertisement: it argues (problem → examples → conclusion → contents) instead of carrying
+the viewer, the sections are separated by fades, and the music keeps one tempo and one gentle energy level.
 
 ## Goal
 
-- `e00-trailer`: about 2:20 (length follows the music, not fixed), 1920×1080, 30 fps, delivered like the episodes.
-- Eight narration lines (af_heart), burned-in English/Chinese captions; narration lands on bar lines.
-- Sections: flat world → fold onto a curved space → application gallery (robot arm, drone SLAM loop closure, neural
-  network with orthogonal weights, hyperbolic embedding of a hierarchy, diffusion tensor brain slice, subspace fitting)
-  → rebuilding the toolkit on a curved landscape → montage of series shots → title.
-- Score built on the episode palette (`music_composer.py`: additive pad, soft pluck, FM bell, sine bass, maj7 / min7 /
-  add9 harmony, legato chords, the four-note signature) and enriched with further instruments (strings, piano,
-  celesta, horn, harp, timpani, soft percussion), convolution reverb. Few key changes, one per large section, each
-  prepared by a sus4 / dominant: C (open, fold) → G (gallery) → D (toolkit) → A (montage) → ♭VI–♭VII → C (title).
-- No knowledge-point claims beyond standard, general statements; nothing tied to the current episode list.
-- Listed first on the web index as "Trailer"; no title cards, no chapter segments.
-- Gallery as one accelerating arc: shot lengths 6, 5, 4, 3, 3, 3 bars; match cuts (zoom-through about matching
-  focus points, landing an eighth note before the bar line) with a brief manifold glyph at each cut; the last shot
-  freezes and fades during the stop.
-- Gallery narration as a progression: two full lines, then single words, spoken on the cuts.
-- Score dynamics as one continuous intensity curve: layers enter and thicken gradually; harmonic rhythm follows the
-  gallery shots; turning points breathe instead of breaking: the gallery's last bar thins to pad and strings before
-  the toolkit, the four toolkit words get pitched bell accents over an unbroken bed, the title lands on full C with
-  a soft low hit and the bell signature.
+`e00` v7 replaces v6 as a short film led by sight and sound:
+
+- One protagonist, the orange point (the optimizer), on one journey: it descends in a flat world, its straight step
+  falls off the curved world, it passes through six real worlds, it learns to move on the curved landscape, the
+  course's geometry flashes past, and it lands on the title.
+- No fades between sections: every boundary is a zoom-through match cut on the protagonist or the key element.
+- Music on the episode palette with a tempo map and an edit-style energy arc (demo
+  `output/e00-trailer/previews/tempo-demo-phonk.mp3`, approved): sparse 80 BPM → accelerando to 120 → driving 120 with
+  drums → half-time 120 → snare build to 128 with one empty beat → phonk drop at 128 (808, cowbell on the signature
+  motif, clap, hat rolls, pumping pads) → tape stop (1.5 s, darkening) → half a second of silence → final hit and
+  the bell signature.
+- Narration only where it is reasonable: short lines on bar anchors; none over the drop.
+- Length follows the music (about 2:10); title card without tagline; credits unchanged.
 
 # Structure
 
@@ -51,83 +38,77 @@ montage, so the three turning points (gallery → toolkit, the four toolkit word
 
 | Module | Responsibility |
 |---|---|
-| Series kind | `series.json` entries gain `kind`: `episode` (default) or `trailer` |
-| Story beats | trailer scenes declare their length in bars; sentences declare the bar they start on |
-| Beat timeline builder | builds the timeline from the bar grid; checks every sentence fits before the next anchor |
-| Trailer score | original score for the trailer (section-aware arrangement, drums, lead, reverb, key walk) |
-| Mix profile | ducking depth and loudness target selected by kind (episode: 10 dB / −16 LUFS; trailer: 4 dB / −14 LUFS) |
-| Trailer assets | third-party data and models with recorded source and licence; prepared data files for the scenes |
-| Trailer scenes | one scene file per section under `player/src/episodes/e00-trailer/` |
-| Kind-aware player | no intro/chapter/outro cards for trailers; web index lists trailers first; seek bar without segments |
+| Tempo map | a scene declares its tempo (`tempo: [bpm_start, bpm_end]`, linear across its beats); bar times follow from it |
+| Beat timeline builder | builds chapter starts and sentence anchors from the tempo map; writes per-chapter beat times |
+| Bar cues (player) | `Cues.beat(b)` / `Cues.bar(i)` read the chapter's beat times |
+| Film score | arrangement per music category on the episode voices + orchestra + drums; tape stop as an audio effect |
+| Section transitions (player) | zoom-through between consecutive trailer scenes: the outgoing scene zooms into its exit point, the incoming one out of its entry point, with radial blur |
+| Film scenes | one scene per section: flat, fold, worlds (gallery), rebuild (toolkit), build, drop (montage flash cuts + visual tape stop), title, credits |
 
 ## Responsibilities
 
-- Content (sentences, bar anchors, section lengths) is edited only in `content/episodes/e00-trailer/`.
-- The beat timeline builder is the only writer of the trailer timeline; the trailer score reads it.
-- Downloaded assets are recorded with source URL, licence and SHA-256 before they are used.
+- The tempo map is declared only in `story.en.json`; the timeline builder is the only place that turns it into
+  seconds; the score and the scenes read beat times from `timeline.json`.
+- A scene owns its picture; the transition pass owns only the zoom/blur across boundaries and asks each scene for its
+  exit / entry point.
 
 ## State Ownership
 
 | State | Writer | File |
 |---|---|---|
-| Episode kind | Series registry (hand-edited) | `content/series.json` |
-| Trailer script and bar anchors | Episode content | `content/episodes/e00-trailer/{storyboard.md, story.en.json}` |
-| Trailer timeline | Beat timeline builder | `build/e00-trailer/en/timeline.json` |
-| Trailer score | Trailer score | `build/e00-trailer/en/audio/music.wav` |
-| Asset provenance | Trailer assets | `player/public/trailer/SOURCES.md` |
-| Prepared asset data | Asset preparation scripts | `player/public/trailer/*.json` |
+| Tempo per scene, bars, narration anchors | episode content (hand-edited) | `content/episodes/e00-trailer/story.en.json` |
+| Beat times per chapter | beat timeline builder | `build/e00-trailer/en/timeline.json` |
+| Score | film score | `build/e00-trailer/en/audio/music.wav` |
 
 # Interface
 
 ## Interfaces
 
-- `content/series.json` entry: `{ "id", "order", "title", "status", "kind"?: "episode" | "trailer" }` (absent = `episode`).
-- `story.en.json` for a trailer:
-  - scene: `"bars": int` (section length), `"music"`: one of `trailer-open | trailer-fold | trailer-gallery |
-    trailer-toolkit | trailer-montage | trailer-title`;
-  - sentence: `"bar": int` (start bar relative to the scene start).
-- Python: `EpisodeKind = Literal["episode", "trailer"]`; `StoryScene.bars: int | None`; `StorySentence.bar: int | None`;
-  `BeatTimelineBuilder(bpm: float, beats_per_bar: int).build(story, provenance) -> Timeline`;
-  `TrailerScore().compose(timeline) -> np.ndarray`; `MixProfile.for_kind(kind) -> MixSettings`;
-  muxer loudness target from the same profile.
-- TypeScript: `SeriesEpisode.kind?: "episode" | "trailer"`; `ChapterTiming.barSeconds?: number`; `Cues.bar(i)` (time of
-  bar i in the chapter); `TitleLayer` draws nothing for trailers; `EpisodeIndex` renders trailers in their own row.
-- Gallery shot plan: `GALLERY_SHOT_BARS = [6, 5, 4, 3, 3, 3]` in `player/src/episodes/e00-trailer/lib/gallery-shots.ts`
-  and the gallery's per-bar chord plan in the score (`trailer_harmony.py`); both follow the bar anchors in
-  `story.en.json` (one sentence per shot, on the shot's first bar; the first on bar 1).
-- `GalleryVignette.focus(t: number): THREE.Vector2` — screen position (px) of the shot's key element at vignette
-  time t; the compositor zooms through matching focus points.
-- Toolkit word onsets: one rule (character offset over the spoken interval) used by `toolkit-words.ts` for the
-  visuals and by the score for the bell accents.
+- `story.en.json` scene: `"bars": int`, `"tempo": [number, number]` (BPM at the first and last beat; default
+  `[120, 120]`), `"music"`: `film-flat | film-fold | film-worlds | film-rebuild | film-build | film-drop | film-title |
+  film-credits`.
+- Python: `StoryScene.tempo: tuple[float, float] | None`; `TimelineChapter.beat_times: tuple[float, ...] | None`
+  (chapter-relative start of every beat, 4 per bar, plus the end); `Timeline.bar_seconds` is removed.
+- TypeScript: `ChapterTiming.beatTimes?: number[]`; `Cues.beat(b)` interpolates `beatTimes`, `Cues.bar(i) = beat(4i)`.
+- Score: `FilmScore().compose(timeline) -> np.ndarray`; `TapeStop(seconds, exponent).apply(mix, at) -> None`.
+- Transitions: optional `Scene.exitPoint?(): Vector2` and `Scene.entryPoint?(): Vector2` (frame uv);
+  `TransitionPass` renders the stage offscreen for the last / first `TRANSITION_SECONDS` of a trailer chapter.
 
 ## Inputs
 
-- Downloaded assets, quality first, each with a licence that permits public video use (candidates: Stanford HARDI
-  diffusion MRI via DIPY for a real tensor field; a scanned point cloud for subspace fitting; models where a procedural
-  build would look worse).
+The approved music demo (prototype, ported into the score modules); existing vignettes, terrain and montage
+visualizations.
 
 ## Outputs
 
-- `output/e00-trailer/v1/` (MP4, SRT, cover, manifest); trailer on the web index; `player/public/trailer/SOURCES.md`.
+`output/e00-trailer/v7/` (MP4, SRT, cover from the title card, manifest); web version rebuilt after review.
 
 ## State Changes
 
-- `series.json` gains `e00-trailer` with `kind: "trailer"`, status `planned → scripted → delivered`.
+`series.json` keeps `e00-trailer` (kind `trailer`); its content changes to the film structure.
 
 # Flow
 
 ## Main Flow
 
 ```
-content/episodes/e00-trailer/story.en.json (bars, bar anchors)
-  → rvideo validate (trailer rules: bars present, anchors inside sections)
-  → rvideo narrate                       → sentence WAVs
-  → BeatTimelineBuilder (120 BPM, 4/4)   → timeline.json   (fails if a sentence overruns its slot)
-  → subtitles → TrailerScore → mix (trailer profile) → capture → mux (−14 LUFS) → check
-  → npm run site:build                   → trailer row on the web index
+story.en.json (bars, tempo, music, anchors)
+  → validate → narrate → BeatTimelineBuilder (tempo map → bar times) → timeline.json
+  → subtitles → FilmScore (+ tape stop) → mix (trailer profile) → capture (scenes + TransitionPass) → mux → check
 ```
 
-`rvideo deliver e00-trailer` runs the chain; the CLI picks the builders from the episode's `kind`.
+Film sections (tempo, bars, picture, narration):
+
+| Section | Tempo | Bars | Picture | Narration (bar) |
+|---|---|---|---|---|
+| s01-flat | 80 | 4 | contour map, the point steps down on the ticks | "Optimization usually lives in flat space." (1) |
+| s02-fold | 80→120 | 4 | the plane curls into a sphere; the straight step leaves it and turns red | "But the world is curved." (2) |
+| s03-worlds | 120 | 16 | six worlds, shots of 4, 3, 3, 2, 2, 2 bars, match cuts | robot arm (0), drone (4), weights (7), hierarchies (10), brain (12), data (14) |
+| s04-rebuild | 120 half-time | 16 | the terrain, tangent plane, four words, descent | "They all live on manifolds…" (1), "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step." (7) |
+| s05-build | 120→128 | 2 | camera rushes down the valley with the snare roll; last beat black with one orange point | — |
+| s06-drop | 128 | 8 | the course's geometry in full-screen flash cuts on the beat (twelve visualizations), last bar slows, darkens and freezes with the tape stop | — |
+| s07-title | 120 | 8 | black, then the hit: title, circle of fifths landing on C | "Riemannian Optimization, from the Ground Up." (1) |
+| s08-credits | 120 | 4 | credits as now | — |
 
 # Code Mapping
 
@@ -135,18 +116,17 @@ content/episodes/e00-trailer/story.en.json (bars, bar anchors)
 
 | Module | Files |
 |---|---|
-| Series kind | `pipeline/rvideo/schema/series.py`, `player/src/core/EpisodeLoader.ts` |
-| Story beats | `pipeline/rvideo/schema/story.py`, `pipeline/rvideo/validate/content_validator.py` |
-| Beat timeline builder | `pipeline/rvideo/timing/beat_timeline_builder.py`, `pipeline/rvideo/cli/main.py` |
-| Trailer score | `pipeline/rvideo/music/{trailer_score.py, trailer_harmony.py, trailer_orchestra.py, trailer_reverb.py}`, instruments shared with `music_composer.py` (`Voices`) |
-| Mix profile | `pipeline/rvideo/audio/mix_profile.py`, `pipeline/rvideo/audio/narration_mixer.py`, `pipeline/rvideo/delivery/muxer.py` |
-| Trailer assets | `pipeline/rvideo/assets/*.py` (data preparation), `player/public/trailer/` |
-| Trailer scenes | `player/src/episodes/e00-trailer/{index.ts, sNN-*.ts, lib/*.ts}`, `player/src/episodes/registry.ts` |
-| Kind-aware player | `player/src/layers/TitleLayer.ts`, `player/src/core/EpisodeRenderer.ts`, `player/src/core/Scene.ts`, `player/src/primitives/Cues.ts`, `player/src/web/{EpisodeIndex,PlayerControls,SegmentedSeekBar}.ts` |
+| Tempo map | `pipeline/rvideo/schema/{story,timeline}.py`, `pipeline/rvideo/validate/content_validator.py` |
+| Beat timeline builder | `pipeline/rvideo/timing/beat_timeline_builder.py` |
+| Bar cues | `player/src/core/Scene.ts`, `player/src/core/EpisodeLoader.ts`, `player/src/primitives/Cues.ts` |
+| Film score | `pipeline/rvideo/music/{film_score.py, film_harmony.py, film_drums.py, tape_stop.py}`, `trailer_orchestra.py`, `trailer_dsp.py`, `trailer_reverb.py`; `trailer_score.py` and `trailer_harmony.py` removed; `pipeline/rvideo/cli/main.py` |
+| Section transitions | `player/src/core/TransitionPass.ts`, `player/src/core/EpisodeRenderer.ts`, `player/src/core/Scene.ts` |
+| Film scenes | `player/src/episodes/e00-trailer/{index.ts, s01-flat.ts … s08-credits.ts, lib/*}` |
+| Content | `content/episodes/e00-trailer/{storyboard.md, story.en.json}` |
 
 ## Interfaces
 
-See Interface; every interface lives in the files listed above.
+See Interface.
 
 ## State
 
@@ -162,20 +142,22 @@ Round: 1
 
 ### Goal
 
-Episode kind and story beats end to end: schemas, validator rules for trailers, kind-aware title layer, web index row,
-seek bar without segments for trailers. Existing episodes unchanged.
+Tempo map end to end: schema, validator, timeline builder writing bar times, player cues reading them; the score
+reads bar times.
 
 ### Files
 
-`pipeline/rvideo/schema/{series,story}.py`, `pipeline/rvideo/validate/content_validator.py`, `player/src/core/{EpisodeLoader,EpisodeRenderer,Scene}.ts`, `player/src/layers/TitleLayer.ts`, `player/src/primitives/Cues.ts`, `player/src/web/{EpisodeIndex,PlayerControls,SegmentedSeekBar}.ts`
+`pipeline/rvideo/schema/{story,timeline}.py`, `pipeline/rvideo/validate/content_validator.py`,
+`pipeline/rvideo/timing/beat_timeline_builder.py`, `player/src/core/{Scene,EpisodeLoader}.ts`,
+`player/src/primitives/Cues.ts`
 
 ### Structures
 
-`EpisodeKind`, `StoryScene.bars`, `StorySentence.bar`, `ChapterTiming.barSeconds`, `Cues.bar`
+`StoryScene.tempo`, `TimelineChapter.bar_times`, `ChapterTiming.barTimes`
 
 ### Affected Modules
 
-Series kind, Story beats, Kind-aware player
+Tempo map, Beat timeline builder, Bar cues
 
 ### Dependencies
 
@@ -183,30 +165,31 @@ none
 
 ### Observation
 
-`rvideo validate` on all six episodes (unchanged results); typecheck; stills of E03 at its intro card and one chapter
-card identical (hash) before and after the change.
+The current e00 story (all 120 BPM) rebuilds to the same chapter and caption times; a test story with 80→120
+prints bar durations from 0.75 s falling to 0.5 s per beat; E01–E06 timelines unchanged (hash).
 
 ## Phase 2
 
-Phase Status: completed
+Phase Status: active
 
-Round: 2
+Round: 1
 
 ### Goal
 
-Beat timeline builder and kind dispatch in the CLI; mix profile and muxer loudness by kind.
+Film story: eight sections with tempo, bars, music categories and narration anchors; storyboard rewritten; audio
+built.
 
 ### Files
 
-`pipeline/rvideo/timing/beat_timeline_builder.py`, `pipeline/rvideo/audio/mix_profile.py`, `pipeline/rvideo/audio/narration_mixer.py`, `pipeline/rvideo/delivery/muxer.py`, `pipeline/rvideo/cli/main.py`
+`content/episodes/e00-trailer/{story.en.json, storyboard.md}`
 
 ### Structures
 
-`BeatTimelineBuilder`, `MixProfile`
+none new
 
 ### Affected Modules
 
-Beat timeline builder, Mix profile
+Content
 
 ### Dependencies
 
@@ -214,30 +197,61 @@ Phase 1
 
 ### Observation
 
-A test trailer story: chapter starts are exact multiples of the bar length; a deliberately overlong sentence is
-rejected with its slot size; E03 timeline rebuild is byte-identical.
+`rvideo audio e00-trailer`: every sentence fits; transcript check; chapter starts and total duration.
 
 ## Phase 3
 
-Phase Status: completed
+Phase Status: pending
 
 Round: 2
 
 ### Goal
 
-Trailer score: arrangement per section, drums, bass, lead, reverb, risers/impacts, twelve-key walk ending in C.
+Film score ported from the approved demo onto the timeline: categories film-*, drums, phonk drop, tape stop,
+gallery shot accents; old trailer score removed.
 
 ### Files
 
-`pipeline/rvideo/music/trailer_score.py`, `pipeline/rvideo/music/` helper files
+`pipeline/rvideo/music/{film_score.py, film_harmony.py, film_drums.py, tape_stop.py}`, `pipeline/rvideo/cli/main.py`
 
 ### Structures
 
-`TrailerScore`
+`FilmScore`, `FilmHarmony`, `Drums`, `TapeStop`
 
 ### Affected Modules
 
-Trailer score
+Film score
+
+### Dependencies
+
+Phase 2
+
+### Observation
+
+Chord and tempo per bar log; RMS every 2 s and around each boundary; the tape stop and silence measured; score preview
+for the user.
+
+## Phase 4
+
+Phase Status: pending
+
+Round: 2
+
+### Goal
+
+Section transitions: zoom-through between consecutive trailer chapters; section fades removed from the scenes.
+
+### Files
+
+`player/src/core/{TransitionPass,EpisodeRenderer,Scene}.ts`, the e00 scenes' fade code
+
+### Structures
+
+`TransitionPass`, `Scene.exitPoint`, `Scene.entryPoint`
+
+### Affected Modules
+
+Section transitions, Film scenes
 
 ### Dependencies
 
@@ -245,274 +259,52 @@ Phase 1
 
 ### Observation
 
-Key-per-bar log covering all twelve keys and ending on C; spectrogram and RMS per section; peak and LUFS of the score;
-the user listens to a score preview before scenes are finalized.
-
-## Phase 4
-
-Phase Status: completed
-
-Round: 2
-
-### Goal
-
-Trailer assets: search, evaluate and download (quality first, licence suitable for public video), prepare data files
-(DTI tensor slice, point cloud), record provenance.
-
-### Files
-
-`pipeline/rvideo/assets/*.py`, `player/public/trailer/**`
-
-### Structures
-
-Prepared JSON formats for the tensor slice and point cloud
-
-### Affected Modules
-
-Trailer assets
-
-### Dependencies
-
-none
-
-### Observation
-
-`SOURCES.md` table (asset, source URL, licence, SHA-256, size); preview renders of each prepared asset.
+Stills across every boundary (−0.3 s … +0.3 s); determinism and history checks; E01–E06 stills unchanged (hash).
 
 ## Phase 5
 
-Phase Status: completed
+Phase Status: pending
 
 Round: 3
 
 ### Goal
 
-Trailer storyboard and script: sections with bar lengths, eight sentences with bar anchors and Chinese captions;
-audio built with the beat timeline.
+Film scenes: flat and fold on the tempo map, worlds with 4/3/3/2/2/2 shots, rebuild in half-time, new build scene,
+drop as flash cuts with the visual tape stop, title without tagline, credits.
 
 ### Files
 
-`content/series.json`, `content/episodes/e00-trailer/{storyboard.md, story.en.json}`
+`player/src/episodes/e00-trailer/**`
 
 ### Structures
 
-none new
+`BuildScene`, `DropScene` (flash-cut schedule, time remap of the tape stop)
 
 ### Affected Modules
 
-Story beats, Series kind
+Film scenes
 
 ### Dependencies
 
-Phase 2, Phase 3
+Phase 3, Phase 4
 
 ### Observation
 
-`rvideo audio e00-trailer`: every sentence fits its slot; transcript check; total duration.
+Stills at every cut and event; determinism and history checks; visual review.
 
 ## Phase 6
 
-Phase Status: completed
+Phase Status: pending
 
 Round: 4
 
 ### Goal
 
-Trailer scenes: flat world, fold, six application vignettes, toolkit landscape, montage, title.
+Deliver v7; after the user's review, publish the web version and update the docs.
 
 ### Files
 
-`player/src/episodes/e00-trailer/**`, `player/src/episodes/registry.ts`
-
-### Structures
-
-episode-local geometry helpers (robot arm, drone, network, Poincaré disk, tensor glyphs, terrain)
-
-### Affected Modules
-
-Trailer scenes
-
-### Dependencies
-
-Phase 4, Phase 5
-
-### Observation
-
-Stills at every bar where something changes; determinism and history checks clean; visual review of each vignette.
-
-## Phase 7
-
-Phase Status: completed
-
-Round: 6
-
-### Goal
-
-Gallery narration as a progression and new bar anchors; storyboard for the revised gallery and score; audio rebuilt.
-
-### Files
-
-`content/episodes/e00-trailer/{storyboard.md, story.en.json}`
-
-### Structures
-
-none new
-
-### Affected Modules
-
-Story beats
-
-### Dependencies
-
-Phase 6
-
-### Observation
-
-`rvideo audio e00-trailer`: every sentence fits its slot; transcript check; caption start times on the cut bars.
-
-## Phase 8
-
-Phase Status: completed
-
-Round: 6
-
-### Goal
-
-Score contrast: gallery build-up and pushes, stop and sub drop into the toolkit, word stabs, vacuum before the title.
-
-### Files
-
-`pipeline/rvideo/music/trailer_score.py`, `pipeline/rvideo/music/trailer_instruments.py`
-
-### Structures
-
-`Fx.reverse_swell`, `Fx.sub_drop`, `Drums.stab`
-
-### Affected Modules
-
-Trailer score
-
-### Dependencies
-
-Phase 7
-
-### Observation
-
-Key-per-bar log; RMS per quarter beat around each cut, the stop, the stabs and the title; score preview for the user
-before v4.
-
-## Phase 9
-
-Phase Status: completed
-
-Round: 6
-
-### Goal
-
-Gallery visuals: uneven shot lengths, match-cut zoom-through with focus points and manifold glyphs, freeze at the
-stop; toolkit words on the stab times.
-
-### Files
-
-`player/src/episodes/e00-trailer/{s03-gallery.ts, lib/gallery-*.ts, lib/toolkit-words.ts}`
-
-### Structures
-
-`GalleryVignette.focus`, gallery shot plan, manifold glyph overlay
-
-### Affected Modules
-
-Trailer scenes
-
-### Dependencies
-
-Phase 7
-
-### Observation
-
-Stills across every cut (−0.5 s … +0.3 s) and the stop; determinism and history checks clean.
-
-## Phase 10
-
-Phase Status: completed
-
-Round: 7
-
-### Goal
-
-Rebuild the trailer score on the episode palette: shared episode voices plus new instruments, a bar-by-bar chord
-plan with five prepared key changes, one continuous intensity curve driving the layers, breathing transitions.
-Replaces the synth/drum score of Phases 3 and 8.
-
-### Files
-
-`pipeline/rvideo/music/{trailer_score.py, trailer_harmony.py, trailer_orchestra.py}`; `trailer_instruments.py` removed
-
-### Structures
-
-`TrailerHarmony` (chord per bar, key per bar), `Orchestra` (instrument renderers), `TrailerScore` (arrangement)
-
-### Affected Modules
-
-Trailer score
-
-### Dependencies
-
-Phase 7
-
-### Observation
-
-Chord and key per bar log; RMS per bar (the intensity curve) and around each section boundary; spectral centroid per
-section against an episode bed; score preview for the user before v4.
-
-## Phase 11
-
-Phase Status: completed
-
-Round: 8
-
-### Goal
-
-Montage covering the whole expected course (Boumal-style syllabus: foundations, metrics, connections and Hessians,
-geodesics and the exponential map, parallel and vector transport, Riemannian Newton, trust regions): twelve tiles on
-a 4×3 wall, one tile every three beats, the full wall on the last bar; montage 10 bars. Trailer cover taken from the title card.
-
-### Files
-
-`content/episodes/e00-trailer/{story.en.json, storyboard.md}`, `player/src/episodes/e00-trailer/{s05-montage.ts, lib/montage-*.ts}`,
-`pipeline/rvideo/music/trailer_harmony.py`, `pipeline/rvideo/music/trailer_score.py`, `pipeline/rvideo/delivery/muxer.py`
-
-### Structures
-
-seven new `MiniViz` tiles (metrics, Hessian model, geodesics, parallel transport, vector transport, Newton, trust
-region); montage tile schedule
-
-### Affected Modules
-
-Trailer scenes, Trailer score, Delivery
-
-### Dependencies
-
-Phase 10
-
-### Observation
-
-Stills of every tile large and the full wall; determinism and history checks; chord plan covers 10 montage bars;
-cover time inside the title card.
-
-## Phase 12
-
-Phase Status: completed
-
-Round: 6
-
-### Goal
-
-Deliver the next version, rebuild and publish the web version, update docs.
-
-### Files
-
-`output/e00-trailer/v<N>/`, `site/` (gh-pages), `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`, `content/series.json`
+`output/e00-trailer/v7/`, `site/`, `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`
 
 ### Structures
 
@@ -524,9 +316,8 @@ Delivery, web version, documentation
 
 ### Dependencies
 
-Phase 10, Phase 11
+Phase 5
 
 ### Observation
 
-`rvideo check` report (durations, decode, −14 LUFS); the user reviews v4; trailer plays on the web index; docs
-describe kinds and the beat timeline.
+`rvideo check` report; the user reviews v7; web index plays it.

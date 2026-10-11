@@ -82,7 +82,7 @@
 ### s05-montage — 系列画面
 
 - 旁白（第 1 小节）："This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters."
-- 画面：每小节一个镜头，取自已交付剧集中不需要上下文即可欣赏的画面（直接复用剧集场景的绘制）：
+- 画面：飞入拼贴墙。开始时 8 个暗色占位框排成 4×2 网格；每小节一个镜头先在中央大框中出现，在框内缓慢推近（纹理缩放，不越出边框），半小节后缩小飞入自己的格子，当前格边框高亮；8 格拼满后整面墙淡出接标题。镜头取自已交付剧集（content/episodes/e00-trailer/montage.json）：
   - 被拉直的圆（隐函数）；
   - 压缩映射的蛛网迭代；
   - 球面上的坐标卡拼接；
@@ -95,11 +95,11 @@
 ### s06-title — 标题
 
 - 旁白（第 1 小节）："Riemannian Optimization, from the Ground Up."
-- 画面：冲击音落下时，五度圈绕满一圈回到 C 点亮；系列标题居中；下方一行 "Full proofs · Animated counterexamples · English / Chinese captions" 与网页版地址；最后一行小字 "New episodes follow the course."；余音中渐暗。
+- 画面：冲击音落下时，五度圈绕满一圈回到 C 点亮；系列标题；下方一行 "Full proofs · Animated counterexamples · English / Chinese captions"；最后一行小字 "New episodes follow the course."；余音中渐暗。不出现仓库或网页地址。
 
 ### s07-credits — 片尾署名
 
-- 无旁白。标题完全淡出后，居中小号浅色文字逐行淡入：数据与模型来源及许可（Stanford HARDI、Dry Bean、UR5e、Skydio X2，均为许可要求的署名）、制作工具、课程来源，最后一行"产品名称仅用于标识，不代表背书"。配乐为 C 大调长和弦弱奏收尾。
+- 无旁白。标题完全淡出后，左对齐的浅色文字逐行淡入：数据与模型来源及许可（Stanford HARDI、Dry Bean、UR5e、Skydio X2，均为许可要求的署名）、制作工具、课程来源，最后一行"产品名称仅用于标识，不代表背书"。配乐为 C 大调长和弦弱奏收尾。
 
 ## Glossary additions
 

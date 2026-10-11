@@ -27,7 +27,6 @@ export class TitleScene implements Scene {
   private title!: FormulaHandle;
   private subtitle!: FormulaHandle;
   private tagline!: FormulaHandle;
-  private url!: FormulaHandle;
   private small!: FormulaHandle;
   private s1!: FormulaHandle;
 
@@ -48,8 +47,7 @@ export class TitleScene implements Scene {
     this.title = fl.add({ text: "Riemannian Optimization", x: 150, y: 330, size: 84, weight: 800, align: "left", color: "#ffffff" });
     this.subtitle = fl.add({ text: "from the Ground Up", x: 150, y: 430, size: 60, weight: 700, align: "left", color: "#ffffff" });
     this.tagline = fl.add({ text: "Full proofs  ·  Animated counterexamples  ·  English / Chinese captions", x: 152, y: 530, size: 28, align: "left", color: Palette.muted });
-    this.url = fl.add({ text: "luo-jingw.github.io/RiemannianOptimization", x: 152, y: 590, size: 28, align: "left", color: Palette.orange, weight: 600 });
-    this.small = fl.add({ text: "New episodes follow the course.", x: 152, y: 650, size: 24, align: "left", color: "#66708c" });
+    this.small = fl.add({ text: "New episodes follow the course.", x: 152, y: 590, size: 26, align: "left", color: "#8a94b0" });
   }
 
   draw(ctx: SceneContext): void {
@@ -88,10 +86,8 @@ export class TitleScene implements Scene {
     this.subtitle.set({ opacity: b.opacity, y: 430 + b.dy });
     const d = rise(2.4);
     this.tagline.set({ opacity: d.opacity, y: 530 + d.dy });
-    const e = rise(2.9);
-    this.url.set({ opacity: e.opacity, y: 590 + e.dy });
-    const f = rise(3.4);
-    this.small.set({ opacity: clamp01(f.opacity), y: 650 + f.dy });
+    const f = rise(3.0);
+    this.small.set({ opacity: clamp01(f.opacity), y: 590 + f.dy });
   }
 
   teardown(_layers: SceneLayers): void {}

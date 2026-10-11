@@ -23,7 +23,7 @@ export class EpisodeRenderer {
 
   constructor(private readonly data: EpisodeData, private readonly layers: SceneLayers,
               private readonly registry: SceneRegistry, overlayHost: HTMLElement, nextHref: string | null) {
-    this.captions = new CaptionLayer(overlayHost, data.timeline.captions);
+    this.captions = new CaptionLayer(overlayHost, data.timeline.captions, data.episode.kind === "trailer" ? "shadow" : "boxed");
     this.titles = new TitleLayer(overlayHost, data, CHAPTER_HEAD, nextHref);
   }
 

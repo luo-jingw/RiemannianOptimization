@@ -1,15 +1,20 @@
 import type { TimelineCaption } from "../core/Timeline";
 
-/** Burned-in bilingual captions: English line above Chinese line, bottom band of the frame. */
+export type CaptionStyle = "boxed" | "shadow";
+
+/**
+ * Burned-in bilingual captions: English line above Chinese line, bottom band of the frame.
+ * "boxed" draws dark panels behind the lines (episodes); "shadow" draws bare text with a soft dark outline (trailers).
+ */
 export class CaptionLayer {
   private readonly box: HTMLDivElement;
   private readonly en: HTMLDivElement;
   private readonly zh: HTMLDivElement;
   private shown = -1;
 
-  constructor(parent: HTMLElement, private readonly captions: TimelineCaption[]) {
+  constructor(parent: HTMLElement, private readonly captions: TimelineCaption[], style: CaptionStyle = "boxed") {
     this.box = document.createElement("div");
-    this.box.className = "caption-box";
+    this.box.className = style === "shadow" ? "caption-box caption-shadow" : "caption-box";
     this.en = document.createElement("div");
     this.en.className = "caption-en";
     this.zh = document.createElement("div");

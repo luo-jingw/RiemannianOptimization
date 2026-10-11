@@ -18,7 +18,9 @@ from rvideo.schema.timeline import Timeline
 
 CIRCLE = (0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5)
 KEY_NAMES = ("C", "G", "D", "A", "E", "B", "F#", "C#", "Ab", "Eb", "Bb", "F")
-SLOT_BARS = {"trailer-open": 0, "trailer-fold": 0, "trailer-gallery": 4, "trailer-toolkit": 8, "trailer-montage": 4}
+# Bars (relative to the section start) where a new key begins. Gallery: one key per vignette; toolkit: the second
+# key arrives with the second narration line (bar 7), when the word row appears; montage: halfway.
+KEY_SPLITS = {"trailer-gallery": (0, 4, 8, 12, 16, 20), "trailer-toolkit": (0, 7), "trailer-montage": (0, 4)}
 # chords as semitones above the key root (degree root + voicing)
 I_ADD9 = (0, 4, 7, 14)
 V = (7, 11, 14, 19)
@@ -75,9 +77,10 @@ class TrailerScore:
             if ch.music in ("trailer-title", "trailer-credits"):
                 segments.append(KeySegment(ch.id, ch.music, ch.start, bars, 0))
                 continue
-            slot = SLOT_BARS.get(ch.music, 0) or bars
-            for b0 in range(0, bars, slot):
-                segments.append(KeySegment(ch.id, ch.music, ch.start + b0 * bar, min(slot, bars - b0), k % 12))
+            splits = [b for b in KEY_SPLITS.get(ch.music, (0,)) if b < bars]
+            for n, b0 in enumerate(splits):
+                b1 = splits[n + 1] if n + 1 < len(splits) else bars
+                segments.append(KeySegment(ch.id, ch.music, ch.start + b0 * bar, b1 - b0, k % 12))
                 k += 1
         return segments
 
@@ -218,12 +221,12 @@ class TrailerScore:
             for s16 in range(0, 16, 2):
                 note = pad_root + 12 + chord[(s16 // 2) % len(chord)]
                 self._add(wet, self._pluck(note, 3500), t0 + s16 * beat / 4, 0.045, 0.3 * np.cos(s16))
-            if b % 8 == 0:                                  # one 8-bar lead phrase per toolkit key
+            if b == 0:                                      # one lead phrase per toolkit key, cut to the segment
                 lead_base = _wrap(60 + root % 12, 57, 68)
-                notes = [(t0 + st * beat - seg.start - b * bar, du * beat * 0.95, lead_base + iv) for st, du, iv in LEAD_PHRASE]
-                notes = [(s + b * bar, d, mm) for s, d, mm in notes]
-                lead = Synths.lead([(s, d, float(mm)) for s, d, mm in notes], int(8 * bar * SR + SR))
-                self._add(wet, lead, seg.start, 0.17, -0.1)
+                span = seg.bars * 4                         # beats available in this key
+                notes = [(st * beat, min(du, span - st) * beat * 0.95, float(lead_base + iv))
+                         for st, du, iv in LEAD_PHRASE if st < span]
+                self._add(wet, Synths.lead(notes, int(seg.bars * bar * SR + SR)), seg.start, 0.17, -0.1)
         elif m == "trailer-montage":
             for q in range(4):
                 kick(t0 + q * beat)

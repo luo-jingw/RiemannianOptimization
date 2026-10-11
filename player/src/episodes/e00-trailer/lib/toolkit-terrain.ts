@@ -64,17 +64,23 @@ export class HeightField {
   }
 }
 
-/** Surface colors by height, faded to the backdrop at the rim. */
+/** Surface colors by height; the rim fades out through vertex alpha (see rimAlpha), not by darkening. */
 const LOW = new THREE.Color("#0c2a55");
 const MID = new THREE.Color("#2c6cc0");
 const HIGH = new THREE.Color("#a9d6ff");
-const RIM = new THREE.Color("#060a14");
 
-function surfaceColor(h: number, r: number, target: THREE.Color): THREE.Color {
+function surfaceColor(h: number, target: THREE.Color): THREE.Color {
   const u = smoothstep(-1.1, 1.6, h);
   if (u < 0.5) target.copy(LOW).lerp(MID, u * 2);
   else target.copy(MID).lerp(HIGH, (u - 0.5) * 2);
-  return target.lerp(RIM, smoothstep(3.0, TERRAIN_RADIUS, r));
+  return target;
+}
+
+/** Opacity of the terrain at radius r: solid in the middle, dissolving smoothly into the backdrop at the rim. */
+const FADE_START = 2.2;
+function rimAlpha(r: number): number {
+  const u = smoothstep(FADE_START, TERRAIN_RADIUS, r);
+  return 1 - u;
 }
 
 /** The shaded terrain mesh plus topographic contour lines draped on it. */
@@ -98,8 +104,8 @@ export class TerrainView {
         const y = r * Math.sin(a);
         const h = field.value(x, y);
         pos.push(x, y, h);
-        surfaceColor(h, r, c);
-        col.push(c.r, c.g, c.b);
+        surfaceColor(h, c);
+        col.push(c.r, c.g, c.b, rimAlpha(r));
       }
     }
     const row = spokes + 1;
@@ -111,11 +117,11 @@ export class TerrainView {
     }
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    geometry.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
+    geometry.setAttribute("color", new THREE.Float32BufferAttribute(col, 4));   // RGBA: alpha fades the rim
     geometry.setIndex(index);
     geometry.computeVertexNormals();
     this.material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.62, metalness: 0.08,
-      side: THREE.DoubleSide, transparent: true, opacity: 1, depthWrite: true });
+      side: THREE.DoubleSide, transparent: true, opacity: 1, depthWrite: true });   // rings are drawn centre-out, so the faded rim blends over the interior
     this.mesh = new THREE.Mesh(geometry, this.material);
     this.mesh.renderOrder = 1;
     stage.root.add(this.mesh);
@@ -133,8 +139,9 @@ export class TerrainView {
         this.contours.positions[o] = x;
         this.contours.positions[o + 1] = y;
         this.contours.positions[o + 2] = h + 0.012;
-        surfaceColor(h, Math.hypot(x, y), c);
-        const rim = smoothstep(2.6, TERRAIN_RADIUS - 0.2, Math.hypot(x, y));
+        surfaceColor(h, c);
+        // contour lines melt into the surface tone before the rim starts to dissolve
+        const rim = smoothstep(FADE_START, FADE_START + 0.9, Math.hypot(x, y));
         c.lerp(line, 0.32 * (1 - rim));
         this.contours.colors[o] = c.r;
         this.contours.colors[o + 1] = c.g;
@@ -158,7 +165,7 @@ export class TerrainView {
         for (let i = 0; i < n; i++) {
           const x0 = lo + i * step;
           const y0 = lo + j * step;
-          if (Math.hypot(x0 + step / 2, y0 + step / 2) > TERRAIN_RADIUS - 0.15) continue;
+          if (Math.hypot(x0 + step / 2, y0 + step / 2) > FADE_START + 0.9) continue;
           const v = [at(i, j), at(i + 1, j), at(i + 1, j + 1), at(i, j + 1)];
           const corners = [[x0, y0], [x0 + step, y0], [x0 + step, y0 + step], [x0, y0 + step]];
           const cross: number[] = [];

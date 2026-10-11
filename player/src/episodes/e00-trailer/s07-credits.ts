@@ -7,17 +7,18 @@ import { Palette } from "../../primitives/Palette";
 
 /** s07 — quiet end credits: data and model attributions (required by their licences), tools, course source. */
 const LINES: { text: string; size: number; color: string; weight?: number; gap: number }[] = [
-  { text: "DATA & MODELS", size: 22, color: Palette.orange, weight: 700, gap: 0 },
-  { text: "Stanford HARDI diffusion MRI — Rokem et al., Stanford Digital Repository (ODC-PDDL)", size: 22, color: "#c7cee0", gap: 40 },
-  { text: "Dry Bean Dataset — M. Koklu & I. A. Ozkan, UCI Machine Learning Repository, doi:10.24432/C50S4B (CC BY 4.0)", size: 22, color: "#c7cee0", gap: 34 },
-  { text: "UR5e model — MuJoCo Menagerie (Google DeepMind), © 2018 ROS Industrial Consortium (BSD-3-Clause)", size: 22, color: "#c7cee0", gap: 34 },
-  { text: "Skydio X2 model — provided by Skydio via MuJoCo Menagerie (Apache-2.0); converted to glTF, rotor discs split", size: 22, color: "#c7cee0", gap: 34 },
-  { text: "PRODUCED WITH", size: 22, color: Palette.orange, weight: 700, gap: 64 },
-  { text: "Narration: Kokoro TTS   ·   Music: original, procedurally generated   ·   Rendering: Three.js, KaTeX", size: 22, color: "#c7cee0", gap: 40 },
-  { text: "Based on course notes for EECE7223 Riemannian Optimization", size: 22, color: "#c7cee0", gap: 34 },
-  { text: "Product names are used for identification only; no endorsement is implied.", size: 18, color: "#66708c", gap: 56 },
+  { text: "DATA & MODELS", size: 28, color: Palette.orange, weight: 700, gap: 0 },
+  { text: "Stanford HARDI diffusion MRI — Rokem et al., Stanford Digital Repository (ODC-PDDL)", size: 30, color: "#c7cee0", gap: 52 },
+  { text: "Dry Bean Dataset — M. Koklu & I. A. Ozkan, UCI Machine Learning Repository, doi:10.24432/C50S4B (CC BY 4.0)", size: 30, color: "#c7cee0", gap: 46 },
+  { text: "UR5e model — MuJoCo Menagerie (Google DeepMind), © 2018 ROS Industrial Consortium (BSD-3-Clause)", size: 30, color: "#c7cee0", gap: 46 },
+  { text: "Skydio X2 model — provided by Skydio via MuJoCo Menagerie (Apache-2.0); converted to glTF, rotor discs split", size: 30, color: "#c7cee0", gap: 46 },
+  { text: "PRODUCED WITH", size: 28, color: Palette.orange, weight: 700, gap: 76 },
+  { text: "Narration: Kokoro TTS   ·   Music: original, procedurally generated   ·   Rendering: Three.js, KaTeX", size: 30, color: "#c7cee0", gap: 52 },
+  { text: "Based on course notes for EECE7223 Riemannian Optimization", size: 30, color: "#c7cee0", gap: 46 },
+  { text: "Product names are used for identification only; no endorsement is implied.", size: 24, color: "#8a94b0", gap: 72 },
 ];
-const TOP = 330;
+const TOP = 300;
+const LEFT = 150;
 
 export class CreditsScene implements Scene {
   readonly id = "s07-credits";
@@ -29,8 +30,8 @@ export class CreditsScene implements Scene {
     for (const line of LINES) {
       y += line.gap;
       this.ys.push(y);
-      this.handles.push(layers.formulas.add({ text: line.text, x: 960, y, size: line.size, color: line.color,
-        weight: line.weight }));
+      this.handles.push(layers.formulas.add({ text: line.text, x: LEFT, y, size: line.size, color: line.color,
+        weight: line.weight, align: "left" }));
     }
   }
 

@@ -6,12 +6,15 @@ counterexample showing why each hypothesis is needed.
 
 - English narration (Kokoro TTS, voice `af_heart`), bilingual captions (English above Chinese)
 - Original procedural score; each episode's key moves one step around the circle of fifths
+- A 2½-minute series trailer (E00): real applications (robot arms, drone SLAM, orthogonal network weights,
+  hyperbolic embeddings, diffusion tensor imaging, subspace fitting) and a montage of the whole course
 - Animations are rendered with Three.js + KaTeX — the same code produces the MP4 videos and plays live in the browser
 
 ## Episodes
 
 | # | Title | Length | Topics |
 |---|---|---|---|
+| 0 | Series Trailer | 2.6 min | why optimization needs curved spaces; the course at a glance |
 | 1 | Nearness Without Coordinates: Topology | 34 min | open sets, convergence, continuity (≡ ε–δ), homeomorphism, why the inverse must be continuous |
 | 2 | Charts, Atlases and Smooth Manifolds | 35 min | charts, Hausdorff (line with two origins), transition maps, smooth compatibility, smooth maps, diffeomorphisms |
 | 3 | The Inverse Function Theorem | 36 min | derivative as linear map, contraction principle, full Rudin proof, four counterexamples |

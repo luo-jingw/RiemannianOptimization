@@ -59,6 +59,9 @@ interface Scene {
   `setup` (keep a material transparent and animate `opacity`).
 - `THREE.InstancedMesh` computes its bounding sphere once, from the instance matrices present at its first
   render, and uses it to order transparent objects; give moving instanced meshes a fixed bounding sphere in `setup`.
+- A `BufferGeometry` whose positions change in `draw` must recompute its bounding sphere after the change when it is
+  transparent: three.js sorts transparent objects by the bounding-sphere centre, so a stale sphere makes the draw
+  order depend on render history.
 - Resources that load asynchronously (textures, glTF models) are loaded in the scene's optional `preload()`, which
   the renderer awaits after `setup` before the frame is final.
 
@@ -100,6 +103,21 @@ second metric) · yellow = emphasized formula, latest ledger entry · muted gray
 `FormulaLayer.add(spec)` renders KaTeX (`tex`) or text (`text`). `setContent` re-renders only when the
 string changes. For progressive reveal with a stable layout, render hidden parts as `\phantom{...}`.
 Colors inside TeX: `\textcolor{#ffa94d}{...}`. Options: `size`, `align`, `valign`, `boxed`, `display`, `maxWidth`.
+
+## Trailers (`kind: "trailer"`)
+
+A series entry with `"kind": "trailer"` (`content/series.json`) is music-led instead of narration-led:
+
+- `story.en.json`: every scene has `"bars"` (its length on a 120 BPM 4/4 grid, 2 s per bar) and a `music` category
+  `trailer-open | trailer-fold | trailer-gallery | trailer-toolkit | trailer-montage | trailer-title |
+  trailer-credits`; every sentence has `"bar"`, the bar (relative to the scene) it starts on, 0.08 s after the
+  downbeat. The beat timeline builder rejects a sentence that does not end before the next anchor.
+- No title cards, no chapter segments on the web seek bar; captions use the shadow style (no box).
+- Scenes time their motion with `Cues.bar(i)` (start of bar i in the chapter).
+- Several independent pictures in one scene are rendered offscreen: each has its own `THREE.Scene` and camera and is
+  drawn into a `WebGLRenderTarget` in `draw` before the stage renders (e00 gallery compositor, montage tiles).
+- Score: `pipeline/rvideo/music/trailer_score.py` (arrangement on the episode voices plus `trailer_orchestra.py`),
+  chord per bar in `trailer_harmony.py`; section bar counts there must match `story.en.json`.
 
 ## Verification of a chapter
 

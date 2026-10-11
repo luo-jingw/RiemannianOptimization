@@ -1,6 +1,6 @@
 # Plan
 
-Plan Status: approved
+Plan Status: completed
 
 # Problem
 
@@ -467,7 +467,7 @@ section against an episode bed; score preview for the user before v4.
 
 ## Phase 11
 
-Phase Status: active
+Phase Status: completed
 
 Round: 8
 
@@ -502,7 +502,7 @@ cover time inside the title card.
 
 ## Phase 12
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 6
 

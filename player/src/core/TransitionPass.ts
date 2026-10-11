@@ -1,12 +1,16 @@
 import * as THREE from "three";
 import { FRAME_HEIGHT, FRAME_WIDTH } from "./Frame";
 
-/** One frame of a section transition: magnification about `center` (frame uv, y up), radial blur, brightening. */
+/**
+ * One frame of a section transition: magnification about `center` (frame uv, y up), radial blur, brightening, and
+ * darkening away from the center (the magnified backdrop would otherwise read as a grey haze).
+ */
 export interface SectionTransition {
   center: THREE.Vector2;
   zoom: number;
   blur: number;
   flash: number;
+  darken: number;
 }
 
 /** Seconds on each side of a trailer chapter boundary that the zoom-through takes. */
@@ -26,6 +30,7 @@ uniform vec2 center;
 uniform float zoom;
 uniform float blur;
 uniform float flash;
+uniform float darken;
 varying vec2 vUv;
 void main() {
   vec2 d = vUv - center;
@@ -35,7 +40,8 @@ void main() {
     vec2 p = clamp(center + d * (1.0 - blur * k) / zoom, vec2(0.0), vec2(1.0));
     acc += texture2D(tFrame, p).rgb;
   }
-  vec3 c = acc / float(${TAPS}) + flash * vec3(1.0, 0.93, 0.85);
+  float r = length(d * vec2(1.7778, 1.0));
+  vec3 c = acc / float(${TAPS}) * (1.0 - darken * smoothstep(0.05, 0.6, r)) + flash * vec3(1.0, 0.93, 0.85);
   gl_FragColor = vec4(c, 1.0);
   #include <colorspace_fragment>
 }`;
@@ -62,6 +68,7 @@ export class TransitionPass {
         zoom: { value: 1 },
         blur: { value: 0 },
         flash: { value: 0 },
+        darken: { value: 0 },
       },
       depthTest: false,
       depthWrite: false,
@@ -80,6 +87,7 @@ export class TransitionPass {
     u.zoom.value = t.zoom;
     u.blur.value = t.blur;
     u.flash.value = t.flash;
+    u.darken.value = t.darken;
     renderer.render(this.quadScene, this.quadCamera);
   }
 }

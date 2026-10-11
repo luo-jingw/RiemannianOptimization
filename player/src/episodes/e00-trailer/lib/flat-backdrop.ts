@@ -36,6 +36,9 @@ uniform vec2 uCenter;
 uniform float uRadius;
 uniform float uStrength;
 uniform float uBrightness;
+vec3 srgbToLinear(vec3 c) {
+  return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(vec3(0.04045), c));
+}
 void main() {
   vec2 px = vec2(gl_FragCoord.x, 1080.0 - gl_FragCoord.y);
   float d = length(px - uCenter) / uRadius;
@@ -44,12 +47,15 @@ void main() {
   float corner = length((px - vec2(960.0, 540.0)) / vec2(960.0, 540.0));
   col *= 1.0 - 0.35 * smoothstep(0.7, 1.45, corner);
   float n = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
-  gl_FragColor = vec4(col * uBrightness + (n - 0.5) / 255.0, 1.0);
+  vec3 srgb = clamp(col * uBrightness + (n - 0.5) / 255.0, 0.0, 1.0);
+  gl_FragColor = vec4(srgbToLinear(srgb), 1.0);
+  #include <colorspace_fragment>
 }`;
 
 /**
  * Full-frame radial gradient drawn behind everything, independent of the camera.
- * Colors are written to the framebuffer as given (sRGB), with a vignette and a fixed dither pattern.
+ * The gradient, vignette and fixed dither pattern are computed in sRGB and output as linear color, so the frame is
+ * the same on screen and through an offscreen linear target (the trailer's zoom-throughs).
  */
 export class RadialBackdrop {
   private readonly material: THREE.ShaderMaterial;

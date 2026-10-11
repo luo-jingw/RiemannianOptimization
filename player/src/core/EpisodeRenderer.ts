@@ -87,7 +87,7 @@ export class EpisodeRenderer {
     }
     if (center === null || u <= 0) return null;
     const e = u * u;
-    return { center, zoom: 1 + 1.8 * e, blur: 0.3 * e, flash: 0.04 * e * e };
+    return { center, zoom: 1 + 1.8 * e, blur: 0.3 * e, flash: 0.02 * e * e, darken: 0.75 * e };
   }
 
   renderAt(t: number): void {

@@ -227,7 +227,7 @@ the user listens to a score preview before scenes are finalized.
 
 ## Phase 4
 
-Phase Status: active
+Phase Status: completed
 
 Round: 2
 
@@ -289,7 +289,7 @@ Phase 2, Phase 3
 
 ## Phase 6
 
-Phase Status: active
+Phase Status: completed
 
 Round: 4
 
@@ -319,7 +319,7 @@ Stills at every bar where something changes; determinism and history checks clea
 
 ## Phase 7
 
-Phase Status: pending
+Phase Status: active
 
 Round: 5
 

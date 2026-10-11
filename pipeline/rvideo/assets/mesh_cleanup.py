@@ -31,4 +31,7 @@ class MeshCleanup:
         return trimesh.graph.smooth_shade(mesh, angle=self.crease_angle_rad)
 
     def clean(self, mesh: trimesh.Trimesh, keep_fraction: float) -> trimesh.Trimesh:
-        return self.crease_shade(self.decimate(self.weld(mesh), keep_fraction))
+        """Weld, decimate, crease-shade; metadata is cleared so the glTF export carries no extras."""
+        result = self.crease_shade(self.decimate(self.weld(mesh), keep_fraction))
+        result.metadata.clear()
+        return result

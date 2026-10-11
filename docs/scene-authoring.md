@@ -54,6 +54,13 @@ interface Scene {
   of sentence i, `during(i, j)` visible from sentence i until sentence j.
   Sentence indices follow the order in `story.en.json`; inserting a sentence shifts later indices.
 - Formula and object motion between layouts uses `keyframes(t, [...])` (`primitives/Keyframes.ts`).
+- Never toggle shader-affecting material flags (`transparent`, `vertexColors`, `side` …) inside `draw`: three.js
+  compiles them into the shader on first use, so the picture would depend on which frame compiled it. Fix them in
+  `setup` (keep a material transparent and animate `opacity`).
+- `THREE.InstancedMesh` computes its bounding sphere once, from the instance matrices present at its first
+  render, and uses it to order transparent objects; give moving instanced meshes a fixed bounding sphere in `setup`.
+- Resources that load asynchronously (textures, glTF models) are loaded in the scene's optional `preload()`, which
+  the renderer awaits after `setup` before the frame is final.
 
 ## Layout grid (1920 × 1080)
 

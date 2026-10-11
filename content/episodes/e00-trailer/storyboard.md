@@ -17,6 +17,7 @@
 | s04-toolkit | 16 | 32 s | trailer-toolkit |
 | s05-montage | 8 | 16 s | trailer-montage |
 | s06-title | 8 | 16 s | trailer-title |
+| s07-credits | 4 | 8 s | trailer-credits |
 
 ## 画面通则
 
@@ -96,10 +97,14 @@
 - 旁白（第 1 小节）："Riemannian Optimization, from the Ground Up."
 - 画面：冲击音落下时，五度圈绕满一圈回到 C 点亮；系列标题居中；下方一行 "Full proofs · Animated counterexamples · English / Chinese captions" 与网页版地址；最后一行小字 "New episodes follow the course."；余音中渐暗。
 
+### s07-credits — 片尾署名
+
+- 无旁白。标题完全淡出后，居中小号浅色文字逐行淡入：数据与模型来源及许可（Stanford HARDI、Dry Bean、UR5e、Skydio X2，均为许可要求的署名）、制作工具、课程来源，最后一行"产品名称仅用于标识，不代表背书"。配乐为 C 大调长和弦弱奏收尾。
+
 ## Glossary additions
 
 无。
 
 ## 估计时长
 
-71 小节，约 2:22。
+75 小节，约 2:30。

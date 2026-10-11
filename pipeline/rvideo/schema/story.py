@@ -8,10 +8,10 @@ from typing import Literal
 
 MusicCategory = Literal["motivation", "definition", "proof", "counterexample", "recap",
                         "trailer-open", "trailer-fold", "trailer-gallery", "trailer-toolkit", "trailer-montage",
-                        "trailer-title"]
+                        "trailer-title", "trailer-credits"]
 EPISODE_MUSIC: tuple[MusicCategory, ...] = ("motivation", "definition", "proof", "counterexample", "recap")
 TRAILER_MUSIC: tuple[MusicCategory, ...] = ("trailer-open", "trailer-fold", "trailer-gallery", "trailer-toolkit",
-                                            "trailer-montage", "trailer-title")
+                                            "trailer-montage", "trailer-title", "trailer-credits")
 MUSIC_CATEGORIES: tuple[MusicCategory, ...] = EPISODE_MUSIC + TRAILER_MUSIC
 
 

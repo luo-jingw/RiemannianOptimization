@@ -10,6 +10,11 @@ dependencies = [
     "scipy>=1.11",
 ]
 
+[project.optional-dependencies]
+# Asset preparation for the trailer (pipeline/rvideo/assets) and QA transcription.
+assets = ["dipy>=1.12", "trimesh>=5.1", "fast-simplification>=0.2", "matplotlib>=3.8"]
+qa = ["faster-whisper>=1.0"]
+
 [project.scripts]
 rvideo = "rvideo.cli.main:main"
 

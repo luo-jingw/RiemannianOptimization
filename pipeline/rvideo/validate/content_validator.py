@@ -53,7 +53,7 @@ class ContentValidator:
             if scene.id in seen:
                 report.errors.append(f"duplicate scene id {scene.id}")
             seen.add(scene.id)
-            if not scene.sentences:
+            if not scene.sentences and kind != "trailer":      # trailer sections may be music only
                 report.errors.append(f"{scene.id}: no sentences")
             report.errors.extend(self._kind_errors(kind, scene))
             for term in scene.terms:

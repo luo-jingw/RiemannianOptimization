@@ -16,6 +16,8 @@ export const CHAPTER_HEAD = 2.4;
  */
 export class EpisodeRenderer {
   private active: { chapter: TimelineChapter; scene: Scene } | null = null;
+  /** Set while the active scene's preload() is outstanding; renderAt callers await it and redraw. */
+  pending: Promise<void> | null = null;
   private readonly captions: CaptionLayer;
   private readonly titles: TitleLayer;
 
@@ -47,10 +49,17 @@ export class EpisodeRenderer {
     }
     if (!chapter) return;
     const factory = this.registry.create(chapter.id);
-    const scene = factory ? factory() : new PlaceholderScene(chapter);
+    const scene: Scene = factory ? factory() : new PlaceholderScene(chapter);
+    this.pending = null;
     scene.setup(this.layers, { duration: chapter.end - chapter.start, sentenceStarts: chapter.sentenceStarts,
       sentenceEnds: chapter.sentenceEnds, barSeconds: this.data.timeline.barSeconds });
     this.active = { chapter, scene };
+    if (scene.preload) {
+      const p = scene.preload().then(() => {
+        if (this.pending === p) this.pending = null;
+      });
+      this.pending = p;
+    }
   }
 
   renderAt(t: number): void {

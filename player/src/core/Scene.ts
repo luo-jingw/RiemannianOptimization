@@ -22,6 +22,11 @@ export interface SceneContext extends ChapterTiming {
 export interface Scene {
   readonly id: string;
   setup(layers: SceneLayers, timing: ChapterTiming): void;
+  /**
+   * Optional: resources (e.g. image textures) the scene needs before its first frame. The renderer awaits it
+   * after setup and redraws, so captured frames never depend on load timing.
+   */
+  preload?(): Promise<void>;
   draw(ctx: SceneContext): void;
   teardown(layers: SceneLayers): void;
 }

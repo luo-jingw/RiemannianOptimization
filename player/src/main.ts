@@ -64,6 +64,10 @@ async function boot(): Promise<void> {
 
   window.renderAt = async (t: number): Promise<void> => {
     renderer.renderAt(t);
+    while (renderer.pending) {              // a scene is loading resources: wait, then draw the frame again
+      await renderer.pending;
+      renderer.renderAt(t);
+    }
     await waitFonts(frame);
   };
   await document.fonts.load('500 36px "Inter"');

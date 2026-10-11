@@ -29,7 +29,7 @@ from rvideo.assets.mesh_cleanup import MeshCleanup
 from rvideo.assets.mjcf_frames import parse_vector, pose_matrix, z_up_to_y_up
 from rvideo.assets.trailer_asset_paths import TrailerAssetPaths
 
-KEEP_FRACTION: float = 0.35
+KEEP_FRACTION: float = 0.6
 CREASE_ANGLE_DEG: float = 35.0
 DEFAULT_JOINT_AXIS: list[float] = [0.0, 1.0, 0.0]
 ROUGHNESS_BY_MATERIAL: dict[str, float] = {"black": 0.55, "jointgray": 0.45, "linkgray": 0.35, "urblue": 0.4}

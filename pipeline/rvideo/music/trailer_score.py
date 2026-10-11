@@ -32,6 +32,7 @@ PROGRESSIONS = {
     "trailer-toolkit": (VI, IV, I_ADD9, V),
     "trailer-montage": (I_ADD9, V, VI, IV),
     "trailer-title": (I_ADD9,),
+    "trailer-credits": (I_ADD9,),
 }
 SIGNATURE = (0, 7, 14, 9)
 LEAD_PHRASE = ((0, 1, 0), (1, 1, 7), (2, 1.5, 14), (3.5, 0.5, 12), (4, 2, 9), (6, 2, 7),
@@ -71,7 +72,7 @@ class TrailerScore:
         k = 0
         for ch in timeline.chapters:
             bars = round((ch.end - ch.start) / bar)
-            if ch.music == "trailer-title":
+            if ch.music in ("trailer-title", "trailer-credits"):
                 segments.append(KeySegment(ch.id, ch.music, ch.start, bars, 0))
                 continue
             slot = SLOT_BARS.get(ch.music, 0) or bars
@@ -167,13 +168,15 @@ class TrailerScore:
         pad_root = _wrap(root + 24, 55, 66)
         pad_notes = [float(pad_root + iv) for iv in chord]
         brightness = {"trailer-open": 700.0, "trailer-fold": 1300.0, "trailer-gallery": 1800.0,
-                      "trailer-toolkit": 1600.0, "trailer-montage": 2400.0, "trailer-title": 2000.0}[m]
-        hold = bar * (4 if m in ("trailer-open", "trailer-title") and b % 4 == 0 else 1)
-        if m in ("trailer-open", "trailer-title") and b % 4 != 0:
+                      "trailer-toolkit": 1600.0, "trailer-montage": 2400.0, "trailer-title": 2000.0,
+                      "trailer-credits": 600.0}[m]
+        long_chord = m in ("trailer-open", "trailer-title", "trailer-credits")
+        hold = bar * (4 if long_chord and b % 4 == 0 else 1)
+        if long_chord and b % 4 != 0:
             pass                                          # long chords re-trigger every 4 bars only
         else:
             pad = Synths.pad(pad_notes, int((hold + 1.0) * SR), brightness, seed=b)
-            self._add(pads, pad, t0, 0.30 if m != "trailer-open" else 0.24, 0.0)
+            self._add(pads, pad, t0, {"trailer-open": 0.24, "trailer-credits": 0.12}.get(m, 0.30), 0.0)
 
         def kick(at: float, punch: float = 1.0) -> None:
             self._add(dry, Drums.kick(punch=punch), at, 0.85)

@@ -17,6 +17,12 @@ A trailer for the whole series needs the opposite structure: music leads, visual
 and the content must not depend on which episodes exist (the course is ongoing). The current pipeline cannot place
 sentences on a musical grid, has no richer score, and always draws episode title cards.
 
+## Revision (v3 review)
+
+The application gallery plays as a list: six equal 4-bar shots, each a noun-phrase line, a crossfade on the bar
+line and a key change with an impact at every boundary. The score keeps one even groove from the gallery to the
+montage, so the three turning points (gallery → toolkit, the four toolkit words, montage → title) have no contrast.
+
 ## Goal
 
 - `e00-trailer`: about 2:20 (length follows the music, not fixed), 1920×1080, 30 fps, delivered like the episodes.
@@ -28,6 +34,13 @@ sentences on a musical grid, has no richer score, and always draws episode title
   impacts; the key walks all twelve steps of the circle of fifths and returns to C at the title.
 - No knowledge-point claims beyond standard, general statements; nothing tied to the current episode list.
 - Listed first on the web index as "Trailer"; no title cards, no chapter segments.
+- Gallery as one accelerating arc: shot lengths 6, 5, 4, 3, 3, 3 bars; match cuts (zoom-through about matching
+  focus points, landing an eighth note before the bar line) with a brief manifold glyph at each cut; the last shot
+  freezes and fades during the stop.
+- Gallery narration as a progression: two full lines, then single words, spoken on the cuts.
+- Score contrast: gallery layers build per shot (pulse → full kit → 16th hats → fills → double-time feel), pushes on
+  the cuts, no per-shot impact; a hard stop (1.5 beats, reverse swell) before the toolkit and a sub drop on its
+  downbeat; four stabs on the toolkit words with the groove suspended; a short vacuum before the title impact.
 
 # Structure
 
@@ -76,6 +89,13 @@ sentences on a musical grid, has no richer score, and always draws episode title
   muxer loudness target from the same profile.
 - TypeScript: `SeriesEpisode.kind?: "episode" | "trailer"`; `ChapterTiming.barSeconds?: number`; `Cues.bar(i)` (time of
   bar i in the chapter); `TitleLayer` draws nothing for trailers; `EpisodeIndex` renders trailers in their own row.
+- Gallery shot plan: `GALLERY_SHOT_BARS = [6, 5, 4, 3, 3, 3]` in `player/src/episodes/e00-trailer/lib/gallery-shots.ts`
+  and `KEY_SPLITS["trailer-gallery"] = (0, 6, 11, 15, 18, 21)` in the score; both follow the bar anchors in
+  `story.en.json` (one sentence per shot, on the shot's first bar; the first on bar 1).
+- `GalleryVignette.focus(t: number): THREE.Vector2` — screen position (px) of the shot's key element at vignette
+  time t; the compositor zooms through matching focus points.
+- Toolkit word onsets: one rule (character offset over the spoken interval) used by `toolkit-words.ts` for the
+  visuals and by the score for the stabs.
 
 ## Inputs
 
@@ -319,17 +339,109 @@ Stills at every bar where something changes; determinism and history checks clea
 
 ## Phase 7
 
-Phase Status: active
+Phase Status: completed
 
-Round: 5
+Round: 6
 
 ### Goal
 
-Deliver v1, rebuild and publish the web version, update docs.
+Gallery narration as a progression and new bar anchors; storyboard for the revised gallery and score; audio rebuilt.
 
 ### Files
 
-`output/e00-trailer/v1/`, `site/` (gh-pages), `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`, `content/series.json`
+`content/episodes/e00-trailer/{storyboard.md, story.en.json}`
+
+### Structures
+
+none new
+
+### Affected Modules
+
+Story beats
+
+### Dependencies
+
+Phase 6
+
+### Observation
+
+`rvideo audio e00-trailer`: every sentence fits its slot; transcript check; caption start times on the cut bars.
+
+## Phase 8
+
+Phase Status: completed
+
+Round: 6
+
+### Goal
+
+Score contrast: gallery build-up and pushes, stop and sub drop into the toolkit, word stabs, vacuum before the title.
+
+### Files
+
+`pipeline/rvideo/music/trailer_score.py`, `pipeline/rvideo/music/trailer_instruments.py`
+
+### Structures
+
+`Fx.reverse_swell`, `Fx.sub_drop`, `Drums.stab`
+
+### Affected Modules
+
+Trailer score
+
+### Dependencies
+
+Phase 7
+
+### Observation
+
+Key-per-bar log; RMS per quarter beat around each cut, the stop, the stabs and the title; score preview for the user
+before v4.
+
+## Phase 9
+
+Phase Status: active
+
+Round: 6
+
+### Goal
+
+Gallery visuals: uneven shot lengths, match-cut zoom-through with focus points and manifold glyphs, freeze at the
+stop; toolkit words on the stab times.
+
+### Files
+
+`player/src/episodes/e00-trailer/{s03-gallery.ts, lib/gallery-*.ts, lib/toolkit-words.ts}`
+
+### Structures
+
+`GalleryVignette.focus`, gallery shot plan, manifold glyph overlay
+
+### Affected Modules
+
+Trailer scenes
+
+### Dependencies
+
+Phase 7
+
+### Observation
+
+Stills across every cut (−0.5 s … +0.3 s) and the stop; determinism and history checks clean.
+
+## Phase 10
+
+Phase Status: pending
+
+Round: 6
+
+### Goal
+
+Deliver v4, rebuild and publish the web version, update docs.
+
+### Files
+
+`output/e00-trailer/v4/`, `site/` (gh-pages), `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`, `content/series.json`
 
 ### Structures
 
@@ -341,9 +453,9 @@ Delivery, web version, documentation
 
 ### Dependencies
 
-Phase 6
+Phase 8, Phase 9
 
 ### Observation
 
-`rvideo check` report (durations, decode, −14 LUFS); trailer plays on the web index; docs describe kinds and the
-beat timeline.
+`rvideo check` report (durations, decode, −14 LUFS); the user reviews v4; trailer plays on the web index; docs
+describe kinds and the beat timeline.

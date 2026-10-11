@@ -18,9 +18,18 @@ from rvideo.schema.timeline import Timeline
 
 CIRCLE = (0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5)
 KEY_NAMES = ("C", "G", "D", "A", "E", "B", "F#", "C#", "Ab", "Eb", "Bb", "F")
-# Bars (relative to the section start) where a new key begins. Gallery: one key per vignette; toolkit: the second
-# key arrives with the second narration line (bar 7), when the word row appears; montage: halfway.
-KEY_SPLITS = {"trailer-gallery": (0, 4, 8, 12, 16, 20), "trailer-toolkit": (0, 7), "trailer-montage": (0, 4)}
+# Bars (relative to the section start) where a new key begins. Gallery: one key per shot, shots of 6, 5, 4, 3, 3, 3
+# bars (player/src/episodes/e00-trailer/lib/gallery-shots.ts); toolkit: the second key arrives with the second
+# narration line (bar 7), when the word row appears; montage: halfway.
+KEY_SPLITS = {"trailer-gallery": (0, 6, 11, 15, 18, 21), "trailer-toolkit": (0, 7), "trailer-montage": (0, 4)}
+# The four toolkit words; their onsets follow player/src/episodes/e00-trailer/lib/toolkit-words.ts (wordOnsets).
+TOOLKIT_WORDS = ("direction", "distance", "gradient", "step")
+TOOLKIT_TRAILING_SILENCE = 0.45
+# Silence before the toolkit downbeat (1.5 beats) and before the title impact (half a beat), in beats.
+STOP_BEATS = 1.5
+VACUUM_BEATS = 0.5
+# Gallery cuts land this many beats before the bar line (an eighth note).
+PUSH_BEATS = 0.5
 # chords as semitones above the key root (degree root + voicing)
 I_ADD9 = (0, 4, 7, 14)
 V = (7, 11, 14, 19)
@@ -50,6 +59,7 @@ class KeySegment:
     start: float          # seconds
     bars: int
     key_index: int        # index into CIRCLE
+    part: int             # index of this key segment within its section (gallery: the shot)
 
 
 def _wrap(midi: int, lo: int, hi: int) -> int:
@@ -64,6 +74,10 @@ class TrailerScore:
     def __init__(self) -> None:
         self._pluck_cache: dict[tuple[int, int], np.ndarray] = {}
         self._bass_cache: dict[tuple[int, int], np.ndarray] = {}
+        # Per segment while composing: notes are truncated at `_cut` (stop, vacuum); toolkit drums, bass and plucks
+        # are left out inside `_suspend` (the word stabs).
+        self._cut: float | None = None
+        self._suspend: tuple[float, float] = (0.0, 0.0)
 
     # -- key plan -----------------------------------------------------------------------------------------
     def key_plan(self, timeline: Timeline) -> list[KeySegment]:
@@ -75,12 +89,12 @@ class TrailerScore:
         for ch in timeline.chapters:
             bars = round((ch.end - ch.start) / bar)
             if ch.music in ("trailer-title", "trailer-credits"):
-                segments.append(KeySegment(ch.id, ch.music, ch.start, bars, 0))
+                segments.append(KeySegment(ch.id, ch.music, ch.start, bars, 0, 0))
                 continue
             splits = [b for b in KEY_SPLITS.get(ch.music, (0,)) if b < bars]
             for n, b0 in enumerate(splits):
                 b1 = splits[n + 1] if n + 1 < len(splits) else bars
-                segments.append(KeySegment(ch.id, ch.music, ch.start + b0 * bar, b1 - b0, k % 12))
+                segments.append(KeySegment(ch.id, ch.music, ch.start + b0 * bar, b1 - b0, k % 12, n))
                 k += 1
         return segments
 
@@ -92,15 +106,24 @@ class TrailerScore:
         return out
 
     # -- rendering helpers --------------------------------------------------------------------------------
-    @staticmethod
-    def _add(bus: np.ndarray, mono: np.ndarray, at: float, gain: float, pan: float = 0.0) -> None:
+    def _add(self, bus: np.ndarray, mono: np.ndarray, at: float, gain: float, pan: float = 0.0) -> None:
         i0 = int(round(at * SR))
         if i0 >= bus.shape[0] or i0 < 0:
             return
         i1 = min(bus.shape[0], i0 + mono.shape[0])
+        x = mono[: i1 - i0] * gain
+        if self._cut is not None:
+            ic = int(round(self._cut * SR))
+            if ic <= i0:
+                return
+            if ic < i1:
+                fade = min(int(0.008 * SR), ic - i0)
+                x = x[: ic - i0].copy()
+                x[-fade:] *= np.linspace(1, 0, fade)
+                i1 = ic
         angle = (pan + 1) * np.pi / 4
-        bus[i0:i1, 0] += mono[: i1 - i0] * gain * np.cos(angle)
-        bus[i0:i1, 1] += mono[: i1 - i0] * gain * np.sin(angle)
+        bus[i0:i1, 0] += x * np.cos(angle)
+        bus[i0:i1, 1] += x * np.sin(angle)
 
     def _pluck(self, midi: int, bright: int) -> np.ndarray:
         key = (midi, bright)
@@ -114,6 +137,34 @@ class TrailerScore:
             self._bass_cache[key] = Synths.bass(midi, n)
         return self._bass_cache[key]
 
+    # -- cue times ----------------------------------------------------------------------------------------
+    @staticmethod
+    def word_onsets(timeline: Timeline) -> list[float]:
+        """Heard onsets of the four toolkit words in the toolkit's second sentence: each word's character offset as a
+        fraction of the sentence, mapped onto the spoken interval [start, end − trailing silence]. The same rule
+        places the words on screen (toolkit-words.ts, which leads it by a fixed visual offset)."""
+        chapter = next((c for c in timeline.chapters if c.music == "trailer-toolkit"), None)
+        if chapter is None or len(chapter.sentence_starts) < 2:
+            return []
+        start = chapter.start + chapter.sentence_starts[1]          # sentence times are chapter-relative
+        end = chapter.start + chapter.sentence_ends[1]
+        text = next(c.text for c in timeline.captions if abs(c.start - start) < 1e-6)
+        spoken = end - TOOLKIT_TRAILING_SILENCE - start
+        onsets: list[float] = []
+        for word in TOOLKIT_WORDS:
+            offset = text.find(word)
+            if offset < 0:
+                raise ValueError(f"toolkit word {word!r} not in {text!r}")
+            onsets.append(start + spoken * offset / len(text))
+        return onsets
+
+    @staticmethod
+    def groove_break(stabs: list[float], beat: float, bar: float) -> tuple[float, float]:
+        """The groove pauses from the beat before the first stab to the first bar line a beat after the last."""
+        if not stabs:
+            return (0.0, 0.0)
+        return (np.floor(stabs[0] / beat) * beat - beat, np.ceil((stabs[-1] + beat) / bar) * bar)
+
     # -- composition --------------------------------------------------------------------------------------
     def compose(self, timeline: Timeline) -> np.ndarray:
         bar = float(timeline.bar_seconds or 2.0)
@@ -125,35 +176,64 @@ class TrailerScore:
         kicks: list[float] = []
 
         segments = self.key_plan(timeline)
+        toolkit_at = next((g.start for g in segments if g.music == "trailer-toolkit"), None)
+        title_at = next((g.start for g in segments if g.music == "trailer-title"), None)
+        stop_at = toolkit_at - STOP_BEATS * beat if toolkit_at is not None else None
+        vacuum_at = title_at - VACUUM_BEATS * beat if title_at is not None else None
+        stabs = self.word_onsets(timeline)
+        self._suspend = self.groove_break(stabs, beat, bar)
         for si, seg in enumerate(segments):
+            nxt = segments[si + 1] if si + 1 < len(segments) else None
+            # the gallery stops dead before the toolkit; the montage leaves a vacuum before the title impact
+            if seg.music == "trailer-gallery":
+                self._cut = stop_at
+            elif nxt is not None and nxt.music == "trailer-title" and seg.music != "trailer-title":
+                self._cut = vacuum_at
+            else:
+                self._cut = None
             root = _wrap(36 + CIRCLE[seg.key_index], 34, 45)      # bass register
             prog = PROGRESSIONS[seg.music]
             for b in range(seg.bars):
                 t0 = seg.start + b * bar
                 chord = prog[b % len(prog)] if len(prog) > 1 else prog[0]
                 self._bar(seg, b, t0, bar, beat, root, chord, dry, wet, pads, kicks)
-            # transitions: impact at the start of the gallery, of each vignette and of the title
+            # transitions: impact at the start of the gallery and the montage; pushes on the gallery cuts
             if seg.music in ("trailer-gallery", "trailer-montage") and (si == 0 or segments[si - 1].music != seg.music):
                 self._add(dry, Fx.impact(), seg.start, 0.55)
             elif seg.music == "trailer-gallery":
-                self._add(dry, Fx.impact(int(1.5 * SR)), seg.start, 0.22)
-            if seg.music == "trailer-title":
-                self._add(dry, Fx.impact(int(5.0 * SR)), seg.start, 0.85)
-                for k, iv in enumerate(SIGNATURE):
-                    self._add(wet, Synths.bell(_wrap(72 + iv, 72, 90), int(6 * SR)), seg.start + 1.5 * beat + k * beat * 1.5,
-                              0.16, -0.3 + 0.2 * k)
-            # risers into the gallery and the title
-            nxt = segments[si + 1] if si + 1 < len(segments) else None
+                push = seg.start - PUSH_BEATS * beat              # the cut lands an eighth note early
+                self._add(dry, Fx.impact(int(0.9 * SR)), push, 0.3)
+                self._add(dry, Drums.crash(int(1.6 * SR), seed=37 + seg.part), push, 0.2, 0.2)
+                kicks.append(push)
+                self._add(dry, self._bass(root + prog[0][0], int((PUSH_BEATS + 1) * beat * SR)), push, 0.34)
+            # riser into the gallery and the title (cut by the vacuum before the title)
             if nxt is not None and nxt.music != seg.music and nxt.music in ("trailer-gallery", "trailer-title"):
                 rlen = 2 * bar
                 self._add(dry, Fx.riser(int(rlen * SR)), nxt.start - rlen, 0.32)
-            # into the title: a crescendo snare roll over the last two beats, then a crash with the impact
+            # into the title: a crescendo snare roll over the two beats before the vacuum
             if nxt is not None and nxt.music == "trailer-title" and seg.music != "trailer-title":
                 hits = 12
+                end = nxt.start - VACUUM_BEATS * beat
                 for k in range(hits):
-                    at = nxt.start - 2 * beat + k * (2 * beat / hits)
+                    at = end - 2 * beat + k * (2 * beat / hits)
                     self._add(dry, Drums.snare(int(0.2 * SR), seed=21 + k), at, 0.14 + 0.36 * k / (hits - 1), 0.05)
-                self._add(dry, Drums.crash(), nxt.start, 0.42, -0.15)
+            self._cut = None
+            if seg.music == "trailer-title":
+                self._add(dry, Fx.impact(int(5.0 * SR)), seg.start, 0.85)
+                self._add(dry, Drums.crash(), seg.start, 0.42, -0.15)
+                for k, iv in enumerate(SIGNATURE):
+                    self._add(wet, Synths.bell(_wrap(72 + iv, 72, 90), int(6 * SR)), seg.start + 1.5 * beat + k * beat * 1.5,
+                              0.16, -0.3 + 0.2 * k)
+        # out of the stop: a reversed cymbal sucks into the toolkit downbeat, which lands as a sub drop
+        if toolkit_at is not None:
+            swell = int(1.0 * beat * SR)
+            self._add(dry, Fx.reverse_swell(swell), toolkit_at - swell / SR, 0.28)
+            self._add(dry, Fx.sub_drop(), toolkit_at, 0.95)
+            kicks.append(toolkit_at)
+        # one stab per toolkit word
+        for k, at in enumerate(stabs):
+            self._add(dry, Drums.stab(seed=23 + k), at, 0.95, -0.15 + 0.1 * k)
+            kicks.append(at)
 
         # sidechain: pads dip after each kick
         tt = np.arange(n) / SR
@@ -206,29 +286,67 @@ class TrailerScore:
                 note = pad_root + 12 + chord[(k * 2) % len(chord)]
                 self._add(wet, self._pluck(note, 3000), t0 + k * beat / 2, 0.08 + 0.01 * b, 0.25 * np.sin(k))
         elif m == "trailer-gallery":
-            for q in range(4):
-                if q in (0, 2):
-                    kick(t0 + q * beat)
-                if q in (1, 3):
+            # one layer more per shot: pulse → full kit → 16th hats → fills → double-time feel
+            p = seg.part
+            pushed = p > 0 and b == 0                       # this downbeat was anticipated by the push
+            if p == 0:
+                for q in (0, 2):
+                    kick(t0 + q * beat, 0.7)
+            elif p < 4:
+                for q in (0, 2):
+                    if not (pushed and q == 0):
+                        kick(t0 + q * beat)
+                if b % 2 == 1:
+                    kick(t0 + 2.5 * beat, 0.7)
+            else:
+                for q in range(4):
+                    if not (pushed and q == 0):
+                        kick(t0 + q * beat)
+                kick(t0 + 3.5 * beat, 0.6)
+            if p >= 1:
+                for q in (1, 3):
                     self._add(dry, Drums.snare(), t0 + q * beat, 0.42, 0.05)
-            if b % 2 == 1:
-                kick(t0 + 2.5 * beat, 0.7)
-            for e in range(8):
-                self._add(dry, Drums.hat(seed=31 + e), t0 + e * beat / 2, 0.16 if e % 2 else 0.1, 0.35)
+            if p == 3 and b == seg.bars - 1:                 # fill into the double-time shots
+                for k in range(8):
+                    self._add(dry, Drums.snare(int(0.2 * SR), seed=40 + k), t0 + 2 * beat + k * beat / 4,
+                              0.12 + 0.03 * k, 0.05)
+            elif p >= 3:
+                for g in (1.75, 3.25):
+                    self._add(dry, Drums.snare(int(0.15 * SR), seed=48), t0 + g * beat, 0.13, 0.05)
+            if p >= 1:
+                steps = 16 if p >= 2 else 8
+                for e in range(steps):
+                    accent = (e % (steps // 4)) == steps // 8   # the offbeat eighth
+                    self._add(dry, Drums.hat(seed=31 + e, open_=p >= 4 and accent), t0 + e * bar / steps,
+                              0.15 if accent else 0.08, 0.35)
+            bass_steps = 4 if p == 0 else (8 if p < 4 else 16)
+            for e in range(bass_steps):
+                if pushed and e == 0:
+                    continue
                 note = root + (12 if e % 2 else 0) + chord[0]
-                self._add(dry, self._bass(note, int(beat / 2 * SR)), t0 + e * beat / 2, 0.30)
-            for s16 in range(16):
+                self._add(dry, self._bass(note, int(bar / bass_steps * SR)), t0 + e * bar / bass_steps, 0.30)
+            pluck_steps = 8 if p == 0 else 16
+            for s16 in range(pluck_steps):
                 note = pad_root + 12 + chord[(s16 * 3) % len(chord)]
-                self._add(wet, self._pluck(note, 4000), t0 + s16 * beat / 4, 0.055, 0.4 * np.sin(1.3 * s16))
+                self._add(wet, self._pluck(note, 4000), t0 + s16 * bar / pluck_steps, 0.055, 0.4 * np.sin(1.3 * s16))
         elif m == "trailer-toolkit":
-            kick(t0)
-            self._add(dry, Drums.snare(), t0 + 2 * beat, 0.4)
+            s0, s1 = self._suspend
+
+            def live(at: float) -> bool:                    # drums, bass and plucks pause for the word stabs
+                return not (s0 <= at < s1)
+
+            if live(t0):
+                kick(t0)
+                self._add(dry, self._bass(root + chord[0], int(bar * SR)), t0, 0.32)
+            if live(t0 + 2 * beat):
+                self._add(dry, Drums.snare(), t0 + 2 * beat, 0.4)
             for e in range(8):
-                self._add(dry, Drums.hat(seed=61 + e), t0 + e * beat / 2, 0.09, 0.35)
-            self._add(dry, self._bass(root + chord[0], int(bar * SR)), t0, 0.32)
+                if live(t0 + e * beat / 2):
+                    self._add(dry, Drums.hat(seed=61 + e), t0 + e * beat / 2, 0.09, 0.35)
             for s16 in range(0, 16, 2):
-                note = pad_root + 12 + chord[(s16 // 2) % len(chord)]
-                self._add(wet, self._pluck(note, 3500), t0 + s16 * beat / 4, 0.045, 0.3 * np.cos(s16))
+                if live(t0 + s16 * beat / 4):
+                    note = pad_root + 12 + chord[(s16 // 2) % len(chord)]
+                    self._add(wet, self._pluck(note, 3500), t0 + s16 * beat / 4, 0.045, 0.3 * np.cos(s16))
             if b == 0:                                      # one lead phrase per toolkit key, cut to the segment
                 lead_base = _wrap(60 + root % 12, 57, 68)
                 span = seg.bars * 4                         # beats available in this key

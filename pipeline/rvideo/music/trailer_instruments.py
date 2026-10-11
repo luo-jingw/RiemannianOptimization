@@ -73,6 +73,14 @@ class Drums:
         return (body + _highpass(_noise(n, seed + 1), 6000, 2) * np.exp(-t / 0.05)) * 0.5
 
     @staticmethod
+    def stab(n: int = int(0.6 * SR), seed: int = 23) -> np.ndarray:
+        """Orchestral-style hit: low thump, snare crack and a short noise body, for accents on single words."""
+        t = _t(n)
+        thump = np.sin(2 * np.pi * np.cumsum(45 + 70 * np.exp(-t / 0.03)) / SR) * np.exp(-t / 0.18)
+        crack = _bandpass(_noise(n, seed), 900, 7000) * np.exp(-t / 0.07)
+        return thump + crack * 0.7
+
+    @staticmethod
     def heartbeat(n: int = int(0.6 * SR)) -> np.ndarray:
         t = _t(n)
         f = 38 + 30 * np.exp(-t / 0.06)
@@ -168,3 +176,19 @@ class Fx:
         boom = np.sin(2 * np.pi * np.cumsum(32 + 40 * np.exp(-t / 0.15)) / SR) * np.exp(-t / 1.1)
         burst = _lowpass(_noise(n, seed), 3000) * np.exp(-t / 0.35) * 0.5
         return boom + burst
+
+    @staticmethod
+    def reverse_swell(n: int = int(0.6 * SR), seed: int = 57) -> np.ndarray:
+        """A reversed cymbal: bright noise rising steeply and ending at full level (place it to end on a hit)."""
+        t = _t(n)
+        dur = n / SR
+        body = _highpass(_noise(n, seed), 2500, 2)
+        return body * (t / dur) ** 3
+
+    @staticmethod
+    def sub_drop(n: int = int(3.5 * SR)) -> np.ndarray:
+        """A low boom gliding down from 60 Hz to 30 Hz with a long decay, for a hit out of silence."""
+        t = _t(n)
+        f = 30 + 30 * np.exp(-t / 0.35)
+        boom = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 1.6) * (1 - np.exp(-t / 0.004))
+        return boom

@@ -2,6 +2,14 @@
  "title": "Riemannian Optimization from the Ground Up",
  "episodes": [
   {
+   "id": "e00-trailer",
+   "order": 0,
+   "title": "Series Trailer",
+   "status": "delivered",
+   "kind": "trailer",
+   "audioVersion": "f0a01a935c90"
+  },
+  {
    "id": "e01-topology",
    "order": 1,
    "title": "Nearness Without Coordinates: Topology",

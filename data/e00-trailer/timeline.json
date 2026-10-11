@@ -1,0 +1,188 @@
+{
+ "language": "en",
+ "episode": "e00-trailer",
+ "duration": 154.0,
+ "chapters": [
+  {
+   "id": "s01-flat",
+   "index": 0,
+   "start": 0.0,
+   "end": 16.0,
+   "title": "Flat world",
+   "music": "trailer-open",
+   "sentenceStarts": [
+    4.08
+   ],
+   "sentenceEnds": [
+    7.405
+   ]
+  },
+  {
+   "id": "s02-fold",
+   "index": 1,
+   "start": 16.0,
+   "end": 30.0,
+   "title": "The fold",
+   "music": "trailer-fold",
+   "sentenceStarts": [
+    6.08
+   ],
+   "sentenceEnds": [
+    8.305
+   ]
+  },
+  {
+   "id": "s03-gallery",
+   "index": 2,
+   "start": 30.0,
+   "end": 78.0,
+   "title": "Applications",
+   "music": "trailer-gallery",
+   "sentenceStarts": [
+    2.08,
+    12.08,
+    22.08,
+    30.08,
+    36.08,
+    42.08
+   ],
+   "sentenceEnds": [
+    4.555,
+    14.355,
+    23.78,
+    31.705,
+    37.73,
+    43.955
+   ]
+  },
+  {
+   "id": "s04-toolkit",
+   "index": 3,
+   "start": 78.0,
+   "end": 110.0,
+   "title": "Rebuilding the toolkit",
+   "music": "trailer-toolkit",
+   "sentenceStarts": [
+    2.08,
+    14.08
+   ],
+   "sentenceEnds": [
+    7.58,
+    20.73
+   ]
+  },
+  {
+   "id": "s05-montage",
+   "index": 4,
+   "start": 110.0,
+   "end": 130.0,
+   "title": "The series",
+   "music": "trailer-montage",
+   "sentenceStarts": [
+    2.08
+   ],
+   "sentenceEnds": [
+    9.655
+   ]
+  },
+  {
+   "id": "s06-title",
+   "index": 5,
+   "start": 130.0,
+   "end": 146.0,
+   "title": "Riemannian Optimization from the Ground Up",
+   "music": "trailer-title",
+   "sentenceStarts": [
+    2.08
+   ],
+   "sentenceEnds": [
+    5.305
+   ]
+  },
+  {
+   "id": "s07-credits",
+   "index": 6,
+   "start": 146.0,
+   "end": 154.0,
+   "title": "Credits",
+   "music": "trailer-credits",
+   "sentenceStarts": [],
+   "sentenceEnds": []
+  }
+ ],
+ "captions": [
+  {
+   "start": 4.08,
+   "end": 7.405,
+   "text": "Optimization usually lives in flat space.",
+   "translation": "优化通常发生在平坦的空间里。"
+  },
+  {
+   "start": 22.08,
+   "end": 24.305,
+   "text": "But many real problems don't.",
+   "translation": "但许多真实问题并非如此。"
+  },
+  {
+   "start": 32.08,
+   "end": 34.555,
+   "text": "A robot arm, turning in space.",
+   "translation": "在空间中转动的机械臂。"
+  },
+  {
+   "start": 42.08,
+   "end": 44.355,
+   "text": "A drone, closing its loop.",
+   "translation": "闭合回环的无人机。"
+  },
+  {
+   "start": 52.08,
+   "end": 53.78,
+   "text": "Network weights.",
+   "translation": "神经网络的权重。"
+  },
+  {
+   "start": 60.08,
+   "end": 61.705,
+   "text": "Hierarchies.",
+   "translation": "层级结构。"
+  },
+  {
+   "start": 66.08,
+   "end": 67.73,
+   "text": "Brain tissue.",
+   "translation": "脑组织。"
+  },
+  {
+   "start": 72.08,
+   "end": 73.955,
+   "text": "Patterns in data.",
+   "translation": "数据中的结构。"
+  },
+  {
+   "start": 80.08,
+   "end": 85.58,
+   "text": "They all live on manifolds: spaces that curve as a whole, yet look flat up close.",
+   "translation": "它们都生活在流形上：整体弯曲、近看却平坦的空间。"
+  },
+  {
+   "start": 92.08,
+   "end": 98.73,
+   "text": "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step.",
+   "translation": "要在那里做优化，每个熟悉的概念都必须重建：方向、距离、梯度、步长。"
+  },
+  {
+   "start": 112.08,
+   "end": 119.655,
+   "text": "This series builds that geometry from the ground up, with full proofs, and pictures that show why every assumption matters.",
+   "translation": "这个系列从零开始建立这套几何：完整的证明，以及说明每个假设为何重要的画面。"
+  },
+  {
+   "start": 132.08,
+   "end": 135.305,
+   "text": "Riemannian Optimization, from the Ground Up.",
+   "translation": "从零开始的黎曼优化。"
+  }
+ ],
+ "barSeconds": 2.0
+}

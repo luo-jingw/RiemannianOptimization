@@ -52,6 +52,8 @@ export class MetricsViz implements MiniViz {
     for (let i = 0; i < pos.count; i++) pos.setZ(i, this.height(pos.getX(i), pos.getY(i), a));
     pos.needsUpdate = true;
     this.surface.geometry.computeVertexNormals();
+    // transparent objects are sorted by their bounding-sphere centre: keep it current, or the order depends on history
+    this.surface.geometry.computeBoundingSphere();
     const r = 0.17;
     for (let i = 0; i < N; i++) {
       for (let j = 0; j < N; j++) {

@@ -22,8 +22,7 @@ import { VectorTransportViz } from "./lib/montage-viz-vector-transport";
 
 /**
  * s05 — montage as a fly-in mosaic of twelve live visualizations covering the course, in course order
- * (lib/montage-viz-*): the six foundation tiles fly in two per bar, the six later topics one per bar, and the full
- * 4×3 wall holds on the last bar. Each tile renders its own mini scene into a render target every frame; it first
+ * (lib/montage-viz-*): one tile every three beats, and the full 4×3 wall holds on the last bar. Each tile renders its own mini scene into a render target every frame; it first
  * plays large in the centre, gently pushing in inside its frame, then flies into its slot, where it keeps animating.
  */
 const PX = 120;                                   // px per world unit (view height 9 over 1080 px)
@@ -33,13 +32,8 @@ const TILE_H = 202.5;
 const GAP = 24;
 const GRID_LEFT = (1920 - (COLS * TILE_W + (COLS - 1) * GAP)) / 2;
 const GRID_TOP = 120;
-/** Each tile's entrance: start bar and length in bars within the section (10 bars). */
-const SCHEDULE: readonly { start: number; bars: number }[] = [
-  { start: 0, bars: 0.5 }, { start: 0.5, bars: 0.5 }, { start: 1, bars: 0.5 }, { start: 1.5, bars: 0.5 },
-  { start: 2, bars: 0.5 }, { start: 2.5, bars: 0.5 },
-  { start: 3, bars: 1 }, { start: 4, bars: 1 }, { start: 5, bars: 1 }, { start: 6, bars: 1 }, { start: 7, bars: 1 },
-  { start: 8, bars: 1 },
-];
+/** Each tile's entrance: start bar and length in bars within the section (10 bars): three beats per tile. */
+const SCHEDULE: readonly { start: number; bars: number }[] = Array.from({ length: 12 }, (_, i) => ({ start: 0.75 * i, bars: 0.75 }));
 const BIG_W = 1200;
 const BIG_H = 675;
 const BIG_CY = 430;

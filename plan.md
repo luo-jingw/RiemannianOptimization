@@ -475,8 +475,7 @@ Round: 8
 
 Montage covering the whole expected course (Boumal-style syllabus: foundations, metrics, connections and Hessians,
 geodesics and the exponential map, parallel and vector transport, Riemannian Newton, trust regions): twelve tiles on
-a 4×3 wall, the six foundation tiles flying in two per bar, the six later topics one per bar, the full wall on the
-last bar; montage 10 bars. Trailer cover taken from the title card.
+a 4×3 wall, one tile every three beats, the full wall on the last bar; montage 10 bars. Trailer cover taken from the title card.
 
 ### Files
 

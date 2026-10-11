@@ -42,6 +42,18 @@ export class Cues {
     return window01(this.s(i), j >= 0 ? this.s(j) : this.ctx.duration, this.t, fade);
   }
 
+  /** Time of bar `i` (fractional allowed) from the chapter start; trailers only. */
+  bar(i: number): number {
+    if (this.ctx.barSeconds === undefined) throw new Error("Cues.bar: this chapter has no bar grid");
+    return i * this.ctx.barSeconds;
+  }
+
+  /** Smooth 0..1 that starts at bar `i` (+offset bars) and lasts `durBars` bars; trailers only. */
+  pb(i: number, durBars = 1, offsetBars = 0): number {
+    const a = this.bar(i + offsetBars);
+    return smoothstep(a, a + this.bar(durBars), this.t);
+  }
+
   /** Smooth 0..1 that starts `dur` seconds before the chapter ends. */
   outro(dur = 1.0): number {
     return smoothstep(this.ctx.duration - dur, this.ctx.duration, this.t);

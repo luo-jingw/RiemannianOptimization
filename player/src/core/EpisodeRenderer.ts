@@ -49,7 +49,7 @@ export class EpisodeRenderer {
     const factory = this.registry.create(chapter.id);
     const scene = factory ? factory() : new PlaceholderScene(chapter);
     scene.setup(this.layers, { duration: chapter.end - chapter.start, sentenceStarts: chapter.sentenceStarts,
-      sentenceEnds: chapter.sentenceEnds });
+      sentenceEnds: chapter.sentenceEnds, barSeconds: this.data.timeline.barSeconds });
     this.active = { chapter, scene };
   }
 
@@ -63,6 +63,7 @@ export class EpisodeRenderer {
         duration: ch.end - ch.start,
         sentenceStarts: ch.sentenceStarts,
         sentenceEnds: ch.sentenceEnds,
+        barSeconds: this.data.timeline.barSeconds,
         layers: this.layers,
       });
     }

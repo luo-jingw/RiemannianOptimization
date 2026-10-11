@@ -5,6 +5,8 @@ export interface ChapterTiming {
   duration: number;
   sentenceStarts: number[];
   sentenceEnds: number[];
+  /** Trailers only: seconds per bar; chapters start on bar lines. */
+  barSeconds?: number;
 }
 
 /** Per-frame input for a chapter scene. */

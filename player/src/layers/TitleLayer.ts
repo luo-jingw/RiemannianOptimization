@@ -69,6 +69,7 @@ export class TitleLayer {
   }
 
   update(t: number): void {
+    if (this.data.episode.kind === "trailer") return;   // trailers carry their own titles; all cards stay hidden
     const tl = this.data.timeline;
     const firstStart = tl.chapters.length ? tl.chapters[0].start : tl.duration;
     const lastEnd = tl.chapters.length ? tl.chapters[tl.chapters.length - 1].end : 0;

@@ -24,7 +24,8 @@ export class SegmentedSeekBar {
   private readonly tooltip: HTMLDivElement;
   private dragging = false;
 
-  constructor(private readonly timeline: Timeline, private readonly onSeek: (t: number) => void) {
+  /** `segmented: false` draws one continuous segment (trailers). */
+  constructor(private readonly timeline: Timeline, private readonly onSeek: (t: number) => void, segmented = true) {
     this.el = document.createElement("div");
     this.el.className = "seg-bar";
     this.el.setAttribute("role", "slider");
@@ -32,10 +33,11 @@ export class SegmentedSeekBar {
     this.el.setAttribute("aria-valuemax", String(Math.round(timeline.duration)));
     const chapters = timeline.chapters;
     const parts: { label: string; start: number; end: number }[] = [];
-    if (chapters.length && chapters[0].start > 0) parts.push({ label: "Intro", start: 0, end: chapters[0].start });
-    for (const ch of chapters) parts.push({ label: `${ch.index + 1}. ${ch.title}`, start: ch.start, end: ch.end });
+    if (!segmented) parts.push({ label: "", start: 0, end: timeline.duration });
+    else if (chapters.length && chapters[0].start > 0) parts.push({ label: "Intro", start: 0, end: chapters[0].start });
+    if (segmented) for (const ch of chapters) parts.push({ label: `${ch.index + 1}. ${ch.title}`, start: ch.start, end: ch.end });
     const last = chapters.length ? chapters[chapters.length - 1].end : 0;
-    if (last < timeline.duration) parts.push({ label: "Outro", start: last, end: timeline.duration });
+    if (segmented && last < timeline.duration) parts.push({ label: "Outro", start: last, end: timeline.duration });
     for (const p of parts) {
       const el = document.createElement("div");
       el.className = "seg";
@@ -91,7 +93,7 @@ export class SegmentedSeekBar {
   private showTooltip(clientX: number): void {
     const t = this.timeAt(clientX);
     const seg = this.segments.find((s) => t >= s.start && t < s.end) ?? this.segments[this.segments.length - 1];
-    this.tooltip.textContent = `${seg ? seg.label : ""} · ${clock(t)}`;
+    this.tooltip.textContent = seg && seg.label ? `${seg.label} · ${clock(t)}` : clock(t);
     const r = this.el.getBoundingClientRect();
     const x = Math.max(0, Math.min(r.width, clientX - r.left));
     this.tooltip.style.left = `${x}px`;

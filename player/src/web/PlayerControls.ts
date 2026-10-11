@@ -20,7 +20,7 @@ export class PlayerControls {
   private readonly startOverlay: HTMLButtonElement;
 
   constructor(host: HTMLElement, overlayHost: HTMLElement, private readonly timeline: Timeline,
-              title: string, private readonly actions: ControlActions) {
+              title: string, private readonly actions: ControlActions, trailer = false) {
     host.replaceChildren();
     host.classList.add("web-controls");
     const home = document.createElement("a");
@@ -35,7 +35,7 @@ export class PlayerControls {
     overlayHost.addEventListener("click", (ev) => {
       if (ev.target !== this.startOverlay && !this.startOverlay.contains(ev.target as Node)) this.actions.toggle();
     });
-    this.seekBar = new SegmentedSeekBar(timeline, (t) => this.actions.seek(t));
+    this.seekBar = new SegmentedSeekBar(timeline, (t) => this.actions.seek(t), !trailer);
     this.timeLabel = document.createElement("span");
     this.timeLabel.className = "ctl-time";
     this.chapterSelect = document.createElement("select");
@@ -47,7 +47,8 @@ export class PlayerControls {
       this.chapterSelect.appendChild(opt);
     }
     this.chapterSelect.onchange = () => this.actions.seek(Number(this.chapterSelect.value) + 0.01);
-    host.append(home, this.playButton, this.seekBar.el, this.timeLabel, this.chapterSelect);
+    host.append(home, this.playButton, this.seekBar.el, this.timeLabel);
+    if (!trailer) host.append(this.chapterSelect);
     this.startOverlay = document.createElement("button");
     this.startOverlay.className = "start-overlay";
     this.startOverlay.innerHTML = `<span class="start-icon">▶</span><span class="start-title">${title}</span>`;

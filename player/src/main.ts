@@ -80,7 +80,7 @@ async function boot(): Promise<void> {
   };
   fit();
   window.addEventListener("resize", fit);
-  document.title = `E${data.episode.order} · ${data.episode.title}`;
+  document.title = data.episode.kind === "trailer" ? data.episode.title : `E${data.episode.order} · ${data.episode.title}`;
   const audio = new Audio(data.audioUrl);
   audio.preload = "auto";
   audio.hidden = true;
@@ -91,13 +91,13 @@ async function boot(): Promise<void> {
     controls?.update(t, clock.isPlaying);
   }, data.timeline.duration);
   controls = new PlayerControls(document.getElementById("controls") as HTMLDivElement, frame, data.timeline,
-    `Episode ${data.episode.order} · ${data.episode.title}`, {
+    data.episode.kind === "trailer" ? data.episode.title : `Episode ${data.episode.order} · ${data.episode.title}`, {
       toggle: () => {
         clock.toggle();
         controls?.update(clock.time, clock.isPlaying);   // the render loop stops while paused, so refresh here
       },
       seek: (t) => clock.seek(t),
-    });
+    }, data.episode.kind === "trailer");
   clock.start(Number(params.get("t") ?? "0"));
   window.addEventListener("keydown", (ev) => {
     if ((ev.target as HTMLElement).tagName === "SELECT") return;

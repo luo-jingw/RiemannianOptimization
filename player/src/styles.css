@@ -75,4 +75,6 @@ body.index #viewport, body.index #controls { display: none; }
 .index-card:hover { border-color: #ffa94d; }
 .index-num { color: #ffa94d; font: 600 15px var(--ui-font); margin-bottom: 8px; }
 .index-title { color: #e8ecf4; font: 600 20px var(--ui-font); line-height: 1.3; }
+.index-trailers { margin-bottom: 18px; grid-template-columns: 1fr; }
+.index-trailer { border-color: #ffa94d; background: linear-gradient(90deg, #1f1a12, #161d2e); }
 .index-help { color: #66708c; font-size: 14px; margin-top: 36px; }

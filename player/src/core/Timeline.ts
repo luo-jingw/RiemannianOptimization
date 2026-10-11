@@ -21,6 +21,8 @@ export interface Timeline {
   language: "en";
   episode: string;
   duration: number;
+  /** Trailers only: seconds per bar of the musical grid the timeline was built on. */
+  barSeconds?: number;
   chapters: TimelineChapter[];
   captions: TimelineCaption[];
 }

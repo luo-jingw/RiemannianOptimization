@@ -6,6 +6,8 @@ export interface SeriesEpisode {
   order: number;
   title: string;
   status: string;
+  /** "trailer" entries are music-driven promos without title cards; absent means "episode". */
+  kind?: "episode" | "trailer";
   /** Content fingerprint of the published audio (static site only). */
   audioVersion?: string;
 }

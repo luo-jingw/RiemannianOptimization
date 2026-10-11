@@ -14,10 +14,10 @@
 | s01-flat | 80 | 4 | 12.0 s | film-flat |
 | s02-fold | 80 → 120 | 4 | 9.7 s | film-fold |
 | s03-worlds | 120 | 16 | 32.0 s | film-worlds |
-| s04-rebuild | 120（半速感） | 16 | 32.0 s | film-rebuild |
+| s04-rebuild | 120（半速感） | 12 | 24.0 s | film-rebuild |
 | s05-build | 120 → 128 | 2 | 3.9 s | film-build |
 | s06-drop | 128 | 9 | 16.9 s | film-drop |
-| s07-title | 120 | 8 | 16.0 s | film-title |
+| s07-title | 120 | 6 | 12.0 s | film-title |
 | s08-credits | 120 | 4 | 8.0 s | film-credits |
 
 ## 画面通则
@@ -45,9 +45,9 @@
 ### s03-worlds — 六个世界（120 BPM）
 
 - 配乐：完整鼓组推进，弦乐 ostinato，圆号奏签名动机；镜头切换处为通鼓过门与镲片。
-- 旁白（第 0 小节）："Robot arms turn through space, and drones must close their loops."
-- 旁白（第 11 小节）："Neural networks, hierarchies, the brain, the data we collect —"（以破折号收尾，接到 s04 第一句）
-- 画面：六个镜头依次为 4、3、3、2、2、2 小节，每个镜头完整播放一遍各自的动画；镜头之间是匹配剪辑（推近关键元素，带径向模糊，下一个镜头从同一位置拉出，落在小节线前一个八分音符），切换瞬间在匹配点短暂描出下一个流形的轮廓线。入点：机械臂末端坐标架。
+- 旁白（第 3 小节）："Robot arms turn through space, and drones must close their loops."（"drones" 落在无人机镜头上）
+- 旁白（第 9 小节）："Neural networks, hierarchies, the brain, the data we collect."（"Neural networks" 落在网络镜头上，"hierarchies" 接双曲树）
+- 画面：六个镜头依次为 4、3、3、2、2、2 小节，每个镜头完整播放一遍各自的动画；镜头之间是匹配剪辑（推近关键元素，带径向模糊，下一个镜头从同一位置拉出，落在小节线前一个八分音符），切换瞬间在匹配点短暂描出下一个流形的轮廓线。入点：机械臂末端坐标架。橙点以光晕形式停在每个镜头的匹配元素上，随拍子脉动，并随匹配剪辑穿过切点。
   每次切换时，画面中央随镲片闪出一个大号粗体词，约半秒后缩成右下角的小标签（领域词 + 流形名称）：
   1. 机械臂（第 0 小节）——ROBOTICS；"orientation ∈ SO(3)"。
   2. 无人机建图（第 4 小节）——SLAM；"rotation averaging · SO(3)ⁿ"。
@@ -58,10 +58,10 @@
 
 ### s04-rebuild — 重建（120 BPM，半速）
 
-- 旁白（第 0 小节）："they all live on manifolds: spaces that curve as a whole, yet look flat up close."（接 s03 的破折号）
-- 旁白（第 7 小节）："To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step."
+- 旁白（第 0 小节）："They all live on manifolds: spaces that curve as a whole, yet look flat up close."
+- 旁白（第 4 小节）："To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step."
 - 配乐：鼓切成半速（第一拍大鼓、第三拍军鼓），重低音，弦乐慢，钢琴单音；四个词各配一记钟声。
-- 画面：起伏地形缓慢旋转；镜头推近曲面上一点，切平面贴合；四个词依次出现，各配一个视觉（切向量、度量椭圆、梯度箭头、沿切向迈步再拉回曲面）；一串迭代点沿曲面滑向谷底。入点：曲面上的起点；出点：谷底附近的迭代点。
+- 画面：橙点从推进转场起就在地形上；镜头大幅环绕着推近它，切平面贴合；镜头全程不停；四个词依次出现，各配一个视觉（切向量、度量椭圆、梯度箭头、沿切向迈步再拉回曲面）；一串迭代点沿曲面滑向谷底。入点：曲面上的起点；出点：谷底附近的迭代点。
 
 ### s05-build — 蓄力（120 → 128 BPM）
 
@@ -71,7 +71,7 @@
 ### s06-drop — 高潮（128 BPM）
 
 - 配乐：phonk 半速律动（第一拍大鼓 + 失真 808、第三拍拍手、切分大鼓、踩镲滚奏），牛铃奏签名动机，pad 随大鼓起伏；第 5 小节起加高八度牛铃与弦乐。第 9 小节为磁带停转：1.4 s 内减速到停、声音变暗，随后约 0.5 s 静音。
-- 画面：课程的十二个几何动画全屏闪切，每个两拍，踩在拍点上，每格随拍子闪出一个大字标签（开集与收敛、坐标卡、反函数与隐函数、切空间、黎曼度量、梯度与收缩映射、联络与 Hessian、测地线与指数映射、平行移动、向量传输、牛顿法、信赖域）；第 7–8 小节加快为每拍一切；第 9 小节画面随磁带停转减速、变暗、定格，然后黑场。
+- 画面：课程的十二个几何动画全屏闪切，每个两拍，踩在拍点上，每格随拍子闪出一个大字标签（开集与收敛、坐标卡、反函数与隐函数、切空间、黎曼度量、梯度与收缩映射、联络与 Hessian、测地线与指数映射、平行移动、向量传输、牛顿法、信赖域）；第 7–8 小节加快为每拍一切。画面跟着鼓：每个大鼓推近并轻微抖动，每个拍手做一次色彩分离（RGB 错位）。第 9 小节画面随磁带停转减速、褪色、变暗、定格，然后黑场。
 
 ### s07-title — 标题（120 BPM）
 
@@ -89,4 +89,4 @@
 
 ## 估计时长
 
-63 小节，约 2:10。
+59 小节，约 1:58。

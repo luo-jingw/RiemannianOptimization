@@ -196,10 +196,10 @@ class FilmScore:
 
         elif m == "film-rebuild":
             add(drums, Drums.kick(1.1), t0, 0.8)
-            if bar in (0, 8):
+            if bar in (0, 4):                            # the section's start and the second sentence
                 add(dry, Orchestra.low_hit(), t0, 0.28)
             add(drums, Drums.snare(11), c.beat(2), 0.55)
-            hats = 8 if bar >= 14 else 4                 # the last two bars lean towards the build
+            hats = 8 if bar >= 10 else 4                 # the last two bars lean towards the build
             for e in range(hats):
                 add(drums, Drums.hat(50 + e), c.beat(4 * e / hats), 0.06, 0.4)
             if c.chord_start:

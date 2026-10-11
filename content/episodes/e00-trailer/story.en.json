@@ -55,14 +55,14 @@
    ],
    "sentences": [
     {
-     "bar": 0,
+     "bar": 3,
      "en": "Robot arms turn through space, and drones must close their loops.",
      "zh": "机械臂在空间中转动，无人机要闭合回环。"
     },
     {
-     "bar": 11,
-     "en": "Neural networks, hierarchies, the brain, the data we collect —",
-     "zh": "神经网络、层级结构、大脑、我们采集的数据——"
+     "bar": 9,
+     "en": "Neural networks, hierarchies, the brain, the data we collect.",
+     "zh": "神经网络、层级结构、大脑、我们采集的数据。"
     }
    ]
   },
@@ -72,7 +72,7 @@
    "title": "Rebuilding the toolkit",
    "music": "film-rebuild",
    "terms": [],
-   "bars": 16,
+   "bars": 12,
    "tempo": [
     120,
     120
@@ -80,11 +80,11 @@
    "sentences": [
     {
      "bar": 0,
-     "en": "they all live on manifolds: spaces that curve as a whole, yet look flat up close.",
+     "en": "They all live on manifolds: spaces that curve as a whole, yet look flat up close.",
      "zh": "它们都生活在流形上：整体弯曲、近看却平坦的空间。"
     },
     {
-     "bar": 7,
+     "bar": 4,
      "en": "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step.",
      "zh": "要在那里做优化，每个熟悉的概念都必须重建：方向、距离、梯度、步长。"
     }
@@ -122,7 +122,7 @@
    "title": "Riemannian Optimization from the Ground Up",
    "music": "film-title",
    "terms": [],
-   "bars": 8,
+   "bars": 6,
    "tempo": [
     120,
     120

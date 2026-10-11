@@ -25,12 +25,13 @@ SECTION_CHORDS: dict[str, tuple[tuple[int, tuple[int, ...], int], ...]] = {
                     (C, MAJ7, 1), (A, MIN7, 1),            # hyperbolic (2)
                     (E, MIN7, 1), (D, MAJ, 1),             # brain (2)
                     (C, MAJ7, 1), (D, SUS4, 1)),           # data (2)
-    "film-rebuild": ((E, MIN7, 2), (C, MAJ7, 2), (G, ADD9, 2), (D, SUS4, 2),
-                     (E, MIN7, 2), (C, MAJ7, 2), (A, MIN7, 2), (D, MAJ, 2)),
+    "film-rebuild": ((E, MIN7, 2), (C, MAJ7, 2),           # "They all live on manifolds ..."
+                     (G, ADD9, 2), (E, MIN7, 1), (C, MAJ7, 1),  # the four words, from bar 4
+                     (A, MIN7, 2), (D, MAJ, 2)),               # the descent
     "film-build": ((F, MAJ7, 1), (G, MAJ, 1)),
     "film-drop": ((A, MIN7, 1), (F, MAJ7, 1), (C, ADD9, 1), (G, MAJ, 1),
                   (A, MIN7, 1), (F, MAJ7, 1), (C, ADD9, 1), (G, MAJ, 1), (G, MAJ, 1)),
-    "film-title": ((C, ADD9, 4), (F, MAJ7, 2), (C, ADD9, 2)),
+    "film-title": ((C, ADD9, 3), (F, MAJ7, 1), (C, ADD9, 2)),
     "film-credits": ((C, MAJ7, 4),),
 }
 NAMES = ("C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B")

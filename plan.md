@@ -298,23 +298,30 @@ Stills at every cut and event; determinism and history checks; visual review.
 
 Phase Status: active
 
-Round: 4
+Round: 5
 
 ### Goal
 
-Deliver v7; after the user's review, publish the web version and update the docs.
+v8 from the review of v7: rebuild 16 → 12 bars without still stretches (the point is on screen from the zoom-through,
+words from bar 4, the camera keeps orbiting); worlds narration on bars 3 and 9 so the words meet their shots (the
+second line ends on a period, the rebuild line starts "They"); title 8 → 6 bars with the credits following closely;
+the drop's picture follows the drums (kick push and shake, clap colour split, the tape stop drains colour); the
+opening lights within a second; zoom-throughs darken the periphery instead of greying; the orange point travels
+through the worlds as a halo on each shot's key element; the rebuild word row clear of the top edge.
 
 ### Files
 
-`output/e00-trailer/v7/`, `site/`, `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`
+`content/episodes/e00-trailer/`, `pipeline/rvideo/music/film_harmony.py`, `pipeline/rvideo/music/film_score.py`,
+`pipeline/rvideo/delivery/muxer.py`, `player/src/core/TransitionPass.ts`, `player/src/core/EpisodeRenderer.ts`,
+`player/src/episodes/e00-trailer/**`, `output/e00-trailer/v8/`
 
 ### Structures
 
-none new
+`SectionTransition.darken`
 
 ### Affected Modules
 
-Delivery, web version, documentation
+Content, film score, delivery cover, transitions, film scenes
 
 ### Dependencies
 
@@ -322,4 +329,34 @@ Phase 5
 
 ### Observation
 
-`rvideo check` report; the user reviews v7; web index plays it.
+Frames every 2 s and at every boundary; determinism and history checks; `rvideo check` report; the user reviews v8.
+
+## Phase 7
+
+Phase Status: pending
+
+Round: 5
+
+### Goal
+
+After the user's review, publish the web version and update the docs.
+
+### Files
+
+`site/`, `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`
+
+### Structures
+
+none new
+
+### Affected Modules
+
+Web version, documentation
+
+### Dependencies
+
+Phase 6
+
+### Observation
+
+Web index plays the delivered version.

@@ -70,7 +70,7 @@ export class BuildScene implements Scene {
     const pose = {
       target: this.valley.clone(),
       azimuth: -60 + 70 * dive,
-      elevation: lerp(66, 30, easeInOutCubic(dive)),
+      elevation: lerp(66, 40, easeInOutCubic(dive)),
       distance: lerp(9.0, 2.4, dive),
       fov: 38,
     };

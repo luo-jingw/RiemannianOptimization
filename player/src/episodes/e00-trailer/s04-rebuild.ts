@@ -22,17 +22,17 @@ import { HeightField, TerrainView } from "./lib/toolkit-terrain";
 import { ToolkitWordRow, wordOnsets } from "./lib/toolkit-words";
 
 /**
- * s04-rebuild — rebuilding the toolkit on a curved terrain (16 bars at 120 BPM, half-time feel, 32 s).
+ * s04-rebuild — rebuilding the toolkit on a curved terrain (12 bars at 120 BPM, half-time feel, 24 s).
  * Entered by a zoom-through out of p's position on the terrain, left by one into the valley's minimum.
- * b0–b6: a smooth terrain with several valleys turns slowly; the camera closes in on a point p on a
- *        hill's shoulder; a ring of the surface around p is matched by a tangent disk ("flat up close").
- * b7–b16: four words arrive with the second line, each with its visual at p:
+ * b0–b4: the point p is on the terrain from the zoom-through; the camera swings round and closes in on it;
+ *        a ring of the surface around p is matched by a tangent disk ("flat up close").
+ * b4–b12: four words arrive with the second line, each with its visual at p:
  *        direction — tangent vectors in the tangent disk;
  *        distance — the unit circle of the tangent plane becomes the unit ellipse of another inner product;
  *        gradient — the steepest-descent direction −grad h, tangent to the surface and pointing downhill;
  *        step — a step along the tangent plane leaves the surface and bends back onto it (retraction);
  *        then the iterates of Riemannian gradient descent slide down into the valley.
- * Sentence 0 = "they all live on manifolds ...", sentence 1 = "To optimize there ... step."
+ * Sentence 0 = "They all live on manifolds ...", sentence 1 = "To optimize there ... step."
  */
 
 const FIELD = new HeightField();
@@ -49,7 +49,7 @@ const GRADIENT_LENGTH = 0.85;
 const DISK_RADIUS = 0.72;
 const NEIGHBORHOOD_RADIUS = 0.62;
 const LIFT = 0.02;                          // drawn paths float this far above the surface
-const FIRST_LANDING_BAR = 11;               // the demonstrated step lands at b11
+const FIRST_LANDING_BAR = 8;                // the demonstrated step lands at b8
 const LANDING_SPACING_BARS = 0.25;          // later iterates land on every beat
 const MOVE_SECONDS = 0.32;
 
@@ -87,7 +87,7 @@ export class RebuildScene implements Scene {
   private valleyGlow!: Glow;
   private words!: ToolkitWordRow;
   private grid!: Cues;                     // bar times of this chapter (tempo map)
-  /** Camera azimuth (deg) at b8 that shows the descent direction at p running left to right. */
+  /** Camera azimuth (deg) at b5 that shows the descent direction at p running left to right. */
   private closeAzimuth = 0;
 
   setup(layers: SceneLayers, timing: ChapterTiming): void {
@@ -173,9 +173,9 @@ export class RebuildScene implements Scene {
   }
 
   private cameraPose(t: number, c: Cues): OrbitPose {
-    const zoom = easeInOutCubic(ramp(c.bar(2), c.bar(5.75), t));
-    const side = easeInOutCubic(ramp(c.bar(9.85), c.bar(10.35), t));
-    const back = easeInOutCubic(ramp(c.bar(10.95), c.bar(12.2), t));
+    const zoom = easeInOutCubic(ramp(0, c.bar(3), t));
+    const side = easeInOutCubic(ramp(c.bar(6.85), c.bar(7.35), t));
+    const back = easeInOutCubic(ramp(c.bar(7.95), c.bar(9.2), t));
     const valley = this.iterates[ITERATES];
     const mid = new THREE.Vector2((P.x + valley.x) / 2, (P.y + valley.y) / 2);
     const wide = new THREE.Vector3(0, 0, -0.35);
@@ -186,10 +186,11 @@ export class RebuildScene implements Scene {
     const target = wide.clone().lerp(close, zoom).lerp(stepMid, side).lerp(follow, back);
     return {
       target,
-      azimuth: this.closeAzimuth - 1.5 * (t - c.bar(8)),
-      // Low and side-on while the step leaves the surface and bends back (b9.85–b11), so the gap shows.
+      // a slow orbit throughout, with a wide swing into the close-up and a faster turn over the descent
+      azimuth: this.closeAzimuth - 1.5 * (t - c.bar(5)) - 35 * (1 - zoom) - 4 * back * Math.max(0, t - c.bar(7.95)),
+      // Low and side-on while the step leaves the surface and bends back (b6.85–b8), so the gap shows.
       elevation: lerp(lerp(lerp(38, 55, zoom), 16, side), 68, back),
-      distance: lerp(lerp(lerp(12.5, 3.7, zoom), 2.7, side), 9.0, back) + 0.6 * smoothstep(c.bar(12.5), c.bar(16), t),
+      distance: lerp(lerp(lerp(12.5, 3.7, zoom), 2.7, side), 9.0, back) + 0.6 * smoothstep(c.bar(9.5), c.bar(12), t),
       fov: 38,
     };
   }
@@ -209,9 +210,9 @@ export class RebuildScene implements Scene {
     this.shade.setStrength(0.35);
 
     // Flat up close: a ring of the surface around p, then the tangent disk settling onto it.
-    const ringIn = smoothstep(c.bar(3.5), c.bar(4.5), t);
-    const fit = easeInOutCubic(ramp(c.bar(4.5), c.bar(6), t));
-    const neighborhoodFade = 1 - smoothstep(c.bar(6.5), c.bar(7.5), t);
+    const ringIn = smoothstep(c.bar(1.75), c.bar(2.5), t);
+    const fit = easeInOutCubic(ramp(c.bar(2.5), c.bar(3.5), t));
+    const neighborhoodFade = 1 - smoothstep(c.bar(3.75), c.bar(4.5), t);
     this.neighborhood.setOpacity(ringIn * neighborhoodFade * all);
     this.neighborhood.setProgress(ringIn);
 
@@ -221,7 +222,7 @@ export class RebuildScene implements Scene {
     // After the first step the disk follows the moving point: the tangent plane at the current iterate.
     const travel = smoothstep(this.landing(1) - 0.2, this.landing(1) + 0.4, t);
     const frame = landed >= 1 ? tangentFrame(chart) : this.frameP;
-    const sideView = smoothstep(c.bar(9.85), c.bar(10.35), t);
+    const sideView = smoothstep(c.bar(6.85), c.bar(7.35), t);
     const diskRadius = lerp(DISK_RADIUS * lerp(0.35, 1, fit) * lerp(1, 0.75, sideView), 0.5, travel);
     const diskFade = 1 - smoothstep(this.landing(ITERATES) - 0.5, this.landing(ITERATES) + 1.0, t);
     this.disk.set(frame, diskRadius, fit * diskFade * all * (landed >= 1 ? lerp(0.55, 1, 1 - travel) : 1));
@@ -249,7 +250,7 @@ export class RebuildScene implements Scene {
     // gradient: −grad h at the current point, tangent to the surface, pointing downhill.
     const gradIn = easeOutCubic(ramp(tGrad, tGrad + 0.5, t));
     // It steps aside while the demonstrated step travels along it, then follows the iterates.
-    const aside = smoothstep(c.bar(10.0), c.bar(10.15), t) * (1 - smoothstep(this.landing(1) - 0.1, this.landing(1) + 0.3, t));
+    const aside = smoothstep(c.bar(7.0), c.bar(7.15), t) * (1 - smoothstep(this.landing(1) - 0.1, this.landing(1) + 0.3, t));
     const gradFade = (1 - aside) * (1 - smoothstep(this.landing(6), this.landing(8), t));
     const dirNow = DESCENT.descentDirection(chart);
     const base = FIELD.point(chart.x, chart.y).addScaledVector(frame.n, 0.016);
@@ -261,8 +262,8 @@ export class RebuildScene implements Scene {
     const p0 = this.frameP.origin.clone().addScaledVector(this.frameP.n, 0.03);
     const q = p0.clone().add(FIELD.tangent(P.x, P.y, d0.x, d0.y));
     const r = FIELD.point(this.iterates[1].x, this.iterates[1].y, LIFT);
-    const out = easeInOutCubic(ramp(Math.max(tStep, c.bar(10.1)), c.bar(10.55), t));
-    const backIn = easeInOutCubic(ramp(c.bar(10.6), c.bar(10.95), t));
+    const out = easeInOutCubic(ramp(Math.max(tStep, c.bar(7.1)), c.bar(7.55), t));
+    const backIn = easeInOutCubic(ramp(c.bar(7.6), c.bar(7.95), t));
     const stepFade = 1 - smoothstep(this.landing(2), this.landing(4), t);
     this.tangentStep.setPoints([p0, p0.clone().lerp(q, Math.max(out, 1e-3))]);
     this.tangentStep.setOpacity(out > 0.001 ? stepFade * all : 0);
@@ -305,8 +306,8 @@ export class RebuildScene implements Scene {
       this.iterateDots[k].setOpacity(shown * 0.95 * all);
     }
 
-    // The current point: appears with the neighborhood ring, then travels.
-    const pointIn = smoothstep(c.bar(3.25), c.bar(3.75), t);
+    // The current point: there from the zoom-through on, then travels.
+    const pointIn = smoothstep(0, c.bar(0.25), t);
     // During the demonstrated step the point rides out along the tangent plane and back along the arc.
     const here = landed >= 1 || out <= 0
       ? FIELD.point(chart.x, chart.y, LIFT + 0.02)
@@ -321,7 +322,7 @@ export class RebuildScene implements Scene {
     const settle = smoothstep(this.landing(ITERATES), this.landing(ITERATES) + 1.2, t);
     this.valleyGlow.set(FIELD.point(last.x, last.y, 0.05), settle * all * (0.75 + 0.25 * Math.cos((t - this.landing(ITERATES)) * Math.PI)));
 
-    this.words.update(t, onsets, fadeOut * clamp01(1 - smoothstep(c.bar(14.5), c.bar(15.5), t) * 0.5));
+    this.words.update(t, onsets, fadeOut * clamp01(1 - smoothstep(c.bar(10.5), c.bar(11.5), t) * 0.5));
     const pIn = this.stage.project(FIELD.point(P.x, P.y, LIFT));
     this.entryUv.set(pIn.x / 1920, 1 - pIn.y / 1080);
     const pOut = this.stage.project(FIELD.point(last.x, last.y, 0.05));

@@ -10,7 +10,7 @@ import { Polyline, circlePoints } from "../../primitives/Polyline";
 
 /**
  * s07-title — after the tape stop's silence, the final hit: the title lands with it, the circle of fifths completes
- * (all twelve keys light in fifths order, landing on C); everything fades out in the reverb tail.
+ * (all twelve keys light in fifths order, landing on C); everything fades out in the reverb tail (6 bars).
  */
 const KEYS = ["C", "G", "D", "A", "E", "B", "F♯", "C♯", "A♭", "E♭", "B♭", "F"];
 const PX = 120;                                      // px per world unit (view height 9)
@@ -51,7 +51,7 @@ export class TitleScene implements Scene {
   draw(ctx: SceneContext): void {
     const c = new Cues(ctx, ctx.localTime);
     const t = c.t;
-    const fadeOut = 1 - smoothstep(c.bar(6.2), c.bar(7.8), t);
+    const fadeOut = 1 - smoothstep(c.bar(4.6), c.bar(5.7), t);
     const ringIn = smoothstep(0, c.bar(0.8), t);
     this.ring.setProgress(ringIn);
     this.ring.setOpacity(fadeOut);
@@ -83,7 +83,7 @@ export class TitleScene implements Scene {
     this.title.set({ opacity: a.opacity, y: 330 + a.dy, scale: lerp(1.06, 1, smoothstep(0, c.bar(0.5), t)) });
     const b = rise(0.12, 0.2);
     this.subtitle.set({ opacity: b.opacity, y: 430 + b.dy });
-    const f = rise(2.0, 0.6);
+    const f = rise(1.8, 0.6);
     this.small.set({ opacity: clamp01(f.opacity), y: 530 + f.dy });
   }
 

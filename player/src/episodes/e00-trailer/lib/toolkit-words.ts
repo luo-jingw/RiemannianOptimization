@@ -33,7 +33,7 @@ export function wordOnsets(sentenceStart: number, sentenceEnd: number): number[]
 export class ToolkitWordRow {
   private readonly handles: FormulaHandle[] = [];
   private readonly xs: number[] = [];
-  private static readonly Y = 104;
+  private static readonly Y = 136;
 
   constructor(formulas: FormulaLayer) {
     const spacing = 300;

@@ -18,7 +18,8 @@ import { FoldingSheet } from "./lib/fold-sheet";
 
 /**
  * s01-flat — the flat world (4 bars at 80 BPM, 12 s).
- * b0–b1: the elliptic contours of a quadratic light up from the center over a cold blue grid.
+ * b0–b1: the elliptic contours of a quadratic light up from the center over a cold blue grid, all within the first
+ *        two seconds.
  * b1–b3: gradient descent zig-zags toward the minimum, one step per beat (with the ticks), steps shrinking.
  * b3–b4: the camera tilts from overhead to 45°; contours fade and the grid becomes a flat 3D sheet, which s02 folds.
  */
@@ -70,7 +71,7 @@ export class FlatScene implements Scene {
       const line = new Polyline(stage, QUAD.contour(level, 160).map((p) => lift(p, 0.003)), { color, width: 2.2 + w });
       this.contours.push(line);
       // Reveal from the center outward: innermost first.
-      this.contourStarts.push(0.3 + 0.24 * (LEVEL_COUNT - 1 - i));
+      this.contourStarts.push(0.05 + 0.12 * (LEVEL_COUNT - 1 - i));
     }
 
     this.iterates = QUAD.descent(START, ALPHA, STEPS);
@@ -111,13 +112,13 @@ export class FlatScene implements Scene {
     const cam = orbitPosition(pose);
     this.stage.setView3D(cam, pose.target, pose.fov);
 
-    const fadeIn = smoothstep(0, c.bar(0.9), t);
+    const fadeIn = smoothstep(0, c.bar(0.35), t);
     this.backdrop.set({ x: 960, y: 420, radius: 1050, strength: lerp(0.6, 1, fadeIn) }, fadeIn);
-    this.dust.setOpacity(0.45 * smoothstep(0.5, 4, t));
+    this.dust.setOpacity(0.45 * smoothstep(0.2, 2.5, t));
 
     // Grid: reveals from the center with the contours, brightens into a 3D sheet during the tilt.
     const tilt = c.pb(3, 1);
-    const reveal = lerp(0, 1.6, smoothstep(0.2, 3.6, t));
+    const reveal = lerp(0, 1.6, smoothstep(0, 2.4, t));
     this.sheet.update(0, cam, {
       inner: GRID_INNER, outer: GRID_OUTER, ground: GROUND.clone().multiplyScalar(fadeIn),
       brightness: lerp(0.5, 0.95, tilt), depthDim: 0.55 * tilt, reveal,
@@ -126,11 +127,11 @@ export class FlatScene implements Scene {
     // Contours: draw themselves around the ellipse, innermost first; fade out during the tilt.
     const contourFade = 1 - smoothstep(c.bar(3.1), c.bar(3.8), t);
     for (let i = 0; i < LEVEL_COUNT; i++) {
-      const p = smoothstep(this.contourStarts[i], this.contourStarts[i] + 1.1, t);
+      const p = smoothstep(this.contourStarts[i], this.contourStarts[i] + 0.8, t);
       this.contours[i].setOpacity((0.35 + 0.65 * p) * contourFade);
       this.contours[i].setProgress(p);
     }
-    this.minGlow.set(lift(new THREE.Vector2(0, 0), 0.01), 0.6 * smoothstep(0.2, 1.6, t) * contourFade, 1);
+    this.minGlow.set(lift(new THREE.Vector2(0, 0), 0.01), 0.6 * smoothstep(0, 1.0, t) * contourFade, 1);
 
     // Gradient descent: the dot appears at b1 and lands on every beat.
     const appear = smoothstep(c.bar(1) - 0.3, c.bar(1) + 0.3, t);

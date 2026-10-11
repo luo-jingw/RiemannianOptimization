@@ -1,10 +1,11 @@
-import type * as THREE from "three";
+import * as THREE from "three";
 import type { ChapterTiming, Scene, SceneContext } from "../../core/Scene";
 import type { SceneLayers } from "../../core/SceneLayers";
 import type { FormulaHandle } from "../../layers/FormulaLayer";
 import { Cues } from "../../primitives/Cues";
 import { clamp01, easeInOutCubic, lerp, smoothstep } from "../../primitives/Easing";
 import { Palette } from "../../primitives/Palette";
+import { Glow } from "./lib/flat-glow";
 import { GalleryCompositor, type MatchCut } from "./lib/gallery-compositor";
 import { DroneSlamVignette } from "./lib/gallery-drone-slam";
 import { DtiBrainVignette } from "./lib/gallery-dti-brain";
@@ -48,13 +49,20 @@ const WORD_SIZE = 150;
 const WORD_HOLD = 0.45;                           // seconds at full size after the cut
 const WORD_SETTLE = 0.3;                          // seconds to shrink into the corner
 
+/** The protagonist rides each shot's key element as an orange halo (world units of the 16 x 9 stage view). */
+const HALO_SIZE = 1.5;
+const HALO_PEAK = 0.7;
+const CORE_SIZE = 0.38;
+const CORE_PEAK = 1.0;
+
 /**
  * E00 s03-worlds — six real worlds as one accelerating arc: shots of 4, 3, 3, 2, 2, 2 bars (robot arm, drone loop
  * closure, orthogonal network weights, hyperbolic hierarchy, diffusion tensors, principal subspace). Each shot plays
  * its whole vignette once, rendered offscreen; consecutive shots are joined by match cuts through their key elements,
  * landing an eighth note before the bar line, with the incoming manifold's outline at the pivot. On every cut the
- * field's name flashes large and settles into the corner label. The section is entered and left by zoom-throughs on
- * the first and last shots' key elements.
+ * field's name flashes large and settles into the corner label. The orange point stays on screen as a halo on the key
+ * element, pulsing on the beat, and rides every match cut through its pivot. The section is entered and left by
+ * zoom-throughs on the first and last shots' key elements.
  */
 export class WorldsScene implements Scene {
   readonly id = "s03-worlds";
@@ -63,12 +71,16 @@ export class WorldsScene implements Scene {
   private words: FormulaHandle[] = [];
   private compositor!: GalleryCompositor;
   private glyphs!: ManifoldGlyphs;
+  private halo!: Glow;
+  private core!: Glow;
   private shown: GalleryVignette | null = null;
 
   setup(layers: SceneLayers, _timing: ChapterTiming): void {
     this.shots = [new RobotArmVignette(), new DroneSlamVignette(), new NeuralNetVignette(), new HyperbolicTreeVignette(), new DtiBrainVignette(), new PcaSubspaceVignette()];
     this.compositor = new GalleryCompositor(layers.stage);
     this.glyphs = new ManifoldGlyphs(layers.stage);
+    this.halo = new Glow(layers.stage, Palette.orange, HALO_SIZE, HALO_PEAK, false);
+    this.core = new Glow(layers.stage, "#ffd9a8", CORE_SIZE, CORE_PEAK, false);
     this.labels = LABELS.map((l) => layers.formulas.add({
       tex: `\\textcolor{${Palette.muted}}{${l.lead}}\\textcolor{${Palette.blue}}{${l.manifold}}`,
       x: LABEL_X, y: LABEL_Y, size: 30, align: "right", valign: "bottom", opacity: 0,
@@ -113,6 +125,13 @@ export class WorldsScene implements Scene {
     const pivot = this.compositor.compose(current, cut, 0);
     if (cut !== null) this.glyphs.show(into, pivot, cut.progress);
     else this.glyphs.hide();
+    const at = cut !== null ? pivot : current.matchPoint();
+    let beat = 0;
+    while (c.beat(beat + 1) <= t) beat++;
+    const pulse = Math.exp(-(t - c.beat(beat)) / 0.15);
+    const where = new THREE.Vector3((at.x - 0.5) * 16, (at.y - 0.5) * 9, 0.5);
+    this.halo.set(where, 0.7 + 0.3 * pulse, 1 + 0.3 * pulse);
+    this.core.set(where, 1, 1 + 0.15 * pulse);
 
     for (let i = 0; i < n; i++) {
       const at = i === 0 ? 0.1 : cuts[i];          // the moment the shot takes over the frame

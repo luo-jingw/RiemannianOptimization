@@ -38,11 +38,11 @@ export class CreditsScene implements Scene {
   draw(ctx: SceneContext): void {
     const c = new Cues(ctx, ctx.localTime);
     const t = c.t;
-    const fadeIn = smoothstep(c.bar(0.15), c.bar(0.9), t);
+    const fadeIn = smoothstep(0, c.bar(0.6), t);
     const fadeOut = 1 - smoothstep(ctx.duration - c.bar(0.9), ctx.duration - c.bar(0.1), t);
     this.handles.forEach((h, i) => {
       const lag = i * 0.04;
-      h.set({ opacity: smoothstep(c.bar(0.15 + lag), c.bar(0.9 + lag), t) * fadeOut * (fadeIn > 0 ? 1 : 0), y: this.ys[i] });
+      h.set({ opacity: smoothstep(c.bar(lag), c.bar(0.6 + lag), t) * fadeOut * (fadeIn > 0 ? 1 : 0), y: this.ys[i] });
     });
   }
 

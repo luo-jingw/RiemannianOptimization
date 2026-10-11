@@ -116,8 +116,8 @@ A series entry with `"kind": "trailer"` (`content/series.json`) is music-led ins
 - Scenes time their motion with `Cues.bar(i)` (start of bar i in the chapter).
 - Several independent pictures in one scene are rendered offscreen: each has its own `THREE.Scene` and camera and is
   drawn into a `WebGLRenderTarget` in `draw` before the stage renders (e00 gallery compositor, montage tiles).
-- Score: `pipeline/rvideo/music/trailer_score.py` (arrangement on the episode voices plus `trailer_orchestra.py`),
-  chord per bar in `trailer_harmony.py`; section bar counts there must match `story.en.json`.
+- Score: `pipeline/rvideo/music/film_score.py` (episode voices plus `trailer_orchestra.py` and `film_drums.py`, tape stop in `tape_stop.py`),
+  chord per bar in `film_harmony.py`; section bar counts there must match `story.en.json`.
 
 ## Verification of a chapter
 

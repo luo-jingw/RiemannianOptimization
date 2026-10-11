@@ -11,6 +11,7 @@ import soundfile as sf
 
 from rvideo.audio.mix_profile import MixProfile
 from rvideo.audio.narration_mixer import NarrationMixer
+from rvideo.music.film_score import FilmScore
 from rvideo.music.music_composer import SAMPLE_RATE as MUSIC_RATE, MusicComposer
 from rvideo.narration.kokoro_synthesizer import KokoroSynthesizer
 from rvideo.paths import ProjectPaths
@@ -78,10 +79,9 @@ def cmd_music(paths: ProjectPaths, episode: str) -> int:
     timeline = Timeline.load(paths.timeline_file(episode))
     order = SeriesManifest.load(paths.series_file).episode(episode).order
     if _kind(paths, episode) == "trailer":
-        from rvideo.music.trailer_score import TrailerScore
-        score = TrailerScore()
+        score = FilmScore()
         music = score.compose(timeline)
-        print(f"[music] {episode}: key:chord per bar = {' '.join(score.key_log(timeline))}")
+        print(f"[music] {episode}: chord@bpm per bar = {' '.join(score.key_log(timeline))}")
     else:
         music = MusicComposer().compose(timeline, order)
     out = paths.music_wav(episode)

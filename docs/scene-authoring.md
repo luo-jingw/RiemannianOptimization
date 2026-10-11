@@ -108,12 +108,17 @@ Colors inside TeX: `\textcolor{#ffa94d}{...}`. Options: `size`, `align`, `valign
 
 A series entry with `"kind": "trailer"` (`content/series.json`) is music-led instead of narration-led:
 
-- `story.en.json`: every scene has `"bars"` (its length on a 120 BPM 4/4 grid, 2 s per bar) and a `music` category
-  `trailer-open | trailer-fold | trailer-gallery | trailer-toolkit | trailer-montage | trailer-title |
-  trailer-credits`; every sentence has `"bar"`, the bar (relative to the scene) it starts on, 0.08 s after the
-  downbeat. The beat timeline builder rejects a sentence that does not end before the next anchor.
+- `story.en.json`: every scene has `"bars"` (its length in 4/4 bars), `"tempo": [bpm_first_beat, bpm_last_beat]`
+  (linear in between, 40–200 BPM, default 120) and a `music` category `film-flat | film-fold | film-worlds |
+  film-rebuild | film-build | film-drop | film-title | film-credits`; every sentence has `"bar"`, the bar (relative
+  to the scene) it starts on, 0.08 s after the downbeat. The beat timeline builder rejects a sentence that does not
+  end before the next anchor.
 - No title cards, no chapter segments on the web seek bar; captions use the shadow style (no box).
-- Scenes time their motion with `Cues.bar(i)` (start of bar i in the chapter).
+- Scenes time their motion with `Cues.beat(b)` / `Cues.bar(i)` (from the chapter's `beatTimes`, so they follow the
+  tempo map).
+- Chapter boundaries are zoom-throughs instead of fades: a scene may expose `exitPoint()` / `entryPoint()` (frame
+  uv, y up) for the point the transition magnifies. Shaders that write colour directly must output linear colour and
+  include `<colorspace_fragment>`, since transition frames are rendered through a linear offscreen target.
 - Several independent pictures in one scene are rendered offscreen: each has its own `THREE.Scene` and camera and is
   drawn into a `WebGLRenderTarget` in `draw` before the stage renders (e00 gallery compositor, montage tiles).
 - Score: `pipeline/rvideo/music/film_score.py` (episode voices plus `trailer_orchestra.py` and `film_drums.py`, tape stop in `tape_stop.py`),

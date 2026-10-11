@@ -1,7 +1,7 @@
 # Video Architecture
 
 Verified production architecture of the series "Riemannian Optimization from the Ground Up".
-Delivered: E01–E06 v1 (`output/<eid>/v1/`), 214 minutes in total; series trailer E00 v6 (`output/e00-trailer/v6/`, 2:34).
+Delivered: E01–E06 v1 (`output/<eid>/v1/`), 214 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
 
 ## Modules and files
 
@@ -26,9 +26,11 @@ validate → narrate (cached by text hash) → timeline → subtitles → music 
 `check` writes `build/<eid>/en/qa/delivery-v<N>.json` and sample frames; it fails when stream durations differ from the timeline by more than 0.2 s, decoding reports errors, the subtitle stream is missing, or the frame size is not 1920×1080.
 
 Trailers (`kind: "trailer"`) take a different branch at three points: the timeline comes from
-`BeatTimelineBuilder` (scene lengths in bars at 120 BPM, sentences on bar anchors), the music from `TrailerScore`
-(episode voices plus strings, piano, horn, timpani; one key per large section), and the mix profile ducks music by
-6 dB and loudness-normalizes to −14 LUFS. The trailer cover is the title card (title scene start + 5 bars).
+`BeatTimelineBuilder` (scene lengths in bars on a per-scene tempo map, sentences on bar anchors; chapters carry
+`beatTimes`), the music from `FilmScore` (episode voices plus orchestra and drums, a phonk drop and a tape stop), and
+the mix profile ducks music by 4 dB and loudness-normalizes to −14 LUFS. Trailer chapter boundaries are zoom-throughs
+(`TransitionPass`: the stage rendered offscreen, magnified about the scenes' exit / entry points with a radial blur
+and periphery darkening). The trailer cover is the title card (title scene start + 3.5 bars).
 
 Capture splits frames into 60 s chunks taken from a queue by N workers; a chunk whose browser dies is re-rendered in a new browser (up to 3 attempts). Measured throughput: 23–42 frames/s with 2–5 workers.
 
@@ -60,7 +62,7 @@ The dev server and the static site differ only in the `DataSource`
 | E04 implicit level sets | 31.1 | 273 | −16.0 | −1.5 |
 | E05 tangent / orthogonal | 40.8 | 347 | −16.0 | −1.4 |
 | E06 gradient / retraction | 37.4 | 301 | −16.0 | −1.4 |
-| E00 trailer (v6) | 2.6 | 12 | −14.0 | −1.1 |
+| E00 trailer (v8) | 2.0 | 7 | −14.2 | −1.2 |
 
 ## Adding an episode (new course notes)
 

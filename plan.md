@@ -1,6 +1,6 @@
 # Plan
 
-Plan Status: approved
+Plan Status: completed
 
 # Problem
 
@@ -296,7 +296,7 @@ Stills at every cut and event; determinism and history checks; visual review.
 
 ## Phase 6
 
-Phase Status: active
+Phase Status: completed
 
 Round: 5
 
@@ -333,7 +333,7 @@ Frames every 2 s and at every boundary; determinism and history checks; `rvideo 
 
 ## Phase 7
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 5
 

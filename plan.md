@@ -257,7 +257,7 @@ Phase 4
 
 ## Phase 6
 
-Phase Status: active
+Phase Status: completed
 
 Round: 1
 
@@ -287,7 +287,7 @@ Phase 5
 
 ## Phase 7
 
-Phase Status: pending
+Phase Status: active
 
 Round: 1
 

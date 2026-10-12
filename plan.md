@@ -136,7 +136,7 @@ counterexample entry; every chapter cites Boumal numbers.
 
 ## Phase 2
 
-Phase Status: active
+Phase Status: completed
 
 Round: 1
 
@@ -166,7 +166,7 @@ Phase 1
 
 ## Phase 3
 
-Phase Status: pending
+Phase Status: active
 
 Round: 1
 

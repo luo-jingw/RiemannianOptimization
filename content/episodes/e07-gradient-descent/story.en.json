@@ -1,0 +1,1627 @@
+{
+ "episode": "e07-gradient-descent",
+ "title": "Riemannian Gradient Descent",
+ "voice": "af_heart",
+ "rate": 1.0,
+ "scenes": [
+  {
+   "id": "c01-problem-and-sequences",
+   "chapter": "Chapter 1",
+   "title": "From One Step to an Algorithm",
+   "music": "motivation",
+   "terms": [
+    "minimizer",
+    "local-minimizer",
+    "accumulation-point",
+    "convergence",
+    "neighborhood",
+    "hausdorff",
+    "line-with-two-origins",
+    "retraction",
+    "riemannian-gradient-descent",
+    "rayleigh-quotient"
+   ],
+   "sentences": [
+    {
+     "en": "Last time we learned to take one step on a curved space.",
+     "zh": "上一集我们学会了在弯曲空间上走一步。"
+    },
+    {
+     "en": "From a point x, we move along the retraction curve R x of minus t times the Riemannian gradient.",
+     "zh": "从点 x 出发，沿 retraction 曲线 R_x(−t·grad f(x)) 移动。"
+    },
+    {
+     "en": "And we proved that a small enough step always decreases f, unless the gradient is zero.",
+     "zh": "并且证明了：只要梯度不为零，足够小的一步一定让 f 下降。"
+    },
+    {
+     "en": "Repeat that step, and you have an algorithm: Riemannian gradient descent.",
+     "zh": "把这一步重复下去，就得到一个算法：黎曼梯度下降。"
+    },
+    {
+     "en": "x k plus one equals R at x k, of minus alpha k times grad f of x k.",
+     "zh": "x_{k+1} = R_{x_k}(−α_k grad f(x_k))。"
+    },
+    {
+     "en": "Our running example is the Rayleigh quotient on the sphere: f of x equals one half x transpose A x.",
+     "zh": "本集的贯穿例子是球面上的瑞利商：f(x) = ½xᵀAx。"
+    },
+    {
+     "en": "We take A diagonal with entries four, two and one, so f is smallest at the poles plus or minus e three.",
+     "zh": "取 A = diag(4, 2, 1)，f 在两极 ±e₃ 处最小。"
+    },
+    {
+     "en": "To analyze an algorithm, we first have to say what we are looking for, and what it means to converge.",
+     "zh": "要分析算法，先得说清我们在找什么，以及\"收敛\"是什么意思。"
+    },
+    {
+     "en": "A global minimizer is a point x where f of x is at most f of y, for every y in M.",
+     "zh": "全局极小点 x：对 M 中所有 y，f(x) ≤ f(y)。"
+    },
+    {
+     "en": "A local minimizer only has to beat the points in some neighborhood of x.",
+     "zh": "局部极小点只需不大于 x 某个邻域内的点。"
+    },
+    {
+     "en": "A strict local minimizer beats them strictly, for every y other than x.",
+     "zh": "严格局部极小点：对 y ≠ x 严格小于。"
+    },
+    {
+     "en": "On this circle, the function has two valleys: one is the global minimizer, the other is only local.",
+     "zh": "这个圆上的函数有两个谷：一个是全局极小，另一个只是局部极小。"
+    },
+    {
+     "en": "Minimizers may not exist: e to the x on the real line approaches zero, but never reaches it.",
+     "zh": "极小点可能不存在：ℝ 上的 eˣ 趋向 0，却永远取不到。"
+    },
+    {
+     "en": "And they may not be unique: the Rayleigh quotient takes the same value at x and minus x, so both poles are global minimizers.",
+     "zh": "也可能不唯一：瑞利商满足 f(−x) = f(x)，两极都是全局极小点。"
+    },
+    {
+     "en": "Notice that these definitions only use a set, a function, and neighborhoods, that is, the topology of M.",
+     "zh": "注意这些定义只用到集合、函数和邻域，也就是 M 的拓扑。"
+    },
+    {
+     "en": "The problem does not depend on any smooth structure.",
+     "zh": "问题本身与光滑结构无关。"
+    },
+    {
+     "en": "The metric and the retraction are tools we choose, to help us solve it.",
+     "zh": "度量和 retraction 是我们为求解而选择的工具。"
+    },
+    {
+     "en": "An algorithm produces a sequence x zero, x one, x two, and so on. We need two words to describe where it goes.",
+     "zh": "算法产生序列 x₀, x₁, x₂, …，描述它的去向需要两个词。"
+    },
+    {
+     "en": "A point x is the limit of the sequence if every neighborhood of x contains all terms from some index on.",
+     "zh": "x 是序列的极限：x 的每个邻域都包含从某项起的全部项。"
+    },
+    {
+     "en": "A point x is an accumulation point if it is the limit of some subsequence.",
+     "zh": "x 是聚点：它是某个子列的极限。"
+    },
+    {
+     "en": "Equivalently, every neighborhood of x contains infinitely many terms of the sequence.",
+     "zh": "等价地，x 的每个邻域都包含序列的无穷多项。"
+    },
+    {
+     "en": "The sequence minus one to the k jumps between minus one and plus one.",
+     "zh": "序列 (−1)ᵏ 在 −1 与 +1 之间跳动。"
+    },
+    {
+     "en": "Both points are accumulation points, and the sequence has no limit.",
+     "zh": "两个点都是聚点，而序列没有极限。"
+    },
+    {
+     "en": "The sequence k has neither, and a sequence that alternates between zero and k has exactly one accumulation point, but still no limit.",
+     "zh": "序列 k 两者都没有；在 0 与 k 之间交替的序列恰有一个聚点，但仍无极限。"
+    },
+    {
+     "en": "A limit can also escape the manifold. Take M to be the open interval from zero to one.",
+     "zh": "极限也可能跑到流形外面。取 M 为开区间 (0, 1)。"
+    },
+    {
+     "en": "The sequence one over k plus one converges to zero in the real line, but zero is not in M.",
+     "zh": "序列 1/(k+1) 在 ℝ 中收敛到 0，但 0 不在 M 中。"
+    },
+    {
+     "en": "So in M, this sequence has no limit at all. If M is closed in the ambient space, this cannot happen.",
+     "zh": "所以在 M 中它根本没有极限。若 M 在外围空间中是闭集，就不会这样。"
+    },
+    {
+     "en": "One fact connects the two words: if a sequence converges to x, then every accumulation point equals x.",
+     "zh": "一个事实把两个词联系起来：若序列收敛到 x，则每个聚点都等于 x。"
+    },
+    {
+     "en": "Proof. Let y be an accumulation point, the limit of a subsequence.",
+     "zh": "证明：设 y 是聚点，即某个子列的极限。"
+    },
+    {
+     "en": "Every neighborhood of x contains all terms from some index on, so it contains all later terms of the subsequence too.",
+     "zh": "x 的每个邻域包含从某项起的全部项，所以也包含子列从某项起的全部项。"
+    },
+    {
+     "en": "So the subsequence converges to both x and y.",
+     "zh": "于是这个子列同时收敛到 x 和 y。"
+    },
+    {
+     "en": "A manifold is Hausdorff, so limits are unique, and y equals x.",
+     "zh": "流形是 Hausdorff 的，极限唯一，所以 y = x。"
+    },
+    {
+     "en": "Hausdorff is exactly what we used. On the line with two origins, one over k converges to both origins at once.",
+     "zh": "这里用到的正是 Hausdorff。在两个原点的直线上，1/k 同时收敛到两个原点。"
+    },
+    {
+     "en": "Keep these words in mind: our first convergence theorem will be about accumulation points, not limits.",
+     "zh": "记住这两个词：我们的第一个收敛定理讲的是聚点，而不是极限。"
+    }
+   ]
+  },
+  {
+   "id": "c02-taylor-on-curves",
+   "chapter": "Chapter 2",
+   "title": "Taylor Expansion Along Curves",
+   "music": "definition",
+   "terms": [
+    "chain-rule",
+    "riemannian-gradient",
+    "retraction",
+    "pullback",
+    "smooth-curve",
+    "tangent-space"
+   ],
+   "sentences": [
+    {
+     "en": "Every iteration moves along a curve. To analyze a step, we need to know how f changes along a curve.",
+     "zh": "每次迭代都沿一条曲线移动。要分析一步，就要知道 f 沿曲线怎样变化。"
+    },
+    {
+     "en": "Take a smooth curve c on M, with c of zero equal to x and velocity c prime of zero equal to v.",
+     "zh": "取 M 上的光滑曲线 c，c(0) = x，速度 c′(0) = v。"
+    },
+    {
+     "en": "Along the curve, f becomes an ordinary function of one real variable: g of t equals f of c of t.",
+     "zh": "沿着曲线，f 变成普通的一元函数：g(t) = f(c(t))。"
+    },
+    {
+     "en": "So it has an ordinary Taylor expansion: g of t equals g of zero, plus t g prime of zero, plus big O of t squared.",
+     "zh": "所以它有普通的 Taylor 展开：g(t) = g(0) + t g′(0) + O(t²)。"
+    },
+    {
+     "en": "By the chain rule, g prime of t equals D f at c of t, applied to c prime of t.",
+     "zh": "由链式法则，g′(t) = Df(c(t))[c′(t)]。"
+    },
+    {
+     "en": "By the definition of the Riemannian gradient, that is the inner product of grad f at c of t with c prime of t.",
+     "zh": "由黎曼梯度的定义，它等于 ⟨grad f(c(t)), c′(t)⟩。"
+    },
+    {
+     "en": "At t equals zero this gives the first-order Taylor expansion along curves.",
+     "zh": "在 t = 0 处得到沿曲线的一阶 Taylor 展开。"
+    },
+    {
+     "en": "f of c of t equals f of x, plus t times the inner product of grad f of x with v, plus big O of t squared.",
+     "zh": "f(c(t)) = f(x) + t⟨grad f(x), v⟩ + O(t²)。"
+    },
+    {
+     "en": "Now use a retraction curve: c of t equals R x of t v.",
+     "zh": "现在用 retraction 曲线：c(t) = R_x(tv)。"
+    },
+    {
+     "en": "Last time we proved that this curve starts at x with velocity exactly v, so the same expansion holds.",
+     "zh": "上一集证明了这条曲线从 x 出发、速度恰好为 v，所以同一个展开成立。"
+    },
+    {
+     "en": "Here v is minus the gradient, and the panel compares g with its tangent line.",
+     "zh": "这里 v 取负梯度，面板比较 g 与它的切线。"
+    },
+    {
+     "en": "As t shrinks, the gap between them shrinks like t squared: their difference divided by t squared stays bounded.",
+     "zh": "t 缩小时，两者的差距按 t² 缩小：差除以 t² 保持有界。"
+    },
+    {
+     "en": "Writing s for t v, the expansion becomes a statement about tangent vectors.",
+     "zh": "记 s = tv，展开变成关于切向量的陈述。"
+    },
+    {
+     "en": "f of R x of s equals f of x, plus the inner product of grad f of x with s, plus big O of the norm of s squared.",
+     "zh": "f(R_x(s)) = f(x) + ⟨grad f(x), s⟩ + O(‖s‖²)。"
+    },
+    {
+     "en": "The composition f after R x is called the pullback of f to the tangent space.",
+     "zh": "复合 f∘R_x 称为 f 到切空间的拉回。"
+    },
+    {
+     "en": "It quite literally pulls the cost function back from the manifold to the tangent plane.",
+     "zh": "它确实是把代价函数从流形\"拉回\"到切平面上。"
+    },
+    {
+     "en": "Each point s of the plane gets the value of f at R x of s.",
+     "zh": "切平面上的每个点 s 都得到 f(R_x(s)) 这个值。"
+    },
+    {
+     "en": "And the pullback is a smooth function on a linear space, where all the usual calculus applies.",
+     "zh": "拉回是线性空间上的光滑函数，普通的微积分都可以用。"
+    },
+    {
+     "en": "Its gradient at zero is exactly the Riemannian gradient. Let us check it.",
+     "zh": "它在 0 处的梯度恰好就是黎曼梯度。我们来验证。"
+    },
+    {
+     "en": "By the chain rule, D of f after R x at zero, applied to s, equals D f at R x of zero, applied to D R x of zero of s.",
+     "zh": "由链式法则，D(f∘R_x)(0)[s] = Df(R_x(0))[DR_x(0)[s]]。"
+    },
+    {
+     "en": "R x of zero equals x, and D R x of zero is the identity. These are the two defining properties of a retraction.",
+     "zh": "R_x(0) = x，DR_x(0) = id，正是 retraction 的两条定义性质。"
+    },
+    {
+     "en": "So the derivative is D f of x applied to s, which is the inner product of grad f of x with s.",
+     "zh": "所以导数是 Df(x)[s] = ⟨grad f(x), s⟩。"
+    },
+    {
+     "en": "Both conditions matter. Recall the map that doubles the speed: x plus two v, normalized.",
+     "zh": "两条条件都重要。回想速度加倍的映射：(x + 2v) 归一化。"
+    },
+    {
+     "en": "It still sends zero to x, but along it the initial slope of f is twice what the expansion predicts.",
+     "zh": "它仍把 0 送到 x，但沿它 f 的初始斜率是展开预测值的两倍。"
+    },
+    {
+     "en": "One more form will be useful. Join x to a point y by a curve c on the interval from zero to one.",
+     "zh": "还有一种形式会用到。用 [0, 1] 上的曲线 c 连接 x 与 y。"
+    },
+    {
+     "en": "The mean value theorem for g gives a t between zero and one with g of one minus g of zero equal to g prime of t.",
+     "zh": "对 g 用中值定理：存在 t ∈ (0,1) 使 g(1) − g(0) = g′(t)。"
+    },
+    {
+     "en": "That is, f of y equals f of x, plus the inner product of grad f at c of t with c prime of t.",
+     "zh": "即 f(y) = f(x) + ⟨grad f(c(t)), c′(t)⟩。"
+    },
+    {
+     "en": "One caveat: the constant hidden in big O depends on the point and the direction.",
+     "zh": "需要注意：O 中隐藏的常数依赖于点和方向。"
+    },
+    {
+     "en": "To analyze many steps at once, we will need it to be uniform. That comes in chapter five.",
+     "zh": "要同时分析很多步，需要它一致有界，这是第五章的内容。"
+    }
+   ]
+  },
+  {
+   "id": "c03-critical-points",
+   "chapter": "Chapter 3",
+   "title": "Critical Points",
+   "music": "proof",
+   "terms": [
+    "critical-point",
+    "local-minimizer",
+    "riemannian-gradient",
+    "riemannian-metric",
+    "rayleigh-quotient",
+    "tangent-space"
+   ],
+   "sentences": [
+    {
+     "en": "Checking whether a point is a local minimizer is hard in general. But there is a simple necessary condition.",
+     "zh": "判断一个点是否为局部极小一般很难，但有一个简单的必要条件。"
+    },
+    {
+     "en": "At a minimizer, no curve can leave and make f decrease at a linear rate.",
+     "zh": "在极小点，没有任何曲线能离开它并让 f 以线性速率下降。"
+    },
+    {
+     "en": "Definition. A point x is critical for f if f after c has derivative at least zero at t equals zero, for every smooth curve c through x.",
+     "zh": "定义：若对每条过 x 的光滑曲线 c 都有 (f∘c)′(0) ≥ 0，则称 x 是 f 的临界点。"
+    },
+    {
+     "en": "Using both c of t and c of minus t, this is the same as requiring the derivative to be exactly zero.",
+     "zh": "同时考虑 c(t) 与 c(−t)，这等价于要求导数恰好为零。"
+    },
+    {
+     "en": "And by the chain rule, it is the same as D f of x equals zero.",
+     "zh": "再由链式法则，等价于 Df(x) = 0。"
+    },
+    {
+     "en": "Proposition. Every local minimizer of a smooth function is a critical point.",
+     "zh": "命题：光滑函数的每个局部极小点都是临界点。"
+    },
+    {
+     "en": "Proof by contradiction. Let x be a local minimizer, with f of y at least f of x for all y in a neighborhood U.",
+     "zh": "反证：设 x 是局部极小，对邻域 U 中的 y 有 f(y) ≥ f(x)。"
+    },
+    {
+     "en": "Suppose some curve c through x has f after c with a negative derivative at zero.",
+     "zh": "假设某条过 x 的曲线 c 使 (f∘c)′(0) < 0。"
+    },
+    {
+     "en": "The derivative is continuous, so it stays negative on an interval from zero to some delta.",
+     "zh": "导数连续，所以在某个区间 [0, δ] 上保持为负。"
+    },
+    {
+     "en": "Integrating, f of c of t is strictly less than f of x for every t in that interval, except zero.",
+     "zh": "积分得：对该区间中每个 t > 0，f(c(t)) < f(x)。"
+    },
+    {
+     "en": "But c is continuous, so the set of t with c of t in U is open and contains zero.",
+     "zh": "但 c 连续，所以使 c(t) ∈ U 的 t 构成含 0 的开集。"
+    },
+    {
+     "en": "It must contain some positive t below delta. There, f of c of t is both below f of x and at least f of x. A contradiction.",
+     "zh": "它必含某个 (0, δ] 中的 t：那里 f(c(t)) 既小于又不小于 f(x)，矛盾。"
+    },
+    {
+     "en": "Proposition. On a Riemannian manifold, x is critical if and only if grad f of x is zero.",
+     "zh": "命题：在黎曼流形上，x 是临界点当且仅当 grad f(x) = 0。"
+    },
+    {
+     "en": "For any curve with velocity v, the derivative of f after c at zero is the inner product of grad f of x with v.",
+     "zh": "对速度为 v 的曲线，(f∘c)′(0) = ⟨grad f(x), v⟩。"
+    },
+    {
+     "en": "If the gradient is zero, every such derivative is zero, so x is critical.",
+     "zh": "若梯度为零，每个这样的导数都为零，x 是临界点。"
+    },
+    {
+     "en": "Conversely, if x is critical, the inner product with v is at least zero for every tangent vector v.",
+     "zh": "反之，若 x 是临界点，则对每个切向量 v，⟨grad f(x), v⟩ ≥ 0。"
+    },
+    {
+     "en": "Apply it to minus v as well: the inner product is zero for all v. Taking v equal to the gradient, its norm is zero.",
+     "zh": "对 −v 也成立：内积对所有 v 为零。取 v = grad f(x)，得其范数为零。"
+    },
+    {
+     "en": "On the sphere, the gradient of the Rayleigh quotient is A x minus x transpose A x, times x.",
+     "zh": "在球面上，瑞利商的梯度是 Ax − (xᵀAx)x。"
+    },
+    {
+     "en": "It vanishes exactly when A x is a multiple of x, that is, when x is a unit eigenvector of A.",
+     "zh": "它为零当且仅当 Ax 是 x 的倍数，即 x 是 A 的单位特征向量。"
+    },
+    {
+     "en": "So there are six critical points: plus or minus e one, e two, and e three.",
+     "zh": "所以共有六个临界点：±e₁、±e₂、±e₃。"
+    },
+    {
+     "en": "Only plus or minus e three are minimizers. Plus or minus e one are maximizers.",
+     "zh": "只有 ±e₃ 是极小点，±e₁ 是极大点。"
+    },
+    {
+     "en": "And e two is a saddle: moving toward e one, f increases; moving toward e three, f decreases.",
+     "zh": "e₂ 是鞍点：朝 e₁ 走 f 增大，朝 e₃ 走 f 减小。"
+    },
+    {
+     "en": "So the converse fails: a critical point need not be a minimizer. On the real line, x cubed at zero is another example.",
+     "zh": "所以逆命题不成立：临界点不一定是极小点。ℝ 上 x³ 在 0 处是另一个例子。"
+    },
+    {
+     "en": "Smoothness is needed too. The absolute value of x has a minimizer at zero, but no derivative there.",
+     "zh": "光滑性也是必要的：|x| 在 0 处取极小，但在那里不可导。"
+    },
+    {
+     "en": "Its slopes are minus one and plus one, and the notion of a critical point does not even apply.",
+     "zh": "两侧斜率为 −1 与 +1，临界点的概念根本不适用。"
+    },
+    {
+     "en": "Finally, the gradient needs a metric. Change the metric and the gradient points elsewhere, as we saw last time.",
+     "zh": "最后，梯度需要度量。换一个度量，梯度方向就变了，上一集已经看到。"
+    },
+    {
+     "en": "But the critical points do not move: D f of x equals zero involves no inner product at all.",
+     "zh": "但临界点不会移动：Df(x) = 0 根本不涉及内积。"
+    },
+    {
+     "en": "This sets a modest but realistic goal for our algorithms: drive the gradient to zero.",
+     "zh": "这为算法定下一个朴素而现实的目标：让梯度趋于零。"
+    }
+   ]
+  },
+  {
+   "id": "c04-rgd-and-sufficient-decrease",
+   "chapter": "Chapter 4",
+   "title": "Gradient Descent and Sufficient Decrease",
+   "music": "proof",
+   "terms": [
+    "riemannian-gradient-descent",
+    "retraction",
+    "line-search",
+    "step-size",
+    "sufficient-decrease",
+    "accumulation-point",
+    "critical-point"
+   ],
+   "sentences": [
+    {
+     "en": "Here is the algorithm. Given a starting point x zero and a retraction R, repeat for k equals zero, one, two, and so on.",
+     "zh": "算法如下：给定初始点 x₀ 与 retraction R，对 k = 0, 1, 2, … 重复。"
+    },
+    {
+     "en": "Pick a step size alpha k, form the step s k equals minus alpha k grad f of x k, and set x k plus one equal to R x k of s k.",
+     "zh": "选步长 α_k，令 s_k = −α_k grad f(x_k)，x_{k+1} = R_{x_k}(s_k)。"
+    },
+    {
+     "en": "The choice of retraction is part of the algorithm.",
+     "zh": "retraction 的选择是算法的一部分。"
+    },
+    {
+     "en": "Choosing alpha k is called the line search. Along the search line, f becomes g of t equals f of R x k of minus t grad f of x k.",
+     "zh": "选 α_k 称为线搜索。沿搜索线，f 变成 g(t) = f(R_{x_k}(−t grad f(x_k)))。"
+    },
+    {
+     "en": "Line search minimizes g approximately: well enough to make progress, without spending too much effort.",
+     "zh": "线搜索近似地极小化 g：足以取得进展，又不花太多代价。"
+    },
+    {
+     "en": "Three common strategies: a fixed step size; the exact minimizer of g, in rare cheap cases; and backtracking, which comes in chapter six.",
+     "zh": "三种常见策略：固定步长；在少数便宜的情形下精确极小化 g；以及回溯，第六章介绍。"
+    },
+    {
+     "en": "We make two assumptions. Assumption one: f is bounded below by some number f low.",
+     "zh": "两个假设。假设一：f 有下界 f_low。"
+    },
+    {
+     "en": "Assumption two, sufficient decrease: there is a constant c greater than zero such that, at every iteration,",
+     "zh": "假设二，充分下降：存在常数 c > 0，使每次迭代都有"
+    },
+    {
+     "en": "f of x k minus f of x k plus one is at least c times the squared gradient norm.",
+     "zh": "f(x_k) − f(x_{k+1}) ≥ c‖grad f(x_k)‖²。"
+    },
+    {
+     "en": "Ensuring assumption two is the job of the line search. We will see how in the next two chapters.",
+     "zh": "保证假设二是线搜索的任务，接下来两章会讲怎么做。"
+    },
+    {
+     "en": "Proposition. Under both assumptions, the gradient norm goes to zero, and every accumulation point is critical.",
+     "zh": "命题：在两个假设下，梯度范数趋于零，每个聚点都是临界点。"
+    },
+    {
+     "en": "Moreover, among the first K iterates, some gradient norm is at most the square root of f of x zero minus f low, over c, times one over root K.",
+     "zh": "而且前 K 个迭代中，必有一个梯度范数不超过 √((f(x₀) − f_low)/c) · 1/√K。"
+    },
+    {
+     "en": "The proof is a telescoping sum. Picture each step's decrease as a bar.",
+     "zh": "证明是裂项求和。把每一步的下降量画成一根竖条。"
+    },
+    {
+     "en": "Stacked up, the bars add to f of x zero minus f of x K, which by assumption one is at most f of x zero minus f low.",
+     "zh": "竖条叠起来等于 f(x₀) − f(x_K)，由假设一不超过 f(x₀) − f_low。"
+    },
+    {
+     "en": "By assumption two, each bar is at least c times its squared gradient norm.",
+     "zh": "由假设二，每根竖条至少是 c 乘梯度范数的平方。"
+    },
+    {
+     "en": "So the total is at least K times c times the smallest squared gradient norm among the first K iterates.",
+     "zh": "所以总和至少是 K·c·前 K 个迭代中最小的梯度范数平方。"
+    },
+    {
+     "en": "Divide by K c and take the square root: that is the bound, with rate one over root K.",
+     "zh": "除以 Kc 再开方，就得到这个界，速率为 1/√K。"
+    },
+    {
+     "en": "For the limit, let K go to infinity. The bars form a series of nonnegative terms with a bounded sum.",
+     "zh": "对于极限，令 K → ∞。竖条构成和有界的非负级数。"
+    },
+    {
+     "en": "So the bars shrink to zero, and since each bar is at least c times the squared gradient, the gradient goes to zero.",
+     "zh": "所以竖条趋于零；每根竖条至少是 c 乘梯度平方，于是梯度趋于零。"
+    },
+    {
+     "en": "Finally, let x be an accumulation point, the limit of a subsequence. The gradient norm is continuous, because f is smooth.",
+     "zh": "最后，设 x 是聚点，某子列的极限。f 光滑，梯度范数连续。"
+    },
+    {
+     "en": "So the gradient norm at x is the limit along the subsequence, which is zero. x is critical.",
+     "zh": "所以 x 处的梯度范数是沿子列的极限，等于零，x 是临界点。"
+    },
+    {
+     "en": "On the Rayleigh quotient with step one third, the smallest gradient so far stays far below the bound, and falls in a straight line on a log scale.",
+     "zh": "在瑞利商上用步长 1/3，迄今最小梯度远低于界，并在对数坐标下沿直线下降。"
+    },
+    {
+     "en": "That straight line is a local phenomenon. We explain it in chapter seven.",
+     "zh": "这条直线是局部现象，第七章解释。"
+    },
+    {
+     "en": "Now read the statement carefully. It says nothing about the starting point.",
+     "zh": "现在仔细读这个结论。它对初始点没有任何要求。"
+    },
+    {
+     "en": "It does not say that the iterates converge, and it does not say that they reach a minimizer.",
+     "zh": "它没有说迭代收敛，也没有说到达极小点。"
+    },
+    {
+     "en": "It only says that accumulation points, if there are any, are critical points.",
+     "zh": "它只说聚点，如果有的话，都是临界点。"
+    },
+    {
+     "en": "Each assumption is needed. Drop the lower bound: take f of x equals minus x on the real line, with step one.",
+     "zh": "每个假设都不可少。去掉下界：取 ℝ 上 f(x) = −x，步长为 1。"
+    },
+    {
+     "en": "Every step decreases f by exactly one, which equals the squared gradient, so sufficient decrease holds.",
+     "zh": "每步 f 恰好下降 1，等于梯度平方，所以充分下降成立。"
+    },
+    {
+     "en": "But the gradient is always minus one, and f falls without end.",
+     "zh": "但梯度始终是 −1，f 无限下降。"
+    },
+    {
+     "en": "Drop sufficient decrease: take f of x equals one half x squared, start at one, and use the shrinking steps one over k plus two, squared.",
+     "zh": "去掉充分下降：取 f(x) = ½x²，从 1 出发，步长 1/(k+2)² 越来越小。"
+    },
+    {
+     "en": "Each step multiplies x by one minus alpha k, and the product of one minus one over n squared, from n equals two, is exactly one half.",
+     "zh": "每步把 x 乘以 1 − α_k，而 ∏_{n≥2}(1 − 1/n²) 恰好等于 ½。"
+    },
+    {
+     "en": "So the iterates stall at one half, where the gradient is one half, not zero. The decreases are summable, and no constant c works.",
+     "zh": "所以迭代停在 ½，那里梯度是 ½ 而非零。下降量可求和，不存在常数 c。"
+    },
+    {
+     "en": "And the conclusion really is about accumulation points. Take f of x equals e to the minus x, which is bounded below by zero, with step one.",
+     "zh": "而结论确实只关于聚点。取 f(x) = e^{−x}，下界为 0，步长为 1。"
+    },
+    {
+     "en": "Sufficient decrease holds with c equal to one minus one over e, and the gradient goes to zero.",
+     "zh": "充分下降成立，c = 1 − 1/e，梯度趋于零。"
+    },
+    {
+     "en": "But the iterates drift off to infinity. Small gradients, yet no accumulation point and no critical point anywhere.",
+     "zh": "但迭代漂向无穷远：梯度很小，却没有聚点，也根本没有临界点。"
+    },
+    {
+     "en": "Everything now rests on sufficient decrease. Where does it come from?",
+     "zh": "现在一切都取决于充分下降。它从哪里来？"
+    }
+   ]
+  },
+  {
+   "id": "c05-lipschitz-type-condition",
+   "chapter": "Chapter 5",
+   "title": "A Lipschitz-Type Condition",
+   "music": "proof",
+   "terms": [
+    "lipschitz-type-condition",
+    "pullback",
+    "sufficient-decrease",
+    "iteration-complexity",
+    "step-size",
+    "cauchy-schwarz",
+    "rayleigh-quotient"
+   ],
+   "sentences": [
+    {
+     "en": "Take one step from x k with step vector s k. The Taylor expansion of the pullback says:",
+     "zh": "从 x_k 出发走一步，步向量为 s_k。拉回的 Taylor 展开说："
+    },
+    {
+     "en": "f of x k plus one equals f of x k, plus the inner product of the gradient with s k, plus big O of the norm of s k squared.",
+     "zh": "f(x_{k+1}) = f(x_k) + ⟨grad f(x_k), s_k⟩ + O(‖s_k‖²)。"
+    },
+    {
+     "en": "The first-order term is a decrease. If the remainder stays under control at every iteration, we keep a guaranteed net decrease.",
+     "zh": "一阶项是下降。若余项在每次迭代都受控，就能保证净下降。"
+    },
+    {
+     "en": "Assumption three, a Lipschitz-type condition: on a set S of pairs x, s, there is a constant L greater than zero such that:",
+     "zh": "假设三，Lipschitz 型条件：在由 (x, s) 组成的集合 S 上，存在 L > 0，使得："
+    },
+    {
+     "en": "f of R x of s is at most f of x, plus the inner product of grad f of x with s, plus L over two times the norm of s squared.",
+     "zh": "f(R_x(s)) ≤ f(x) + ⟨grad f(x), s⟩ + (L/2)‖s‖²。"
+    },
+    {
+     "en": "Geometrically, the pullback lies below an upward parabola that touches it at s equals zero.",
+     "zh": "几何上，拉回位于一个在 s = 0 处与它相切的上开口抛物面之下。"
+    },
+    {
+     "en": "Proposition. Suppose every pair x k, s k visited by the algorithm lies in S.",
+     "zh": "命题：设算法经过的每对 (x_k, s_k) 都在 S 中。"
+    },
+    {
+     "en": "If the step sizes stay in a closed interval inside zero to two over L, then sufficient decrease holds.",
+     "zh": "若步长位于 (0, 2/L) 内的某个闭区间中，则充分下降成立。"
+    },
+    {
+     "en": "Proof. Apply assumption three to the step s k equals minus alpha k grad f of x k.",
+     "zh": "证明：对步 s_k = −α_k grad f(x_k) 应用假设三。"
+    },
+    {
+     "en": "The inner product term becomes minus alpha k times the squared gradient.",
+     "zh": "内积项变为 −α_k‖grad‖²。"
+    },
+    {
+     "en": "The quadratic term becomes L over two, alpha k squared, times the squared gradient.",
+     "zh": "二次项变为 (L/2)α_k²‖grad‖²。"
+    },
+    {
+     "en": "So the decrease is at least alpha k minus L over two alpha k squared, times the squared gradient norm.",
+     "zh": "所以下降量至少为 (α_k − (L/2)α_k²)‖grad f(x_k)‖²。"
+    },
+    {
+     "en": "This coefficient is a parabola in alpha, with roots zero and two over L. It is positive in between, and largest at one over L.",
+     "zh": "系数是 α 的抛物线，根为 0 与 2/L，中间为正，在 1/L 处最大。"
+    },
+    {
+     "en": "On a closed interval inside, its minimum sits at an endpoint, and that minimum is our constant c.",
+     "zh": "在内部的闭区间上，最小值落在端点，这个最小值就是常数 c。"
+    },
+    {
+     "en": "With the constant step one over L, c equals one over two L.",
+     "zh": "取固定步长 1/L 时，c = 1/(2L)。"
+    },
+    {
+     "en": "Plug it into the telescoping bound. Some gradient among the first K is at most the square root of two L, times f of x zero minus f low, over root K.",
+     "zh": "代入裂项界：前 K 个中必有梯度不超过 √(2L(f(x₀) − f_low))/√K。"
+    },
+    {
+     "en": "Said differently: suppose we want a point with gradient norm at most epsilon.",
+     "zh": "换句话说：假设要找到梯度范数 ≤ ε 的点。"
+    },
+    {
+     "en": "Then K at least two L times f of x zero minus f low, over epsilon squared, iterations suffice.",
+     "zh": "那么 K ≥ 2L(f(x₀) − f_low)/ε² 次迭代就够了。"
+    },
+    {
+     "en": "Notice that the dimension of M appears nowhere in this bound.",
+     "zh": "注意这个界里根本没有出现 M 的维数。"
+    },
+    {
+     "en": "Where does assumption three come from? Look at Euclidean space, with the retraction x plus s.",
+     "zh": "假设三从何而来？看欧氏空间，retraction 为 x + s。"
+    },
+    {
+     "en": "There, the usual assumption is that the gradient is L Lipschitz: the gradients at x and y differ by at most L times the distance.",
+     "zh": "那里通常假设梯度 L-Lipschitz：x 与 y 处的梯度之差不超过 L 乘距离。"
+    },
+    {
+     "en": "Along the segment x plus t s, f of x plus s minus f of x is the integral from zero to one of the gradient at x plus t s, paired with s.",
+     "zh": "沿线段 x + ts，f(x + s) − f(x) = ∫₀¹ ⟨grad f(x + ts), s⟩ dt。"
+    },
+    {
+     "en": "Subtract the inner product of grad f of x with s, then use Cauchy Schwarz and the Lipschitz bound inside the integral.",
+     "zh": "减去 ⟨grad f(x), s⟩，再在积分内用 Cauchy–Schwarz 与 Lipschitz 界。"
+    },
+    {
+     "en": "The integrand is at most L t times the norm of s squared, and the integral of L t from zero to one is L over two.",
+     "zh": "被积函数不超过 L t ‖s‖²，而 L t 从 0 到 1 的积分是 L/2。"
+    },
+    {
+     "en": "That is exactly the quadratic upper bound.",
+     "zh": "这正是二次上界。"
+    },
+    {
+     "en": "On a manifold, the Lipschitz condition itself is hard to state: the gradients at x and y live in different tangent planes.",
+     "zh": "在流形上，Lipschitz 条件本身很难表述：x 与 y 处的梯度在不同的切平面里。"
+    },
+    {
+     "en": "You cannot simply subtract them. Making sense of that requires tools from much later in the book.",
+     "zh": "不能直接相减。要让它有意义，需要书中很靠后的工具。"
+    },
+    {
+     "en": "But the quadratic upper bound only needs a retraction. That is why assumption three is phrased on the pullback.",
+     "zh": "而二次上界只需要一个 retraction。所以假设三是用拉回来表述的。"
+    },
+    {
+     "en": "When the sublevel sets of f are compact, a later lemma in the book helps verify it for general retractions.",
+     "zh": "当 f 的下水平集紧时，书中后面的一个引理可以帮助对一般 retraction 验证它。"
+    },
+    {
+     "en": "For the Rayleigh quotient with the normalization retraction, we can find L explicitly, on all of the tangent bundle.",
+     "zh": "对瑞利商与归一化 retraction，可以在整个切丛上明确求出 L。"
+    },
+    {
+     "en": "Since s is orthogonal to x, the norm of x plus s squared is one plus the norm of s squared.",
+     "zh": "由于 s ⊥ x，‖x + s‖² = 1 + ‖s‖²。"
+    },
+    {
+     "en": "Write s as rho times a unit vector u. Let a be x transpose A x, b be x transpose A u, and c be u transpose A u.",
+     "zh": "记 s = ρu，‖u‖ = 1。令 a = xᵀAx，b = xᵀAu，c = uᵀAu。"
+    },
+    {
+     "en": "A short computation turns the gap above the linear part into rho squared, times one half of c minus a, minus rho b, over one plus rho squared.",
+     "zh": "简单计算可知，高出线性部分的差为 ρ²(½(c − a) − ρb)/(1 + ρ²)。"
+    },
+    {
+     "en": "Now a, b, c form a two by two symmetric matrix: A compressed to the plane of x and u.",
+     "zh": "a、b、c 组成一个 2×2 对称矩阵：A 在 x 与 u 张成的平面上的压缩。"
+    },
+    {
+     "en": "Its eigenvalues lie between the smallest and largest eigenvalues of A, which bounds b and c minus a by half the spread.",
+     "zh": "它的特征值位于 A 的最小与最大特征值之间，从而用谱宽的一半控制 b 与 c − a。"
+    },
+    {
+     "en": "Cauchy Schwarz in the plane then bounds the bracket by half the spread times one plus rho squared.",
+     "zh": "再在平面上用 Cauchy–Schwarz，括号不超过谱宽的一半乘以 1 + ρ²。"
+    },
+    {
+     "en": "So L equals lambda max minus lambda min works. For our matrix that is four minus one, which is three.",
+     "zh": "所以 L = λ_max − λ_min 可行。对我们的矩阵是 4 − 1 = 3。"
+    },
+    {
+     "en": "Sampling many points and steps, the largest observed ratio is about 2.999, so this L is essentially tight.",
+     "zh": "对大量点和步长采样，观测到的最大比值约为 2.999，所以这个 L 基本是紧的。"
+    },
+    {
+     "en": "Now the counterexamples. Take f of x equals L over two x squared on the real line. Then x k plus one equals one minus alpha L, times x k.",
+     "zh": "现在看反例。取 ℝ 上 f(x) = (L/2)x²，则 x_{k+1} = (1 − αL)x_k。"
+    },
+    {
+     "en": "With step one over L, we land on the minimizer in one step.",
+     "zh": "步长 1/L 时，一步就落到极小点。"
+    },
+    {
+     "en": "With step two over L, x flips sign forever, and f never decreases. Beyond two over L, the iterates blow up.",
+     "zh": "步长 2/L 时，x 永远来回变号，f 从不下降。超过 2/L，迭代发散。"
+    },
+    {
+     "en": "And the constant must be uniform. For f of x equals x to the fourth, no single L works on the whole line.",
+     "zh": "而且常数必须一致。f(x) = x⁴ 在整条直线上没有统一的 L。"
+    },
+    {
+     "en": "On the interval from minus one to one, L equals twelve does.",
+     "zh": "在 [−1, 1] 上 L = 12 可行。"
+    },
+    {
+     "en": "But start at two point six, outside that interval, with step one twelfth: the first step lands at minus three point two six.",
+     "zh": "但从区间外的 2.6 出发、步长 1/12，第一步落在 −3.26。"
+    },
+    {
+     "en": "From there the iterates bounce farther and farther out. That is why the proposition requires every pair to lie in S.",
+     "zh": "此后迭代越跳越远。所以命题要求每一对都在 S 中。"
+    },
+    {
+     "en": "In practice we rarely know L, and a global L can be huge because of one bad region. We need step sizes that adapt.",
+     "zh": "实际中我们很少知道 L，而且一个坏区域就能让全局 L 很大。我们需要自适应的步长。"
+    }
+   ]
+  },
+  {
+   "id": "c06-backtracking",
+   "chapter": "Chapter 6",
+   "title": "Backtracking Line Search",
+   "music": "proof",
+   "terms": [
+    "backtracking",
+    "armijo-condition",
+    "line-search",
+    "step-size",
+    "lipschitz-type-condition",
+    "sufficient-decrease"
+   ],
+   "sentences": [
+    {
+     "en": "Only the behavior of f near the current point matters for decrease at that iteration. So let the step size adapt.",
+     "zh": "某次迭代能否下降，只取决于 f 在当前点附近的行为。所以让步长自适应。"
+    },
+    {
+     "en": "The idea of backtracking: try a big step first, and shrink it until the decrease is good enough.",
+     "zh": "回溯的思路：先试一个大步，不够好就缩短，直到下降量足够。"
+    },
+    {
+     "en": "Good enough means the Armijo condition. The decrease, f of x minus f of R x of minus alpha grad f of x,",
+     "zh": "\"足够\"指 Armijo 条件：下降量 f(x) − f(R_x(−α grad f(x)))"
+    },
+    {
+     "en": "must be at least r alpha times the squared gradient norm.",
+     "zh": "至少为 rα‖grad f(x)‖²。"
+    },
+    {
+     "en": "Here r is a constant between zero and one, often ten to the minus four.",
+     "zh": "这里 r 是 0 与 1 之间的常数，常取 10⁻⁴。"
+    },
+    {
+     "en": "On the plot of g, the condition is a line from g of zero, with r times the slope of the tangent.",
+     "zh": "在 g 的图上，这个条件是一条从 g(0) 出发、斜率为切线斜率 r 倍的直线。"
+    },
+    {
+     "en": "A step is accepted when g lies below that line. For clarity, this picture uses r equals zero point three.",
+     "zh": "当 g 位于这条直线下方时，步长被接受。为看得清楚，图中取 r = 0.3。"
+    },
+    {
+     "en": "The algorithm: start with a guess alpha bar. While the Armijo condition fails, multiply alpha by tau, a factor between zero and one, often one half.",
+     "zh": "算法：从初始猜测 ᾱ 开始。只要 Armijo 条件不满足，就把 α 乘以 τ，τ ∈ (0, 1)，常取 ½。"
+    },
+    {
+     "en": "Here alpha bar is two. The trial at two lands above the line, and is rejected.",
+     "zh": "这里 ᾱ = 2。试探步长 2 落在直线上方，被拒绝。"
+    },
+    {
+     "en": "The trial at one is still above. The trial at one half lands below the line, and is accepted.",
+     "zh": "步长 1 仍在上方。步长 ½ 落在直线下方，被接受。"
+    },
+    {
+     "en": "Does this always stop, and is the accepted step large enough to give sufficient decrease?",
+     "zh": "这个过程总会停止吗？被接受的步长足够大，能给出充分下降吗？"
+    },
+    {
+     "en": "Lemma. Suppose assumption three holds along the search line, for steps up to alpha bar.",
+     "zh": "引理：设假设三沿搜索线、对不超过 ᾱ 的步长成立。"
+    },
+    {
+     "en": "Then backtracking returns a step alpha at least the minimum of alpha bar and two tau, times one minus r, over L.",
+     "zh": "则回溯返回的步长 α ≥ min(ᾱ, 2τ(1 − r)/L)。"
+    },
+    {
+     "en": "And the decrease is at least r times that minimum, times the squared gradient norm.",
+     "zh": "且下降量至少为 r 乘以这个最小值，再乘以 ‖grad f(x)‖²。"
+    },
+    {
+     "en": "Proof. By assumption three, every trial alpha decreases f by at least alpha minus L over two alpha squared, times the squared gradient.",
+     "zh": "证明：由假设三，每个试探 α 至少让 f 下降 (α − (L/2)α²)‖grad‖²。"
+    },
+    {
+     "en": "If the algorithm does not stop at alpha, the decrease is less than r alpha times the squared gradient.",
+     "zh": "若算法在 α 处不停，则下降量小于 rα‖grad‖²。"
+    },
+    {
+     "en": "Both at once force alpha minus L over two alpha squared to be less than r alpha, that is, alpha greater than two times one minus r, over L.",
+     "zh": "两者同时成立推出 α − (L/2)α² < rα，即 α > 2(1 − r)/L。"
+    },
+    {
+     "en": "So every step at or below two times one minus r, over L, is accepted. On the plot, the quadratic upper bound lies below the Armijo line there.",
+     "zh": "所以不超过 2(1 − r)/L 的步长都会被接受。图上，那里的二次上界低于 Armijo 直线。"
+    },
+    {
+     "en": "The returned step is either alpha bar itself, or tau times a rejected step, which was larger than two times one minus r, over L.",
+     "zh": "返回的步长要么就是 ᾱ，要么是一个被拒绝步长乘 τ，而被拒绝的步长大于 2(1 − r)/L。"
+    },
+    {
+     "en": "That gives the lower bound on alpha, and the Armijo condition turns it into the lower bound on the decrease.",
+     "zh": "这给出 α 的下界，Armijo 条件再把它变成下降量的下界。"
+    },
+    {
+     "en": "Counting the trials: the returned step is alpha bar times tau to the n minus one, after n evaluations.",
+     "zh": "计数：n 次计算后，返回的步长为 ᾱτ^{n−1}。"
+    },
+    {
+     "en": "So n is at most the maximum of one, and two plus the log base one over tau, of alpha bar L over two times one minus r.",
+     "zh": "所以 n ≤ max(1, 2 + log_{1/τ}(ᾱL/(2(1 − r))))。"
+    },
+    {
+     "en": "Notice that L appears in the guarantee, but the algorithm never needs to know it.",
+     "zh": "注意 L 出现在保证里，但算法从不需要知道它。"
+    },
+    {
+     "en": "Corollary. Run gradient descent with backtracking, with initial guesses alpha bar k, and suppose their lim inf is positive.",
+     "zh": "推论：用回溯运行梯度下降，初始猜测为 ᾱ_k，并设其下极限为正。"
+    },
+    {
+     "en": "Each iteration then gets sufficient decrease with constant c k equals r times the minimum of alpha bar k and two tau, times one minus r, over L.",
+     "zh": "每次迭代都有充分下降，常数 c_k = r·min(ᾱ_k, 2τ(1 − r)/L)。"
+    },
+    {
+     "en": "The same telescoping sum gives the gradient going to zero, at the same one over root K rate.",
+     "zh": "同样的裂项求和给出梯度趋于零，速率同样是 1/√K。"
+    },
+    {
+     "en": "Here is gradient descent with backtracking on the sphere. Each step shows how many trials it needed.",
+     "zh": "这是球面上带回溯的梯度下降。每一步显示需要几次试探。"
+    },
+    {
+     "en": "How should we choose alpha bar? Replace f by eight f plus three. The problem has not changed.",
+     "zh": "ᾱ 怎么选？把 f 换成 8f + 3，问题并没有变。"
+    },
+    {
+     "en": "A good algorithm should produce the same iterates, and backtracking does, if the first trial step does not change when f is scaled.",
+     "zh": "好的算法应该给出相同的迭代；只要第一个试探步不随 f 的缩放而变，回溯就能做到。"
+    },
+    {
+     "en": "For the first iteration, take alpha bar zero equals l zero over the gradient norm, where l zero is the length of the first trial step.",
+     "zh": "第一次迭代取 ᾱ₀ = ℓ₀/‖grad f(x₀)‖，ℓ₀ 是第一个试探步的长度。"
+    },
+    {
+     "en": "Afterwards, a useful heuristic is alpha bar k equals two times the last decrease, divided by the current squared gradient norm.",
+     "zh": "之后一个有用的经验公式是 ᾱ_k = 2(f(x_{k−1}) − f(x_k))/‖grad f(x_k)‖²。"
+    },
+    {
+     "en": "It is common to enlarge it slightly, by one over tau, and to keep it above a small floor, as the theory requires.",
+     "zh": "通常再稍放大 1/τ 倍，并设一个小的下限，正如理论所要求。"
+    },
+    {
+     "en": "Each requirement matters. If the initial guesses shrink to zero, like one over k plus two, squared, every trial passes the Armijo test.",
+     "zh": "每个要求都重要。若初始猜测趋于零，如 1/(k+2)²，每个试探都通过 Armijo 检查。"
+    },
+    {
+     "en": "And yet we are back to the stalled example of chapter four: the iterates stop at one half.",
+     "zh": "然而我们又回到第四章的停滞例子：迭代停在 ½。"
+    },
+    {
+     "en": "If r is at least one, no positive step is ever accepted, even on one half x squared, and the loop never ends.",
+     "zh": "若 r ≥ 1，即使对 ½x² 也没有正步长被接受，循环永不结束。"
+    },
+    {
+     "en": "If r is zero, the step two is accepted on one half x squared. It jumps from x to minus x, and f never decreases.",
+     "zh": "若 r = 0，对 ½x² 会接受步长 2：从 x 跳到 −x，f 从不下降。"
+    },
+    {
+     "en": "And if tau equals one, the step never shrinks, so a guess that is too large is never corrected.",
+     "zh": "若 τ = 1，步长从不缩短，过大的猜测永远得不到修正。"
+    },
+    {
+     "en": "Backtracking gives the practical algorithm, with a guarantee that does not need L.",
+     "zh": "回溯给出了实用的算法，它的保证不需要知道 L。"
+    }
+   ]
+  },
+  {
+   "id": "c07-local-convergence",
+   "chapter": "Chapter 7",
+   "title": "Local Convergence",
+   "music": "proof",
+   "terms": [
+    "linear-convergence",
+    "quadratic-convergence",
+    "riemannian-hessian",
+    "exponential-map",
+    "riemannian-distance",
+    "inverse-function-theorem",
+    "local-diffeomorphism",
+    "fixed-point",
+    "operator-norm",
+    "condition-number"
+   ],
+   "sentences": [
+    {
+     "en": "Two common confusions first. A method converges globally if its sequences converge from every starting point.",
+     "zh": "先澄清两个常见误解。若从任意初始点出发序列都收敛，称方法全局收敛。"
+    },
+    {
+     "en": "Global convergence is not convergence to a global minimizer. It only says the sequence converges somewhere.",
+     "zh": "全局收敛不是收敛到全局极小点，只是说序列收敛到某处。"
+    },
+    {
+     "en": "And we have not even proved that gradient descent converges, only that its accumulation points are critical.",
+     "zh": "而且我们甚至还没有证明梯度下降收敛，只证明了它的聚点是临界点。"
+    },
+    {
+     "en": "Still, in practice we see more. Here is the distance from x k to e three, on a log scale. It falls in a straight line.",
+     "zh": "但实践中看到的更多。这是 x_k 到 e₃ 的距离，对数坐标下沿直线下降。"
+    },
+    {
+     "en": "Each step multiplies the error by about zero point six six seven. The worst-case rate of one over root K says nothing about this.",
+     "zh": "每一步误差约乘以 0.667。最坏情形的 1/√K 速率对此毫无描述。"
+    },
+    {
+     "en": "This is local convergence: how a convergent sequence behaves once it is close to its limit.",
+     "zh": "这就是局部收敛：收敛序列靠近极限之后的行为。"
+    },
+    {
+     "en": "Definition. A sequence converges at least linearly to a star if its distance to a star is at most some epsilon k,",
+     "zh": "定义：若序列到 a* 的距离不超过某个 ε_k，"
+    },
+    {
+     "en": "where the ratio epsilon k plus one over epsilon k tends to some mu below one.",
+     "zh": "且 ε_{k+1}/ε_k → μ < 1，则称它至少线性收敛到 a*。"
+    },
+    {
+     "en": "The smallest such mu is the linear convergence factor. If it is zero, the convergence is superlinear.",
+     "zh": "这样的 μ 的下确界是线性收敛因子；若为零，则称超线性收敛。"
+    },
+    {
+     "en": "It converges at least quadratically if epsilon k plus one over epsilon k squared stays bounded.",
+     "zh": "若 ε_{k+1}/ε_k² 有界，则称至少二次收敛。"
+    },
+    {
+     "en": "Two to the minus k converges linearly, with factor one half.",
+     "zh": "2^{−k} 线性收敛，因子为 ½。"
+    },
+    {
+     "en": "Two to the minus two to the k converges quadratically: the number of correct digits doubles each step.",
+     "zh": "2^{−2^k} 二次收敛：正确位数每步翻倍。"
+    },
+    {
+     "en": "This section borrows three tools that the series will define properly later. We use only the properties stated now.",
+     "zh": "这一节借用三个系列之后才正式定义的工具，只使用这里陈述的性质。"
+    },
+    {
+     "en": "First, the Riemannian distance, which makes a connected manifold a metric space.",
+     "zh": "第一，黎曼距离，它让连通流形成为度量空间。"
+    },
+    {
+     "en": "Second, the exponential map: a special retraction, with distance from x to exp x of v equal to the norm of v, for small v.",
+     "zh": "第二，指数映射：一种特殊的 retraction，小 v 时 dist(x, Exp_x(v)) = ‖v‖。"
+    },
+    {
+     "en": "On the sphere, it follows great circles.",
+     "zh": "在球面上它沿大圆走。"
+    },
+    {
+     "en": "Third, the Riemannian Hessian at a critical point x star: a self-adjoint linear map on the tangent space.",
+     "zh": "第三，临界点 x* 处的黎曼 Hessian：切空间上的自伴线性映射。"
+    },
+    {
+     "en": "Along any retraction, f of R x star of v equals f of x star,",
+     "zh": "沿任意 retraction：f(R_{x*}(v)) 等于 f(x*)"
+    },
+    {
+     "en": "plus one half the inner product of v with Hess v, plus big O of the norm of v cubed.",
+     "zh": "加 ½⟨v, Hess f(x*)[v]⟩，再加 O(‖v‖³)。"
+    },
+    {
+     "en": "The derivative of the gradient field at x star is this Hessian.",
+     "zh": "梯度场在 x* 处的导数就是这个 Hessian。"
+    },
+    {
+     "en": "And a zero gradient with a positive definite Hessian makes x star a strict local minimizer.",
+     "zh": "梯度为零且 Hessian 正定时，x* 是严格局部极小点。"
+    },
+    {
+     "en": "For the Rayleigh quotient at e three, the Hessian is A minus lambda min times the identity, on the tangent plane, with eigenvalues one and three.",
+     "zh": "瑞利商在 e₃ 处的 Hessian 是 A − λ_min I 限制到切平面，特征值为 1 和 3。"
+    },
+    {
+     "en": "Next, a fact we already know from the inverse function theorem, now on manifolds.",
+     "zh": "接下来，一个由反函数定理已知的事实，现在搬到流形上。"
+    },
+    {
+     "en": "If F is a smooth map between manifolds and D F of x is invertible, then F maps a neighborhood of x diffeomorphically onto a neighborhood of F of x.",
+     "zh": "若 F 是流形间的光滑映射且 DF(x) 可逆，则 F 把 x 的某个邻域微分同胚地映到 F(x) 的某个邻域。"
+    },
+    {
+     "en": "Charts reduce it to the theorem we proved in episode three.",
+     "zh": "用 chart 可以把它化为第三集证明的定理。"
+    },
+    {
+     "en": "Since D R x of zero is the identity, R x maps a small ball around zero in the tangent space diffeomorphically onto a neighborhood of x.",
+     "zh": "由于 DR_x(0) = id，R_x 把切空间中 0 附近的一个小球微分同胚地映到 x 的邻域上。"
+    },
+    {
+     "en": "So near x, a retraction is a coordinate system, and we can do calculus in the tangent space.",
+     "zh": "所以在 x 附近，retraction 就是一个坐标系，可以在切空间里做微积分。"
+    },
+    {
+     "en": "Theorem, local contraction mapping. Let F map M to itself smoothly, with a fixed point x star, and with the norm of D F at x star below one.",
+     "zh": "定理（局部压缩映射）：设 F: M → M 光滑，有不动点 x*，且 ‖DF(x*)‖ < 1。"
+    },
+    {
+     "en": "Then there is a neighborhood of x star with the following property.",
+     "zh": "则存在 x* 的一个邻域，具有如下性质。"
+    },
+    {
+     "en": "Once the sequence x k plus one equals F of x k enters it, it stays there, and converges to x star at least linearly.",
+     "zh": "序列 x_{k+1} = F(x_k) 一旦进入就不再离开，并至少线性收敛到 x*。"
+    },
+    {
+     "en": "The factor is at most the norm of D F at x star. If that norm is zero, the convergence is at least quadratic.",
+     "zh": "因子不超过 ‖DF(x*)‖。若该范数为零，则至少二次收敛。"
+    },
+    {
+     "en": "Proof. Choose a ball of radius r where R x star is a diffeomorphism onto a neighborhood U.",
+     "zh": "证明：取半径 r 的球，R_{x*} 在其上是到邻域 U 的微分同胚。"
+    },
+    {
+     "en": "The preimage of U under F is open and contains x star, so a smaller ball, of radius r prime, maps into it.",
+     "zh": "U 在 F 下的原像是含 x* 的开集，所以更小的半径 r′ 的球被映入其中。"
+    },
+    {
+     "en": "For iterates in that ball, write x k equals R x star of xi k, with xi k a tangent vector at x star.",
+     "zh": "对该球中的迭代，写 x_k = R_{x*}(ξ_k)，ξ_k 是 x* 处的切向量。"
+    },
+    {
+     "en": "Then xi k plus one equals F tilde of xi k, where F tilde is R x star inverse, after F, after R x star.",
+     "zh": "则 ξ_{k+1} = F̃(ξ_k)，其中 F̃ = R_{x*}⁻¹ ∘ F ∘ R_{x*}。"
+    },
+    {
+     "en": "F tilde is a smooth map on a linear space.",
+     "zh": "F̃ 是线性空间上的光滑映射。"
+    },
+    {
+     "en": "F tilde of zero is zero, and by the chain rule its derivative at zero is D F of x star, because D R x star of zero is the identity.",
+     "zh": "F̃(0) = 0；由链式法则，它在 0 处的导数是 DF(x*)，因为 DR_{x*}(0) = id。"
+    },
+    {
+     "en": "Taylor expansion: F tilde of v equals D F of x star applied to v, plus an error bounded by a constant c times the norm of v squared.",
+     "zh": "Taylor 展开：F̃(v) = DF(x*)[v] + E(v)，‖E(v)‖ ≤ c‖v‖²。"
+    },
+    {
+     "en": "Taking norms, the norm of xi k plus one is at most the norm of D F of x star, plus c times the norm of xi k, all times the norm of xi k.",
+     "zh": "取范数：‖ξ_{k+1}‖ ≤ (‖DF(x*)‖ + c‖ξ_k‖)‖ξ_k‖。"
+    },
+    {
+     "en": "Shrink r prime so that the norm of D F plus c r prime is below one. Then the norm of xi never grows, and the iterates stay in the ball.",
+     "zh": "缩小 r′ 使 ‖DF(x*)‖ + cr′ < 1。于是 ‖ξ‖ 不会增大，迭代留在球内。"
+    },
+    {
+     "en": "The ratio of successive norms tends to at most the norm of D F of x star. With the exponential map, these norms are exactly the distances to x star.",
+     "zh": "相邻范数之比的极限不超过 ‖DF(x*)‖。用指数映射时，这些范数恰好是到 x* 的距离。"
+    },
+    {
+     "en": "And if D F of x star is zero, the same inequality bounds the norm of xi k plus one by c times the norm of xi k squared: quadratic.",
+     "zh": "若 DF(x*) = 0，同一个不等式给出 ‖ξ_{k+1}‖ ≤ c‖ξ_k‖²：二次收敛。"
+    },
+    {
+     "en": "Now apply it to gradient descent with the constant step one over L. The iteration map is F of x equals R x of minus one over L grad f of x.",
+     "zh": "现在把它用于步长固定为 1/L 的梯度下降。迭代映射为 F(x) = R_x(−(1/L) grad f(x))。"
+    },
+    {
+     "en": "Theorem. Let grad f vanish at x star, with a positive definite Hessian.",
+     "zh": "定理：设 grad f(x*) = 0，且 Hessian 正定。"
+    },
+    {
+     "en": "Its eigenvalues run from lambda one down to lambda n, and the condition number kappa is lambda one over lambda n.",
+     "zh": "其特征值 λ₁ ≥ … ≥ λ_n > 0，条件数 κ = λ₁/λ_n。"
+    },
+    {
+     "en": "If L is greater than lambda one over two, gradient descent with step one over L converges at least linearly near x star.",
+     "zh": "若 L > λ₁/2，步长 1/L 的梯度下降在 x* 附近至少线性收敛。"
+    },
+    {
+     "en": "With L equal to lambda one, the factor is at most one minus one over kappa.",
+     "zh": "L = λ₁ 时，因子不超过 1 − 1/κ。"
+    },
+    {
+     "en": "Proof. Clearly F of x star is R x star of zero, which is x star.",
+     "zh": "证明：显然 F(x*) = R_{x*}(0) = x*。"
+    },
+    {
+     "en": "To differentiate F, we need the derivative of the retraction as a map of both the point and the vector, at the pair x, zero.",
+     "zh": "要对 F 求导，需要 retraction 作为点和向量的二元映射在 (x, 0) 处的导数。"
+    },
+    {
+     "en": "Lemma. D R at x, zero, applied to a pair u, v, equals u plus v.",
+     "zh": "引理：DR(x, 0)[(u, v)] = u + v。"
+    },
+    {
+     "en": "Move the point along a curve with velocity u, and keep the vector zero.",
+     "zh": "让点沿速度为 u 的曲线移动，向量保持为零。"
+    },
+    {
+     "en": "R of c of t, zero, is just c of t, with velocity u. This uses R x of zero equals x.",
+     "zh": "R(c(t), 0) = c(t)，速度为 u。这用到 R_x(0) = x。"
+    },
+    {
+     "en": "Keeping the point and scaling the vector, R x of t v has velocity v. This uses D R x of zero equals the identity. Add the two by linearity.",
+     "zh": "固定点、伸缩向量：R_x(tv) 的速度为 v，这用到 DR_x(0) = id。由线性相加。"
+    },
+    {
+     "en": "Let G of x be minus one over L, grad f of x. Then G of x star is zero.",
+     "zh": "令 G(x) = −(1/L) grad f(x)，则 G(x*) = 0。"
+    },
+    {
+     "en": "The lemma gives D F of x star of v equals v plus D G of x star of v.",
+     "zh": "引理给出 DF(x*)[v] = v + DG(x*)[v]。"
+    },
+    {
+     "en": "The derivative of the gradient field at x star is the Hessian, so D F of x star is the identity minus one over L times the Hessian.",
+     "zh": "梯度场在 x* 处的导数是 Hessian，所以 DF(x*) = Id − (1/L) Hess f(x*)。"
+    },
+    {
+     "en": "It is self-adjoint, with eigenvalues one minus lambda i over L.",
+     "zh": "它是自伴的，特征值为 1 − λ_i/L。"
+    },
+    {
+     "en": "Its norm is the larger of the absolute values of one minus lambda one over L, and one minus lambda n over L.",
+     "zh": "它的范数是 |1 − λ₁/L| 与 |1 − λ_n/L| 中较大者。"
+    },
+    {
+     "en": "Since lambda n is positive, one minus lambda n over L is below one.",
+     "zh": "λ_n > 0，所以 1 − λ_n/L < 1。"
+    },
+    {
+     "en": "Since L exceeds lambda one over two, one minus lambda one over L is above minus one.",
+     "zh": "L > λ₁/2，所以 1 − λ₁/L > −1。"
+    },
+    {
+     "en": "So the norm is below one, and the local contraction theorem applies. With L equal to lambda one, the norm is one minus one over kappa.",
+     "zh": "所以范数小于一，局部压缩定理适用。L = λ₁ 时，范数为 1 − 1/κ。"
+    },
+    {
+     "en": "Is assumption three's constant large enough? Yes. Compare the quadratic upper bound with the Hessian expansion along R x star of t v.",
+     "zh": "假设三的常数够大吗？够。沿 R_{x*}(tv) 比较二次上界与 Hessian 展开。"
+    },
+    {
+     "en": "Divide by t squared and let t go to zero: the inner product of v with Hess v is at most L times the norm of v squared. So L is at least lambda one.",
+     "zh": "除以 t² 并令 t → 0：⟨v, Hess v⟩ ≤ L‖v‖²，所以 L ≥ λ₁。"
+    },
+    {
+     "en": "For the Rayleigh quotient, L equals three equals lambda one, and kappa equals three.",
+     "zh": "对瑞利商，L = 3 = λ₁，κ = 3。"
+    },
+    {
+     "en": "The factor is two thirds, which is the zero point six six seven we measured.",
+     "zh": "因子为 2/3，正是我们测得的 0.667。"
+    },
+    {
+     "en": "Each hypothesis matters. On the real line, F of x equals two x has the fixed point zero, but every other start runs away.",
+     "zh": "每个假设都不可少。ℝ 上 F(x) = 2x 有不动点 0，但其他任何起点都会远离。"
+    },
+    {
+     "en": "At the borderline, F of x equals x minus x cubed has derivative one at zero.",
+     "zh": "临界情形：F(x) = x − x³ 在 0 处导数为 1。"
+    },
+    {
+     "en": "It converges, but only like one over the square root of two k, not linearly.",
+     "zh": "它收敛，但只像 1/√(2k)，不是线性。"
+    },
+    {
+     "en": "Without a positive definite Hessian, the saddle repels. At e two, the Hessian has eigenvalues two and minus one.",
+     "zh": "Hessian 不正定时鞍点会排斥。在 e₂，Hessian 特征值为 2 与 −1。"
+    },
+    {
+     "en": "So D F has an eigenvalue one plus one over L, which is greater than one.",
+     "zh": "所以 DF 有特征值 1 + 1/L，大于一。"
+    },
+    {
+     "en": "Starting near e two, the iterates are pushed away, and end at e three.",
+     "zh": "从 e₂ 附近出发，迭代被推开，最后到达 e₃。"
+    },
+    {
+     "en": "And with L at most lambda one over two, the step is too long.",
+     "zh": "L ≤ λ₁/2 时步长太长。"
+    },
+    {
+     "en": "On one half x squared with step two, x flips sign forever. With a longer step it diverges.",
+     "zh": "对 ½x² 取步长 2，x 永远变号；步长再长则发散。"
+    },
+    {
+     "en": "Two remarks. The retraction in the proof, the exponential map, has nothing to do with the retraction the algorithm uses.",
+     "zh": "两点说明：证明中用的 retraction（指数映射）与算法使用的 retraction 无关。"
+    },
+    {
+     "en": "And with backtracking, the step size can jump with x, so the iteration map may not be smooth. Linear convergence still holds, by other tools.",
+     "zh": "带回溯时步长可能随 x 跳变，迭代映射未必光滑；线性收敛仍然成立，但需要别的工具。"
+    },
+    {
+     "en": "The same local theorem, with D F equal to zero, will later give the quadratic convergence of Newton's method.",
+     "zh": "同一个局部定理在 DF = 0 时，将来会给出牛顿法的二次收敛。"
+    }
+   ]
+  },
+  {
+   "id": "c08-computing-gradients",
+   "chapter": "Chapter 8",
+   "title": "Computing Gradients",
+   "music": "definition",
+   "terms": [
+    "riemannian-gradient",
+    "adjoint",
+    "chain-rule",
+    "inner-product",
+    "determinant",
+    "automatic-differentiation",
+    "rayleigh-quotient"
+   ],
+   "sentences": [
+    {
+     "en": "Everything so far assumed we can compute grad f. How do we find a formula for it?",
+     "zh": "前面的一切都假设我们能算出 grad f。怎样得到它的公式？"
+    },
+    {
+     "en": "The gradient is defined by one identity: D f of x applied to v equals the inner product of grad f of x with v, for every tangent vector v.",
+     "zh": "梯度由一个等式定义：对每个切向量 v，Df(x)[v] = ⟨grad f(x), v⟩。"
+    },
+    {
+     "en": "So the recipe has three steps. First, write out the directional derivative D f of x of v.",
+     "zh": "所以方法有三步。第一，写出方向导数 Df(x)[v]。"
+    },
+    {
+     "en": "Second, rearrange it into the form, inner product of some vector g with v, isolating v with adjoints.",
+     "zh": "第二，用伴随把 v 单独分离出来，整理成 ⟨g, v⟩ 的形式。"
+    },
+    {
+     "en": "Third, read off the gradient: by uniqueness, grad f of x equals g.",
+     "zh": "第三，读出梯度：由唯一性，grad f(x) = g。"
+    },
+    {
+     "en": "Three rules do most of the work in step one.",
+     "zh": "第一步的大部分工作由三条规则完成。"
+    },
+    {
+     "en": "The chain rule: D of G after F at x, applied to v, equals D G at F of x, applied to D F of x of v.",
+     "zh": "链式法则：D(G∘F)(x)[v] = DG(F(x))[DF(x)[v]]。"
+    },
+    {
+     "en": "The product rule: D of F G equals D F times G, plus F times D G. It holds for matrix products, entrywise products and Kronecker products alike.",
+     "zh": "乘积法则：D(FG) = DF·G + F·DG，对矩阵乘积、逐元乘积和 Kronecker 积都成立。"
+    },
+    {
+     "en": "Along a curve, matrix multiplication is bilinear, so the one variable product rule applies entry by entry.",
+     "zh": "沿曲线看，矩阵乘法是双线性的，一元乘积法则逐个元素适用。"
+    },
+    {
+     "en": "And the inner product rule: the derivative of the inner product of F and G is the inner product of D F with G, plus that of F with D G.",
+     "zh": "内积法则：⟨F, G⟩ 的导数为 ⟨DF, G⟩ + ⟨F, DG⟩。"
+    },
+    {
+     "en": "A common cost is a squared norm: f of x equals the norm of F of x, squared, for a map F into a Euclidean space.",
+     "zh": "一种常见的代价是平方范数：f(x) = ‖F(x)‖²，F 映到欧氏空间。"
+    },
+    {
+     "en": "The inner product rule gives D f of x of v equals two times the inner product of F of x with D F of x of v.",
+     "zh": "内积法则给出 Df(x)[v] = 2⟨F(x), DF(x)[v]⟩。"
+    },
+    {
+     "en": "The adjoint of D F of x moves it to the other side: that equals two times the inner product of D F of x adjoint, applied to F of x, with v.",
+     "zh": "用 DF(x) 的伴随把它移到另一侧：等于 2⟨DF(x)*[F(x)], v⟩。"
+    },
+    {
+     "en": "So grad f of x equals two times D F of x adjoint, applied to F of x. Computing gradients is largely computing adjoints.",
+     "zh": "所以 grad f(x) = 2DF(x)*[F(x)]。求梯度很大程度上就是求伴随。"
+    },
+    {
+     "en": "For least squares, f of x equals the norm of B x minus y squared, this gives two B transpose, times B x minus y.",
+     "zh": "对最小二乘 f(x) = ‖Bx − y‖²，得到 2Bᵀ(Bx − y)。"
+    },
+    {
+     "en": "Next, the matrix inverse. F of X times X equals the identity for every invertible X.",
+     "zh": "接下来是矩阵的逆。对每个可逆矩阵 X，F(X)X = I。"
+    },
+    {
+     "en": "Differentiate both sides along U with the product rule: D F of X of U times X, plus F of X times U, equals zero.",
+     "zh": "两边沿 U 用乘积法则求导：DF(X)[U]·X + F(X)·U = 0。"
+    },
+    {
+     "en": "Multiply by X inverse on the right: D F of X of U equals minus X inverse U X inverse.",
+     "zh": "右乘 X⁻¹：DF(X)[U] = −X⁻¹UX⁻¹。"
+    },
+    {
+     "en": "A numerical check on a two by two example agrees with a finite difference.",
+     "zh": "一个 2×2 的数值例子与有限差分结果吻合。"
+    },
+    {
+     "en": "Then the log determinant. Log det of X plus t U equals log det X, plus log det of the identity plus t X inverse U.",
+     "zh": "再看对数行列式：log det(X + tU) = log det X + log det(I + tX⁻¹U)。"
+    },
+    {
+     "en": "The determinant of the identity plus t B is the product of one plus t times each eigenvalue, which is one plus t trace B, plus big O of t squared.",
+     "zh": "det(I + tB) 是各特征值的 (1 + tλ_i) 之积，等于 1 + t Tr B + O(t²)。"
+    },
+    {
+     "en": "So the derivative is the trace of X inverse U, and on positive definite matrices the gradient is X inverse.",
+     "zh": "所以导数是 Tr(X⁻¹U)，在正定矩阵上梯度为 X⁻¹。"
+    },
+    {
+     "en": "On a Riemannian submanifold of a Euclidean space, there is a shortcut we met last time.",
+     "zh": "在欧氏空间的黎曼子流形上，有一个上一集见过的捷径。"
+    },
+    {
+     "en": "Compute the Euclidean gradient of any smooth extension, then project it orthogonally onto the tangent space.",
+     "zh": "先算任意光滑延拓的欧氏梯度，再把它正交投影到切空间。"
+    },
+    {
+     "en": "For the Rayleigh quotient, the Euclidean gradient is A x, and the projection gives A x minus x transpose A x, times x.",
+     "zh": "对瑞利商，欧氏梯度是 Ax，投影后得到 Ax − (xᵀAx)x。"
+    },
+    {
+     "en": "Do not skip the projection. A x sticks out of the sphere, and a retraction expects a tangent vector.",
+     "zh": "不要省略投影。Ax 伸出球面之外，而 retraction 需要的是切向量。"
+    },
+    {
+     "en": "Remember too that adjoints depend on the inner product: the same derivative gives different gradients under different metrics.",
+     "zh": "也要记住伴随依赖于内积：同一个导数在不同度量下给出不同的梯度。"
+    },
+    {
+     "en": "A reassuring fact is the cheap gradient principle.",
+     "zh": "一个令人安心的事实是\"梯度很便宜\"原则。"
+    },
+    {
+     "en": "For a wide class of functions, the gradient costs no more than a small multiple of the cost of f, often five or less.",
+     "zh": "对一大类函数，算梯度的代价不超过算 f 的小倍数，常在五倍以内。"
+    },
+    {
+     "en": "Much of the work for f can be reused. If your gradient is far slower than your cost, the code can probably be improved.",
+     "zh": "计算 f 的许多工作可以复用。若梯度比代价函数慢得多，代码多半还能改进。"
+    },
+    {
+     "en": "This principle is the heart of automatic differentiation, and toolboxes such as Manopt offer it on manifolds.",
+     "zh": "这一原则是自动微分的核心，Manopt 等工具箱在流形上提供了自动微分。"
+    },
+    {
+     "en": "Hand-derived gradients are easy to get wrong. So the next question is how to check them.",
+     "zh": "手工推导的梯度很容易出错。所以下一个问题是如何检查它们。"
+    }
+   ]
+  },
+  {
+   "id": "c09-checking-gradients",
+   "chapter": "Chapter 9",
+   "title": "Checking a Gradient Numerically",
+   "music": "counterexample",
+   "terms": [
+    "gradient-check",
+    "riemannian-gradient",
+    "retraction",
+    "tangent-space",
+    "rayleigh-quotient"
+   ],
+   "sentences": [
+    {
+     "en": "After writing code for f and its gradient, test it before trusting any result.",
+     "zh": "写好 f 与梯度的代码之后，在相信任何结果之前先检查它。"
+    },
+    {
+     "en": "The Taylor expansion along a retraction is our test.",
+     "zh": "沿 retraction 的 Taylor 展开就是检验。"
+    },
+    {
+     "en": "f of R x of t v equals f of x plus t times the inner product of grad f of x with v, plus big O of t squared.",
+     "zh": "f(R_x(tv)) = f(x) + t⟨grad f(x), v⟩ + O(t²)。"
+    },
+    {
+     "en": "Define the error E of t as the absolute difference between f of R x of t v and this first-order prediction.",
+     "zh": "定义误差 E(t) 为 f(R_x(tv)) 与一阶预测之差的绝对值。"
+    },
+    {
+     "en": "If the gradient is right, E of t is big O of t squared, for every point, every tangent direction, and every retraction.",
+     "zh": "若梯度正确，对每个点、每个切方向、每个 retraction，E(t) 都是 O(t²)。"
+    },
+    {
+     "en": "Taking logarithms, log E of t is about two log t plus a constant: a slope of two on a log log plot.",
+     "zh": "取对数：log E(t) ≈ 2 log t + 常数，即在 log–log 图上斜率为 2。"
+    },
+    {
+     "en": "The procedure: pick a random point x and a random unit tangent vector v.",
+     "zh": "步骤：取随机点 x 与随机单位切向量 v。"
+    },
+    {
+     "en": "Compute f of x, the gradient, and their inner product with v. Then compute E of t for t spaced logarithmically from ten to the minus eight, to one.",
+     "zh": "计算 f(x)、梯度及其与 v 的内积；再对 t 从 10⁻⁸ 到 1 对数均匀取值，计算 E(t)。"
+    },
+    {
+     "en": "Plot it, and look for a slope of two over several orders of magnitude.",
+     "zh": "画出来，看是否在几个数量级上呈斜率 2。"
+    },
+    {
+     "en": "Here is the Rayleigh quotient with the correct gradient. In the middle, the curve runs parallel to the slope two reference line.",
+     "zh": "这是使用正确梯度的瑞利商。中段曲线与斜率 2 的参考线平行。"
+    },
+    {
+     "en": "Now suppose the code returns a wrong vector g. Then E of t equals t times the inner product of grad f minus g with v, plus big O of t squared.",
+     "zh": "现在假设代码返回错误的向量 g。则 E(t) = t⟨grad f − g, v⟩ + O(t²)。"
+    },
+    {
+     "en": "For small t, the first term wins, and E of t behaves like a constant times t: a slope of one.",
+     "zh": "t 很小时第一项占主导，E(t) 像常数乘 t：斜率为 1。"
+    },
+    {
+     "en": "Do not expect slope two over the whole range. For large t, the Taylor approximation is poor.",
+     "zh": "不要指望整个范围都是斜率 2。t 大时 Taylor 近似不准。"
+    },
+    {
+     "en": "For tiny t, E of t is a difference of nearly equal numbers, and floating point rounding takes over.",
+     "zh": "t 极小时，E(t) 是两个几乎相等的数之差，浮点舍入占主导。"
+    },
+    {
+     "en": "If the curve does not show slope two over at least one or two orders of magnitude, something is wrong.",
+     "zh": "若曲线在至少一两个数量级上都没有斜率 2，就有错。"
+    },
+    {
+     "en": "The culprit is the gradient, the cost, the retraction, or the inner product.",
+     "zh": "问题出在梯度、代价、retraction 或内积之一。"
+    },
+    {
+     "en": "The book's example is on the Stiefel manifold, with f of X equals minus one half the trace of X transpose A X.",
+     "zh": "书中的例子在 Stiefel 流形上，f(X) = −½Tr(XᵀAX)。"
+    },
+    {
+     "en": "Its gradient is the projection of minus A X onto the tangent space. Forget the minus sign, and the plot shows slope one.",
+     "zh": "它的梯度是 −AX 到切空间的投影。漏掉负号，图上就是斜率 1。"
+    },
+    {
+     "en": "Fix the sign, and slope two appears. In Manopt, this test is called check gradient.",
+     "zh": "改正符号，斜率 2 就出现了。在 Manopt 中这个检验叫 checkgradient。"
+    },
+    {
+     "en": "If the remainder happens to be of higher order, you may even see a slope above two. That is good, but rare.",
+     "zh": "若余项恰好是更高阶，甚至会看到大于 2 的斜率。这是好事，但很少见。"
+    },
+    {
+     "en": "One more check must come first: is the gradient in the tangent space at all?",
+     "zh": "还有一项检查必须先做：梯度到底在不在切空间里？"
+    },
+    {
+     "en": "Suppose we forget the projection and return the Euclidean gradient A x on the sphere.",
+     "zh": "假设我们忘了投影，在球面上返回欧氏梯度 Ax。"
+    },
+    {
+     "en": "For a tangent v, the normal part of A x is orthogonal to v, so the inner product with v cannot see it.",
+     "zh": "对切向量 v，Ax 的法向部分与 v 正交，内积\"看不见\"它。"
+    },
+    {
+     "en": "The slope test passes with slope two.",
+     "zh": "斜率测试以斜率 2 通过。"
+    },
+    {
+     "en": "But x transpose times A x equals twice f of x, which is not zero, so this vector is not tangent.",
+     "zh": "但 xᵀ(Ax) = 2f(x) ≠ 0，所以这个向量不是切向量。"
+    },
+    {
+     "en": "So test tangency first, then the slope. Both are needed.",
+     "zh": "所以先检查切向性，再检查斜率，两者缺一不可。"
+    }
+   ]
+  },
+  {
+   "id": "c10-recap",
+   "chapter": "Chapter 10",
+   "title": "The First-Order Toolkit",
+   "music": "recap",
+   "terms": [
+    "riemannian-gradient-descent",
+    "critical-point",
+    "sufficient-decrease",
+    "lipschitz-type-condition",
+    "backtracking",
+    "linear-convergence",
+    "riemannian-hessian"
+   ],
+   "sentences": [
+    {
+     "en": "Let us put the chain of results together.",
+     "zh": "我们把结论链串起来。"
+    },
+    {
+     "en": "Along any curve, and in particular along a retraction, f has a first-order Taylor expansion, governed by the gradient.",
+     "zh": "沿任意曲线，特别是沿 retraction，f 有由梯度决定的一阶 Taylor 展开。"
+    },
+    {
+     "en": "From it, local minimizers are critical points, and critical points are exactly the zeros of the gradient.",
+     "zh": "由此，局部极小点是临界点，而临界点恰好是梯度的零点。"
+    },
+    {
+     "en": "Gradient descent with a lower bound and sufficient decrease drives the gradient to zero, at rate one over root K, from any start.",
+     "zh": "有下界和充分下降时，梯度下降从任意起点出发，都以 1/√K 的速率把梯度推向零。"
+    },
+    {
+     "en": "A Lipschitz-type bound on the pullback makes every step size between zero and two over L sufficient.",
+     "zh": "拉回的 Lipschitz 型界让 (0, 2/L) 内的步长都满足充分下降。"
+    },
+    {
+     "en": "With one over L, K grows like L over epsilon squared, regardless of dimension.",
+     "zh": "取 1/L 时，K 随 L/ε² 增长，与维数无关。"
+    },
+    {
+     "en": "Backtracking gives the same guarantee without knowing L.",
+     "zh": "回溯在不知道 L 的情况下给出同样的保证。"
+    },
+    {
+     "en": "Near a minimizer with a positive definite Hessian, convergence is linear, with factor one minus one over kappa for the step one over lambda one.",
+     "zh": "在 Hessian 正定的极小点附近，收敛是线性的；步长 1/λ₁ 时因子为 1 − 1/κ。"
+    },
+    {
+     "en": "And in practice, we derive gradients through adjoints and projections, and check them by slope and tangency.",
+     "zh": "实践中，我们用伴随与投影推导梯度，再用斜率和切向性检查它们。"
+    },
+    {
+     "en": "On the Rayleigh quotient, from many starting points, gradient descent with backtracking reaches plus or minus e three.",
+     "zh": "在瑞利商上，从许多初始点出发，带回溯的梯度下降都到达 ±e₃。"
+    },
+    {
+     "en": "Only a start exactly at a saddle stays there, because its gradient is zero. Such starts form a set of measure zero.",
+     "zh": "只有恰好从鞍点出发才会停在那里，因为那里梯度为零；这样的起点是零测集。"
+    },
+    {
+     "en": "There are limits. The one over root K rate is the worst case, and there are hard functions even in R n that attain it.",
+     "zh": "也有局限。1/√K 是最坏情形，即使在 ℝⁿ 中也有困难的函数达到它。"
+    },
+    {
+     "en": "And when kappa is large, one minus one over kappa is close to one, and linear convergence is slow.",
+     "zh": "而当 κ 很大时，1 − 1/κ 接近 1，线性收敛很慢。"
+    },
+    {
+     "en": "Faster first-order methods, such as conjugate gradients and BFGS, combine information from several iterates.",
+     "zh": "更快的一阶方法，如共轭梯度与 BFGS，要组合多个迭代点的信息。"
+    },
+    {
+     "en": "That needs a vector transport, to move tangent vectors from one tangent space to another.",
+     "zh": "这需要向量传输，把切向量从一个切空间搬到另一个。"
+    },
+    {
+     "en": "Second-order methods, Newton and trust regions, need the Riemannian Hessian, where the local contraction theorem will give quadratic convergence.",
+     "zh": "二阶方法，牛顿法与信赖域，需要黎曼 Hessian；届时局部压缩定理将给出二次收敛。"
+    },
+    {
+     "en": "Those are the next tools to build.",
+     "zh": "这些就是接下来要构建的工具。"
+    }
+   ]
+  }
+ ]
+}

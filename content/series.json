@@ -43,6 +43,12 @@
    "order": 6,
    "title": "Riemannian Gradient and Retraction",
    "status": "delivered"
+  },
+  {
+   "id": "e07-gradient-descent",
+   "order": 7,
+   "title": "Riemannian Gradient Descent",
+   "status": "scripted"
   }
  ]
 }

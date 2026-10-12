@@ -235,7 +235,7 @@
   - e5｜"Gradients at two points live in different planes"｜S² 上两点 x、y 与各自的切平面、各自的梯度箭头｜两个箭头尝试相减时标红｜—｜标注 cannot subtract
   - e6｜"The Rayleigh quotient satisfies it with L = 3"｜五步推导；右侧 2×2 压缩矩阵与特征值区间 [λ_min, λ_max]｜—｜—｜读数 empirical sup ≈ 2.999
   - e7｜"Step sizes outside the interval"｜三列：α = 1/L、2/L、2.2/L 的迭代｜第二列来回跳，第三列发散｜—｜—
-  - e8｜"No global L"｜x⁴ 曲线，迭代从 |x₀| = 1.2 出发越跳越远｜—｜—｜标注 leaves S
+  - e8｜"No global L"｜x⁴ 曲线，迭代从 x₀ = 2.6、步长 1/12 出发，第一步落在 −3.26，越跳越远｜—｜—｜标注 leaves S
 - outcome_check：观众能回答：已知 L 时最安全的固定步长是多少，为什么；步长 2/L 在二次函数上会发生什么。
 - source：BM §4.4，A4.3，命题 4.8，推论 4.9，(4.9)–(4.11)，定义 4.10，练习 4.11。练习解答与一维反例为补充，均数值核对。
 - next：L 通常不知道，或只在局部很大。能否自适应地选步长？

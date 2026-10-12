@@ -1,6 +1,6 @@
-# Knowledge Map — EECE7223 Riemannian Optimization (through first-order geometry)
+# Knowledge Map — EECE7223 Riemannian Optimization (through first-order algorithms)
 
-Scope: course material in `notes/` up to the definition of a retraction.
+Scope: course material in `notes/` up to the definition of a retraction, and Boumal Chapter 4 (first-order algorithms).
 Sources:
 
 | Tag | File |
@@ -10,6 +10,7 @@ Sources:
 | HW | `notes/笔记 2026年9月15日.pdf` (16 handwritten pages) |
 | BD | `notes/*.jpg` (14 blackboard photos) |
 | RU | `notes/Rudin Contraction Mapping and Inverse Function Theorems.pdf` (Rudin, PMA §9.22–9.29) |
+| BM4 | `notes/07/IntroOptimManifolds_Boumal_2022.pdf`, Chapter 4 (PDF pages 69–98); section and theorem numbers follow the published book |
 
 ## 1. The one-sentence goal
 
@@ -24,7 +25,18 @@ Everything before these two answers exists to make "direction", "tangent", "smoo
 ## 2. Dependency tree
 
 ```
-Riemannian gradient descent: x_{k+1} = R_x(-α grad f(x))           [next topic, not yet in notes]
+Riemannian gradient descent: x_{k+1} = R_x(-α grad f(x))           [BM4 §4.3]
+├── local rate: grad f(x*) = 0, Hess f(x*) ≻ 0, step 1/L, L > λmax/2 ⇒ linear; L = λmax ⇒ factor 1 − 1/κ  [BM4 Thm 4.20]
+│   └── local contraction mapping: ‖DF(x*)‖ < 1 ⇒ linear, = 0 ⇒ quadratic   [BM4 Thm 4.19]
+│       └── retraction is a local diffeomorphism near 0 (inverse function theorem on manifolds)  [BM4 Thm 4.16, Cor 4.17-4.18]
+├── backtracking (Armijo): α ≥ min(ᾱ, 2τ(1−r)/L) without knowing L   [BM4 §4.5, Lemma 4.12, Cor 4.13]
+├── Lipschitz-type condition A4.3: f(R_x(s)) ≤ f(x) + ⟨grad f(x), s⟩ + L/2 ‖s‖²  [BM4 §4.4]
+│   ├── step in (0, 2/L) ⇒ sufficient decrease; step 1/L ⇒ K ≥ 2L(f(x₀) − f_low)/ε²  [BM4 Prop 4.8, Cor 4.9]
+│   └── Euclidean origin: Lipschitz gradient ⇒ quadratic upper bound
+├── sufficient decrease A4.2 + lower bound A4.1 ⇒ ‖grad f(x_k)‖ → 0, accumulation points critical  [BM4 Prop 4.7]
+├── critical point: (f∘c)'(0) ≥ 0 for all curves ⇔ grad f(x) = 0; local min ⇒ critical  [BM4 §4.2]
+├── first-order Taylor along curves; pullback f∘R_x on T_xM           [BM4 §4.1]
+└── computing gradients (Df → adjoint → grad) and the log–log gradient check  [BM4 §4.7-4.8]
 ├── Retraction R_x : T_xM → M,  R_x(0)=x,  d(R_x)_0 = id            [HW p15-16, BD]
 │   └── consequence: γ(t)=R_x(tv) ⇒ γ(0)=x, γ'(0)=v
 ├── Riemannian gradient grad f(x) = (df_x)^♯                         [HW p15, BD]
@@ -94,6 +106,7 @@ Each stage answers one question and produces one tool used by the next.
 | 7 | How does f change along a direction? | differential df_x | f∘γ |
 | 8 | Which direction is steepest? | metric g_x, Riesz, grad f = (df_x)^♯ | −‖grad f‖² < 0 |
 | 9 | How to step and stay on M? | retraction | normalization x+v ↦ (x+v)/‖x+v‖ on the sphere |
+| 10 | What does repeating the step achieve, and how fast? | Riemannian gradient descent, step-size rules, rates | Rayleigh quotient ½xᵀAx on S² |
 
 ## 5. Two running examples across all stages
 
@@ -120,5 +133,6 @@ Each stage answers one question and produces one tool used by the next.
 
 ## 7. Course frontier
 
-Covered so far: up to the definition of a retraction and the descent property of −grad f.
-Not yet in the notes: retraction examples, Riemannian gradient on embedded submanifolds, Riemannian gradient descent algorithm.
+Covered so far: up to the definition of a retraction and the descent property of −grad f (lecture notes), and
+Riemannian gradient descent with its global and local guarantees (BM4, read ahead of the lecture).
+Not yet covered: vector transport (CG, BFGS), the Riemannian Hessian (Newton, trust regions).

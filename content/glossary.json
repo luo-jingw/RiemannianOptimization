@@ -650,6 +650,160 @@
    "zh": "一阶下降性质",
    "symbol": "−‖grad f(x)‖²_x",
    "spoken": "descent property"
+  },
+  {
+   "id": "minimizer",
+   "en": "minimizer",
+   "zh": "极小点",
+   "symbol": "x*",
+   "spoken": "minimizer"
+  },
+  {
+   "id": "local-minimizer",
+   "en": "local minimizer",
+   "zh": "局部极小点",
+   "symbol": "",
+   "spoken": "local minimizer"
+  },
+  {
+   "id": "accumulation-point",
+   "en": "accumulation point",
+   "zh": "聚点",
+   "symbol": "",
+   "spoken": "accumulation point"
+  },
+  {
+   "id": "pullback",
+   "en": "pullback",
+   "zh": "拉回",
+   "symbol": "f∘R_x",
+   "spoken": "pullback"
+  },
+  {
+   "id": "riemannian-gradient-descent",
+   "en": "Riemannian gradient descent",
+   "zh": "黎曼梯度下降",
+   "symbol": "RGD",
+   "spoken": "Riemannian gradient descent"
+  },
+  {
+   "id": "line-search",
+   "en": "line search",
+   "zh": "线搜索",
+   "symbol": "",
+   "spoken": "line search"
+  },
+  {
+   "id": "step-size",
+   "en": "step size",
+   "zh": "步长",
+   "symbol": "α_k",
+   "spoken": "step size"
+  },
+  {
+   "id": "sufficient-decrease",
+   "en": "sufficient decrease",
+   "zh": "充分下降",
+   "symbol": "f(x_k) − f(x_{k+1}) ≥ c‖grad f(x_k)‖²",
+   "spoken": "sufficient decrease"
+  },
+  {
+   "id": "lipschitz-type-condition",
+   "en": "Lipschitz-type condition",
+   "zh": "Lipschitz 型条件",
+   "symbol": "A4.3",
+   "spoken": "Lipschitz type condition"
+  },
+  {
+   "id": "iteration-complexity",
+   "en": "iteration complexity",
+   "zh": "迭代复杂度",
+   "symbol": "O(1/ε²)",
+   "spoken": "iteration complexity"
+  },
+  {
+   "id": "backtracking",
+   "en": "backtracking line search",
+   "zh": "回溯线搜索",
+   "symbol": "",
+   "spoken": "backtracking line search"
+  },
+  {
+   "id": "armijo-condition",
+   "en": "Armijo condition",
+   "zh": "Armijo 条件",
+   "symbol": "f(x) − f(R_x(−α grad f)) ≥ rα‖grad f‖²",
+   "spoken": "Armijo condition"
+  },
+  {
+   "id": "linear-convergence",
+   "en": "linear convergence",
+   "zh": "线性收敛",
+   "symbol": "ε_{k+1}/ε_k → μ < 1",
+   "spoken": "linear convergence"
+  },
+  {
+   "id": "quadratic-convergence",
+   "en": "quadratic convergence",
+   "zh": "二次收敛",
+   "symbol": "ε_{k+1}/ε_k² → μ",
+   "spoken": "quadratic convergence"
+  },
+  {
+   "id": "condition-number",
+   "en": "condition number",
+   "zh": "条件数",
+   "symbol": "κ = λ_max/λ_min",
+   "spoken": "condition number"
+  },
+  {
+   "id": "riemannian-hessian",
+   "en": "Riemannian Hessian",
+   "zh": "黎曼 Hessian",
+   "symbol": "Hess f(x)",
+   "spoken": "Riemannian Hessian"
+  },
+  {
+   "id": "exponential-map",
+   "en": "exponential map",
+   "zh": "指数映射",
+   "symbol": "Exp_x",
+   "spoken": "exponential map"
+  },
+  {
+   "id": "riemannian-distance",
+   "en": "Riemannian distance",
+   "zh": "黎曼距离",
+   "symbol": "dist",
+   "spoken": "Riemannian distance"
+  },
+  {
+   "id": "adjoint",
+   "en": "adjoint",
+   "zh": "伴随",
+   "symbol": "DF(x)*",
+   "spoken": "adjoint"
+  },
+  {
+   "id": "rayleigh-quotient",
+   "en": "Rayleigh quotient",
+   "zh": "瑞利商",
+   "symbol": "½xᵀAx",
+   "spoken": "Rayleigh quotient"
+  },
+  {
+   "id": "gradient-check",
+   "en": "gradient check",
+   "zh": "梯度检查",
+   "symbol": "E(t) = O(t²)",
+   "spoken": "gradient check"
+  },
+  {
+   "id": "automatic-differentiation",
+   "en": "automatic differentiation",
+   "zh": "自动微分",
+   "symbol": "AD",
+   "spoken": "automatic differentiation"
   }
  ]
 }

@@ -1,140 +1,106 @@
 # Plan
 
-Plan Status: completed
+Plan Status: approved
 
 # Problem
 
 ## Current
 
-- `e00-trailer` v6 is delivered and published: seven sections on a fixed 120 BPM grid (flat → fold → gallery →
-  toolkit → montage → title → credits), an orchestral score on the episode palette, 2:34.
-- Each section fades in from and out to the background; the sections use different visual languages; the montage is
-  a tile wall and the title carries a promotional tagline.
+- E01–E06 are delivered and published; E06 ends with the Riemannian gradient, retractions and the descent property
+  d/dt f(R_x(−t grad f(x)))|₀ = −‖grad f(x)‖²_x.
+- The course's next reading is Boumal, *An Introduction to Optimization on Smooth Manifolds* (2023), Chapter 4
+  "First-order optimization algorithms" (`notes/07/IntroOptimManifolds_Boumal_2022.pdf`, PDF pages 69–98). No
+  lecture notes for this topic exist yet; they arrive after the lecture and will drive a revision.
+- `docs/knowledge-map.md` stops at the retraction; Riemannian gradient descent is marked "next topic, not yet in notes".
 
 ## Problem
 
-The piece reads as a course advertisement: it argues (problem → examples → conclusion → contents) instead of carrying
-the viewer, the sections are separated by fades, and the music keeps one tempo and one gentle energy level.
+There is no episode that turns the gradient and the retraction into an algorithm and proves what it achieves: where
+it stops (critical points), how many steps it needs (O(1/√K) under a Lipschitz-type condition), how to choose step
+sizes without knowing L (backtracking), how fast it converges near a minimizer (linear, rate 1 − 1/κ), and how to
+obtain and check gradients in practice.
 
 ## Goal
 
-`e00` v7 replaces v6 as a short film led by sight and sound:
+E07 v1 (`e07-gradient-descent`, "Riemannian Gradient Descent"), a full episode in the series format, built from
+Boumal Chapter 4 alone, delivered as a draft for review before the lecture:
 
-- One protagonist, the orange point (the optimizer), on one journey: it descends in a flat world, its straight step
-  falls off the curved world, it passes through six real worlds, it learns to move on the curved landscape, the
-  course's geometry flashes past, and it lands on the title.
-- No fades between sections: every boundary is a zoom-through match cut on the protagonist or the key element.
-- Music on the episode palette with a tempo map and an edit-style energy arc (demo
-  `output/e00-trailer/previews/tempo-demo-phonk.mp3`, approved): sparse 80 BPM → accelerando to 120 → driving 120 with
-  drums → half-time 120 → snare build to 128 with one empty beat → phonk drop at 128 (808, cowbell on the signature
-  motif, clap, hat rolls, pumping pads) → tape stop (1.5 s, darkening) → half a second of silence → final hit and
-  the bell signature.
-- Narration as one through-line of seven complete sentences on bar anchors (the worlds' second line runs on into the
-  rebuild's first); none over the drop. Details are carried by big on-screen words flashing on the cuts of the
-  worlds and the drop.
-- Length follows the music (about 2:10); title card without tagline; credits unchanged.
+- Every section of Chapter 4, including the starred 4.6–4.8; 4.7 condensed to the recipe and three examples.
+- Every theorem with motivation, complete proof and an animated counterexample for each hypothesis
+  (PROJECT.md constraint).
+- Notions used before the series defines them (Riemannian distance, exponential map, Hessian in 4.6) are introduced
+  with exactly the properties the proofs use and labelled as previews.
+- Narration English (Kokoro af_heart), bilingual captions, procedural score in the next key of the circle of fifths;
+  output `output/e07-gradient-descent/v1/`. Length follows content (E01–E06: 31–41 min).
+- The storyboard records Boumal section/theorem numbers as sources so the lecture notes can be mapped onto it.
 
 # Structure
 
 ## Modules
 
-| Module | Responsibility |
-|---|---|
-| Tempo map | a scene declares its tempo (`tempo: [bpm_start, bpm_end]`, linear across its beats); bar times follow from it |
-| Beat timeline builder | builds chapter starts and sentence anchors from the tempo map; writes per-chapter beat times |
-| Bar cues (player) | `Cues.beat(b)` / `Cues.bar(i)` read the chapter's beat times |
-| Film score | arrangement per music category on the episode voices + orchestra + drums; tape stop as an audio effect |
-| Section transitions (player) | zoom-through between consecutive trailer scenes: the outgoing scene zooms into its exit point, the incoming one out of its entry point, with radial blur |
-| Film scenes | one scene per section: flat, fold, worlds (gallery), rebuild (toolkit), build, drop (montage flash cuts + visual tape stop), title, credits |
-
-## Responsibilities
-
-- The tempo map is declared only in `story.en.json`; the timeline builder is the only place that turns it into
-  seconds; the score and the scenes read beat times from `timeline.json`.
-- A scene owns its picture; the transition pass owns only the zoom/blur across boundaries and asks each scene for its
-  exit / entry point.
-
-## State Ownership
-
-| State | Writer | File |
+| Module | Responsibility | Owned state |
 |---|---|---|
-| Tempo per scene, bars, narration anchors | episode content (hand-edited) | `content/episodes/e00-trailer/story.en.json` |
-| Beat times per chapter | beat timeline builder | `build/e00-trailer/en/timeline.json` |
-| Score | film score | `build/e00-trailer/en/audio/music.wav` |
+| Series registry | episode order, id, title, status | `content/series.json` |
+| Knowledge map | course dependency structure | `docs/knowledge-map.md` |
+| Content design | chapter goals, dependencies, proofs, counterexamples, visual events | `content/episodes/e07-gradient-descent/storyboard.md` |
+| Script | narration and translations per chapter | `content/episodes/e07-gradient-descent/story.en.json` |
+| Glossary | terms and pronunciations | `content/glossary.json`, `content/pronunciation.json` |
+| Audio pipeline (existing) | TTS, timeline, captions, score, mix, delivery | `build/e07-gradient-descent/`, `output/e07-gradient-descent/` |
+| E07 scenes | one scene per chapter, `draw(t)` only | `player/src/episodes/e07-gradient-descent/` |
+| Episode registry | episode id → scenes | `player/src/episodes/registry.ts` |
+| Review | defects and closure evidence | `build/e07-gradient-descent/en/qa/review.md` |
+
+## Ownership
+
+- Narration text has one owner, `story.en.json`; the storyboard holds no final narration.
+- Timing has one owner, the generated `timeline.json`; scenes read sentence starts/ends through `Cues`.
+- Shared player code (`core`, `layers`, `primitives`) and the pipeline are not changed; E07 helpers live in the
+  episode's `lib/`.
 
 # Interface
 
-## Interfaces
+- Story: the existing episode schema (`episode`, `title`, `voice`, `rate`, `scenes[] {id, chapter, title, music,
+  terms, sentences[] {en, zh}}`), checked by `rvideo validate`.
+- Scenes: `Scene` (`setup(layers, timing)`, `draw(ctx)`, `teardown`) registered in
+  `player/src/episodes/e07-gradient-descent/index.ts` under the chapter ids.
+- Chapters (ids are the interface between storyboard, story and scenes):
 
-- `story.en.json` scene: `"bars": int`, `"tempo": [number, number]` (BPM at the first and last beat; default
-  `[120, 120]`), `"music"`: `film-flat | film-fold | film-worlds | film-rebuild | film-build | film-drop | film-title |
-  film-credits`.
-- Python: `StoryScene.tempo: tuple[float, float] | None`; `TimelineChapter.beat_times: tuple[float, ...] | None`
-  (chapter-relative start of every beat, 4 per bar, plus the end); `Timeline.bar_seconds` is removed.
-- TypeScript: `ChapterTiming.beatTimes?: number[]`; `Cues.beat(b)` interpolates `beatTimes`, `Cues.bar(i) = beat(4i)`.
-- Score: `FilmScore().compose(timeline) -> np.ndarray`; `TapeStop(seconds, exponent).apply(mix, at) -> None`.
-- Transitions: optional `Scene.exitPoint?(): Vector2` and `Scene.entryPoint?(): Vector2` (frame uv);
-  `TransitionPass` renders the stage offscreen for the last / first `TRANSITION_SECONDS` of a trailer chapter.
+| id | Content (Boumal) |
+|---|---|
+| c01-problem-and-sequences | problem (4.1), global / local / strict minimizers, independence from smooth structure, limit vs accumulation point (Def 4.1, Ex 4.2) |
+| c02-taylor-on-curves | first-order Taylor expansion along curves and along retractions, the pullback f∘R_x (4.1, eqs 4.2–4.5) |
+| c03-critical-points | critical points (Def 4.4), Prop 4.5 local minimizer ⇒ critical, Prop 4.6 critical ⇔ grad f = 0 |
+| c04-rgd-and-sufficient-decrease | Algorithm 4.1, step-size strategies, A4.1, A4.2, Prop 4.7 and its limits (accumulation points, not convergence) |
+| c05-lipschitz-type-condition | A4.3, Euclidean motivation (4.10 ⇒ 4.11), Prop 4.8, Cor 4.9, dimension-free rate, Ex 4.11 |
+| c06-backtracking | Armijo condition, Algorithm 4.2, Lemma 4.12, Cor 4.13, scale-invariant initial steps (4.13) |
+| c07-local-convergence | global vs local, rates (Defs 4.14–4.15), Thm 4.16 and Cors 4.17–4.18, Thm 4.19 local contraction, Thm 4.20 with Lemmas 4.21–4.22 |
+| c08-computing-gradients | Df → adjoint → grad, the three rules, grad of ‖F‖², X⁻¹, log det, projection onto tangent spaces (4.7) |
+| c09-checking-gradients | E(t) = O(t²), log–log slope test, Stiefel example with a sign error (4.8, Fig 4.1) |
+| c10-recap | the first-order toolkit and what needs new geometry: transporters (CG, BFGS), Hessian (Newton, trust regions) |
 
-## Inputs
-
-The approved music demo (prototype, ported into the score modules); existing vignettes, terrain and montage
-visualizations.
-
-## Outputs
-
-`output/e00-trailer/v7/` (MP4, SRT, cover from the title card, manifest); web version rebuilt after review.
-
-## State Changes
-
-`series.json` keeps `e00-trailer` (kind `trailer`); its content changes to the film structure.
+- Running example: the Rayleigh quotient f(x) = ½ xᵀAx on S² with the normalization retraction (Ex 4.11), so RGD
+  finds the eigenvector of the smallest eigenvalue; 1-D functions for counterexamples; Stiefel only in c09.
 
 # Flow
 
-## Main Flow
-
-```
-story.en.json (bars, tempo, music, anchors)
-  → validate → narrate → BeatTimelineBuilder (tempo map → bar times) → timeline.json
-  → subtitles → FilmScore (+ tape stop) → mix (trailer profile) → capture (scenes + TransitionPass) → mux → check
-```
-
-Film sections (tempo, bars, picture, narration):
-
-| Section | Tempo | Bars | Picture | Narration (bar) |
-|---|---|---|---|---|
-| s01-flat | 80 | 4 | contour map, the point steps down on the ticks | "Optimization usually lives in flat space." (1) |
-| s02-fold | 80→120 | 4 | the plane curls into a sphere; the straight step leaves it and turns red | "But the world is curved." (2) |
-| s03-worlds | 120 | 16 | six worlds, shots of 4, 3, 3, 2, 2, 2 bars, match cuts; a big word flashes on each cut (ROBOTICS, SLAM, DEEP LEARNING, HIERARCHIES, NEUROIMAGING, DATA) and settles into the corner label | "Robot arms turn through space, and drones must close their loops." (0), "Neural networks, hierarchies, the brain, the data we collect —" (11) |
-| s04-rebuild | 120 half-time | 16 | the terrain, tangent plane, four words, descent | "they all live on manifolds…" (0), "To optimize there, every familiar idea must be rebuilt: direction, distance, gradient, step." (7) |
-| s05-build | 120→128 | 2 | camera rushes down the valley with the snare roll; last beat black with one orange point | — |
-| s06-drop | 128 | 9 | the course's geometry in full-screen flash cuts on the beat (twelve visualizations, each with a big word); bar 9 is the tape stop (1.4 s) and its silence, the picture slows, darkens and freezes | — |
-| s07-title | 120 | 8 | black, then the hit: title, circle of fifths landing on C | "Riemannian Optimization, from the Ground Up." (1) |
-| s08-credits | 120 | 4 | credits as now | — |
+storyboard.md (P1) → story.en.json (P2) → `rvideo validate` → sample chapter c06: `rvideo audio`, scene, stills
+(P3) → full `rvideo audio` and `transcribe` (P4) → all scenes, stills per visual event (P5) →
+`rvideo deliver e07-gradient-descent --version 1` and `check` (P6) → frame and listening review, fixes (P7) →
+user review; after approval: site rebuild, docs, push (P8).
 
 # Code Mapping
 
-## Modules
-
-| Module | Files |
+| Item | Files |
 |---|---|
-| Tempo map | `pipeline/rvideo/schema/{story,timeline}.py`, `pipeline/rvideo/validate/content_validator.py` |
-| Beat timeline builder | `pipeline/rvideo/timing/beat_timeline_builder.py` |
-| Bar cues | `player/src/core/Scene.ts`, `player/src/core/EpisodeLoader.ts`, `player/src/primitives/Cues.ts` |
-| Film score | `pipeline/rvideo/music/{film_score.py, film_harmony.py, film_drums.py, tape_stop.py}`, `trailer_orchestra.py`, `trailer_dsp.py`, `trailer_reverb.py`; `trailer_score.py` and `trailer_harmony.py` removed; `pipeline/rvideo/cli/main.py` |
-| Section transitions | `player/src/core/TransitionPass.ts`, `player/src/core/EpisodeRenderer.ts`, `player/src/core/Scene.ts` |
-| Film scenes | `player/src/episodes/e00-trailer/{index.ts, s01-flat.ts … s08-credits.ts, lib/*}` |
-| Content | `content/episodes/e00-trailer/{storyboard.md, story.en.json}` |
+| Registry | `content/series.json`, `player/src/episodes/registry.ts` |
+| Content | `content/episodes/e07-gradient-descent/storyboard.md`, `story.en.json`; `content/glossary.json`, `content/pronunciation.json` |
+| Scenes | `player/src/episodes/e07-gradient-descent/{index.ts, c01…c10-*.ts, lib/*.ts}` |
+| Knowledge | `docs/knowledge-map.md` (RGD subtree, source tag BM4) |
+| Review | `build/e07-gradient-descent/en/qa/review.md` |
+| Delivery | `output/e07-gradient-descent/v1/` |
+| Publication (after approval) | `site/`, `README.md`, `docs/video-architecture.md` |
 
-## Interfaces
-
-See Interface.
-
-## State
-
-See Structure → State Ownership.
-
-# Implementation
+# Implementation Phases
 
 ## Phase 1
 
@@ -144,22 +110,20 @@ Round: 1
 
 ### Goal
 
-Tempo map end to end: schema, validator, timeline builder writing bar times, player cues reading them; the score
-reads bar times.
+Storyboard: dependency table, ten chapters with question, requires, teaching sequence, proof steps, one
+counterexample per hypothesis, visual events, outcome check, sources; knowledge-map extension; glossary additions.
 
 ### Files
 
-`pipeline/rvideo/schema/{story,timeline}.py`, `pipeline/rvideo/validate/content_validator.py`,
-`pipeline/rvideo/timing/beat_timeline_builder.py`, `player/src/core/{Scene,EpisodeLoader}.ts`,
-`player/src/primitives/Cues.ts`
+`content/episodes/e07-gradient-descent/storyboard.md`, `docs/knowledge-map.md`, `content/glossary.json`
 
 ### Structures
 
-`StoryScene.tempo`, `TimelineChapter.bar_times`, `ChapterTiming.barTimes`
+chapter ids above
 
 ### Affected Modules
 
-Tempo map, Beat timeline builder, Bar cues
+Content design, knowledge map, glossary
 
 ### Dependencies
 
@@ -167,23 +131,22 @@ none
 
 ### Observation
 
-The current e00 story (all 120 BPM) rebuilds to the same chapter and caption times; a test story with 80→120
-prints bar durations from 0.75 s falling to 0.5 s per beat; E01–E06 timelines unchanged (hash).
+Every content id has its prerequisites established earlier or in E01–E06; every hypothesis of every theorem has a
+counterexample entry; every chapter cites Boumal numbers.
 
 ## Phase 2
 
-Phase Status: completed
+Phase Status: active
 
 Round: 1
 
 ### Goal
 
-Film story: eight sections with tempo, bars, music categories and narration anchors; storyboard rewritten; audio
-built.
+Script and registration: story.en.json with Chinese translations, series entry, pronunciation fixes.
 
 ### Files
 
-`content/episodes/e00-trailer/{story.en.json, storyboard.md}`
+`content/episodes/e07-gradient-descent/story.en.json`, `content/series.json`, `content/pronunciation.json`
 
 ### Structures
 
@@ -191,7 +154,7 @@ none new
 
 ### Affected Modules
 
-Content
+Script, series registry
 
 ### Dependencies
 
@@ -199,30 +162,30 @@ Phase 1
 
 ### Observation
 
-`rvideo audio e00-trailer`: every sentence fits; transcript check; chapter starts and total duration.
+`rvideo validate` with zero errors; sentence count and estimated minutes printed.
 
 ## Phase 3
 
-Phase Status: completed
+Phase Status: pending
 
-Round: 2
+Round: 1
 
 ### Goal
 
-Film score ported from the approved demo onto the timeline: categories film-*, drums, phonk drop, tape stop,
-gallery shot accents; old trailer score removed.
+Sample: c06-backtracking end to end (audio, scene, stills), plus the episode's shared lib (sphere with the
+Rayleigh quotient, 1-D plot panel, ledger).
 
 ### Files
 
-`pipeline/rvideo/music/{film_score.py, film_harmony.py, film_drums.py, tape_stop.py}`, `pipeline/rvideo/cli/main.py`
+`player/src/episodes/e07-gradient-descent/{index.ts, c06-backtracking.ts, lib/*}`, `player/src/episodes/registry.ts`
 
 ### Structures
 
-`FilmScore`, `FilmHarmony`, `Drums`, `TapeStop`
+E07 `lib` helpers
 
 ### Affected Modules
 
-Film score
+E07 scenes, episode registry
 
 ### Dependencies
 
@@ -230,98 +193,89 @@ Phase 2
 
 ### Observation
 
-Chord and tempo per bar log; RMS every 2 s and around each boundary; the tape stop and silence measured; score preview
-for the user.
+Audio report; stills at every visual event of c06 with determinism and history checks; transcription similarity.
 
 ## Phase 4
 
-Phase Status: completed
+Phase Status: pending
 
-Round: 2
+Round: 1
 
 ### Goal
 
-Section transitions: zoom-through between consecutive trailer chapters; section fades removed from the scenes.
+Full audio and timeline; transcription check.
 
 ### Files
 
-`player/src/core/{TransitionPass,EpisodeRenderer,Scene}.ts`, the e00 scenes' fade code
+`build/e07-gradient-descent/en/`
 
 ### Structures
 
-`TransitionPass`, `Scene.exitPoint`, `Scene.entryPoint`
+none
 
 ### Affected Modules
 
-Section transitions, Film scenes
+Audio pipeline (run only)
 
 ### Dependencies
 
-Phase 1
+Phase 3
 
 ### Observation
 
-Stills across every boundary (−0.3 s … +0.3 s); determinism and history checks; E01–E06 stills unchanged (hash).
+Narration and mix report; sentences with similarity < 0.9 inspected.
 
 ## Phase 5
 
-Phase Status: completed
+Phase Status: pending
 
-Round: 3
+Round: 1
 
 ### Goal
 
-Film scenes: flat and fold on the tempo map, worlds with 4/3/3/2/2/2 shots, rebuild in half-time, new build scene,
-drop as flash cuts with the visual tape stop, title without tagline, credits.
+Remaining nine chapter scenes.
 
 ### Files
 
-`player/src/episodes/e00-trailer/**`
+`player/src/episodes/e07-gradient-descent/c0*-*.ts`, `c10-recap.ts`, `lib/*`
 
 ### Structures
 
-`BuildScene`, `DropScene` (flash-cut schedule, time remap of the tape stop)
+none new
 
 ### Affected Modules
 
-Film scenes
+E07 scenes
 
 ### Dependencies
 
-Phase 3, Phase 4
+Phase 4
 
 ### Observation
 
-Stills at every cut and event; determinism and history checks; visual review.
+`tsc --noEmit`; stills at every visual event; determinism and history checks; visual review against the storyboard.
 
 ## Phase 6
 
-Phase Status: completed
+Phase Status: pending
 
-Round: 5
+Round: 1
 
 ### Goal
 
-v8 from the review of v7: rebuild 16 → 12 bars without still stretches (the point is on screen from the zoom-through,
-words from bar 4, the camera keeps orbiting); worlds narration on bars 3 and 9 so the words meet their shots (the
-second line ends on a period, the rebuild line starts "They"); title 8 → 6 bars with the credits following closely;
-the drop's picture follows the drums (kick push and shake, clap colour split, the tape stop drains colour); the
-opening lights within a second; zoom-throughs darken the periphery instead of greying; the orange point travels
-through the worlds as a halo on each shot's key element; the rebuild word row clear of the top edge.
+Deliver v1 and review it.
 
 ### Files
 
-`content/episodes/e00-trailer/`, `pipeline/rvideo/music/film_harmony.py`, `pipeline/rvideo/music/film_score.py`,
-`pipeline/rvideo/delivery/muxer.py`, `player/src/core/TransitionPass.ts`, `player/src/core/EpisodeRenderer.ts`,
-`player/src/episodes/e00-trailer/**`, `output/e00-trailer/v8/`
+`output/e07-gradient-descent/v1/`, `build/e07-gradient-descent/en/qa/review.md`
 
 ### Structures
 
-`SectionTransition.darken`
+none
 
 ### Affected Modules
 
-Content, film score, delivery cover, transitions, film scenes
+Delivery, review
 
 ### Dependencies
 
@@ -329,25 +283,25 @@ Phase 5
 
 ### Observation
 
-Frames every 2 s and at every boundary; determinism and history checks; `rvideo check` report; the user reviews v8.
+`rvideo check` report; frames every 10 s and at every chapter boundary reviewed; listening spot checks.
 
 ## Phase 7
 
-Phase Status: completed
+Phase Status: pending
 
-Round: 5
+Round: 1
 
 ### Goal
 
-After the user's review, publish the web version and update the docs.
+After the user's review: site rebuild, README episode row, docs, push.
 
 ### Files
 
-`site/`, `docs/video-architecture.md`, `docs/scene-authoring.md`, `README.md`
+`site/`, `README.md`, `docs/video-architecture.md`
 
 ### Structures
 
-none new
+none
 
 ### Affected Modules
 
@@ -359,4 +313,4 @@ Phase 6
 
 ### Observation
 
-Web index plays the delivered version.
+Web index plays E07.

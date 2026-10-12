@@ -14,7 +14,7 @@ import { setOrbitView } from "../e06-gradient-retraction/lib/SphereCamera";
 import type { SvgDot, SvgPath } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { SvgOverlay } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { RayleighSphere } from "./lib/RayleighSphere";
-import { F_MIN, L_RAYLEIGH, lift, lineSearch, rayleigh, rayleighGrad, rgdFixed, spherePoint } from "./lib/rayleigh";
+import { F_MIN, L_RAYLEIGH, arcPath, lift, lineSearch, rayleigh, rayleighGrad, rgdFixed, spherePoint } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
 /**
@@ -77,7 +77,7 @@ export class RgdSufficientDecreaseScene implements Scene {
 
     this.sphere = new RayleighSphere(stage);
     this.iterates = rgdFixed(X0, K_LOG, STEP);
-    this.path = new Polyline(stage, this.iterates.map((p) => lift(p, 1.012)), { color: Palette.orange, width: 3.5 });
+    this.path = new Polyline(stage, arcPath(this.iterates), { color: Palette.orange, width: 3.5 });
     this.iterates.slice(0, 16).forEach((p) => this.dots.push(new Dot(stage, lift(p, 1.014), Palette.orange, 0.022, "3d")));
     for (let k = 0; k < K_LOG; k++) {
       this.decreases.push(rayleigh(this.iterates[k]) - rayleigh(this.iterates[k + 1]));
@@ -139,7 +139,7 @@ export class RgdSufficientDecreaseScene implements Scene {
     const sphereO = c.p(0, 0.8, -0.8) * (1 - c.p(6, 0.6));
     this.sphere.setOpacity(sphereO, 1, sphereO);
     const shown = Math.min(16, 1 + Math.floor(c.over(1, 0.1, 1) * 8 + c.over(2, 0, 1) * 7 + 1e-9));
-    this.path.setPoints(this.iterates.slice(0, Math.max(2, shown)).map((p) => lift(p, 1.012)));
+    this.path.setPoints(arcPath(this.iterates.slice(0, Math.max(2, shown))));
     this.path.setOpacity(shown >= 2 ? sphereO : 0);
     this.dots.forEach((d, k) => d.setOpacity(k < shown ? sphereO : 0));
     this.fAlgo.set({ opacity: c.p(0, 0.6) * (1 - c.p(6, 0.6)) });

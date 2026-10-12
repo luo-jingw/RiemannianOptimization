@@ -18,7 +18,7 @@ import type { SvgDot, SvgPath } from "../e06-gradient-retraction/lib/SvgOverlay"
 import { SvgOverlay } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { RayleighSphere } from "./lib/RayleighSphere";
 import type { RgdStep } from "./lib/rayleigh";
-import { L_RAYLEIGH, backtrack, lift, lineSearch, rayleigh, rayleighGrad, retract, rgdBacktracking, spherePoint } from "./lib/rayleigh";
+import { L_RAYLEIGH, arcPath, backtrack, lift, lineSearch, rayleigh, rayleighGrad, retract, rgdBacktracking, spherePoint } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
 /**
@@ -99,8 +99,8 @@ export class BacktrackingScene implements Scene {
 
     this.steps = rgdBacktracking(X0, 8, { tau: TAU, r: 1e-4, l0: 1.0 });
     const scaled = rgdBacktracking(X0, 8, { tau: TAU, r: 1e-4, l0: 1.0, scale: 8 });
-    this.path = new Polyline(stage, this.steps.map((s) => lift(s.x, 1.012)), { color: Palette.orange, width: 3.5 });
-    this.pathScaled = new Polyline(stage, scaled.map((s) => lift(s.x, 1.018)), { color: Palette.purple, width: 3, dashed: true, dashSize: 0.04, gapSize: 0.03 });
+    this.path = new Polyline(stage, arcPath(this.steps.map((s) => s.x)), { color: Palette.orange, width: 3.5 });
+    this.pathScaled = new Polyline(stage, arcPath(scaled.map((s) => s.x), 1.018), { color: Palette.purple, width: 3, dashed: true, dashSize: 0.04, gapSize: 0.03 });
     this.steps.forEach((s, k) => {
       this.iterDots.push(new Dot(stage, lift(s.x, 1.014), Palette.orange, k === 0 ? 0.03 : 0.022, "3d"));
       this.iterLabels.push(new WorldLabel(stage, fl, { tex: k === 0 ? "" : `${s.trials}`, size: 24, color: Palette.yellow }, s.x, { x: 14, y: -12 }));
@@ -181,7 +181,7 @@ export class BacktrackingScene implements Scene {
     const run = c.over(26, 0.05, 0.85);
     const shown = Math.min(this.steps.length, 1 + Math.floor(run * (this.steps.length - 1) + 1e-9));
     const runO = c.p(26, 0.5) * (1 - c.p(32, 0.6));
-    this.path.setPoints(this.steps.slice(0, Math.max(2, shown)).map((s) => lift(s.x, 1.012)));
+    this.path.setPoints(arcPath(this.steps.slice(0, Math.max(2, shown)).map((s) => s.x)));
     this.path.setOpacity(shown >= 2 ? runO : 0);
     this.iterDots.forEach((d, k) => d.setOpacity(k < shown ? runO : 0));
     this.iterLabels.forEach((l, k) => l.update(k < shown && k > 0 ? runO * (1 - c.p(27, 0.5)) : 0));

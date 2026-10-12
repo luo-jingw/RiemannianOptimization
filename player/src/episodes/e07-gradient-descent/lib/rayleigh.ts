@@ -157,3 +157,20 @@ export function levelLoops(c: number, n = 160): THREE.Vector3[][] {
   }
   return loops;
 }
+
+/**
+ * The path of a sequence of iterates on S², each step drawn as the arc it actually travels: the normalization
+ * retraction curve from x_k to x_{k+1} is the normalized segment (1 − s)x_k + s x_{k+1}, s ∈ [0, 1]. Straight chords
+ * between iterates would pass under the surface and be hidden by it. Points are lifted to radius `r`.
+ */
+export function arcPath(points: THREE.Vector3[], r = 1.012, perStep = 24): THREE.Vector3[] {
+  if (points.length < 2) return points.map((p) => lift(p, r));
+  const out: THREE.Vector3[] = [lift(points[0], r)];
+  for (let k = 0; k + 1 < points.length; k++) {
+    for (let i = 1; i <= perStep; i++) {
+      const s = i / perStep;
+      out.push(lift(points[k].clone().multiplyScalar(1 - s).addScaledVector(points[k + 1], s), r));
+    }
+  }
+  return out;
+}

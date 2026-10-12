@@ -16,7 +16,7 @@ import { setOrbitView } from "../e06-gradient-retraction/lib/SphereCamera";
 import type { SvgDot, SvgPath } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { SvgOverlay } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { RayleighSphere } from "./lib/RayleighSphere";
-import { lift, rayleighGrad, retract, rgdFixed, spherePoint } from "./lib/rayleigh";
+import { arcPath, lift, rayleighGrad, retract, rgdFixed, spherePoint } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
 /**
@@ -96,7 +96,7 @@ export class ProblemAndSequencesScene implements Scene {
     this.curve = new Polyline(stage, sampleCurve((a) => lift(retract(X0, g.clone().multiplyScalar(-a))), 0, STEP, 40), { color: "#ffffff", width: 3 });
     this.mover = new Dot(stage, X0, Palette.orange, 0.03, "3d");
     this.iterates = rgdFixed(X0, 14, STEP);
-    this.path = new Polyline(stage, this.iterates.map((p) => lift(p, 1.012)), { color: Palette.orange, width: 3.5 });
+    this.path = new Polyline(stage, arcPath(this.iterates), { color: Palette.orange, width: 3.5 });
     this.iterates.forEach((p) => this.iterDots.push(new Dot(stage, lift(p, 1.014), Palette.orange, 0.022, "3d")));
 
     this.svg = new SvgOverlay(fl);
@@ -168,7 +168,7 @@ export class ProblemAndSequencesScene implements Scene {
     this.mover.setOpacity(stepO * c.p(2, 0.4));
     const runO = c.p(3, 0.5) * (1 - c.p(7, 0.6));
     const shown = Math.min(this.iterates.length, 1 + Math.floor(c.over(3, 0.0, 1.0) * 0.5 * (this.iterates.length - 1) + c.over(4, 0, 0.8) * 0.5 * (this.iterates.length - 1) + 1e-9));
-    this.path.setPoints(this.iterates.slice(0, Math.max(2, shown)).map((p) => lift(p, 1.012)));
+    this.path.setPoints(arcPath(this.iterates.slice(0, Math.max(2, shown))));
     this.path.setOpacity(shown >= 2 ? runO : 0);
     this.iterDots.forEach((d, k) => d.setOpacity(k < shown ? runO : 0));
     this.fIter.set({ opacity: c.p(4, 0.6) * (1 - c.p(7, 0.6)) });

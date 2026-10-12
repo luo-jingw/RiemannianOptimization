@@ -17,7 +17,7 @@ import type { OrbitView } from "../e06-gradient-retraction/lib/SphereCamera";
 import type { SvgDot, SvgPath } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { SvgOverlay } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { RayleighSphere } from "./lib/RayleighSphere";
-import { E3, L_RAYLEIGH, lift, retract, rgdFixed, spherePoint } from "./lib/rayleigh";
+import { E3, L_RAYLEIGH, arcPath, lift, retract, rgdFixed, spherePoint } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
 /**
@@ -102,7 +102,7 @@ export class LocalConvergenceScene implements Scene {
     this.sphere = new RayleighSphere(stage);
     this.iterates = rgdFixed(X0, K, STEP);
     this.dist = this.iterates.map((p) => Math.acos(Math.min(1, p.z)));
-    this.path = new Polyline(stage, this.iterates.map((p) => lift(p, 1.012)), { color: Palette.orange, width: 3.5 });
+    this.path = new Polyline(stage, arcPath(this.iterates), { color: Palette.orange, width: 3.5 });
     this.iterates.slice(0, 14).forEach((p) => this.dots.push(new Dot(stage, lift(p, 1.014), Palette.orange, 0.02, "3d")));
     const d = new THREE.Vector3(1, 1, 0).normalize();
     this.geo = new Polyline(stage, sampleCurve((s) => lift(E3.clone().multiplyScalar(Math.cos(s)).addScaledVector(d, Math.sin(s)), 1.01), 0, 0.9, 50), { color: Palette.teal, width: 3.5 });
@@ -119,7 +119,7 @@ export class LocalConvergenceScene implements Scene {
     this.diskPlane = new Polyline(stage, sampleCurve((s) => xD.clone().addScaledVector(east, rr * Math.cos(s)).addScaledVector(north, rr * Math.sin(s)), 0, 2 * Math.PI, 80), { color: Palette.green, width: 3 });
     this.diskSphere = new Polyline(stage, sampleCurve((s) => lift(retract(xD, east.clone().multiplyScalar(rr * Math.cos(s)).addScaledVector(north, rr * Math.sin(s))), 1.01), 0, 2 * Math.PI, 80), { color: Palette.yellow, width: 3 });
     this.saddleRun = rgdFixed(new THREE.Vector3(0.02, 1, 0.02).normalize(), 40, STEP);
-    this.saddlePath = new Polyline(stage, this.saddleRun.map((p) => lift(p, 1.012)), { color: Palette.red, width: 3.5 });
+    this.saddlePath = new Polyline(stage, arcPath(this.saddleRun), { color: Palette.red, width: 3.5 });
     this.saddleDot = new Dot(stage, this.saddleRun[0], Palette.red, 0.03, "3d");
 
     this.svg = new SvgOverlay(fl);
@@ -182,7 +182,7 @@ export class LocalConvergenceScene implements Scene {
     this.sphere.setOpacity(sphO, 1, sphO);
     const runO = c.p(3, 0.6) * (1 - c.p(12, 0.6));
     const shown = Math.min(14, 1 + Math.floor(c.over(3, 0.05, 0.9) * 13 + 1e-9));
-    this.path.setPoints(this.iterates.slice(0, Math.max(2, shown)).map((p) => lift(p, 1.012)));
+    this.path.setPoints(arcPath(this.iterates.slice(0, Math.max(2, shown))));
     this.path.setOpacity(shown >= 2 ? runO : 0);
     this.dots.forEach((d, k) => d.setOpacity(k < shown ? runO : 0));
     const toolO = c.p(12, 0.6) * (1 - c.p(22, 0.6));
@@ -196,7 +196,7 @@ export class LocalConvergenceScene implements Scene {
     this.diskSphere.setOpacity(diskO * c.p(25, 0.5, 0.8));
     const sadO = c.p(68, 0.6) * (1 - c.p(71, 0.6));
     const ns = Math.min(this.saddleRun.length, 2 + Math.floor(c.over(70, 0.05, 0.9) * (this.saddleRun.length - 2)));
-    this.saddlePath.setPoints(this.saddleRun.slice(0, ns).map((p) => lift(p, 1.012)));
+    this.saddlePath.setPoints(arcPath(this.saddleRun.slice(0, ns)));
     this.saddlePath.setOpacity(sadO * c.p(70, 0.3));
     this.saddleDot.setPosition(lift(this.saddleRun[Math.max(0, ns - 1)], 1.014));
     this.saddleDot.setOpacity(sadO);

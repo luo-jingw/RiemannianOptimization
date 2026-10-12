@@ -10,7 +10,7 @@ import { Palette } from "../../primitives/Palette";
 import { Polyline } from "../../primitives/Polyline";
 import { setOrbitView } from "../e06-gradient-retraction/lib/SphereCamera";
 import { RayleighSphere } from "./lib/RayleighSphere";
-import { E2, lift, rgdBacktracking, spherePoint } from "./lib/rayleigh";
+import { E2, arcPath, lift, rgdBacktracking, spherePoint } from "./lib/rayleigh";
 import type { RgdStep } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
@@ -20,7 +20,8 @@ import { Tex } from "./lib/tex";
  * Sentence indices refer to content/episodes/e07-gradient-descent/story.en.json, scene c10-recap.
  */
 
-const STARTS: [number, number][] = [[60, 20], [75, 110], [50, 200], [80, 290], [105, 40], [120, 150], [100, 250], [130, 330]];
+/** Starts (polar, azimuth in degrees) on the hemisphere facing the camera; four converge to +e₃, four to −e₃. */
+const STARTS: [number, number][] = [[35, 30], [55, 85], [70, 45], [82, 105], [98, 35], [112, 95], [128, 55], [150, 100]];
 
 export class RecapScene implements Scene {
   readonly id = "c10-recap";
@@ -29,6 +30,7 @@ export class RecapScene implements Scene {
   private runs: RgdStep[][] = [];
   private paths: Polyline[] = [];
   private heads: Dot[] = [];
+  private starts: Dot[] = [];
   private saddle!: Dot;
   private fChain!: FormulaHandle;
   private fLimits!: FormulaHandle;
@@ -43,8 +45,9 @@ export class RecapScene implements Scene {
     for (const [p, a] of STARTS) {
       const run = rgdBacktracking(spherePoint(p, a), 25, { tau: 0.5, r: 1e-4, l0: 0.6 });
       this.runs.push(run);
-      this.paths.push(new Polyline(stage, run.map((s) => lift(s.x, 1.012)), { color: Palette.orange, width: 3 }));
-      this.heads.push(new Dot(stage, run[0].x, Palette.orange, 0.024, "3d"));
+      this.paths.push(new Polyline(stage, arcPath(run.map((s) => s.x)), { color: Palette.orange, width: 3 }));
+      this.heads.push(new Dot(stage, run[0].x, Palette.orange, 0.026, "3d"));
+      this.starts.push(new Dot(stage, lift(run[0].x, 1.014), Palette.yellow, 0.02, "3d"));
     }
     this.saddle = new Dot(stage, lift(E2, 1.02), Palette.red, 0.035, "3d");
     this.fChain = fl.add({ tex: "", x: 960, y: 430, size: 36, display: true });
@@ -55,7 +58,7 @@ export class RecapScene implements Scene {
   draw(ctx: SceneContext): void {
     const c = new Cues(ctx, ctx.localTime);
     const t = c.t;
-    setOrbitView(this.stage, { azDeg: 40 + 25 * c.over(9, 0, 1) + 25 * c.over(10, 0, 1), elDeg: 24, distance: 5.2, fovDeg: 34, center: new THREE.Vector3(0, 0, 0), shift: 0, lift: -0.1 });
+    setOrbitView(this.stage, { azDeg: 55 + 12 * c.over(9, 0, 1) + 8 * c.over(10, 0, 1), elDeg: 8, distance: 5.0, fovDeg: 34, center: new THREE.Vector3(0, 0, 0), shift: 0, lift: -0.05 });
 
     const ch = Tex.count(t, [c.s(1), c.s(2), c.s(3), c.s(4), c.s(5), c.s(6), c.s(7), c.s(8)]);
     this.fChain.setContent(Tex.rows([
@@ -74,10 +77,11 @@ export class RecapScene implements Scene {
     this.sphere.setOpacity(sO, 1, sO);
     this.runs.forEach((run, i) => {
       const n = Math.min(run.length, 2 + Math.floor(c.over(9, 0.05, 0.95) * (run.length - 2)));
-      this.paths[i].setPoints(run.slice(0, n).map((s) => lift(s.x, 1.012)));
+      this.paths[i].setPoints(arcPath(run.slice(0, n).map((s) => s.x)));
       this.paths[i].setOpacity(sO);
       this.heads[i].setPosition(lift(run[n - 1].x, 1.016));
       this.heads[i].setOpacity(sO);
+      this.starts[i].setOpacity(sO);
     });
     this.saddle.setOpacity(sO * c.p(10, 0.5));
 

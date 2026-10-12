@@ -166,7 +166,7 @@ Phase 1
 
 ## Phase 3
 
-Phase Status: active
+Phase Status: completed
 
 Round: 1
 
@@ -197,7 +197,7 @@ Audio report; stills at every visual event of c06 with determinism and history c
 
 ## Phase 4
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 1
 
@@ -227,7 +227,7 @@ Narration and mix report; sentences with similarity < 0.9 inspected.
 
 ## Phase 5
 
-Phase Status: pending
+Phase Status: completed
 
 Round: 1
 
@@ -257,7 +257,7 @@ Phase 4
 
 ## Phase 6
 
-Phase Status: pending
+Phase Status: active
 
 Round: 1
 

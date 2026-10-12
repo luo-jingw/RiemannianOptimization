@@ -1,6 +1,6 @@
 # Plan
 
-Plan Status: approved
+Plan Status: completed
 
 # Problem
 
@@ -287,7 +287,7 @@ Phase 5
 
 ## Phase 7
 
-Phase Status: active
+Phase Status: completed
 
 Round: 1
 

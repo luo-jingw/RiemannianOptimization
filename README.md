@@ -22,6 +22,7 @@ counterexample showing why each hypothesis is needed.
 | 4 | Implicit Functions and Regular Level Sets | 31 min | implicit function theorem from the IFT, regular values, regular level-set theorem, crossings and cusps |
 | 5 | Tangent Spaces and the Orthogonal Group | 41 min | tangent vectors as velocities, T_pM = ker Dh(p), rank–nullity, O(n) and SO(n) |
 | 6 | Riemannian Gradient and Retraction | 37 min | differential, dual space, Riesz, Riemannian metric and gradient, steepest ascent, retractions, descent property |
+| 7 | Riemannian Gradient Descent | 46 min | critical points, sufficient decrease and the 1/√K bound, Lipschitz-type condition, backtracking (Armijo), local linear convergence, computing and checking gradients |
 
 The series stops at the current course frontier (retraction and the first-order descent property); new episodes
 are appended as the notes grow.

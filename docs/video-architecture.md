@@ -1,7 +1,7 @@
 # Video Architecture
 
 Verified production architecture of the series "Riemannian Optimization from the Ground Up".
-Delivered: E01–E07 v1 (`output/<eid>/v1/`), 260 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
+Delivered: E01–E06 v1 and E07 v2 (`output/<eid>/v<N>/`), 260 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
 
 ## Modules and files
 

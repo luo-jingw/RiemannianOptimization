@@ -1,0 +1,3025 @@
+{
+ "language": "en",
+ "episode": "e07-gradient-descent",
+ "duration": 2738.475,
+ "chapters": [
+  {
+   "id": "c01-problem-and-sequences",
+   "index": 0,
+   "start": 5.0,
+   "end": 229.2,
+   "title": "From One Step to an Algorithm",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    6.7,
+    13.925,
+    20.15,
+    25.45,
+    32.075,
+    39.675,
+    47.05,
+    53.875,
+    60.425,
+    65.625,
+    70.875,
+    77.75,
+    84.65,
+    93.575,
+    101.2,
+    105.075,
+    109.875,
+    118.55,
+    125.825,
+    131.375,
+    137.3,
+    142.7,
+    147.525,
+    156.925,
+    163.5,
+    170.575,
+    177.925,
+    185.625,
+    190.6,
+    198.725,
+    202.575,
+    207.65,
+    215.95
+   ],
+   "sentenceEnds": [
+    6.25,
+    13.475,
+    19.7,
+    25.0,
+    31.625,
+    39.225,
+    46.6,
+    53.425,
+    59.975,
+    65.175,
+    70.425,
+    77.3,
+    84.2,
+    93.125,
+    100.75,
+    104.625,
+    109.425,
+    118.1,
+    125.375,
+    130.925,
+    136.85,
+    142.25,
+    147.075,
+    156.475,
+    163.05,
+    170.125,
+    177.475,
+    185.175,
+    190.15,
+    198.275,
+    202.125,
+    207.2,
+    215.5,
+    222.6
+   ]
+  },
+  {
+   "id": "c02-taylor-on-curves",
+   "index": 1,
+   "start": 229.2,
+   "end": 442.25,
+   "title": "Taylor Expansion Along Curves",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.8,
+    17.55,
+    25.475,
+    34.8,
+    41.225,
+    49.15,
+    54.875,
+    64.15,
+    69.25,
+    76.625,
+    82.35,
+    89.975,
+    95.875,
+    105.375,
+    111.425,
+    117.175,
+    122.125,
+    128.65,
+    134.225,
+    144.525,
+    153.55,
+    161.1,
+    167.95,
+    175.175,
+    182.75,
+    191.7,
+    199.55,
+    205.325
+   ],
+   "sentenceEnds": [
+    9.35,
+    17.1,
+    25.025,
+    34.35,
+    40.775,
+    48.7,
+    54.425,
+    63.7,
+    68.8,
+    76.175,
+    81.9,
+    89.525,
+    95.425,
+    104.925,
+    110.975,
+    116.725,
+    121.675,
+    128.2,
+    133.775,
+    144.075,
+    153.1,
+    160.65,
+    167.5,
+    174.725,
+    182.3,
+    191.25,
+    199.1,
+    204.875,
+    211.45
+   ]
+  },
+  {
+   "id": "c03-critical-points",
+   "index": 2,
+   "start": 442.25,
+   "end": 648.775,
+   "title": "Critical Points",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    10.2,
+    15.55,
+    25.9,
+    33.95,
+    39.075,
+    44.9,
+    53.3,
+    59.3,
+    65.8,
+    73.325,
+    79.95,
+    89.775,
+    97.1,
+    106.0,
+    111.55,
+    118.525,
+    127.15,
+    134.05,
+    141.725,
+    147.375,
+    154.025,
+    161.45,
+    170.15,
+    177.7,
+    184.45,
+    192.075,
+    199.125
+   ],
+   "sentenceEnds": [
+    9.75,
+    15.1,
+    25.45,
+    33.5,
+    38.625,
+    44.45,
+    52.85,
+    58.85,
+    65.35,
+    72.875,
+    79.5,
+    89.325,
+    96.65,
+    105.55,
+    111.1,
+    118.075,
+    126.7,
+    133.6,
+    141.275,
+    146.925,
+    153.575,
+    161.0,
+    169.7,
+    177.25,
+    184.0,
+    191.625,
+    198.675,
+    204.925
+   ]
+  },
+  {
+   "id": "c04-rgd-and-sufficient-decrease",
+   "index": 3,
+   "start": 648.775,
+   "end": 926.35,
+   "title": "Gradient Descent and Sufficient Decrease",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    11.425,
+    22.55,
+    26.425,
+    37.225,
+    44.425,
+    54.275,
+    60.575,
+    68.2,
+    74.9,
+    81.425,
+    89.475,
+    100.4,
+    105.55,
+    114.775,
+    120.05,
+    127.55,
+    134.15,
+    141.45,
+    149.075,
+    157.825,
+    164.525,
+    174.25,
+    179.7,
+    184.65,
+    190.675,
+    196.125,
+    204.25,
+    211.725,
+    216.5,
+    226.775,
+    237.3,
+    246.225,
+    256.45,
+    263.325,
+    271.7
+   ],
+   "sentenceEnds": [
+    10.975,
+    22.1,
+    25.975,
+    36.775,
+    43.975,
+    53.825,
+    60.125,
+    67.75,
+    74.45,
+    80.975,
+    89.025,
+    99.95,
+    105.1,
+    114.325,
+    119.6,
+    127.1,
+    133.7,
+    141.0,
+    148.625,
+    157.375,
+    164.075,
+    173.8,
+    179.25,
+    184.2,
+    190.225,
+    195.675,
+    203.8,
+    211.275,
+    216.05,
+    226.325,
+    236.85,
+    245.775,
+    256.0,
+    262.875,
+    271.25,
+    275.975
+   ]
+  },
+  {
+   "id": "c05-lipschitz-type-condition",
+   "index": 4,
+   "start": 926.35,
+   "end": 1282.5,
+   "title": "A Lipschitz-Type Condition",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    9.1,
+    19.275,
+    28.05,
+    37.1,
+    47.3,
+    54.025,
+    60.675,
+    68.15,
+    75.225,
+    80.7,
+    86.85,
+    94.075,
+    103.125,
+    110.125,
+    114.775,
+    125.875,
+    131.625,
+    139.175,
+    143.7,
+    150.125,
+    159.1,
+    170.25,
+    178.6,
+    187.25,
+    190.95,
+    199.8,
+    206.35,
+    213.925,
+    221.275,
+    229.0,
+    235.925,
+    245.425,
+    255.95,
+    262.6,
+    271.15,
+    277.725,
+    285.5,
+    294.225,
+    305.475,
+    310.075,
+    318.05,
+    326.0,
+    330.55,
+    338.825,
+    346.4
+   ],
+   "sentenceEnds": [
+    8.65,
+    18.825,
+    27.6,
+    36.65,
+    46.85,
+    53.575,
+    60.225,
+    67.7,
+    74.775,
+    80.25,
+    86.4,
+    93.625,
+    102.675,
+    109.675,
+    114.325,
+    125.425,
+    131.175,
+    138.725,
+    143.25,
+    149.675,
+    158.65,
+    169.8,
+    178.15,
+    186.8,
+    190.5,
+    199.35,
+    205.9,
+    213.475,
+    220.825,
+    228.55,
+    235.475,
+    244.975,
+    255.5,
+    262.15,
+    270.7,
+    277.275,
+    285.05,
+    293.775,
+    305.025,
+    309.625,
+    317.6,
+    325.55,
+    330.1,
+    338.375,
+    345.95,
+    354.55
+   ]
+  },
+  {
+   "id": "c06-backtracking",
+   "index": 5,
+   "start": 1282.5,
+   "end": 1579.65,
+   "title": "Backtracking Line Search",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    10.3,
+    16.625,
+    25.275,
+    29.475,
+    34.9,
+    41.85,
+    49.75,
+    60.6,
+    66.475,
+    73.05,
+    78.95,
+    85.2,
+    93.15,
+    98.825,
+    108.575,
+    115.575,
+    125.85,
+    136.6,
+    146.225,
+    153.225,
+    161.15,
+    170.5,
+    176.175,
+    185.075,
+    195.875,
+    202.8,
+    209.325,
+    216.0,
+    224.525,
+    233.975,
+    243.2,
+    250.925,
+    261.025,
+    267.05,
+    275.2,
+    284.075,
+    290.675
+   ],
+   "sentenceEnds": [
+    9.85,
+    16.175,
+    24.825,
+    29.025,
+    34.45,
+    41.4,
+    49.3,
+    60.15,
+    66.025,
+    72.6,
+    78.5,
+    84.75,
+    92.7,
+    98.375,
+    108.125,
+    115.125,
+    125.4,
+    136.15,
+    145.775,
+    152.775,
+    160.7,
+    170.05,
+    175.725,
+    184.625,
+    195.425,
+    202.35,
+    208.875,
+    215.55,
+    224.075,
+    233.525,
+    242.75,
+    250.475,
+    260.575,
+    266.6,
+    274.75,
+    283.625,
+    290.225,
+    295.55
+   ]
+  },
+  {
+   "id": "c07-local-convergence",
+   "index": 6,
+   "start": 1579.65,
+   "end": 2159.55,
+   "title": "Local Convergence",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    10.475,
+    17.95,
+    25.025,
+    33.5,
+    42.825,
+    49.25,
+    57.875,
+    64.3,
+    71.675,
+    79.275,
+    84.125,
+    91.125,
+    98.9,
+    104.75,
+    114.25,
+    117.475,
+    124.95,
+    130.7,
+    136.775,
+    141.375,
+    147.95,
+    157.85,
+    163.825,
+    174.775,
+    179.375,
+    189.475,
+    196.475,
+    207.0,
+    211.625,
+    220.825,
+    228.9,
+    235.825,
+    244.4,
+    252.45,
+    261.525,
+    265.325,
+    275.65,
+    286.075,
+    296.45,
+    306.025,
+    317.0,
+    327.175,
+    338.325,
+    344.05,
+    352.65,
+    361.55,
+    367.325,
+    372.95,
+    381.6,
+    387.05,
+    392.35,
+    399.925,
+    411.075,
+    417.175,
+    423.375,
+    433.05,
+    438.3,
+    446.75,
+    452.325,
+    459.075,
+    468.725,
+    478.725,
+    490.0,
+    496.025,
+    501.35,
+    510.35,
+    516.825,
+    522.6,
+    530.9,
+    536.675,
+    541.625,
+    546.375,
+    553.0,
+    561.175,
+    570.9
+   ],
+   "sentenceEnds": [
+    10.025,
+    17.5,
+    24.575,
+    33.05,
+    42.375,
+    48.8,
+    57.425,
+    63.85,
+    71.225,
+    78.825,
+    83.675,
+    90.675,
+    98.45,
+    104.3,
+    113.8,
+    117.025,
+    124.5,
+    130.25,
+    136.325,
+    140.925,
+    147.5,
+    157.4,
+    163.375,
+    174.325,
+    178.925,
+    189.025,
+    196.025,
+    206.55,
+    211.175,
+    220.375,
+    228.45,
+    235.375,
+    243.95,
+    252.0,
+    261.075,
+    264.875,
+    275.2,
+    285.625,
+    296.0,
+    305.575,
+    316.55,
+    326.725,
+    337.875,
+    343.6,
+    352.2,
+    361.1,
+    366.875,
+    372.5,
+    381.15,
+    386.6,
+    391.9,
+    399.475,
+    410.625,
+    416.725,
+    422.925,
+    432.6,
+    437.85,
+    446.3,
+    451.875,
+    458.625,
+    468.275,
+    478.275,
+    489.55,
+    495.575,
+    500.9,
+    509.9,
+    516.375,
+    522.15,
+    530.45,
+    536.225,
+    541.175,
+    545.925,
+    552.55,
+    560.725,
+    570.45,
+    578.3
+   ]
+  },
+  {
+   "id": "c08-computing-gradients",
+   "index": 7,
+   "start": 2159.55,
+   "end": 2420.95,
+   "title": "Computing Gradients",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    8.475,
+    19.7,
+    26.775,
+    34.5,
+    40.125,
+    43.7,
+    52.6,
+    63.6,
+    71.85,
+    82.0,
+    90.75,
+    99.875,
+    110.8,
+    120.3,
+    129.325,
+    136.45,
+    145.7,
+    153.5,
+    159.0,
+    168.475,
+    179.55,
+    187.825,
+    194.15,
+    201.775,
+    210.7,
+    217.8,
+    226.0,
+    229.875,
+    238.1,
+    246.225,
+    254.25
+   ],
+   "sentenceEnds": [
+    8.025,
+    19.25,
+    26.325,
+    34.05,
+    39.675,
+    43.25,
+    52.15,
+    63.15,
+    71.4,
+    81.55,
+    90.3,
+    99.425,
+    110.35,
+    119.85,
+    128.875,
+    136.0,
+    145.25,
+    153.05,
+    158.55,
+    168.025,
+    179.1,
+    187.375,
+    193.7,
+    201.325,
+    210.25,
+    217.35,
+    225.55,
+    229.425,
+    237.65,
+    245.775,
+    253.8,
+    259.8
+   ]
+  },
+  {
+   "id": "c09-checking-gradients",
+   "index": 8,
+   "start": 2420.95,
+   "end": 2608.3,
+   "title": "Checking a Gradient Numerically",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.15,
+    12.3,
+    22.15,
+    30.55,
+    39.225,
+    47.225,
+    52.875,
+    63.475,
+    68.55,
+    76.9,
+    88.025,
+    95.35,
+    102.2,
+    109.7,
+    116.3,
+    121.6,
+    129.675,
+    138.25,
+    144.275,
+    151.7,
+    157.025,
+    163.175,
+    170.925,
+    173.975,
+    181.85
+   ],
+   "sentenceEnds": [
+    7.7,
+    11.85,
+    21.7,
+    30.1,
+    38.775,
+    46.775,
+    52.425,
+    63.025,
+    68.1,
+    76.45,
+    87.575,
+    94.9,
+    101.75,
+    109.25,
+    115.85,
+    121.15,
+    129.225,
+    137.8,
+    143.825,
+    151.25,
+    156.575,
+    162.725,
+    170.475,
+    173.525,
+    181.4,
+    185.75
+   ]
+  },
+  {
+   "id": "c10-recap",
+   "index": 9,
+   "start": 2608.3,
+   "end": 2733.475,
+   "title": "The First-Order Toolkit",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    5.5,
+    14.0,
+    21.45,
+    30.525,
+    37.825,
+    44.05,
+    48.05,
+    58.275,
+    65.9,
+    73.775,
+    82.025,
+    89.875,
+    97.05,
+    105.2,
+    111.475,
+    121.175
+   ],
+   "sentenceEnds": [
+    5.05,
+    13.55,
+    21.0,
+    30.075,
+    37.375,
+    43.6,
+    47.6,
+    57.825,
+    65.45,
+    73.325,
+    81.575,
+    89.425,
+    96.6,
+    104.75,
+    111.025,
+    120.725,
+    123.575
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 11.25,
+   "text": "Last time we learned to take one step on a curved space.",
+   "translation": "上一集我们学会了在弯曲空间上走一步。"
+  },
+  {
+   "start": 11.7,
+   "end": 18.475,
+   "text": "From a point x, we move along the retraction curve R x of minus t times the Riemannian gradient.",
+   "translation": "从点 x 出发，沿 retraction 曲线 R_x(−t·grad f(x)) 移动。"
+  },
+  {
+   "start": 18.925,
+   "end": 24.7,
+   "text": "And we proved that a small enough step always decreases f, unless the gradient is zero.",
+   "translation": "并且证明了：只要梯度不为零，足够小的一步一定让 f 下降。"
+  },
+  {
+   "start": 25.15,
+   "end": 30.0,
+   "text": "Repeat that step, and you have an algorithm: Riemannian gradient descent.",
+   "translation": "把这一步重复下去，就得到一个算法：黎曼梯度下降。"
+  },
+  {
+   "start": 30.45,
+   "end": 36.625,
+   "text": "x k plus one equals R at x k, of minus alpha k times grad f of x k.",
+   "translation": "x_{k+1} = R_{x_k}(−α_k grad f(x_k))。"
+  },
+  {
+   "start": 37.075,
+   "end": 44.225,
+   "text": "Our running example is the Rayleigh quotient on the sphere: f of x equals one half x transpose A x.",
+   "translation": "本集的贯穿例子是球面上的瑞利商：f(x) = ½xᵀAx。"
+  },
+  {
+   "start": 44.675,
+   "end": 51.6,
+   "text": "We take A diagonal with entries four, two and one, so f is smallest at the poles plus or minus e three.",
+   "translation": "取 A = diag(4, 2, 1)，f 在两极 ±e₃ 处最小。"
+  },
+  {
+   "start": 52.05,
+   "end": 58.425,
+   "text": "To analyze an algorithm, we first have to say what we are looking for, and what it means to converge.",
+   "translation": "要分析算法，先得说清我们在找什么，以及\"收敛\"是什么意思。"
+  },
+  {
+   "start": 58.875,
+   "end": 64.975,
+   "text": "A global minimizer is a point x where f of x is at most f of y, for every y in M.",
+   "translation": "全局极小点 x：对 M 中所有 y，f(x) ≤ f(y)。"
+  },
+  {
+   "start": 65.425,
+   "end": 70.175,
+   "text": "A local minimizer only has to beat the points in some neighborhood of x.",
+   "translation": "局部极小点只需不大于 x 某个邻域内的点。"
+  },
+  {
+   "start": 70.625,
+   "end": 75.425,
+   "text": "A strict local minimizer beats them strictly, for every y other than x.",
+   "translation": "严格局部极小点：对 y ≠ x 严格小于。"
+  },
+  {
+   "start": 75.875,
+   "end": 82.3,
+   "text": "On this circle, the function has two valleys: one is the global minimizer, the other is only local.",
+   "translation": "这个圆上的函数有两个谷：一个是全局极小，另一个只是局部极小。"
+  },
+  {
+   "start": 82.75,
+   "end": 89.2,
+   "text": "Minimizers may not exist: e to the x on the real line approaches zero, but never reaches it.",
+   "translation": "极小点可能不存在：ℝ 上的 eˣ 趋向 0，却永远取不到。"
+  },
+  {
+   "start": 89.65,
+   "end": 98.125,
+   "text": "And they may not be unique: the Rayleigh quotient takes the same value at x and minus x, so both poles are global minimizers.",
+   "translation": "也可能不唯一：瑞利商满足 f(−x) = f(x)，两极都是全局极小点。"
+  },
+  {
+   "start": 98.575,
+   "end": 105.75,
+   "text": "Notice that these definitions only use a set, a function, and neighborhoods, that is, the topology of M.",
+   "translation": "注意这些定义只用到集合、函数和邻域，也就是 M 的拓扑。"
+  },
+  {
+   "start": 106.2,
+   "end": 109.625,
+   "text": "The problem does not depend on any smooth structure.",
+   "translation": "问题本身与光滑结构无关。"
+  },
+  {
+   "start": 110.075,
+   "end": 114.425,
+   "text": "The metric and the retraction are tools we choose, to help us solve it.",
+   "translation": "度量和 retraction 是我们为求解而选择的工具。"
+  },
+  {
+   "start": 114.875,
+   "end": 123.1,
+   "text": "An algorithm produces a sequence x zero, x one, x two, and so on. We need two words to describe where it goes.",
+   "translation": "算法产生序列 x₀, x₁, x₂, …，描述它的去向需要两个词。"
+  },
+  {
+   "start": 123.55,
+   "end": 130.375,
+   "text": "A point x is the limit of the sequence if every neighborhood of x contains all terms from some index on.",
+   "translation": "x 是序列的极限：x 的每个邻域都包含从某项起的全部项。"
+  },
+  {
+   "start": 130.825,
+   "end": 135.925,
+   "text": "A point x is an accumulation point if it is the limit of some subsequence.",
+   "translation": "x 是聚点：它是某个子列的极限。"
+  },
+  {
+   "start": 136.375,
+   "end": 141.85,
+   "text": "Equivalently, every neighborhood of x contains infinitely many terms of the sequence.",
+   "translation": "等价地，x 的每个邻域都包含序列的无穷多项。"
+  },
+  {
+   "start": 142.3,
+   "end": 147.25,
+   "text": "The sequence minus one to the k jumps between minus one and plus one.",
+   "translation": "序列 (−1)ᵏ 在 −1 与 +1 之间跳动。"
+  },
+  {
+   "start": 147.7,
+   "end": 152.075,
+   "text": "Both points are accumulation points, and the sequence has no limit.",
+   "translation": "两个点都是聚点，而序列没有极限。"
+  },
+  {
+   "start": 152.525,
+   "end": 161.475,
+   "text": "The sequence k has neither, and a sequence that alternates between zero and k has exactly one accumulation point, but still no limit.",
+   "translation": "序列 k 两者都没有；在 0 与 k 之间交替的序列恰有一个聚点，但仍无极限。"
+  },
+  {
+   "start": 161.925,
+   "end": 168.05,
+   "text": "A limit can also escape the manifold. Take M to be the open interval from zero to one.",
+   "translation": "极限也可能跑到流形外面。取 M 为开区间 (0, 1)。"
+  },
+  {
+   "start": 168.5,
+   "end": 175.125,
+   "text": "The sequence one over k plus one converges to zero in the real line, but zero is not in M.",
+   "translation": "序列 1/(k+1) 在 ℝ 中收敛到 0，但 0 不在 M 中。"
+  },
+  {
+   "start": 175.575,
+   "end": 182.475,
+   "text": "So in M, this sequence has no limit at all. If M is closed in the ambient space, this cannot happen.",
+   "translation": "所以在 M 中它根本没有极限。若 M 在外围空间中是闭集，就不会这样。"
+  },
+  {
+   "start": 182.925,
+   "end": 190.175,
+   "text": "One fact connects the two words: if a sequence converges to x, then every accumulation point equals x.",
+   "translation": "一个事实把两个词联系起来：若序列收敛到 x，则每个聚点都等于 x。"
+  },
+  {
+   "start": 190.625,
+   "end": 195.15,
+   "text": "Proof. Let y be an accumulation point, the limit of a subsequence.",
+   "translation": "证明：设 y 是聚点，即某个子列的极限。"
+  },
+  {
+   "start": 195.6,
+   "end": 203.275,
+   "text": "Every neighborhood of x contains all terms from some index on, so it contains all later terms of the subsequence too.",
+   "translation": "x 的每个邻域包含从某项起的全部项，所以也包含子列从某项起的全部项。"
+  },
+  {
+   "start": 203.725,
+   "end": 207.125,
+   "text": "So the subsequence converges to both x and y.",
+   "translation": "于是这个子列同时收敛到 x 和 y。"
+  },
+  {
+   "start": 207.575,
+   "end": 212.2,
+   "text": "A manifold is Hausdorff, so limits are unique, and y equals x.",
+   "translation": "流形是 Hausdorff 的，极限唯一，所以 y = x。"
+  },
+  {
+   "start": 212.65,
+   "end": 220.5,
+   "text": "Hausdorff is exactly what we used. On the line with two origins, one over k converges to both origins at once.",
+   "translation": "这里用到的正是 Hausdorff。在两个原点的直线上，1/k 同时收敛到两个原点。"
+  },
+  {
+   "start": 220.95,
+   "end": 227.6,
+   "text": "Keep these words in mind: our first convergence theorem will be about accumulation points, not limits.",
+   "translation": "记住这两个词：我们的第一个收敛定理讲的是聚点，而不是极限。"
+  },
+  {
+   "start": 231.6,
+   "end": 238.55,
+   "text": "Every iteration moves along a curve. To analyze a step, we need to know how f changes along a curve.",
+   "translation": "每次迭代都沿一条曲线移动。要分析一步，就要知道 f 沿曲线怎样变化。"
+  },
+  {
+   "start": 239.0,
+   "end": 246.3,
+   "text": "Take a smooth curve c on M, with c of zero equal to x and velocity c prime of zero equal to v.",
+   "translation": "取 M 上的光滑曲线 c，c(0) = x，速度 c′(0) = v。"
+  },
+  {
+   "start": 246.75,
+   "end": 254.225,
+   "text": "Along the curve, f becomes an ordinary function of one real variable: g of t equals f of c of t.",
+   "translation": "沿着曲线，f 变成普通的一元函数：g(t) = f(c(t))。"
+  },
+  {
+   "start": 254.675,
+   "end": 263.55,
+   "text": "So it has an ordinary Taylor expansion: g of t equals g of zero, plus t g prime of zero, plus big O of t squared.",
+   "translation": "所以它有普通的 Taylor 展开：g(t) = g(0) + t g′(0) + O(t²)。"
+  },
+  {
+   "start": 264.0,
+   "end": 269.975,
+   "text": "By the chain rule, g prime of t equals D f at c of t, applied to c prime of t.",
+   "translation": "由链式法则，g′(t) = Df(c(t))[c′(t)]。"
+  },
+  {
+   "start": 270.425,
+   "end": 277.9,
+   "text": "By the definition of the Riemannian gradient, that is the inner product of grad f at c of t with c prime of t.",
+   "translation": "由黎曼梯度的定义，它等于 ⟨grad f(c(t)), c′(t)⟩。"
+  },
+  {
+   "start": 278.35,
+   "end": 283.625,
+   "text": "At t equals zero this gives the first-order Taylor expansion along curves.",
+   "translation": "在 t = 0 处得到沿曲线的一阶 Taylor 展开。"
+  },
+  {
+   "start": 284.075,
+   "end": 292.9,
+   "text": "f of c of t equals f of x, plus t times the inner product of grad f of x with v, plus big O of t squared.",
+   "translation": "f(c(t)) = f(x) + t⟨grad f(x), v⟩ + O(t²)。"
+  },
+  {
+   "start": 293.35,
+   "end": 298.0,
+   "text": "Now use a retraction curve: c of t equals R x of t v.",
+   "translation": "现在用 retraction 曲线：c(t) = R_x(tv)。"
+  },
+  {
+   "start": 298.45,
+   "end": 305.375,
+   "text": "Last time we proved that this curve starts at x with velocity exactly v, so the same expansion holds.",
+   "translation": "上一集证明了这条曲线从 x 出发、速度恰好为 v，所以同一个展开成立。"
+  },
+  {
+   "start": 305.825,
+   "end": 311.1,
+   "text": "Here v is minus the gradient, and the panel compares g with its tangent line.",
+   "translation": "这里 v 取负梯度，面板比较 g 与它的切线。"
+  },
+  {
+   "start": 311.55,
+   "end": 318.725,
+   "text": "As t shrinks, the gap between them shrinks like t squared: their difference divided by t squared stays bounded.",
+   "translation": "t 缩小时，两者的差距按 t² 缩小：差除以 t² 保持有界。"
+  },
+  {
+   "start": 319.175,
+   "end": 324.625,
+   "text": "Writing s for t v, the expansion becomes a statement about tangent vectors.",
+   "translation": "记 s = tv，展开变成关于切向量的陈述。"
+  },
+  {
+   "start": 325.075,
+   "end": 334.125,
+   "text": "f of R x of s equals f of x, plus the inner product of grad f of x with s, plus big O of the norm of s squared.",
+   "translation": "f(R_x(s)) = f(x) + ⟨grad f(x), s⟩ + O(‖s‖²)。"
+  },
+  {
+   "start": 334.575,
+   "end": 340.175,
+   "text": "The composition f after R x is called the pullback of f to the tangent space.",
+   "translation": "复合 f∘R_x 称为 f 到切空间的拉回。"
+  },
+  {
+   "start": 340.625,
+   "end": 345.925,
+   "text": "It quite literally pulls the cost function back from the manifold to the tangent plane.",
+   "translation": "它确实是把代价函数从流形\"拉回\"到切平面上。"
+  },
+  {
+   "start": 346.375,
+   "end": 350.875,
+   "text": "Each point s of the plane gets the value of f at R x of s.",
+   "translation": "切平面上的每个点 s 都得到 f(R_x(s)) 这个值。"
+  },
+  {
+   "start": 351.325,
+   "end": 357.4,
+   "text": "And the pullback is a smooth function on a linear space, where all the usual calculus applies.",
+   "translation": "拉回是线性空间上的光滑函数，普通的微积分都可以用。"
+  },
+  {
+   "start": 357.85,
+   "end": 362.975,
+   "text": "Its gradient at zero is exactly the Riemannian gradient. Let us check it.",
+   "translation": "它在 0 处的梯度恰好就是黎曼梯度。我们来验证。"
+  },
+  {
+   "start": 363.425,
+   "end": 373.275,
+   "text": "By the chain rule, D of f after R x at zero, applied to s, equals D f at R x of zero, applied to D R x of zero of s.",
+   "translation": "由链式法则，D(f∘R_x)(0)[s] = Df(R_x(0))[DR_x(0)[s]]。"
+  },
+  {
+   "start": 373.725,
+   "end": 382.3,
+   "text": "R x of zero equals x, and D R x of zero is the identity. These are the two defining properties of a retraction.",
+   "translation": "R_x(0) = x，DR_x(0) = id，正是 retraction 的两条定义性质。"
+  },
+  {
+   "start": 382.75,
+   "end": 389.85,
+   "text": "So the derivative is D f of x applied to s, which is the inner product of grad f of x with s.",
+   "translation": "所以导数是 Df(x)[s] = ⟨grad f(x), s⟩。"
+  },
+  {
+   "start": 390.3,
+   "end": 396.7,
+   "text": "Both conditions matter. Recall the map that doubles the speed: x plus two v, normalized.",
+   "translation": "两条条件都重要。回想速度加倍的映射：(x + 2v) 归一化。"
+  },
+  {
+   "start": 397.15,
+   "end": 403.925,
+   "text": "It still sends zero to x, but along it the initial slope of f is twice what the expansion predicts.",
+   "translation": "它仍把 0 送到 x，但沿它 f 的初始斜率是展开预测值的两倍。"
+  },
+  {
+   "start": 404.375,
+   "end": 411.5,
+   "text": "One more form will be useful. Join x to a point y by a curve c on the interval from zero to one.",
+   "translation": "还有一种形式会用到。用 [0, 1] 上的曲线 c 连接 x 与 y。"
+  },
+  {
+   "start": 411.95,
+   "end": 420.45,
+   "text": "The mean value theorem for g gives a t between zero and one with g of one minus g of zero equal to g prime of t.",
+   "translation": "对 g 用中值定理：存在 t ∈ (0,1) 使 g(1) − g(0) = g′(t)。"
+  },
+  {
+   "start": 420.9,
+   "end": 428.3,
+   "text": "That is, f of y equals f of x, plus the inner product of grad f at c of t with c prime of t.",
+   "translation": "即 f(y) = f(x) + ⟨grad f(c(t)), c′(t)⟩。"
+  },
+  {
+   "start": 428.75,
+   "end": 434.075,
+   "text": "One caveat: the constant hidden in big O depends on the point and the direction.",
+   "translation": "需要注意：O 中隐藏的常数依赖于点和方向。"
+  },
+  {
+   "start": 434.525,
+   "end": 440.65,
+   "text": "To analyze many steps at once, we will need it to be uniform. That comes in chapter five.",
+   "translation": "要同时分析很多步，需要它一致有界，这是第五章的内容。"
+  },
+  {
+   "start": 444.65,
+   "end": 452.0,
+   "text": "Checking whether a point is a local minimizer is hard in general. But there is a simple necessary condition.",
+   "translation": "判断一个点是否为局部极小一般很难，但有一个简单的必要条件。"
+  },
+  {
+   "start": 452.45,
+   "end": 457.35,
+   "text": "At a minimizer, no curve can leave and make f decrease at a linear rate.",
+   "translation": "在极小点，没有任何曲线能离开它并让 f 以线性速率下降。"
+  },
+  {
+   "start": 457.8,
+   "end": 467.7,
+   "text": "Definition. A point x is critical for f if f after c has derivative at least zero at t equals zero, for every smooth curve c through x.",
+   "translation": "定义：若对每条过 x 的光滑曲线 c 都有 (f∘c)′(0) ≥ 0，则称 x 是 f 的临界点。"
+  },
+  {
+   "start": 468.15,
+   "end": 475.75,
+   "text": "Using both c of t and c of minus t, this is the same as requiring the derivative to be exactly zero.",
+   "translation": "同时考虑 c(t) 与 c(−t)，这等价于要求导数恰好为零。"
+  },
+  {
+   "start": 476.2,
+   "end": 480.875,
+   "text": "And by the chain rule, it is the same as D f of x equals zero.",
+   "translation": "再由链式法则，等价于 Df(x) = 0。"
+  },
+  {
+   "start": 481.325,
+   "end": 486.7,
+   "text": "Proposition. Every local minimizer of a smooth function is a critical point.",
+   "translation": "命题：光滑函数的每个局部极小点都是临界点。"
+  },
+  {
+   "start": 487.15,
+   "end": 495.1,
+   "text": "Proof by contradiction. Let x be a local minimizer, with f of y at least f of x for all y in a neighborhood U.",
+   "translation": "反证：设 x 是局部极小，对邻域 U 中的 y 有 f(y) ≥ f(x)。"
+  },
+  {
+   "start": 495.55,
+   "end": 501.1,
+   "text": "Suppose some curve c through x has f after c with a negative derivative at zero.",
+   "translation": "假设某条过 x 的曲线 c 使 (f∘c)′(0) < 0。"
+  },
+  {
+   "start": 501.55,
+   "end": 507.6,
+   "text": "The derivative is continuous, so it stays negative on an interval from zero to some delta.",
+   "translation": "导数连续，所以在某个区间 [0, δ] 上保持为负。"
+  },
+  {
+   "start": 508.05,
+   "end": 515.125,
+   "text": "Integrating, f of c of t is strictly less than f of x for every t in that interval, except zero.",
+   "translation": "积分得：对该区间中每个 t > 0，f(c(t)) < f(x)。"
+  },
+  {
+   "start": 515.575,
+   "end": 521.75,
+   "text": "But c is continuous, so the set of t with c of t in U is open and contains zero.",
+   "translation": "但 c 连续，所以使 c(t) ∈ U 的 t 构成含 0 的开集。"
+  },
+  {
+   "start": 522.2,
+   "end": 531.575,
+   "text": "It must contain some positive t below delta. There, f of c of t is both below f of x and at least f of x. A contradiction.",
+   "translation": "它必含某个 (0, δ] 中的 t：那里 f(c(t)) 既小于又不小于 f(x)，矛盾。"
+  },
+  {
+   "start": 532.025,
+   "end": 538.9,
+   "text": "Proposition. On a Riemannian manifold, x is critical if and only if grad f of x is zero.",
+   "translation": "命题：在黎曼流形上，x 是临界点当且仅当 grad f(x) = 0。"
+  },
+  {
+   "start": 539.35,
+   "end": 547.8,
+   "text": "For any curve with velocity v, the derivative of f after c at zero is the inner product of grad f of x with v.",
+   "translation": "对速度为 v 的曲线，(f∘c)′(0) = ⟨grad f(x), v⟩。"
+  },
+  {
+   "start": 548.25,
+   "end": 553.35,
+   "text": "If the gradient is zero, every such derivative is zero, so x is critical.",
+   "translation": "若梯度为零，每个这样的导数都为零，x 是临界点。"
+  },
+  {
+   "start": 553.8,
+   "end": 560.325,
+   "text": "Conversely, if x is critical, the inner product with v is at least zero for every tangent vector v.",
+   "translation": "反之，若 x 是临界点，则对每个切向量 v，⟨grad f(x), v⟩ ≥ 0。"
+  },
+  {
+   "start": 560.775,
+   "end": 568.95,
+   "text": "Apply it to minus v as well: the inner product is zero for all v. Taking v equal to the gradient, its norm is zero.",
+   "translation": "对 −v 也成立：内积对所有 v 为零。取 v = grad f(x)，得其范数为零。"
+  },
+  {
+   "start": 569.4,
+   "end": 575.85,
+   "text": "On the sphere, the gradient of the Rayleigh quotient is A x minus x transpose A x, times x.",
+   "translation": "在球面上，瑞利商的梯度是 Ax − (xᵀAx)x。"
+  },
+  {
+   "start": 576.3,
+   "end": 583.525,
+   "text": "It vanishes exactly when A x is a multiple of x, that is, when x is a unit eigenvector of A.",
+   "translation": "它为零当且仅当 Ax 是 x 的倍数，即 x 是 A 的单位特征向量。"
+  },
+  {
+   "start": 583.975,
+   "end": 589.175,
+   "text": "So there are six critical points: plus or minus e one, e two, and e three.",
+   "translation": "所以共有六个临界点：±e₁、±e₂、±e₃。"
+  },
+  {
+   "start": 589.625,
+   "end": 595.825,
+   "text": "Only plus or minus e three are minimizers. Plus or minus e one are maximizers.",
+   "translation": "只有 ±e₃ 是极小点，±e₁ 是极大点。"
+  },
+  {
+   "start": 596.275,
+   "end": 603.25,
+   "text": "And e two is a saddle: moving toward e one, f increases; moving toward e three, f decreases.",
+   "translation": "e₂ 是鞍点：朝 e₁ 走 f 增大，朝 e₃ 走 f 减小。"
+  },
+  {
+   "start": 603.7,
+   "end": 611.95,
+   "text": "So the converse fails: a critical point need not be a minimizer. On the real line, x cubed at zero is another example.",
+   "translation": "所以逆命题不成立：临界点不一定是极小点。ℝ 上 x³ 在 0 处是另一个例子。"
+  },
+  {
+   "start": 612.4,
+   "end": 619.5,
+   "text": "Smoothness is needed too. The absolute value of x has a minimizer at zero, but no derivative there.",
+   "translation": "光滑性也是必要的：|x| 在 0 处取极小，但在那里不可导。"
+  },
+  {
+   "start": 619.95,
+   "end": 626.25,
+   "text": "Its slopes are minus one and plus one, and the notion of a critical point does not even apply.",
+   "translation": "两侧斜率为 −1 与 +1，临界点的概念根本不适用。"
+  },
+  {
+   "start": 626.7,
+   "end": 633.875,
+   "text": "Finally, the gradient needs a metric. Change the metric and the gradient points elsewhere, as we saw last time.",
+   "translation": "最后，梯度需要度量。换一个度量，梯度方向就变了，上一集已经看到。"
+  },
+  {
+   "start": 634.325,
+   "end": 640.925,
+   "text": "But the critical points do not move: D f of x equals zero involves no inner product at all.",
+   "translation": "但临界点不会移动：Df(x) = 0 根本不涉及内积。"
+  },
+  {
+   "start": 641.375,
+   "end": 647.175,
+   "text": "This sets a modest but realistic goal for our algorithms: drive the gradient to zero.",
+   "translation": "这为算法定下一个朴素而现实的目标：让梯度趋于零。"
+  },
+  {
+   "start": 651.175,
+   "end": 659.75,
+   "text": "Here is the algorithm. Given a starting point x zero and a retraction R, repeat for k equals zero, one, two, and so on.",
+   "translation": "算法如下：给定初始点 x₀ 与 retraction R，对 k = 0, 1, 2, … 重复。"
+  },
+  {
+   "start": 660.2,
+   "end": 670.875,
+   "text": "Pick a step size alpha k, form the step s k equals minus alpha k grad f of x k, and set x k plus one equal to R x k of s k.",
+   "translation": "选步长 α_k，令 s_k = −α_k grad f(x_k)，x_{k+1} = R_{x_k}(s_k)。"
+  },
+  {
+   "start": 671.325,
+   "end": 674.75,
+   "text": "The choice of retraction is part of the algorithm.",
+   "translation": "retraction 的选择是算法的一部分。"
+  },
+  {
+   "start": 675.2,
+   "end": 685.55,
+   "text": "Choosing alpha k is called the line search. Along the search line, f becomes g of t equals f of R x k of minus t grad f of x k.",
+   "translation": "选 α_k 称为线搜索。沿搜索线，f 变成 g(t) = f(R_{x_k}(−t grad f(x_k)))。"
+  },
+  {
+   "start": 686.0,
+   "end": 692.75,
+   "text": "Line search minimizes g approximately: well enough to make progress, without spending too much effort.",
+   "translation": "线搜索近似地极小化 g：足以取得进展，又不花太多代价。"
+  },
+  {
+   "start": 693.2,
+   "end": 702.6,
+   "text": "Three common strategies: a fixed step size; the exact minimizer of g, in rare cheap cases; and backtracking, which comes in chapter six.",
+   "translation": "三种常见策略：固定步长；在少数便宜的情形下精确极小化 g；以及回溯，第六章介绍。"
+  },
+  {
+   "start": 703.05,
+   "end": 708.9,
+   "text": "We make two assumptions. Assumption one: f is bounded below by some number f low.",
+   "translation": "两个假设。假设一：f 有下界 f_low。"
+  },
+  {
+   "start": 709.35,
+   "end": 716.525,
+   "text": "Assumption two, sufficient decrease: there is a constant c greater than zero such that, at every iteration,",
+   "translation": "假设二，充分下降：存在常数 c > 0，使每次迭代都有"
+  },
+  {
+   "start": 716.975,
+   "end": 723.225,
+   "text": "f of x k minus f of x k plus one is at least c times the squared gradient norm.",
+   "translation": "f(x_k) − f(x_{k+1}) ≥ c‖grad f(x_k)‖²。"
+  },
+  {
+   "start": 723.675,
+   "end": 729.75,
+   "text": "Ensuring assumption two is the job of the line search. We will see how in the next two chapters.",
+   "translation": "保证假设二是线搜索的任务，接下来两章会讲怎么做。"
+  },
+  {
+   "start": 730.2,
+   "end": 737.8,
+   "text": "Proposition. Under both assumptions, the gradient norm goes to zero, and every accumulation point is critical.",
+   "translation": "命题：在两个假设下，梯度范数趋于零，每个聚点都是临界点。"
+  },
+  {
+   "start": 738.25,
+   "end": 748.725,
+   "text": "Moreover, among the first K iterates, some gradient norm is at most the square root of f of x zero minus f low, over c, times one over root K.",
+   "translation": "而且前 K 个迭代中，必有一个梯度范数不超过 √((f(x₀) − f_low)/c) · 1/√K。"
+  },
+  {
+   "start": 749.175,
+   "end": 753.875,
+   "text": "The proof is a telescoping sum. Picture each step's decrease as a bar.",
+   "translation": "证明是裂项求和。把每一步的下降量画成一根竖条。"
+  },
+  {
+   "start": 754.325,
+   "end": 763.1,
+   "text": "Stacked up, the bars add to f of x zero minus f of x K, which by assumption one is at most f of x zero minus f low.",
+   "translation": "竖条叠起来等于 f(x₀) − f(x_K)，由假设一不超过 f(x₀) − f_low。"
+  },
+  {
+   "start": 763.55,
+   "end": 768.375,
+   "text": "By assumption two, each bar is at least c times its squared gradient norm.",
+   "translation": "由假设二，每根竖条至少是 c 乘梯度范数的平方。"
+  },
+  {
+   "start": 768.825,
+   "end": 775.875,
+   "text": "So the total is at least K times c times the smallest squared gradient norm among the first K iterates.",
+   "translation": "所以总和至少是 K·c·前 K 个迭代中最小的梯度范数平方。"
+  },
+  {
+   "start": 776.325,
+   "end": 782.475,
+   "text": "Divide by K c and take the square root: that is the bound, with rate one over root K.",
+   "translation": "除以 Kc 再开方，就得到这个界，速率为 1/√K。"
+  },
+  {
+   "start": 782.925,
+   "end": 789.775,
+   "text": "For the limit, let K go to infinity. The bars form a series of nonnegative terms with a bounded sum.",
+   "translation": "对于极限，令 K → ∞。竖条构成和有界的非负级数。"
+  },
+  {
+   "start": 790.225,
+   "end": 797.4,
+   "text": "So the bars shrink to zero, and since each bar is at least c times the squared gradient, the gradient goes to zero.",
+   "translation": "所以竖条趋于零；每根竖条至少是 c 乘梯度平方，于是梯度趋于零。"
+  },
+  {
+   "start": 797.85,
+   "end": 806.15,
+   "text": "Finally, let x be an accumulation point, the limit of a subsequence. The gradient norm is continuous, because f is smooth.",
+   "translation": "最后，设 x 是聚点，某子列的极限。f 光滑，梯度范数连续。"
+  },
+  {
+   "start": 806.6,
+   "end": 812.85,
+   "text": "So the gradient norm at x is the limit along the subsequence, which is zero. x is critical.",
+   "translation": "所以 x 处的梯度范数是沿子列的极限，等于零，x 是临界点。"
+  },
+  {
+   "start": 813.3,
+   "end": 822.575,
+   "text": "On the Rayleigh quotient with step one third, the smallest gradient so far stays far below the bound, and falls in a straight line on a log scale.",
+   "translation": "在瑞利商上用步长 1/3，迄今最小梯度远低于界，并在对数坐标下沿直线下降。"
+  },
+  {
+   "start": 823.025,
+   "end": 828.025,
+   "text": "That straight line is a local phenomenon. We explain it in chapter seven.",
+   "translation": "这条直线是局部现象，第七章解释。"
+  },
+  {
+   "start": 828.475,
+   "end": 832.975,
+   "text": "Now read the statement carefully. It says nothing about the starting point.",
+   "translation": "现在仔细读这个结论。它对初始点没有任何要求。"
+  },
+  {
+   "start": 833.425,
+   "end": 839.0,
+   "text": "It does not say that the iterates converge, and it does not say that they reach a minimizer.",
+   "translation": "它没有说迭代收敛，也没有说到达极小点。"
+  },
+  {
+   "start": 839.45,
+   "end": 844.45,
+   "text": "It only says that accumulation points, if there are any, are critical points.",
+   "translation": "它只说聚点，如果有的话，都是临界点。"
+  },
+  {
+   "start": 844.9,
+   "end": 852.575,
+   "text": "Each assumption is needed. Drop the lower bound: take f of x equals minus x on the real line, with step one.",
+   "translation": "每个假设都不可少。去掉下界：取 ℝ 上 f(x) = −x，步长为 1。"
+  },
+  {
+   "start": 853.025,
+   "end": 860.05,
+   "text": "Every step decreases f by exactly one, which equals the squared gradient, so sufficient decrease holds.",
+   "translation": "每步 f 恰好下降 1，等于梯度平方，所以充分下降成立。"
+  },
+  {
+   "start": 860.5,
+   "end": 864.825,
+   "text": "But the gradient is always minus one, and f falls without end.",
+   "translation": "但梯度始终是 −1，f 无限下降。"
+  },
+  {
+   "start": 865.275,
+   "end": 875.1,
+   "text": "Drop sufficient decrease: take f of x equals one half x squared, start at one, and use the shrinking steps one over k plus two, squared.",
+   "translation": "去掉充分下降：取 f(x) = ½x²，从 1 出发，步长 1/(k+2)² 越来越小。"
+  },
+  {
+   "start": 875.55,
+   "end": 885.625,
+   "text": "Each step multiplies x by one minus alpha k, and the product of one minus one over n squared, from n equals two, is exactly one half.",
+   "translation": "每步把 x 乘以 1 − α_k，而 ∏_{n≥2}(1 − 1/n²) 恰好等于 ½。"
+  },
+  {
+   "start": 886.075,
+   "end": 894.55,
+   "text": "So the iterates stall at one half, where the gradient is one half, not zero. The decreases are summable, and no constant c works.",
+   "translation": "所以迭代停在 ½，那里梯度是 ½ 而非零。下降量可求和，不存在常数 c。"
+  },
+  {
+   "start": 895.0,
+   "end": 904.775,
+   "text": "And the conclusion really is about accumulation points. Take f of x equals e to the minus x, which is bounded below by zero, with step one.",
+   "translation": "而结论确实只关于聚点。取 f(x) = e^{−x}，下界为 0，步长为 1。"
+  },
+  {
+   "start": 905.225,
+   "end": 911.65,
+   "text": "Sufficient decrease holds with c equal to one minus one over e, and the gradient goes to zero.",
+   "translation": "充分下降成立，c = 1 − 1/e，梯度趋于零。"
+  },
+  {
+   "start": 912.1,
+   "end": 920.025,
+   "text": "But the iterates drift off to infinity. Small gradients, yet no accumulation point and no critical point anywhere.",
+   "translation": "但迭代漂向无穷远：梯度很小，却没有聚点，也根本没有临界点。"
+  },
+  {
+   "start": 920.475,
+   "end": 924.75,
+   "text": "Everything now rests on sufficient decrease. Where does it come from?",
+   "translation": "现在一切都取决于充分下降。它从哪里来？"
+  },
+  {
+   "start": 928.75,
+   "end": 935.0,
+   "text": "Take one step from x k with step vector s k. The Taylor expansion of the pullback says:",
+   "translation": "从 x_k 出发走一步，步向量为 s_k。拉回的 Taylor 展开说："
+  },
+  {
+   "start": 935.45,
+   "end": 945.175,
+   "text": "f of x k plus one equals f of x k, plus the inner product of the gradient with s k, plus big O of the norm of s k squared.",
+   "translation": "f(x_{k+1}) = f(x_k) + ⟨grad f(x_k), s_k⟩ + O(‖s_k‖²)。"
+  },
+  {
+   "start": 945.625,
+   "end": 953.95,
+   "text": "The first-order term is a decrease. If the remainder stays under control at every iteration, we keep a guaranteed net decrease.",
+   "translation": "一阶项是下降。若余项在每次迭代都受控，就能保证净下降。"
+  },
+  {
+   "start": 954.4,
+   "end": 963.0,
+   "text": "Assumption three, a Lipschitz-type condition: on a set S of pairs x, s, there is a constant L greater than zero such that:",
+   "translation": "假设三，Lipschitz 型条件：在由 (x, s) 组成的集合 S 上，存在 L > 0，使得："
+  },
+  {
+   "start": 963.45,
+   "end": 973.2,
+   "text": "f of R x of s is at most f of x, plus the inner product of grad f of x with s, plus L over two times the norm of s squared.",
+   "translation": "f(R_x(s)) ≤ f(x) + ⟨grad f(x), s⟩ + (L/2)‖s‖²。"
+  },
+  {
+   "start": 973.65,
+   "end": 979.925,
+   "text": "Geometrically, the pullback lies below an upward parabola that touches it at s equals zero.",
+   "translation": "几何上，拉回位于一个在 s = 0 处与它相切的上开口抛物面之下。"
+  },
+  {
+   "start": 980.375,
+   "end": 986.575,
+   "text": "Proposition. Suppose every pair x k, s k visited by the algorithm lies in S.",
+   "translation": "命题：设算法经过的每对 (x_k, s_k) 都在 S 中。"
+  },
+  {
+   "start": 987.025,
+   "end": 994.05,
+   "text": "If the step sizes stay in a closed interval inside zero to two over L, then sufficient decrease holds.",
+   "translation": "若步长位于 (0, 2/L) 内的某个闭区间中，则充分下降成立。"
+  },
+  {
+   "start": 994.5,
+   "end": 1001.125,
+   "text": "Proof. Apply assumption three to the step s k equals minus alpha k grad f of x k.",
+   "translation": "证明：对步 s_k = −α_k grad f(x_k) 应用假设三。"
+  },
+  {
+   "start": 1001.575,
+   "end": 1006.6,
+   "text": "The inner product term becomes minus alpha k times the squared gradient.",
+   "translation": "内积项变为 −α_k‖grad‖²。"
+  },
+  {
+   "start": 1007.05,
+   "end": 1012.75,
+   "text": "The quadratic term becomes L over two, alpha k squared, times the squared gradient.",
+   "translation": "二次项变为 (L/2)α_k²‖grad‖²。"
+  },
+  {
+   "start": 1013.2,
+   "end": 1019.975,
+   "text": "So the decrease is at least alpha k minus L over two alpha k squared, times the squared gradient norm.",
+   "translation": "所以下降量至少为 (α_k − (L/2)α_k²)‖grad f(x_k)‖²。"
+  },
+  {
+   "start": 1020.425,
+   "end": 1029.025,
+   "text": "This coefficient is a parabola in alpha, with roots zero and two over L. It is positive in between, and largest at one over L.",
+   "translation": "系数是 α 的抛物线，根为 0 与 2/L，中间为正，在 1/L 处最大。"
+  },
+  {
+   "start": 1029.475,
+   "end": 1036.025,
+   "text": "On a closed interval inside, its minimum sits at an endpoint, and that minimum is our constant c.",
+   "translation": "在内部的闭区间上，最小值落在端点，这个最小值就是常数 c。"
+  },
+  {
+   "start": 1036.475,
+   "end": 1040.675,
+   "text": "With the constant step one over L, c equals one over two L.",
+   "translation": "取固定步长 1/L 时，c = 1/(2L)。"
+  },
+  {
+   "start": 1041.125,
+   "end": 1051.775,
+   "text": "Plug it into the telescoping bound. Some gradient among the first K is at most the square root of two L, times f of x zero minus f low, over root K.",
+   "translation": "代入裂项界：前 K 个中必有梯度不超过 √(2L(f(x₀) − f_low))/√K。"
+  },
+  {
+   "start": 1052.225,
+   "end": 1057.525,
+   "text": "Said differently: suppose we want a point with gradient norm at most epsilon.",
+   "translation": "换句话说：假设要找到梯度范数 ≤ ε 的点。"
+  },
+  {
+   "start": 1057.975,
+   "end": 1065.075,
+   "text": "Then K at least two L times f of x zero minus f low, over epsilon squared, iterations suffice.",
+   "translation": "那么 K ≥ 2L(f(x₀) − f_low)/ε² 次迭代就够了。"
+  },
+  {
+   "start": 1065.525,
+   "end": 1069.6,
+   "text": "Notice that the dimension of M appears nowhere in this bound.",
+   "translation": "注意这个界里根本没有出现 M 的维数。"
+  },
+  {
+   "start": 1070.05,
+   "end": 1076.025,
+   "text": "Where does assumption three come from? Look at Euclidean space, with the retraction x plus s.",
+   "translation": "假设三从何而来？看欧氏空间，retraction 为 x + s。"
+  },
+  {
+   "start": 1076.475,
+   "end": 1085.0,
+   "text": "There, the usual assumption is that the gradient is L Lipschitz: the gradients at x and y differ by at most L times the distance.",
+   "translation": "那里通常假设梯度 L-Lipschitz：x 与 y 处的梯度之差不超过 L 乘距离。"
+  },
+  {
+   "start": 1085.45,
+   "end": 1096.15,
+   "text": "Along the segment x plus t s, f of x plus s minus f of x is the integral from zero to one of the gradient at x plus t s, paired with s.",
+   "translation": "沿线段 x + ts，f(x + s) − f(x) = ∫₀¹ ⟨grad f(x + ts), s⟩ dt。"
+  },
+  {
+   "start": 1096.6,
+   "end": 1104.5,
+   "text": "Subtract the inner product of grad f of x with s, then use Cauchy Schwarz and the Lipschitz bound inside the integral.",
+   "translation": "减去 ⟨grad f(x), s⟩，再在积分内用 Cauchy–Schwarz 与 Lipschitz 界。"
+  },
+  {
+   "start": 1104.95,
+   "end": 1113.15,
+   "text": "The integrand is at most L t times the norm of s squared, and the integral of L t from zero to one is L over two.",
+   "translation": "被积函数不超过 L t ‖s‖²，而 L t 从 0 到 1 的积分是 L/2。"
+  },
+  {
+   "start": 1113.6,
+   "end": 1116.85,
+   "text": "That is exactly the quadratic upper bound.",
+   "translation": "这正是二次上界。"
+  },
+  {
+   "start": 1117.3,
+   "end": 1125.7,
+   "text": "On a manifold, the Lipschitz condition itself is hard to state: the gradients at x and y live in different tangent planes.",
+   "translation": "在流形上，Lipschitz 条件本身很难表述：x 与 y 处的梯度在不同的切平面里。"
+  },
+  {
+   "start": 1126.15,
+   "end": 1132.25,
+   "text": "You cannot simply subtract them. Making sense of that requires tools from much later in the book.",
+   "translation": "不能直接相减。要让它有意义，需要书中很靠后的工具。"
+  },
+  {
+   "start": 1132.7,
+   "end": 1139.825,
+   "text": "But the quadratic upper bound only needs a retraction. That is why assumption three is phrased on the pullback.",
+   "translation": "而二次上界只需要一个 retraction。所以假设三是用拉回来表述的。"
+  },
+  {
+   "start": 1140.275,
+   "end": 1147.175,
+   "text": "When the sublevel sets of f are compact, a later lemma in the book helps verify it for general retractions.",
+   "translation": "当 f 的下水平集紧时，书中后面的一个引理可以帮助对一般 retraction 验证它。"
+  },
+  {
+   "start": 1147.625,
+   "end": 1154.9,
+   "text": "For the Rayleigh quotient with the normalization retraction, we can find L explicitly, on all of the tangent bundle.",
+   "translation": "对瑞利商与归一化 retraction，可以在整个切丛上明确求出 L。"
+  },
+  {
+   "start": 1155.35,
+   "end": 1161.825,
+   "text": "Since s is orthogonal to x, the norm of x plus s squared is one plus the norm of s squared.",
+   "translation": "由于 s ⊥ x，‖x + s‖² = 1 + ‖s‖²。"
+  },
+  {
+   "start": 1162.275,
+   "end": 1171.325,
+   "text": "Write s as rho times a unit vector u. Let a be x transpose A x, b be x transpose A u, and c be u transpose A u.",
+   "translation": "记 s = ρu，‖u‖ = 1。令 a = xᵀAx，b = xᵀAu，c = uᵀAu。"
+  },
+  {
+   "start": 1171.775,
+   "end": 1181.85,
+   "text": "A short computation turns the gap above the linear part into rho squared, times one half of c minus a, minus rho b, over one plus rho squared.",
+   "translation": "简单计算可知，高出线性部分的差为 ρ²(½(c − a) − ρb)/(1 + ρ²)。"
+  },
+  {
+   "start": 1182.3,
+   "end": 1188.5,
+   "text": "Now a, b, c form a two by two symmetric matrix: A compressed to the plane of x and u.",
+   "translation": "a、b、c 组成一个 2×2 对称矩阵：A 在 x 与 u 张成的平面上的压缩。"
+  },
+  {
+   "start": 1188.95,
+   "end": 1197.05,
+   "text": "Its eigenvalues lie between the smallest and largest eigenvalues of A, which bounds b and c minus a by half the spread.",
+   "translation": "它的特征值位于 A 的最小与最大特征值之间，从而用谱宽的一半控制 b 与 c − a。"
+  },
+  {
+   "start": 1197.5,
+   "end": 1203.625,
+   "text": "Cauchy Schwarz in the plane then bounds the bracket by half the spread times one plus rho squared.",
+   "translation": "再在平面上用 Cauchy–Schwarz，括号不超过谱宽的一半乘以 1 + ρ²。"
+  },
+  {
+   "start": 1204.075,
+   "end": 1211.4,
+   "text": "So L equals lambda max minus lambda min works. For our matrix that is four minus one, which is three.",
+   "translation": "所以 L = λ_max − λ_min 可行。对我们的矩阵是 4 − 1 = 3。"
+  },
+  {
+   "start": 1211.85,
+   "end": 1220.125,
+   "text": "Sampling many points and steps, the largest observed ratio is about 2.999, so this L is essentially tight.",
+   "translation": "对大量点和步长采样，观测到的最大比值约为 2.999，所以这个 L 基本是紧的。"
+  },
+  {
+   "start": 1220.575,
+   "end": 1231.375,
+   "text": "Now the counterexamples. Take f of x equals L over two x squared on the real line. Then x k plus one equals one minus alpha L, times x k.",
+   "translation": "现在看反例。取 ℝ 上 f(x) = (L/2)x²，则 x_{k+1} = (1 − αL)x_k。"
+  },
+  {
+   "start": 1231.825,
+   "end": 1235.975,
+   "text": "With step one over L, we land on the minimizer in one step.",
+   "translation": "步长 1/L 时，一步就落到极小点。"
+  },
+  {
+   "start": 1236.425,
+   "end": 1243.95,
+   "text": "With step two over L, x flips sign forever, and f never decreases. Beyond two over L, the iterates blow up.",
+   "translation": "步长 2/L 时，x 永远来回变号，f 从不下降。超过 2/L，迭代发散。"
+  },
+  {
+   "start": 1244.4,
+   "end": 1251.9,
+   "text": "And the constant must be uniform. For f of x equals x to the fourth, no single L works on the whole line.",
+   "translation": "而且常数必须一致。f(x) = x⁴ 在整条直线上没有统一的 L。"
+  },
+  {
+   "start": 1252.35,
+   "end": 1256.45,
+   "text": "On the interval from minus one to one, L equals twelve does.",
+   "translation": "在 [−1, 1] 上 L = 12 可行。"
+  },
+  {
+   "start": 1256.9,
+   "end": 1264.725,
+   "text": "But start at two point six, outside that interval, with step one twelfth: the first step lands at minus three point two six.",
+   "translation": "但从区间外的 2.6 出发、步长 1/12，第一步落在 −3.26。"
+  },
+  {
+   "start": 1265.175,
+   "end": 1272.3,
+   "text": "From there the iterates bounce farther and farther out. That is why the proposition requires every pair to lie in S.",
+   "translation": "此后迭代越跳越远。所以命题要求每一对都在 S 中。"
+  },
+  {
+   "start": 1272.75,
+   "end": 1280.9,
+   "text": "In practice we rarely know L, and a global L can be huge because of one bad region. We need step sizes that adapt.",
+   "translation": "实际中我们很少知道 L，而且一个坏区域就能让全局 L 很大。我们需要自适应的步长。"
+  },
+  {
+   "start": 1284.9,
+   "end": 1292.35,
+   "text": "Only the behavior of f near the current point matters for decrease at that iteration. So let the step size adapt.",
+   "translation": "某次迭代能否下降，只取决于 f 在当前点附近的行为。所以让步长自适应。"
+  },
+  {
+   "start": 1292.8,
+   "end": 1298.675,
+   "text": "The idea of backtracking: try a big step first, and shrink it until the decrease is good enough.",
+   "translation": "回溯的思路：先试一个大步，不够好就缩短，直到下降量足够。"
+  },
+  {
+   "start": 1299.125,
+   "end": 1307.325,
+   "text": "Good enough means the Armijo condition. The decrease, f of x minus f of R x of minus alpha grad f of x,",
+   "translation": "\"足够\"指 Armijo 条件：下降量 f(x) − f(R_x(−α grad f(x)))"
+  },
+  {
+   "start": 1307.775,
+   "end": 1311.525,
+   "text": "must be at least r alpha times the squared gradient norm.",
+   "translation": "至少为 rα‖grad f(x)‖²。"
+  },
+  {
+   "start": 1311.975,
+   "end": 1316.95,
+   "text": "Here r is a constant between zero and one, often ten to the minus four.",
+   "translation": "这里 r 是 0 与 1 之间的常数，常取 10⁻⁴。"
+  },
+  {
+   "start": 1317.4,
+   "end": 1323.9,
+   "text": "On the plot of g, the condition is a line from g of zero, with r times the slope of the tangent.",
+   "translation": "在 g 的图上，这个条件是一条从 g(0) 出发、斜率为切线斜率 r 倍的直线。"
+  },
+  {
+   "start": 1324.35,
+   "end": 1331.8,
+   "text": "A step is accepted when g lies below that line. For clarity, this picture uses r equals zero point three.",
+   "translation": "当 g 位于这条直线下方时，步长被接受。为看得清楚，图中取 r = 0.3。"
+  },
+  {
+   "start": 1332.25,
+   "end": 1342.65,
+   "text": "The algorithm: start with a guess alpha bar. While the Armijo condition fails, multiply alpha by tau, a factor between zero and one, often one half.",
+   "translation": "算法：从初始猜测 ᾱ 开始。只要 Armijo 条件不满足，就把 α 乘以 τ，τ ∈ (0, 1)，常取 ½。"
+  },
+  {
+   "start": 1343.1,
+   "end": 1348.525,
+   "text": "Here alpha bar is two. The trial at two lands above the line, and is rejected.",
+   "translation": "这里 ᾱ = 2。试探步长 2 落在直线上方，被拒绝。"
+  },
+  {
+   "start": 1348.975,
+   "end": 1355.1,
+   "text": "The trial at one is still above. The trial at one half lands below the line, and is accepted.",
+   "translation": "步长 1 仍在上方。步长 ½ 落在直线下方，被接受。"
+  },
+  {
+   "start": 1355.55,
+   "end": 1361.0,
+   "text": "Does this always stop, and is the accepted step large enough to give sufficient decrease?",
+   "translation": "这个过程总会停止吗？被接受的步长足够大，能给出充分下降吗？"
+  },
+  {
+   "start": 1361.45,
+   "end": 1367.25,
+   "text": "Lemma. Suppose assumption three holds along the search line, for steps up to alpha bar.",
+   "translation": "引理：设假设三沿搜索线、对不超过 ᾱ 的步长成立。"
+  },
+  {
+   "start": 1367.7,
+   "end": 1375.2,
+   "text": "Then backtracking returns a step alpha at least the minimum of alpha bar and two tau, times one minus r, over L.",
+   "translation": "则回溯返回的步长 α ≥ min(ᾱ, 2τ(1 − r)/L)。"
+  },
+  {
+   "start": 1375.65,
+   "end": 1380.875,
+   "text": "And the decrease is at least r times that minimum, times the squared gradient norm.",
+   "translation": "且下降量至少为 r 乘以这个最小值，再乘以 ‖grad f(x)‖²。"
+  },
+  {
+   "start": 1381.325,
+   "end": 1390.625,
+   "text": "Proof. By assumption three, every trial alpha decreases f by at least alpha minus L over two alpha squared, times the squared gradient.",
+   "translation": "证明：由假设三，每个试探 α 至少让 f 下降 (α − (L/2)α²)‖grad‖²。"
+  },
+  {
+   "start": 1391.075,
+   "end": 1397.625,
+   "text": "If the algorithm does not stop at alpha, the decrease is less than r alpha times the squared gradient.",
+   "translation": "若算法在 α 处不停，则下降量小于 rα‖grad‖²。"
+  },
+  {
+   "start": 1398.075,
+   "end": 1407.9,
+   "text": "Both at once force alpha minus L over two alpha squared to be less than r alpha, that is, alpha greater than two times one minus r, over L.",
+   "translation": "两者同时成立推出 α − (L/2)α² < rα，即 α > 2(1 − r)/L。"
+  },
+  {
+   "start": 1408.35,
+   "end": 1418.65,
+   "text": "So every step at or below two times one minus r, over L, is accepted. On the plot, the quadratic upper bound lies below the Armijo line there.",
+   "translation": "所以不超过 2(1 − r)/L 的步长都会被接受。图上，那里的二次上界低于 Armijo 直线。"
+  },
+  {
+   "start": 1419.1,
+   "end": 1428.275,
+   "text": "The returned step is either alpha bar itself, or tau times a rejected step, which was larger than two times one minus r, over L.",
+   "translation": "返回的步长要么就是 ᾱ，要么是一个被拒绝步长乘 τ，而被拒绝的步长大于 2(1 − r)/L。"
+  },
+  {
+   "start": 1428.725,
+   "end": 1435.275,
+   "text": "That gives the lower bound on alpha, and the Armijo condition turns it into the lower bound on the decrease.",
+   "translation": "这给出 α 的下界，Armijo 条件再把它变成下降量的下界。"
+  },
+  {
+   "start": 1435.725,
+   "end": 1443.2,
+   "text": "Counting the trials: the returned step is alpha bar times tau to the n minus one, after n evaluations.",
+   "translation": "计数：n 次计算后，返回的步长为 ᾱτ^{n−1}。"
+  },
+  {
+   "start": 1443.65,
+   "end": 1452.55,
+   "text": "So n is at most the maximum of one, and two plus the log base one over tau, of alpha bar L over two times one minus r.",
+   "translation": "所以 n ≤ max(1, 2 + log_{1/τ}(ᾱL/(2(1 − r))))。"
+  },
+  {
+   "start": 1453.0,
+   "end": 1458.225,
+   "text": "Notice that L appears in the guarantee, but the algorithm never needs to know it.",
+   "translation": "注意 L 出现在保证里，但算法从不需要知道它。"
+  },
+  {
+   "start": 1458.675,
+   "end": 1467.125,
+   "text": "Corollary. Run gradient descent with backtracking, with initial guesses alpha bar k, and suppose their lim inf is positive.",
+   "translation": "推论：用回溯运行梯度下降，初始猜测为 ᾱ_k，并设其下极限为正。"
+  },
+  {
+   "start": 1467.575,
+   "end": 1477.925,
+   "text": "Each iteration then gets sufficient decrease with constant c k equals r times the minimum of alpha bar k and two tau, times one minus r, over L.",
+   "translation": "每次迭代都有充分下降，常数 c_k = r·min(ᾱ_k, 2τ(1 − r)/L)。"
+  },
+  {
+   "start": 1478.375,
+   "end": 1484.85,
+   "text": "The same telescoping sum gives the gradient going to zero, at the same one over root K rate.",
+   "translation": "同样的裂项求和给出梯度趋于零，速率同样是 1/√K。"
+  },
+  {
+   "start": 1485.3,
+   "end": 1491.375,
+   "text": "Here is gradient descent with backtracking on the sphere. Each step shows how many trials it needed.",
+   "translation": "这是球面上带回溯的梯度下降。每一步显示需要几次试探。"
+  },
+  {
+   "start": 1491.825,
+   "end": 1498.05,
+   "text": "How should we choose alpha bar? Replace f by eight f plus three. The problem has not changed.",
+   "translation": "ᾱ 怎么选？把 f 换成 8f + 3，问题并没有变。"
+  },
+  {
+   "start": 1498.5,
+   "end": 1506.575,
+   "text": "A good algorithm should produce the same iterates, and backtracking does, if the first trial step does not change when f is scaled.",
+   "translation": "好的算法应该给出相同的迭代；只要第一个试探步不随 f 的缩放而变，回溯就能做到。"
+  },
+  {
+   "start": 1507.025,
+   "end": 1516.025,
+   "text": "For the first iteration, take alpha bar zero equals l zero over the gradient norm, where l zero is the length of the first trial step.",
+   "translation": "第一次迭代取 ᾱ₀ = ℓ₀/‖grad f(x₀)‖，ℓ₀ 是第一个试探步的长度。"
+  },
+  {
+   "start": 1516.475,
+   "end": 1525.25,
+   "text": "Afterwards, a useful heuristic is alpha bar k equals two times the last decrease, divided by the current squared gradient norm.",
+   "translation": "之后一个有用的经验公式是 ᾱ_k = 2(f(x_{k−1}) − f(x_k))/‖grad f(x_k)‖²。"
+  },
+  {
+   "start": 1525.7,
+   "end": 1532.975,
+   "text": "It is common to enlarge it slightly, by one over tau, and to keep it above a small floor, as the theory requires.",
+   "translation": "通常再稍放大 1/τ 倍，并设一个小的下限，正如理论所要求。"
+  },
+  {
+   "start": 1533.425,
+   "end": 1543.075,
+   "text": "Each requirement matters. If the initial guesses shrink to zero, like one over k plus two, squared, every trial passes the Armijo test.",
+   "translation": "每个要求都重要。若初始猜测趋于零，如 1/(k+2)²，每个试探都通过 Armijo 检查。"
+  },
+  {
+   "start": 1543.525,
+   "end": 1549.1,
+   "text": "And yet we are back to the stalled example of chapter four: the iterates stop at one half.",
+   "translation": "然而我们又回到第四章的停滞例子：迭代停在 ½。"
+  },
+  {
+   "start": 1549.55,
+   "end": 1557.25,
+   "text": "If r is at least one, no positive step is ever accepted, even on one half x squared, and the loop never ends.",
+   "translation": "若 r ≥ 1，即使对 ½x² 也没有正步长被接受，循环永不结束。"
+  },
+  {
+   "start": 1557.7,
+   "end": 1566.125,
+   "text": "If r is zero, the step two is accepted on one half x squared. It jumps from x to minus x, and f never decreases.",
+   "translation": "若 r = 0，对 ½x² 会接受步长 2：从 x 跳到 −x，f 从不下降。"
+  },
+  {
+   "start": 1566.575,
+   "end": 1572.725,
+   "text": "And if tau equals one, the step never shrinks, so a guess that is too large is never corrected.",
+   "translation": "若 τ = 1，步长从不缩短，过大的猜测永远得不到修正。"
+  },
+  {
+   "start": 1573.175,
+   "end": 1578.05,
+   "text": "Backtracking gives the practical algorithm, with a guarantee that does not need L.",
+   "translation": "回溯给出了实用的算法，它的保证不需要知道 L。"
+  },
+  {
+   "start": 1582.05,
+   "end": 1589.675,
+   "text": "Two common confusions first. A method converges globally if its sequences converge from every starting point.",
+   "translation": "先澄清两个常见误解。若从任意初始点出发序列都收敛，称方法全局收敛。"
+  },
+  {
+   "start": 1590.125,
+   "end": 1597.15,
+   "text": "Global convergence is not convergence to a global minimizer. It only says the sequence converges somewhere.",
+   "translation": "全局收敛不是收敛到全局极小点，只是说序列收敛到某处。"
+  },
+  {
+   "start": 1597.6,
+   "end": 1604.225,
+   "text": "And we have not even proved that gradient descent converges, only that its accumulation points are critical.",
+   "translation": "而且我们甚至还没有证明梯度下降收敛，只证明了它的聚点是临界点。"
+  },
+  {
+   "start": 1604.675,
+   "end": 1612.7,
+   "text": "Still, in practice we see more. Here is the distance from x k to e three, on a log scale. It falls in a straight line.",
+   "translation": "但实践中看到的更多。这是 x_k 到 e₃ 的距离，对数坐标下沿直线下降。"
+  },
+  {
+   "start": 1613.15,
+   "end": 1622.025,
+   "text": "Each step multiplies the error by about zero point six six seven. The worst-case rate of one over root K says nothing about this.",
+   "translation": "每一步误差约乘以 0.667。最坏情形的 1/√K 速率对此毫无描述。"
+  },
+  {
+   "start": 1622.475,
+   "end": 1628.45,
+   "text": "This is local convergence: how a convergent sequence behaves once it is close to its limit.",
+   "translation": "这就是局部收敛：收敛序列靠近极限之后的行为。"
+  },
+  {
+   "start": 1628.9,
+   "end": 1637.075,
+   "text": "Definition. A sequence converges at least linearly to a star if its distance to a star is at most some epsilon k,",
+   "translation": "定义：若序列到 a* 的距离不超过某个 ε_k，"
+  },
+  {
+   "start": 1637.525,
+   "end": 1643.5,
+   "text": "where the ratio epsilon k plus one over epsilon k tends to some mu below one.",
+   "translation": "且 ε_{k+1}/ε_k → μ < 1，则称它至少线性收敛到 a*。"
+  },
+  {
+   "start": 1643.95,
+   "end": 1650.875,
+   "text": "The smallest such mu is the linear convergence factor. If it is zero, the convergence is superlinear.",
+   "translation": "这样的 μ 的下确界是线性收敛因子；若为零，则称超线性收敛。"
+  },
+  {
+   "start": 1651.325,
+   "end": 1658.475,
+   "text": "It converges at least quadratically if epsilon k plus one over epsilon k squared stays bounded.",
+   "translation": "若 ε_{k+1}/ε_k² 有界，则称至少二次收敛。"
+  },
+  {
+   "start": 1658.925,
+   "end": 1663.325,
+   "text": "Two to the minus k converges linearly, with factor one half.",
+   "translation": "2^{−k} 线性收敛，因子为 ½。"
+  },
+  {
+   "start": 1663.775,
+   "end": 1670.325,
+   "text": "Two to the minus two to the k converges quadratically: the number of correct digits doubles each step.",
+   "translation": "2^{−2^k} 二次收敛：正确位数每步翻倍。"
+  },
+  {
+   "start": 1670.775,
+   "end": 1678.1,
+   "text": "This section borrows three tools that the series will define properly later. We use only the properties stated now.",
+   "translation": "这一节借用三个系列之后才正式定义的工具，只使用这里陈述的性质。"
+  },
+  {
+   "start": 1678.55,
+   "end": 1683.95,
+   "text": "First, the Riemannian distance, which makes a connected manifold a metric space.",
+   "translation": "第一，黎曼距离，它让连通流形成为度量空间。"
+  },
+  {
+   "start": 1684.4,
+   "end": 1693.45,
+   "text": "Second, the exponential map: a special retraction, with distance from x to exp x of v equal to the norm of v, for small v.",
+   "translation": "第二，指数映射：一种特殊的 retraction，小 v 时 dist(x, Exp_x(v)) = ‖v‖。"
+  },
+  {
+   "start": 1693.9,
+   "end": 1696.675,
+   "text": "On the sphere, it follows great circles.",
+   "translation": "在球面上它沿大圆走。"
+  },
+  {
+   "start": 1697.125,
+   "end": 1704.15,
+   "text": "Third, the Riemannian Hessian at a critical point x star: a self-adjoint linear map on the tangent space.",
+   "translation": "第三，临界点 x* 处的黎曼 Hessian：切空间上的自伴线性映射。"
+  },
+  {
+   "start": 1704.6,
+   "end": 1709.9,
+   "text": "Along any retraction, f of R x star of v equals f of x star,",
+   "translation": "沿任意 retraction：f(R_{x*}(v)) 等于 f(x*)"
+  },
+  {
+   "start": 1710.35,
+   "end": 1715.975,
+   "text": "plus one half the inner product of v with Hess v, plus big O of the norm of v cubed.",
+   "translation": "加 ½⟨v, Hess f(x*)[v]⟩，再加 O(‖v‖³)。"
+  },
+  {
+   "start": 1716.425,
+   "end": 1720.575,
+   "text": "The derivative of the gradient field at x star is this Hessian.",
+   "translation": "梯度场在 x* 处的导数就是这个 Hessian。"
+  },
+  {
+   "start": 1721.025,
+   "end": 1727.15,
+   "text": "And a zero gradient with a positive definite Hessian makes x star a strict local minimizer.",
+   "translation": "梯度为零且 Hessian 正定时，x* 是严格局部极小点。"
+  },
+  {
+   "start": 1727.6,
+   "end": 1737.05,
+   "text": "For the Rayleigh quotient at e three, the Hessian is A minus lambda min times the identity, on the tangent plane, with eigenvalues one and three.",
+   "translation": "瑞利商在 e₃ 处的 Hessian 是 A − λ_min I 限制到切平面，特征值为 1 和 3。"
+  },
+  {
+   "start": 1737.5,
+   "end": 1743.025,
+   "text": "Next, a fact we already know from the inverse function theorem, now on manifolds.",
+   "translation": "接下来，一个由反函数定理已知的事实，现在搬到流形上。"
+  },
+  {
+   "start": 1743.475,
+   "end": 1753.975,
+   "text": "If F is a smooth map between manifolds and D F of x is invertible, then F maps a neighborhood of x diffeomorphically onto a neighborhood of F of x.",
+   "translation": "若 F 是流形间的光滑映射且 DF(x) 可逆，则 F 把 x 的某个邻域微分同胚地映到 F(x) 的某个邻域。"
+  },
+  {
+   "start": 1754.425,
+   "end": 1758.575,
+   "text": "Charts reduce it to the theorem we proved in episode three.",
+   "translation": "用 chart 可以把它化为第三集证明的定理。"
+  },
+  {
+   "start": 1759.025,
+   "end": 1768.675,
+   "text": "Since D R x of zero is the identity, R x maps a small ball around zero in the tangent space diffeomorphically onto a neighborhood of x.",
+   "translation": "由于 DR_x(0) = id，R_x 把切空间中 0 附近的一个小球微分同胚地映到 x 的邻域上。"
+  },
+  {
+   "start": 1769.125,
+   "end": 1775.675,
+   "text": "So near x, a retraction is a coordinate system, and we can do calculus in the tangent space.",
+   "translation": "所以在 x 附近，retraction 就是一个坐标系，可以在切空间里做微积分。"
+  },
+  {
+   "start": 1776.125,
+   "end": 1786.2,
+   "text": "Theorem, local contraction mapping. Let F map M to itself smoothly, with a fixed point x star, and with the norm of D F at x star below one.",
+   "translation": "定理（局部压缩映射）：设 F: M → M 光滑，有不动点 x*，且 ‖DF(x*)‖ < 1。"
+  },
+  {
+   "start": 1786.65,
+   "end": 1790.825,
+   "text": "Then there is a neighborhood of x star with the following property.",
+   "translation": "则存在 x* 的一个邻域，具有如下性质。"
+  },
+  {
+   "start": 1791.275,
+   "end": 1800.025,
+   "text": "Once the sequence x k plus one equals F of x k enters it, it stays there, and converges to x star at least linearly.",
+   "translation": "序列 x_{k+1} = F(x_k) 一旦进入就不再离开，并至少线性收敛到 x*。"
+  },
+  {
+   "start": 1800.475,
+   "end": 1808.1,
+   "text": "The factor is at most the norm of D F at x star. If that norm is zero, the convergence is at least quadratic.",
+   "translation": "因子不超过 ‖DF(x*)‖。若该范数为零，则至少二次收敛。"
+  },
+  {
+   "start": 1808.55,
+   "end": 1815.025,
+   "text": "Proof. Choose a ball of radius r where R x star is a diffeomorphism onto a neighborhood U.",
+   "translation": "证明：取半径 r 的球，R_{x*} 在其上是到邻域 U 的微分同胚。"
+  },
+  {
+   "start": 1815.475,
+   "end": 1823.6,
+   "text": "The preimage of U under F is open and contains x star, so a smaller ball, of radius r prime, maps into it.",
+   "translation": "U 在 F 下的原像是含 x* 的开集，所以更小的半径 r′ 的球被映入其中。"
+  },
+  {
+   "start": 1824.05,
+   "end": 1831.65,
+   "text": "For iterates in that ball, write x k equals R x star of xi k, with xi k a tangent vector at x star.",
+   "translation": "对该球中的迭代，写 x_k = R_{x*}(ξ_k)，ξ_k 是 x* 处的切向量。"
+  },
+  {
+   "start": 1832.1,
+   "end": 1840.725,
+   "text": "Then xi k plus one equals F tilde of xi k, where F tilde is R x star inverse, after F, after R x star.",
+   "translation": "则 ξ_{k+1} = F̃(ξ_k)，其中 F̃ = R_{x*}⁻¹ ∘ F ∘ R_{x*}。"
+  },
+  {
+   "start": 1841.175,
+   "end": 1844.525,
+   "text": "F tilde is a smooth map on a linear space.",
+   "translation": "F̃ 是线性空间上的光滑映射。"
+  },
+  {
+   "start": 1844.975,
+   "end": 1854.85,
+   "text": "F tilde of zero is zero, and by the chain rule its derivative at zero is D F of x star, because D R x star of zero is the identity.",
+   "translation": "F̃(0) = 0；由链式法则，它在 0 处的导数是 DF(x*)，因为 DR_{x*}(0) = id。"
+  },
+  {
+   "start": 1855.3,
+   "end": 1865.275,
+   "text": "Taylor expansion: F tilde of v equals D F of x star applied to v, plus an error bounded by a constant c times the norm of v squared.",
+   "translation": "Taylor 展开：F̃(v) = DF(x*)[v] + E(v)，‖E(v)‖ ≤ c‖v‖²。"
+  },
+  {
+   "start": 1865.725,
+   "end": 1875.65,
+   "text": "Taking norms, the norm of xi k plus one is at most the norm of D F of x star, plus c times the norm of xi k, all times the norm of xi k.",
+   "translation": "取范数：‖ξ_{k+1}‖ ≤ (‖DF(x*)‖ + c‖ξ_k‖)‖ξ_k‖。"
+  },
+  {
+   "start": 1876.1,
+   "end": 1885.225,
+   "text": "Shrink r prime so that the norm of D F plus c r prime is below one. Then the norm of xi never grows, and the iterates stay in the ball.",
+   "translation": "缩小 r′ 使 ‖DF(x*)‖ + cr′ < 1。于是 ‖ξ‖ 不会增大，迭代留在球内。"
+  },
+  {
+   "start": 1885.675,
+   "end": 1896.2,
+   "text": "The ratio of successive norms tends to at most the norm of D F of x star. With the exponential map, these norms are exactly the distances to x star.",
+   "translation": "相邻范数之比的极限不超过 ‖DF(x*)‖。用指数映射时，这些范数恰好是到 x* 的距离。"
+  },
+  {
+   "start": 1896.65,
+   "end": 1906.375,
+   "text": "And if D F of x star is zero, the same inequality bounds the norm of xi k plus one by c times the norm of xi k squared: quadratic.",
+   "translation": "若 DF(x*) = 0，同一个不等式给出 ‖ξ_{k+1}‖ ≤ c‖ξ_k‖²：二次收敛。"
+  },
+  {
+   "start": 1906.825,
+   "end": 1917.525,
+   "text": "Now apply it to gradient descent with the constant step one over L. The iteration map is F of x equals R x of minus one over L grad f of x.",
+   "translation": "现在把它用于步长固定为 1/L 的梯度下降。迭代映射为 F(x) = R_x(−(1/L) grad f(x))。"
+  },
+  {
+   "start": 1917.975,
+   "end": 1923.25,
+   "text": "Theorem. Let grad f vanish at x star, with a positive definite Hessian.",
+   "translation": "定理：设 grad f(x*) = 0，且 Hessian 正定。"
+  },
+  {
+   "start": 1923.7,
+   "end": 1931.85,
+   "text": "Its eigenvalues run from lambda one down to lambda n, and the condition number kappa is lambda one over lambda n.",
+   "translation": "其特征值 λ₁ ≥ … ≥ λ_n > 0，条件数 κ = λ₁/λ_n。"
+  },
+  {
+   "start": 1932.3,
+   "end": 1940.75,
+   "text": "If L is greater than lambda one over two, gradient descent with step one over L converges at least linearly near x star.",
+   "translation": "若 L > λ₁/2，步长 1/L 的梯度下降在 x* 附近至少线性收敛。"
+  },
+  {
+   "start": 1941.2,
+   "end": 1946.525,
+   "text": "With L equal to lambda one, the factor is at most one minus one over kappa.",
+   "translation": "L = λ₁ 时，因子不超过 1 − 1/κ。"
+  },
+  {
+   "start": 1946.975,
+   "end": 1952.15,
+   "text": "Proof. Clearly F of x star is R x star of zero, which is x star.",
+   "translation": "证明：显然 F(x*) = R_{x*}(0) = x*。"
+  },
+  {
+   "start": 1952.6,
+   "end": 1960.8,
+   "text": "To differentiate F, we need the derivative of the retraction as a map of both the point and the vector, at the pair x, zero.",
+   "translation": "要对 F 求导，需要 retraction 作为点和向量的二元映射在 (x, 0) 处的导数。"
+  },
+  {
+   "start": 1961.25,
+   "end": 1966.25,
+   "text": "Lemma. D R at x, zero, applied to a pair u, v, equals u plus v.",
+   "translation": "引理：DR(x, 0)[(u, v)] = u + v。"
+  },
+  {
+   "start": 1966.7,
+   "end": 1971.55,
+   "text": "Move the point along a curve with velocity u, and keep the vector zero.",
+   "translation": "让点沿速度为 u 的曲线移动，向量保持为零。"
+  },
+  {
+   "start": 1972.0,
+   "end": 1979.125,
+   "text": "R of c of t, zero, is just c of t, with velocity u. This uses R x of zero equals x.",
+   "translation": "R(c(t), 0) = c(t)，速度为 u。这用到 R_x(0) = x。"
+  },
+  {
+   "start": 1979.575,
+   "end": 1990.275,
+   "text": "Keeping the point and scaling the vector, R x of t v has velocity v. This uses D R x of zero equals the identity. Add the two by linearity.",
+   "translation": "固定点、伸缩向量：R_x(tv) 的速度为 v，这用到 DR_x(0) = id。由线性相加。"
+  },
+  {
+   "start": 1990.725,
+   "end": 1996.375,
+   "text": "Let G of x be minus one over L, grad f of x. Then G of x star is zero.",
+   "translation": "令 G(x) = −(1/L) grad f(x)，则 G(x*) = 0。"
+  },
+  {
+   "start": 1996.825,
+   "end": 2002.575,
+   "text": "The lemma gives D F of x star of v equals v plus D G of x star of v.",
+   "translation": "引理给出 DF(x*)[v] = v + DG(x*)[v]。"
+  },
+  {
+   "start": 2003.025,
+   "end": 2012.25,
+   "text": "The derivative of the gradient field at x star is the Hessian, so D F of x star is the identity minus one over L times the Hessian.",
+   "translation": "梯度场在 x* 处的导数是 Hessian，所以 DF(x*) = Id − (1/L) Hess f(x*)。"
+  },
+  {
+   "start": 2012.7,
+   "end": 2017.5,
+   "text": "It is self-adjoint, with eigenvalues one minus lambda i over L.",
+   "translation": "它是自伴的，特征值为 1 − λ_i/L。"
+  },
+  {
+   "start": 2017.95,
+   "end": 2025.95,
+   "text": "Its norm is the larger of the absolute values of one minus lambda one over L, and one minus lambda n over L.",
+   "translation": "它的范数是 |1 − λ₁/L| 与 |1 − λ_n/L| 中较大者。"
+  },
+  {
+   "start": 2026.4,
+   "end": 2031.525,
+   "text": "Since lambda n is positive, one minus lambda n over L is below one.",
+   "translation": "λ_n > 0，所以 1 − λ_n/L < 1。"
+  },
+  {
+   "start": 2031.975,
+   "end": 2038.275,
+   "text": "Since L exceeds lambda one over two, one minus lambda one over L is above minus one.",
+   "translation": "L > λ₁/2，所以 1 − λ₁/L > −1。"
+  },
+  {
+   "start": 2038.725,
+   "end": 2047.925,
+   "text": "So the norm is below one, and the local contraction theorem applies. With L equal to lambda one, the norm is one minus one over kappa.",
+   "translation": "所以范数小于一，局部压缩定理适用。L = λ₁ 时，范数为 1 − 1/κ。"
+  },
+  {
+   "start": 2048.375,
+   "end": 2057.925,
+   "text": "Is assumption three's constant large enough? Yes. Compare the quadratic upper bound with the Hessian expansion along R x star of t v.",
+   "translation": "假设三的常数够大吗？够。沿 R_{x*}(tv) 比较二次上界与 Hessian 展开。"
+  },
+  {
+   "start": 2058.375,
+   "end": 2069.2,
+   "text": "Divide by t squared and let t go to zero: the inner product of v with Hess v is at most L times the norm of v squared. So L is at least lambda one.",
+   "translation": "除以 t² 并令 t → 0：⟨v, Hess v⟩ ≤ L‖v‖²，所以 L ≥ λ₁。"
+  },
+  {
+   "start": 2069.65,
+   "end": 2075.225,
+   "text": "For the Rayleigh quotient, L equals three equals lambda one, and kappa equals three.",
+   "translation": "对瑞利商，L = 3 = λ₁，κ = 3。"
+  },
+  {
+   "start": 2075.675,
+   "end": 2080.55,
+   "text": "The factor is two thirds, which is the zero point six six seven we measured.",
+   "translation": "因子为 2/3，正是我们测得的 0.667。"
+  },
+  {
+   "start": 2081.0,
+   "end": 2089.55,
+   "text": "Each hypothesis matters. On the real line, F of x equals two x has the fixed point zero, but every other start runs away.",
+   "translation": "每个假设都不可少。ℝ 上 F(x) = 2x 有不动点 0，但其他任何起点都会远离。"
+  },
+  {
+   "start": 2090.0,
+   "end": 2096.025,
+   "text": "At the borderline, F of x equals x minus x cubed has derivative one at zero.",
+   "translation": "临界情形：F(x) = x − x³ 在 0 处导数为 1。"
+  },
+  {
+   "start": 2096.475,
+   "end": 2101.8,
+   "text": "It converges, but only like one over the square root of two k, not linearly.",
+   "translation": "它收敛，但只像 1/√(2k)，不是线性。"
+  },
+  {
+   "start": 2102.25,
+   "end": 2110.1,
+   "text": "Without a positive definite Hessian, the saddle repels. At e two, the Hessian has eigenvalues two and minus one.",
+   "translation": "Hessian 不正定时鞍点会排斥。在 e₂，Hessian 特征值为 2 与 −1。"
+  },
+  {
+   "start": 2110.55,
+   "end": 2115.875,
+   "text": "So D F has an eigenvalue one plus one over L, which is greater than one.",
+   "translation": "所以 DF 有特征值 1 + 1/L，大于一。"
+  },
+  {
+   "start": 2116.325,
+   "end": 2120.825,
+   "text": "Starting near e two, the iterates are pushed away, and end at e three.",
+   "translation": "从 e₂ 附近出发，迭代被推开，最后到达 e₃。"
+  },
+  {
+   "start": 2121.275,
+   "end": 2125.575,
+   "text": "And with L at most lambda one over two, the step is too long.",
+   "translation": "L ≤ λ₁/2 时步长太长。"
+  },
+  {
+   "start": 2126.025,
+   "end": 2132.2,
+   "text": "On one half x squared with step two, x flips sign forever. With a longer step it diverges.",
+   "translation": "对 ½x² 取步长 2，x 永远变号；步长再长则发散。"
+  },
+  {
+   "start": 2132.65,
+   "end": 2140.375,
+   "text": "Two remarks. The retraction in the proof, the exponential map, has nothing to do with the retraction the algorithm uses.",
+   "translation": "两点说明：证明中用的 retraction（指数映射）与算法使用的 retraction 无关。"
+  },
+  {
+   "start": 2140.825,
+   "end": 2150.1,
+   "text": "And with backtracking, the step size can jump with x, so the iteration map may not be smooth. Linear convergence still holds, by other tools.",
+   "translation": "带回溯时步长可能随 x 跳变，迭代映射未必光滑；线性收敛仍然成立，但需要别的工具。"
+  },
+  {
+   "start": 2150.55,
+   "end": 2157.95,
+   "text": "The same local theorem, with D F equal to zero, will later give the quadratic convergence of Newton's method.",
+   "translation": "同一个局部定理在 DF = 0 时，将来会给出牛顿法的二次收敛。"
+  },
+  {
+   "start": 2161.95,
+   "end": 2167.575,
+   "text": "Everything so far assumed we can compute grad f. How do we find a formula for it?",
+   "translation": "前面的一切都假设我们能算出 grad f。怎样得到它的公式？"
+  },
+  {
+   "start": 2168.025,
+   "end": 2178.8,
+   "text": "The gradient is defined by one identity: D f of x applied to v equals the inner product of grad f of x with v, for every tangent vector v.",
+   "translation": "梯度由一个等式定义：对每个切向量 v，Df(x)[v] = ⟨grad f(x), v⟩。"
+  },
+  {
+   "start": 2179.25,
+   "end": 2185.875,
+   "text": "So the recipe has three steps. First, write out the directional derivative D f of x of v.",
+   "translation": "所以方法有三步。第一，写出方向导数 Df(x)[v]。"
+  },
+  {
+   "start": 2186.325,
+   "end": 2193.6,
+   "text": "Second, rearrange it into the form, inner product of some vector g with v, isolating v with adjoints.",
+   "translation": "第二，用伴随把 v 单独分离出来，整理成 ⟨g, v⟩ 的形式。"
+  },
+  {
+   "start": 2194.05,
+   "end": 2199.225,
+   "text": "Third, read off the gradient: by uniqueness, grad f of x equals g.",
+   "translation": "第三，读出梯度：由唯一性，grad f(x) = g。"
+  },
+  {
+   "start": 2199.675,
+   "end": 2202.8,
+   "text": "Three rules do most of the work in step one.",
+   "translation": "第一步的大部分工作由三条规则完成。"
+  },
+  {
+   "start": 2203.25,
+   "end": 2211.7,
+   "text": "The chain rule: D of G after F at x, applied to v, equals D G at F of x, applied to D F of x of v.",
+   "translation": "链式法则：D(G∘F)(x)[v] = DG(F(x))[DF(x)[v]]。"
+  },
+  {
+   "start": 2212.15,
+   "end": 2222.7,
+   "text": "The product rule: D of F G equals D F times G, plus F times D G. It holds for matrix products, entrywise products and Kronecker products alike.",
+   "translation": "乘积法则：D(FG) = DF·G + F·DG，对矩阵乘积、逐元乘积和 Kronecker 积都成立。"
+  },
+  {
+   "start": 2223.15,
+   "end": 2230.95,
+   "text": "Along a curve, matrix multiplication is bilinear, so the one variable product rule applies entry by entry.",
+   "translation": "沿曲线看，矩阵乘法是双线性的，一元乘积法则逐个元素适用。"
+  },
+  {
+   "start": 2231.4,
+   "end": 2241.1,
+   "text": "And the inner product rule: the derivative of the inner product of F and G is the inner product of D F with G, plus that of F with D G.",
+   "translation": "内积法则：⟨F, G⟩ 的导数为 ⟨DF, G⟩ + ⟨F, DG⟩。"
+  },
+  {
+   "start": 2241.55,
+   "end": 2249.85,
+   "text": "A common cost is a squared norm: f of x equals the norm of F of x, squared, for a map F into a Euclidean space.",
+   "translation": "一种常见的代价是平方范数：f(x) = ‖F(x)‖²，F 映到欧氏空间。"
+  },
+  {
+   "start": 2250.3,
+   "end": 2258.975,
+   "text": "The inner product rule gives D f of x of v equals two times the inner product of F of x with D F of x of v.",
+   "translation": "内积法则给出 Df(x)[v] = 2⟨F(x), DF(x)[v]⟩。"
+  },
+  {
+   "start": 2259.425,
+   "end": 2269.9,
+   "text": "The adjoint of D F of x moves it to the other side: that equals two times the inner product of D F of x adjoint, applied to F of x, with v.",
+   "translation": "用 DF(x) 的伴随把它移到另一侧：等于 2⟨DF(x)*[F(x)], v⟩。"
+  },
+  {
+   "start": 2270.35,
+   "end": 2279.4,
+   "text": "So grad f of x equals two times D F of x adjoint, applied to F of x. Computing gradients is largely computing adjoints.",
+   "translation": "所以 grad f(x) = 2DF(x)*[F(x)]。求梯度很大程度上就是求伴随。"
+  },
+  {
+   "start": 2279.85,
+   "end": 2288.425,
+   "text": "For least squares, f of x equals the norm of B x minus y squared, this gives two B transpose, times B x minus y.",
+   "translation": "对最小二乘 f(x) = ‖Bx − y‖²，得到 2Bᵀ(Bx − y)。"
+  },
+  {
+   "start": 2288.875,
+   "end": 2295.55,
+   "text": "Next, the matrix inverse. F of X times X equals the identity for every invertible X.",
+   "translation": "接下来是矩阵的逆。对每个可逆矩阵 X，F(X)X = I。"
+  },
+  {
+   "start": 2296.0,
+   "end": 2304.8,
+   "text": "Differentiate both sides along U with the product rule: D F of X of U times X, plus F of X times U, equals zero.",
+   "translation": "两边沿 U 用乘积法则求导：DF(X)[U]·X + F(X)·U = 0。"
+  },
+  {
+   "start": 2305.25,
+   "end": 2312.6,
+   "text": "Multiply by X inverse on the right: D F of X of U equals minus X inverse U X inverse.",
+   "translation": "右乘 X⁻¹：DF(X)[U] = −X⁻¹UX⁻¹。"
+  },
+  {
+   "start": 2313.05,
+   "end": 2318.1,
+   "text": "A numerical check on a two by two example agrees with a finite difference.",
+   "translation": "一个 2×2 的数值例子与有限差分结果吻合。"
+  },
+  {
+   "start": 2318.55,
+   "end": 2327.575,
+   "text": "Then the log determinant. Log det of X plus t U equals log det X, plus log det of the identity plus t X inverse U.",
+   "translation": "再看对数行列式：log det(X + tU) = log det X + log det(I + tX⁻¹U)。"
+  },
+  {
+   "start": 2328.025,
+   "end": 2338.65,
+   "text": "The determinant of the identity plus t B is the product of one plus t times each eigenvalue, which is one plus t trace B, plus big O of t squared.",
+   "translation": "det(I + tB) 是各特征值的 (1 + tλ_i) 之积，等于 1 + t Tr B + O(t²)。"
+  },
+  {
+   "start": 2339.1,
+   "end": 2346.925,
+   "text": "So the derivative is the trace of X inverse U, and on positive definite matrices the gradient is X inverse.",
+   "translation": "所以导数是 Tr(X⁻¹U)，在正定矩阵上梯度为 X⁻¹。"
+  },
+  {
+   "start": 2347.375,
+   "end": 2353.25,
+   "text": "On a Riemannian submanifold of a Euclidean space, there is a shortcut we met last time.",
+   "translation": "在欧氏空间的黎曼子流形上，有一个上一集见过的捷径。"
+  },
+  {
+   "start": 2353.7,
+   "end": 2360.875,
+   "text": "Compute the Euclidean gradient of any smooth extension, then project it orthogonally onto the tangent space.",
+   "translation": "先算任意光滑延拓的欧氏梯度，再把它正交投影到切空间。"
+  },
+  {
+   "start": 2361.325,
+   "end": 2369.8,
+   "text": "For the Rayleigh quotient, the Euclidean gradient is A x, and the projection gives A x minus x transpose A x, times x.",
+   "translation": "对瑞利商，欧氏梯度是 Ax，投影后得到 Ax − (xᵀAx)x。"
+  },
+  {
+   "start": 2370.25,
+   "end": 2376.9,
+   "text": "Do not skip the projection. A x sticks out of the sphere, and a retraction expects a tangent vector.",
+   "translation": "不要省略投影。Ax 伸出球面之外，而 retraction 需要的是切向量。"
+  },
+  {
+   "start": 2377.35,
+   "end": 2385.1,
+   "text": "Remember too that adjoints depend on the inner product: the same derivative gives different gradients under different metrics.",
+   "translation": "也要记住伴随依赖于内积：同一个导数在不同度量下给出不同的梯度。"
+  },
+  {
+   "start": 2385.55,
+   "end": 2388.975,
+   "text": "A reassuring fact is the cheap gradient principle.",
+   "translation": "一个令人安心的事实是\"梯度很便宜\"原则。"
+  },
+  {
+   "start": 2389.425,
+   "end": 2397.2,
+   "text": "For a wide class of functions, the gradient costs no more than a small multiple of the cost of f, often five or less.",
+   "translation": "对一大类函数，算梯度的代价不超过算 f 的小倍数，常在五倍以内。"
+  },
+  {
+   "start": 2397.65,
+   "end": 2405.325,
+   "text": "Much of the work for f can be reused. If your gradient is far slower than your cost, the code can probably be improved.",
+   "translation": "计算 f 的许多工作可以复用。若梯度比代价函数慢得多，代码多半还能改进。"
+  },
+  {
+   "start": 2405.775,
+   "end": 2413.35,
+   "text": "This principle is the heart of automatic differentiation, and toolboxes such as Manopt offer it on manifolds.",
+   "translation": "这一原则是自动微分的核心，Manopt 等工具箱在流形上提供了自动微分。"
+  },
+  {
+   "start": 2413.8,
+   "end": 2419.35,
+   "text": "Hand-derived gradients are easy to get wrong. So the next question is how to check them.",
+   "translation": "手工推导的梯度很容易出错。所以下一个问题是如何检查它们。"
+  },
+  {
+   "start": 2423.35,
+   "end": 2428.65,
+   "text": "After writing code for f and its gradient, test it before trusting any result.",
+   "translation": "写好 f 与梯度的代码之后，在相信任何结果之前先检查它。"
+  },
+  {
+   "start": 2429.1,
+   "end": 2432.8,
+   "text": "The Taylor expansion along a retraction is our test.",
+   "translation": "沿 retraction 的 Taylor 展开就是检验。"
+  },
+  {
+   "start": 2433.25,
+   "end": 2442.65,
+   "text": "f of R x of t v equals f of x plus t times the inner product of grad f of x with v, plus big O of t squared.",
+   "translation": "f(R_x(tv)) = f(x) + t⟨grad f(x), v⟩ + O(t²)。"
+  },
+  {
+   "start": 2443.1,
+   "end": 2451.05,
+   "text": "Define the error E of t as the absolute difference between f of R x of t v and this first-order prediction.",
+   "translation": "定义误差 E(t) 为 f(R_x(tv)) 与一阶预测之差的绝对值。"
+  },
+  {
+   "start": 2451.5,
+   "end": 2459.725,
+   "text": "If the gradient is right, E of t is big O of t squared, for every point, every tangent direction, and every retraction.",
+   "translation": "若梯度正确，对每个点、每个切方向、每个 retraction，E(t) 都是 O(t²)。"
+  },
+  {
+   "start": 2460.175,
+   "end": 2467.725,
+   "text": "Taking logarithms, log E of t is about two log t plus a constant: a slope of two on a log log plot.",
+   "translation": "取对数：log E(t) ≈ 2 log t + 常数，即在 log–log 图上斜率为 2。"
+  },
+  {
+   "start": 2468.175,
+   "end": 2473.375,
+   "text": "The procedure: pick a random point x and a random unit tangent vector v.",
+   "translation": "步骤：取随机点 x 与随机单位切向量 v。"
+  },
+  {
+   "start": 2473.825,
+   "end": 2483.975,
+   "text": "Compute f of x, the gradient, and their inner product with v. Then compute E of t for t spaced logarithmically from ten to the minus eight, to one.",
+   "translation": "计算 f(x)、梯度及其与 v 的内积；再对 t 从 10⁻⁸ 到 1 对数均匀取值，计算 E(t)。"
+  },
+  {
+   "start": 2484.425,
+   "end": 2489.05,
+   "text": "Plot it, and look for a slope of two over several orders of magnitude.",
+   "translation": "画出来，看是否在几个数量级上呈斜率 2。"
+  },
+  {
+   "start": 2489.5,
+   "end": 2497.4,
+   "text": "Here is the Rayleigh quotient with the correct gradient. In the middle, the curve runs parallel to the slope two reference line.",
+   "translation": "这是使用正确梯度的瑞利商。中段曲线与斜率 2 的参考线平行。"
+  },
+  {
+   "start": 2497.85,
+   "end": 2508.525,
+   "text": "Now suppose the code returns a wrong vector g. Then E of t equals t times the inner product of grad f minus g with v, plus big O of t squared.",
+   "translation": "现在假设代码返回错误的向量 g。则 E(t) = t⟨grad f − g, v⟩ + O(t²)。"
+  },
+  {
+   "start": 2508.975,
+   "end": 2515.85,
+   "text": "For small t, the first term wins, and E of t behaves like a constant times t: a slope of one.",
+   "translation": "t 很小时第一项占主导，E(t) 像常数乘 t：斜率为 1。"
+  },
+  {
+   "start": 2516.3,
+   "end": 2522.7,
+   "text": "Do not expect slope two over the whole range. For large t, the Taylor approximation is poor.",
+   "translation": "不要指望整个范围都是斜率 2。t 大时 Taylor 近似不准。"
+  },
+  {
+   "start": 2523.15,
+   "end": 2530.2,
+   "text": "For tiny t, E of t is a difference of nearly equal numbers, and floating point rounding takes over.",
+   "translation": "t 极小时，E(t) 是两个几乎相等的数之差，浮点舍入占主导。"
+  },
+  {
+   "start": 2530.65,
+   "end": 2536.8,
+   "text": "If the curve does not show slope two over at least one or two orders of magnitude, something is wrong.",
+   "translation": "若曲线在至少一两个数量级上都没有斜率 2，就有错。"
+  },
+  {
+   "start": 2537.25,
+   "end": 2542.1,
+   "text": "The culprit is the gradient, the cost, the retraction, or the inner product.",
+   "translation": "问题出在梯度、代价、retraction 或内积之一。"
+  },
+  {
+   "start": 2542.55,
+   "end": 2550.175,
+   "text": "The book's example is on the Stiefel manifold, with f of X equals minus one half the trace of X transpose A X.",
+   "translation": "书中的例子在 Stiefel 流形上，f(X) = −½Tr(XᵀAX)。"
+  },
+  {
+   "start": 2550.625,
+   "end": 2558.75,
+   "text": "Its gradient is the projection of minus A X onto the tangent space. Forget the minus sign, and the plot shows slope one.",
+   "translation": "它的梯度是 −AX 到切空间的投影。漏掉负号，图上就是斜率 1。"
+  },
+  {
+   "start": 2559.2,
+   "end": 2564.775,
+   "text": "Fix the sign, and slope two appears. In Manopt, this test is called check gradient.",
+   "translation": "改正符号，斜率 2 就出现了。在 Manopt 中这个检验叫 checkgradient。"
+  },
+  {
+   "start": 2565.225,
+   "end": 2572.2,
+   "text": "If the remainder happens to be of higher order, you may even see a slope above two. That is good, but rare.",
+   "translation": "若余项恰好是更高阶，甚至会看到大于 2 的斜率。这是好事，但很少见。"
+  },
+  {
+   "start": 2572.65,
+   "end": 2577.525,
+   "text": "One more check must come first: is the gradient in the tangent space at all?",
+   "translation": "还有一项检查必须先做：梯度到底在不在切空间里？"
+  },
+  {
+   "start": 2577.975,
+   "end": 2583.675,
+   "text": "Suppose we forget the projection and return the Euclidean gradient A x on the sphere.",
+   "translation": "假设我们忘了投影，在球面上返回欧氏梯度 Ax。"
+  },
+  {
+   "start": 2584.125,
+   "end": 2591.425,
+   "text": "For a tangent v, the normal part of A x is orthogonal to v, so the inner product with v cannot see it.",
+   "translation": "对切向量 v，Ax 的法向部分与 v 正交，内积\"看不见\"它。"
+  },
+  {
+   "start": 2591.875,
+   "end": 2594.475,
+   "text": "The slope test passes with slope two.",
+   "translation": "斜率测试以斜率 2 通过。"
+  },
+  {
+   "start": 2594.925,
+   "end": 2602.35,
+   "text": "But x transpose times A x equals twice f of x, which is not zero, so this vector is not tangent.",
+   "translation": "但 xᵀ(Ax) = 2f(x) ≠ 0，所以这个向量不是切向量。"
+  },
+  {
+   "start": 2602.8,
+   "end": 2606.7,
+   "text": "So test tangency first, then the slope. Both are needed.",
+   "translation": "所以先检查切向性，再检查斜率，两者缺一不可。"
+  },
+  {
+   "start": 2610.7,
+   "end": 2613.35,
+   "text": "Let us put the chain of results together.",
+   "translation": "我们把结论链串起来。"
+  },
+  {
+   "start": 2613.8,
+   "end": 2621.85,
+   "text": "Along any curve, and in particular along a retraction, f has a first-order Taylor expansion, governed by the gradient.",
+   "translation": "沿任意曲线，特别是沿 retraction，f 有由梯度决定的一阶 Taylor 展开。"
+  },
+  {
+   "start": 2622.3,
+   "end": 2629.3,
+   "text": "From it, local minimizers are critical points, and critical points are exactly the zeros of the gradient.",
+   "translation": "由此，局部极小点是临界点，而临界点恰好是梯度的零点。"
+  },
+  {
+   "start": 2629.75,
+   "end": 2638.375,
+   "text": "Gradient descent with a lower bound and sufficient decrease drives the gradient to zero, at rate one over root K, from any start.",
+   "translation": "有下界和充分下降时，梯度下降从任意起点出发，都以 1/√K 的速率把梯度推向零。"
+  },
+  {
+   "start": 2638.825,
+   "end": 2645.675,
+   "text": "A Lipschitz-type bound on the pullback makes every step size between zero and two over L sufficient.",
+   "translation": "拉回的 Lipschitz 型界让 (0, 2/L) 内的步长都满足充分下降。"
+  },
+  {
+   "start": 2646.125,
+   "end": 2651.9,
+   "text": "With one over L, K grows like L over epsilon squared, regardless of dimension.",
+   "translation": "取 1/L 时，K 随 L/ε² 增长，与维数无关。"
+  },
+  {
+   "start": 2652.35,
+   "end": 2655.9,
+   "text": "Backtracking gives the same guarantee without knowing L.",
+   "translation": "回溯在不知道 L 的情况下给出同样的保证。"
+  },
+  {
+   "start": 2656.35,
+   "end": 2666.125,
+   "text": "Near a minimizer with a positive definite Hessian, convergence is linear, with factor one minus one over kappa for the step one over lambda one.",
+   "translation": "在 Hessian 正定的极小点附近，收敛是线性的；步长 1/λ₁ 时因子为 1 − 1/κ。"
+  },
+  {
+   "start": 2666.575,
+   "end": 2673.75,
+   "text": "And in practice, we derive gradients through adjoints and projections, and check them by slope and tangency.",
+   "translation": "实践中，我们用伴随与投影推导梯度，再用斜率和切向性检查它们。"
+  },
+  {
+   "start": 2674.2,
+   "end": 2681.625,
+   "text": "On the Rayleigh quotient, from many starting points, gradient descent with backtracking reaches plus or minus e three.",
+   "translation": "在瑞利商上，从许多初始点出发，带回溯的梯度下降都到达 ±e₃。"
+  },
+  {
+   "start": 2682.075,
+   "end": 2689.875,
+   "text": "Only a start exactly at a saddle stays there, because its gradient is zero. Such starts form a set of measure zero.",
+   "translation": "只有恰好从鞍点出发才会停在那里，因为那里梯度为零；这样的起点是零测集。"
+  },
+  {
+   "start": 2690.325,
+   "end": 2697.725,
+   "text": "There are limits. The one over root K rate is the worst case, and there are hard functions even in R n that attain it.",
+   "translation": "也有局限。1/√K 是最坏情形，即使在 ℝⁿ 中也有困难的函数达到它。"
+  },
+  {
+   "start": 2698.175,
+   "end": 2704.9,
+   "text": "And when kappa is large, one minus one over kappa is close to one, and linear convergence is slow.",
+   "translation": "而当 κ 很大时，1 − 1/κ 接近 1，线性收敛很慢。"
+  },
+  {
+   "start": 2705.35,
+   "end": 2713.05,
+   "text": "Faster first-order methods, such as conjugate gradients and BFGS, combine information from several iterates.",
+   "translation": "更快的一阶方法，如共轭梯度与 BFGS，要组合多个迭代点的信息。"
+  },
+  {
+   "start": 2713.5,
+   "end": 2719.325,
+   "text": "That needs a vector transport, to move tangent vectors from one tangent space to another.",
+   "translation": "这需要向量传输，把切向量从一个切空间搬到另一个。"
+  },
+  {
+   "start": 2719.775,
+   "end": 2729.025,
+   "text": "Second-order methods, Newton and trust regions, need the Riemannian Hessian, where the local contraction theorem will give quadratic convergence.",
+   "translation": "二阶方法，牛顿法与信赖域，需要黎曼 Hessian；届时局部压缩定理将给出二次收敛。"
+  },
+  {
+   "start": 2729.475,
+   "end": 2731.875,
+   "text": "Those are the next tools to build.",
+   "translation": "这些就是接下来要构建的工具。"
+  }
+ ]
+}

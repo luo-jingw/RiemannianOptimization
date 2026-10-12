@@ -50,6 +50,13 @@
    "title": "Riemannian Gradient and Retraction",
    "status": "delivered",
    "audioVersion": "00f38e50de0e"
+  },
+  {
+   "id": "e07-gradient-descent",
+   "order": 7,
+   "title": "Riemannian Gradient Descent",
+   "status": "delivered",
+   "audioVersion": "693d4944c64c"
   }
  ]
 }

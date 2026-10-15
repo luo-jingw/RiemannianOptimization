@@ -1,6 +1,7 @@
 """Builds the episode timeline from measured sentence durations."""
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 from rvideo.schema.provenance import VoiceProvenance
@@ -16,11 +17,18 @@ class TimelineLayout:
     sentence_gap: float = 0.45      # pause between sentences
     chapter_tail: float = 1.6       # hold after a chapter's last sentence
     episode_outro: float = 5.0      # end card after the last chapter
+    fps: int = 30                   # chapter starts and the episode end lie on this frame grid
 
 
 class TimelineBuilder:
     def __init__(self, layout: TimelineLayout) -> None:
         self._layout = layout
+
+    def _on_grid(self, t: float) -> float:
+        """Earliest frame time at or after t. A chapter starting on a frame is sampled at the same local times
+        whatever precedes it, which lets the capture reuse its frames when an earlier chapter changes length."""
+        fps = self._layout.fps
+        return math.ceil(t * fps - 1e-6) / fps
 
     def build(self, story: Story, provenance: VoiceProvenance) -> Timeline:
         by_key = {(s.scene_id, s.index): s for s in provenance.sentences}
@@ -29,6 +37,7 @@ class TimelineBuilder:
         chapters: list[TimelineChapter] = []
         captions: list[TimelineCaption] = []
         for ci, scene in enumerate(story.scenes):
+            t = self._on_grid(t)
             chapter_start = t
             t += lay.chapter_head
             starts: list[float] = []
@@ -46,10 +55,10 @@ class TimelineBuilder:
                 captions.append(TimelineCaption(start=round(start, 4), end=round(end, 4), text=sentence.en,
                                                 translation=sentence.zh))
                 t = end + (lay.sentence_gap if ti + 1 < len(scene.sentences) else 0.0)
-            t += lay.chapter_tail
+            t = self._on_grid(t + lay.chapter_tail)     # the tail absorbs the padding to the grid (< 1 frame)
             chapters.append(TimelineChapter(id=scene.id, index=ci, start=round(chapter_start, 4), end=round(t, 4),
                                             title=scene.title, music=scene.music, sentence_starts=tuple(starts),
                                             sentence_ends=tuple(ends)))
-        duration = round(t + lay.episode_outro, 4)
+        duration = round(self._on_grid(t + lay.episode_outro), 4)
         return Timeline(language="en", episode=story.episode, duration=duration, chapters=tuple(chapters),
                         captions=tuple(captions))

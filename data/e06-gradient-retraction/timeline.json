@@ -1079,25 +1079,25 @@
    "start": 427.475,
    "end": 435.225,
    "text": "Suppose f is the restriction to M of a smooth function f bar, defined on an open set of R n around x.",
-   "translation": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̄ 在 M 上的限制。"
+   "translation": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̅ 在 M 上的限制。"
   },
   {
    "start": 435.675,
    "end": 444.0,
    "text": "Then f of gamma equals f bar of gamma for small t, and the ordinary chain rule gives D f bar of x, applied to v.",
-   "translation": "那么 t 很小时 f∘γ = f̄∘γ，普通链式法则给出 Df̄(x)[v]。"
+   "translation": "那么 t 很小时 f∘γ = f̅∘γ，普通链式法则给出 Df̅(x)[v]。"
   },
   {
    "start": 444.45,
    "end": 451.55,
    "text": "For the height function, f bar of x is x three, so d f at x of v equals e three transpose v.",
-   "translation": "对高度函数，f̄(x) = x₃，所以 df_x[v] = e₃ᵀv。"
+   "translation": "对高度函数，f̅(x) = x₃，所以 df_x[v] = e₃ᵀv。"
   },
   {
    "start": 452.0,
    "end": 461.2,
    "text": "Different extensions give the same answer. Take f bar two equal to x three, plus five times the quantity x transpose x minus one.",
-   "translation": "不同的延拓给出同一个答案。取 f̄₂ = x₃ + 5(xᵀx − 1)。"
+   "translation": "不同的延拓给出同一个答案。取 f̅₂ = x₃ + 5(xᵀx − 1)。"
   },
   {
    "start": 461.65,
@@ -2381,7 +2381,7 @@
    "start": 2042.0,
    "end": 2053.075,
    "text": "The quotient phi of t minus phi of zero, over t, tends to this negative number. So phi of t is below phi of zero for all t between zero and a t bar.",
-   "translation": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̄，使 0<t<t̄ 时 φ(t)<φ(0)。"
+   "translation": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̅，使 0<t<t̅ 时 φ(t)<φ(0)。"
   },
   {
    "start": 2053.525,
@@ -2405,7 +2405,7 @@
    "start": 2077.4,
    "end": 2086.7,
    "text": "This is only first order. It promises that small steps decrease f, but says nothing about how large t bar is, or how to choose the step.",
-   "translation": "这只是一阶结论：它保证小步下降，但不告诉我们 t̄ 多大，也不说明如何选步长。"
+   "translation": "这只是一阶结论：它保证小步下降，但不告诉我们 t̅ 多大，也不说明如何选步长。"
   },
   {
    "start": 2087.15,

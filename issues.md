@@ -47,3 +47,21 @@ The two-pass loudnorm reaches −14 LUFS by raising the gain; its true-peak limi
 ## Next Experiments
 
 Lower the muxer's loudnorm true-peak target (TP) for the trailer profile and re-measure the decoded peak.
+
+# ISSUE-003
+
+## Observation
+
+In the Chinese captions, the combining macron U+0304 does not render: "f̄" (f + U+0304) appears as a plain "f". The E06 Chinese captions contain 8 such marks (the smooth extension f̄), so delivered E06 v1 shows "f" where the narration says "f bar". The combining overline U+0305 renders correctly over "f" in the same font.
+
+## Evidence
+
+Headless Chrome with the player's `@fontsource/noto-sans-sc` 500 weight, 44 px: "f̄" shows no mark, "f̅" and "x̄" with the system fallback font show a bar. In the E07 v3 stills (c08 s26, s28), "∇f̄" written with U+0305 shows the bar.
+
+## Hypotheses
+
+The fontsource Noto Sans SC build positions or omits U+0304 for Latin bases in a way Chrome does not compose.
+
+## Next Experiments
+
+Re-render the affected E06 captions with U+0305 in a new E06 version, or add a caption font fallback that composes U+0304, and compare the stills.

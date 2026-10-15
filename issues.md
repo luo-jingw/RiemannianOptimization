@@ -64,4 +64,8 @@ The fontsource Noto Sans SC build positions or omits U+0304 for Latin bases in a
 
 ## Next Experiments
 
-Re-render the affected E06 captions with U+0305 in a new E06 version, or add a caption font fallback that composes U+0304, and compare the stills.
+—
+
+## Resolution
+
+E06 v2 and E07 v3 write these marks with U+0305; frames from `output/e06-gradient-retraction/v2/` at c02 s33–s36 and c09 s25, s29 show the bars (`build/e06-gradient-retraction/en/qa/delivery-v2-frames/`).

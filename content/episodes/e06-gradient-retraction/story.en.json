@@ -266,19 +266,19 @@
     },
     {
      "en": "Suppose f is the restriction to M of a smooth function f bar, defined on an open set of R n around x.",
-     "zh": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̄ 在 M 上的限制。"
+     "zh": "设 f 是某个定义在 x 附近 ℝⁿ 开集上的光滑函数 f̅ 在 M 上的限制。"
     },
     {
      "en": "Then f of gamma equals f bar of gamma for small t, and the ordinary chain rule gives D f bar of x, applied to v.",
-     "zh": "那么 t 很小时 f∘γ = f̄∘γ，普通链式法则给出 Df̄(x)[v]。"
+     "zh": "那么 t 很小时 f∘γ = f̅∘γ，普通链式法则给出 Df̅(x)[v]。"
     },
     {
      "en": "For the height function, f bar of x is x three, so d f at x of v equals e three transpose v.",
-     "zh": "对高度函数，f̄(x) = x₃，所以 df_x[v] = e₃ᵀv。"
+     "zh": "对高度函数，f̅(x) = x₃，所以 df_x[v] = e₃ᵀv。"
     },
     {
      "en": "Different extensions give the same answer. Take f bar two equal to x three, plus five times the quantity x transpose x minus one.",
-     "zh": "不同的延拓给出同一个答案。取 f̄₂ = x₃ + 5(xᵀx − 1)。"
+     "zh": "不同的延拓给出同一个答案。取 f̅₂ = x₃ + 5(xᵀx − 1)。"
     },
     {
      "en": "It agrees with x three on the sphere, but its Euclidean gradient is e three plus ten x, which points far out of the sphere.",
@@ -1235,7 +1235,7 @@
     },
     {
      "en": "The quotient phi of t minus phi of zero, over t, tends to this negative number. So phi of t is below phi of zero for all t between zero and a t bar.",
-     "zh": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̄，使 0<t<t̄ 时 φ(t)<φ(0)。"
+     "zh": "差商 (φ(t)−φ(0))/t 趋于这个负数，所以存在 t̅，使 0<t<t̅ 时 φ(t)<φ(0)。"
     },
     {
      "en": "Let us check the numbers. For the height function, the squared norm of the gradient is one minus x three squared.",
@@ -1251,7 +1251,7 @@
     },
     {
      "en": "This is only first order. It promises that small steps decrease f, but says nothing about how large t bar is, or how to choose the step.",
-     "zh": "这只是一阶结论：它保证小步下降，但不告诉我们 t̄ 多大，也不说明如何选步长。"
+     "zh": "这只是一阶结论：它保证小步下降，但不告诉我们 t̅ 多大，也不说明如何选步长。"
     },
     {
      "en": "Every hypothesis was used. If condition two fails, gamma prime of zero is no longer v, and the slope changes by a factor of two, or of cosine theta.",

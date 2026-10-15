@@ -122,7 +122,7 @@ export class TaylorOnCurvesScene implements Scene {
     this.fChain = fl.add({ tex: "", x: 700, y: 240, size: 28, display: true });
     this.fTaylor = fl.add({ tex: "", x: 700, y: 110, size: 32, display: true });
     this.fRatio = fl.add({ tex: "", x: PANEL.x + PANEL.w / 2, y: 770, size: 26 });
-    this.fPull = fl.add({ tex: "f\\circ R_x:\\ T_xM\\to\\mathbb R\\qquad\\text{(the pullback)}", x: 700, y: 190, size: 30 });
+    this.fPull = fl.add({ tex: "\\hat f_x=f\\circ R_x:\\ T_xM\\to\\mathbb R\\qquad\\text{(the pullback)}", x: 700, y: 190, size: 30 });
     this.fProof = fl.add({ tex: "", x: PANEL.x + PANEL.w / 2, y: 560, size: 28, display: true });
     this.fSlopes = fl.add({ tex: "", x: PANEL.x + PANEL.w / 2, y: 770, size: 26 });
     this.fMv = fl.add({ tex: "f(y)=f(x)+\\langle\\operatorname{grad}f(c(t)),\\,c'(t)\\rangle_{c(t)},\\quad t\\in(0,1)", x: 700, y: 110, size: 32 });
@@ -132,7 +132,7 @@ export class TaylorOnCurvesScene implements Scene {
     this.ledger = new ProofLedger(fl, [
       { label: "1", tex: "f(c(t))=f(x)+t\\langle\\operatorname{grad}f(x),v\\rangle+O(t^2)", at: cue.e(7) },
       { label: "2", tex: "f(R_x(s))=f(x)+\\langle\\operatorname{grad}f(x),s\\rangle+O(\\|s\\|^2)", at: cue.e(13) },
-      { label: "3", tex: "\\operatorname{grad}(f\\circ R_x)(0)=\\operatorname{grad}f(x)", at: cue.e(21) },
+      { label: "3", tex: "\\operatorname{grad}\\hat f_x(0)=\\operatorname{grad}f(x)", at: cue.e(21) },
       { label: "4", tex: "f(y)=f(x)+\\langle\\operatorname{grad}f(c(t)),c'(t)\\rangle", at: cue.e(26) },
     ], { x: 1400, y: 210, width: 480, rowHeight: 125, capacity: 4 });
   }
@@ -209,7 +209,7 @@ export class TaylorOnCurvesScene implements Scene {
     this.fPull.set({ opacity: c.p(14, 0.6) * (1 - c.p(18, 0.5)) });
     const pr = Tex.count(t, [c.s(18), c.s(19), c.s(20), c.s(21)]);
     this.fProof.setContent(Tex.rows([
-      "D(f\\circ R_x)(0)[s]",
+      "D\\hat f_x(0)[s]",
       "=Df\\big(R_x(0)\\big)\\big[DR_x(0)[s]\\big]&",
       `=Df(x)[s]\\quad ${Tex.color(Palette.muted, "\\text{since } R_x(0)=x,\\ DR_x(0)=\\mathrm{id}")}`,
       `=${Tex.color(Palette.yellow, "\\langle\\operatorname{grad}f(x),s\\rangle_x")}`,

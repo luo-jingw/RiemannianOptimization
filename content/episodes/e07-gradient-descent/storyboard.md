@@ -27,7 +27,7 @@
 | minimizer | 全局 / 局部 / 严格局部极小 | neighborhood-convergence | c01 |
 | accumulation-point | 子列的极限；极限蕴含所有聚点相等 | neighborhood-convergence、hausdorff | c01 |
 | taylor-on-curves | f(c(t)) = f(x) + t⟨grad f(x), v⟩ + O(t²) | chain-rule、riemannian-gradient | c02 |
-| pullback | f∘R_x：T_xM 上的函数，在 0 处梯度为 grad f(x) | taylor-on-curves、retraction | c02 |
+| pullback | f̂_x = f∘R_x：T_xM 上的函数，在 0 处梯度为 grad f(x) | taylor-on-curves、retraction | c02 |
 | critical-point | (f∘c)'(0) ≥ 0 对所有曲线 ⇔ grad f(x) = 0 | taylor-on-curves | c03 |
 | rgd | 算法 4.1；线搜索 | retraction、riemannian-gradient | c04 |
 | sufficient-decrease | A4.1、A4.2 ⇒ ‖grad‖ → 0，min ‖grad‖ ≤ C/√K | rgd、critical-point、accumulation-point | c04 |
@@ -95,14 +95,14 @@
 
 ### c02-taylor-on-curves — 沿曲线的一阶 Taylor 展开与拉回
 
-- question：观众能写出 f(c(t)) = f(x) + t⟨grad f(x), v⟩_x + O(t²)，能说出 retraction 版本，并解释拉回 f∘R_x 是切空间上的普通函数、它在 0 处的梯度就是 grad f(x)。
+- question：观众能写出 f(c(t)) = f(x) + t⟨grad f(x), v⟩_x + O(t²)，能说出 retraction 版本，并解释拉回 f̂_x = f∘R_x 是切空间上的普通函数、它在 0 处的梯度就是 grad f(x)。
 - requires：chain-rule（E03）、riemannian-gradient、retraction（E06）。
 - music：definition
 - teaching_sequence：
   - 直觉：迭代沿曲线移动；只要知道 f 沿曲线的变化，就能分析每一步。沿曲线 f 变成一元函数，可以用普通的 Taylor 展开。
   - 定义（BM 4.1）：c: I → M 光滑，c(0) = x，c'(0) = v；g(t) = f(c(t))。g(t) = g(0) + t g'(0) + O(t²)；链式法则 g'(t) = Df(c(t))[c'(t)] = ⟨grad f(c(t)), c'(t)⟩_{c(t)}，所以 f(c(t)) = f(x) + t⟨grad f(x), v⟩_x + O(t²)（4.2）。
   - retraction 曲线 c(t) = R_x(tv) 满足 c'(0) = v（E06），得（4.3）；令 s = tv 得（4.4）：f(R_x(s)) = f(x) + ⟨grad f(x), s⟩_x + O(‖s‖²_x)。
-  - 拉回：f∘R_x: T_xM → ℝ 是线性空间上的光滑函数，"把代价函数从流形拉回到切空间"。
+  - 拉回：f̂_x = f∘R_x: T_xM → ℝ（课程记号 f̂_x）是线性空间上的光滑函数，"把代价函数从流形拉回到切空间"。
   - 例子：瑞利商，x 在北半球，v = −grad f(x)。曲线面板画 g(t) 与切线 f(x) + t⟨grad, v⟩；放大 t → 0 处，两者之差除以 t² 的比值保持有界。拉回：切平面上的颜色图 f(R_x(s))，与球面颜色"同一组值"。
   - 中值形式（BM 练习 4.3）：c: [0,1] → M，存在 t ∈ (0,1) 使 f(y) = f(x) + ⟨grad f(c(t)), c'(t)⟩_{c(t)}（4.5）。
   - 边界：O(t²) 中的常数依赖于 x 与方向；c05 将要求它一致有界。
@@ -118,7 +118,7 @@
   - e2｜"Chain rule gives the slope"｜公式区：g'(0) = Df(x)[v] = ⟨grad f(x), v⟩｜切线在面板中画出｜—｜(4.2) 进 ledger
   - e3｜"Use a retraction curve"｜c(t) 换成 R_x(tv)，v = −grad｜曲线换色为白色｜面板保留｜(4.3)
   - e4｜"The gap is order t squared"｜面板放大 t 接近 0；附小读数 (g(t) − line)/t²｜放大动画，读数稳定｜—｜标注 O(t²)
-  - e5｜"The pullback lives on the tangent plane"｜切平面染上 f(R_x(s)) 的颜色；细线连接切平面点 s 与球面点 R_x(s)｜颜色从球面"流"到平面｜球保留｜(4.4)，标注 pullback f∘R_x
+  - e5｜"The pullback lives on the tangent plane"｜切平面染上 f(R_x(s)) 的颜色；细线连接切平面点 s 与球面点 R_x(s)｜颜色从球面"流"到平面｜球保留｜(4.4)，标注 pullback f̂_x = f∘R_x
   - e6｜"Its gradient at zero is grad f"｜推导三步（链式法则、R_x(0)=x、DR_x(0)=id）｜每步上方标依据｜—｜ledger：grad(f∘R_x)(0) = grad f(x)
   - e7｜"Wrong speed, wrong slope"｜面板中加紫色 g̃(t)，来自速度加倍的映射｜两条初始斜率读数并列｜—｜标注 slope ×2
   - e8｜"A mean value form"｜c: [0,1] → M 连接 x、y；面板上画割线与平行切线｜—｜—｜(4.5)
@@ -333,7 +333,7 @@
 
 ### c08-computing-gradients — 推导梯度：方向导数、伴随与投影
 
-- question：观众能用"写出 Df(x)[v]，再用伴随整理成 ⟨g, v⟩"的方法推导梯度，能推出 ‖F(x)‖² 的梯度 2DF(x)*[F(x)]、X⁻¹ 的微分、log det X 的梯度，并说出黎曼子流形上的梯度是欧氏梯度的投影。
+- question：观众能用"写出 Df(x)[v]，再用伴随整理成 ⟨g, v⟩"的方法推导梯度，能推出 ‖F(x)‖² 的梯度 2DF(x)*[F(x)]、X⁻¹ 的微分、log det X 的梯度，证明黎曼子流形上的梯度是任意光滑延拓的欧氏梯度的正交投影，并能对 M = {c(x) = 0} 推出 Proj_x = I − Jᵀ(JJᵀ)⁻¹J。
 - requires：riemannian-gradient（E06）、chain-rule（E03）。
 - music：definition
 - teaching_sequence：
@@ -344,7 +344,9 @@
     - f(x) = ‖F(x)‖²：Df(x)[v] = 2⟨F(x), DF(x)[v]⟩ = 2⟨DF(x)*[F(x)], v⟩，所以 grad f(x) = 2DF(x)*[F(x)]（4.27）。
     - F(X) = X⁻¹：对 F(X)X = I 求导得 DF(X)[U] = −X⁻¹UX⁻¹（4.30）。
     - g(X) = log det X：log det(X + tU) = log det X + log det(I + tX⁻¹U) = log det X + t Tr(X⁻¹U) + O(t²)，所以正定矩阵上 grad g(X) = X⁻¹（例 4.28，迹内积）。
-    - 子流形：先求欧氏梯度，再正交投影到切空间（BM 命题 3.61，E06）。瑞利商：欧氏梯度 Ax，grad f(x) = (I − xxᵀ)Ax。
+    - 子流形（BM 命题 3.61）：f̄ 是 f 在 M 附近开集上的光滑延拓；沿 M 上速度为 v 的曲线 f = f̄，所以 Df(x)[v] = Df̄(x)[v] = ⟨∇f̄(x), v⟩；把 ∇f̄(x) 分解为 τ + ν（τ ∈ T_xM，ν ⊥ T_xM），对切向 v 有 ⟨ν, v⟩ = 0，由唯一性 grad f(x) = τ = Proj_x(∇f̄(x))。E06 只用 f = aᵀx 的特例验证过这个规则。
+    - 投影算子（BM §7.7，(7.70)–(7.75)）：M = {x : c(x) = 0}，J = Dc(x) ∈ ℝ^{k×n} 满秩。T_xM = ker J，N_xM = (ker J)^⊥ = im Jᵀ（四个基本子空间）。q 的法向部分为 Jᵀw，w 取最小二乘 min ‖q − Jᵀw‖²：L(w) = ‖q‖² − 2qᵀJᵀw + wᵀJJᵀw，∇L = 2JJᵀw − 2Jq，w* = (JJᵀ)⁻¹Jq，所以 Proj_x = I − Jᵀ(JJᵀ)⁻¹J。验证 J·Proj_x q = 0。
+    - 球面：c(x) = xᵀx − 1，J = 2xᵀ，JJᵀ = 4，Proj_x = I − xxᵀ。检验：f̄(x) = ‖x‖²，∇f̄ = 2x ≠ 0，但 f 在球面上是常数，(I − xxᵀ)2x = 0。瑞利商：欧氏梯度 Ax，grad f(x) = (I − xxᵀ)Ax。
   - "梯度很便宜"原则：对一大类函数，算梯度的运算量不超过算函数值的若干倍（常为 5 倍以内），并可复用中间结果；这是自动微分的基础，Manopt 等工具提供流形上的自动微分。
   - 边界：伴随依赖内积：同一个 Df，换内积后读出的梯度不同（E06 c05）；复数情形用实内积 ℜ{u*v}，转置换成共轭转置（例 4.30）。
   - 用途：c09 检查推导出的梯度。
@@ -353,7 +355,10 @@
   2. (4.27)：内积法则给出 Df(x)[v] = ⟨DF(x)[v], F(x)⟩ + ⟨F(x), DF(x)[v]⟩ = 2⟨F(x), DF(x)[v]⟩；伴随定义 ⟨w, DF(x)[v]⟩ = ⟨DF(x)*[w], v⟩_x；由唯一性 grad f(x) = 2DF(x)*[F(x)]。
   3. (4.30)：0 = D(F(X)X)[U] = DF(X)[U]X + F(X)U，右乘 X⁻¹。
   4. 例 4.28：det(I + tB) = Π(1 + tλ_i(B)) = 1 + t Tr B + O(t²)，log(1 + at) = at + O(t²)；Tr(X⁻¹U) = ⟨X⁻ᵀ, U⟩，X 对称时 = ⟨X⁻¹, U⟩。
+  5. 命题 3.61：c(t) ⊂ M，c(0) = x，c'(0) = v；f∘c = f̄∘c，所以 Df(x)[v] = Df̄(x)[v] = ⟨∇f̄(x), v⟩ = ⟨τ, v⟩ + ⟨ν, v⟩ = ⟨τ, v⟩；τ ∈ T_xM，由唯一性 grad f(x) = τ。
+  6. 投影算子：q = p + Jᵀw，p ∈ ker J。∇L(w) = 2JJᵀw − 2Jq = 0 ⇒ w* = (JJᵀ)⁻¹Jq（rank J = k ⇒ JJᵀ 可逆）；p = q − Jᵀw* = (I − Jᵀ(JJᵀ)⁻¹J)q；Jp = Jq − Jq = 0，q − p ∈ im Jᵀ = (ker J)^⊥。数值核对：随机 J ∈ ℝ^{2×5} 上 ‖J·Proj‖、‖Proj² − Proj‖、‖Proj − Projᵀ‖ 均 ≤ 4e−16；球面情形与 I − xxᵀ 相差 1e−16。
 - necessity：
+  - 满秩不能省：rank J < k 时 JJᵀ 奇异，公式失效；这正是正则水平集的条件（E04、E05）。
   - 投影不能省：在 S² 上把欧氏梯度 Ax 直接当作梯度，它有法向分量 (xᵀAx)x，不在 T_xS² 中；retraction 只接受切向量。c09 说明这个错误逃过斜率检查，必须单独检查（补充）。
 - visual_events：
   - e1｜"Gradients are defined by an identity"｜顶部 (4.20)；方块图：Df(x)[v] → 伴随 → ⟨g, v⟩ → grad f = g｜三个方块依次点亮｜—｜—
@@ -361,10 +366,13 @@
   - e3｜"Squared norms"｜(4.27) 推导两行；左侧 F 把 T_xM 映到 E，DF* 反向箭头｜—｜—｜ledger：grad ‖F‖² = 2DF*[F]
   - e4｜"Matrix inverse"｜F(X)X = I 求导；2×2 数值例子 X、U 与 −X⁻¹UX⁻¹，与有限差分读数对照｜—｜—｜(4.30)
   - e5｜"Log-determinant"｜推导三行；特征值乘积 Π(1 + tλ_i)｜—｜—｜grad = X⁻¹
-  - e6｜"On a submanifold, project"｜S²，x，欧氏梯度 Ax（红色，伸出球面）分解为切向（白色）与法向（红色虚线）｜法向分量淡出｜—｜grad f(x) = (I − xxᵀ)Ax
-  - e7｜"Gradients are cheap"｜条形对比：cost of f 与 cost of grad f（≤ 5×）｜—｜—｜—
+  - e6｜"Why project"｜左侧证明五行（延拓 → Df = Df̄ → 分解 τ + ν → ⟨ν, v⟩ = 0 → grad = Proj）；右侧 S²，∇f̄(x)（红）分解为 τ（白）与 ν（红色虚线），切向量 v 在切平面内｜τ、ν 依次出现｜—｜ledger：grad f = Proj_x ∇f̄
+  - e7｜"The projector"｜居中推导八行：M = {c = 0}、J；ker J 与 im Jᵀ；q = p + Jᵀw；L(w) 及展开；∇L；w*；方框 Proj_x = I − Jᵀ(JJᵀ)⁻¹J；验证 J Proj_x q = 0｜逐行出现｜—｜ledger：Proj_x = I − Jᵀ(JJᵀ)⁻¹J
+  - e8｜"On the sphere"｜左侧四行：J = 2xᵀ，JJᵀ = 4，I − xxᵀ；f̄ = ‖x‖²；右侧 S² 上径向箭头 2x，投影后为零（只剩 x 处的点）｜径向箭头出现后，切向投影长度为 0｜—｜—
+  - e9｜"Rayleigh"｜S²，x，欧氏梯度 Ax（红色，伸出球面）分解为切向（白色）与法向（红色虚线）｜法向分量淡出｜—｜grad f(x) = (I − xxᵀ)Ax
+  - e10｜"Gradients are cheap"｜条形对比：cost of f 与 cost of grad f（≤ 5×）｜—｜—｜—
 - outcome_check：给出 f(x) = ‖Bx − y‖²（B 为矩阵），观众能用 (4.27) 写出 grad f(x) = 2Bᵀ(Bx − y)。
-- source：BM §4.7，(4.20)–(4.30)，例 4.23、4.24、4.28、4.30，命题 3.61（引用）。投影反例为补充；outcome_check 中的最小二乘为补充练习。
+- source：BM §4.7，(4.20)–(4.30)，例 4.23、4.24、4.28、4.30，命题 3.61 及其证明，§7.7 (7.70)–(7.75)（投影算子，以最小二乘推导）。‖x‖² 检验与投影反例为补充；outcome_check 中的最小二乘为补充练习。
 - next：推导容易出错。怎样用数值方法检查？
 
 ### c09-checking-gradients — 数值检查梯度：log–log 斜率测试
@@ -422,7 +430,7 @@
 | minimizer | minimizer | 极小点 | x* | minimizer |
 | local-minimizer | local minimizer | 局部极小点 | — | local minimizer |
 | accumulation-point | accumulation point | 聚点 | — | accumulation point |
-| pullback | pullback | 拉回 | f∘R_x | pullback |
+| pullback | pullback | 拉回 | f̂_x = f∘R_x | pullback |
 | riemannian-gradient-descent | Riemannian gradient descent | 黎曼梯度下降 | RGD | Riemannian gradient descent |
 | line-search | line search | 线搜索 | — | line search |
 | step-size | step size | 步长 | α_k | step size |
@@ -453,7 +461,7 @@
 | c05-lipschitz-type-condition | 5.0 |
 | c06-backtracking | 4.5 |
 | c07-local-convergence | 6.5 |
-| c08-computing-gradients | 3.5 |
+| c08-computing-gradients | 5.5 |
 | c09-checking-gradients | 3.0 |
 | c10-recap | 2.0 |
-| 合计 | 约 39 |
+| 合计 | 约 41 |

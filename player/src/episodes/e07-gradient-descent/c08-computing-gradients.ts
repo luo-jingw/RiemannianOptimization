@@ -16,13 +16,15 @@ import { setOrbitView } from "../e06-gradient-retraction/lib/SphereCamera";
 import type { SvgPath } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { SvgOverlay } from "../e06-gradient-retraction/lib/SvgOverlay";
 import { RayleighSphere } from "./lib/RayleighSphere";
-import { applyA, lift, rayleighGrad, spherePoint } from "./lib/rayleigh";
+import { applyA, lift, rayleighGrad, spherePoint, tangentFrame } from "./lib/rayleigh";
 import { Tex } from "./lib/tex";
 
 /**
  * E07 c08 — computing gradients (Boumal §4.7, (4.20)–(4.30), Exs. 4.24, 4.28): the three-step recipe, the chain,
  * product and inner product rules, grad ‖F‖² = 2DF*[F] with least squares, D(X⁻¹) with a 2×2 finite-difference check,
- * grad log det = X⁻¹, projection on the sphere (Ax sticks out), and the cheap gradient principle.
+ * grad log det = X⁻¹, the projection rule grad f = Proj_x ∇f̄ with its proof (Prop. 3.61), the projector
+ * I − Jᵀ(JJᵀ)⁻¹J onto ker J by least squares (§7.7, (7.70)–(7.75)), the sphere and ‖x‖² check, the Rayleigh example,
+ * and the cheap gradient principle.
  * Sentence indices refer to content/episodes/e07-gradient-descent/story.en.json, scene c08-computing-gradients.
  */
 
@@ -47,8 +49,13 @@ export class ComputingGradientsScene implements Scene {
   private egrad!: Arrow;
   private tang!: Arrow;
   private normal!: Polyline;
+  private vArrow!: Arrow;
+  private radial!: Arrow;
   private lE!: WorldLabel;
   private lT!: WorldLabel;
+  private lN!: WorldLabel;
+  private lV!: WorldLabel;
+  private lR!: WorldLabel;
 
   private svg!: SvgOverlay;
   private costBars: SvgPath[] = [];
@@ -60,6 +67,9 @@ export class ComputingGradientsScene implements Scene {
   private fInv!: FormulaHandle;
   private fCheck!: FormulaHandle;
   private fLogdet!: FormulaHandle;
+  private fWhy!: FormulaHandle;
+  private fProjector!: FormulaHandle;
+  private fSphere!: FormulaHandle;
   private fProj!: FormulaHandle;
   private fCheap!: FormulaHandle;
   private barLabels: FormulaHandle[] = [];
@@ -81,8 +91,15 @@ export class ComputingGradientsScene implements Scene {
     this.egrad = new Arrow(stage, X, X.clone().addScaledVector(ax, 0.3), Palette.red, { mode: "3d", width: 5, headLength: 0.08 });
     this.tang = new Arrow(stage, X, X.clone().addScaledVector(g, 0.3), "#ffffff", { mode: "3d", width: 5, headLength: 0.08 });
     this.normal = new Polyline(stage, [X.clone().addScaledVector(g, 0.3), X.clone().addScaledVector(ax, 0.3)], { color: Palette.red, width: 2.5, dashed: true, dashSize: 0.03, gapSize: 0.03 });
-    this.lE = new WorldLabel(stage, fl, { tex: "Ax", size: 30, color: Palette.red }, X.clone().addScaledVector(ax, 0.3), { x: 14, y: -12 });
-    this.lT = new WorldLabel(stage, fl, { tex: "(I-xx^\\top)Ax", size: 28, color: "#ffffff" }, X.clone().addScaledVector(g, 0.3), { x: 16, y: 18 });
+    const { east } = tangentFrame(X);
+    const vEnd = X.clone().addScaledVector(east, -0.55);
+    this.vArrow = new Arrow(stage, X, vEnd, Palette.green, { mode: "3d", width: 4, headLength: 0.07 });
+    this.radial = new Arrow(stage, X, X.clone().multiplyScalar(1.6), Palette.purple, { mode: "3d", width: 5, headLength: 0.08 });
+    this.lE = new WorldLabel(stage, fl, { tex: "\\nabla\\bar f(x)", size: 30, color: Palette.red }, X.clone().addScaledVector(ax, 0.3), { x: -50, y: -38 });
+    this.lT = new WorldLabel(stage, fl, { tex: "\\tau", size: 30, color: "#ffffff" }, X.clone().addScaledVector(g, 0.3), { x: 16, y: 18 });
+    this.lN = new WorldLabel(stage, fl, { tex: "\\nu", size: 30, color: Palette.red }, X.clone().addScaledVector(g, 0.3).lerp(X.clone().addScaledVector(ax, 0.3), 0.5), { x: 18, y: 0 });
+    this.lV = new WorldLabel(stage, fl, { tex: "v\\in T_xM", size: 28, color: Palette.green }, vEnd, { x: -20, y: 20 });
+    this.lR = new WorldLabel(stage, fl, { tex: "\\nabla\\bar f=2x", size: 30, color: Palette.purple }, X.clone().multiplyScalar(1.6), { x: 18, y: -14 });
 
     this.svg = new SvgOverlay(fl);
     for (let i = 0; i < 2; i++) this.costBars.push(this.svg.path({ color: i === 0 ? Palette.blue : Palette.green, width: 2, fill: i === 0 ? "rgba(90,169,255,0.45)" : "rgba(105,219,124,0.45)" }));
@@ -106,7 +123,10 @@ export class ComputingGradientsScene implements Scene {
     this.fInv = fl.add({ tex: "", x: CX, y: 340, size: 38, display: true });
     this.fCheck = fl.add({ tex: "", x: CX, y: 600, size: 26 });
     this.fLogdet = fl.add({ tex: "", x: CX, y: 420, size: 36, display: true });
-    this.fProj = fl.add({ tex: "", x: CX, y: 110, size: 30, display: true });
+    this.fWhy = fl.add({ tex: "", x: 60, y: 430, size: 30, display: true, align: "left" });
+    this.fProjector = fl.add({ tex: "", x: CX, y: 440, size: 31, display: true });
+    this.fSphere = fl.add({ tex: "", x: 60, y: 430, size: 30, display: true, align: "left" });
+    this.fProj = fl.add({ tex: "", x: 60, y: 430, size: 30, display: true, align: "left" });
     this.fCheap = fl.add({ tex: "", x: CX, y: 290, size: 34, display: true });
 
     const cue = new Cues(timing, 0);
@@ -115,14 +135,15 @@ export class ComputingGradientsScene implements Scene {
       { label: "2", tex: "\\operatorname{grad}\\|F\\|^2=2\\,DF(x)^*[F(x)]", at: cue.e(13) },
       { label: "3", tex: "D(X^{-1})[U]=-X^{-1}UX^{-1}", at: cue.e(17) },
       { label: "4", tex: "\\operatorname{grad}\\log\\det X=X^{-1}", at: cue.e(21) },
-      { label: "5", tex: "\\text{submanifold: project } \\nabla\\bar f", at: cue.e(24) },
+      { label: "5", tex: "\\operatorname{grad}f(x)=\\mathrm{Proj}_x\\big(\\nabla\\bar f(x)\\big)", at: cue.e(28) },
+      { label: "6", tex: "\\mathrm{Proj}_x=I-J^\\top(JJ^\\top)^{-1}J", at: cue.e(37) },
     ], { x: 1400, y: 210, width: 480, rowHeight: 125, capacity: 4 });
   }
 
   draw(ctx: SceneContext): void {
     const c = new Cues(ctx, ctx.localTime);
     const t = c.t;
-    setOrbitView(this.stage, { azDeg: 25, elDeg: 26, distance: 6.0, fovDeg: 34, center: new THREE.Vector3(0, 0, 0.2), shift: 1.1, lift: 0.1 });
+    setOrbitView(this.stage, { azDeg: -20, elDeg: 15, distance: 7.2, fovDeg: 34, center: new THREE.Vector3(0, 0, 0.1), shift: -0.16, lift: 0.05 });
 
     this.fDef.set({ opacity: c.p(1, 0.6) * (1 - c.p(5, 0.5)) });
     const rc = Tex.count(t, [c.s(2), c.s(3), c.s(4)]);
@@ -166,36 +187,86 @@ export class ComputingGradientsScene implements Scene {
     ], ld));
     this.fLogdet.set({ opacity: (ld > 0 ? 1 : 0) * (1 - c.p(22, 0.5)) });
 
-    // ---- projection on the sphere (s22–s26)
-    const sO = c.p(22, 0.8) * (1 - c.p(27, 0.6));
+    // ---- the projection rule, the projector, the sphere check, the Rayleigh example (s22–s45)
+    const sO = Math.max(c.p(23, 0.8) * (1 - c.p(29, 0.6)), c.p(39, 0.8) * (1 - c.p(46, 0.6)));
+    const why = c.p(23, 0.5) * (1 - c.p(29, 0.5));
+    const ray = c.p(43, 0.5) * (1 - c.p(46, 0.5));
+    const decomp = Math.max(why, ray);
     this.sphere.setOpacity(sO, 1, 0);
     this.plane.place(X, X);
     this.plane.setOpacity(0.6 * sO);
     this.xDot.setOpacity(sO);
-    this.egrad.setOpacity(sO * c.p(24, 0.5));
-    this.lE.update(sO * c.p(24, 0.5));
-    this.tang.setOpacity(sO * c.p(24, 0.5, 1.2));
-    this.lT.update(sO * c.p(24, 0.5, 1.2));
-    this.normal.setOpacity(sO * c.p(25, 0.5));
-    const pj = Tex.count(t, [c.s(23), c.s(24), c.s(25), c.s(26)]);
-    this.fProj.setContent(Tex.rows([
-      "\\operatorname{grad}f(x)=\\mathrm{Proj}_x\\big(\\nabla\\bar f(x)\\big)",
-      `\\nabla\\bar f=Ax\\ \\Rightarrow\\ ${Tex.color(Palette.yellow, "Ax-(x^\\top Ax)\\,x")}`,
-      `${Tex.color(Palette.red, "Ax\\notin T_xS^2:\\ \\text{do not skip the projection}")}`,
-      `${Tex.color(Palette.muted, "\\text{adjoints depend on the inner product}")}`,
-    ], pj));
-    this.fProj.set({ opacity: (pj > 0 ? 1 : 0) * (1 - c.p(27, 0.5)) });
+    this.egrad.setOpacity(decomp);
+    this.lE.handle.setContent(t >= c.s(43) ? "\\nabla\\bar f=Ax" : "\\nabla\\bar f(x)");
+    this.lE.update(decomp);
+    const split = Math.max(c.p(26, 0.5) * (1 - c.p(29, 0.5)), ray);
+    this.tang.setOpacity(split);
+    this.lT.handle.setContent(t >= c.s(43) ? "(I-xx^\\top)Ax" : "\\tau");
+    this.lT.update(split);
+    const nO = Math.max(c.p(26, 0.5, 1.2) * (1 - c.p(29, 0.5)), c.p(44, 0.5) * (1 - c.p(46, 0.5)));
+    this.normal.setOpacity(nO);
+    this.lN.update(c.p(26, 0.5, 1.2) * (1 - c.p(29, 0.5)));
+    const vO = c.p(24, 0.5) * (1 - c.p(28, 0.5));
+    this.vArrow.setOpacity(vO);
+    this.lV.update(vO);
+    const rO = c.p(41, 0.5) * (1 - c.p(43, 0.5));
+    this.radial.setOpacity(rO);
+    this.lR.handle.setContent(t >= c.s(42) ? "2x\\perp T_xS^2" : "\\nabla\\bar f=2x");
+    this.lR.update(rO);
 
-    // ---- cheap gradients (s27–s31)
-    const bO = c.p(28, 0.6) * (1 - c.p(31, 0.6));
+    const wy = Tex.count(t, [c.s(23), c.s(24), c.s(25), c.s(26), c.s(27), c.s(28)]);
+    this.fWhy.setContent(Tex.rows([
+      "&\\bar f:U\\to\\mathbb R\\ \\text{smooth},\\ \\ \\bar f|_M=f",
+      "&c\\subset M,\\ c(0)=x,\\ c'(0)=v:\\ \\ f\\circ c=\\bar f\\circ c",
+      "&Df(x)[v]=D\\bar f(x)[v]=\\langle\\nabla\\bar f(x),v\\rangle",
+      `&\\nabla\\bar f(x)=${Tex.color("#ffffff", "\\tau")}+${Tex.color(Palette.red, "\\nu")},\\ \\ \\tau\\in T_xM,\\ \\nu\\perp T_xM`,
+      "&Df(x)[v]=\\langle\\tau,v\\rangle+\\underbrace{\\langle\\nu,v\\rangle}_{=\\,0}",
+      `&${Tex.color(Palette.yellow, "\\operatorname{grad}f(x)=\\tau=\\mathrm{Proj}_x\\big(\\nabla\\bar f(x)\\big)")}`,
+    ], wy, "aligned"));
+    this.fWhy.set({ opacity: (wy > 0 ? 1 : 0) * (1 - c.p(29, 0.5)) });
+
+    const pr = Tex.count(t, [c.s(29), c.s(30), c.s(31), c.s(32), c.s(33), c.s(34), c.s(35), c.s(36), c.s(37), c.s(38)]);
+    this.fProjector.setContent(Tex.rows([
+      "M=\\{x\\in\\mathbb R^n:\\ c(x)=0\\},\\quad c:\\mathbb R^n\\to\\mathbb R^k",
+      "J=Dc(x)\\in\\mathbb R^{k\\times n},\\quad \\operatorname{rank}J=k",
+      "T_xM=\\ker J,\\qquad N_xM=(\\ker J)^\\perp=\\operatorname{im}J^\\top",
+      "q=p+J^\\top w,\\qquad p\\in T_xM,\\ \\ w\\in\\mathbb R^k",
+      "\\min_{w}\\ L(w)=\\|q-J^\\top w\\|^2",
+      "L(w)=\\|q\\|^2-2\\,q^\\top J^\\top w+w^\\top JJ^\\top w",
+      `\\nabla L(w)=2JJ^\\top w-2Jq\\qquad ${Tex.color(Palette.muted, "JJ^\\top \\text{ invertible}")}`,
+      "w^*=(JJ^\\top)^{-1}Jq",
+      `${Tex.color(Palette.yellow, "\\boxed{\\mathrm{Proj}_x=I-J^\\top(JJ^\\top)^{-1}J}")}`,
+      `${Tex.color(Palette.muted, "J\\,\\mathrm{Proj}_x\\,q=Jq-Jq=0")}`,
+    ], pr));
+    this.fProjector.set({ opacity: (pr > 0 ? 1 : 0) * (1 - c.p(39, 0.5)) });
+
+    const sp = Tex.count(t, [c.s(39), c.s(40), c.s(41), c.s(42)]);
+    this.fSphere.setContent(Tex.rows([
+      "&S^2:\\ \\ c(x)=x^\\top x-1,\\ \\ J=2x^\\top",
+      `&JJ^\\top=4x^\\top x=4\\ \\Rightarrow\\ ${Tex.color(Palette.yellow, "\\mathrm{Proj}_x=I-xx^\\top")}`,
+      `&\\bar f(x)=\\|x\\|^2:\\ \\ ${Tex.color(Palette.purple, "\\nabla\\bar f(x)=2x\\neq0")}`,
+      `&\\operatorname{grad}f(x)=(I-xx^\\top)\\,2x=2x-2x\\,(x^\\top x)=${Tex.color(Palette.yellow, "0")}`,
+    ], sp, "aligned"));
+    this.fSphere.set({ opacity: (sp > 0 ? 1 : 0) * (1 - c.p(43, 0.5)) });
+
+    const pj = Tex.count(t, [c.s(43), c.s(44), c.s(45)]);
+    this.fProj.setContent(Tex.rows([
+      `&\\nabla\\bar f=Ax\\ \\Rightarrow\\ ${Tex.color(Palette.yellow, "\\operatorname{grad}f(x)=Ax-(x^\\top Ax)\\,x")}`,
+      `&${Tex.color(Palette.red, "Ax\\notin T_xS^2:\\ \\text{do not skip the projection}")}`,
+      `&${Tex.color(Palette.muted, "\\text{adjoints depend on the inner product}")}`,
+    ], pj, "aligned"));
+    this.fProj.set({ opacity: (pj > 0 ? 1 : 0) * (1 - c.p(46, 0.5)) });
+
+    // ---- cheap gradients (s46–s50)
+    const bO = c.p(47, 0.6) * (1 - c.p(50, 0.6));
     const base = 720;
     const hF = 120;
-    const hG = 120 * 3.2 * c.p(28, 0.8, 0.5);
+    const hG = 120 * 3.2 * c.p(47, 0.8, 0.5);
     this.costBars[0].setPoints([{ x: 360, y: base }, { x: 480, y: base }, { x: 480, y: base - hF }, { x: 360, y: base - hF }], true);
     this.costBars[1].setPoints([{ x: 840, y: base }, { x: 960, y: base }, { x: 960, y: base - hG }, { x: 840, y: base - hG }], true);
     this.costBars.forEach((b) => b.setOpacity(bO));
     this.barLabels.forEach((l) => l.set({ opacity: bO }));
-    const ch = Tex.count(t, [c.s(27), c.s(29), c.s(30), c.s(31)]);
+    const ch = Tex.count(t, [c.s(46), c.s(48), c.s(49), c.s(50)]);
     this.fCheap.setContent(Tex.rows([
       "\\textbf{cheap gradient principle}",
       "\\text{reuse the work for } f;\\ \\ \\text{slow gradient}\\Rightarrow\\text{improvable code}",

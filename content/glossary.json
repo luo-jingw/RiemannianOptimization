@@ -676,7 +676,7 @@
    "id": "pullback",
    "en": "pullback",
    "zh": "拉回",
-   "symbol": "f∘R_x",
+   "symbol": "f̂_x = f∘R_x",
    "spoken": "pullback"
   },
   {
@@ -783,6 +783,27 @@
    "zh": "伴随",
    "symbol": "DF(x)*",
    "spoken": "adjoint"
+  },
+  {
+   "id": "smooth-extension",
+   "en": "smooth extension",
+   "zh": "光滑延拓",
+   "symbol": "f̄",
+   "spoken": "f bar"
+  },
+  {
+   "id": "orthogonal-projector",
+   "en": "orthogonal projector",
+   "zh": "正交投影算子",
+   "symbol": "Proj_x",
+   "spoken": "Proj x"
+  },
+  {
+   "id": "normal-space",
+   "en": "normal space",
+   "zh": "法空间",
+   "symbol": "N_xM",
+   "spoken": "normal space"
   },
   {
    "id": "rayleigh-quotient",

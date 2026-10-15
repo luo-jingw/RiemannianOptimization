@@ -231,8 +231,8 @@
      "zh": "f(R_x(s)) = f(x) + ⟨grad f(x), s⟩ + O(‖s‖²)。"
     },
     {
-     "en": "The composition f after R x is called the pullback of f to the tangent space.",
-     "zh": "复合 f∘R_x 称为 f 到切空间的拉回。"
+     "en": "The composition f after R x is called the pullback of f at x. We write it f hat x.",
+     "zh": "复合 f∘R_x 称为 f 在 x 处的拉回，记作 f̂_x。"
     },
     {
      "en": "It quite literally pulls the cost function back from the manifold to the tangent plane.",
@@ -251,8 +251,8 @@
      "zh": "它在 0 处的梯度恰好就是黎曼梯度。我们来验证。"
     },
     {
-     "en": "By the chain rule, D of f after R x at zero, applied to s, equals D f at R x of zero, applied to D R x of zero of s.",
-     "zh": "由链式法则，D(f∘R_x)(0)[s] = Df(R_x(0))[DR_x(0)[s]]。"
+     "en": "By the chain rule, D f hat x at zero, applied to s, equals D f at R x of zero, applied to D R x of zero of s.",
+     "zh": "由链式法则，Df̂_x(0)[s] = Df(R_x(0))[DR_x(0)[s]]。"
     },
     {
      "en": "R x of zero equals x, and D R x of zero is the identity. These are the two defining properties of a retraction.",
@@ -1282,6 +1282,11 @@
    "terms": [
     "riemannian-gradient",
     "adjoint",
+    "smooth-extension",
+    "orthogonal-projector",
+    "normal-space",
+    "jacobian",
+    "kernel",
     "chain-rule",
     "inner-product",
     "determinant",
@@ -1378,12 +1383,88 @@
      "zh": "所以导数是 Tr(X⁻¹U)，在正定矩阵上梯度为 X⁻¹。"
     },
     {
-     "en": "On a Riemannian submanifold of a Euclidean space, there is a shortcut we met last time.",
-     "zh": "在欧氏空间的黎曼子流形上，有一个上一集见过的捷径。"
+     "en": "On a Riemannian submanifold of a Euclidean space, there is a shortcut we met last time. This time, let us prove it.",
+     "zh": "在欧氏空间的黎曼子流形上，有一个上一集见过的捷径。这次我们来证明它。"
     },
     {
-     "en": "Compute the Euclidean gradient of any smooth extension, then project it orthogonally onto the tangent space.",
-     "zh": "先算任意光滑延拓的欧氏梯度，再把它正交投影到切空间。"
+     "en": "Let f bar be a smooth extension of f to an open set around M, and take its Euclidean gradient, nabla f bar.",
+     "zh": "设 f̅ 是 f 在 M 附近某个开集上的光滑延拓，取它的欧氏梯度 ∇f̅。"
+    },
+    {
+     "en": "For a tangent vector v, take a curve on M with velocity v. Along it, f and f bar agree.",
+     "zh": "对切向量 v，取 M 上一条速度为 v 的曲线。沿这条曲线，f 与 f̅ 相同。"
+    },
+    {
+     "en": "So D f of x applied to v equals D f bar of x applied to v, which is the inner product of nabla f bar of x with v.",
+     "zh": "所以 Df(x)[v] = Df̅(x)[v]，也就是 ∇f̅(x) 与 v 的内积。"
+    },
+    {
+     "en": "Now split nabla f bar of x orthogonally: a tangent part tau, plus a normal part nu.",
+     "zh": "现在把 ∇f̅(x) 正交分解：切向部分 τ，加上法向部分 ν。"
+    },
+    {
+     "en": "For a tangent v, the inner product of nu with v is zero. So D f of x applied to v equals the inner product of tau with v.",
+     "zh": "对切向量 v，ν 与 v 的内积为零。所以 Df(x)[v] 等于 τ 与 v 的内积。"
+    },
+    {
+     "en": "Tau is tangent, so by uniqueness it is the Riemannian gradient: grad f of x equals Proj x of nabla f bar of x.",
+     "zh": "τ 是切向量，由唯一性它就是黎曼梯度：grad f(x) = Proj_x(∇f̅(x))。"
+    },
+    {
+     "en": "How do we compute this projection? Suppose M is the zero set of a smooth map c from R n to R k.",
+     "zh": "这个投影怎么算？设 M 是光滑映射 c: ℝⁿ → ℝᵏ 的零点集。"
+    },
+    {
+     "en": "Let J be the Jacobian of c at x, a k by n matrix of full rank k.",
+     "zh": "记 J 为 c 在 x 处的 Jacobian，是一个秩为 k 的 k×n 矩阵。"
+    },
+    {
+     "en": "Then the tangent space is the kernel of J, and its orthogonal complement, the normal space, is the image of J transpose.",
+     "zh": "于是切空间是 J 的核，它的正交补，也就是法空间，是 Jᵀ 的像。"
+    },
+    {
+     "en": "So the normal part of a vector q is J transpose w, for some w in R k. We choose the w that leaves the shortest remainder.",
+     "zh": "所以向量 q 的法向部分是 Jᵀw，w ∈ ℝᵏ。我们选使剩余部分最短的 w。"
+    },
+    {
+     "en": "That is, minimize L of w, the squared norm of q minus J transpose w.",
+     "zh": "也就是最小化 L(w) = ‖q − Jᵀw‖²。"
+    },
+    {
+     "en": "Expanded, L of w is the squared norm of q, minus two q transpose J transpose w, plus w transpose J J transpose w.",
+     "zh": "展开得 L(w) = ‖q‖² − 2qᵀJᵀw + wᵀJJᵀw。"
+    },
+    {
+     "en": "Its gradient is two J J transpose w, minus two J q. Since J has full rank, J J transpose is invertible.",
+     "zh": "它的梯度是 2JJᵀw − 2Jq。因为 J 满秩，JJᵀ 可逆。"
+    },
+    {
+     "en": "Setting the gradient to zero gives w star equals J J transpose inverse, times J q.",
+     "zh": "令梯度为零，得 w* = (JJᵀ)⁻¹Jq。"
+    },
+    {
+     "en": "Subtracting the normal part, the projector is the identity, minus J transpose, times J J transpose inverse, times J.",
+     "zh": "减去法向部分，投影算子就是 I − Jᵀ(JJᵀ)⁻¹J。"
+    },
+    {
+     "en": "Check: J times the projected vector is J q minus J q, which is zero. So the result is tangent, and what we removed is normal.",
+     "zh": "验证：J 乘以投影后的向量等于 Jq − Jq = 0。所以结果是切向量，去掉的部分是法向的。"
+    },
+    {
+     "en": "For the sphere, c of x equals x transpose x minus one, so J equals two x transpose.",
+     "zh": "对球面，c(x) = xᵀx − 1，所以 J = 2xᵀ。"
+    },
+    {
+     "en": "Then J J transpose is four x transpose x, which is four, and the projector becomes the identity minus x x transpose.",
+     "zh": "于是 JJᵀ = 4xᵀx = 4，投影算子化为 I − xxᵀ。"
+    },
+    {
+     "en": "A quick test: let f bar of x be the squared norm of x. Its Euclidean gradient, two x, is far from zero.",
+     "zh": "快速检验：令 f̅(x) = ‖x‖²。它的欧氏梯度 2x 远不为零。"
+    },
+    {
+     "en": "But on the sphere f is constant. The projection gives two x, minus two x times x transpose x, which is zero, as it must be.",
+     "zh": "但在球面上 f 是常数。投影得到 2x − 2x(xᵀx) = 0，正应如此。"
     },
     {
      "en": "For the Rayleigh quotient, the Euclidean gradient is A x, and the projection gives A x minus x transpose A x, times x.",

@@ -7,6 +7,7 @@ from rvideo.paths import ProjectPaths
 from rvideo.schema.glossary import Glossary
 from rvideo.schema.series import SeriesManifest
 from rvideo.schema.story import EPISODE_MUSIC, TRAILER_MUSIC, Story, StoryScene
+from rvideo.validate.caption_glyph_rule import CaptionGlyphRule
 
 EN_CAPTION_MAX_CHARS = 150   # beyond this an English caption needs 3 lines at the burned-in font size
 ZH_CAPTION_MAX_CHARS = 60
@@ -68,6 +69,9 @@ class ContentValidator:
                     report.warnings.append(f"{scene.id}[{i}]: en {len(s.en)} chars > {EN_CAPTION_MAX_CHARS}")
                 if len(s.zh) > ZH_CAPTION_MAX_CHARS:
                     report.warnings.append(f"{scene.id}[{i}]: zh {len(s.zh)} chars > {ZH_CAPTION_MAX_CHARS}")
+                for lang, text in (("en", s.en), ("zh", s.zh)):
+                    for v in CaptionGlyphRule.violations(text):
+                        report.errors.append(f"{scene.id}[{i}]: {lang} caption glyph {v}")
         return report
 
     @staticmethod

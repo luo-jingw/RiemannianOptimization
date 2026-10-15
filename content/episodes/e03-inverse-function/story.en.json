@@ -997,7 +997,7 @@
     },
     {
      "en": "Since U is open, choose r positive, so that the closed ball B bar, of radius r around p, lies inside U.",
-     "zh": "因为 U 是开集，可取 r > 0，使以 p 为中心、半径 r 的闭球 B̄ 含于 U。"
+     "zh": "因为 U 是开集，可取 r > 0，使以 p 为中心、半径 r 的闭球 B̅ 含于 U。"
     },
     {
      "en": "Claim: every y within distance lambda r of y zero is in V.",
@@ -1033,7 +1033,7 @@
     },
     {
      "en": "For x in B bar, the triangle inequality bounds the distance from phi of x to p by two terms.",
-     "zh": "对 B̄ 中的 x，三角不等式把 φ(x) 到 p 的距离拆成两项之和。"
+     "zh": "对 B̅ 中的 x，三角不等式把 φ(x) 到 p 的距离拆成两项之和。"
     },
     {
      "en": "The first is the distance from phi of x to phi of p, the second the distance from phi of p to p.",
@@ -1041,7 +1041,7 @@
     },
     {
      "en": "Since B bar lies inside U, the first term is at most half the distance from x to p, which is at most r over two.",
-     "zh": "因为 B̄ ⊆ U，第一项 ≤ ½‖x − p‖ ≤ r/2。"
+     "zh": "因为 B̅ ⊆ U，第一项 ≤ ½‖x − p‖ ≤ r/2。"
     },
     {
      "en": "The second term is less than r over two, by step four. Together, they are less than r.",
@@ -1053,19 +1053,19 @@
     },
     {
      "en": "So phi maps B bar into the open ball B, and in particular into B bar.",
-     "zh": "所以 φ 把 B̄ 映进开球 B，当然也映进 B̄。"
+     "zh": "所以 φ 把 B̅ 映进开球 B，当然也映进 B̅。"
     },
     {
      "en": "Step six. B bar is a closed subset of R n, so it is complete, and phi is a contraction on it, with constant one half.",
-     "zh": "第六步：B̄ 是 ℝⁿ 的闭子集，因而完备；φ 是 B̄ 上常数为 1/2 的压缩映射。"
+     "zh": "第六步：B̅ 是 ℝⁿ 的闭子集，因而完备；φ 是 B̅ 上常数为 1/2 的压缩映射。"
     },
     {
      "en": "The contraction mapping principle gives a fixed point x in B bar, which means that f of x equals y.",
-     "zh": "压缩映射原理给出 B̄ 中的不动点 x，也就是 f(x) = y。"
+     "zh": "压缩映射原理给出 B̅ 中的不动点 x，也就是 f(x) = y。"
     },
     {
      "en": "Step seven. That x lies in B bar, inside U, so y equals f of x is in f of U, which is V.",
-     "zh": "第七步：x ∈ B̄ ⊆ U，所以 y = f(x) ∈ f(U) = V。"
+     "zh": "第七步：x ∈ B̅ ⊆ U，所以 y = f(x) ∈ f(U) = V。"
     },
     {
      "en": "The claim is proved: the whole disk of radius lambda r around y zero lies in V.",

@@ -1,7 +1,7 @@
 # Video Architecture
 
 Verified production architecture of the series "Riemannian Optimization from the Ground Up".
-Delivered: E01–E05 v1, E06 v2 and E07 v3 (`output/<eid>/v<N>/`), 263 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
+Delivered: E01, E02, E04, E05 v1, E03 v2, E06 v2 and E07 v3 (`output/<eid>/v<N>/`), 263 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
 
 ## Modules and files
 
@@ -14,7 +14,7 @@ Delivered: E01–E05 v1, E06 v2 and E07 v3 (`output/<eid>/v<N>/`), 263 minutes i
 | Build pipeline | `pipeline/rvideo/` | validate, narrate (Kokoro af_heart), timeline, SRT, music, mix, mux, check, deliver |
 | Renderer | `player/src/{core,layers,primitives}` | `renderAt(t)`, Three.js stage, KaTeX formulas, captions, title cards |
 | Episode scenes | `player/src/episodes/<eid>/` + one line in `registry.ts` | one scene class per chapter |
-| Capture | `player/render/{PlayerSession,capture,stills}.ts` | headless Chrome frames → H.264 chunks; review stills with determinism checks |
+| Capture | `player/render/{PlayerSession,capture,SegmentPlan,ChunkCache,ModuleGraphHasher,stills}.ts` | headless Chrome frames → cached H.264 chunks; review stills with determinism checks |
 | Generated | `build/<eid>/en/` | sentence WAVs, provenance, timeline, SRT, music, mix, render, qa |
 | Delivered | `output/<eid>/v<N>/` | MP4 (video + AAC + mov_text), SRT, cover, manifest; never overwritten |
 
@@ -32,7 +32,25 @@ the mix profile ducks music by 4 dB and loudness-normalizes to −14 LUFS. Trail
 (`TransitionPass`: the stage rendered offscreen, magnified about the scenes' exit / entry points with a radial blur
 and periphery darkening). The trailer cover is the title card (title scene start + 3.5 bars).
 
-Capture splits frames into 60 s chunks taken from a queue by N workers; a chunk whose browser dies is re-rendered in a new browser (up to 3 attempts). Measured throughput: 23–42 frames/s with 2–5 workers.
+Timeline chapter starts and the episode end lie on the 30 fps frame grid (`TimelineLayout.fps`; a chapter's tail
+absorbs the padding, < 1 frame), so a chapter is sampled at the same local times whatever precedes it.
+
+Capture splits an episode into segments — the intro card, one per chapter, and the outro card (which keeps the last
+chapter's scene drawn, so its key includes that chapter); a trailer is one segment because its transitions cross
+chapter boundaries — and each segment into chunks of up to 60 s. A chunk's cache key hashes render settings, the
+Chrome version, the player shell (module graph of `main.ts` without the scene registry, `index.html`,
+`package-lock.json`, `public/`), the displayed episode metadata, and the segment's timing, captions and the module
+graph of `src/episodes/<eid>/<chapterId>.ts` (esbuild resolution). Chunks found in `build/<eid>/en/render/cache/` are
+reused; the rest are rendered by N workers from a queue (a chunk whose browser dies is re-rendered in a new browser,
+up to 3 attempts). After concatenation the cache keeps only the chunks of the latest run.
+
+Measured on E03 (64564 frames, 3 workers): cold capture 1596 s (40.5 frames/s); after a one-line change in the last
+chapter's scene, 131 s (4099 frames rendered: c10 and the outro); with nothing changed, 1.6 s. Rendering and encoding
+are deterministic: all decoded frames of the cold capture and of the delivered v2, whose c10 and outro were rendered
+again, are identical (framemd5). Throughput depends on the scenes: E07 v3 (pre-cache, 87076 frames) ran at 14.6 frames/s.
+
+`validate` rejects caption text with combining marks other than U+0302, U+0303 and U+0305
+(`CaptionGlyphRule`): U+0304 renders invisibly or misplaced in the caption fonts.
 
 ## Web version
 

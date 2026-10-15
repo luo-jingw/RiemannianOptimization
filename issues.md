@@ -52,7 +52,7 @@ Lower the muxer's loudnorm true-peak target (TP) for the trailer profile and re-
 
 ## Observation
 
-In the Chinese captions, the combining macron U+0304 does not render: "f̄" (f + U+0304) appears as a plain "f". The E06 Chinese captions contain 8 such marks (the smooth extension f̄), so delivered E06 v1 shows "f" where the narration says "f bar". The combining overline U+0305 renders correctly over "f" in the same font.
+In the Chinese captions, the combining macron U+0304 does not render: "f̄" (f + U+0304) appears as a plain "f". The E06 Chinese captions contain 8 such marks in 6 sentences: f̄ (the smooth extension, c02 s33–s36, 7:07–7:40) and t̄ (the step bound, c09 s25 and s29, 34:02 and 34:37). Delivered E06 v1 shows "f" and "t" there; c02 s33 then reads "f is the restriction of a smooth function f to M". The combining overline U+0305 renders correctly over "f" in the same font.
 
 ## Evidence
 

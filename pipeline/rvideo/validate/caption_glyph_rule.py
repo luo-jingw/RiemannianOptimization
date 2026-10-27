@@ -3,10 +3,11 @@ from __future__ import annotations
 
 import unicodedata
 
-# Verified in headless Chrome with the player's fonts at caption size: these sit centred over Latin letters.
+# Verified in headless Chrome with the player's fonts at caption size: these sit centred over Latin and Greek
+# letters (hat, tilde, overline, dot and double dot above, e.g. f̂, F̃, X̅, γ̇, γ̈).
 # U+0304 (macron) is absent from the list: it renders invisibly over "f" and offset to the right over "B";
 # write a bar with U+0305 instead.
-ALLOWED_COMBINING_MARKS: frozenset[int] = frozenset({0x0302, 0x0303, 0x0305})
+ALLOWED_COMBINING_MARKS: frozenset[int] = frozenset({0x0302, 0x0303, 0x0305, 0x0307, 0x0308})
 
 
 class CaptionGlyphRule:

@@ -8,6 +8,7 @@ import { e04Scenes } from "./e04-implicit-level-sets/index";
 import { e05Scenes } from "./e05-tangent-orthogonal/index";
 import { e06Scenes } from "./e06-gradient-retraction/index";
 import { e07Scenes } from "./e07-gradient-descent/index";
+import { e08Scenes } from "./e08-connections-geodesics/index";
 
 /** Episode ID -> chapter scenes. Adding an episode adds one import and one entry here. */
 export const EPISODE_SCENES: Record<string, Record<string, SceneFactory>> = {
@@ -20,4 +21,5 @@ export const EPISODE_SCENES: Record<string, Record<string, SceneFactory>> = {
   "e05-tangent-orthogonal": e05Scenes,
   "e06-gradient-retraction": e06Scenes,
   "e07-gradient-descent": e07Scenes,
+  "e08-connections-geodesics": e08Scenes,
 };

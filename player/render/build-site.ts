@@ -1,14 +1,14 @@
 /**
  * Builds the static web version into ../site:
  *   vite build (relative base) + data/series.json + per delivered episode: timeline.json and audio.m4a.
- * Audio is encoded from the episode's build mix (build/<eid>/en/audio/mix.wav) with the same two-pass
- * loudness normalization as delivery (−16 LUFS, −1.5 dBTP), so the site needs no rendered video.
+ * Audio is taken from the published delivery (output/<eid>/v<N>/<eid>.en.mp4, highest N), already loudness-
+ * normalized by the muxer (−16 LUFS), and re-encoded to 128 kb/s AAC; intermediate build mixes are not needed.
  *
  *   npx tsx render/build-site.ts
  */
 import { execFileSync, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { build } from "vite";
 
@@ -30,20 +30,17 @@ function mediaDuration(path: string): number {
   return Number(out.stdout.trim());
 }
 
-interface Loudness {
-  input_i: string;
-  input_tp: string;
-  input_lra: string;
-  input_thresh: string;
-  target_offset: string;
-}
-
-function measureLoudness(wav: string): Loudness {
-  const out = spawnSync("ffmpeg", ["-hide_banner", "-nostats", "-i", wav, "-af",
-    "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], { encoding: "utf-8" });
-  const blocks = out.stderr.match(/\{[^{}]*\}/g);
-  if (!blocks) throw new Error(`loudness measurement failed for ${wav}`);
-  return JSON.parse(blocks[blocks.length - 1]) as Loudness;
+/** The delivered MP4 of the highest version in output/<eid>/, or null when the episode has none. */
+function publishedVideo(id: string): string | null {
+  const dir = join(projectRoot, "output", id);
+  if (!existsSync(dir)) return null;
+  const versions = readdirSync(dir).map((d) => /^v(\d+)$/.exec(d)).filter((m): m is RegExpExecArray => m !== null)
+    .map((m) => Number(m[1])).sort((x, y) => y - x);
+  for (const v of versions) {
+    const mp4 = join(dir, `v${v}`, `${id}.en.mp4`);
+    if (existsSync(mp4)) return mp4;
+  }
+  return null;
 }
 
 async function main(): Promise<void> {
@@ -62,24 +59,21 @@ async function main(): Promise<void> {
   for (const ep of delivered) {
     const buildDir = join(projectRoot, "build", ep.id, "en");
     const timeline = join(buildDir, "timeline.json");
-    const mix = join(buildDir, "audio", "mix.wav");
-    if (!existsSync(timeline) || !existsSync(mix)) throw new Error(`${ep.id}: run rvideo audio first`);
+    const video = publishedVideo(ep.id);
+    if (!existsSync(timeline) || video === null) throw new Error(`${ep.id}: needs build/${ep.id}/en/timeline.json and a delivered output/${ep.id}/v<N>/`);
     const dest = join(siteRoot, "data", ep.id);
     mkdirSync(dest, { recursive: true });
     copyFileSync(timeline, join(dest, "timeline.json"));
     const audio = join(dest, "audio.m4a");
-    // Reuse the encoded audio only if it is newer than the mix AND complete (duration matches the timeline).
+    // Reuse the encoded audio only if it is newer than the delivery AND complete (duration matches the timeline).
     const timelineDuration = (JSON.parse(readFileSync(timeline, "utf-8")) as { duration: number }).duration;
-    if (existsSync(audio) && statSync(audio).mtimeMs > statSync(mix).mtimeMs
+    if (existsSync(audio) && statSync(audio).mtimeMs > statSync(video).mtimeMs
         && Math.abs(mediaDuration(audio) - timelineDuration) < DURATION_TOLERANCE_S) {
       console.log(`[site] ${ep.id}: audio up to date, skipped`);
     } else {
-      console.log(`[site] ${ep.id}: measuring loudness and encoding audio (about a minute)...`);
-      const m = measureLoudness(mix);
+      console.log(`[site] ${ep.id}: encoding audio from ${video.slice(projectRoot.length + 1)}...`);
       const partial = `${audio}.partial.m4a`;   // written first, renamed when complete: an interrupted run leaves no truncated audio
-      execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", mix, "-af",
-        `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:` +
-        `measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aformat=sample_rates=48000:channel_layouts=stereo`,
+      execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", video, "-map", "0:a:0",
         "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", partial]);
       const encoded = mediaDuration(partial);
       if (Math.abs(encoded - timelineDuration) >= DURATION_TOLERANCE_S) {

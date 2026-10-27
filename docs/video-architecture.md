@@ -58,10 +58,11 @@ again, are identical (framemd5). Throughput depends on the scenes: E07 v3 (pre-c
 browser (landing page with all delivered episodes, control bar with a chapter-segmented seek bar — one segment per
 chapter plus intro/outro, hover tooltip with the chapter title — chapter menu, keyboard shortcuts). The playback UI
 exists only in the web player; rendered videos contain none.
-Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a` (128 kb/s AAC encoded from
-`build/<eid>/en/audio/mix.wav` with the delivery loudness normalization), so the site needs no rendered video.
-The build stops when a delivered episode has no `mix.wav`; `rvideo music <eid>` and `rvideo mix <eid>` regenerate it
-from the existing timeline, bit-identical to the deleted file (checked on E04).
+Each episode ships `data/<eid>/timeline.json` and `data/<eid>/audio.m4a`: 128 kb/s AAC re-encoded from the audio of
+the highest delivered version `output/<eid>/v<N>/<eid>.en.mp4`, which the muxer already normalized to −16 LUFS
+(E08: −16.0 LUFS, duration within 0.03 s of the timeline). Intermediate WAVs under `build/<eid>/en/audio/`
+(`music.wav`, `narration.wav`, `mix.wav`) are not needed after delivery; `rvideo music` and `rvideo mix` regenerate
+them bit-identically from the existing timeline when a new version needs them.
 Measured size: 228 MB. Playback time is owned by `PreviewClock` (performance.now based): seeking moves the live
 rendering immediately and the audio is re-synced when it drifts by more than 0.25 s. Serve with
 `npm run site:serve` (vite preview, supports HTTP Range requests for audio seeking).

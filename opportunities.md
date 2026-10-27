@@ -75,29 +75,3 @@ Pure file move with import updates; no behavior change.
 ## Promotion Condition
 
 A third episode needs the helpers, or the user asks for it.
-
-# OPT-004
-
-Status: proposed
-
-Area: site build
-
-## Observation
-
-`render/build-site.ts` encodes each episode's site audio from `build/<eid>/en/audio/mix.wav` (about 0.8 GB per episode) and fails when it is missing, although the delivered MP4 already carries the same mix, loudness-normalized, as AAC.
-
-## Opportunity
-
-Take the site audio from the delivered MP4 of the published version, so intermediate WAVs can be deleted without breaking the site build.
-
-## Expected Mechanism
-
-Copy or re-encode the MP4's audio stream to `data/<eid>/audio.m4a`; the series manifest or the output directory names the published version.
-
-## Required Evidence
-
-Site audio duration equals the timeline; loudness within 0.5 LU of the current site audio.
-
-## Promotion Condition
-
-The user wants build/ kept small, or another cleanup removes the mixes again.

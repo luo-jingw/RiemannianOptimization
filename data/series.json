@@ -57,6 +57,13 @@
    "title": "Riemannian Gradient Descent",
    "status": "delivered",
    "audioVersion": "b7269dd43c7f"
+  },
+  {
+   "id": "e08-connections-geodesics",
+   "order": 8,
+   "title": "Connections, Geodesics and Parallel Transport",
+   "status": "delivered",
+   "audioVersion": "f9555fee0200"
   }
  ]
 }

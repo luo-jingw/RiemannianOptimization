@@ -1,0 +1,2613 @@
+{
+ "language": "en",
+ "episode": "e08-connections-geodesics",
+ "duration": 2210.6667,
+ "chapters": [
+  {
+   "id": "c01-why-new-derivative",
+   "index": 0,
+   "start": 5.0,
+   "end": 192.8667,
+   "title": "Why a New Derivative",
+   "music": "motivation",
+   "sentenceStarts": [
+    2.4,
+    8.625,
+    16.3,
+    21.925,
+    27.925,
+    33.35,
+    38.9,
+    43.75,
+    50.175,
+    54.55,
+    59.3,
+    64.025,
+    69.5,
+    75.925,
+    83.025,
+    88.55,
+    93.05,
+    100.575,
+    103.875,
+    109.625,
+    113.925,
+    121.825,
+    127.625,
+    133.625,
+    139.975,
+    145.575,
+    153.125,
+    159.075,
+    165.25,
+    170.975,
+    174.425,
+    182.125
+   ],
+   "sentenceEnds": [
+    8.175,
+    15.85,
+    21.475,
+    27.475,
+    32.9,
+    38.45,
+    43.3,
+    49.725,
+    54.1,
+    58.85,
+    63.575,
+    69.05,
+    75.475,
+    82.575,
+    88.1,
+    92.6,
+    100.125,
+    103.425,
+    109.175,
+    113.475,
+    121.375,
+    127.175,
+    133.175,
+    139.525,
+    145.125,
+    152.675,
+    158.625,
+    164.8,
+    170.525,
+    173.975,
+    181.675,
+    186.25
+   ]
+  },
+  {
+   "id": "c02-vector-fields-brackets",
+   "index": 1,
+   "start": 192.8667,
+   "end": 392.0,
+   "title": "Vector Fields and Lie Brackets",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    8.2,
+    16.275,
+    22.8,
+    30.95,
+    39.475,
+    43.75,
+    51.425,
+    58.775,
+    69.2,
+    73.775,
+    80.525,
+    88.725,
+    96.925,
+    106.1,
+    113.35,
+    120.85,
+    127.05,
+    133.1,
+    137.0,
+    143.875,
+    149.0,
+    156.3,
+    167.525,
+    172.75,
+    178.925,
+    184.475,
+    191.325
+   ],
+   "sentenceEnds": [
+    7.75,
+    15.825,
+    22.35,
+    30.5,
+    39.025,
+    43.3,
+    50.975,
+    58.325,
+    68.75,
+    73.325,
+    80.075,
+    88.275,
+    96.475,
+    105.65,
+    112.9,
+    120.4,
+    126.6,
+    132.65,
+    136.55,
+    143.425,
+    148.55,
+    155.85,
+    167.075,
+    172.3,
+    178.475,
+    184.025,
+    190.875,
+    197.525
+   ]
+  },
+  {
+   "id": "c03-affine-connections",
+   "index": 2,
+   "start": 392.0,
+   "end": 604.4667,
+   "title": "Affine Connections",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.45,
+    14.9,
+    22.775,
+    30.525,
+    36.45,
+    44.675,
+    49.875,
+    54.425,
+    64.675,
+    69.7,
+    77.825,
+    85.95,
+    93.225,
+    101.4,
+    108.35,
+    116.05,
+    121.975,
+    127.475,
+    137.875,
+    145.925,
+    152.55,
+    163.925,
+    166.575,
+    174.85,
+    183.925,
+    189.725,
+    197.6,
+    201.975,
+    207.0
+   ],
+   "sentenceEnds": [
+    9.0,
+    14.45,
+    22.325,
+    30.075,
+    36.0,
+    44.225,
+    49.425,
+    53.975,
+    64.225,
+    69.25,
+    77.375,
+    85.5,
+    92.775,
+    100.95,
+    107.9,
+    115.6,
+    121.525,
+    127.025,
+    137.425,
+    145.475,
+    152.1,
+    163.475,
+    166.125,
+    174.4,
+    183.475,
+    189.275,
+    197.15,
+    201.525,
+    206.55,
+    210.85
+   ]
+  },
+  {
+   "id": "c04-christoffel-symbols",
+   "index": 3,
+   "start": 604.4667,
+   "end": 807.9667,
+   "title": "Christoffel Symbols",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    7.675,
+    15.925,
+    23.025,
+    28.025,
+    37.475,
+    46.575,
+    54.275,
+    60.825,
+    66.875,
+    73.65,
+    79.2,
+    86.05,
+    92.325,
+    101.85,
+    108.05,
+    114.1,
+    120.625,
+    125.6,
+    133.775,
+    143.325,
+    151.225,
+    160.325,
+    167.5,
+    174.7,
+    181.825,
+    189.925,
+    197.9
+   ],
+   "sentenceEnds": [
+    7.225,
+    15.475,
+    22.575,
+    27.575,
+    37.025,
+    46.125,
+    53.825,
+    60.375,
+    66.425,
+    73.2,
+    78.75,
+    85.6,
+    91.875,
+    101.4,
+    107.6,
+    113.65,
+    120.175,
+    125.15,
+    133.325,
+    142.875,
+    150.775,
+    159.875,
+    167.05,
+    174.25,
+    181.375,
+    189.475,
+    197.45,
+    201.875
+   ]
+  },
+  {
+   "id": "c05-compatibility-torsion",
+   "index": 4,
+   "start": 807.9667,
+   "end": 1008.3667,
+   "title": "Compatibility and Torsion",
+   "music": "counterexample",
+   "sentenceStarts": [
+    2.4,
+    8.975,
+    12.5,
+    21.575,
+    27.975,
+    35.325,
+    43.775,
+    50.475,
+    58.65,
+    67.825,
+    75.4,
+    82.175,
+    87.525,
+    93.25,
+    100.55,
+    107.175,
+    116.725,
+    120.575,
+    127.475,
+    135.075,
+    142.75,
+    147.2,
+    156.325,
+    164.375,
+    172.425,
+    181.275,
+    187.55,
+    195.025
+   ],
+   "sentenceEnds": [
+    8.525,
+    12.05,
+    21.125,
+    27.525,
+    34.875,
+    43.325,
+    50.025,
+    58.2,
+    67.375,
+    74.95,
+    81.725,
+    87.075,
+    92.8,
+    100.1,
+    106.725,
+    116.275,
+    120.125,
+    127.025,
+    134.625,
+    142.3,
+    146.75,
+    155.875,
+    163.925,
+    171.975,
+    180.825,
+    187.1,
+    194.575,
+    198.8
+   ]
+  },
+  {
+   "id": "c06-fundamental-theorem",
+   "index": 5,
+   "start": 1008.3667,
+   "end": 1234.4667,
+   "title": "The Fundamental Theorem",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    7.7,
+    15.175,
+    20.275,
+    26.925,
+    34.9,
+    42.55,
+    48.675,
+    54.9,
+    58.625,
+    62.925,
+    70.6,
+    76.775,
+    86.325,
+    92.55,
+    101.425,
+    110.4,
+    115.95,
+    120.2,
+    125.65,
+    134.0,
+    139.875,
+    147.15,
+    154.9,
+    162.725,
+    171.825,
+    179.475,
+    189.35,
+    195.725,
+    202.425,
+    209.7,
+    218.4
+   ],
+   "sentenceEnds": [
+    7.25,
+    14.725,
+    19.825,
+    26.475,
+    34.45,
+    42.1,
+    48.225,
+    54.45,
+    58.175,
+    62.475,
+    70.15,
+    76.325,
+    85.875,
+    92.1,
+    100.975,
+    109.95,
+    115.5,
+    119.75,
+    125.2,
+    133.55,
+    139.425,
+    146.7,
+    154.45,
+    162.275,
+    171.375,
+    179.025,
+    188.9,
+    195.275,
+    201.975,
+    209.25,
+    217.95,
+    224.5
+   ]
+  },
+  {
+   "id": "c07-submanifold-connection",
+   "index": 6,
+   "start": 1234.4667,
+   "end": 1466.6,
+   "title": "Connections on Submanifolds",
+   "music": "proof",
+   "sentenceStarts": [
+    2.4,
+    10.875,
+    15.7,
+    22.075,
+    28.05,
+    38.15,
+    46.65,
+    53.325,
+    60.35,
+    69.0,
+    75.325,
+    82.35,
+    89.85,
+    93.125,
+    102.15,
+    111.3,
+    120.825,
+    126.4,
+    134.525,
+    143.625,
+    150.925,
+    158.025,
+    165.325,
+    172.425,
+    178.675,
+    185.25,
+    190.3,
+    198.55,
+    204.4,
+    212.775,
+    218.375,
+    226.3
+   ],
+   "sentenceEnds": [
+    10.425,
+    15.25,
+    21.625,
+    27.6,
+    37.7,
+    46.2,
+    52.875,
+    59.9,
+    68.55,
+    74.875,
+    81.9,
+    89.4,
+    92.675,
+    101.7,
+    110.85,
+    120.375,
+    125.95,
+    134.075,
+    143.175,
+    150.475,
+    157.575,
+    164.875,
+    171.975,
+    178.225,
+    184.8,
+    189.85,
+    198.1,
+    203.95,
+    212.325,
+    217.925,
+    225.85,
+    230.525
+   ]
+  },
+  {
+   "id": "c08-geodesics",
+   "index": 7,
+   "start": 1466.6,
+   "end": 1692.9667,
+   "title": "Geodesics",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    9.275,
+    13.6,
+    22.75,
+    28.45,
+    36.8,
+    44.625,
+    51.975,
+    60.275,
+    69.25,
+    77.225,
+    83.25,
+    89.825,
+    97.1,
+    106.825,
+    115.375,
+    120.275,
+    127.25,
+    136.725,
+    140.175,
+    147.075,
+    155.125,
+    164.575,
+    175.725,
+    184.35,
+    190.325,
+    200.05,
+    206.95,
+    215.45,
+    221.5
+   ],
+   "sentenceEnds": [
+    8.825,
+    13.15,
+    22.3,
+    28.0,
+    36.35,
+    44.175,
+    51.525,
+    59.825,
+    68.8,
+    76.775,
+    82.8,
+    89.375,
+    96.65,
+    106.375,
+    114.925,
+    119.825,
+    126.8,
+    136.275,
+    139.725,
+    146.625,
+    154.675,
+    164.125,
+    175.275,
+    183.9,
+    189.875,
+    199.6,
+    206.5,
+    215.0,
+    221.05,
+    224.75
+   ]
+  },
+  {
+   "id": "c09-exponential-map",
+   "index": 8,
+   "start": 1692.9667,
+   "end": 1923.8,
+   "title": "The Exponential Map",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    12.025,
+    19.825,
+    25.875,
+    33.45,
+    42.25,
+    47.4,
+    55.675,
+    61.45,
+    65.3,
+    72.05,
+    80.15,
+    88.05,
+    95.25,
+    105.55,
+    115.25,
+    124.85,
+    131.725,
+    137.675,
+    147.9,
+    162.4,
+    169.075,
+    179.35,
+    186.625,
+    193.15,
+    204.25,
+    210.5,
+    216.975,
+    225.0
+   ],
+   "sentenceEnds": [
+    11.575,
+    19.375,
+    25.425,
+    33.0,
+    41.8,
+    46.95,
+    55.225,
+    61.0,
+    64.85,
+    71.6,
+    79.7,
+    87.6,
+    94.8,
+    105.1,
+    114.8,
+    124.4,
+    131.275,
+    137.225,
+    147.45,
+    161.95,
+    168.625,
+    178.9,
+    186.175,
+    192.7,
+    203.8,
+    210.05,
+    216.525,
+    224.55,
+    229.225
+   ]
+  },
+  {
+   "id": "c10-parallel-transport",
+   "index": 9,
+   "start": 1923.8,
+   "end": 2114.1333,
+   "title": "Parallel Transport",
+   "music": "definition",
+   "sentenceStarts": [
+    2.4,
+    10.225,
+    20.225,
+    28.75,
+    36.375,
+    42.35,
+    46.15,
+    54.05,
+    63.825,
+    70.475,
+    77.225,
+    86.85,
+    93.275,
+    98.625,
+    105.975,
+    112.5,
+    119.05,
+    126.525,
+    134.1,
+    141.15,
+    148.225,
+    154.2,
+    162.725,
+    170.425,
+    175.4,
+    182.5
+   ],
+   "sentenceEnds": [
+    9.775,
+    19.775,
+    28.3,
+    35.925,
+    41.9,
+    45.7,
+    53.6,
+    63.375,
+    70.025,
+    76.775,
+    86.4,
+    92.825,
+    98.175,
+    105.525,
+    112.05,
+    118.6,
+    126.075,
+    133.65,
+    140.7,
+    147.775,
+    153.75,
+    162.275,
+    169.975,
+    174.95,
+    182.05,
+    188.725
+   ]
+  },
+  {
+   "id": "c11-recap",
+   "index": 10,
+   "start": 2114.1333,
+   "end": 2205.6667,
+   "title": "Recap: Toward the Hessian",
+   "music": "recap",
+   "sentenceStarts": [
+    2.4,
+    5.0,
+    11.325,
+    16.875,
+    24.45,
+    31.025,
+    37.425,
+    43.85,
+    51.675,
+    58.1,
+    65.75,
+    72.725,
+    76.85,
+    84.525
+   ],
+   "sentenceEnds": [
+    4.55,
+    10.875,
+    16.425,
+    24.0,
+    30.575,
+    36.975,
+    43.4,
+    51.225,
+    57.65,
+    65.3,
+    72.275,
+    76.4,
+    84.075,
+    89.925
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "start": 7.4,
+   "end": 13.175,
+   "text": "Last time we built first-order methods: a gradient, a retraction, and a step size.",
+   "translation": "上一集我们搭好了一阶方法：梯度、retraction 和步长。"
+  },
+  {
+   "start": 13.625,
+   "end": 20.85,
+   "text": "Newton's method goes further. It solves Hess f of x, applied to s, equals minus grad f of x.",
+   "translation": "Newton 方法更进一步：它要解 Hess f(x)[s] = −grad f(x)。"
+  },
+  {
+   "start": 21.3,
+   "end": 26.475,
+   "text": "The Hessian is the derivative of the gradient. The gradient is a vector field.",
+   "translation": "Hessian 是梯度的导数，而梯度是一个向量场。"
+  },
+  {
+   "start": 26.925,
+   "end": 32.475,
+   "text": "So before anything else, we must learn to differentiate a vector field on a manifold.",
+   "translation": "所以首先要学会：怎样在流形上对向量场求导。"
+  },
+  {
+   "start": 32.925,
+   "end": 37.9,
+   "text": "Start with the simplest manifold that is not flat: the unit circle in the plane.",
+   "translation": "从最简单的不平坦的流形开始：平面上的单位圆。"
+  },
+  {
+   "start": 38.35,
+   "end": 43.45,
+   "text": "Walk around it at unit speed: gamma of t equals cosine t, sine t.",
+   "translation": "以单位速率绕圆走：γ(t) = (cos t, sin t)。"
+  },
+  {
+   "start": 43.9,
+   "end": 48.3,
+   "text": "Its velocity, gamma dot of t, is minus sine t, cosine t.",
+   "translation": "它的速度 γ̇(t) = (−sin t, cos t)。"
+  },
+  {
+   "start": 48.75,
+   "end": 54.725,
+   "text": "The velocity is orthogonal to gamma of t, so it lies in the tangent line at gamma of t.",
+   "translation": "速度与 γ(t) 正交，所以落在 γ(t) 处的切线上。"
+  },
+  {
+   "start": 55.175,
+   "end": 59.1,
+   "text": "Here it is at every point: the velocity field of the curve.",
+   "translation": "把它画在每一点：这就是曲线的速度场。"
+  },
+  {
+   "start": 59.55,
+   "end": 63.85,
+   "text": "The lecture asked: what is the derivative of this velocity field?",
+   "translation": "课上问的是：这个速度场的导数是什么？"
+  },
+  {
+   "start": 64.3,
+   "end": 68.575,
+   "text": "Let us try the obvious thing: the difference quotient of gamma dot.",
+   "translation": "先试最显然的做法：对 γ̇ 求差商。"
+  },
+  {
+   "start": 69.025,
+   "end": 74.05,
+   "text": "Gamma dot at t plus h, minus gamma dot at t, divided by h.",
+   "translation": "γ̇(t+h) 减去 γ̇(t)，再除以 h。"
+  },
+  {
+   "start": 74.5,
+   "end": 80.475,
+   "text": "To subtract, slide both arrows to a common base point. Their difference points toward the center.",
+   "translation": "要相减，先把两个箭头平移到同一起点；差向量指向圆心。"
+  },
+  {
+   "start": 80.925,
+   "end": 87.575,
+   "text": "As h shrinks, the quotient tends to minus cosine t, minus sine t, which is minus gamma of t.",
+   "translation": "h 趋于 0 时，差商趋于 (−cos t, −sin t) = −γ(t)。"
+  },
+  {
+   "start": 88.025,
+   "end": 93.1,
+   "text": "That vector points straight at the center. It is perpendicular to the tangent line.",
+   "translation": "这个向量直指圆心，与切线垂直。"
+  },
+  {
+   "start": 93.55,
+   "end": 97.6,
+   "text": "So the obvious derivative of a tangent field is not tangent.",
+   "translation": "所以，切向量场的显然导数并不是切向量。"
+  },
+  {
+   "start": 98.05,
+   "end": 105.125,
+   "text": "Yet the walker moves at constant speed and never turns within the circle. Its acceleration should be zero.",
+   "translation": "可是行者匀速前进，在圆内也没有转弯，加速度本应为零。"
+  },
+  {
+   "start": 105.575,
+   "end": 108.425,
+   "text": "What went wrong is the subtraction itself.",
+   "translation": "问题出在减法本身。"
+  },
+  {
+   "start": 108.875,
+   "end": 114.175,
+   "text": "Gamma dot at t plus h lives in the tangent space at gamma of t plus h.",
+   "translation": "γ̇(t+h) 属于 γ(t+h) 处的切空间。"
+  },
+  {
+   "start": 114.625,
+   "end": 118.475,
+   "text": "Gamma dot at t lives in the tangent space at gamma of t.",
+   "translation": "γ̇(t) 属于 γ(t) 处的切空间。"
+  },
+  {
+   "start": 118.925,
+   "end": 126.375,
+   "text": "These are two different vector spaces. The plane lets us subtract, but the result has no reason to be tangent.",
+   "translation": "这是两个不同的向量空间；平面允许相减，但结果没有理由是切向量。"
+  },
+  {
+   "start": 126.825,
+   "end": 132.175,
+   "text": "On a manifold without an ambient space, there is not even a plane to subtract in.",
+   "translation": "如果流形没有外围空间，连做减法的平面都没有。"
+  },
+  {
+   "start": 132.625,
+   "end": 138.175,
+   "text": "The same failure hits the Hessian. Take the Rayleigh quotient on the sphere from last time.",
+   "translation": "同样的问题也落在 Hessian 上。取上一集球面上的瑞利商。"
+  },
+  {
+   "start": 138.625,
+   "end": 144.525,
+   "text": "Its gradient field is V of x equals A x minus x transpose A x, times x.",
+   "translation": "它的梯度场是 V(x) = Ax − (xᵀAx)x。"
+  },
+  {
+   "start": 144.975,
+   "end": 150.125,
+   "text": "Differentiate this formula in the ambient space, along a tangent vector u.",
+   "translation": "在外围空间里沿切向量 u 对这个公式求导。"
+  },
+  {
+   "start": 150.575,
+   "end": 157.675,
+   "text": "We get Proj x of A u, minus x transpose A x times u, minus u transpose A x, times x.",
+   "translation": "得到 Proj_x(Au) − (xᵀAx)u − (uᵀAx)x。"
+  },
+  {
+   "start": 158.125,
+   "end": 163.625,
+   "text": "The first two terms are tangent. The last one points along x, normal to the sphere.",
+   "translation": "前两项是切向的，最后一项沿 x 方向，垂直于球面。"
+  },
+  {
+   "start": 164.075,
+   "end": 169.8,
+   "text": "Whenever u transpose A x is not zero, this derivative is not a tangent vector.",
+   "translation": "只要 uᵀAx ≠ 0，这个导数就不是切向量。"
+  },
+  {
+   "start": 170.25,
+   "end": 175.525,
+   "text": "Then inner products like the one of Hess f of x u with u would make no sense.",
+   "translation": "那样一来，⟨Hess f(x)[u], u⟩ 这样的量就没有意义。"
+  },
+  {
+   "start": 175.975,
+   "end": 178.975,
+   "text": "We need a new derivative for vector fields.",
+   "translation": "我们需要一种新的向量场导数。"
+  },
+  {
+   "start": 179.425,
+   "end": 186.675,
+   "text": "The plan: list the properties of the ordinary derivative, keep them as axioms, and add what the metric demands.",
+   "translation": "路线：列出普通导数的性质，把它们当作公理，再加上度量要求的条件。"
+  },
+  {
+   "start": 187.125,
+   "end": 191.25,
+   "text": "First, a closer look at how vector fields act on functions.",
+   "translation": "第一步，先仔细看看向量场怎样作用在函数上。"
+  },
+  {
+   "start": 195.2667,
+   "end": 200.6167,
+   "text": "A vector field X assigns a tangent vector X of p to every point p.",
+   "translation": "向量场 X 给每一点 p 指定一个切向量 X(p)。"
+  },
+  {
+   "start": 201.0667,
+   "end": 208.6917,
+   "text": "It acts on a smooth function f by differentiation: X f at p is D f of p, applied to X of p.",
+   "translation": "它通过求导作用在光滑函数 f 上：(X f)(p) = Df(p)[X(p)]。"
+  },
+  {
+   "start": 209.1417,
+   "end": 215.2167,
+   "text": "The result is again a smooth function. So a vector field turns functions into functions.",
+   "translation": "结果仍是光滑函数。所以向量场把函数变成函数。"
+  },
+  {
+   "start": 215.6667,
+   "end": 223.3667,
+   "text": "Here, f is drawn by its level curves, and the moving point reads off X f: large where X climbs f steeply.",
+   "translation": "这里用等值线表示 f，移动的点读出 X f：X 沿 f 爬得陡的地方值大。"
+  },
+  {
+   "start": 223.8167,
+   "end": 231.8917,
+   "text": "We will also write the inner product of X and Y for the function p maps to the inner product of X of p and Y of p.",
+   "translation": "⟨X, Y⟩ 也记作一个函数：p ↦ ⟨X(p), Y(p)⟩。"
+  },
+  {
+   "start": 232.3417,
+   "end": 236.1667,
+   "text": "Two fields can act one after the other: X of Y f.",
+   "translation": "两个场可以先后作用：X(Y f)。"
+  },
+  {
+   "start": 236.6167,
+   "end": 243.8417,
+   "text": "Their commutator is called the Lie bracket: X Y bracket f equals X of Y f, minus Y of X f.",
+   "translation": "它们的交换子叫李括号：[X,Y] f = X(Y f) − Y(X f)。"
+  },
+  {
+   "start": 244.2917,
+   "end": 251.1917,
+   "text": "In R n, write X equals X i times partial i, and Y equals Y j times partial j.",
+   "translation": "在 ℝⁿ 中，写 X = Xⁱ∂_i，Y = Y^j∂_j。"
+  },
+  {
+   "start": 251.6417,
+   "end": 261.6167,
+   "text": "By the product rule, X of Y f is X i times partial i of Y j, times partial j f, plus X i Y j times the second derivative.",
+   "translation": "由乘积法则，X(Y f) = Xⁱ(∂_iY^j)∂_j f + XⁱY^j∂_i∂_j f。"
+  },
+  {
+   "start": 262.0667,
+   "end": 266.1917,
+   "text": "Y of X f has the same form with X and Y exchanged.",
+   "translation": "Y(X f) 的形式相同，只是 X 与 Y 对调。"
+  },
+  {
+   "start": 266.6417,
+   "end": 272.9417,
+   "text": "Subtract. The second-derivative terms cancel, because mixed partial derivatives are symmetric.",
+   "translation": "相减。二阶导数项抵消，因为混合偏导数是对称的。"
+  },
+  {
+   "start": 273.3917,
+   "end": 281.1417,
+   "text": "What remains uses only first derivatives of f: X of Y j minus Y of X j, times partial j f.",
+   "translation": "剩下的只含 f 的一阶导数：(X(Y^j) − Y(X^j))∂_j f。"
+  },
+  {
+   "start": 281.5917,
+   "end": 289.3417,
+   "text": "So the Lie bracket is again a vector field. In R n, X Y bracket equals D Y of X minus D X of Y.",
+   "translation": "所以李括号仍是向量场；在 ℝⁿ 中，[X,Y] = DY[X] − DX[Y]。"
+  },
+  {
+   "start": 289.7917,
+   "end": 298.5167,
+   "text": "Neither half is a vector field on its own. X of X f, for X equal to partial x, is the second derivative f x x.",
+   "translation": "单独一半不是向量场：取 X = ∂_x，X(X f) 是二阶导数 f_xx。"
+  },
+  {
+   "start": 298.9667,
+   "end": 305.7667,
+   "text": "An example from the book. U is the constant field one, zero. V is zero, x one times x two.",
+   "translation": "书中的例子：U 是常向量场 (1, 0)，V = (0, x₁x₂)。"
+  },
+  {
+   "start": 306.2167,
+   "end": 313.2667,
+   "text": "Take f of x equal to x two. Then V f is x one x two, and U of V f is x two.",
+   "translation": "取 f(x) = x₂。则 V f = x₁x₂，U(V f) = x₂。"
+  },
+  {
+   "start": 313.7167,
+   "end": 319.4667,
+   "text": "U f is zero, so V of U f is zero. The bracket applied to f gives x two.",
+   "translation": "U f = 0，所以 V(U f) = 0；括号作用在 f 上得 x₂。"
+  },
+  {
+   "start": 319.9167,
+   "end": 325.5167,
+   "text": "As a field, U V bracket equals zero, x two. It points up, and grows with height.",
+   "translation": "作为向量场，[U,V] = (0, x₂)：指向上方，随高度增大。"
+  },
+  {
+   "start": 325.9667,
+   "end": 329.4167,
+   "text": "What does the bracket measure? Start at the point one, one.",
+   "translation": "李括号度量的是什么？从点 (1, 1) 出发。"
+  },
+  {
+   "start": 329.8667,
+   "end": 336.2917,
+   "text": "Flow along U for time epsilon, then along V for time epsilon. That is the orange path.",
+   "translation": "沿 U 的流走 ε 时间，再沿 V 的流走 ε 时间：这是橙色路径。"
+  },
+  {
+   "start": 336.7417,
+   "end": 341.4167,
+   "text": "Now do it in the other order: V first, then U. That is the purple path.",
+   "translation": "再换个顺序：先 V 后 U，这是紫色路径。"
+  },
+  {
+   "start": 341.8667,
+   "end": 348.7167,
+   "text": "The two endpoints do not meet. The gap, in red, is about epsilon squared times the bracket at the start.",
+   "translation": "两个终点不重合；红色缺口约等于 ε² 乘以起点处的李括号。"
+  },
+  {
+   "start": 349.1667,
+   "end": 359.9417,
+   "text": "Here are the numbers: the gap divided by epsilon squared is 1.25, 1.11, 1.05 and 1.03, approaching one.",
+   "translation": "数值：缺口除以 ε² 依次是 1.25、1.11、1.05、1.03，趋于 1。"
+  },
+  {
+   "start": 360.3917,
+   "end": 365.1667,
+   "text": "The bracket at the start is zero, one, so the limit is exactly right.",
+   "translation": "起点处的括号是 (0, 1)，极限正好吻合。"
+  },
+  {
+   "start": 365.6167,
+   "end": 371.3417,
+   "text": "Coordinate vector fields always commute: partial i, partial j bracket is zero.",
+   "translation": "坐标向量场总是对易的：[∂_i, ∂_j] = 0。"
+  },
+  {
+   "start": 371.7917,
+   "end": 376.8917,
+   "text": "The reason is the same symmetry of mixed partials. The grid squares close up.",
+   "translation": "原因同样是混合偏导的对称；网格的小方块是闭合的。"
+  },
+  {
+   "start": 377.3417,
+   "end": 383.7417,
+   "text": "As the lecture put it, the bracket measures the non-commutativity of differentiation along fields.",
+   "translation": "按课上的说法：李括号度量的是沿向量场求导的不可交换性。"
+  },
+  {
+   "start": 384.1917,
+   "end": 390.3917,
+   "text": "These are the tools the axioms will use: X f, the inner product of fields, and the bracket.",
+   "translation": "公理要用的工具就是这些：X f、场的内积和李括号。"
+  },
+  {
+   "start": 394.4,
+   "end": 401.0,
+   "text": "In a linear space, a vector field V has an ordinary derivative: D V of x, applied to u.",
+   "translation": "线性空间中，向量场 V 有普通导数 DV(x)[u]。"
+  },
+  {
+   "start": 401.45,
+   "end": 406.45,
+   "text": "It has three basic properties. First, it is linear in the direction u.",
+   "translation": "它有三条基本性质。第一，对方向 u 线性。"
+  },
+  {
+   "start": 406.9,
+   "end": 414.325,
+   "text": "Second, it is linear in the field: the derivative of a V plus b W is a D V plus b D W.",
+   "translation": "第二，对场线性：aV + bW 的导数是 a DV + b DW。"
+  },
+  {
+   "start": 414.775,
+   "end": 422.075,
+   "text": "Third, the product rule: D of f V along u equals D f of u times V, plus f times D V of u.",
+   "translation": "第三，乘积法则：D(fV)[u] = Df[u]·V + f·DV[u]。"
+  },
+  {
+   "start": 422.525,
+   "end": 428.0,
+   "text": "A connection keeps exactly these three properties, and nothing else, as axioms.",
+   "translation": "联络恰好把这三条性质当作公理，别的不要。"
+  },
+  {
+   "start": 428.45,
+   "end": 436.225,
+   "text": "An affine connection on M is a map nabla, taking two vector fields X and Y to a vector field nabla X Y.",
+   "translation": "M 上的仿射联络是映射 ∇：把两个向量场 X、Y 变成向量场 ∇_X Y。"
+  },
+  {
+   "start": 436.675,
+   "end": 441.425,
+   "text": "We read nabla X Y as the derivative of Y in the direction X.",
+   "translation": "∇_X Y 读作 Y 沿方向 X 的导数。"
+  },
+  {
+   "start": 441.875,
+   "end": 445.975,
+   "text": "Axiom one: it is C infinity linear in the direction.",
+   "translation": "公理一：对方向 C^∞ 线性。"
+  },
+  {
+   "start": 446.425,
+   "end": 456.225,
+   "text": "Nabla along f X plus g Y, of Z, equals f times nabla X Z, plus g times nabla Y Z, for smooth functions f and g.",
+   "translation": "∇_{fX+gY} Z = f∇_X Z + g∇_Y Z，其中 f、g 是光滑函数。"
+  },
+  {
+   "start": 456.675,
+   "end": 461.25,
+   "text": "Axiom two: it is R linear in the field being differentiated.",
+   "translation": "公理二：对被求导的场 ℝ 线性。"
+  },
+  {
+   "start": 461.7,
+   "end": 469.375,
+   "text": "Nabla X of a Y plus b Z equals a nabla X Y plus b nabla X Z, for real numbers a and b.",
+   "translation": "∇_X(aY + bZ) = a∇_X Y + b∇_X Z，a、b 是实数。"
+  },
+  {
+   "start": 469.825,
+   "end": 477.5,
+   "text": "Axiom three: the Leibniz rule. Nabla X of f Y equals f nabla X Y, plus X f times Y.",
+   "translation": "公理三：Leibniz 法则。∇_X(fY) = f∇_X Y + (X f)Y。"
+  },
+  {
+   "start": 477.95,
+   "end": 484.775,
+   "text": "Notice the asymmetry. In the direction, functions come out freely. In the field, only constants do.",
+   "translation": "注意不对称：在方向上，函数可以直接提出来；在场上，只有常数可以。"
+  },
+  {
+   "start": 485.225,
+   "end": 492.95,
+   "text": "Pulling a function out of the field costs an extra term: X f times Y. That term is what makes nabla a derivative.",
+   "translation": "把函数从场里提出来要多付一项 (X f)Y，正是这一项使 ∇ 成为导数。"
+  },
+  {
+   "start": 493.4,
+   "end": 499.9,
+   "text": "Without it, the zero map would satisfy the first two axioms, and the zero map differentiates nothing.",
+   "translation": "没有它，零映射也满足前两条公理，可零映射什么也没求导。"
+  },
+  {
+   "start": 500.35,
+   "end": 507.6,
+   "text": "Axiom one has a quieter consequence: nabla X Y at p depends only on the vector X of p.",
+   "translation": "公理一还有一个不那么显眼的推论：(∇_X Y)(p) 只依赖向量 X(p)。"
+  },
+  {
+   "start": 508.05,
+   "end": 513.525,
+   "text": "Two direction fields that agree at p, and differ elsewhere, give the same value at p.",
+   "translation": "两个方向场在 p 处相同、别处不同，在 p 处给出相同的值。"
+  },
+  {
+   "start": 513.975,
+   "end": 519.025,
+   "text": "That is why we may write nabla v Y, for a single tangent vector v at p.",
+   "translation": "因此可以对 p 处的单个切向量 v 写 ∇_v Y。"
+  },
+  {
+   "start": 519.475,
+   "end": 529.425,
+   "text": "Linearity over constants alone would not give this. On R n, D Y of X plus the divergence of X times Y obeys axioms two and three.",
+   "translation": "只对常数线性得不到这一点：ℝⁿ 上 DY[X] + (div X)Y 满足公理二、三。"
+  },
+  {
+   "start": 529.875,
+   "end": 537.475,
+   "text": "But replacing X by f X adds X f times Y, and its value at p depends on how X changes near p.",
+   "translation": "但把 X 换成 fX 会多出 (X f)Y，它在 p 的值还依赖 X 在 p 附近的变化。"
+  },
+  {
+   "start": 537.925,
+   "end": 544.1,
+   "text": "The ordinary derivative is a connection on R n: nabla X Y equals D Y of X.",
+   "translation": "普通导数是 ℝⁿ 上的联络：∇_X Y = DY[X]。"
+  },
+  {
+   "start": 544.55,
+   "end": 555.475,
+   "text": "Check the Leibniz rule: D of f Y along X equals D f of X times Y, plus f D Y of X, which is X f times Y plus f D Y of X.",
+   "translation": "验证 Leibniz：D(fY)[X] = Df[X]·Y + f·DY[X] = (X f)Y + f·DY[X]。"
+  },
+  {
+   "start": 555.925,
+   "end": 558.125,
+   "text": "But it is far from the only one.",
+   "translation": "但它远不是唯一的联络。"
+  },
+  {
+   "start": 558.575,
+   "end": 566.4,
+   "text": "Add to a connection any B of X and Y that is C infinity linear in both slots. The result is still a connection.",
+   "translation": "给一个联络加上任何对两个位置都 C^∞ 线性的 B(X,Y)，结果仍是联络。"
+  },
+  {
+   "start": 566.85,
+   "end": 575.475,
+   "text": "Axioms one and two survive by linearity, and in Leibniz, B of X, f Y is f B of X, Y, which adds no new term.",
+   "translation": "公理一、二由线性保持；Leibniz 中 B(X, fY) = fB(X,Y)，不产生新项。"
+  },
+  {
+   "start": 575.925,
+   "end": 581.275,
+   "text": "For example, on R three, D Y of X plus X cross Y is a connection.",
+   "translation": "例如在 ℝ³ 上，DY[X] + X×Y 是联络。"
+  },
+  {
+   "start": 581.725,
+   "end": 589.15,
+   "text": "And on the plane, D Y of X plus the inner product of X and Y, times a fixed vector a, is another one.",
+   "translation": "在平面上，DY[X] + ⟨X,Y⟩a（a 是固定向量）是另一个联络。"
+  },
+  {
+   "start": 589.6,
+   "end": 593.525,
+   "text": "Same X, same Y, three connections, three different answers.",
+   "translation": "同样的 X 和 Y，三个联络，三个不同的答案。"
+  },
+  {
+   "start": 593.975,
+   "end": 598.55,
+   "text": "So the axioms alone do not single out a derivative. The metric will.",
+   "translation": "所以单靠公理挑不出唯一的导数；度量可以。"
+  },
+  {
+   "start": 599.0,
+   "end": 602.85,
+   "text": "First, let us see what a connection looks like in coordinates.",
+   "translation": "先看看联络在坐标里是什么样子。"
+  },
+  {
+   "start": 606.8667,
+   "end": 611.6917,
+   "text": "Take local coordinates x one through x n on an open set U of M.",
+   "translation": "在 M 的开集 U 上取局部坐标 x¹,…,xⁿ。"
+  },
+  {
+   "start": 612.1417,
+   "end": 619.9417,
+   "text": "The coordinate vector fields E i, equal to partial over partial x i, form a basis of every tangent space in U.",
+   "translation": "坐标向量场 E_i = ∂/∂xⁱ 在 U 中每个切空间里构成一组基。"
+  },
+  {
+   "start": 620.3917,
+   "end": 627.0417,
+   "text": "So X equals X i E i and Y equals Y j E j, with smooth coefficient functions.",
+   "translation": "于是 X = XⁱE_i，Y = Y^jE_j，系数是光滑函数。"
+  },
+  {
+   "start": 627.4917,
+   "end": 632.0417,
+   "text": "Now expand nabla X Y with the axioms, one step at a time.",
+   "translation": "现在用公理一步步展开 ∇_X Y。"
+  },
+  {
+   "start": 632.4917,
+   "end": 641.4917,
+   "text": "Axiom one pulls the coefficients of the direction out: nabla X Y equals X i times nabla E i of Y j E j.",
+   "translation": "公理一把方向的系数提出来：∇_X Y = Xⁱ∇_{E_i}(Y^jE_j)。"
+  },
+  {
+   "start": 641.9417,
+   "end": 650.5917,
+   "text": "The Leibniz rule splits the rest: X i Y j nabla E i E j, plus X i times partial i of Y j, times E j.",
+   "translation": "Leibniz 法则把剩下的拆开：XⁱY^j∇_{E_i}E_j + Xⁱ(∂_iY^j)E_j。"
+  },
+  {
+   "start": 651.0417,
+   "end": 658.2917,
+   "text": "Everything is known except nabla E i E j: the derivative of one coordinate field along another.",
+   "translation": "除了 ∇_{E_i}E_j，其余都已知：一个坐标场沿另一个的导数。"
+  },
+  {
+   "start": 658.7417,
+   "end": 664.8417,
+   "text": "Expand it in the same basis: nabla E i E j equals Gamma k i j times E k.",
+   "translation": "把它也用同一组基展开：∇_{E_i}E_j = Γ^k_ij E_k。"
+  },
+  {
+   "start": 665.2917,
+   "end": 670.8917,
+   "text": "The n cubed functions Gamma k i j are the Christoffel symbols of the connection.",
+   "translation": "这 n³ 个函数 Γ^k_ij 叫做联络的 Christoffel 符号。"
+  },
+  {
+   "start": 671.3417,
+   "end": 677.6667,
+   "text": "So nabla X Y equals X of Y k plus Gamma k i j X i Y j, times E k.",
+   "translation": "所以 ∇_X Y = (X(Y^k) + Γ^k_ij XⁱY^j)E_k。"
+  },
+  {
+   "start": 678.1167,
+   "end": 683.2167,
+   "text": "On U, the connection is completely determined by its Christoffel symbols.",
+   "translation": "在 U 上，联络完全由它的 Christoffel 符号决定。"
+  },
+  {
+   "start": 683.6667,
+   "end": 690.0667,
+   "text": "The first term differentiates the components. The second records how the basis itself changes.",
+   "translation": "第一项对分量求导；第二项记录基本身怎样变化。"
+  },
+  {
+   "start": 690.5167,
+   "end": 696.3417,
+   "text": "Here is a concrete case: the ordinary derivative on the plane, in polar coordinates.",
+   "translation": "看一个具体例子：平面上的普通导数，用极坐标表示。"
+  },
+  {
+   "start": 696.7917,
+   "end": 705.8667,
+   "text": "The coordinate fields are E r, equal to cosine theta, sine theta, and E theta, equal to minus r sine theta, r cosine theta.",
+   "translation": "坐标场是 E_r = (cos θ, sin θ) 和 E_θ = (−r sin θ, r cos θ)。"
+  },
+  {
+   "start": 706.3167,
+   "end": 712.0667,
+   "text": "E r has unit length and points outward. E theta points around, and grows with r.",
+   "translation": "E_r 是单位长度、指向外；E_θ 绕圈方向，长度随 r 增大。"
+  },
+  {
+   "start": 712.5167,
+   "end": 718.1167,
+   "text": "Differentiate. Partial r of E r is zero: along a ray, E r does not change.",
+   "translation": "求导。∂_r E_r = 0：沿射线，E_r 不变。"
+  },
+  {
+   "start": 718.5667,
+   "end": 724.6417,
+   "text": "Partial r of E theta is minus sine theta, cosine theta, which is E theta over r.",
+   "translation": "∂_r E_θ = (−sin θ, cos θ) = E_θ / r。"
+  },
+  {
+   "start": 725.0917,
+   "end": 729.6167,
+   "text": "Partial theta of E r is the same vector, E theta over r.",
+   "translation": "∂_θ E_r 是同一个向量 E_θ / r。"
+  },
+  {
+   "start": 730.0667,
+   "end": 737.7917,
+   "text": "And partial theta of E theta is minus r cosine theta, minus r sine theta, which is minus r times E r.",
+   "translation": "∂_θ E_θ = (−r cos θ, −r sin θ) = −r E_r。"
+  },
+  {
+   "start": 738.2417,
+   "end": 747.3417,
+   "text": "So Gamma r theta theta equals minus r, Gamma theta r theta and Gamma theta theta r equal one over r, and the rest vanish.",
+   "translation": "所以 Γ^r_θθ = −r，Γ^θ_rθ = Γ^θ_θr = 1/r，其余为 0。"
+  },
+  {
+   "start": 747.7917,
+   "end": 755.2417,
+   "text": "Look at what Gamma theta theta r says. Walk around a circle: E r turns, and its change points along E theta.",
+   "translation": "看 Γ^θ_θr 的含义：沿圆周走，E_r 在转动，它的变化指向 E_θ 方向。"
+  },
+  {
+   "start": 755.6917,
+   "end": 764.3417,
+   "text": "The field E r has constant components, one and zero. Yet its derivative along E theta is E theta over r, not zero.",
+   "translation": "场 E_r 的分量是常数 (1, 0)，可它沿 E_θ 的导数是 E_θ/r，不是零。"
+  },
+  {
+   "start": 764.7917,
+   "end": 771.5167,
+   "text": "Constant components do not mean a constant field. The Christoffel symbols account for the turning basis.",
+   "translation": "分量是常数不等于场是常量；Christoffel 符号记录的是基的转动。"
+  },
+  {
+   "start": 771.9667,
+   "end": 778.7167,
+   "text": "Could we drop them, and just differentiate components? Try it at r equal to two, theta equal to zero.",
+   "translation": "能不能去掉它们，只对分量求导？在 r = 2、θ = 0 处试一试。"
+  },
+  {
+   "start": 779.1667,
+   "end": 785.8417,
+   "text": "The true derivative of E r along E theta is zero, one. The components-only rule gives zero.",
+   "translation": "E_r 沿 E_θ 的真实导数是 (0, 1)，只对分量求导却给出 0。"
+  },
+  {
+   "start": 786.2917,
+   "end": 793.9417,
+   "text": "In Cartesian coordinates, the components-only rule is the ordinary derivative. In polar coordinates it is not.",
+   "translation": "在笛卡尔坐标中，只对分量求导就是普通导数；在极坐标中则不是。"
+  },
+  {
+   "start": 794.3917,
+   "end": 801.9167,
+   "text": "A rule that depends on the chosen coordinates is not a derivative on the manifold. The Gammas cannot be dropped.",
+   "translation": "依赖坐标选择的规则不是流形上的导数；Γ 不能省。"
+  },
+  {
+   "start": 802.3667,
+   "end": 806.3417,
+   "text": "Next, the two properties that tie a connection to the metric.",
+   "translation": "接下来是把联络与度量联系起来的两条性质。"
+  },
+  {
+   "start": 810.3667,
+   "end": 816.4917,
+   "text": "Now let M carry a Riemannian metric. Among all connections, we ask for two more properties.",
+   "translation": "现在让 M 带上黎曼度量。在所有联络中，我们再要求两条性质。"
+  },
+  {
+   "start": 816.9417,
+   "end": 820.0167,
+   "text": "The first is compatibility with the metric.",
+   "translation": "第一条是与度量相容。"
+  },
+  {
+   "start": 820.4667,
+   "end": 829.0917,
+   "text": "X of the inner product of Y and Z equals the inner product of nabla X Y with Z, plus that of Y with nabla X Z.",
+   "translation": "X⟨Y, Z⟩ = ⟨∇_X Y, Z⟩ + ⟨Y, ∇_X Z⟩。"
+  },
+  {
+   "start": 829.5417,
+   "end": 835.4917,
+   "text": "It is the product rule for inner products, which the ordinary derivative obeys in R n.",
+   "translation": "这是内积的乘积法则，ℝⁿ 中的普通导数满足它。"
+  },
+  {
+   "start": 835.9417,
+   "end": 842.8417,
+   "text": "Its meaning: if two fields have zero derivative along a curve, their lengths and their angle stay constant.",
+   "translation": "它的含义：两个场沿曲线导数为零时，长度和夹角保持不变。"
+  },
+  {
+   "start": 843.2917,
+   "end": 851.2917,
+   "text": "The second property is torsion-freeness: nabla X Y minus nabla Y X equals the Lie bracket of X and Y.",
+   "translation": "第二条是无挠：∇_X Y − ∇_Y X = [X, Y]。"
+  },
+  {
+   "start": 851.7417,
+   "end": 857.9917,
+   "text": "In R n this is the identity we found: D Y of X minus D X of Y is the bracket.",
+   "translation": "在 ℝⁿ 中，这正是我们得到的恒等式：DY[X] − DX[Y] 就是括号。"
+  },
+  {
+   "start": 858.4417,
+   "end": 866.1667,
+   "text": "In coordinates, coordinate fields commute. So torsion-free means nabla E i E j equals nabla E j E i.",
+   "translation": "在坐标中，坐标场对易，所以无挠就是 ∇_{E_i}E_j = ∇_{E_j}E_i。"
+  },
+  {
+   "start": 866.6167,
+   "end": 875.3417,
+   "text": "That is, Gamma k i j equals Gamma k j i for all i and j: the Christoffel symbols are symmetric in the lower indices.",
+   "translation": "也就是对所有 i、j 有 Γ^k_ij = Γ^k_ji：Christoffel 符号对下标对称。"
+  },
+  {
+   "start": 875.7917,
+   "end": 882.9167,
+   "text": "The polar symbols pass this test: Gamma theta r theta and Gamma theta theta r are both one over r.",
+   "translation": "极坐标的符号通过这一检验：Γ^θ_rθ 和 Γ^θ_θr 都是 1/r。"
+  },
+  {
+   "start": 883.3667,
+   "end": 889.6917,
+   "text": "The ordinary derivative on R n has both properties. Do the two properties depend on each other?",
+   "translation": "ℝⁿ 上的普通导数两条都满足。这两条性质互相蕴含吗？"
+  },
+  {
+   "start": 890.1417,
+   "end": 895.0417,
+   "text": "They do not. Here is a connection that is compatible but not torsion-free.",
+   "translation": "不互相蕴含。先看一个相容但有挠的联络。"
+  },
+  {
+   "start": 895.4917,
+   "end": 900.7667,
+   "text": "On R three, take nabla X Y equal to D Y of X, plus X cross Y.",
+   "translation": "在 ℝ³ 上取 ∇_X Y = DY[X] + X×Y。"
+  },
+  {
+   "start": 901.2167,
+   "end": 908.0667,
+   "text": "Compatibility: the extra terms are X cross Y dotted with Z, plus Y dotted with X cross Z.",
+   "translation": "相容：多出的项是 ⟨X×Y, Z⟩ + ⟨Y, X×Z⟩。"
+  },
+  {
+   "start": 908.5167,
+   "end": 914.6917,
+   "text": "Those are two determinants with two columns swapped. They cancel, so the connection is compatible.",
+   "translation": "这是交换了两列的两个行列式，相互抵消，所以联络相容。"
+  },
+  {
+   "start": 915.1417,
+   "end": 924.2417,
+   "text": "Torsion: nabla X Y minus nabla Y X minus the bracket equals X cross Y minus Y cross X, which is two X cross Y.",
+   "translation": "挠率：∇_X Y − ∇_Y X − [X,Y] = X×Y − Y×X = 2X×Y。"
+  },
+  {
+   "start": 924.6917,
+   "end": 928.0917,
+   "text": "That is not zero, so the connection has torsion.",
+   "translation": "它不为零，所以联络有挠。"
+  },
+  {
+   "start": 928.5417,
+   "end": 934.9917,
+   "text": "What does it do? Move along the x axis and keep the derivative of a vector zero for this connection.",
+   "translation": "它做了什么？沿 x 轴移动，并让向量在这个联络下导数为零。"
+  },
+  {
+   "start": 935.4417,
+   "end": 942.5917,
+   "text": "The vector obeys z dot equals minus e one cross z. It rotates about the line of motion, like a screw.",
+   "translation": "向量满足 ż = −e₁ × z：绕运动方向旋转，像拧螺丝。"
+  },
+  {
+   "start": 943.0417,
+   "end": 950.2667,
+   "text": "Its length never changes, as compatibility promises. The twisting is the torsion, and the source of the name.",
+   "translation": "长度始终不变，正如相容所保证的；这种拧转就是挠率，名字也由此而来。"
+  },
+  {
+   "start": 950.7167,
+   "end": 954.7167,
+   "text": "Now the opposite case: torsion-free but not compatible.",
+   "translation": "再看相反的情形：无挠但不相容。"
+  },
+  {
+   "start": 955.1667,
+   "end": 963.8417,
+   "text": "On the plane, take nabla X Y equal to D Y of X plus the inner product of X and Y, times a, with a equal to e one.",
+   "translation": "在平面上取 ∇_X Y = DY[X] + ⟨X,Y⟩a，a = e₁。"
+  },
+  {
+   "start": 964.2917,
+   "end": 971.8917,
+   "text": "The extra term is symmetric in X and Y, so it cancels in nabla X Y minus nabla Y X. Torsion-free.",
+   "translation": "多出的项对 X、Y 对称，在 ∇_X Y − ∇_Y X 中抵消，所以无挠。"
+  },
+  {
+   "start": 972.3417,
+   "end": 979.9417,
+   "text": "Compatibility fails. With X, Y and Z all equal to e one, the left side is zero and the right side is two.",
+   "translation": "相容不成立：X、Y、Z 都取 e₁ 时，左边是 0，右边是 2。"
+  },
+  {
+   "start": 980.3917,
+   "end": 988.7917,
+   "text": "Move along the x axis with zero derivative: the first component obeys z one dot equals minus z one, and decays.",
+   "translation": "沿 x 轴保持导数为零：第一分量满足 ż₁ = −z₁，指数衰减。"
+  },
+  {
+   "start": 989.2417,
+   "end": 995.0667,
+   "text": "The vector shrinks and turns, though nothing in the plane is curved. Lengths are no longer kept.",
+   "translation": "平面里什么都没弯曲，向量却在缩短、转向；长度不再保持。"
+  },
+  {
+   "start": 995.5167,
+   "end": 1002.5417,
+   "text": "So each property rules out a different defect: compatibility keeps lengths, torsion-freeness forbids twisting.",
+   "translation": "所以两条性质分别排除不同的毛病：相容保长度，无挠禁止拧转。"
+  },
+  {
+   "start": 1002.9917,
+   "end": 1006.7667,
+   "text": "Next: together, do they pin down a single connection?",
+   "translation": "下一步：两条合在一起，能确定唯一的联络吗？"
+  },
+  {
+   "start": 1010.7667,
+   "end": 1015.6167,
+   "text": "Here is the answer, the fundamental theorem of Riemannian geometry.",
+   "translation": "答案就是黎曼几何基本定理。"
+  },
+  {
+   "start": 1016.0667,
+   "end": 1023.0917,
+   "text": "On a Riemannian manifold, there is exactly one connection that is compatible with the metric and torsion-free.",
+   "translation": "黎曼流形上，恰好存在一个与度量相容且无挠的联络。"
+  },
+  {
+   "start": 1023.5417,
+   "end": 1028.1917,
+   "text": "It is called the Levi-Civita connection, or the Riemannian connection.",
+   "translation": "它叫 Levi-Civita 联络，也叫黎曼联络。"
+  },
+  {
+   "start": 1028.6417,
+   "end": 1034.8417,
+   "text": "We follow the lecture's proof sketch. Step one derives a formula for it, the Koszul formula.",
+   "translation": "我们按课上的证明概要走。第一步推出它的一个公式：Koszul 公式。"
+  },
+  {
+   "start": 1035.2917,
+   "end": 1042.8167,
+   "text": "Suppose nabla is compatible and torsion-free. Write compatibility three times, cycling X, Y and Z.",
+   "translation": "设 ∇ 相容且无挠。把相容性写三遍，轮换 X、Y、Z。"
+  },
+  {
+   "start": 1043.2667,
+   "end": 1050.4667,
+   "text": "First: X of Y, Z equals the inner product of nabla X Y with Z, plus Y with nabla X Z.",
+   "translation": "第一行：X⟨Y,Z⟩ = ⟨∇_X Y, Z⟩ + ⟨Y, ∇_X Z⟩。"
+  },
+  {
+   "start": 1050.9167,
+   "end": 1056.5917,
+   "text": "Second: Y of Z, X equals nabla Y Z with X, plus Z with nabla Y X.",
+   "translation": "第二行：Y⟨Z,X⟩ = ⟨∇_Y Z, X⟩ + ⟨Z, ∇_Y X⟩。"
+  },
+  {
+   "start": 1057.0417,
+   "end": 1062.8167,
+   "text": "Third: Z of X, Y equals nabla Z X with Y, plus X with nabla Z Y.",
+   "translation": "第三行：Z⟨X,Y⟩ = ⟨∇_Z X, Y⟩ + ⟨X, ∇_Z Y⟩。"
+  },
+  {
+   "start": 1063.2667,
+   "end": 1066.5417,
+   "text": "Add the first two lines and subtract the third.",
+   "translation": "前两行相加，减去第三行。"
+  },
+  {
+   "start": 1066.9917,
+   "end": 1070.8417,
+   "text": "Collect terms by which field sits outside the inner product.",
+   "translation": "按内积外面是哪个场来整理各项。"
+  },
+  {
+   "start": 1071.2917,
+   "end": 1078.5167,
+   "text": "Y pairs with nabla X Z minus nabla Z X. By torsion-freeness that is the bracket of X and Z.",
+   "translation": "与 Y 配对的是 ∇_X Z − ∇_Z X，由无挠它等于 [X, Z]。"
+  },
+  {
+   "start": 1078.9667,
+   "end": 1084.6917,
+   "text": "X pairs with nabla Y Z minus nabla Z Y, which is the bracket of Y and Z.",
+   "translation": "与 X 配对的是 ∇_Y Z − ∇_Z Y，等于 [Y, Z]。"
+  },
+  {
+   "start": 1085.1417,
+   "end": 1094.2417,
+   "text": "Z pairs with nabla X Y plus nabla Y X. Replace nabla Y X by nabla X Y minus the bracket of X and Y.",
+   "translation": "与 Z 配对的是 ∇_X Y + ∇_Y X；把 ∇_Y X 换成 ∇_X Y − [X, Y]。"
+  },
+  {
+   "start": 1094.6917,
+   "end": 1100.4667,
+   "text": "That leaves twice the inner product of nabla X Y with Z, plus three bracket terms.",
+   "translation": "剩下 2⟨∇_X Y, Z⟩ 加上三个括号项。"
+  },
+  {
+   "start": 1100.9167,
+   "end": 1109.3417,
+   "text": "Solve for it. Two times nabla X Y, paired with Z, equals X of Y Z, plus Y of Z X, minus Z of X Y,",
+   "translation": "解出它：2⟨∇_X Y, Z⟩ = X⟨Y,Z⟩ + Y⟨Z,X⟩ − Z⟨X,Y⟩"
+  },
+  {
+   "start": 1109.7917,
+   "end": 1118.3167,
+   "text": "minus X paired with the bracket of Y and Z, plus Y with the bracket of Z and X, plus Z with the bracket of X and Y.",
+   "translation": "− ⟨X,[Y,Z]⟩ + ⟨Y,[Z,X]⟩ + ⟨Z,[X,Y]⟩。"
+  },
+  {
+   "start": 1118.7667,
+   "end": 1123.8667,
+   "text": "This is the Koszul formula. Look at its right side: there is no nabla in it.",
+   "translation": "这就是 Koszul 公式。看右边：里面没有 ∇。"
+  },
+  {
+   "start": 1124.3167,
+   "end": 1128.1167,
+   "text": "It involves only the metric, the fields, and their brackets.",
+   "translation": "它只用到度量、场以及它们的括号。"
+  },
+  {
+   "start": 1128.5667,
+   "end": 1133.5667,
+   "text": "So the inner product of nabla X Y with every Z is fixed in advance.",
+   "translation": "所以 ∇_X Y 与每个 Z 的内积都事先确定了。"
+  },
+  {
+   "start": 1134.0167,
+   "end": 1141.9167,
+   "text": "By the Riesz theorem, a vector is determined by its inner products with all vectors. So nabla X Y is determined.",
+   "translation": "由 Riesz 定理，一个向量由它与所有向量的内积确定，所以 ∇_X Y 被确定了。"
+  },
+  {
+   "start": 1142.3667,
+   "end": 1147.7917,
+   "text": "Two compatible, torsion-free connections must therefore agree. That is uniqueness.",
+   "translation": "因此两个相容且无挠的联络必然相同，这就是唯一性。"
+  },
+  {
+   "start": 1148.2417,
+   "end": 1155.0667,
+   "text": "Step two, existence, runs the formula backwards: define nabla X Y by the Koszul formula.",
+   "translation": "第二步存在性，把公式反过来用：用 Koszul 公式定义 ∇_X Y。"
+  },
+  {
+   "start": 1155.5167,
+   "end": 1162.8167,
+   "text": "One checks that the right side is C infinity linear in Z, and that the result satisfies all five properties.",
+   "translation": "要验证右边对 Z 是 C^∞ 线性的，并且所得算子满足全部五条性质。"
+  },
+  {
+   "start": 1163.2667,
+   "end": 1170.6417,
+   "text": "The book calls this direct but tedious. For submanifolds, the next chapter writes the connection down explicitly.",
+   "translation": "书上说这一步直接但繁琐；对子流形，下一章会把联络显式写出来。"
+  },
+  {
+   "start": 1171.0917,
+   "end": 1179.7417,
+   "text": "The formula is also practical. Put X equal to E i, Y equal to E j, Z equal to E l. All brackets vanish.",
+   "translation": "这个公式也很实用：取 X = E_i、Y = E_j、Z = E_l，所有括号都为零。"
+  },
+  {
+   "start": 1180.1917,
+   "end": 1187.3917,
+   "text": "With g i j the inner product of E i and E j, we get the classical formula for the Christoffel symbols.",
+   "translation": "记 g_ij = ⟨E_i, E_j⟩，就得到 Christoffel 符号的经典公式。"
+  },
+  {
+   "start": 1187.8417,
+   "end": 1197.2667,
+   "text": "Gamma k i j equals one half g inverse k l, times partial i g j l plus partial j g i l minus partial l g i j.",
+   "translation": "Γ^k_ij = ½ g^{kl}(∂_i g_jl + ∂_j g_il − ∂_l g_ij)。"
+  },
+  {
+   "start": 1197.7167,
+   "end": 1203.6417,
+   "text": "Check it on polar coordinates, where the metric is diagonal with entries one and r squared.",
+   "translation": "用极坐标检验：度量是对角的，对角元为 1 和 r²。"
+  },
+  {
+   "start": 1204.0917,
+   "end": 1210.3417,
+   "text": "Gamma r theta theta is one half times minus partial r of r squared, which is minus r.",
+   "translation": "Γ^r_θθ = ½·(−∂_r r²) = −r。"
+  },
+  {
+   "start": 1210.7917,
+   "end": 1217.6167,
+   "text": "Gamma theta r theta is one half times one over r squared, times two r, which is one over r.",
+   "translation": "Γ^θ_rθ = ½ · (1/r²) · 2r = 1/r。"
+  },
+  {
+   "start": 1218.0667,
+   "end": 1226.3167,
+   "text": "Both match what we computed directly from the moving frame. The ordinary derivative on the plane is the Levi-Civita connection.",
+   "translation": "两者都与直接从活动标架算出的结果一致：平面上的普通导数就是 Levi-Civita 联络。"
+  },
+  {
+   "start": 1226.7667,
+   "end": 1232.8667,
+   "text": "Either property alone left room for other connections. Together, they leave exactly one.",
+   "translation": "单独一条性质都还留有别的联络；两条合起来，只剩唯一一个。"
+  },
+  {
+   "start": 1236.8667,
+   "end": 1244.8917,
+   "text": "Most manifolds in optimization sit inside a Euclidean space: spheres, the orthogonal group, Stiefel manifolds.",
+   "translation": "优化中的流形大多位于欧氏空间里：球面、正交群、Stiefel 流形。"
+  },
+  {
+   "start": 1245.3417,
+   "end": 1249.7167,
+   "text": "For them, the Levi-Civita connection has a simple description.",
+   "translation": "对它们，Levi-Civita 联络有一个简单的描述。"
+  },
+  {
+   "start": 1250.1667,
+   "end": 1256.0917,
+   "text": "Let M sit in R n with the induced metric, and let X be a smooth vector field on M.",
+   "translation": "设 M 位于 ℝⁿ 中、带诱导度量，X 是 M 上的光滑向量场。"
+  },
+  {
+   "start": 1256.5417,
+   "end": 1262.0667,
+   "text": "Step one: pick a smooth extension X bar of X to an open neighborhood U of M.",
+   "translation": "第一步：取 X 在 M 的开邻域 U 上的光滑延拓 X̅。"
+  },
+  {
+   "start": 1262.5167,
+   "end": 1272.1667,
+   "text": "Step two: X bar lives on an open set of R n, so its ordinary differential D X bar of p, applied to v, makes sense for every v.",
+   "translation": "第二步：X̅ 定义在 ℝⁿ 的开集上，所以普通微分 DX̅(p)[v] 对每个 v 都有意义。"
+  },
+  {
+   "start": 1272.6167,
+   "end": 1280.6667,
+   "text": "Step three: project it to the tangent space. Nabla v X equals Proj p of D X bar of p, applied to v.",
+   "translation": "第三步：投影到切空间。∇_v X = Proj_p(DX̅(p)[v])。"
+  },
+  {
+   "start": 1281.1167,
+   "end": 1287.3417,
+   "text": "Extend, differentiate, project. This is exactly the fix that the circle was asking for.",
+   "translation": "延拓、求导、投影。这正是圆的例子所需要的修正。"
+  },
+  {
+   "start": 1287.7917,
+   "end": 1294.3667,
+   "text": "First, it does not depend on the extension. Take a curve c on M through p with velocity v.",
+   "translation": "首先，它不依赖延拓。取 M 上过 p、速度为 v 的曲线 c。"
+  },
+  {
+   "start": 1294.8167,
+   "end": 1303.0167,
+   "text": "D X bar of p, applied to v, is the derivative of X bar along c, which only sees the values of X on M.",
+   "translation": "DX̅(p)[v] 是 X̅ 沿 c 的导数，只用到 X 在 M 上的值。"
+  },
+  {
+   "start": 1303.4667,
+   "end": 1309.3417,
+   "text": "Two extensions, white and purple, differ off the sphere but give the same derivative along it.",
+   "translation": "两个延拓（白色和紫色）在球外不同，沿球面的导数却相同。"
+  },
+  {
+   "start": 1309.7917,
+   "end": 1316.3667,
+   "text": "Second, it is a connection. D X bar obeys all three axioms, and the projection is linear.",
+   "translation": "其次，它是联络：DX̅ 满足三条公理，投影是线性的。"
+  },
+  {
+   "start": 1316.8167,
+   "end": 1323.8667,
+   "text": "In the Leibniz rule, the extra term X f times Y is already tangent, so the projection leaves it alone.",
+   "translation": "Leibniz 法则中多出的 (X f)Y 本来就是切向的，投影不改变它。"
+  },
+  {
+   "start": 1324.3167,
+   "end": 1327.1417,
+   "text": "Third, it is compatible with the metric.",
+   "translation": "第三，它与度量相容。"
+  },
+  {
+   "start": 1327.5917,
+   "end": 1336.1667,
+   "text": "X of Y, Z equals D Y bar of X paired with Z, plus Y paired with D Z bar of X, by the ordinary product rule.",
+   "translation": "由普通乘积法则，X⟨Y,Z⟩ = ⟨DY̅[X], Z⟩ + ⟨Y, DZ̅[X]⟩。"
+  },
+  {
+   "start": 1336.6167,
+   "end": 1345.3167,
+   "text": "Z is tangent, so pairing with Z ignores the normal part. We may project D Y bar of X for free. Same for the other term.",
+   "translation": "Z 是切向量，与 Z 配对时看不到法向部分，可以白白把 DY̅[X] 投影；另一项同理。"
+  },
+  {
+   "start": 1345.7667,
+   "end": 1354.8417,
+   "text": "Fourth, it is torsion-free. Nabla X Y minus nabla Y X is the projection of D Y bar of X minus D X bar of Y.",
+   "translation": "第四，它无挠。∇_X Y − ∇_Y X 是 DY̅[X] − DX̅[Y] 的投影。"
+  },
+  {
+   "start": 1355.2917,
+   "end": 1360.4167,
+   "text": "That difference is the bracket of the extensions. We need it to be tangent to M.",
+   "translation": "这个差是两个延拓的李括号，我们需要它切于 M。"
+  },
+  {
+   "start": 1360.8667,
+   "end": 1368.5417,
+   "text": "Write M as the zero set of h. On M, D h of x applied to Y of x is zero, because Y is tangent.",
+   "translation": "把 M 写成 h 的零点集。在 M 上 Dh(x)[Y(x)] = 0，因为 Y 是切向的。"
+  },
+  {
+   "start": 1368.9917,
+   "end": 1377.6417,
+   "text": "Differentiate this along the tangent field X: D squared h of X and Y, plus D h of D Y bar of X, equals zero.",
+   "translation": "沿切向场 X 求导：D²h[X, Y] + Dh[DY̅[X]] = 0。"
+  },
+  {
+   "start": 1378.0917,
+   "end": 1384.9417,
+   "text": "Swap X and Y and subtract. The second derivative D squared h is symmetric, so it cancels.",
+   "translation": "对调 X、Y 再相减。二阶导数 D²h 是对称的，于是抵消。"
+  },
+  {
+   "start": 1385.3917,
+   "end": 1392.0417,
+   "text": "What remains says D h of the difference is zero: the difference is tangent, and the projection keeps it.",
+   "translation": "剩下的说明 Dh 作用在差上为零：差是切向的，投影保持它不变。"
+  },
+  {
+   "start": 1392.4917,
+   "end": 1399.3417,
+   "text": "Compatible and torsion-free: by uniqueness, this is the Levi-Civita connection of the submanifold.",
+   "translation": "相容且无挠：由唯一性，这就是子流形的 Levi-Civita 联络。"
+  },
+  {
+   "start": 1399.7917,
+   "end": 1406.4417,
+   "text": "A caution: with a different, non-induced metric on M, the Levi-Civita connection can be different.",
+   "translation": "提醒一句：如果 M 上用的不是诱导度量，Levi-Civita 联络可能不同。"
+  },
+  {
+   "start": 1406.8917,
+   "end": 1412.6917,
+   "text": "Now an example on the sphere: the rotation field V of x equals e three cross x.",
+   "translation": "现在看球面上的例子：旋转场 V(x) = e₃ × x。"
+  },
+  {
+   "start": 1413.1417,
+   "end": 1419.2667,
+   "text": "The same formula extends it to R three, and its differential along u is e three cross u.",
+   "translation": "同一公式就是它在 ℝ³ 上的延拓，沿 u 的微分是 e₃ × u。"
+  },
+  {
+   "start": 1419.7167,
+   "end": 1424.3167,
+   "text": "So nabla u V is the projection, at x, of e three cross u.",
+   "translation": "所以 ∇_u V = Proj_x(e₃ × u)。"
+  },
+  {
+   "start": 1424.7667,
+   "end": 1432.5667,
+   "text": "Differentiate V along itself. At a point on the equator, e three cross V of x is minus x: purely normal.",
+   "translation": "让 V 沿自身求导。在赤道上的点，e₃ × V(x) = −x，纯法向。"
+  },
+  {
+   "start": 1433.0167,
+   "end": 1438.4167,
+   "text": "The projection removes it entirely. Nabla V V is zero on the equator.",
+   "translation": "投影把它完全去掉，赤道上 ∇_V V = 0。"
+  },
+  {
+   "start": 1438.8667,
+   "end": 1446.7917,
+   "text": "On a latitude circle at polar angle theta, the vector is minus x one, x two, zero. Part of it is tangent.",
+   "translation": "在极角为 θ 的纬线圈上，这个向量是 −(x₁, x₂, 0)，其中一部分是切向的。"
+  },
+  {
+   "start": 1447.2417,
+   "end": 1452.3917,
+   "text": "The tangent part has length sine theta cosine theta, and points toward the pole.",
+   "translation": "切向部分长度为 sin θ cos θ，指向极点。"
+  },
+  {
+   "start": 1452.8417,
+   "end": 1460.3167,
+   "text": "Back on the circle: gamma double dot was minus gamma, purely normal. Its projection is zero, as we hoped.",
+   "translation": "回到圆：γ̈ = −γ 纯法向，投影为零，正如我们期望的。"
+  },
+  {
+   "start": 1460.7667,
+   "end": 1464.9917,
+   "text": "Next, we use this to differentiate the velocity of a curve.",
+   "translation": "下一步，用它对曲线的速度求导。"
+  },
+  {
+   "start": 1469.0,
+   "end": 1475.425,
+   "text": "Along a curve gamma, a vector field Z assigns a tangent vector Z of t at gamma of t.",
+   "translation": "沿曲线 γ 的向量场 Z 在 γ(t) 处给出切向量 Z(t)。"
+  },
+  {
+   "start": 1475.875,
+   "end": 1479.75,
+   "text": "The velocity gamma dot is the most important example.",
+   "translation": "速度 γ̇ 是最重要的例子。"
+  },
+  {
+   "start": 1480.2,
+   "end": 1488.9,
+   "text": "A connection induces a derivative of such fields, D over d t. On a submanifold it is the projected ordinary derivative.",
+   "translation": "联络诱导出这种场的导数 D/dt；在子流形上它就是投影后的普通导数。"
+  },
+  {
+   "start": 1489.35,
+   "end": 1494.6,
+   "text": "D over d t of Z is the projection, at gamma of t, of Z dot of t.",
+   "translation": "D/dt Z = Proj_{γ(t)}(Ż(t))。"
+  },
+  {
+   "start": 1495.05,
+   "end": 1502.95,
+   "text": "Apply it to the velocity. The acceleration of gamma is gamma double prime, equal to D over d t of gamma dot.",
+   "translation": "把它用在速度上：γ 的加速度是 γ'' = D/dt γ̇。"
+  },
+  {
+   "start": 1503.4,
+   "end": 1510.775,
+   "text": "On a submanifold, gamma double prime is the tangent part of the ordinary second derivative gamma double dot.",
+   "translation": "在子流形上，γ'' 是普通二阶导数 γ̈ 的切向部分。"
+  },
+  {
+   "start": 1511.225,
+   "end": 1518.125,
+   "text": "A geodesic is a curve with zero acceleration: nabla gamma dot of gamma dot equals zero.",
+   "translation": "测地线是加速度为零的曲线：∇_γ̇ γ̇ = 0。"
+  },
+  {
+   "start": 1518.575,
+   "end": 1526.425,
+   "text": "This is the geodesic equation, boxed on the board. On a submanifold, it says gamma double dot is always normal.",
+   "translation": "这就是板书方框里的测地线方程。在子流形上，它说 γ̈ 始终是法向的。"
+  },
+  {
+   "start": 1526.875,
+   "end": 1535.4,
+   "text": "Test a great circle: gamma of t equals cosine t times x, plus sine t times v, with x and v orthonormal.",
+   "translation": "检验大圆：γ(t) = cos t·x + sin t·v，x 与 v 正交且为单位向量。"
+  },
+  {
+   "start": 1535.85,
+   "end": 1543.375,
+   "text": "Its second derivative is minus gamma: normal to the sphere. So great circles at constant speed are geodesics.",
+   "translation": "它的二阶导数是 −γ，垂直于球面。所以匀速大圆是测地线。"
+  },
+  {
+   "start": 1543.825,
+   "end": 1549.4,
+   "text": "Now a latitude circle at polar angle theta, traversed at unit angular speed.",
+   "translation": "再看极角为 θ 的纬线圈，以单位角速度绕行。"
+  },
+  {
+   "start": 1549.85,
+   "end": 1555.975,
+   "text": "Its second derivative points at the axis, not at the center of the sphere. Part of it is tangent.",
+   "translation": "它的二阶导数指向旋转轴，而不是球心，其中一部分是切向的。"
+  },
+  {
+   "start": 1556.425,
+   "end": 1563.25,
+   "text": "The tangent part has length sine theta cosine theta, the same number as before, and points toward the pole.",
+   "translation": "切向部分长度为 sin θ cos θ，与上一章的数相同，指向极点。"
+  },
+  {
+   "start": 1563.7,
+   "end": 1572.975,
+   "text": "At sixty degrees it is 0.433, at forty-five degrees 0.5, at thirty degrees 0.433 again.",
+   "translation": "60° 时是 0.433，45° 时是 0.5，30° 时又是 0.433。"
+  },
+  {
+   "start": 1573.425,
+   "end": 1581.525,
+   "text": "Only at the equator, ninety degrees, does it vanish. The equator is a great circle; the other latitudes are not geodesics.",
+   "translation": "只有在 90° 的赤道它才为零。赤道是大圆，其他纬线都不是测地线。"
+  },
+  {
+   "start": 1581.975,
+   "end": 1586.425,
+   "text": "A walker on a latitude must keep turning toward the pole to stay on it.",
+   "translation": "沿纬线走的人必须不断朝极点方向转弯，才能留在纬线上。"
+  },
+  {
+   "start": 1586.875,
+   "end": 1593.4,
+   "text": "Constant speed is not the criterion either. Every latitude here is traversed at constant speed.",
+   "translation": "速率恒定也不是判据：这里每条纬线都是匀速走的。"
+  },
+  {
+   "start": 1593.85,
+   "end": 1602.875,
+   "text": "But geodesics do have constant speed: the derivative of gamma dot squared is two gamma double prime paired with gamma dot, which is zero.",
+   "translation": "但测地线确实匀速：|γ̇|² 的导数是 2⟨γ'', γ̇⟩ = 0。"
+  },
+  {
+   "start": 1603.325,
+   "end": 1606.325,
+   "text": "That step used compatibility with the metric.",
+   "translation": "这一步用到了与度量相容。"
+  },
+  {
+   "start": 1606.775,
+   "end": 1613.225,
+   "text": "In coordinates, write gamma dot as x dot j times E j and differentiate with the connection.",
+   "translation": "在坐标中，把 γ̇ 写成 ẋ^jE_j，再用联络求导。"
+  },
+  {
+   "start": 1613.675,
+   "end": 1621.275,
+   "text": "Gamma double prime equals x double dot k, plus Gamma k i j x dot i x dot j, times E k.",
+   "translation": "γ'' = (ẍ^k + Γ^k_ij ẋⁱẋ^j)E_k。"
+  },
+  {
+   "start": 1621.725,
+   "end": 1630.725,
+   "text": "So the geodesic equation becomes x double dot k plus Gamma k i j x dot i x dot j equals zero, for every k.",
+   "translation": "于是测地线方程变成：对每个 k，ẍ^k + Γ^k_ij ẋⁱẋ^j = 0。"
+  },
+  {
+   "start": 1631.175,
+   "end": 1641.875,
+   "text": "In polar coordinates: r double dot minus r theta dot squared equals zero, and theta double dot plus two over r, r dot theta dot, equals zero.",
+   "translation": "极坐标中：r̈ − rθ̇² = 0，θ̈ + (2/r)ṙθ̇ = 0。"
+  },
+  {
+   "start": 1642.325,
+   "end": 1650.5,
+   "text": "Plug in the straight line x equals one, at unit speed. Both residuals come out below three times ten to the minus sixteen.",
+   "translation": "代入单位速率的直线 x = 1，两个残差都小于 3×10⁻¹⁶。"
+  },
+  {
+   "start": 1650.95,
+   "end": 1656.475,
+   "text": "Straight lines are the geodesics of the plane, even when written in curved coordinates.",
+   "translation": "直线是平面的测地线，即使用弯曲的坐标来写也是如此。"
+  },
+  {
+   "start": 1656.925,
+   "end": 1666.2,
+   "text": "The geodesic equation is a smooth second-order ODE. Given a starting point x and a velocity v, it has a unique solution for a while.",
+   "translation": "测地线方程是光滑的二阶常微分方程；给定起点 x 和速度 v，它在一段时间内有唯一解。"
+  },
+  {
+   "start": 1666.65,
+   "end": 1673.1,
+   "text": "That is the existence and uniqueness theorem for ODEs, which rests on the contraction mapping principle.",
+   "translation": "这就是 ODE 的存在唯一性定理，它建立在压缩映射原理之上。"
+  },
+  {
+   "start": 1673.55,
+   "end": 1681.6,
+   "text": "So a geodesic is determined by its initial point and initial velocity: one geodesic for each tangent vector.",
+   "translation": "所以测地线由初始点和初始速度决定：每个切向量对应一条测地线。"
+  },
+  {
+   "start": 1682.05,
+   "end": 1687.65,
+   "text": "On the sphere, shooting from one point in every direction gives a fan of great circles.",
+   "translation": "在球面上，从一点向各个方向射出，得到一扇大圆。"
+  },
+  {
+   "start": 1688.1,
+   "end": 1691.35,
+   "text": "Next, we package this fan into a single map.",
+   "translation": "下一步，把这扇测地线打包成一个映射。"
+  },
+  {
+   "start": 1695.3667,
+   "end": 1704.5417,
+   "text": "Fix a point x. For a tangent vector v, let gamma v be the geodesic with gamma v of zero equal to x and initial velocity v.",
+   "translation": "固定点 x。对切向量 v，令 γ_v 为 γ_v(0) = x、初速度为 v 的测地线。"
+  },
+  {
+   "start": 1704.9917,
+   "end": 1712.3417,
+   "text": "The exponential map sends v to the point gamma v of one. Exp x of v equals gamma v of one.",
+   "translation": "指数映射把 v 送到点 γ_v(1)：Exp_x(v) = γ_v(1)。"
+  },
+  {
+   "start": 1712.7917,
+   "end": 1718.3917,
+   "text": "It is defined on the open set of v for which the geodesic lasts until time one.",
+   "translation": "它定义在使测地线能延续到 t = 1 的那些 v 构成的开集上。"
+  },
+  {
+   "start": 1718.8417,
+   "end": 1725.9667,
+   "text": "Rescaling the velocity rescales time: gamma of t v at time s equals gamma v at time t s.",
+   "translation": "速度放大，时间就相应缩短：γ_{tv}(s) = γ_v(ts)。"
+  },
+  {
+   "start": 1726.4167,
+   "end": 1734.7667,
+   "text": "So Exp x of t v equals gamma v of t. Moving along the ray t v in the tangent space traces the geodesic.",
+   "translation": "所以 Exp_x(tv) = γ_v(t)：在切空间中沿射线 tv 移动，就描出这条测地线。"
+  },
+  {
+   "start": 1735.2167,
+   "end": 1739.9167,
+   "text": "On the sphere, geodesics are great circles, and we can write the map down.",
+   "translation": "在球面上，测地线是大圆，可以把映射写出来。"
+  },
+  {
+   "start": 1740.3667,
+   "end": 1748.1917,
+   "text": "Exp x of v equals cosine of the norm of v, times x, plus sine of the norm of v, times v over its norm.",
+   "translation": "Exp_x(v) = cos‖v‖·x + sin‖v‖·v/‖v‖。"
+  },
+  {
+   "start": 1748.6417,
+   "end": 1753.9667,
+   "text": "Walk a distance equal to the length of v along the great circle in direction v.",
+   "translation": "沿方向 v 的大圆走过等于 ‖v‖ 的距离。"
+  },
+  {
+   "start": 1754.4167,
+   "end": 1757.8167,
+   "text": "On the sphere it is defined on the whole tangent plane.",
+   "translation": "在球面上，它定义在整个切平面上。"
+  },
+  {
+   "start": 1758.2667,
+   "end": 1764.5667,
+   "text": "Circles of radius rho in the tangent plane go to latitude circles at distance rho from x.",
+   "translation": "切平面上半径为 ρ 的圆，被送到与 x 相距 ρ 的纬线圈。"
+  },
+  {
+   "start": 1765.0167,
+   "end": 1772.6667,
+   "text": "As rho grows to pi, these circles shrink again, and the whole circle of radius pi lands on the antipode, minus x.",
+   "translation": "ρ 增大到 π 时，这些圆又缩小，半径 π 的整个圆都落到对径点 −x。"
+  },
+  {
+   "start": 1773.1167,
+   "end": 1780.5667,
+   "text": "So Exp x is one-to-one only for vectors shorter than pi. Pi is the injectivity radius of the sphere.",
+   "translation": "所以 Exp_x 只在长度小于 π 的向量上是单射；π 是球面的单射半径。"
+  },
+  {
+   "start": 1781.0167,
+   "end": 1787.7667,
+   "text": "The exponential map is a retraction. Exp x of zero is x, because the geodesic starts there.",
+   "translation": "指数映射是 retraction。Exp_x(0) = x，因为测地线从这里出发。"
+  },
+  {
+   "start": 1788.2167,
+   "end": 1798.0667,
+   "text": "And the derivative of Exp x of t v at t equal to zero is gamma v dot of zero, which is v. So its differential at zero is the identity.",
+   "translation": "Exp_x(tv) 在 t = 0 处的导数是 γ̇_v(0) = v，所以它在 0 处的微分是恒等映射。"
+  },
+  {
+   "start": 1798.5167,
+   "end": 1807.7667,
+   "text": "It does more than a retraction must. The curve t maps to Exp x of t v has zero acceleration, not only at the start but everywhere.",
+   "translation": "它比 retraction 要求的更多：曲线 t ↦ Exp_x(tv) 的加速度处处为零，不只是在起点。"
+  },
+  {
+   "start": 1808.2167,
+   "end": 1817.3667,
+   "text": "A retraction R is called second order if the curve c of t equals R x of t v has c double prime of zero equal to zero.",
+   "translation": "若曲线 c(t) = R_x(tv) 满足 c''(0) = 0，retraction R 称为二阶的。"
+  },
+  {
+   "start": 1817.8167,
+   "end": 1824.2417,
+   "text": "The exponential map is second order. What about the normalization retraction from episode six?",
+   "translation": "指数映射是二阶的。第六集的归一化 retraction 呢？"
+  },
+  {
+   "start": 1824.6917,
+   "end": 1830.1917,
+   "text": "Its curve is x plus t v, divided by the square root of one plus t squared.",
+   "translation": "它的曲线是 (x + tv)/√(1 + t²)。"
+  },
+  {
+   "start": 1830.6417,
+   "end": 1840.4167,
+   "text": "At t equal to zero, its ordinary second derivative is minus x: purely normal. So c double prime of zero is zero. Second order too.",
+   "translation": "在 t = 0 处，它的普通二阶导数是 −x，纯法向，所以 c''(0) = 0，也是二阶的。"
+  },
+  {
+   "start": 1840.8667,
+   "end": 1854.9167,
+   "text": "Measure it. The distance between R x of t v and Exp x of t v, divided by t cubed, is 0.305, 0.326, 0.331 and 0.333.",
+   "translation": "实测：R_x(tv) 与 Exp_x(tv) 的距离除以 t³，依次是 0.305、0.326、0.331、0.333。"
+  },
+  {
+   "start": 1855.3667,
+   "end": 1861.5917,
+   "text": "It tends to one third. The two curves agree to second order; they separate only at third order.",
+   "translation": "它趋于 1/3：两条曲线二阶一致，只在三阶上分开。"
+  },
+  {
+   "start": 1862.0417,
+   "end": 1871.8667,
+   "text": "Now a retraction that is only first order. Push x plus v a little sideways: add one half the norm of v squared times w, then normalize.",
+   "translation": "再看一个只是一阶的 retraction：把 x + v 稍微侧推，加上 ½‖v‖²w，再归一化。"
+  },
+  {
+   "start": 1872.3167,
+   "end": 1879.1417,
+   "text": "Here w is a fixed unit tangent vector orthogonal to v. Both retraction conditions still hold.",
+   "translation": "这里 w 是与 v 正交的固定单位切向量；retraction 的两个条件仍然成立。"
+  },
+  {
+   "start": 1879.5917,
+   "end": 1885.6667,
+   "text": "But its curve accelerates sideways: c double prime of zero equals w, not zero.",
+   "translation": "但它的曲线侧向加速：c''(0) = w，不为零。"
+  },
+  {
+   "start": 1886.1167,
+   "end": 1896.7667,
+   "text": "Its distance to Exp, divided by t squared, is 0.479, 0.495, 0.499: it tends to one half.",
+   "translation": "它与 Exp 的距离除以 t²，依次是 0.479、0.495、0.499，趋于 1/2。"
+  },
+  {
+   "start": 1897.2167,
+   "end": 1903.0167,
+   "text": "On a log-log plot, the normalization error has slope three, the sideways one slope two.",
+   "translation": "在对数坐标图上，归一化的误差斜率为 3，侧推的斜率为 2。"
+  },
+  {
+   "start": 1903.4667,
+   "end": 1909.4917,
+   "text": "First-order analysis, like the convergence of gradient descent, works with any retraction.",
+   "translation": "一阶分析（例如梯度下降的收敛性）用任何 retraction 都行。"
+  },
+  {
+   "start": 1909.9417,
+   "end": 1917.5167,
+   "text": "Second-order analysis, like computing Hessians through pullbacks, needs a second-order retraction, or a critical point.",
+   "translation": "二阶分析（例如用拉回计算 Hessian）需要二阶 retraction，或者在临界点处。"
+  },
+  {
+   "start": 1917.9667,
+   "end": 1922.1917,
+   "text": "Next: how to carry a tangent vector from one point to another.",
+   "translation": "下一步：怎样把一个切向量从一点搬到另一点。"
+  },
+  {
+   "start": 1926.2,
+   "end": 1933.575,
+   "text": "We still cannot compare tangent vectors at different points. Parallel transport fixes that, one curve at a time.",
+   "translation": "我们仍然无法比较不同点的切向量。平行移动沿着一条条曲线解决这个问题。"
+  },
+  {
+   "start": 1934.025,
+   "end": 1943.575,
+   "text": "A vector field Z along a curve gamma is called parallel if its covariant derivative vanishes: D over d t of Z equals zero.",
+   "translation": "沿曲线 γ 的向量场 Z 若协变导数为零，即 D/dt Z = 0，就称为平行的。"
+  },
+  {
+   "start": 1944.025,
+   "end": 1952.1,
+   "text": "In coordinates this is a linear ODE for the components of Z, so each initial vector gives exactly one parallel field.",
+   "translation": "在坐标中，这是 Z 的分量满足的线性 ODE，所以每个初始向量恰好给出一个平行场。"
+  },
+  {
+   "start": 1952.55,
+   "end": 1959.725,
+   "text": "Parallel transport along gamma maps the initial vector Z of zero to the final vector Z of one.",
+   "translation": "沿 γ 的平行移动把初始向量 Z(0) 送到终点向量 Z(1)。"
+  },
+  {
+   "start": 1960.175,
+   "end": 1965.7,
+   "text": "It goes from the tangent space at gamma of zero to the tangent space at gamma of one.",
+   "translation": "它是从 γ(0) 处的切空间到 γ(1) 处的切空间的映射。"
+  },
+  {
+   "start": 1966.15,
+   "end": 1969.5,
+   "text": "It is linear, because the equation is linear.",
+   "translation": "它是线性的，因为方程是线性的。"
+  },
+  {
+   "start": 1969.95,
+   "end": 1977.4,
+   "text": "And it is an isometry. For two parallel fields Z and W, the derivative of their inner product is zero.",
+   "translation": "它还是等距：对两个平行场 Z 和 W，它们内积的导数为零。"
+  },
+  {
+   "start": 1977.85,
+   "end": 1987.175,
+   "text": "By compatibility, that derivative is D Z over d t paired with W, plus Z paired with D W over d t. Both are zero.",
+   "translation": "由相容性，这个导数等于 ⟨D/dt Z, W⟩ + ⟨Z, D/dt W⟩，两项都是零。"
+  },
+  {
+   "start": 1987.625,
+   "end": 1993.825,
+   "text": "Lengths and angles are preserved. With the shrinking connection from chapter five, they would not be.",
+   "translation": "长度与夹角都保持；若用第五章那个会缩短向量的联络，就不会如此。"
+  },
+  {
+   "start": 1994.275,
+   "end": 2000.575,
+   "text": "On the sphere, D over d t of Z equals zero means Z dot is normal, a multiple of gamma.",
+   "translation": "在球面上，D/dt Z = 0 意味着 Ż 是法向的，是 γ 的倍数。"
+  },
+  {
+   "start": 2001.025,
+   "end": 2010.2,
+   "text": "Since Z stays orthogonal to gamma, the multiple is fixed: Z dot equals minus the inner product of Z and gamma dot, times gamma.",
+   "translation": "由于 Z 始终与 γ 正交，这个倍数是确定的：Ż = −⟨Z, γ̇⟩γ。"
+  },
+  {
+   "start": 2010.65,
+   "end": 2016.625,
+   "text": "Along a great circle, the velocity is itself parallel, because the curve is a geodesic.",
+   "translation": "沿大圆，速度本身就是平行的，因为这条曲线是测地线。"
+  },
+  {
+   "start": 2017.075,
+   "end": 2021.975,
+   "text": "So a parallel vector keeps a constant angle with the direction of travel.",
+   "translation": "所以平行向量与前进方向保持恒定夹角。"
+  },
+  {
+   "start": 2022.425,
+   "end": 2029.325,
+   "text": "Naive translation would not work: a constant vector of R three leaves the tangent plane as we move.",
+   "translation": "简单平移行不通：ℝ³ 中的常向量随着移动会离开切平面。"
+  },
+  {
+   "start": 2029.775,
+   "end": 2035.85,
+   "text": "Now carry a vector around a triangle made of three great-circle arcs, one eighth of the sphere.",
+   "translation": "现在把一个向量沿由三段大圆弧组成的三角形搬一圈，它是球面的八分之一。"
+  },
+  {
+   "start": 2036.3,
+   "end": 2042.4,
+   "text": "Start at the north pole with the vector pointing toward e one, and walk down the meridian to e one.",
+   "translation": "从北极出发，向量指向 e₁，沿经线走到 e₁。"
+  },
+  {
+   "start": 2042.85,
+   "end": 2049.875,
+   "text": "The vector points along the path, so it stays the velocity. At e one it points straight down: minus e three.",
+   "translation": "向量沿路径方向，所以一直是速度方向；到 e₁ 时它指向正下方 −e₃。"
+  },
+  {
+   "start": 2050.325,
+   "end": 2057.45,
+   "text": "Walk along the equator to e two. Now the vector is perpendicular to the path, and stays minus e three.",
+   "translation": "沿赤道走到 e₂。此时向量垂直于路径，保持为 −e₃。"
+  },
+  {
+   "start": 2057.9,
+   "end": 2064.5,
+   "text": "Climb the meridian back to the pole. The vector points backward along this path, and arrives as e two.",
+   "translation": "沿经线爬回北极。向量沿这段路径指向后方，到达时变成 e₂。"
+  },
+  {
+   "start": 2064.95,
+   "end": 2071.575,
+   "text": "It started as e one and came back as e two: rotated by ninety degrees, with length still one.",
+   "translation": "出发时是 e₁，回来时是 e₂：转了 90°，长度仍为 1。"
+  },
+  {
+   "start": 2072.025,
+   "end": 2077.55,
+   "text": "A numerical integration of the parallel transport equation agrees to twelve digits.",
+   "translation": "对平行移动方程做数值积分，结果在十二位数字上吻合。"
+  },
+  {
+   "start": 2078.0,
+   "end": 2086.075,
+   "text": "Ninety degrees is pi over two, which is exactly the area of the triangle. That is the curvature of the sphere showing up.",
+   "translation": "90° 就是 π/2，恰好等于三角形的面积，这是球面曲率在起作用。"
+  },
+  {
+   "start": 2086.525,
+   "end": 2093.775,
+   "text": "So parallel transport depends on the path. On a curved manifold there is no global way to compare vectors.",
+   "translation": "所以平行移动依赖路径；在弯曲的流形上，没有比较向量的整体方式。"
+  },
+  {
+   "start": 2094.225,
+   "end": 2098.75,
+   "text": "Along a chosen curve, though, it is exactly what optimizers need.",
+   "translation": "不过沿一条选定的曲线，它正是优化算法需要的。"
+  },
+  {
+   "start": 2099.2,
+   "end": 2105.85,
+   "text": "Conjugate gradients and BFGS combine the new gradient with old ones, which live at old iterates.",
+   "translation": "共轭梯度和 BFGS 要把新梯度与旧梯度结合，而旧梯度位于旧的迭代点。"
+  },
+  {
+   "start": 2106.3,
+   "end": 2112.525,
+   "text": "They must first be carried to the new point. Parallel transport, or a cheaper transporter, does that.",
+   "translation": "必须先把它们搬到新点；平行移动，或者更便宜的 transporter，负责这件事。"
+  },
+  {
+   "start": 2116.5333,
+   "end": 2118.6833,
+   "text": "Let us collect what we built.",
+   "translation": "整理一下我们搭起来的东西。"
+  },
+  {
+   "start": 2119.1333,
+   "end": 2125.0083,
+   "text": "The naive derivative of a velocity field leaves the tangent space: the circle showed it.",
+   "translation": "速度场的显然导数会离开切空间：圆的例子说明了这一点。"
+  },
+  {
+   "start": 2125.4583,
+   "end": 2130.5583,
+   "text": "Vector fields act on functions, and their Lie bracket is again a vector field.",
+   "translation": "向量场作用在函数上，它们的李括号仍是向量场。"
+  },
+  {
+   "start": 2131.0083,
+   "end": 2138.1333,
+   "text": "A connection keeps the three properties of a derivative. In coordinates it is described by Christoffel symbols.",
+   "translation": "联络保留导数的三条性质；在坐标中由 Christoffel 符号描述。"
+  },
+  {
+   "start": 2138.5833,
+   "end": 2144.7083,
+   "text": "Compatibility keeps lengths; torsion-freeness forbids twisting. Each fails without the other.",
+   "translation": "相容保长度，无挠禁止拧转，缺一不可。"
+  },
+  {
+   "start": 2145.1583,
+   "end": 2151.1083,
+   "text": "Together they determine one connection, by the Koszul formula: the Levi-Civita connection.",
+   "translation": "两者合起来经由 Koszul 公式确定唯一的联络：Levi-Civita 联络。"
+  },
+  {
+   "start": 2151.5583,
+   "end": 2157.5333,
+   "text": "On a submanifold, it is the ordinary derivative followed by the orthogonal projection.",
+   "translation": "在子流形上，它就是普通导数再做正交投影。"
+  },
+  {
+   "start": 2157.9833,
+   "end": 2165.3583,
+   "text": "Geodesics have zero acceleration. The exponential map follows them, and is a second-order retraction.",
+   "translation": "测地线加速度为零；指数映射沿测地线走，是二阶 retraction。"
+  },
+  {
+   "start": 2165.8083,
+   "end": 2171.7833,
+   "text": "Parallel transport carries vectors along curves as isometries, and depends on the path.",
+   "translation": "平行移动沿曲线以等距方式搬运向量，并且依赖路径。"
+  },
+  {
+   "start": 2172.2333,
+   "end": 2179.4333,
+   "text": "The connection also gives the missing Hessian. Hess f of x, applied to u, equals nabla u of grad f.",
+   "translation": "联络还给出了缺失的 Hessian：Hess f(x)[u] = ∇_u grad f。"
+  },
+  {
+   "start": 2179.8833,
+   "end": 2186.4083,
+   "text": "For the Rayleigh quotient on the sphere, this is Proj x of A u, minus x transpose A x times u.",
+   "translation": "对球面上的瑞利商，它是 Proj_x(Au) − (xᵀAx)u。"
+  },
+  {
+   "start": 2186.8583,
+   "end": 2190.5333,
+   "text": "The troublesome normal term from chapter one is gone.",
+   "translation": "第一章里那个麻烦的法向项不见了。"
+  },
+  {
+   "start": 2190.9833,
+   "end": 2198.2083,
+   "text": "At e three its eigenvalues are one and three, the numbers we met for local convergence in episode seven.",
+   "translation": "在 e₃ 处它的特征值是 1 和 3，正是第七集局部收敛中见过的数。"
+  },
+  {
+   "start": 2198.6583,
+   "end": 2204.0583,
+   "text": "Next time: the Riemannian Hessian in earnest, and Newton's method on manifolds.",
+   "translation": "下一集：认真讨论黎曼 Hessian，以及流形上的 Newton 方法。"
+  }
+ ]
+}

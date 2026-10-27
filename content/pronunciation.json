@@ -34,6 +34,21 @@
    "pattern": "\\b[Ss]ubmanifold\\b",
    "phonemes": "sˈʌbmˈænəfˌOld",
    "note": "stress on 'man'"
+  },
+  {
+   "pattern": "\\bKoszul\\b",
+   "phonemes": "kˈɔʃul",
+   "note": "Polish: KO-shool"
+  },
+  {
+   "pattern": "\\bLevi-Civita\\b",
+   "phonemes": "lˈɛvi ʧˈivitə",
+   "note": "LEH-vee CHEE-vee-ta"
+  },
+  {
+   "pattern": "\\bChristoffel\\b",
+   "phonemes": "kɹɪstˈɔfəl",
+   "note": "kris-TOFF-el"
   }
  ]
 }

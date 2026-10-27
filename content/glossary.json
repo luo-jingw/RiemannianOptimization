@@ -825,6 +825,104 @@
    "zh": "自动微分",
    "symbol": "AD",
    "spoken": "automatic differentiation"
+  },
+  {
+   "id": "vector-field",
+   "en": "vector field",
+   "zh": "向量场",
+   "symbol": "X ∈ 𝔛(M)",
+   "spoken": "vector field"
+  },
+  {
+   "id": "lie-bracket",
+   "en": "Lie bracket",
+   "zh": "李括号",
+   "symbol": "[X, Y]",
+   "spoken": "Lie bracket"
+  },
+  {
+   "id": "affine-connection",
+   "en": "affine connection",
+   "zh": "仿射联络",
+   "symbol": "∇",
+   "spoken": "affine connection"
+  },
+  {
+   "id": "covariant-derivative",
+   "en": "covariant derivative",
+   "zh": "协变导数",
+   "symbol": "∇_X Y",
+   "spoken": "covariant derivative"
+  },
+  {
+   "id": "christoffel-symbols",
+   "en": "Christoffel symbols",
+   "zh": "Christoffel 符号",
+   "symbol": "Γ^k_ij",
+   "spoken": "Christoffel symbols"
+  },
+  {
+   "id": "metric-compatibility",
+   "en": "metric compatibility",
+   "zh": "与度量相容",
+   "symbol": "X⟨Y,Z⟩ = ⟨∇_X Y,Z⟩ + ⟨Y,∇_X Z⟩",
+   "spoken": "metric compatibility"
+  },
+  {
+   "id": "torsion-free",
+   "en": "torsion-free",
+   "zh": "无挠",
+   "symbol": "∇_X Y − ∇_Y X = [X,Y]",
+   "spoken": "torsion free"
+  },
+  {
+   "id": "levi-civita-connection",
+   "en": "Levi-Civita connection",
+   "zh": "Levi-Civita 联络",
+   "symbol": "∇",
+   "spoken": "Levi-Civita connection"
+  },
+  {
+   "id": "koszul-formula",
+   "en": "Koszul formula",
+   "zh": "Koszul 公式",
+   "symbol": "2⟨∇_X Y, Z⟩ = …",
+   "spoken": "Koszul formula"
+  },
+  {
+   "id": "acceleration",
+   "en": "acceleration",
+   "zh": "加速度",
+   "symbol": "γ'' = D/dt γ̇",
+   "spoken": "acceleration"
+  },
+  {
+   "id": "geodesic",
+   "en": "geodesic",
+   "zh": "测地线",
+   "symbol": "∇_γ̇ γ̇ = 0",
+   "spoken": "geodesic"
+  },
+  {
+   "id": "injectivity-radius",
+   "en": "injectivity radius",
+   "zh": "单射半径",
+   "symbol": "inj(x)",
+   "spoken": "injectivity radius"
+  },
+  {
+   "id": "second-order-retraction",
+   "en": "second-order retraction",
+   "zh": "二阶 retraction",
+   "symbol": "c''(0) = 0",
+   "spoken": "second order retraction"
+  },
+  {
+   "id": "parallel-transport",
+   "en": "parallel transport",
+   "zh": "平行移动",
+   "symbol": "Π_γ",
+   "spoken": "parallel transport"
   }
  ]
 }

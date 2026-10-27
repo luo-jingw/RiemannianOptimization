@@ -1,7 +1,7 @@
 # Video Architecture
 
 Verified production architecture of the series "Riemannian Optimization from the Ground Up".
-Delivered: E01, E02, E04, E05 v1, E03 v2, E06 v2 and E07 v3 (`output/<eid>/v<N>/`), 263 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
+Delivered: E01, E02, E04, E05 v1, E03 v2, E06 v2, E07 v3 and E08 v1 (`output/<eid>/v<N>/`), 300 minutes in total; series trailer E00 v8 (`output/e00-trailer/v8/`, 1:58).
 
 ## Modules and files
 
@@ -81,6 +81,7 @@ The dev server and the static site differ only in the `DataSource`
 | E05 tangent / orthogonal | 40.8 | 347 | −16.0 | −1.4 |
 | E06 gradient / retraction | 37.4 | 301 | −16.0 | −1.4 |
 | E07 gradient descent | 48.4 | 381 | −16.0 | −1.4 |
+| E08 connections / geodesics | 36.8 | 309 | −16.0 | −1.4 |
 | E00 trailer (v8) | 2.0 | 7 | −14.2 | −1.2 |
 
 ## Adding an episode (new course notes)

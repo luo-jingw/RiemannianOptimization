@@ -49,6 +49,12 @@
    "order": 7,
    "title": "Riemannian Gradient Descent",
    "status": "delivered"
+  },
+  {
+   "id": "e08-connections-geodesics",
+   "order": 8,
+   "title": "Connections, Geodesics and Parallel Transport",
+   "status": "delivered"
   }
  ]
 }

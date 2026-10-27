@@ -23,6 +23,7 @@ counterexample showing why each hypothesis is needed.
 | 5 | Tangent Spaces and the Orthogonal Group | 41 min | tangent vectors as velocities, T_pM = ker Dh(p), rank–nullity, O(n) and SO(n) |
 | 6 | Riemannian Gradient and Retraction | 37 min | differential, dual space, Riesz, Riemannian metric and gradient, steepest ascent, retractions, descent property |
 | 7 | Riemannian Gradient Descent | 48 min | critical points, sufficient decrease and the 1/√K bound, Lipschitz-type condition, backtracking (Armijo), local linear convergence, computing gradients (tangent-space projectors) and checking them |
+| 8 | Connections, Geodesics and Parallel Transport | 37 min | Lie brackets, affine connections and Christoffel symbols, metric compatibility and torsion, the Koszul formula, the submanifold connection, geodesics, the exponential map, parallel transport |
 
 The series stops at the current course frontier (retraction and the first-order descent property); new episodes
 are appended as the notes grow.

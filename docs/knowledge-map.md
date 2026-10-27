@@ -1,6 +1,7 @@
-# Knowledge Map — EECE7223 Riemannian Optimization (through first-order algorithms)
+# Knowledge Map — EECE7223 Riemannian Optimization (through connections and geodesics)
 
-Scope: course material in `notes/` up to the definition of a retraction, and Boumal Chapter 4 (first-order algorithms).
+Scope: course material in `notes/` through connections, geodesics, the exponential map and parallel transport, with
+Boumal Chapter 4 (first-order algorithms) and the matching parts of Chapters 5 and 10.
 Sources:
 
 | Tag | File |
@@ -11,6 +12,8 @@ Sources:
 | BD | `notes/*.jpg` (14 blackboard photos) |
 | RU | `notes/Rudin Contraction Mapping and Inverse Function Theorems.pdf` (Rudin, PMA §9.22–9.29) |
 | BM4 | `notes/07/IntroOptimManifolds_Boumal_2022.pdf`, Chapter 4 (PDF pages 69–98); section and theorem numbers follow the published book |
+| N8 | `notes/08/笔记 2026年9月15日(2).pdf` pp. 22–30 and the blackboard photos in `notes/08/` |
+| BM5, BM10 | the same book, §5.1–5.8, §5.10 and §10.2–10.3 |
 
 ## 1. The one-sentence goal
 
@@ -25,6 +28,17 @@ Everything before these two answers exists to make "direction", "tangent", "smoo
 ## 2. Dependency tree
 
 ```
+Second-order geometry (toward the Riemannian Hessian Hess f(x)[u] = ∇_u grad f)   [N8, BM5 Def 5.14]
+├── parallel transport Π_γ: D/dt Z = 0; linear isometry; path-dependent  [N8 p30, BM10 Def 10.35, Prop 10.36]
+├── exponential map Exp_x(tv) = γ_v(t); a second-order retraction      [N8 p29-30, BM10 Def 10.16, Prop 10.18]
+├── geodesic ∇_γ̇ γ̇ = 0; coordinates ẍ^k + Γ^k_ij ẋⁱẋ^j = 0; unique for given (x, v)  [N8 p29-30, BM5 Def 5.38]
+│   └── covariant derivative along curves D/dt; on a submanifold D/dt Z = Proj(Ż)  [BM5 Thm 5.29, Prop 5.31]
+├── submanifold Levi-Civita connection ∇_v X = Proj_p(DX̄(p)[v])        [N8 p28-29, BM5 Thms 5.2, 5.8, 5.9]
+├── fundamental theorem: ∃! compatible, torsion-free connection (Koszul formula)  [N8 p28, BM5 Thm 5.6]
+│   ├── compatibility X⟨Y,Z⟩ = ⟨∇_X Y,Z⟩ + ⟨Y,∇_X Z⟩
+│   └── torsion-free ∇_X Y − ∇_Y X = [X,Y]; in coordinates Γ^k_ij = Γ^k_ji
+├── affine connection: C^∞-linear in the direction, ℝ-linear in the field, Leibniz; Christoffel symbols  [N8 p25-26, BM5 Def 5.20]
+└── vector fields act on functions; Lie bracket, = DY[X] − DX[Y] in ℝⁿ  [BM5 Def 5.5, Prop 5.10]
 Riemannian gradient descent: x_{k+1} = R_x(-α grad f(x))           [BM4 §4.3]
 ├── local rate: grad f(x*) = 0, Hess f(x*) ≻ 0, step 1/L, L > λmax/2 ⇒ linear; L = λmax ⇒ factor 1 − 1/κ  [BM4 Thm 4.20]
 │   └── local contraction mapping: ‖DF(x*)‖ < 1 ⇒ linear, = 0 ⇒ quadratic   [BM4 Thm 4.19]
@@ -107,6 +121,7 @@ Each stage answers one question and produces one tool used by the next.
 | 8 | Which direction is steepest? | metric g_x, Riesz, grad f = (df_x)^♯ | −‖grad f‖² < 0 |
 | 9 | How to step and stay on M? | retraction | normalization x+v ↦ (x+v)/‖x+v‖ on the sphere |
 | 10 | What does repeating the step achieve, and how fast? | Riemannian gradient descent, step-size rules, rates | Rayleigh quotient ½xᵀAx on S² |
+| 11 | How to differentiate a vector field, go straight, and carry vectors? | Levi-Civita connection, geodesics, Exp, parallel transport | great circles on S², polar coordinates on ℝ² |
 
 ## 5. Two running examples across all stages
 
@@ -130,9 +145,15 @@ Each stage answers one question and produces one tool used by the next.
 | BD (regular level-set theorem) | submanifold of ℝ^k | submanifold of ℝⁿ, dimension n − k |
 | HW p8 | D[f(x,g(x))] = d_x f + d_x f · dg | D_x f + D_y f · Dg = 0 |
 | HW p16 | γ̇(t) = d/dt\|_{t=0} R_x(tv) | γ̇(0) = d/dt\|_{t=0} R_x(tv) |
+| N8 p25 | "what is the dimensions of this vector field" | what is the derivative of this vector field (the acceleration) |
+| N8 p26 | "ℝ-linearity in field being" | ℝ-linearity in the field being differentiated |
+| N8 p28 | M ⊆ ℝⁿ "with inherent metric" | with the induced (embedded) metric |
+| N8 p29 | ∇_v X = Proj_x(DX̄(p)[v]) | Proj_p (projection at the base point p) |
+| N8 p30 | geodesics "devirited" by γ_v(0)=x, γ̇_v(0)=v | determined by |
 
 ## 7. Course frontier
 
-Covered so far: up to the definition of a retraction and the descent property of −grad f (lecture notes), and
-Riemannian gradient descent with its global and local guarantees (BM4, read ahead of the lecture).
-Not yet covered: vector transport (CG, BFGS), the Riemannian Hessian (Newton, trust regions).
+Covered so far: tangent spaces, the Riemannian gradient and retractions; Riemannian gradient descent with its global
+and local guarantees (BM4); connections, the Levi-Civita connection, geodesics, the exponential map and parallel
+transport (N8).
+Not yet covered: the Riemannian Hessian in depth, Newton and trust-region methods, vector transporters for CG and BFGS.
